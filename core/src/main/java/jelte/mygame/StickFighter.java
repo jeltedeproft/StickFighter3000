@@ -1,3 +1,5 @@
+package jelte.mygame;
+
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;

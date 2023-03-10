@@ -32,8 +32,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.ray3k.stripe.FreeTypeSkinLoader;
 
-import de.pottgames.tuningfork.SoundBuffer;
-
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();
 
@@ -260,7 +258,6 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(Music.class, musicLoader);
 		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
 		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
-		assetManager.setLoader(SoundBuffer.class, soundBufferLoader);
 		loadersSet = true;
 	}
 

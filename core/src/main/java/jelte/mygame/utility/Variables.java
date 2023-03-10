@@ -125,28 +125,6 @@ public class Variables {
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
 
-	// NETWORK
-	public static final int UDP_PORT = 54777;
-	public static final int TCP_PORT = 54555;
-	public static final float SERVER_CLIENT_MERGING_ALLOWED_ERROR_MARGIN = 0.1f;
-	public static final String LOCALHOST = "8.8.8.8";
-	public static final int LOCALHOST_PORT = 10002;
-	public static final int TIMEOUT = 10000;
-	public static final int WRITE_BUFFER_SIZE = 8192;
-	public static final int OBJECT_BUFFER_SIZE = 8192;
-
-	// DATABASE
-	public static final String CONNECTION_URL = "jdbc:sqlite:server/database/ponko.db";
-	public static final String UPDATE_WIZARD_NAME = "update wizard set wizard_name = ? where wizard_id = ?";
-	public static final String UPDATE_PLAYER_WIZARD = "update player set wizard_id = ? where player_id = ?";
-	public static final String GET_PLAYER_BY_USERNAME = "select * from player where player_name = ?";
-	public static final String GET_PLAYER_BY_ID = "select * from player where player_id = ?";
-	public static final String INSERT_PLAYER = "INSERT INTO player (player_name, wizard_id, player_password) VALUES(?, ?, ?);";
-	public static final String DATABASE_PREP_STATEMENTS_CACHE_SQL_LIMIT = "2048";
-	public static final String DATABASE_PREP_STATEMENTS_CACHE_SIZE = "250";
-	public static final String DATABASE_CACHE_PREP_STATEMENTS = "true";
-	public static final int DATABASE_MAX_POOL_SIZE = 250;
-	public static final boolean DATABASE_AUTO_COMMIT = false;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;
@@ -163,9 +141,8 @@ public class Variables {
 	public static final float DEFAULT_ALPHA = 1.0f;
 	public static final float DEFAULT_SCALE = 3.0f;
 
-	// ??
-	public static final UUID SEARCH_STRING_UUID = UUID.randomUUID();
-	public static final float MINIMUM_PULL_DISTANCE = 10;
+
+	//DATES
 	public static final DecimalFormat df = new DecimalFormat("0.00");
 
 	// SHADERS
