@@ -1,6 +1,5 @@
 package jelte.mygame;
 
-
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 
@@ -33,7 +32,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 
 	@Override
 	public void resize(int width, int height) {
-
+		graphicalManager.resize(width, height);
 	}
 
 	@Override
@@ -48,16 +47,26 @@ public class StickFighter implements ApplicationListener, MessageListener {
 
 	@Override
 	public void dispose() {
-
+		graphicalManager.dispose();
+		logicManager.dispose();
+		inputHandler.dispose();
 	}
 
 	@Override
 	public void receiveMessage(Message message) {
-		switch (message.getCode()) {
-		case TEST:
+		switch (message.getRecipient()) {
+		case CODE:
+			logicManager.receiveMessage(message);
+			break;
+		case GRAPHIC:
+			graphicalManager.receiveMessage(message);
+			break;
+		case INPUT:
+			inputHandler.receiveMessage(message);
 			break;
 		default:
 			break;
+
 		}
 
 	}

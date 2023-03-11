@@ -30,7 +30,6 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
-import com.ray3k.stripe.FreeTypeSkinLoader;
 
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();
@@ -257,7 +256,7 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(Sound.class, soundLoader);
 		assetManager.setLoader(Music.class, musicLoader);
 		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
-		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
+		// assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));TODO readd after skin is added
 		loadersSet = true;
 	}
 

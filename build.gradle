@@ -14,9 +14,14 @@ buildscript {
   }
 }
 
+
 allprojects {
   apply plugin: 'eclipse'
   apply plugin: 'idea'
+  
+      repositories {
+	maven { url 'https://jitpack.io' }
+    }
 }
 
 configure(subprojects) {

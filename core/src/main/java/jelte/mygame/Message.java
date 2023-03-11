@@ -6,9 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Message {
-	Code code;
+	private RECIPIENT recipient;
+	private ACTION action;
+	private int value;
 
-	enum Code {
-		TEST
+	public enum ACTION {
+		CAMERA_MOVE_X, CAMERA_MOVE_Y;
+	}
+
+	public enum RECIPIENT {
+		CODE, GRAPHIC, INPUT
 	}
 }

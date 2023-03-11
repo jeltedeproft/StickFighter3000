@@ -1,7 +1,6 @@
 package jelte.mygame.utility;
 
 import java.text.DecimalFormat;
-import java.util.UUID;
 
 import com.badlogic.gdx.graphics.Color;
 
@@ -88,19 +87,6 @@ public class Variables {
 	public static final int SPELL_8_INDEX = 11;
 	public static final int SPELL_9_INDEX = 12;
 
-	// SIZES
-	public static final int GAMESTATE_BUFFER_MAX_SIZE = 200;
-	public static final int MAX_DOWNKEYS = 20;
-	public static final int MODIFIER_POOL_DEFAULT_INIT_SIZE = 0;
-	public static final int MODIFIER_POOL_DEFAULT_MAX_SIZE = 0;
-	public static final int SPELL_POOL_DEFAULT_INIT_SIZE = 50;
-	public static final int SPELL_POOL_DEFAULT_MAX_SIZE = 200;
-	public static final int LIGHT_POOL_DEFAULT_INIT_SIZE = 50;
-	public static final int LIGHT_POOL_DEFAULT_MAX_SIZE = 200;
-	public static final int MAX_CONNECTIONS = 100;
-	public static final int MAX_SPELLS = 8;
-	public static final int MAX_SPELLS_SPELLSELECT_SCREEN = 7;
-
 	// TIMES
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.1f;
@@ -115,16 +101,13 @@ public class Variables {
 	public static final int HP_Y_OFFSET = 100;
 
 	// DIMENSIONS
-	public static final float VISIBLE_WIDTH = 1000;
-	public static final float VISIBLE_HEIGHT = 1000;
+	public static final float VISIBLE_WIDTH = 100;
+	public static final float VISIBLE_HEIGHT = 100;
 	public static final float VISIBLE_MAP_WIDTH = 600;
 	public static final float VISIBLE_MAP_HEIGHT = 600;
-	public static final float PLAYGROUND_VIEWPORT_WIDTH = 600;
-	public static final float PLAYGROUND_VIEWPORT_HEIGHT = 600;
 	public static final float MAP_UNIT_SCALE = 1.0f;
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
-
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;
@@ -141,8 +124,7 @@ public class Variables {
 	public static final float DEFAULT_ALPHA = 1.0f;
 	public static final float DEFAULT_SCALE = 3.0f;
 
-
-	//DATES
+	// DATES
 	public static final DecimalFormat df = new DecimalFormat("0.00");
 
 	// SHADERS
