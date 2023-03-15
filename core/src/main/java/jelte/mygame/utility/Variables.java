@@ -9,8 +9,8 @@ public class Variables {
 	// PATHS
 	public static final String SPRITES_ATLAS_PATH = "sprites/sprites.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
-	public static final String SKIN_TEXTURE_ATLAS_PATH = "skins/darkVisUI.atlas";
-	public static final String SKIN_FILE_PATH = "skins/darkVisUI.json";
+	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
+	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 
 	// NAMES

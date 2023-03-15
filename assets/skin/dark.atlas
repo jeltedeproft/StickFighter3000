@@ -1,0 +1,118 @@
+
+dark.png
+size: 512, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+22
+  rotate: false
+  xy: 1, 255
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+UI - Words1
+  rotate: false
+  xy: 1, 439
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words10
+  rotate: false
+  xy: 286, 439
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words11
+  rotate: false
+  xy: 1, 299
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words12
+  rotate: false
+  xy: 96, 334
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words13
+  rotate: false
+  xy: 191, 369
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words14
+  rotate: false
+  xy: 286, 404
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words15
+  rotate: false
+  xy: 381, 439
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words2
+  rotate: false
+  xy: 1, 404
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words3
+  rotate: false
+  xy: 96, 439
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words4
+  rotate: false
+  xy: 1, 369
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words5
+  rotate: false
+  xy: 96, 404
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words6
+  rotate: false
+  xy: 191, 439
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words7
+  rotate: false
+  xy: 1, 334
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words8
+  rotate: false
+  xy: 96, 369
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
+UI - Words9
+  rotate: false
+  xy: 191, 404
+  size: 93, 33
+  orig: 93, 33
+  offset: 0, 0
+  index: -1
