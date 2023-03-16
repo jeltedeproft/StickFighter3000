@@ -1,10 +1,12 @@
 package jelte.mygame;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Message {
 	private RECIPIENT recipient;
 	private ACTION action;

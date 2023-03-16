@@ -39,10 +39,10 @@
  <imagelayer id="7" name="parallax4" parallaxx="0.6" repeatx="1">
   <image source="4-far light.png" width="314" height="100"/>
  </imagelayer>
- <imagelayer id="8" name="parallax5" parallaxx="0.7" repeatx="1">
+ <imagelayer id="8" name="parallax5" parallaxx="0.5" repeatx="1">
   <image source="5-close.png" width="314" height="100"/>
  </imagelayer>
- <imagelayer id="9" name="parallax6" parallaxx="0.8" repeatx="1">
+ <imagelayer id="9" name="parallax6" parallaxx="0.7" repeatx="1">
   <image source="6-close light.png" width="314" height="100"/>
  </imagelayer>
  <layer id="11" name="Tile Layer 2" width="100" height="6">

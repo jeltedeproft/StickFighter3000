@@ -1,9 +1,12 @@
 package jelte.mygame.input;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 import jelte.mygame.Message;
+import jelte.mygame.Message.ACTION;
+import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 
 public class InputHandlerImpl implements InputHandler, InputProcessor {
@@ -27,8 +30,15 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+	    switch (keycode){
+		case Keys.LEFT:
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC,ACTION.CAMERA_MOVE_X,-5));
+			break;
+		case Keys.RIGHT:
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC,ACTION.CAMERA_MOVE_X,5));
+			break;
+	    }
+	    return true;
 	}
 
 	@Override
