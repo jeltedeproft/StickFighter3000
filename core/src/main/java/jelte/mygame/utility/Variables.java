@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Color;
 
 public class Variables {
 
+	public static final int MAX_DOWNKEYS = 10;
+
 	// PATHS
 	public static final String SPRITES_ATLAS_PATH = "sprites/sprites.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";

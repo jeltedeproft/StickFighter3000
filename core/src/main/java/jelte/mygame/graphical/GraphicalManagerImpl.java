@@ -6,7 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import jelte.mygame.Message;
 import jelte.mygame.MessageListener;
@@ -17,7 +17,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private SpriteBatch batch;
 	private MessageListener listener;
 	protected OrthogonalTiledMapRenderer mapRenderer;
-	protected FillViewport gameViewPort;
+	protected ExtendViewport gameViewPort;
 	protected Stage stage;
 	protected Skin skin;
 	private TiledMap map;
@@ -26,7 +26,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		this.listener = listener;
 		this.batch = new SpriteBatch();
 		skin = AssetManagerUtility.getSkin(Variables.SKIN_FILE_PATH);
-		gameViewPort = new FillViewport(Variables.VISIBLE_WIDTH, Variables.VISIBLE_HEIGHT);
+		gameViewPort = new ExtendViewport(Variables.VISIBLE_WIDTH, Variables.VISIBLE_HEIGHT);
 		stage = new Stage(gameViewPort, batch);
 		AssetManagerUtility.loadMapAsset("map/dark/dark.tmx");
 		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset("map/dark/dark.tmx"), batch);
@@ -37,17 +37,36 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		OrthographicCamera oCam = (OrthographicCamera) gameViewPort.getCamera();
 		mapRenderer.setView(oCam);// TODO optimize, only if camera changes
 		mapRenderer.render();
+
+		gameViewPort.apply();
+
+		batch.setProjectionMatrix(gameViewPort.getCamera().combined);
+		batch.begin();
+		renderPlayer();
+		batch.end();
+
+		renderUI();
+	}
+
+	private void renderUI() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void renderPlayer() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
-		case CAMERA_MOVE_X:
-			gameViewPort.getCamera().translate(message.getValue(), 0, 0);
+		case CAMERA_MOVE_RIGHT:
+			gameViewPort.getCamera().translate(Variables.CAMERA_MOVE_SPEED, 0, 0);
 			gameViewPort.getCamera().update();
 			break;
-		case CAMERA_MOVE_Y:
-			gameViewPort.getCamera().translate(0, message.getValue(), 0);
+		case CAMERA_MOVE_LEFT:
+			gameViewPort.getCamera().translate(0, Variables.CAMERA_MOVE_SPEED, 0);
 			gameViewPort.getCamera().update();
 			break;
 		default:

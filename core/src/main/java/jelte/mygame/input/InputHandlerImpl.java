@@ -1,16 +1,19 @@
 package jelte.mygame.input;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.utils.IntSet;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.utility.Variables;
 
+//TODO : go over all posibilities key presses
 public class InputHandlerImpl implements InputHandler, InputProcessor {
 	private MessageListener listener;
+	private final IntSet downKeys = new IntSet(Variables.MAX_DOWNKEYS);
 
 	public InputHandlerImpl(MessageListener listener) {
 		this.listener = listener;
@@ -30,15 +33,44 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-	    switch (keycode){
-		case Keys.LEFT:
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC,ACTION.CAMERA_MOVE_X,-5));
-			break;
-		case Keys.RIGHT:
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC,ACTION.CAMERA_MOVE_X,5));
-			break;
-	    }
-	    return true;
+		downKeys.add(keycode);
+		if (downKeys.size >= 2) {
+			checkMovementMultipleKeysDown();
+		} else {
+			checkMovementSingleKeyDown(keycode);
+		}
+
+		return true;
+	}
+
+	private void checkMovementSingleKeyDown(int keyCode) {
+		if (keyCode == KeyBindings.getBinding(Variables.LEFT)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_MOVE_LEFT));
+		}
+		if (keyCode == KeyBindings.getBinding(Variables.RIGHT)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_MOVE_RIGHT));
+		}
+		if (keyCode == KeyBindings.getBinding(Variables.UP)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.HERO_JUMP));
+		}
+		if (keyCode == KeyBindings.getBinding(Variables.DOWN)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.HERO_DUCK));
+		}
+	}
+
+	private void checkMovementMultipleKeysDown() {
+		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.LEFT)) && downKeys.contains(KeyBindings.getBinding(Variables.UP))) {
+			client.sendMoveRequest(Direction.topleft);
+		}
+		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.LEFT)) && downKeys.contains(KeyBindings.getBinding(Variables.DOWN))) {
+			client.sendMoveRequest(Direction.bottomleft);
+		}
+		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.RIGHT)) && downKeys.contains(KeyBindings.getBinding(Variables.UP))) {
+			client.sendMoveRequest(Direction.topright);
+		}
+		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.RIGHT)) && downKeys.contains(KeyBindings.getBinding(Variables.DOWN))) {
+			client.sendMoveRequest(Direction.bottomright);
+		}
 	}
 
 	@Override
