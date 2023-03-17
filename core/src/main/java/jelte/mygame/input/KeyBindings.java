@@ -9,11 +9,11 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.ObjectIntMap;
 
-import jelte.mygame.utility.Variables;
+import jelte.mygame.utility.Constants;
 
 public class KeyBindings {
 	public static final Map<String, Integer> keyBindings = new HashMap<>();
-	public static final Preferences bindingsPreferences = Gdx.app.getPreferences(Variables.PREFERENCES_KEYBINDINGS);
+	public static final Preferences bindingsPreferences = Gdx.app.getPreferences(Constants.PREFERENCES_KEYBINDINGS);
 
 	/**
 	 * Load the bindings in on creation
@@ -28,26 +28,46 @@ public class KeyBindings {
 	public static void loadBindings() {
 		@SuppressWarnings("unchecked")
 		Map<String, Integer> map = (Map<String, Integer>) bindingsPreferences.get();
-		if (map.containsKey(Variables.RIGHT)) {
-			keyBindings.put(Variables.RIGHT, bindingsPreferences.getInteger(Variables.RIGHT));
+		if (map.containsKey(Constants.RIGHT)) {
+			keyBindings.put(Constants.RIGHT, bindingsPreferences.getInteger(Constants.RIGHT));
 		} else {
-			keyBindings.put(Variables.RIGHT, MyKeys.RIGHT);
+			keyBindings.put(Constants.RIGHT, MyKeys.RIGHT);
 		}
-		if (map.containsKey(Variables.LEFT)) {
-			keyBindings.put(Variables.LEFT, bindingsPreferences.getInteger(Variables.LEFT));
+		if (map.containsKey(Constants.LEFT)) {
+			keyBindings.put(Constants.LEFT, bindingsPreferences.getInteger(Constants.LEFT));
 		} else {
-			keyBindings.put(Variables.LEFT, MyKeys.LEFT);
+			keyBindings.put(Constants.LEFT, MyKeys.LEFT);
 		}
 
-		if (map.containsKey(Variables.UP)) {
-			keyBindings.put(Variables.UP, bindingsPreferences.getInteger(Variables.UP));
+		if (map.containsKey(Constants.UP)) {
+			keyBindings.put(Constants.UP, bindingsPreferences.getInteger(Constants.UP));
 		} else {
-			keyBindings.put(Variables.UP, MyKeys.UP);
+			keyBindings.put(Constants.UP, MyKeys.UP);
 		}
-		if (map.containsKey(Variables.DOWN)) {
-			keyBindings.put(Variables.DOWN, bindingsPreferences.getInteger(Variables.DOWN));
+		if (map.containsKey(Constants.DOWN)) {
+			keyBindings.put(Constants.DOWN, bindingsPreferences.getInteger(Constants.DOWN));
 		} else {
-			keyBindings.put(Variables.DOWN, MyKeys.DOWN);
+			keyBindings.put(Constants.DOWN, MyKeys.DOWN);
+		}
+		if (map.containsKey(Constants.CAMERA_LEFT_KEY)) {
+			keyBindings.put(Constants.CAMERA_LEFT_KEY, bindingsPreferences.getInteger(Constants.CAMERA_LEFT_KEY));
+		} else {
+			keyBindings.put(Constants.CAMERA_LEFT_KEY, MyKeys.Q);
+		}
+		if (map.containsKey(Constants.CAMERA_RIGHT_KEY)) {
+			keyBindings.put(Constants.CAMERA_RIGHT_KEY, bindingsPreferences.getInteger(Constants.CAMERA_RIGHT_KEY));
+		} else {
+			keyBindings.put(Constants.CAMERA_RIGHT_KEY, MyKeys.D);
+		}
+		if (map.containsKey(Constants.CAMERA_UP_KEY)) {
+			keyBindings.put(Constants.CAMERA_UP_KEY, bindingsPreferences.getInteger(Constants.CAMERA_UP_KEY));
+		} else {
+			keyBindings.put(Constants.CAMERA_UP_KEY, MyKeys.Q);
+		}
+		if (map.containsKey(Constants.CAMERA_DOWN_KEY)) {
+			keyBindings.put(Constants.CAMERA_DOWN_KEY, bindingsPreferences.getInteger(Constants.CAMERA_DOWN_KEY));
+		} else {
+			keyBindings.put(Constants.CAMERA_DOWN_KEY, MyKeys.D);
 		}
 	}
 

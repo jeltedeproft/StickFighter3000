@@ -66,7 +66,7 @@ public class AssetManagerUtility implements Disposable {
 
 	public static void loadParticleAsset(final String particleFilenamePath) {
 		final ParticleEffectParameter pep = new ParticleEffectParameter();
-		pep.atlasFile = Variables.SPRITES_ATLAS_PATH;
+		pep.atlasFile = Constants.SPRITES_ATLAS_PATH;
 		assetManager.load(particleFilenamePath, ParticleEffect.class, pep);
 		assetManager.finishLoadingAsset(particleFilenamePath);
 	}
@@ -146,27 +146,27 @@ public class AssetManagerUtility implements Disposable {
 	}
 
 	public static Sprite getSprite(String spriteName) {
-		final TextureAtlas atlas = getTextureAtlas(Variables.SPRITES_ATLAS_PATH);
+		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas != null) {
 			return atlas.createSprite(spriteName);
 		}
-		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Variables.SPRITES_ATLAS_PATH);
+		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
 		return null;
 	}
 
 	public static AtlasRegion getAtlasRegion(String regionName) {
-		final TextureAtlas atlas = getTextureAtlas(Variables.SPRITES_ATLAS_PATH);
+		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas != null) {
 			return atlas.findRegion(regionName);
 		}
-		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Variables.SPRITES_ATLAS_PATH);
+		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
 		return null;
 	}
 
 	public static Array<TextureAtlas.AtlasRegion> getAllRegionsWhichContainName(String spriteName) {
-		final TextureAtlas atlas = getTextureAtlas(Variables.SPRITES_ATLAS_PATH);
+		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Variables.SPRITES_ATLAS_PATH);
+			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
 			return null;
 		}
 		final Array<AtlasRegion> allRegions = atlas.getRegions();
@@ -182,9 +182,9 @@ public class AssetManagerUtility implements Disposable {
 	}
 
 	public static Animation<Sprite> getAnimation(String animationName, float animationSpeed, PlayMode playMode) {
-		final TextureAtlas atlas = getTextureAtlas(Variables.SPRITES_ATLAS_PATH);
+		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Variables.SPRITES_ATLAS_PATH);
+			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
 			return null;
 		}
 
@@ -203,9 +203,9 @@ public class AssetManagerUtility implements Disposable {
 	}
 
 	public static Animation<Sprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
-		final TextureAtlas atlas = getTextureAtlas(Variables.SPRITES_BACKGROUND_ATLAS_PATH);
+		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Variables.SPRITES_BACKGROUND_ATLAS_PATH);
+			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 			return null;
 		}
 

@@ -10,7 +10,7 @@ import lombok.Setter;
 public class Message {
 	private RECIPIENT recipient;
 	private ACTION action;
-	private int value;
+	private Object value;
 
 	public Message(RECIPIENT recipient, ACTION action) {
 		this.recipient = recipient;
@@ -18,10 +18,10 @@ public class Message {
 	}
 
 	public enum ACTION {
-		CAMERA_MOVE_LEFT, CAMERA_MOVE_RIGHT, HERO_JUMP, HERO_DUCK;
+		LEFT_PRESSED,RIGHT_PRESSED,UP_PRESSED,DOWN_PRESSED, LEFT_UNPRESSED,RIGHT_UNPRESSED,DOWN_UNPRESSED, CAMERA_LEFT,CAMERA_RIGHT, CAMERA_UP,CAMERA_DOWN, CAMERA_LEFT_UNPRESSED, CAMERA_RIGHT_UNPRESSED, CAMERA_UP_UNPRESSED, CAMERA_DOWN_UNPRESSED, CAMERA_ZOOM, RENDER_WORLD;
 	}
 
 	public enum RECIPIENT {
-		CODE, GRAPHIC, INPUT
+		LOGIC, GRAPHIC, INPUT, MOVEMENT_SYSTEM
 	}
 }

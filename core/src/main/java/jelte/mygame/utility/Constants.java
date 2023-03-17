@@ -3,8 +3,9 @@ package jelte.mygame.utility;
 import java.text.DecimalFormat;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
 
-public class Variables {
+public class Constants {
 
 	public static final int MAX_DOWNKEYS = 10;
 
@@ -66,6 +67,10 @@ public class Variables {
 	public static final String SHIELD = "shield";
 	public static final String BASIC_ATTACK = "basicattack";
 	public static final String DASH = "dash";
+	public static final String CAMERA_LEFT_KEY = "cameraLeft";
+	public static final String CAMERA_RIGHT_KEY = "cameraRight";
+	public static final String CAMERA_UP_KEY = "cameraUp";
+	public static final String CAMERA_DOWN_KEY = "cameraDown";
 	public static final String SPELL_9 = "spell9";
 	public static final String SPELL_8 = "spell8";
 	public static final String SPELL_7 = "spell7";
@@ -93,8 +98,14 @@ public class Variables {
 	// TIMES
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.1f;
+	
+	//BOX2D
+	public static final float TIME_STEP = 1/60f;
+	public static final int VELOCITY_ITERATIONS = 6;
+	public static final int POSITION_ITERATIONS = 2;
 
 	// MOVEMENT
+	public static final Vector2 GRAVITY = new Vector2(0, -30);
 	public static final float DIAGONAL_FACTOR = 1.6f;
 	public static final float MOVEMENT_SPEED = 5.0f;
 	public static final float DASH_SPEED = 150.0f;

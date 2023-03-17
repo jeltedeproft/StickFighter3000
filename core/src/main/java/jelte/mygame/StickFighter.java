@@ -55,7 +55,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getRecipient()) {
-		case CODE:
+		case LOGIC:
 			logicManager.receiveMessage(message);
 			break;
 		case GRAPHIC:

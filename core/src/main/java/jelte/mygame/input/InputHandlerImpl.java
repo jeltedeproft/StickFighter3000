@@ -8,12 +8,12 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
-import jelte.mygame.utility.Variables;
+import jelte.mygame.utility.Constants;
 
-//TODO : go over all posibilities key presses
+
 public class InputHandlerImpl implements InputHandler, InputProcessor {
 	private MessageListener listener;
-	private final IntSet downKeys = new IntSet(Variables.MAX_DOWNKEYS);
+	private final IntSet downKeys = new IntSet(Constants.MAX_DOWNKEYS);
 
 	public InputHandlerImpl(MessageListener listener) {
 		this.listener = listener;
@@ -22,7 +22,7 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public void update(float delta) {
-
+		
 	}
 
 	@Override
@@ -33,50 +33,58 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		downKeys.add(keycode);
-		if (downKeys.size >= 2) {
-			checkMovementMultipleKeysDown();
-		} else {
-			checkMovementSingleKeyDown(keycode);
+		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.LEFT_PRESSED));
 		}
-
+		if (keycode == KeyBindings.getBinding(Constants.RIGHT)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.RIGHT_PRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.UP)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.UP_PRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.DOWN_PRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_LEFT_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_LEFT));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_RIGHT_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_RIGHT));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_UP_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_UP));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_DOWN_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_DOWN));
+		}
 		return true;
 	}
 
-	private void checkMovementSingleKeyDown(int keyCode) {
-		if (keyCode == KeyBindings.getBinding(Variables.LEFT)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_MOVE_LEFT));
-		}
-		if (keyCode == KeyBindings.getBinding(Variables.RIGHT)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_MOVE_RIGHT));
-		}
-		if (keyCode == KeyBindings.getBinding(Variables.UP)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.HERO_JUMP));
-		}
-		if (keyCode == KeyBindings.getBinding(Variables.DOWN)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.HERO_DUCK));
-		}
-	}
-
-	private void checkMovementMultipleKeysDown() {
-		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.LEFT)) && downKeys.contains(KeyBindings.getBinding(Variables.UP))) {
-			client.sendMoveRequest(Direction.topleft);
-		}
-		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.LEFT)) && downKeys.contains(KeyBindings.getBinding(Variables.DOWN))) {
-			client.sendMoveRequest(Direction.bottomleft);
-		}
-		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.RIGHT)) && downKeys.contains(KeyBindings.getBinding(Variables.UP))) {
-			client.sendMoveRequest(Direction.topright);
-		}
-		if ((downKeys.size == 2) && downKeys.contains(KeyBindings.getBinding(Variables.RIGHT)) && downKeys.contains(KeyBindings.getBinding(Variables.DOWN))) {
-			client.sendMoveRequest(Direction.bottomright);
-		}
-	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.LEFT_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.RIGHT)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.RIGHT_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
+			listener.receiveMessage(new Message(RECIPIENT.MOVEMENT_SYSTEM, ACTION.DOWN_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_LEFT_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_LEFT_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_RIGHT_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_RIGHT_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_UP_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_UP_UNPRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.CAMERA_DOWN_KEY)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_DOWN_UNPRESSED));
+		}
+		return true;
 	}
 
 	@Override
@@ -111,8 +119,8 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean scrolled(float amountX, float amountY) {
-		// TODO Auto-generated method stub
-		return false;
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_ZOOM, amountY));
+		return true;
 	}
 
 	@Override
