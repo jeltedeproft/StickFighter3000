@@ -28,8 +28,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		skin = AssetManagerUtility.getSkin(Variables.SKIN_FILE_PATH);
 		gameViewPort = new ExtendViewport(Variables.VISIBLE_WIDTH, Variables.VISIBLE_HEIGHT);
 		stage = new Stage(gameViewPort, batch);
-		AssetManagerUtility.loadMapAsset("map/dark/dark.tmx");
-		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset("map/dark/dark.tmx"), batch);
+		AssetManagerUtility.loadMapAsset(Variables.MAP_PATH);
+		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset(Variables.MAP_PATH), batch);
 	}
 
 	@Override
