@@ -20,7 +20,7 @@ public class Constants {
 	// NAMES
 	public static final String PARALLAX_BG_NAME = "layer";
 	public static final String PREFERENCES = "preferences";
-	public static final String PREFERENCES_KEYBINDINGS = "keyBindings";
+	public static final String PREFERENCES_KEYBINDINGS = "darkKeyBindings";
 	public static final String PREFERENCE_WIZARD_NAME = "wizardname";
 	public static final String TEAM_RED_HEALTHBAR_SPRITE_NAME = "redpixel";
 	public static final String TEAM_BLUE_HEALTHBAR_SPRITE_NAME = "bluepixel";
@@ -98,16 +98,15 @@ public class Constants {
 	// TIMES
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.1f;
-	
-	//BOX2D
-	public static final float TIME_STEP = 1/60f;
+
+	// BOX2D
+	public static final float TIME_STEP = 1 / 60f;
 	public static final int VELOCITY_ITERATIONS = 6;
 	public static final int POSITION_ITERATIONS = 2;
-
-	// MOVEMENT
 	public static final Vector2 GRAVITY = new Vector2(0, -30);
+	public static final Vector2 JUMP_SPEED = new Vector2(0, 600);
 	public static final float DIAGONAL_FACTOR = 1.6f;
-	public static final float MOVEMENT_SPEED = 5.0f;
+	public static final float MOVEMENT_SPEED = 25.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
@@ -116,11 +115,11 @@ public class Constants {
 	public static final int HP_Y_OFFSET = 100;
 
 	// DIMENSIONS
-	public static final float VISIBLE_WIDTH = 100;
-	public static final float VISIBLE_HEIGHT = 100;
+	public static final float VISIBLE_WIDTH = 200;
+	public static final float VISIBLE_HEIGHT = 200;
 	public static final float VISIBLE_MAP_WIDTH = 600;
 	public static final float VISIBLE_MAP_HEIGHT = 600;
-	public static final float MAP_UNIT_SCALE = 1.0f;
+	public static final float MAP_UNIT_SCALE = 0.5f;
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
 

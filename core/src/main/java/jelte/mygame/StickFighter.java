@@ -1,5 +1,6 @@
 package jelte.mygame;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 
@@ -17,6 +18,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 
 	@Override
 	public void create() {
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
 		graphicalManager = new GraphicalManagerImpl(this);

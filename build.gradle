@@ -19,8 +19,8 @@ allprojects {
   apply plugin: 'eclipse'
   apply plugin: 'idea'
   
-      repositories {
-	maven { url 'https://jitpack.io' }
+    repositories {
+		maven { url 'https://jitpack.io' }
     }
 }
 

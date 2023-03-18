@@ -1,9 +1,12 @@
 package jelte.mygame.graphical;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -16,16 +19,17 @@ import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 
 public class GraphicalManagerImpl implements GraphicalManager {
+	private static final String TAG = GraphicalManagerImpl.class.getSimpleName();
 	private SpriteBatch batch;
 	private MessageListener listener;
 	protected OrthogonalTiledMapRenderer mapRenderer;
 	protected ExtendViewport gameViewPort;
 	protected Stage stage;
 	protected Skin skin;
-	private TiledMap map;
 	private OrthographicCamera camera;
 	private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 	private World worldToRender;
+	private Vector2 cameraPosition;
 
 	public GraphicalManagerImpl(MessageListener listener) {
 		this.listener = listener;
@@ -35,21 +39,27 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		camera = (OrthographicCamera) gameViewPort.getCamera();
 		stage = new Stage(gameViewPort, batch);
 		AssetManagerUtility.loadMapAsset(Constants.MAP_PATH);
-		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset(Constants.MAP_PATH), batch);
+		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset(Constants.MAP_PATH), Constants.MAP_UNIT_SCALE, batch);
 	}
 
 	@Override
 	public void update(float delta) {
+		Gdx.gl.glClearColor(.15f, .15f, .15f, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		gameViewPort.apply();
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		renderPlayer();
 		batch.end();
-		
+
+		gameViewPort.getCamera().position.set(cameraPosition.x, cameraPosition.y, 0f);
+		gameViewPort.getCamera().position.x = MathUtils.clamp(cameraPosition.x, mapLeftBoundary, mapRightBoundary);
+		gameViewPort.getCamera().position.y = MathUtils.clamp(cameraPosition.y, mapBottomBoundary, mapTopBoundary);
+		gameViewPort.getCamera().update();
 		mapRenderer.setView(camera);// TODO optimize, only if camera changes
 		mapRenderer.render();
-		
+
 		debugRenderer.render(worldToRender, camera.combined);
 
 		renderUI();
@@ -73,7 +83,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			camera.update();
 			break;
 		case CAMERA_RIGHT:
-			camera.translate(-Constants.CAMERA_MOVE_SPEED, 0,0);
+			camera.translate(-Constants.CAMERA_MOVE_SPEED, 0, 0);
 			camera.update();
 			break;
 		case CAMERA_ZOOM:
@@ -82,6 +92,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_WORLD:
 			worldToRender = (World) message.getValue();
+			break;
+		case UPDATE_CAMERA:
+			cameraPosition = (Vector2) message.getValue();
 			break;
 		default:
 			break;
