@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Box2D;
+import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -33,52 +34,54 @@ public class LogicManagerImpl implements LogicManager {
 	}
 
 	private void populateWorld() {
-		// First we create a body definition
+		createPlayerBody();
+		createWorldBounds();
+	}
+	
+	private void createPlayerBody() {
 		BodyDef bodyDef = new BodyDef();
-		// We set our body to dynamic, for something like ground which doesn't move we would set it to StaticBody
 		bodyDef.type = BodyType.DynamicBody;
-		// Set our body's starting position in the world
 		bodyDef.position.set(100, 100);
-
-		// Create our body in the world using our body definition
 		player = world.createBody(bodyDef);
-
-		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
-
-		// Create a fixture definition to apply our shape to
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = circle;
 		fixtureDef.density = 0.5f;
 		fixtureDef.friction = 0.4f;
 		fixtureDef.restitution = 0.6f; // Make it bounce a little bit
-
-		// Create our fixture and attach it to the body
 		player.createFixture(fixtureDef);
-
-		// Remember to dispose of any shapes after you're done with them!
-		// BodyDef and FixtureDef don't need disposing, but shapes do.
 		circle.dispose();
+	}
+	
+    /** Creates Box2D bounds. */
+    private void createWorldBounds() {
+        final BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyType.StaticBody;
+        bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 
-		// Create our body definition
+        final ChainShape shape = new ChainShape();
+        shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f + Constants.BOUNDARY_SIZE * 2f, -Constants.VISIBLE_WIDTH / 2f, Constants.VISIBLE_HEIGHT / 2f, Constants.VISIBLE_WIDTH / 2f,
+        		Constants.VISIBLE_HEIGHT / 2f, Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f + Constants.BOUNDARY_SIZE * 2f });
+
+        final FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+
+        world.createBody(bodyDef).createFixture(fixtureDef);
+        shape.dispose();
+    }
+	
+	private void createBoundariesBody() {
 		BodyDef groundBodyDef = new BodyDef();
-		// Set its world position
-		groundBodyDef.position.set(new Vector2(30, 40));
-
-		// Create a body from the definition and add it to the world
+		groundBodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 		Body groundBody = world.createBody(groundBodyDef);
-
-		// Create a polygon shape
 		PolygonShape groundBox = new PolygonShape();
-		// Set the polygon shape as a box which is twice the size of our view port and 20 high
-		// (setAsBox takes half-width and half-height as arguments)
-		groundBox.setAsBox(Constants.VISIBLE_WIDTH, 30.0f);
-		// Create a fixture from our polygon shape and add it to our ground body
+		groundBox.setAsBox(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		groundBody.createFixture(groundBox, 0.0f);
-		// Clean up after ourselves
 		groundBox.dispose();
 	}
+
+
 
 	@Override
 	public void update(float delta) {

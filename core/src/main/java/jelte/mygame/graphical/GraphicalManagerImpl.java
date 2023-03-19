@@ -21,58 +21,35 @@ import jelte.mygame.utility.Constants;
 public class GraphicalManagerImpl implements GraphicalManager {
 	private static final String TAG = GraphicalManagerImpl.class.getSimpleName();
 	private SpriteBatch batch;
-	private MessageListener listener;
 	protected OrthogonalTiledMapRenderer mapRenderer;
 	protected ExtendViewport gameViewPort;
 	protected Stage stage;
 	protected Skin skin;
-	private OrthographicCamera camera;
 	private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 	private World worldToRender;
-	private Vector2 cameraPosition;
+	private MapManager mapManager;
+	private CameraManager cameraManager;
 
-	public GraphicalManagerImpl(MessageListener listener) {
-		this.listener = listener;
-		this.batch = new SpriteBatch();
+	public GraphicalManagerImpl() {
+		batch = new SpriteBatch();
+		mapManager = new MapManager(batch);
+		cameraManager = new CameraManager(gameViewPort.getCamera(),mapManager.getCurrentMapWidth(),mapManager.getCurrentMapHeight());
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewPort = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
-		camera = (OrthographicCamera) gameViewPort.getCamera();
 		stage = new Stage(gameViewPort, batch);
-		AssetManagerUtility.loadMapAsset(Constants.MAP_PATH);
-		mapRenderer = new OrthogonalTiledMapRenderer(AssetManagerUtility.getMapAsset(Constants.MAP_PATH), Constants.MAP_UNIT_SCALE, batch);
 	}
+
 
 	@Override
 	public void update(float delta) {
 		Gdx.gl.glClearColor(.15f, .15f, .15f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		gameViewPort.apply();
+		cameraManager.update();
 
-		batch.setProjectionMatrix(camera.combined);
-		batch.begin();
-		renderPlayer();
-		batch.end();
-
-		gameViewPort.getCamera().position.set(cameraPosition.x, cameraPosition.y, 0f);
-		gameViewPort.getCamera().position.x = MathUtils.clamp(cameraPosition.x, mapLeftBoundary, mapRightBoundary);
-		gameViewPort.getCamera().position.y = MathUtils.clamp(cameraPosition.y, mapBottomBoundary, mapTopBoundary);
-		gameViewPort.getCamera().update();
-		mapRenderer.setView(camera);// TODO optimize, only if camera changes
-		mapRenderer.render();
-
-		debugRenderer.render(worldToRender, camera.combined);
-
-		renderUI();
-	}
-
-	private void renderUI() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void renderPlayer() {
-		// TODO Auto-generated method stub
-
+		batch.setProjectionMatrix(cameraManager.getCamera().combined);
+		mapManager.renderCurrentMap(cameraManager.getCamera());
+		debugRenderer.render(worldToRender, cameraManager.getCamera().combined);
 	}
 
 	@Override
@@ -112,7 +89,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	public void dispose() {
 		batch.dispose();
 		stage.dispose();
-		mapRenderer.dispose();
+		mapManager.dispose();
 	}
 
 }

@@ -15,7 +15,7 @@ public class Constants {
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String MAP_PATH = "map/dark/dark2.tmx";
+	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
 
 	// NAMES
 	public static final String PARALLAX_BG_NAME = "layer";
@@ -109,6 +109,7 @@ public class Constants {
 	public static final float MOVEMENT_SPEED = 25.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
+	public static final float BOUNDARY_SIZE = 5;
 
 	// OFFSETS
 	public static final int HP_X_OFFSET = 100;
