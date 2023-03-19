@@ -8,7 +8,6 @@ import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import jelte.mygame.Message;
@@ -35,14 +34,14 @@ public class LogicManagerImpl implements LogicManager {
 
 	private void populateWorld() {
 		createPlayerBody();
-		createWorldBounds();
 	}
-	
+
 	private void createPlayerBody() {
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyType.DynamicBody;
-		bodyDef.position.set(100, 100);
+		bodyDef.position.set(Constants.PLAYER_START);
 		player = world.createBody(bodyDef);
+		player.setUserData("player");
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
 		FixtureDef fixtureDef = new FixtureDef();
@@ -53,42 +52,35 @@ public class LogicManagerImpl implements LogicManager {
 		player.createFixture(fixtureDef);
 		circle.dispose();
 	}
-	
-    /** Creates Box2D bounds. */
-    private void createWorldBounds() {
-        final BodyDef bodyDef = new BodyDef();
-        bodyDef.type = BodyType.StaticBody;
-        bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 
-        final ChainShape shape = new ChainShape();
-        shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f + Constants.BOUNDARY_SIZE * 2f, -Constants.VISIBLE_WIDTH / 2f, Constants.VISIBLE_HEIGHT / 2f, Constants.VISIBLE_WIDTH / 2f,
-        		Constants.VISIBLE_HEIGHT / 2f, Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f + Constants.BOUNDARY_SIZE * 2f });
+	/**
+	 * Creates Box2D bounds.
+	 *
+	 * @param height
+	 * @param width
+	 */
+	private void createWorldBounds(float mapWidth, float mapHeight) {
+		final BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyType.StaticBody;
+		bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 
-        final FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = shape;
+		final ChainShape shape = new ChainShape();
+		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, (-Constants.VISIBLE_HEIGHT / 2f), -Constants.VISIBLE_WIDTH / 2f, mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f),
+				mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f), (-Constants.VISIBLE_HEIGHT / 2f) });
 
-        world.createBody(bodyDef).createFixture(fixtureDef);
-        shape.dispose();
-    }
-	
-	private void createBoundariesBody() {
-		BodyDef groundBodyDef = new BodyDef();
-		groundBodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
-		Body groundBody = world.createBody(groundBodyDef);
-		PolygonShape groundBox = new PolygonShape();
-		groundBox.setAsBox(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
-		groundBody.createFixture(groundBox, 0.0f);
-		groundBox.dispose();
+		final FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+
+		world.createBody(bodyDef).createFixture(fixtureDef);
+		shape.dispose();
 	}
-
-
 
 	@Override
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_WORLD, world));
 		player.applyLinearImpulse(movementVector, player.getPosition(), true);
 		doPhysicsStep(delta);
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA, player.getPosition()));
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPosition()));
 	}
 
 	private void doPhysicsStep(float deltaTime) {
@@ -121,6 +113,10 @@ public class LogicManagerImpl implements LogicManager {
 			break;
 		case UP_PRESSED:
 			player.applyLinearImpulse(Constants.JUMP_SPEED, player.getPosition(), true);
+			break;
+		case SEND_MAP_DIMENSIONS:
+			Vector2 bounds = (Vector2) message.getValue();
+			createWorldBounds(bounds.x, bounds.y);
 			break;
 		default:
 			break;

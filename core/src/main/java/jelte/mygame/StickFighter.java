@@ -21,7 +21,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
-		graphicalManager = new GraphicalManagerImpl();
+		graphicalManager = new GraphicalManagerImpl(this);
 	}
 
 	@Override

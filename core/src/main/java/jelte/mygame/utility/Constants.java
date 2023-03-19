@@ -105,11 +105,12 @@ public class Constants {
 	public static final int POSITION_ITERATIONS = 2;
 	public static final Vector2 GRAVITY = new Vector2(0, -30);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 600);
+	public static final Vector2 PLAYER_START = new Vector2(5, 5);
 	public static final float DIAGONAL_FACTOR = 1.6f;
 	public static final float MOVEMENT_SPEED = 25.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
-	public static final float BOUNDARY_SIZE = 5;
+	public static final float BOUNDARY_SIZE = 0;
 
 	// OFFSETS
 	public static final int HP_X_OFFSET = 100;
@@ -120,7 +121,7 @@ public class Constants {
 	public static final float VISIBLE_HEIGHT = 200;
 	public static final float VISIBLE_MAP_WIDTH = 600;
 	public static final float VISIBLE_MAP_HEIGHT = 600;
-	public static final float MAP_UNIT_SCALE = 0.5f;
+	public static final float MAP_UNIT_SCALE = 1.0f;
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
 
