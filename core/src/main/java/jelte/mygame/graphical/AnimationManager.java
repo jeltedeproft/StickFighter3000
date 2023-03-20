@@ -44,7 +44,7 @@ public class AnimationManager {
 	}
 
 	public Sprite getTextureForCharacter(Character character) {
-		usedIds.add(wizardState.id);
+		usedIds.add(character.get);
 		return stringToTexture(localWizardAnimationData.get(wizardState.name).getAnimationName(wizardState.action, wizardState.direction), wizardState.id);
 	}
 
