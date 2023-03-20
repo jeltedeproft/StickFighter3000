@@ -36,12 +36,12 @@ public class LogicManagerImpl implements LogicManager {
 		createPlayerBody();
 	}
 
-	private void createPlayerBody() {
+	private void createPlayerBody() {//TODO use box2d-editor to create a custom shape for the player
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyType.DynamicBody;
 		bodyDef.position.set(Constants.PLAYER_START);
 		player = world.createBody(bodyDef);
-		player.setUserData("player");
+		player.setUserData(Constants.PLAYER_SPRITE_NAME);
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
 		FixtureDef fixtureDef = new FixtureDef();

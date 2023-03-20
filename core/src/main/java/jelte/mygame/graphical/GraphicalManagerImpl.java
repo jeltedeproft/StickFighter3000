@@ -35,6 +35,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private World worldToRender;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
+	private AnimationManager animationManager;
 
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;

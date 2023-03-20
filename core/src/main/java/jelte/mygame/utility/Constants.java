@@ -10,14 +10,16 @@ public class Constants {
 	public static final int MAX_DOWNKEYS = 10;
 
 	// PATHS
-	public static final String SPRITES_ATLAS_PATH = "sprites/sprites.atlas";
+	public static final String SPRITES_ATLAS_PATH = "sprites/dark.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
+	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
 
 	// NAMES
+	public static final String PLAYER_SPRITE_NAME = "archer";
 	public static final String PARALLAX_BG_NAME = "layer";
 	public static final String PREFERENCES = "preferences";
 	public static final String PREFERENCES_KEYBINDINGS = "darkKeyBindings";
