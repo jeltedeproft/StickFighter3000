@@ -1,0 +1,9 @@
+[
+	{
+		"id": 0,
+		"name": "MainTheme",
+		"audioFileName": "audio/main.ogg",
+		"volume": 0.2f,
+		"duration": 0.4f,
+	}
+]

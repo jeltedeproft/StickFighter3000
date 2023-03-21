@@ -19,6 +19,10 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
+import jelte.mygame.logic.character.Character;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 
@@ -31,7 +35,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	protected Stage stage;
 	protected Skin skin;
 	private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
-	Array<Body> bodies = new Array<Body>();
+	Array<Body> bodies = new Array<>();
 	private World worldToRender;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
@@ -39,13 +43,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;
+		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
+		animationManager = new AnimationManager();
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewPort = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewPort.getCamera());
 		stage = new Stage(gameViewPort, batch);
+		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY_LOOP, AudioEnum.MAIN_THEME);
 	}
 
 	@Override
@@ -68,11 +75,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private void renderBodies() {
 		worldToRender.getBodies(bodies);
 		for (Body body : bodies) {
-			String spriteName = (String) body.getUserData();
-			Sprite sprite = animationManager.getSprite(spriteName);
-			sprite.setPosition(body.getPosition().x, body.getPosition().y);
-			sprite.setRotation(MathUtils.radiansToDegrees * body.getAngle());
-			sprite.draw(batch);
+			Character character = (Character) body.getUserData();
+			if (character != null) {
+				Sprite sprite = animationManager.getSprite(character);
+				sprite.setPosition(body.getPosition().x, body.getPosition().y);
+				sprite.setRotation(MathUtils.radiansToDegrees * body.getAngle());
+				sprite.draw(batch);
+			}
 		}
 
 	}

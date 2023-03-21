@@ -6,10 +6,12 @@ import com.badlogic.gdx.Gdx;
 
 import jelte.mygame.graphical.GraphicalManager;
 import jelte.mygame.graphical.GraphicalManagerImpl;
+import jelte.mygame.graphical.audio.AudioFileReader;
 import jelte.mygame.input.InputHandler;
 import jelte.mygame.input.InputHandlerImpl;
 import jelte.mygame.logic.LogicManager;
 import jelte.mygame.logic.LogicManagerImpl;
+import jelte.mygame.logic.character.CharacterFileReader;
 
 public class StickFighter implements ApplicationListener, MessageListener {
 	private InputHandler inputHandler;
@@ -19,6 +21,8 @@ public class StickFighter implements ApplicationListener, MessageListener {
 	@Override
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		CharacterFileReader.loadUnitStatsInMemory();
+		AudioFileReader.loadAudioInMemory();
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
 		graphicalManager = new GraphicalManagerImpl(this);

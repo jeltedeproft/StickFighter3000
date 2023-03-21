@@ -1,19 +1,22 @@
 package jelte.mygame.logic;
 
+import java.util.UUID;
+
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.ChainShape;
-import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.utility.Constants;
 
 public class LogicManagerImpl implements LogicManager {
@@ -21,7 +24,7 @@ public class LogicManagerImpl implements LogicManager {
 	private MessageListener listener;
 	private float accumulator = 0;
 	private World world;
-	private Body player;
+	private Character player;
 	private Vector2 movementVector;
 
 	public LogicManagerImpl(MessageListener listener) {
@@ -36,21 +39,21 @@ public class LogicManagerImpl implements LogicManager {
 		createPlayerBody();
 	}
 
-	private void createPlayerBody() {//TODO use box2d-editor to create a custom shape for the player
+	private void createPlayerBody() {// TODO use box2d-editor to create a custom shape for the player
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyType.DynamicBody;
 		bodyDef.position.set(Constants.PLAYER_START);
-		player = world.createBody(bodyDef);
-		player.setUserData(Constants.PLAYER_SPRITE_NAME);
-		CircleShape circle = new CircleShape();
-		circle.setRadius(6f);
+		player = new Character(CharacterFileReader.getUnitData().get(1), UUID.randomUUID(), world.createBody(bodyDef));
+		player.getBox2DBody().setUserData(player);
+		PolygonShape square = new PolygonShape();
+		square.setAsBox(20, 20);
 		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f;
-		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 0.6f; // Make it bounce a little bit
-		player.createFixture(fixtureDef);
-		circle.dispose();
+		fixtureDef.shape = square;
+		fixtureDef.density = 0.1f;
+		fixtureDef.friction = 0.1f;
+		fixtureDef.restitution = 0.1f; // Make it bounce a little bit
+		player.getBox2DBody().createFixture(fixtureDef);
+		square.dispose();
 	}
 
 	/**
@@ -65,8 +68,7 @@ public class LogicManagerImpl implements LogicManager {
 		bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 
 		final ChainShape shape = new ChainShape();
-		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, (-Constants.VISIBLE_HEIGHT / 2f), -Constants.VISIBLE_WIDTH / 2f, mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f),
-				mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f), (-Constants.VISIBLE_HEIGHT / 2f) });
+		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f, -Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f });
 
 		final FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
@@ -78,9 +80,9 @@ public class LogicManagerImpl implements LogicManager {
 	@Override
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_WORLD, world));
-		player.applyLinearImpulse(movementVector, player.getPosition(), true);
+		player.getBox2DBody().applyLinearImpulse(movementVector, player.getBox2DBody().getPosition(), true);
 		doPhysicsStep(delta);
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPosition()));
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getBox2DBody().getPosition()));
 	}
 
 	private void doPhysicsStep(float deltaTime) {
@@ -112,7 +114,7 @@ public class LogicManagerImpl implements LogicManager {
 			movementVector.add(-Constants.MOVEMENT_SPEED, 0);
 			break;
 		case UP_PRESSED:
-			player.applyLinearImpulse(Constants.JUMP_SPEED, player.getPosition(), true);
+			player.getBox2DBody().applyLinearImpulse(Constants.JUMP_SPEED, player.getBox2DBody().getPosition(), true);
 			break;
 		case SEND_MAP_DIMENSIONS:
 			Vector2 bounds = (Vector2) message.getValue();

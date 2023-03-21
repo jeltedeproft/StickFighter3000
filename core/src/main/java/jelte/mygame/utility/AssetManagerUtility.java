@@ -31,6 +31,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
+import de.pottgames.tuningfork.SoundBuffer;
+import de.pottgames.tuningfork.SoundBufferLoader;
+
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();
 
@@ -45,6 +48,7 @@ public class AssetManagerUtility implements Disposable {
 	private static SoundLoader soundLoader = new SoundLoader(filePathResolver);
 	private static MusicLoader musicLoader = new MusicLoader(filePathResolver);
 	private static TextureAtlasLoader textureAtlasLoader = new TextureAtlasLoader(filePathResolver);
+	private static SoundBufferLoader soundBufferLoader = new SoundBufferLoader(new InternalFileHandleResolver());
 
 	private static Map<String, Array<Sprite>> cachedAnimations = new HashMap<>();
 
@@ -81,6 +85,14 @@ public class AssetManagerUtility implements Disposable {
 
 	public static Sound getSoundAsset(final String soundFilenamePath) {
 		return (Sound) getAsset(soundFilenamePath, Sound.class);
+	}
+
+	public static void loadSoundBufferAsset(final String soundFilenamePath) {
+		loadAsset(soundFilenamePath, SoundBuffer.class);
+	}
+
+	public static SoundBuffer getSoundBufferAsset(final String soundFilenamePath) {
+		return (SoundBuffer) getAsset(soundFilenamePath, SoundBuffer.class);
 	}
 
 	public static void loadMusicAsset(final String musicFilenamePath) {
@@ -181,7 +193,7 @@ public class AssetManagerUtility implements Disposable {
 		return matched;
 	}
 
-	public static Animation<Sprite> getAnimation(String animationName, float animationSpeed, PlayMode playMode) {
+	public static Animation<Sprite> getAnimation(String animationName, float frameDuration, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
 			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
@@ -194,12 +206,12 @@ public class AssetManagerUtility implements Disposable {
 			cachedAnimation = atlas.createSprites(animationName);
 		}
 
-		if ((cachedAnimation == null) || (cachedAnimation.size == 0)) {
+		if (cachedAnimation == null || cachedAnimation.size == 0) {
 			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
 			return null;
 		}
 
-		return new Animation<>(animationSpeed, cachedAnimation, playMode);
+		return new Animation<>(frameDuration, cachedAnimation, playMode);
 	}
 
 	public static Animation<Sprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
@@ -215,7 +227,7 @@ public class AssetManagerUtility implements Disposable {
 			cachedAnimation = atlas.createSprites(animationName);
 		}
 
-		if ((cachedAnimation == null) || (cachedAnimation.size == 0)) {
+		if (cachedAnimation == null || cachedAnimation.size == 0) {
 			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
 			return null;
 		}
@@ -240,7 +252,7 @@ public class AssetManagerUtility implements Disposable {
 	}
 
 	private static boolean checkValidString(final String string) {
-		return !((string == null) || string.isEmpty());
+		return string != null && !string.isEmpty();
 	}
 
 	private AssetManagerUtility() {
@@ -256,7 +268,10 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(Sound.class, soundLoader);
 		assetManager.setLoader(Music.class, musicLoader);
 		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
-		// assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));TODO readd after skin is added
+		assetManager.setLoader(SoundBuffer.class, soundBufferLoader);
+		// assetManager.setLoader(Skin.class, new
+		// FreeTypeSkinLoader(assetManager.getFileHandleResolver()));TODO re-add after
+		// skin is added
 		loadersSet = true;
 	}
 
