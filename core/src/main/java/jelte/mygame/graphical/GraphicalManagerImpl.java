@@ -1,23 +1,15 @@
 package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
-import box2dLight.PointLight;
-import box2dLight.RayHandler;
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
@@ -37,13 +29,10 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	protected ExtendViewport gameViewPort;
 	protected Stage stage;
 	protected Skin skin;
-	private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
-	Array<Body> bodies = new Array<>();
-	private World worldToRender;
-	private RayHandler rayHandler;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
+	private Character player;
 
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;
@@ -73,27 +62,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderBodies();
 		batch.end();
 
-		debugRenderer.render(worldToRender, cameraManager.getCamera().combined);
-
-		if (rayHandler != null) {
-			rayHandler.setCombinedMatrix(cameraManager.getCamera());
-			rayHandler.updateAndRender();
-		}
-
 	}
 
 	private void renderBodies() {
-		worldToRender.getBodies(bodies);
-		for (Body body : bodies) {
-			Character character = (Character) body.getUserData();
-			if (character != null) {
-				Sprite sprite = animationManager.getSprite(character);
-				float height = sprite.getHeight();
-				float width = sprite.getWidth();
-				sprite.setPosition(body.getPosition().x - width / 2, body.getPosition().y - height / 2);
-				sprite.setRotation(MathUtils.radiansToDegrees * body.getAngle());
-				sprite.draw(batch);
-			}
+		if (player != null) {
+			Sprite sprite = animationManager.getSprite(player);
+			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
+			sprite.draw(batch);
 		}
 
 	}
@@ -110,14 +85,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		case CAMERA_ZOOM:
 			cameraManager.zoomCamera((float) message.getValue());
 			break;
-		case RENDER_WORLD:
-			worldToRender = (World) message.getValue();
-			if (rayHandler != null) {
-				rayHandler = new RayHandler(worldToRender);
-				rayHandler.setAmbientLight(1, 1, 1, 1);
-				rayHandler.setBlurNum(3);
-				new PointLight(rayHandler, 4, new Color(1, 1, 1, 1), 0, 0, 0);
-			}
+		case RENDER_PLAYER:
+			player = (Character) message.getValue();
 			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());

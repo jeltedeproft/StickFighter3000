@@ -1,7 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.physics.box2d.Body;
-
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
@@ -24,7 +22,7 @@ public class CharacterStateAttack implements CharacterState {
 	}
 
 	@Override
-	public void update(float delta, Body body) {
+	public void update(float delta) {
 		timer -= delta;
 		if (timer <= 0) {
 			characterStateManager.transition(STATE.IDLE);

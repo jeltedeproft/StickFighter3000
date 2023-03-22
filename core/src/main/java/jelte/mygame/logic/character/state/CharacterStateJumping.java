@@ -1,9 +1,9 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.physics.box2d.Body;
-
+import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.utility.Constants;
 
 public class CharacterStateJumping implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -20,8 +20,8 @@ public class CharacterStateJumping implements CharacterState {
 	}
 
 	@Override
-	public void update(float delta, Body body) {
-		if (body.getLinearVelocity().y < 0) {
+	public void update(float delta) {
+		if (characterStateManager.getCharacter().getMovementVector().y < 0.1) {
 			characterStateManager.transition(STATE.FALLING);
 		}
 
@@ -30,6 +30,20 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
+		case LEFT_PRESSED:
+			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
+			break;
+		case LEFT_UNPRESSED:
+			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			break;
+		case RIGHT_PRESSED:
+			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
+			break;
+		case RIGHT_UNPRESSED:
+			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			break;
 		default:
 			break;
 

@@ -101,7 +101,8 @@ public class Constants {
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.05f;
 
-	// BOX2D
+	// PHYSICS
+	public static final float MAX_SPEED = 1000;
 	public static final float TIME_STEP = 1 / 60f;
 	public static final int VELOCITY_ITERATIONS = 6;
 	public static final int POSITION_ITERATIONS = 2;
@@ -110,6 +111,7 @@ public class Constants {
 	public static final Vector2 PLAYER_START = new Vector2(5, 5);
 	public static final float DIAGONAL_FACTOR = 1.6f;
 	public static final float MOVEMENT_SPEED = 500.0f;
+	public static final float MOVEMENT_SPEED_CROUCHED = 100.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 	public static final float BOUNDARY_SIZE = 0;
@@ -163,4 +165,5 @@ public class Constants {
 			+ "  if (progress == 0.0) {\r\n" + "    return getFromColor(p);\r\n" + "  } else if (progress == 1.0) {\r\n" + "    return getToColor(p);\r\n" + "  } else {\r\n" + "    float x = progress;\r\n" + "    float dist = distance(center, p)- progress*exp(snoise(vec2(p.x, 0.0)));\r\n" + "    float r = x - rand(vec2(p.x, 0.1));\r\n" + "    float m;\r\n"
 			+ "    if(above){\r\n" + "     m = dist <= r && luminance(getFromColor(p))>l_threshold ? 1.0 : (progress*progress*progress);\r\n" + "    }\r\n" + "    else{\r\n" + "     m = dist <= r && luminance(getFromColor(p))<l_threshold ? 1.0 : (progress*progress*progress);  \r\n" + "    }\r\n" + "    return mix(getFromColor(p), getToColor(p), m);    \r\n"
 			+ "  }\r\n" + "}\r\n" + "";
+
 }

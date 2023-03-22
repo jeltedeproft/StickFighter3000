@@ -1,7 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.physics.box2d.Body;
-
 import jelte.mygame.logic.character.Character;
 
 public class CharacterStateManager {
@@ -25,7 +23,7 @@ public class CharacterStateManager {
 	}
 
 	public enum EVENT {
-		DAMAGE_TAKEN, JUMP_PRESSED, MOVE_PRESSED, MOVE_UNPRESSED, ATTACK_PRESSED, DIED, DOWN_PRESSED, DOWN_UNPRESSED
+		DAMAGE_TAKEN, JUMP_PRESSED, ATTACK_PRESSED, DIED, DOWN_PRESSED, DOWN_UNPRESSED, LEFT_PRESSED, LEFT_UNPRESSED, RIGHT_PRESSED, RIGHT_UNPRESSED, JUMP_UNPRESSED
 	}
 
 	public CharacterStateManager(Character character) {
@@ -46,8 +44,8 @@ public class CharacterStateManager {
 		currentCharacterState = characterStateAppear;
 	}
 
-	public void update(float delta, Body body) {
-		currentCharacterState.update(delta, body);
+	public void update(float delta) {
+		currentCharacterState.update(delta);
 	}
 
 	public CharacterState getCurrentCharacterState() {
@@ -99,6 +97,11 @@ public class CharacterStateManager {
 
 	public void handleEvent(EVENT event) {
 		currentCharacterState.handleEvent(event);
+	}
+
+	public Character getCharacter() {
+		return character;
+
 	}
 
 }

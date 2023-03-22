@@ -66,7 +66,7 @@ public class AnimationManager {
 			final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
 			for (final AtlasRegion region : regions) {
 				final String[] parts = region.name.split("-");
-				if ((parts.length >= 3) && parts[0].equalsIgnoreCase(characterName)) {
+				if (parts.length >= 3 && parts[0].equalsIgnoreCase(characterName)) {
 					int length = parts[1].length();
 					final String statePart = parts[1].substring(0, length - 1).toUpperCase();
 					final String indexPart = parts[1].substring(length - 1, length - 1);
@@ -85,12 +85,9 @@ public class AnimationManager {
 		String spriteName = character.getData().getEntitySpriteName();
 		Direction direction = character.getCurrentDirection();
 		CharacterState characterState = character.getCurrentCharacterState();
-		System.out.println("searching for : " + spriteName + "-" + characterState.getState().toString() + "1" + "-" + direction.name());
 		if (animationsPossible.get(spriteName).contains(characterState.getState(), false)) {
-			System.out.println("found it");
 			return stringToTexture(spriteName + "-" + characterState.getState().toString() + "1" + "-" + direction.name(), character);
 		}
-		System.out.println("not found, returning idle");
 		return stringToTexture(spriteName + "-" + STATE.IDLE.toString() + "1" + "-" + Direction.right.name(), character);// TODO randomize the index for which animation should play
 	}
 
@@ -98,7 +95,7 @@ public class AnimationManager {
 		usedIds.add(character.getId());
 		final String previous = animationsPrevious.get(character.getId());
 		// new animation or changed animation, reset frameTime
-		if ((previous == null) || !previous.equals(animationName)) {
+		if (previous == null || !previous.equals(animationName)) {
 			animationsPrevious.put(character.getId(), animationName);
 			animationsTimers.put(character.getId(), 0f);
 		}
