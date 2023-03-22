@@ -33,4 +33,7 @@ public class CharacterData {
 	private float attackFullTime;
 	private float hurtFullTime;
 	private float appearFullTime;
+	private float landingFullTime;
+	private float stopRunningFullTime;
+	private float dashingFullTime;
 }

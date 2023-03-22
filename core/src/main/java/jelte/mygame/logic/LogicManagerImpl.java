@@ -25,10 +25,8 @@ public class LogicManagerImpl implements LogicManager {
 	private float accumulator = 0;
 	private World world;
 	private Character player;
-	private Vector2 movementVector;
 
 	public LogicManagerImpl(MessageListener listener) {
-		movementVector = new Vector2(0, 0);
 		this.listener = listener;
 		Box2D.init();
 		world = new World(Constants.GRAVITY, true);
@@ -43,14 +41,14 @@ public class LogicManagerImpl implements LogicManager {
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyType.DynamicBody;
 		bodyDef.position.set(Constants.PLAYER_START);
-		player = new Character(CharacterFileReader.getUnitData().get(1), UUID.randomUUID(), world.createBody(bodyDef));
+		player = new Character(CharacterFileReader.getUnitData().get(2), UUID.randomUUID(), world.createBody(bodyDef));
 		player.getBox2DBody().setUserData(player);
 		PolygonShape square = new PolygonShape();
-		square.setAsBox(20, 20);
+		square.setAsBox(10, 10);
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = square;
 		fixtureDef.density = 0.1f;
-		fixtureDef.friction = 0.1f;
+		fixtureDef.friction = 0f;
 		fixtureDef.restitution = 0.1f; // Make it bounce a little bit
 		player.getBox2DBody().createFixture(fixtureDef);
 		square.dispose();
@@ -68,10 +66,13 @@ public class LogicManagerImpl implements LogicManager {
 		bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
 
 		final ChainShape shape = new ChainShape();
-		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f, -Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f });
+		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f, -Constants.VISIBLE_WIDTH / 2f, mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f),
+				mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f), -Constants.VISIBLE_HEIGHT / 2f });
 
 		final FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
+		fixtureDef.friction = 0f;
+		fixtureDef.density = 0.1f;
 
 		world.createBody(bodyDef).createFixture(fixtureDef);
 		shape.dispose();
@@ -80,7 +81,7 @@ public class LogicManagerImpl implements LogicManager {
 	@Override
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_WORLD, world));
-		player.getBox2DBody().applyLinearImpulse(movementVector, player.getBox2DBody().getPosition(), true);
+		player.update(delta);
 		doPhysicsStep(delta);
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getBox2DBody().getPosition()));
 	}
@@ -98,23 +99,13 @@ public class LogicManagerImpl implements LogicManager {
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
 		case DOWN_PRESSED:
-			break;
 		case DOWN_UNPRESSED:
-			break;
 		case LEFT_PRESSED:
-			movementVector.add(-Constants.MOVEMENT_SPEED, 0);
-			break;
 		case LEFT_UNPRESSED:
-			movementVector.add(Constants.MOVEMENT_SPEED, 0);
-			break;
 		case RIGHT_PRESSED:
-			movementVector.add(Constants.MOVEMENT_SPEED, 0);
-			break;
 		case RIGHT_UNPRESSED:
-			movementVector.add(-Constants.MOVEMENT_SPEED, 0);
-			break;
 		case UP_PRESSED:
-			player.getBox2DBody().applyLinearImpulse(Constants.JUMP_SPEED, player.getBox2DBody().getPosition(), true);
+			player.receiveMessage(message);
 			break;
 		case SEND_MAP_DIMENSIONS:
 			Vector2 bounds = (Vector2) message.getValue();

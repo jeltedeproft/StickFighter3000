@@ -78,7 +78,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			Character character = (Character) body.getUserData();
 			if (character != null) {
 				Sprite sprite = animationManager.getSprite(character);
-				sprite.setPosition(body.getPosition().x, body.getPosition().y);
+				float height = sprite.getHeight();
+				float width = sprite.getWidth();
+				sprite.setPosition(body.getPosition().x - (width / 2), body.getPosition().y - (height / 2));
 				sprite.setRotation(MathUtils.radiansToDegrees * body.getAngle());
 				sprite.draw(batch);
 			}

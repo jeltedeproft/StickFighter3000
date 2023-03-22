@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.physics.box2d.Body;
+
 import jelte.mygame.logic.character.Character;
 
 public class CharacterStateManager {
@@ -9,16 +11,21 @@ public class CharacterStateManager {
 	private CharacterState characterStateHurt;
 	private CharacterState characterStateIdle;
 	private CharacterState characterStateJumping;
+	private CharacterState characterStateFalling;
 	private CharacterState characterStateRunning;
+	private CharacterState characterStateStopRunning;
 	private CharacterState characterStateAppear;
+	private CharacterState characterStateCrouched;
+	private CharacterState characterStateLanding;
+	private CharacterState characterStateDashing;
 	private Character character;
 
 	public enum STATE {
-		ATTACK, DIE, HURT, IDLE, JUMPING, RUNNING, APPEARING, CAST
+		ATTACK, DIE, HURT, IDLE, JUMPING, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, DASHING, CLIMBING, IDLECROUCH, HOLDING
 	}
 
 	public enum EVENT {
-		DAMAGE_TAKEN, JUMP_PRESSED, MOVE_PRESSED, MOVE_UNPRESSED, ATTACK_PRESSED, LANDED, DIED
+		DAMAGE_TAKEN, JUMP_PRESSED, MOVE_PRESSED, MOVE_UNPRESSED, ATTACK_PRESSED, DIED, DOWN_PRESSED, DOWN_UNPRESSED
 	}
 
 	public CharacterStateManager(Character character) {
@@ -30,12 +37,17 @@ public class CharacterStateManager {
 		characterStateIdle = new CharacterStateIdle(this);
 		characterStateJumping = new CharacterStateJumping(this);
 		characterStateRunning = new CharacterStateRunning(this);
+		characterStateStopRunning = new CharacterStateStopRunning(this, data.getStopRunningFullTime());
+		characterStateDashing = new CharacterStateDashing(this, data.getDashingFullTime());
+		characterStateCrouched = new CharacterStateCrouched(this);
+		characterStateFalling = new CharacterStateFalling(this);
+		characterStateLanding = new CharacterStateLanding(this, data.getLandingFullTime());
 		characterStateAppear = new CharacterStateAppear(this, data.getAppearFullTime());
 		currentCharacterState = characterStateAppear;
 	}
 
-	public void update(float delta) {
-		currentCharacterState.update(delta);
+	public void update(float delta, Body body) {
+		currentCharacterState.update(delta, body);
 	}
 
 	public CharacterState getCurrentCharacterState() {
@@ -65,6 +77,18 @@ public class CharacterStateManager {
 			break;
 		case RUNNING:
 			currentCharacterState = characterStateRunning;
+			break;
+		case CROUCHED:
+			currentCharacterState = characterStateCrouched;
+			break;
+		case STOPRUNNING:
+			currentCharacterState = characterStateStopRunning;
+			break;
+		case LANDING:
+			currentCharacterState = characterStateLanding;
+			break;
+		case FALLING:
+			currentCharacterState = characterStateFalling;
 			break;
 		default:
 			break;

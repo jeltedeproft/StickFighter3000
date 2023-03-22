@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.physics.box2d.Body;
+
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
@@ -18,7 +20,7 @@ public class CharacterStateRunning implements CharacterState {
 	}
 
 	@Override
-	public void update(float delta) {
+	public void update(float delta, Body body) {
 		// TODO Auto-generated method stub
 
 	}
@@ -36,7 +38,10 @@ public class CharacterStateRunning implements CharacterState {
 			characterStateManager.transition(STATE.JUMPING);
 			break;
 		case MOVE_UNPRESSED:
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(STATE.STOPRUNNING);
+			break;
+		case DOWN_PRESSED:
+			characterStateManager.transition(STATE.CROUCHED);
 			break;
 		default:
 			break;
