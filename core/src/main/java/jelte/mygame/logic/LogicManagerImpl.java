@@ -47,35 +47,12 @@ public class LogicManagerImpl implements LogicManager {
 		square.setAsBox(10, 10);
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = square;
-		fixtureDef.density = 0.1f;
+		fixtureDef.density = 0.7f;
 		fixtureDef.friction = 0f;
 		fixtureDef.restitution = 0.1f; // Make it bounce a little bit
 		player.getBox2DBody().createFixture(fixtureDef);
 		square.dispose();
-	}
-
-	/**
-	 * Creates Box2D bounds.
-	 *
-	 * @param height
-	 * @param width
-	 */
-	private void createWorldBounds(float mapWidth, float mapHeight) {
-		final BodyDef bodyDef = new BodyDef();
-		bodyDef.type = BodyType.StaticBody;
-		bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
-
-		final ChainShape shape = new ChainShape();
-		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f, -Constants.VISIBLE_WIDTH / 2f, mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f),
-				mapHeight - (Constants.VISIBLE_HEIGHT / 2f), mapWidth - (Constants.VISIBLE_WIDTH / 2f), -Constants.VISIBLE_HEIGHT / 2f });
-
-		final FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = shape;
-		fixtureDef.friction = 0f;
-		fixtureDef.density = 0.1f;
-
-		world.createBody(bodyDef).createFixture(fixtureDef);
-		shape.dispose();
+		player.getBox2DBody().setFixedRotation(true);
 	}
 
 	@Override
@@ -117,9 +94,31 @@ public class LogicManagerImpl implements LogicManager {
 		}
 	}
 
+	/**
+	 * Creates Box2D bounds.
+	 *
+	 * @param height
+	 * @param width
+	 */
+	private void createWorldBounds(float mapWidth, float mapHeight) {
+		final BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyType.StaticBody;
+		bodyDef.position.set(new Vector2(Constants.VISIBLE_WIDTH / 2, Constants.VISIBLE_HEIGHT / 2));
+
+		final ChainShape shape = new ChainShape();
+		shape.createLoop(new float[] { -Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f, -Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, mapHeight - Constants.VISIBLE_HEIGHT / 2f, mapWidth - Constants.VISIBLE_WIDTH / 2f, -Constants.VISIBLE_HEIGHT / 2f });
+
+		final FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+		fixtureDef.friction = 0f;
+		fixtureDef.density = 0.1f;
+
+		world.createBody(bodyDef).createFixture(fixtureDef);
+		shape.dispose();
+	}
+
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 

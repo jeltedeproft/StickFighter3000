@@ -1,6 +1,7 @@
 package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,6 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
+import box2dLight.PointLight;
+import box2dLight.RayHandler;
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
@@ -37,6 +40,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 	Array<Body> bodies = new Array<>();
 	private World worldToRender;
+	private RayHandler rayHandler;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
@@ -70,6 +74,12 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.end();
 
 		debugRenderer.render(worldToRender, cameraManager.getCamera().combined);
+
+		if (rayHandler != null) {
+			rayHandler.setCombinedMatrix(cameraManager.getCamera());
+			rayHandler.updateAndRender();
+		}
+
 	}
 
 	private void renderBodies() {
@@ -80,7 +90,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 				Sprite sprite = animationManager.getSprite(character);
 				float height = sprite.getHeight();
 				float width = sprite.getWidth();
-				sprite.setPosition(body.getPosition().x - (width / 2), body.getPosition().y - (height / 2));
+				sprite.setPosition(body.getPosition().x - width / 2, body.getPosition().y - height / 2);
 				sprite.setRotation(MathUtils.radiansToDegrees * body.getAngle());
 				sprite.draw(batch);
 			}
@@ -102,6 +112,12 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_WORLD:
 			worldToRender = (World) message.getValue();
+			if (rayHandler != null) {
+				rayHandler = new RayHandler(worldToRender);
+				rayHandler.setAmbientLight(1, 1, 1, 1);
+				rayHandler.setBlurNum(3);
+				new PointLight(rayHandler, 4, new Color(1, 1, 1, 1), 0, 0, 0);
+			}
 			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());

@@ -109,7 +109,7 @@ public class Constants {
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 500000);
 	public static final Vector2 PLAYER_START = new Vector2(5, 5);
 	public static final float DIAGONAL_FACTOR = 1.6f;
-	public static final float MOVEMENT_SPEED = 150.0f;
+	public static final float MOVEMENT_SPEED = 500.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 	public static final float BOUNDARY_SIZE = 0;
@@ -149,26 +149,18 @@ public class Constants {
 	public static final String SHADER_VERTEX_ALL_BLACK = "shaders/allblack.vs";
 	public static final String SHADER_FRAG_ALL_BLACK = "shaders/allblack.fs";
 
-	public static final String LUMINANCE_SHADER = "//direction of movement :  0 : up, 1, down\r\n" + "uniform int direction = 1; \r\n" + "//luminance threshold\r\n" + "uniform float l_threshold = 0.8; \r\n"
-			+ "//does the movement takes effect above or below luminance threshold ?\r\n" + "uniform bool above = false; \r\n" + "\r\n" + "\r\n" + "//Random function borrowed from everywhere\r\n" + "float rand(vec2 co){\r\n"
-			+ "  return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\r\n" + "}\r\n" + "\r\n" + "\r\n" + "// Simplex noise :\r\n" + "// Description : Array and textureless GLSL 2D simplex noise function.\r\n"
-			+ "//      Author : Ian McEwan, Ashima Arts.\r\n" + "//  Maintainer : ijm\r\n" + "//     Lastmod : 20110822 (ijm)\r\n" + "//     License : MIT  \r\n" + "//               2011 Ashima Arts. All rights reserved.\r\n"
-			+ "//               Distributed under the MIT License. See LICENSE file.\r\n" + "//               https://github.com/ashima/webgl-noise\r\n" + "// \r\n" + "\r\n" + "vec3 mod289(vec3 x) {\r\n"
-			+ "  return x - floor(x * (1.0 / 289.0)) * 289.0;\r\n" + "}\r\n" + "\r\n" + "vec2 mod289(vec2 x) {\r\n" + "  return x - floor(x * (1.0 / 289.0)) * 289.0;\r\n" + "}\r\n" + "\r\n" + "vec3 permute(vec3 x) {\r\n"
-			+ "  return mod289(((x*34.0)+1.0)*x);\r\n" + "}\r\n" + "\r\n" + "float snoise(vec2 v)\r\n" + "  {\r\n" + "  const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0\r\n"
-			+ "                      0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)\r\n" + "                     -0.577350269189626,  // -1.0 + 2.0 * C.x\r\n" + "                      0.024390243902439); // 1.0 / 41.0\r\n"
-			+ "// First corner\r\n" + "  vec2 i  = floor(v + dot(v, C.yy) );\r\n" + "  vec2 x0 = v -   i + dot(i, C.xx);\r\n" + "\r\n" + "// Other corners\r\n" + "  vec2 i1;\r\n"
-			+ "  //i1.x = step( x0.y, x0.x ); // x0.x > x0.y ? 1.0 : 0.0\r\n" + "  //i1.y = 1.0 - i1.x;\r\n" + "  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\r\n" + "  // x0 = x0 - 0.0 + 0.0 * C.xx ;\r\n"
-			+ "  // x1 = x0 - i1 + 1.0 * C.xx ;\r\n" + "  // x2 = x0 - 1.0 + 2.0 * C.xx ;\r\n" + "  vec4 x12 = x0.xyxy + C.xxzz;\r\n" + "  x12.xy -= i1;\r\n" + "\r\n" + "// Permutations\r\n"
-			+ "  i = mod289(i); // Avoid truncation effects in permutation\r\n" + "  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))\r\n" + "		+ i.x + vec3(0.0, i1.x, 1.0 ));\r\n" + "\r\n"
-			+ "  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);\r\n" + "  m = m*m ;\r\n" + "  m = m*m ;\r\n" + "\r\n" + "// Gradients: 41 points uniformly over a line, mapped onto a diamond.\r\n"
-			+ "// The ring size 17*17 = 289 is close to a multiple of 41 (41*7 = 287)\r\n" + "\r\n" + "  vec3 x = 2.0 * fract(p * C.www) - 1.0;\r\n" + "  vec3 h = abs(x) - 0.5;\r\n" + "  vec3 ox = floor(x + 0.5);\r\n"
-			+ "  vec3 a0 = x - ox;\r\n" + "\r\n" + "// Normalise gradients implicitly by scaling m\r\n" + "// Approximation of: m *= inversesqrt( a0*a0 + h*h );\r\n" + "  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );\r\n"
-			+ "\r\n" + "// Compute final noise value at P\r\n" + "  vec3 g;\r\n" + "  g.x  = a0.x  * x0.x  + h.x  * x0.y;\r\n" + "  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\r\n" + "  return 130.0 * dot(m, g);\r\n" + "}\r\n" + "\r\n"
-			+ "// Simplex noise -- end\r\n" + "\r\n" + "float luminance(vec4 color){\r\n" + "  //(0.299*R + 0.587*G + 0.114*B)\r\n" + "  return color.r*0.299+color.g*0.587+color.b*0.114;\r\n" + "}\r\n" + "\r\n"
-			+ "vec2 center = vec2(1.0, direction);\r\n" + "\r\n" + "vec4 transition(vec2 uv) {\r\n" + "  vec2 p = uv.xy / vec2(1.0).xy;\r\n" + "  if (progress == 0.0) {\r\n" + "    return getFromColor(p);\r\n"
-			+ "  } else if (progress == 1.0) {\r\n" + "    return getToColor(p);\r\n" + "  } else {\r\n" + "    float x = progress;\r\n" + "    float dist = distance(center, p)- progress*exp(snoise(vec2(p.x, 0.0)));\r\n"
-			+ "    float r = x - rand(vec2(p.x, 0.1));\r\n" + "    float m;\r\n" + "    if(above){\r\n" + "     m = dist <= r && luminance(getFromColor(p))>l_threshold ? 1.0 : (progress*progress*progress);\r\n" + "    }\r\n"
-			+ "    else{\r\n" + "     m = dist <= r && luminance(getFromColor(p))<l_threshold ? 1.0 : (progress*progress*progress);  \r\n" + "    }\r\n" + "    return mix(getFromColor(p), getToColor(p), m);    \r\n" + "  }\r\n" + "}\r\n"
-			+ "";
+	public static final String LUMINANCE_SHADER = "//direction of movement :  0 : up, 1, down\r\n" + "uniform int direction = 1; \r\n" + "//luminance threshold\r\n" + "uniform float l_threshold = 0.8; \r\n" + "//does the movement takes effect above or below luminance threshold ?\r\n" + "uniform bool above = false; \r\n" + "\r\n" + "\r\n"
+			+ "//Random function borrowed from everywhere\r\n" + "float rand(vec2 co){\r\n" + "  return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\r\n" + "}\r\n" + "\r\n" + "\r\n" + "// Simplex noise :\r\n" + "// Description : Array and textureless GLSL 2D simplex noise function.\r\n" + "//      Author : Ian McEwan, Ashima Arts.\r\n"
+			+ "//  Maintainer : ijm\r\n" + "//     Lastmod : 20110822 (ijm)\r\n" + "//     License : MIT  \r\n" + "//               2011 Ashima Arts. All rights reserved.\r\n" + "//               Distributed under the MIT License. See LICENSE file.\r\n" + "//               https://github.com/ashima/webgl-noise\r\n" + "// \r\n" + "\r\n"
+			+ "vec3 mod289(vec3 x) {\r\n" + "  return x - floor(x * (1.0 / 289.0)) * 289.0;\r\n" + "}\r\n" + "\r\n" + "vec2 mod289(vec2 x) {\r\n" + "  return x - floor(x * (1.0 / 289.0)) * 289.0;\r\n" + "}\r\n" + "\r\n" + "vec3 permute(vec3 x) {\r\n" + "  return mod289(((x*34.0)+1.0)*x);\r\n" + "}\r\n" + "\r\n" + "float snoise(vec2 v)\r\n" + "  {\r\n"
+			+ "  const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0\r\n" + "                      0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)\r\n" + "                     -0.577350269189626,  // -1.0 + 2.0 * C.x\r\n" + "                      0.024390243902439); // 1.0 / 41.0\r\n" + "// First corner\r\n"
+			+ "  vec2 i  = floor(v + dot(v, C.yy) );\r\n" + "  vec2 x0 = v -   i + dot(i, C.xx);\r\n" + "\r\n" + "// Other corners\r\n" + "  vec2 i1;\r\n" + "  //i1.x = step( x0.y, x0.x ); // x0.x > x0.y ? 1.0 : 0.0\r\n" + "  //i1.y = 1.0 - i1.x;\r\n" + "  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\r\n" + "  // x0 = x0 - 0.0 + 0.0 * C.xx ;\r\n"
+			+ "  // x1 = x0 - i1 + 1.0 * C.xx ;\r\n" + "  // x2 = x0 - 1.0 + 2.0 * C.xx ;\r\n" + "  vec4 x12 = x0.xyxy + C.xxzz;\r\n" + "  x12.xy -= i1;\r\n" + "\r\n" + "// Permutations\r\n" + "  i = mod289(i); // Avoid truncation effects in permutation\r\n" + "  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))\r\n"
+			+ "		+ i.x + vec3(0.0, i1.x, 1.0 ));\r\n" + "\r\n" + "  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);\r\n" + "  m = m*m ;\r\n" + "  m = m*m ;\r\n" + "\r\n" + "// Gradients: 41 points uniformly over a line, mapped onto a diamond.\r\n"
+			+ "// The ring size 17*17 = 289 is close to a multiple of 41 (41*7 = 287)\r\n" + "\r\n" + "  vec3 x = 2.0 * fract(p * C.www) - 1.0;\r\n" + "  vec3 h = abs(x) - 0.5;\r\n" + "  vec3 ox = floor(x + 0.5);\r\n" + "  vec3 a0 = x - ox;\r\n" + "\r\n" + "// Normalise gradients implicitly by scaling m\r\n"
+			+ "// Approximation of: m *= inversesqrt( a0*a0 + h*h );\r\n" + "  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );\r\n" + "\r\n" + "// Compute final noise value at P\r\n" + "  vec3 g;\r\n" + "  g.x  = a0.x  * x0.x  + h.x  * x0.y;\r\n" + "  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\r\n" + "  return 130.0 * dot(m, g);\r\n" + "}\r\n"
+			+ "\r\n" + "// Simplex noise -- end\r\n" + "\r\n" + "float luminance(vec4 color){\r\n" + "  //(0.299*R + 0.587*G + 0.114*B)\r\n" + "  return color.r*0.299+color.g*0.587+color.b*0.114;\r\n" + "}\r\n" + "\r\n" + "vec2 center = vec2(1.0, direction);\r\n" + "\r\n" + "vec4 transition(vec2 uv) {\r\n" + "  vec2 p = uv.xy / vec2(1.0).xy;\r\n"
+			+ "  if (progress == 0.0) {\r\n" + "    return getFromColor(p);\r\n" + "  } else if (progress == 1.0) {\r\n" + "    return getToColor(p);\r\n" + "  } else {\r\n" + "    float x = progress;\r\n" + "    float dist = distance(center, p)- progress*exp(snoise(vec2(p.x, 0.0)));\r\n" + "    float r = x - rand(vec2(p.x, 0.1));\r\n" + "    float m;\r\n"
+			+ "    if(above){\r\n" + "     m = dist <= r && luminance(getFromColor(p))>l_threshold ? 1.0 : (progress*progress*progress);\r\n" + "    }\r\n" + "    else{\r\n" + "     m = dist <= r && luminance(getFromColor(p))<l_threshold ? 1.0 : (progress*progress*progress);  \r\n" + "    }\r\n" + "    return mix(getFromColor(p), getToColor(p), m);    \r\n"
+			+ "  }\r\n" + "}\r\n" + "";
 }

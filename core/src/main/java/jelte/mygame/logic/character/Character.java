@@ -10,6 +10,7 @@ import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 import jelte.mygame.utility.Constants;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -65,7 +66,7 @@ public class Character {
 	}
 
 	public void heal(float amount) {
-		if (data.getMaxHP() <= (currentHp + amount)) {
+		if (data.getMaxHP() <= currentHp + amount) {
 			currentHp = data.getMaxHP();
 		} else {
 			currentHp += amount;
@@ -107,8 +108,11 @@ public class Character {
 			move(-Constants.MOVEMENT_SPEED, 0);
 			break;
 		case UP_PRESSED:
-			box2DBody.applyLinearImpulse(Constants.JUMP_SPEED, box2DBody.getPosition(), true);
-			characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
+			// box2DBody.applyLinearImpulse(Constants.JUMP_SPEED, box2DBody.getPosition(), true);
+			if (characterStateManager.getCurrentCharacterState().getState() != STATE.JUMPING && characterStateManager.getCurrentCharacterState().getState() != STATE.FALLING) {
+				box2DBody.setLinearVelocity(box2DBody.getLinearVelocity().x, 5000);
+				characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
+			}
 			break;
 		default:
 			break;
