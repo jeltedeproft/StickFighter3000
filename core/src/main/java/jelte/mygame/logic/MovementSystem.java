@@ -15,21 +15,47 @@ public class MovementSystem {
 		Vector2 velocity = player.getMovementVector();
 		Vector2 acceleration = player.getAccelerationVector();
 
-		// Update velocity
-		velocity.add(acceleration.x * delta, acceleration.y * delta);
+		// velocity.add(acceleration.x * delta, acceleration.y * delta);
 
-		// Limit velocity to maximum speed
-		if (velocity.len2() > (Constants.MAX_SPEED * Constants.MAX_SPEED)) {
+		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
-		// Update position
+		applygravity(velocity, delta);
+
+		Vector2 futurePlayerPos = new Vector2(position).add(velocity).add(acceleration);
+
+		// updatePositionIfNotBlocked(delta, position, velocity);
+
+		// check if the player collides with the obstacle after moving
+		if (obstacle.overlaps(new Rectangle(futurePlayerPos.x, futurePlayerPos.y, playerPos.x, playerPos.y))) {
+			// handle collision by resolving the position of the player
+			float overlapX = Math.abs(playerVelocity.x) + Math.abs(playerAcceleration.x);
+			float overlapY = Math.abs(playerVelocity.y) + Math.abs(playerAcceleration.y);
+			if (playerVelocity.x > 0) {
+				playerPos.x = obstacle.x - playerPos.x - overlapX;
+			} else if (playerVelocity.x < 0) {
+				playerPos.x = obstacle.x + obstacle.width + overlapX;
+			}
+			if (playerVelocity.y > 0) {
+				playerPos.y = obstacle.y - playerPos.y - overlapY;
+			} else if (playerVelocity.y < 0) {
+
+			}
+		}
+
+	}
+
+	private void applygravity(Vector2 velocity, float delta) {
+		velocity.y -= Constants.GRAVITY.y * delta;
+	}
+
+	private void updatePositionIfNotBlocked(float delta, Vector2 position, Vector2 velocity) {
 		Vector2 newPosition = position.cpy();
 		Rectangle playerRect = new Rectangle(newPosition.x, newPosition.y, 10, 10);// TODO change to sprite width and height
 		if (!positionBlocks(playerRect, blockingRectangles)) {
 			position.add(velocity.x * delta, velocity.y * delta);
 		}
-
 	}
 
 	private boolean positionBlocks(Rectangle playerRect, Array<Rectangle> blockingRectangles) {

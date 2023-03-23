@@ -15,7 +15,7 @@ public class CharacterStateJumping implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
+		characterStateManager.getCharacter().getMovementVector().y = Constants.JUMP_SPEED.y;
 
 	}
 

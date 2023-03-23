@@ -46,6 +46,7 @@ public class LogicManagerImpl implements LogicManager {
 			break;
 		case SEND_BLOCKING_OBJECTS:
 			movementSystem.initBlockingObjects((Array<Rectangle>) message.getValue());
+			break;
 		default:
 			break;
 

@@ -106,8 +106,8 @@ public class Constants {
 	public static final float TIME_STEP = 1 / 60f;
 	public static final int VELOCITY_ITERATIONS = 6;
 	public static final int POSITION_ITERATIONS = 2;
-	public static final Vector2 GRAVITY = new Vector2(0, -300);
-	public static final Vector2 JUMP_SPEED = new Vector2(0, 500000);
+	public static final Vector2 GRAVITY = new Vector2(0, -10);
+	public static final Vector2 JUMP_SPEED = new Vector2(0, 20);
 	public static final Vector2 PLAYER_START = new Vector2(5, 5);
 	public static final float DIAGONAL_FACTOR = 1.6f;
 	public static final float MOVEMENT_SPEED = 500.0f;
@@ -121,6 +121,12 @@ public class Constants {
 	public static final int HP_Y_OFFSET = 100;
 
 	// DIMENSIONS
+	public static final float HUD_BARS_WIDTH = 1000;
+	public static final float HUD_TOP_BAR_HEIGHT = 100;
+	public static final float HUD_MIDDLE_BAR_HEIGHT = 300;
+	public static final float HUD_BOTTOM_BAR_HEIGHT = 100;
+	public static final float UI_WIDTH = 500;
+	public static final float UI_HEIGHT = 500;
 	public static final float VISIBLE_WIDTH = 200;
 	public static final float VISIBLE_HEIGHT = 200;
 	public static final float VISIBLE_MAP_WIDTH = 600;

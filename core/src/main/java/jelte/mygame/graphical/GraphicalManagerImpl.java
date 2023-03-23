@@ -7,7 +7,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import jelte.mygame.Message;
@@ -28,15 +31,23 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	protected OrthogonalTiledMapRenderer mapRenderer;
 	protected ExtendViewport gameViewPort;
 	protected Stage stage;
+	protected Stage uiStage;
 	protected Skin skin;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
 	private Character player;
 
+	// UI
+	Table root = new Table();
+	Table topBar = new Table();
+	Table middleBar = new Table();
+	Table bottomBar = new Table();
+
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
+		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
@@ -46,7 +57,27 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		gameViewPort = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewPort.getCamera());
 		stage = new Stage(gameViewPort, batch);
+		uiStage = new Stage(new ExtendViewport(Constants.UI_WIDTH, Constants.UI_HEIGHT), batch);
+		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY_LOOP, AudioEnum.MAIN_THEME);
+		createHud();
+	}
+
+	protected void createHud() {
+		root.setFillParent(true);
+		uiStage.addActor(root);
+
+		topBar.left();
+		topBar.setTouchable(Touchable.disabled);
+
+		ProgressBar hp = new ProgressBar(0, 10, 1, false, skin, "hp");
+		topBar.add(hp).padLeft(20);
+
+		root.add(topBar).size(Constants.HUD_BARS_WIDTH, Constants.HUD_TOP_BAR_HEIGHT).top().left().expand();
+		root.row();
+		root.add(middleBar).size(Constants.HUD_BARS_WIDTH, Constants.HUD_MIDDLE_BAR_HEIGHT).expand().left();
+		root.row();
+		root.add(bottomBar).size(Constants.HUD_BARS_WIDTH, Constants.HUD_BOTTOM_BAR_HEIGHT).bottom().center().expand();
 	}
 
 	@Override
@@ -63,6 +94,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderBodies();
 		batch.end();
 
+		renderUI();
+
 	}
 
 	private void renderBodies() {
@@ -71,7 +104,12 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
 			sprite.draw(batch);
 		}
+	}
 
+	private void renderUI() {
+		uiStage.getViewport().apply();
+		uiStage.act();
+		uiStage.draw();
 	}
 
 	@Override
@@ -101,7 +139,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	@Override
 	public void resize(int width, int height) {
 		gameViewPort.update(width, height);
-		stage.getViewport().update(width, height, true);
 	}
 
 	@Override

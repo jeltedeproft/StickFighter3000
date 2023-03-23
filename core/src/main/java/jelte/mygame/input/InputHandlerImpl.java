@@ -1,7 +1,9 @@
 package jelte.mygame.input;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.IntSet;
 
 import jelte.mygame.Message;
@@ -14,10 +16,13 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 	private static final String TAG = InputHandlerImpl.class.getSimpleName();
 	private MessageListener listener;
 	private final IntSet downKeys = new IntSet(Constants.MAX_DOWNKEYS);
+	private InputMultiplexer inputMultiplexer;
 
 	public InputHandlerImpl(MessageListener listener) {
 		this.listener = listener;
-		Gdx.input.setInputProcessor(this);
+		inputMultiplexer = new InputMultiplexer();
+		inputMultiplexer.addProcessor(this);
+		Gdx.input.setInputProcessor(inputMultiplexer);
 	}
 
 	@Override
@@ -27,8 +32,14 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public void receiveMessage(Message message) {
-		// TODO Auto-generated method stub
+		switch (message.getAction()) {
+		case SEND_STAGE:
+			inputMultiplexer.addProcessor((Stage) message.getValue());
+			break;
+		default:
+			break;
 
+		}
 	}
 
 	@Override
