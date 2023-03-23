@@ -39,6 +39,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
+		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
 		animationManager = new AnimationManager();
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);

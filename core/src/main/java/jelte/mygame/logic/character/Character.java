@@ -30,8 +30,8 @@ public class Character {
 	public Character(CharacterData data, UUID id) {
 		this.id = id;
 		this.data = data;
+		positionVector = new Vector2(20, 10);
 		movementVector = new Vector2(0, 0);
-		positionVector = new Vector2(0, 0);
 		accelerationVector = new Vector2(0, 0);
 		characterStateManager = new CharacterStateManager(this);
 		currentDirection = Direction.right;
@@ -39,7 +39,6 @@ public class Character {
 	}
 
 	public void update(float delta) {
-		positionVector.add(movementVector.scl(delta));
 		characterStateManager.update(delta);
 	}
 
@@ -56,7 +55,7 @@ public class Character {
 	}
 
 	public void heal(float amount) {
-		if (data.getMaxHP() <= currentHp + amount) {
+		if (data.getMaxHP() <= (currentHp + amount)) {
 			currentHp = data.getMaxHP();
 		} else {
 			currentHp += amount;

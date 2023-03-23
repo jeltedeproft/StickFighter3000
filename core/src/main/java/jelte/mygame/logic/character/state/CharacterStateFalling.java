@@ -30,18 +30,18 @@ public class CharacterStateFalling implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
 			break;
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
 			break;
 		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		default:
 			break;

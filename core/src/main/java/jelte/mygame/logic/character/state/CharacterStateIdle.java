@@ -38,20 +38,20 @@ public class CharacterStateIdle implements CharacterState {
 			characterStateManager.transition(STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
 			characterStateManager.transition(STATE.RUNNING);
 			break;
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
 			characterStateManager.transition(STATE.RUNNING);
 			break;
 		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(STATE.CROUCHED);

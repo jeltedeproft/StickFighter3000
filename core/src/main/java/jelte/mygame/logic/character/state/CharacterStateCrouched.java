@@ -32,18 +32,18 @@ public class CharacterStateCrouched implements CharacterState {
 			characterStateManager.transition(STATE.IDLE);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED_CROUCHED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED_CROUCHED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
 			break;
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED_CROUCHED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(Constants.MOVEMENT_SPEED_CROUCHED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED_CROUCHED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
 			break;
 		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getMovementVector().add(-Constants.MOVEMENT_SPEED_CROUCHED, 0);
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
 		default:
 			break;
