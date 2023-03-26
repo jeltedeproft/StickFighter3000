@@ -14,57 +14,56 @@ public class MovementSystem {
 		Vector2 position = player.getPositionVector();
 		Vector2 velocity = player.getMovementVector();
 		Vector2 acceleration = player.getAccelerationVector();
+		boolean collided = false;
 
-		// velocity.add(acceleration.x * delta, acceleration.y * delta);
+		velocity.add(acceleration.x * delta, acceleration.y * delta);
+
+		velocity.add(Constants.GRAVITY.x * delta, Constants.GRAVITY.y * delta);
 
 		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
-		applygravity(velocity, delta);
-
-		Vector2 futurePlayerPos = new Vector2(position).add(velocity).add(acceleration);
-
-		// updatePositionIfNotBlocked(delta, position, velocity);
+		Vector2 futurePlayerPos = new Vector2(position.x + velocity.x * delta, position.y + velocity.y * delta);
+		
+		if(acceleration.x >= 49) {
+			int j = 5;
+		}
 
 		// check if the player collides with the obstacle after moving
-		if (obstacle.overlaps(new Rectangle(futurePlayerPos.x, futurePlayerPos.y, playerPos.x, playerPos.y))) {
-			// handle collision by resolving the position of the player
-			float overlapX = Math.abs(playerVelocity.x) + Math.abs(playerAcceleration.x);
-			float overlapY = Math.abs(playerVelocity.y) + Math.abs(playerAcceleration.y);
-			if (playerVelocity.x > 0) {
-				playerPos.x = obstacle.x - playerPos.x - overlapX;
-			} else if (playerVelocity.x < 0) {
-				playerPos.x = obstacle.x + obstacle.width + overlapX;
-			}
-			if (playerVelocity.y > 0) {
-				playerPos.y = obstacle.y - playerPos.y - overlapY;
-			} else if (playerVelocity.y < 0) {
-
-			}
-		}
-
-	}
-
-	private void applygravity(Vector2 velocity, float delta) {
-		velocity.y -= Constants.GRAVITY.y * delta;
-	}
-
-	private void updatePositionIfNotBlocked(float delta, Vector2 position, Vector2 velocity) {
-		Vector2 newPosition = position.cpy();
-		Rectangle playerRect = new Rectangle(newPosition.x, newPosition.y, 10, 10);// TODO change to sprite width and height
-		if (!positionBlocks(playerRect, blockingRectangles)) {
-			position.add(velocity.x * delta, velocity.y * delta);
-		}
-	}
-
-	private boolean positionBlocks(Rectangle playerRect, Array<Rectangle> blockingRectangles) {
-		for (Rectangle rect : blockingRectangles) {
-			if (playerRect.overlaps(rect)) {
-				return true;
+		for (Rectangle obstacle : blockingRectangles) {
+			if (obstacle.overlaps(new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT))) {
+				// handle collision by resolving the position of the player
+				collided = true;
+				float overlapX = 0;
+				float overlapY = 0;
+				if (velocity.x > 0) {
+					overlapX = obstacle.x - Constants.PLAYER_WIDTH - position.x;
+				} else if (velocity.x < 0) {
+					overlapX = obstacle.x + obstacle.width - position.x;
+				}
+				if (velocity.y > 0) {
+					overlapY = obstacle.y - Constants.PLAYER_HEIGHT - position.y;
+				} else if (velocity.y < 0) {
+					overlapY = obstacle.y + obstacle.height - position.y;
+				}
+				// adjust the position of the player based on its size
+				float absOverlapX = Math.abs(overlapX);
+				float absOverlapY = Math.abs(overlapY);
+				if (absOverlapX < absOverlapY) {
+					position.x += overlapX;
+				} else {
+					position.y += overlapY;
+				}
+				// set velocity to zero after collision
+				velocity.x = 0;
+				velocity.y = 0;
 			}
 		}
-		return false;
+
+		if (!collided) {
+			player.setPositionVector(futurePlayerPos);
+		}
 	}
 
 	public void initBlockingObjects(Array<Rectangle> blockingRectangles) {

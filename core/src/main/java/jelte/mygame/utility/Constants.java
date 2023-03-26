@@ -106,11 +106,13 @@ public class Constants {
 	public static final float TIME_STEP = 1 / 60f;
 	public static final int VELOCITY_ITERATIONS = 6;
 	public static final int POSITION_ITERATIONS = 2;
-	public static final Vector2 GRAVITY = new Vector2(0, -10);
+	public static final Vector2 GRAVITY = new Vector2(0, -40);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 20);
 	public static final Vector2 PLAYER_START = new Vector2(5, 5);
+	public static final int PLAYER_WIDTH = 10;
+	public static final int PLAYER_HEIGHT = 10;
 	public static final float DIAGONAL_FACTOR = 1.6f;
-	public static final float MOVEMENT_SPEED = 500.0f;
+	public static final float MOVEMENT_SPEED = 50.0f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 100.0f;
 	public static final float DASH_SPEED = 150.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
