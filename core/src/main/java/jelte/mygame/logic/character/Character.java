@@ -9,6 +9,7 @@ import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,7 +31,7 @@ public class Character {
 	public Character(CharacterData data, UUID id) {
 		this.id = id;
 		this.data = data;
-		positionVector = new Vector2(50, 150);
+		positionVector = Constants.PLAYER_START.cpy();
 		movementVector = new Vector2(0, 0);
 		accelerationVector = new Vector2(0, 0);
 		characterStateManager = new CharacterStateManager(this);

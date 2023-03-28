@@ -27,17 +27,8 @@ public class LogicManagerImpl implements LogicManager {
 	@Override
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, player));
-		System.out.println("position1 = " + player.getPositionVector());
-		System.out.println("velocity1 = " + player.getMovementVector());
-		System.out.println("acceleration1 = " + player.getAccelerationVector());
 		movementSystem.update(delta, player);
-		System.out.println("position2 = " + player.getPositionVector());
-		System.out.println("velocity2 = " + player.getMovementVector());
-		System.out.println("acceleration2 = " + player.getAccelerationVector());
 		player.update(delta);
-		System.out.println("position3 = " + player.getPositionVector());
-		System.out.println("velocity3 = " + player.getMovementVector());
-		System.out.println("acceleration3 = " + player.getAccelerationVector());
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPositionVector()));
 	}
 

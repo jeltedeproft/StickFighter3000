@@ -54,13 +54,14 @@ public class MapManager implements Disposable {
 		renderer.dispose();
 	}
 
-	public static Array<Rectangle> getRectanglesFromObjectLayer(MapLayer objectLayer) {
+	public Array<Rectangle> getRectanglesFromObjectLayer(MapLayer objectLayer) {
 		Array<Rectangle> rectangles = new Array<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
 			if (object instanceof RectangleMapObject) {
 				RectangleMapObject rectangleObject = (RectangleMapObject) object;
 				Rectangle rectangle = rectangleObject.getRectangle();
+				rectangle.y = currentMapHeight - rectangle.y - rectangle.height;
 				rectangles.add(rectangle);
 			}
 		}
