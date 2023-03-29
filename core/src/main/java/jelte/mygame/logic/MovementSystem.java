@@ -8,7 +8,7 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.utility.Constants;
 
 public class MovementSystem {
-	Array<Rectangle> blockingRectangles;
+	Array<Rectangle> blockingRectangles = new Array<>();
 
 	public void update(float delta, Character player) {
 		Vector2 position = player.getPositionVector();
