@@ -21,4 +21,9 @@ public class TypedRectangle extends Rectangle {
 		type = BLOCKING_TYPE.valueOf(name);
 	}
 
+	public TypedRectangle(int x, int y, int width, int height, BLOCKING_TYPE type) {
+		super(x, y, width, height);
+		this.type = type;
+	}
+
 }

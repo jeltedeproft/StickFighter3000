@@ -61,7 +61,6 @@ public class MapManager implements Disposable {
 			if (object instanceof RectangleMapObject) {
 				RectangleMapObject rectangleObject = (RectangleMapObject) object;
 				TypedRectangle rectangle = new TypedRectangle(rectangleObject.getRectangle(), rectangleObject.getName());
-				rectangle.y = currentMapHeight - rectangle.y - rectangle.height;
 				rectangles.add(rectangle);
 			}
 		}

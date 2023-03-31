@@ -8,11 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.MovementSystem;
+import jelte.mygame.logic.TypedRectangle;
+import jelte.mygame.logic.TypedRectangle.BLOCKING_TYPE;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterData;
 import jelte.mygame.logic.character.CharacterFileReader;
@@ -66,8 +67,8 @@ public class testMovementSystem {
 	public void testCharacterMoveRightIntoWall() {
 		System.out.println("testing right into wall");
 		testCharacter.setMovementVector(new Vector2(90, 0));
-		Array<Rectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new Rectangle(25, -500, 1000, 1000));
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(25, -500, 1000, 1000, BLOCKING_TYPE.WALL));
 		movementSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
@@ -82,8 +83,8 @@ public class testMovementSystem {
 	public void testCharacterMoveLeftIntoWall() {
 		System.out.println("testing left into wall");
 		testCharacter.setMovementVector(new Vector2(-90, 0));
-		Array<Rectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new Rectangle(-25, -500, 20, 1000));
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(-25, -500, 20, 1000, BLOCKING_TYPE.WALL));
 		movementSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
@@ -95,10 +96,10 @@ public class testMovementSystem {
 	}
 
 	@Test
-	public void testCharacterStandStillOnPlatform() {
-		System.out.println("testing still on platform");
-		Array<Rectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new Rectangle(0, -100, 1000, 100));
+	public void testCharacterStandStillOnGround() {
+		System.out.println("testing still on ground");
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, BLOCKING_TYPE.GROUND));
 		movementSystem.setBlockingRectangles(blockingObjects);
 		movementSystem.update(0.1f, testCharacter);
 		movementSystem.update(0.1f, testCharacter);

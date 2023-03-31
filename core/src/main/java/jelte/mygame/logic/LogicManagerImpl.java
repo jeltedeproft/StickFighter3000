@@ -2,7 +2,6 @@ package jelte.mygame.logic;
 
 import java.util.UUID;
 
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
@@ -45,7 +44,7 @@ public class LogicManagerImpl implements LogicManager {
 			player.receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:
-			movementSystem.setBlockingRectangles((Array<Rectangle>) message.getValue());
+			movementSystem.setBlockingRectangles((Array<TypedRectangle>) message.getValue());
 			break;
 		default:
 			break;
