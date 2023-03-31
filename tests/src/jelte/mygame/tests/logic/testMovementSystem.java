@@ -36,28 +36,28 @@ public class testMovementSystem {
 
 	@Test
 	public void testCharacterMoveRightNoBlock() {
-		testCharacter.setAccelerationVector(new Vector2(10, 0));
+		testCharacter.setMovementVector(new Vector2(10, 0));
 		movementSystem.update(1, testCharacter);
 		Assert.assertEquals(new Vector2(10, Constants.GRAVITY.y), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveLeftNoBlock() {
-		testCharacter.setAccelerationVector(new Vector2(-10, 0));
+		testCharacter.setMovementVector(new Vector2(-10, 0));
 		movementSystem.update(1, testCharacter);
 		Assert.assertEquals(new Vector2(-10, Constants.GRAVITY.y), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveUpNoBlock() {
-		testCharacter.setAccelerationVector(new Vector2(0, 10));
+		testCharacter.setMovementVector(new Vector2(0, 10));
 		movementSystem.update(1, testCharacter);
 		Assert.assertEquals(new Vector2(0, Constants.GRAVITY.y + 10), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveDownNoBlock() {
-		testCharacter.setAccelerationVector(new Vector2(0, -10));
+		testCharacter.setMovementVector(new Vector2(0, -10));
 		movementSystem.update(1, testCharacter);
 		Assert.assertEquals(new Vector2(0, Constants.GRAVITY.y - 10), testCharacter.getPositionVector());
 	}
@@ -65,22 +65,33 @@ public class testMovementSystem {
 	@Test
 	public void testCharacterMoveRightIntoWall() {
 		System.out.println("testing right into wall");
-		testCharacter.setAccelerationVector(new Vector2(90, 0));
+		testCharacter.setMovementVector(new Vector2(90, 0));
 		Array<Rectangle> blockingObjects = new Array<>();
 		blockingObjects.add(new Rectangle(25, -500, 1000, 1000));
-		movementSystem.initBlockingObjects(blockingObjects);
+		movementSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
+		Assert.assertEquals(new Vector2(15, Constants.GRAVITY.y * 0.4f), testCharacter.getPositionVector());
+	}
+
+	@Test
+	public void testCharacterMoveLeftIntoWall() {
+		System.out.println("testing left into wall");
+		testCharacter.setMovementVector(new Vector2(-90, 0));
+		Array<Rectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new Rectangle(-25, -500, 20, 1000));
+		movementSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
 		System.out.println("pos = " + testCharacter.getPositionVector());
-		Assert.assertEquals(new Vector2(5, -12), testCharacter.getPositionVector());
+		movementSystem.update(0.1f, testCharacter);
+		Assert.assertEquals(new Vector2(-5, Constants.GRAVITY.y * 0.4f), testCharacter.getPositionVector());
 	}
 
 	@Test
@@ -88,7 +99,7 @@ public class testMovementSystem {
 		System.out.println("testing still on platform");
 		Array<Rectangle> blockingObjects = new Array<>();
 		blockingObjects.add(new Rectangle(0, -100, 1000, 100));
-		movementSystem.initBlockingObjects(blockingObjects);
+		movementSystem.setBlockingRectangles(blockingObjects);
 		movementSystem.update(0.1f, testCharacter);
 		movementSystem.update(0.1f, testCharacter);
 		movementSystem.update(0.1f, testCharacter);
@@ -101,7 +112,7 @@ public class testMovementSystem {
 		testCharacter.setPositionVector(new Vector2(0, 0));
 		testCharacter.setMovementVector(new Vector2(0, 0));
 		testCharacter.setAccelerationVector(new Vector2(0, 0));
-		movementSystem.initBlockingObjects(new Array<>());
+		movementSystem.setBlockingRectangles(new Array<>());
 	}
 
 }

@@ -9,67 +9,95 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.utility.Constants;
 
 public class MovementSystem {
-	Array<Rectangle> blockingRectangles = new Array<>();
+	private Array<TypedRectangle> blockingRectangles = new Array<>();
 
 	public void update(float delta, Character player) {
 		Vector2 position = player.getPositionVector();
 		Vector2 velocity = player.getMovementVector();
 		Vector2 acceleration = player.getAccelerationVector();
+		System.out.println("");
+		System.out.println("");
+		System.out.println("startposition = " + position);
 
-		velocity.add(acceleration.x, acceleration.y);
+		velocity.add(acceleration);
+		velocity.add(Constants.GRAVITY);
 
-		velocity.add(Constants.GRAVITY.x, Constants.GRAVITY.y);
-
+		// Limit speed
 		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
-		Vector2 futurePlayerPos = new Vector2(position.x + velocity.x * delta, position.y + velocity.y * delta);
+		Vector2 futurePlayerPos = position.cpy().add(velocity.cpy().scl(delta));
+		Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
 
-		// check if the player collides with the obstacle after moving
-		for (Rectangle obstacle : blockingRectangles) {
-			Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
-			if (obstacle.overlaps(playerRect)) {
-				Rectangle intersection = new Rectangle();
-				// handle collision by resolving the position of the player
-				Intersector.intersectRectangles(obstacle, playerRect, intersection);
-				System.out.println("");
-				System.out.println("");
-				System.out.println("handling collision");
-				System.out.println("==================");
-				System.out.println("startposition = " + position);
-				System.out.println("intersection = " + intersection);
-				float overlapX = intersection.width;
-				float overlapY = intersection.height;
-				System.out.println("overlapX = " + overlapX);
-				System.out.println("overlapY = " + overlapY);
+		Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
 
-				// adjust the position of the player based on its size
-				float absOverlapX = Math.abs(overlapX);
-				float absOverlapY = Math.abs(overlapY);
-				if (absOverlapX < absOverlapY) {
-					futurePlayerPos.x += overlapX;
-					System.out.println("adjusting X = " + futurePlayerPos.x);
-				} else {
-					futurePlayerPos.y += overlapY;
-					System.out.println("adjusting Y = " + futurePlayerPos.y);
-				}
-				// futurePlayerPos.y = Math.max(position.y, 0); // Ensure the player stays on the screen
-
-				// set velocity to zero after collision
-				System.out.println("velocity = 0");
-				velocity.x = 0;
-				velocity.y = 0;
-			}
-			System.out.println("no collision wit hthis rectangle");
+		if (!overlappingObstacles.isEmpty()) {
+			handleCollision(futurePlayerPos, velocity, overlappingObstacles, playerRect);
 		}
 
 		player.setPositionVector(futurePlayerPos);
-
 	}
 
-	public void initBlockingObjects(Array<Rectangle> blockingRectangles) {
+	private Array<TypedRectangle> getOverlappingObstacles(Rectangle playerRect) {
+		Array<TypedRectangle> overlappingObstacles = new Array<>();
+
+		for (TypedRectangle obstacle : blockingRectangles) {
+			if (obstacle.overlaps(playerRect)) {
+				overlappingObstacles.add(obstacle);
+			}
+		}
+
+		return overlappingObstacles;
+	}
+
+	private void handleCollision(Vector2 futurePlayerPos, Vector2 velocity, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
+		// Calculate total overlap with all obstacles
+		float totalOverlapX = 0;
+		float totalOverlapY = 0;
+
+		for (Rectangle obstacle : overlappingObstacles) {
+			Rectangle intersection = new Rectangle();
+			Intersector.intersectRectangles(obstacle, playerRect, intersection);
+			totalOverlapX += intersection.width;
+			totalOverlapY += intersection.height;
+		}
+
+		System.out.println("handling collision");
+		System.out.println("==================");
+		System.out.println("future position = " + futurePlayerPos);
+		System.out.println("total overlapX = " + totalOverlapX);
+		System.out.println("total overlapY = " + totalOverlapY);
+
+		// Adjust position based on overlap and velocity
+		float absOverlapX = Math.abs(totalOverlapX);
+		float absOverlapY = Math.abs(totalOverlapY);
+
+		if (absOverlapX < absOverlapY) {
+			if (velocity.x > 0) {
+				futurePlayerPos.x -= totalOverlapX;
+				System.out.println("moving right : adjusting X = " + futurePlayerPos.x);
+			}
+			if (velocity.x < 0) {
+				futurePlayerPos.x += totalOverlapX;
+				System.out.println("moving left : adjusting X = " + futurePlayerPos.x);
+			}
+		} else {
+			if (velocity.y > 0) {
+				futurePlayerPos.y -= totalOverlapY;
+				System.out.println("moving up : adjusting Y = " + futurePlayerPos.y);
+			}
+			if (velocity.y < 0) {
+				futurePlayerPos.y += totalOverlapY;
+				System.out.println("moving down : adjusting Y = " + futurePlayerPos.y);
+			}
+		}
+
+		// Set velocity to zero after collision
+		velocity.setZero();
+	}
+
+	public void setBlockingRectangles(Array<Rectangle> blockingRectangles) {
 		this.blockingRectangles = blockingRectangles;
 	}
-
 }

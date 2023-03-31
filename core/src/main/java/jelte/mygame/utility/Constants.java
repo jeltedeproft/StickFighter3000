@@ -9,6 +9,17 @@ public class Constants {
 
 	public static final int MAX_DOWNKEYS = 10;
 
+	// PHYSICS
+	public static final float MAX_SPEED = 1000;
+	public static final Vector2 GRAVITY = new Vector2(0, -20);
+	public static final Vector2 JUMP_SPEED = new Vector2(0, 200);
+	public static final Vector2 PLAYER_START = new Vector2(50, 1);
+	public static final int PLAYER_WIDTH = 10;
+	public static final int PLAYER_HEIGHT = 10;
+	public static final float MOVEMENT_SPEED = 80.0f;
+	public static final float MOVEMENT_SPEED_CROUCHED = 60.0f;
+	public static final float CAMERA_MOVE_SPEED = 5;
+
 	// PATHS
 	public static final String SPRITES_ATLAS_PATH = "sprites/dark.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
@@ -23,104 +34,20 @@ public class Constants {
 	public static final String PARALLAX_BG_NAME = "layer";
 	public static final String PREFERENCES = "preferences";
 	public static final String PREFERENCES_KEYBINDINGS = "darkKeyBindings";
-	public static final String PREFERENCE_WIZARD_NAME = "wizardname";
-	public static final String TEAM_RED_HEALTHBAR_SPRITE_NAME = "redpixel";
-	public static final String TEAM_BLUE_HEALTHBAR_SPRITE_NAME = "bluepixel";
-	public static final String TEAM_GREEN_HEALTHBAR_SPRITE_NAME = "greenpixel";
-	public static final String TEAM_YELLOW_HEALTHBAR_SPRITE_NAME = "yellowpixel";
-	public static final String TEAM_PURPLE_HEALTHBAR_SPRITE_NAME = "purplepixel";
-	public static final String HEALTHBAR_BORDER_SPRITE_NAME = "graypixel";
-	public static final String EXIT = "Exit";
-	public static final String WRONG_CREDENTIALS = "Wrong Credentials";
-	public static final String USERNAME = "Username";
-	public static final String PASSWORD = "Password";
-	public static final String DEFAULT_USERNAME = "Username";
-	public static final String DEFAULT_PASSWORD = "Password";
-	public static final String LOGIN = "Login";
-	public static final String CREATE_ACCOUNT = "Create New Account";
-	public static final String CONNECT_FAILED = "Failed to connect to the server.";
-	public static final String ERROR_FONT_NAME = "error";
-	public static final String ALREADY_LOGGED_IN = "Already logged in";
-	public static final String ALREADY_EXISTS = "Account already exists";
-	public static final String CHANGE_KEYBINDINGS = "Change Keybindings";
-	public static final String MATCHMAKING_CHAOS = "MatchmakingChaos";
-	public static final String MATCHMAKING = "Matchmaking";
-	public static final String PLAYGROUND = "Playground";
-	public static final String FIND_GAME = "Find Game";
-	public static final String NEXT_MAP_RIGHT = "Next Map Right";
-	public static final String NEXT_MAP_LEFT = "Next Map Left";
-	public static final String SELECT_MAP = "Select Map";
-	public static final String SELECTED_SPELLS = "Selected Spells";
-	public static final String SPELLS = "Spells";
-	public static final String SPELL_INFO = "\nSpell Info";
-	public static final String SELECT_SPELLS = "Select Spells";
-	public static final String INFO = "Info";
-	public static final String SEARCH_OPPONENT = "Search Opponent";
-	public static final String STATS = "Stats";
-	public static final String SELECT_FIGHTER = "Select Fighter";
-	public static final String DUMMY = "dummy";
-	public static final String PORTAL_SPRITE_NAME = "portal";
 
 	// HOTKEYS
 	public static final String RIGHT = "right";
 	public static final String LEFT = "left";
 	public static final String DOWN = "down";
 	public static final String UP = "up";
-	public static final String SHIELD = "shield";
-	public static final String BASIC_ATTACK = "basicattack";
-	public static final String DASH = "dash";
 	public static final String CAMERA_LEFT_KEY = "cameraLeft";
 	public static final String CAMERA_RIGHT_KEY = "cameraRight";
 	public static final String CAMERA_UP_KEY = "cameraUp";
 	public static final String CAMERA_DOWN_KEY = "cameraDown";
-	public static final String SPELL_9 = "spell9";
-	public static final String SPELL_8 = "spell8";
-	public static final String SPELL_7 = "spell7";
-	public static final String SPELL_6 = "spell6";
-	public static final String SPELL_5 = "spell5";
-	public static final String SPELL_4 = "spell4";
-	public static final String SPELL_3 = "spell3";
-	public static final String SPELL_2 = "spell2";
-	public static final String SPELL_1 = "spell1";
-	public static final String SPELL_0 = "spell0";
-	public static final int BASIC_ATTACK_INDEX = 0;
-	public static final int DASH_INDEX = 1;
-	public static final int SHIELD_INDEX = 2;
-	public static final int SPELL_0_INDEX = 3;
-	public static final int SPELL_1_INDEX = 4;
-	public static final int SPELL_2_INDEX = 5;
-	public static final int SPELL_3_INDEX = 6;
-	public static final int SPELL_4_INDEX = 7;
-	public static final int SPELL_5_INDEX = 8;
-	public static final int SPELL_6_INDEX = 9;
-	public static final int SPELL_7_INDEX = 10;
-	public static final int SPELL_8_INDEX = 11;
-	public static final int SPELL_9_INDEX = 12;
 
 	// TIMES
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.05f;
-
-	// PHYSICS
-	public static final float MAX_SPEED = 1000;
-	public static final float TIME_STEP = 1 / 60f;
-	public static final int VELOCITY_ITERATIONS = 6;
-	public static final int POSITION_ITERATIONS = 2;
-	public static final Vector2 GRAVITY = new Vector2(0, -40);
-	public static final Vector2 JUMP_SPEED = new Vector2(0, 200);
-	public static final Vector2 PLAYER_START = new Vector2(50, 1);
-	public static final int PLAYER_WIDTH = 10;
-	public static final int PLAYER_HEIGHT = 10;
-	public static final float DIAGONAL_FACTOR = 1.6f;
-	public static final float MOVEMENT_SPEED = 50.0f;
-	public static final float MOVEMENT_SPEED_CROUCHED = 100.0f;
-	public static final float DASH_SPEED = 150.0f;
-	public static final float CAMERA_MOVE_SPEED = 5;
-	public static final float BOUNDARY_SIZE = 0;
-
-	// OFFSETS
-	public static final int HP_X_OFFSET = 100;
-	public static final int HP_Y_OFFSET = 100;
 
 	// DIMENSIONS
 	public static final float HUD_BARS_WIDTH = 1000;

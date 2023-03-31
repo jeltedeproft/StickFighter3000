@@ -22,10 +22,10 @@
   </data>
  </layer>
  <objectgroup id="4" name="blocks">
-  <object id="2" x="0" y="0" width="1.81624" height="384"/>
-  <object id="3" x="0" y="0" width="400" height="2.88671"/>
-  <object id="4" x="397.113" y="0" width="2.88671" height="384"/>
-  <object id="6" x="229.031" y="245.938" width="22.9688" height="3.71875"/>
-  <object id="7" x="0.101229" y="382.764" width="399.82" height="1.26397"/>
+  <object id="2" name="WALL" x="0" y="0" width="1.81624" height="384"/>
+  <object id="3" name="CEILING" x="0" y="0" width="400" height="2.88671"/>
+  <object id="4" name="WALL" x="397.113" y="0" width="2.88671" height="384"/>
+  <object id="6" name="PLATFORM" x="229.031" y="245.938" width="22.9688" height="3.71875"/>
+  <object id="7" name="GROUND" x="0.101229" y="382.764" width="399.82" height="1.26397"/>
  </objectgroup>
 </map>

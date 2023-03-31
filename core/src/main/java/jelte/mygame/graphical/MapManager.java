@@ -8,10 +8,10 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
+import jelte.mygame.logic.TypedRectangle;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class MapManager implements Disposable {
 	private MapProperties mapProperties;
 	private float currentMapWidth;
 	private float currentMapHeight;
-	private Array<Rectangle> blockingRectangles;
+	private Array<TypedRectangle> blockingRectangles;
 
 	public MapManager(SpriteBatch batch) {
 		AssetManagerUtility.loadMapAsset(Constants.DEFAULT_MAP_PATH);
@@ -54,13 +54,13 @@ public class MapManager implements Disposable {
 		renderer.dispose();
 	}
 
-	public Array<Rectangle> getRectanglesFromObjectLayer(MapLayer objectLayer) {
-		Array<Rectangle> rectangles = new Array<>();
+	public Array<TypedRectangle> getRectanglesFromObjectLayer(MapLayer objectLayer) {
+		Array<TypedRectangle> rectangles = new Array<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
 			if (object instanceof RectangleMapObject) {
 				RectangleMapObject rectangleObject = (RectangleMapObject) object;
-				Rectangle rectangle = rectangleObject.getRectangle();
+				TypedRectangle rectangle = new TypedRectangle(rectangleObject.getRectangle(), rectangleObject.getName());
 				rectangle.y = currentMapHeight - rectangle.y - rectangle.height;
 				rectangles.add(rectangle);
 			}
