@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import lombok.Getter;
 
 @Getter
-public class TypedRectangle extends Rectangle {
+public class TypedRectangle extends Rectangle implements Comparable<TypedRectangle> {
 	/**
 	 *
 	 */
@@ -24,6 +24,11 @@ public class TypedRectangle extends Rectangle {
 	public TypedRectangle(int x, int y, int width, int height, BLOCKING_TYPE type) {
 		super(x, y, width, height);
 		this.type = type;
+	}
+
+	@Override
+	public int compareTo(TypedRectangle o) {
+		return o.getType().compareTo(type);
 	}
 
 }

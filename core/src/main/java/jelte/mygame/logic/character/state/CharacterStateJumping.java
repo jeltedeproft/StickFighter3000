@@ -30,6 +30,9 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
+		case JUMP_PRESSED:
+			entry();
+			break;
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);

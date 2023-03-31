@@ -80,6 +80,31 @@ public class testMovementSystem {
 	}
 
 	@Test
+	public void testCharacterStandStillOnPlatform() {
+		System.out.println("testing still on platform");
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, BLOCKING_TYPE.PLATFORM));
+		movementSystem.setBlockingRectangles(blockingObjects);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		Assert.assertEquals(new Vector2(0, 0), testCharacter.getPositionVector());
+	}
+
+	@Test
+	public void testCharacterMoveRightOnPlatform() {
+		System.out.println("testing move right on platform");
+		testCharacter.setMovementVector(new Vector2(90, 0));
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, BLOCKING_TYPE.PLATFORM));
+		movementSystem.setBlockingRectangles(blockingObjects);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		Assert.assertEquals(new Vector2(27, 0), testCharacter.getPositionVector());
+	}
+
+	@Test
 	public void testCharacterMoveLeftIntoWall() {
 		System.out.println("testing left into wall");
 		testCharacter.setMovementVector(new Vector2(-90, 0));
@@ -92,7 +117,7 @@ public class testMovementSystem {
 		movementSystem.update(0.1f, testCharacter);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);
-		Assert.assertEquals(new Vector2(-5, Constants.GRAVITY.y * 0.4f), testCharacter.getPositionVector());
+		Assert.assertEquals(new Vector2(-5, Constants.GRAVITY.y * 0.3f), testCharacter.getPositionVector());
 	}
 
 	@Test
@@ -100,6 +125,21 @@ public class testMovementSystem {
 		System.out.println("testing still on ground");
 		Array<TypedRectangle> blockingObjects = new Array<>();
 		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, BLOCKING_TYPE.GROUND));
+		movementSystem.setBlockingRectangles(blockingObjects);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		movementSystem.update(0.1f, testCharacter);
+		Assert.assertEquals(new Vector2(0, 0), testCharacter.getPositionVector());
+	}
+
+	@Test
+	public void testCharacterMoveInCorner2BlockingObjects() {
+		System.out.println("testing 2 blocking objects collision");
+		testCharacter.setPositionVector(new Vector2(20, 0));
+		testCharacter.setMovementVector(new Vector2(-90, 0));
+		Array<TypedRectangle> blockingObjects = new Array<>();
+		blockingObjects.add(new TypedRectangle(-10, 0, 10, 100, BLOCKING_TYPE.WALL));
+		blockingObjects.add(new TypedRectangle(0, -10, 100, 10, BLOCKING_TYPE.GROUND));
 		movementSystem.setBlockingRectangles(blockingObjects);
 		movementSystem.update(0.1f, testCharacter);
 		movementSystem.update(0.1f, testCharacter);

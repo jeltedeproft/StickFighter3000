@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 import jelte.mygame.utility.Constants;
 
 public class MovementSystem {
@@ -33,7 +34,7 @@ public class MovementSystem {
 		Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
 
 		if (!overlappingObstacles.isEmpty()) {
-			handleCollision(futurePlayerPos, velocity, overlappingObstacles, playerRect);
+			handleCollision(player, futurePlayerPos, velocity, overlappingObstacles, playerRect);
 		}
 
 		player.setPositionVector(futurePlayerPos);
@@ -51,39 +52,43 @@ public class MovementSystem {
 		return overlappingObstacles;
 	}
 
-	private void handleCollision(Vector2 futurePlayerPos, Vector2 velocity, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
+	private void handleCollision(Character player, Vector2 futurePlayerPos, Vector2 velocity, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
 		// Calculate total overlap with all obstacles
-		float totalOverlapX = 0;
-		float totalOverlapY = 0;
+		float overlapX = 0;
+		float overlapY = 0;
+
+		overlappingObstacles.sort();
 
 		for (TypedRectangle obstacle : overlappingObstacles) {
 			Rectangle intersection = new Rectangle();
 			Intersector.intersectRectangles(obstacle, playerRect, intersection);
-			totalOverlapX = intersection.width;
-			totalOverlapY = intersection.height;
+			overlapX = intersection.width;
+			overlapY = intersection.height;
 
 			System.out.println("handling collision " + obstacle.getType());
 			System.out.println("==================");
 			System.out.println("future position = " + futurePlayerPos);
-			System.out.println("total overlapX = " + totalOverlapX);
-			System.out.println("total overlapY = " + totalOverlapY);
+			System.out.println("overlapX = " + overlapX);
+			System.out.println("overlapY = " + overlapY);
 
 			// Adjust position based on overlap and velocity
-			float absOverlapX = Math.abs(totalOverlapX);
-			float absOverlapY = Math.abs(totalOverlapY);
+			float absOverlapX = Math.abs(overlapX);
+			float absOverlapY = Math.abs(overlapY);
 
 			switch (obstacle.getType()) {
 			case CEILING:
-				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, totalOverlapX, totalOverlapY);
+				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
 				break;
 			case GROUND:
-				handleCollisionGround(absOverlapX, absOverlapY, futurePlayerPos, velocity, totalOverlapX, totalOverlapY);
+				handleCollisionGround(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
 				break;
 			case PLATFORM:
-				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, totalOverlapX, totalOverlapY);
+				if (player.getCurrentCharacterState().getState() != STATE.CROUCHED && player.getCurrentCharacterState().getState() != STATE.JUMPING) {
+					handleCollisionGround(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
+				}
 				break;
 			case WALL:
-				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, totalOverlapX, totalOverlapY);
+				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
 				break;
 			default:
 				break;
@@ -93,23 +98,23 @@ public class MovementSystem {
 
 	}
 
-	private void handleCollisionGround(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float totalOverlapX, float totalOverlapY) {
+	private void handleCollisionGround(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float overlapX, float overlapY) {
 		if (absOverlapX < absOverlapY) {
 			if (velocity.x > 0) {
-				futurePlayerPos.x -= totalOverlapX;
+				futurePlayerPos.x -= overlapX;
 				System.out.println("moving right : adjusting X = " + futurePlayerPos.x);
 			}
 			if (velocity.x < 0) {
-				futurePlayerPos.x += totalOverlapX;
+				futurePlayerPos.x += overlapX;
 				System.out.println("moving left : adjusting X = " + futurePlayerPos.x);
 			}
 		} else {
 			if (velocity.y > 0) {
-				futurePlayerPos.y -= totalOverlapY;
+				futurePlayerPos.y -= overlapY;
 				System.out.println("moving up : adjusting Y = " + futurePlayerPos.y);
 			}
 			if (velocity.y < 0) {
-				futurePlayerPos.y += totalOverlapY;
+				futurePlayerPos.y += overlapY;
 				System.out.println("moving down : adjusting Y = " + futurePlayerPos.y);
 			}
 		}
@@ -119,29 +124,29 @@ public class MovementSystem {
 
 	}
 
-	private void handleCollisionWall(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float totalOverlapX, float totalOverlapY) {
+	private void handleCollisionWall(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float overlapX, float overlapY) {
 		if (absOverlapX < absOverlapY) {
 			if (velocity.x > 0) {
-				futurePlayerPos.x -= totalOverlapX;
+				futurePlayerPos.x -= overlapX;
 				System.out.println("moving right : adjusting X = " + futurePlayerPos.x);
 			}
 			if (velocity.x < 0) {
-				futurePlayerPos.x += totalOverlapX;
+				futurePlayerPos.x += overlapX;
 				System.out.println("moving left : adjusting X = " + futurePlayerPos.x);
 			}
 		} else {
 			if (velocity.y > 0) {
-				futurePlayerPos.y -= totalOverlapY;
+				futurePlayerPos.y -= overlapY;
 				System.out.println("moving up : adjusting Y = " + futurePlayerPos.y);
 			}
 			if (velocity.y < 0) {
-				futurePlayerPos.y += totalOverlapY;
+				futurePlayerPos.y += overlapY;
 				System.out.println("moving down : adjusting Y = " + futurePlayerPos.y);
 			}
 		}
 
-		// Set velocity to zero after collision
-		velocity.setZero();
+		velocity.x = 0;
+
 	}
 
 	public void setBlockingRectangles(Array<TypedRectangle> blockingRectangles) {

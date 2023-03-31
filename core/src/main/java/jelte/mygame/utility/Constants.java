@@ -12,11 +12,11 @@ public class Constants {
 	// PHYSICS
 	public static final float MAX_SPEED = 1000;
 	public static final Vector2 GRAVITY = new Vector2(0, -20);
-	public static final Vector2 JUMP_SPEED = new Vector2(0, 200);
+	public static final Vector2 JUMP_SPEED = new Vector2(0, 400);
 	public static final Vector2 PLAYER_START = new Vector2(50, 1);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
-	public static final float MOVEMENT_SPEED = 20.0f;
+	public static final float MOVEMENT_SPEED = 13.0f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 10.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
