@@ -63,6 +63,7 @@ public class Constants {
 	public static final float MAP_UNIT_SCALE = 1.0f;
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
+	public static final float PIXEL_SIZE = 1.0f;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;

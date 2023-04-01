@@ -2,13 +2,12 @@ package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -33,6 +32,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private MessageListener messageListener;
 	private SpriteBatch batch;
 	private FrameBuffer framebuffer;
+	private ShaderProgram shader;
 	private int frameBufferWidth;
 	private int frameBufferHeight;
 	protected OrthogonalTiledMapRenderer mapRenderer;
@@ -57,21 +57,20 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 		batch = new SpriteBatch();
 
-		// calculate the nearest power of 2 size for the framebuffer
-		// playerDoubleWidth = MathUtils.nextPowerOfTwo(Constants.PLAYER_WIDTH);
-		// playerDoubleHeight = MathUtils.nextPowerOfTwo(Constants.PLAYER_HEIGHT);
-		frameBufferWidth = MathUtils.nextPowerOfTwo(Gdx.app.getGraphics().getWidth());
-		frameBufferHeight = MathUtils.nextPowerOfTwo(Gdx.app.getGraphics().getHeight());
+		shader = new ShaderProgram(Gdx.files.internal("shaders/pixel-art.vert"), Gdx.files.internal("shaders/pixel-art.frag"));
 
-		// create the framebuffer once at startup
-		framebuffer = new FrameBuffer(Pixmap.Format.RGBA8888, frameBufferWidth, frameBufferHeight, false);
+		// Check if the shader compiled successfully
+		if (!shader.isCompiled()) {
+			Gdx.app.error("Shader", shader.getLog());
+			Gdx.app.exit();
+		}
 
 		mapManager = new MapManager(batch);
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
-		animationManager = new AnimationManager();
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
+		animationManager = new AnimationManager();
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
-		gameViewPort = new ExtendViewport(framebuffer.getWidth(), framebuffer.getHeight());
+		gameViewPort = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewPort.getCamera());
 		stage = new Stage(gameViewPort, batch);
 		uiStage = new Stage(new ExtendViewport(Constants.UI_WIDTH, Constants.UI_HEIGHT), batch);
@@ -103,43 +102,33 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		gameViewPort.apply();
 		cameraManager.update(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight(), gameViewPort.getWorldWidth(), gameViewPort.getWorldHeight());
-
 		batch.setProjectionMatrix(cameraManager.getCamera().combined);
+
 		mapManager.renderCurrentMap(cameraManager.getCamera());
-
 		renderPlayer();
-
 		renderUI();
 
 	}
 
 	private void renderPlayer() {
 		if (player != null) {
-			batch.setProjectionMatrix(gameViewPort.getCamera().combined);
-
-			framebuffer.begin();
-			Gdx.gl.glClearColor(0, 0, 0, 1);
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+			batch.setShader(shader);
 
 			batch.begin();
+			// Render sprite
 			Sprite sprite = animationManager.getSprite(player);
-			// sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
-			batch.draw(sprite.getTexture(), 0, 0, 16, 16, 0, 0, 1, 1);
-			batch.end();
+			sprite.setSize(sprite.getWidth() * Constants.PIXEL_SIZE, sprite.getHeight() * Constants.PIXEL_SIZE);
+			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
 
-			framebuffer.end();
-			TextureRegion framebufferRegion = new TextureRegion(framebuffer.getColorBufferTexture());
-			framebufferRegion.flip(false, true);
+			Matrix4 matrix = cameraManager.getCamera().combined.cpy();
+			matrix.scale(1.0f / sprite.getTexture().getWidth(), 1.0f / sprite.getTexture().getHeight(), 1.0f);
+			shader.setUniformMatrix("u_projTrans", matrix);
+			shader.setUniformi("u_texture", 0);
+			shader.setUniformf("u_texSize", sprite.getTexture().getWidth(), sprite.getTexture().getHeight());
+			shader.setUniformf("u_resolution", Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+			shader.setUniformf("u_pixelSize", 10.0f); // set the pixel size here
 
-			float u = framebufferRegion.getU();
-			float v = framebufferRegion.getV();
-
-			framebufferRegion.setRegion(u, v, 1 - u, 1 - v);
-
-			// render the texture region to the screen using linear interpolation
-			batch.setProjectionMatrix(gameViewPort.getCamera().combined);
-			batch.begin();
-			batch.draw(framebufferRegion, player.getPositionVector().x, player.getPositionVector().y, 32, 32);
+			sprite.draw(batch);
 			batch.end();
 		}
 	}
@@ -176,11 +165,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	@Override
 	public void resize(int width, int height) {
-		// Update the framebuffer and viewport dimensions
-		framebuffer.dispose();
-		framebuffer = new FrameBuffer(Pixmap.Format.RGBA8888, width, height, false);
 		gameViewPort.update(width, height, true);
-		batch.setProjectionMatrix(gameViewPort.getCamera().combined);
 	}
 
 	@Override
