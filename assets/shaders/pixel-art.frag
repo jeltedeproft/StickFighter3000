@@ -21,16 +21,16 @@ void main() {
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
             vec2 sampleUV = uv + vec2(float(i), float(j)) * pixelOffset;
-            color += texture2D(u_texture, sampleUV).rgb;
+            color += texture(u_texture, sampleUV).rgb;
         }
     }
     color /= 9.0;
 
     // Edges
     float edgeFactor = 2.5;
-    vec4 texel = texture2D(u_texture, uv);
-    float dx = edgeFactor * (texel.x - texture2D(u_texture, uv + vec2(pixel.x, 0.0)).x);
-    float dy = edgeFactor * (texel.x - texture2D(u_texture, uv + vec2(0.0, pixel.y)).x);
+    vec4 texel = texture(u_texture, uv);
+    float dx = edgeFactor * (texel.x - texture(u_texture, uv + vec2(pixel.x, 0.0)).x);
+    float dy = edgeFactor * (texel.x - texture(u_texture, uv + vec2(0.0, pixel.y)).x);
     float edge = 1.0 - length(vec2(dx, dy));
     color *= edge * edge;
 

@@ -2,12 +2,12 @@ package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -112,24 +112,35 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private void renderPlayer() {
 		if (player != null) {
-			batch.setShader(shader);
+			shader.begin();
 
-			batch.begin();
 			// Render sprite
 			Sprite sprite = animationManager.getSprite(player);
 			sprite.setSize(sprite.getWidth() * Constants.PIXEL_SIZE, sprite.getHeight() * Constants.PIXEL_SIZE);
 			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
+			sprite.setSize(sprite.getWidth() / Constants.PIXEL_SIZE, sprite.getHeight() / Constants.PIXEL_SIZE);
 
-			Matrix4 matrix = cameraManager.getCamera().combined.cpy();
-			matrix.scale(1.0f / sprite.getTexture().getWidth(), 1.0f / sprite.getTexture().getHeight(), 1.0f);
-			shader.setUniformMatrix("u_projTrans", matrix);
+			// Bind texture and set wrap mode
+			Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+			sprite.getTexture().bind();
+			sprite.getTexture().setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
+
+			// Set shader uniforms
 			shader.setUniformi("u_texture", 0);
 			shader.setUniformf("u_texSize", sprite.getTexture().getWidth(), sprite.getTexture().getHeight());
 			shader.setUniformf("u_resolution", Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-			shader.setUniformf("u_pixelSize", 10.0f); // set the pixel size here
+			shader.setUniformf("u_pixelSize", 50.0f); // set the pixel size here
 
+			// Draw sprite with shader
+			batch.setShader(shader);
+			batch.begin();
 			sprite.draw(batch);
 			batch.end();
+
+			// Clean up
+			batch.setShader(null);
+			shader.end();
+
 		}
 	}
 
@@ -173,6 +184,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.dispose();
 		stage.dispose();
 		mapManager.dispose();
+		shader.dispose();
 	}
 
 }
