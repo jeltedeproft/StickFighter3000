@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.math.Vector2;
+
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -44,6 +46,7 @@ public class CharacterStateRunning implements CharacterState {
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
+				characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 				characterStateManager.transition(STATE.STOPRUNNING);
 			}
 			break;
@@ -55,6 +58,7 @@ public class CharacterStateRunning implements CharacterState {
 		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
+				characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 				characterStateManager.transition(STATE.STOPRUNNING);
 			}
 			break;
