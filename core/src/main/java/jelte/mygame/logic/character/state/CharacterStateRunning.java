@@ -23,7 +23,6 @@ public class CharacterStateRunning implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -45,8 +44,8 @@ public class CharacterStateRunning implements CharacterState {
 			break;
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
-				characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 				characterStateManager.transition(STATE.STOPRUNNING);
 			}
 			break;
@@ -57,8 +56,8 @@ public class CharacterStateRunning implements CharacterState {
 			break;
 		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
-				characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 				characterStateManager.transition(STATE.STOPRUNNING);
 			}
 			break;

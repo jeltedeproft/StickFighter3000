@@ -1,6 +1,5 @@
 package jelte.mygame.logic;
 
-import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -24,7 +23,7 @@ public class MovementSystem {
 		velocity.add(Constants.GRAVITY);
 
 		// Limit speed
-		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
+		if (velocity.len2() > (Constants.MAX_SPEED * Constants.MAX_SPEED)) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
@@ -45,6 +44,7 @@ public class MovementSystem {
 
 		for (TypedRectangle obstacle : blockingRectangles) {
 			if (obstacle.overlaps(playerRect)) {
+				obstacle.setCollisionData(playerRect);
 				overlappingObstacles.add(obstacle);
 			}
 		}
@@ -53,99 +53,40 @@ public class MovementSystem {
 	}
 
 	private void handleCollision(Character player, Vector2 futurePlayerPos, Vector2 velocity, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
-		// Calculate total overlap with all obstacles
-		float overlapX = 0;
-		float overlapY = 0;
-
 		overlappingObstacles.sort();
 
-		for (TypedRectangle obstacle : overlappingObstacles) {
-			Rectangle intersection = new Rectangle();
-			Intersector.intersectRectangles(obstacle, playerRect, intersection);
-			overlapX = intersection.width;
-			overlapY = intersection.height;
+		TypedRectangle obstacle = overlappingObstacles.first();
 
-			System.out.println("handling collision " + obstacle.getType());
-			System.out.println("==================");
-			System.out.println("future position = " + futurePlayerPos);
-			System.out.println("overlapX = " + overlapX);
-			System.out.println("overlapY = " + overlapY);
+		System.out.println("handling collision with biggest collider" + obstacle.getName());
+		System.out.println("==================");
+		System.out.println("future position = " + futurePlayerPos);
+		System.out.println("overlapX = " + obstacle.getOverlapX());
+		System.out.println("overlapY = " + obstacle.getOverlapY());
 
-			// Adjust position based on overlap and velocity
-			float absOverlapX = Math.abs(overlapX);
-			float absOverlapY = Math.abs(overlapY);
-
-			switch (obstacle.getType()) {
-			case CEILING:
-				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
-				break;
-			case GROUND:
-				handleCollisionGround(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
-				break;
-			case PLATFORM:
-				if (player.getCurrentCharacterState().getState() != STATE.CROUCHED && player.getCurrentCharacterState().getState() != STATE.JUMPING) {
-					handleCollisionGround(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
-				}
-				break;
-			case WALL:
-				handleCollisionWall(absOverlapX, absOverlapY, futurePlayerPos, velocity, overlapX, overlapY);
-				break;
-			default:
-				break;
-
-			}
+		if (obstacle.isBlocksTop()) {
+			futurePlayerPos.y -= obstacle.getOverlapY();
+			velocity.y = 0;
 		}
 
-	}
-
-	private void handleCollisionGround(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float overlapX, float overlapY) {
-		if (absOverlapX < absOverlapY) {
-			if (velocity.x > 0) {
-				futurePlayerPos.x -= overlapX;
-				System.out.println("moving right : adjusting X = " + futurePlayerPos.x);
-			}
-			if (velocity.x < 0) {
-				futurePlayerPos.x += overlapX;
-				System.out.println("moving left : adjusting X = " + futurePlayerPos.x);
-			}
-		} else {
-			if (velocity.y > 0) {
-				futurePlayerPos.y -= overlapY;
-				System.out.println("moving up : adjusting Y = " + futurePlayerPos.y);
-			}
-			if (velocity.y < 0) {
-				futurePlayerPos.y += overlapY;
-				System.out.println("moving down : adjusting Y = " + futurePlayerPos.y);
-			}
+		if (obstacle.isBlocksBot()) {
+			futurePlayerPos.y += obstacle.getOverlapY();
+			velocity.y = 0;
 		}
 
-		// Set velocity to zero after collision
-		velocity.y = 0;
-
-	}
-
-	private void handleCollisionWall(float absOverlapX, float absOverlapY, Vector2 futurePlayerPos, Vector2 velocity, float overlapX, float overlapY) {
-		if (absOverlapX < absOverlapY) {
-			if (velocity.x > 0) {
-				futurePlayerPos.x -= overlapX;
-				System.out.println("moving right : adjusting X = " + futurePlayerPos.x);
-			}
-			if (velocity.x < 0) {
-				futurePlayerPos.x += overlapX;
-				System.out.println("moving left : adjusting X = " + futurePlayerPos.x);
-			}
-		} else {
-			if (velocity.y > 0) {
-				futurePlayerPos.y -= overlapY;
-				System.out.println("moving up : adjusting Y = " + futurePlayerPos.y);
-			}
-			if (velocity.y < 0) {
-				futurePlayerPos.y += overlapY;
-				System.out.println("moving down : adjusting Y = " + futurePlayerPos.y);
-			}
+		if (obstacle.isBlocksLeft()) {
+			futurePlayerPos.x += obstacle.getOverlapX();
+			velocity.x = 0;
 		}
 
-		velocity.x = 0;
+		if (obstacle.isBlocksRight()) {
+			futurePlayerPos.x -= obstacle.getOverlapX();
+			velocity.x = 0;
+		}
+
+		if (obstacle.isFallTrough() && (player.getCurrentCharacterState().getState() != STATE.CROUCHED)) {
+			futurePlayerPos.y += obstacle.getOverlapY();
+			velocity.y = 0;
+		}
 
 	}
 
