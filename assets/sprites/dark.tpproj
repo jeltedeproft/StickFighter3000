@@ -30,15 +30,17 @@ square=false
 bleed=true
 limitMemory=true
 useIndexes=true
+prettyPrint=false
+legacyOutput=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:characters/archer,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/orby,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/alchemist,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
+inputFiles=[{path:characters/archer,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/orby,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/alchemist,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/shocker,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
 keepInputFileExtensions=false
 
 
 -PROJ-
 
-version=4.10.2
+version=4.11.0
 fileTypeType=png
 fileTypeData={encoding:RGBA8888}
 previewBackgroundColor=ffffffff
