@@ -15,15 +15,12 @@ public class MovementSystem {
 		Vector2 position = player.getPositionVector();
 		Vector2 velocity = player.getMovementVector();
 		Vector2 acceleration = player.getAccelerationVector();
-		System.out.println("");
-		System.out.println("");
-		System.out.println("startposition = " + position);
 
 		velocity.add(acceleration);
 		velocity.add(Constants.GRAVITY);
 
 		// Limit speed
-		if (velocity.len2() > (Constants.MAX_SPEED * Constants.MAX_SPEED)) {
+		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
@@ -57,12 +54,6 @@ public class MovementSystem {
 
 		TypedRectangle obstacle = overlappingObstacles.first();
 
-		System.out.println("handling collision with biggest collider" + obstacle.getName());
-		System.out.println("==================");
-		System.out.println("future position = " + futurePlayerPos);
-		System.out.println("overlapX = " + obstacle.getOverlapX());
-		System.out.println("overlapY = " + obstacle.getOverlapY());
-
 		if (obstacle.isBlocksTop()) {
 			futurePlayerPos.y -= obstacle.getOverlapY();
 			velocity.y = 0;
@@ -83,7 +74,7 @@ public class MovementSystem {
 			velocity.x = 0;
 		}
 
-		if (obstacle.isFallTrough() && (player.getCurrentCharacterState().getState() != STATE.CROUCHED)) {
+		if (obstacle.isFallTrough() && player.getCurrentCharacterState().getState() != STATE.CROUCHED) {
 			futurePlayerPos.y += obstacle.getOverlapY();
 			velocity.y = 0;
 		}

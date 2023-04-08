@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="25" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="21">
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="25" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="26">
  <tileset firstgid="1" name="dark" tilewidth="16" tileheight="16" tilecount="288" columns="18">
   <image source="DARK Edition Tileset No background.png" width="288" height="256"/>
  </tileset>
@@ -27,23 +27,28 @@
   </data>
  </layer>
  <objectgroup id="4" name="blocks">
-  <object id="2" name="WALL" x="0" y="0" width="14.8162" height="384"/>
-  <object id="3" name="CEILING" x="0" y="0" width="400" height="13.8867"/>
-  <object id="4" name="WALL" x="353.113" y="1" width="15.8867" height="254.75"/>
-  <object id="6" name="PLATFORM" x="207.818" y="127.582" width="48.7273" height="3.71875"/>
-  <object id="7" name="GROUND" x="0.101229" y="352.764" width="399.82" height="31.264"/>
-  <object id="8" name="PLATFORM" x="208.245" y="175.619" width="48.7273" height="3.71875"/>
-  <object id="9" name="WALL" x="208.449" y="271.932" width="48.7273" height="47.4063"/>
-  <object id="10" name="CEILING" x="-0.25" y="15.3067" width="238.5" height="30.3867"/>
-  <object id="11" name="WALL" x="369.682" y="0.25" width="30.6367" height="384"/>
-  <object id="12" name="CEILING" x="319.807" y="-0.125" width="32.6367" height="48"/>
-  <object id="13" name="GROUND" x="262.682" y="127.75" width="89.6367" height="51.5"/>
-  <object id="14" name="CEILING" x="317.057" y="240.25" width="35.3867" height="26.5"/>
-  <object id="15" name="WALL" x="15.5566" y="46.75" width="46.6367" height="83.25"/>
-  <object id="16" name="WALL" x="256.432" y="127.375" width="6.3867" height="111.25"/>
-  <object id="17" name="CEILING" x="15.3065" y="178.125" width="184.387" height="60.25"/>
-  <object id="18" name="GROUND" x="14.8065" y="129.25" width="185.387" height="48"/>
-  <object id="19" name="CEILING" x="262.932" y="179.75" width="89.6367" height="59.25"/>
-  <object id="20" name="WALL" x="200.807" y="128.875" width="6.3867" height="111.25"/>
+  <object id="2" name="LEFT" x="0" y="0" width="14.8162" height="384"/>
+  <object id="3" name="TOP" x="-0.0434783" y="-0.0869565" width="400" height="13.8867"/>
+  <object id="4" name="RIGHT" x="352.113" y="-0.130435" width="15.8867" height="254.75"/>
+  <object id="6" name="PLATFORM" x="208.079" y="128.191" width="48.2056" height="3.71875"/>
+  <object id="7" name="BOT" x="0.101229" y="352.068" width="399.82" height="31.264"/>
+  <object id="8" name="PLATFORM" x="208.158" y="176.141" width="47.9447" height="2.89266"/>
+  <object id="9" name="RIGHT" x="208.449" y="276.932" width="12.4773" height="37.4063"/>
+  <object id="10" name="TOP" x="-0.25" y="15.3067" width="238.5" height="30.3867"/>
+  <object id="11" name="RIGHT" x="368.117" y="0.25" width="30.6367" height="384"/>
+  <object id="12" name="TOP" x="319.807" y="-0.125" width="32.6367" height="48"/>
+  <object id="13" name="BOT" x="262.725" y="128.011" width="90.2019" height="51.5"/>
+  <object id="14" name="TOP" x="317.057" y="240.25" width="35.3867" height="26.5"/>
+  <object id="15" name="LEFT" x="16.2957" y="45.2283" width="46.6367" height="83.25"/>
+  <object id="16" name="RIGHT" x="256.432" y="131.965" width="6.3867" height="107.313"/>
+  <object id="17" name="TOP" x="15.3065" y="177.516" width="184.909" height="62.4239"/>
+  <object id="18" name="BOT" x="200.619" y="128.293" width="7.34896" height="3.73777"/>
+  <object id="19" name="TOP" x="262.932" y="179.75" width="89.6367" height="59.25"/>
+  <object id="20" name="LEFT" x="200.459" y="132.079" width="7.51713" height="107.351"/>
+  <object id="21" name="BOT" x="208.761" y="273.297" width="45.4773" height="2.9063"/>
+  <object id="22" name="LEFT" x="246.011" y="273.547" width="8.9773" height="44.1563"/>
+  <object id="23" name="TOP" x="218.511" y="315.047" width="45.4773" height="2.9063"/>
+  <object id="24" name="BOT" x="15.138" y="128.522" width="185.474" height="48.9565"/>
+  <object id="25" name="BOT" x="256.326" y="128.1" width="6.31771" height="3.73777"/>
  </objectgroup>
 </map>

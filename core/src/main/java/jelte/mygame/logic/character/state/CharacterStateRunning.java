@@ -42,6 +42,7 @@ public class CharacterStateRunning implements CharacterState {
 			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
 			break;
+		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
@@ -51,15 +52,7 @@ public class CharacterStateRunning implements CharacterState {
 			break;
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
-			System.out.println("RUNNING : right pressed, acceleration = " + characterStateManager.getCharacter().getAccelerationVector());
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
-			break;
-		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
-			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
-				characterStateManager.transition(STATE.STOPRUNNING);
-			}
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(STATE.CROUCHED);
