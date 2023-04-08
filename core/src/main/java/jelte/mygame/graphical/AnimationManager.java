@@ -43,7 +43,7 @@ public class AnimationManager {
 		usedIds = new ConcurrentLinkedQueue<>();
 		initializeAvailableStates();
 		playmodes.put(STATE.APPEARING, PlayMode.NORMAL);
-		playmodes.put(STATE.ATTACK, PlayMode.NORMAL);
+		playmodes.put(STATE.ATTACKING, PlayMode.NORMAL);
 		playmodes.put(STATE.DIE, PlayMode.NORMAL);
 		playmodes.put(STATE.HURT, PlayMode.NORMAL);
 		playmodes.put(STATE.IDLE, PlayMode.LOOP);
@@ -120,7 +120,7 @@ public class AnimationManager {
 		switch (character.getCurrentCharacterState().getState()) {
 		case APPEARING:
 			return character.getData().getAppearFrameDuration();
-		case ATTACK:
+		case ATTACKING:
 			return character.getData().getAttackFrameDuration();
 		case DIE:
 			return character.getData().getDieFrameDuration();

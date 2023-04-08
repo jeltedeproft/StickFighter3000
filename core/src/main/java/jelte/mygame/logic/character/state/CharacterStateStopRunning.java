@@ -37,7 +37,7 @@ public class CharacterStateStopRunning implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case ATTACK_PRESSED:
-			characterStateManager.transition(STATE.ATTACK);
+			characterStateManager.transition(STATE.ATTACKING);
 			break;
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(STATE.HURT);

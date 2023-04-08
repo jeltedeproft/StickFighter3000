@@ -7,7 +7,7 @@ public class CharacterStateAttack implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
 	private float duration;
-	private STATE state = STATE.ATTACK;
+	private STATE state = STATE.ATTACKING;
 
 	public CharacterStateAttack(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;

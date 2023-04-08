@@ -21,6 +21,7 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 
@@ -40,6 +41,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
 	private Character player;
+	private NpcCharacter enemy;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -51,6 +53,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.WALK1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.JUMP1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.FALL1);
 
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
@@ -114,6 +119,11 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
 			sprite.draw(batch);
 		}
+		if (enemy != null) {
+			Sprite sprite = animationManager.getSprite(enemy);
+			sprite.setPosition(enemy.getPositionVector().x, enemy.getPositionVector().y);
+			sprite.draw(batch);
+		}
 	}
 
 	private void renderUI() {
@@ -136,6 +146,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_PLAYER:
 			player = (Character) message.getValue();
+			break;
+		case RENDER_ENEMY:
+			enemy = (NpcCharacter) message.getValue();
 			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());

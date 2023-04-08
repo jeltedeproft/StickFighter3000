@@ -2,6 +2,9 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -17,8 +20,7 @@ public class CharacterStateRunning implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.WALK1);
 	}
 
 	@Override
@@ -30,7 +32,7 @@ public class CharacterStateRunning implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case ATTACK_PRESSED:
-			characterStateManager.transition(STATE.ATTACK);
+			characterStateManager.transition(STATE.ATTACKING);
 			break;
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(STATE.HURT);
@@ -65,8 +67,7 @@ public class CharacterStateRunning implements CharacterState {
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.WALK1);
 	}
 
 	@Override

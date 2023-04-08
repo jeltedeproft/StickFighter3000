@@ -18,15 +18,15 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Character {
-	private float currentHp;
-	private CharacterData data;
-	private UUID id;
-	private boolean dead;
-	private CharacterStateManager characterStateManager;
-	private Direction currentDirection;
-	private Vector2 movementVector;
-	private Vector2 positionVector;
-	private Vector2 accelerationVector;
+	protected float currentHp;
+	protected CharacterData data;
+	protected UUID id;
+	protected boolean dead;
+	protected CharacterStateManager characterStateManager;
+	protected Direction currentDirection;
+	protected Vector2 movementVector;
+	protected Vector2 positionVector;
+	protected Vector2 accelerationVector;
 
 	public Character(CharacterData data, UUID id) {
 		this.id = id;

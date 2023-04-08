@@ -19,7 +19,7 @@ public class CharacterStateManager {
 	private Character character;
 
 	public enum STATE {
-		ATTACK, DIE, HURT, IDLE, JUMPING, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, DASHING, CLIMBING, IDLECROUCH, HOLDING
+		ATTACKING, DIE, HURT, IDLE, JUMPING, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, DASHING, CLIMBING, IDLECROUCH, HOLDING
 	}
 
 	public enum EVENT {
@@ -58,7 +58,7 @@ public class CharacterStateManager {
 		case APPEARING:
 			currentCharacterState = characterStateAppear;
 			break;
-		case ATTACK:
+		case ATTACKING:
 			currentCharacterState = characterStateAttack;
 			break;
 		case DIE:

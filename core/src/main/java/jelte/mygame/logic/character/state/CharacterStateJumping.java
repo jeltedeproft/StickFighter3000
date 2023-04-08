@@ -2,6 +2,9 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -18,7 +21,7 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void entry() {
 		characterStateManager.getCharacter().getMovementVector().y = Constants.JUMP_SPEED.y;
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.JUMP1);
 	}
 
 	@Override

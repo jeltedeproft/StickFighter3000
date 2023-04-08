@@ -1,0 +1,38 @@
+package jelte.mygame.logic.character;
+
+import jelte.mygame.Message;
+import jelte.mygame.Message.ACTION;
+import jelte.mygame.Message.RECIPIENT;
+import jelte.mygame.logic.Direction;
+
+public class PassiveAiStrategy implements AiStrategy {
+	private NpcCharacter self;
+	private float timeSinceLastCommand = 0f;
+
+	public PassiveAiStrategy(NpcCharacter self) {
+		this.self = self;
+	}
+
+	@Override
+	// go left and right
+	public void update(float delta, Character player) {
+		timeSinceLastCommand += delta;
+		if (timeSinceLastCommand >= 3.0f) {
+			if (self.getCurrentDirection() == Direction.left) {
+				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
+				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
+			}
+			if (self.getCurrentDirection() == Direction.right) {
+				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
+				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
+			}
+			timeSinceLastCommand = 0f;
+		}
+	}
+
+	@Override
+	public void sendMessage(Message message) {
+		self.receiveMessage(message);
+	}
+
+}

@@ -39,7 +39,7 @@ public class MusicManager implements Disposable {
 	}
 
 	public enum AudioEnum {
-		MAIN_THEME;// keep in sync with file
+		MAIN_THEME, WALK1, WALK2, WALK3, WALK4, JUMP1, FALL1;// keep in sync with file
 
 		private static final AudioEnum[] copyOfValues = AudioEnum.values();
 
