@@ -17,12 +17,11 @@ public class PassiveAiStrategy implements AiStrategy {
 	// go left and right
 	public void update(float delta, Character player) {
 		timeSinceLastCommand += delta;
-		if (timeSinceLastCommand >= 3.0f) {
+		if (timeSinceLastCommand >= 2.0f) {
 			if (self.getCurrentDirection() == Direction.left) {
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-			}
-			if (self.getCurrentDirection() == Direction.right) {
+			} else {
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
 			}

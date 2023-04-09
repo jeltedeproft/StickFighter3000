@@ -45,6 +45,9 @@ public class CharacterStateCrouched implements CharacterState {
 		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			break;
+		case NO_COLLISION:
+			characterStateManager.transition(STATE.FALLING);
+			break;
 		default:
 			break;
 

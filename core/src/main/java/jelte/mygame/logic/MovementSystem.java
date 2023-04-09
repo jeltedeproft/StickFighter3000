@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 import jelte.mygame.utility.Constants;
 
@@ -31,6 +32,8 @@ public class MovementSystem {
 
 		if (!overlappingObstacles.isEmpty()) {
 			handleCollision(player, futurePlayerPos, velocity, overlappingObstacles, playerRect);
+		} else {
+			player.getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
 		}
 
 		player.setPositionVector(futurePlayerPos);

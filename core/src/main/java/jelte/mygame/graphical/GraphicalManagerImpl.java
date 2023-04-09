@@ -99,6 +99,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	public void update(float delta) {
 		Gdx.gl.glClearColor(.15f, .15f, .15f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		animationManager.update(delta);
 		gameViewport.apply();
 		cameraManager.update(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight(), gameViewport.getWorldWidth(), gameViewport.getWorldHeight());
 

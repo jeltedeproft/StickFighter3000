@@ -58,6 +58,9 @@ public class CharacterStateIdle implements CharacterState {
 		case DOWN_PRESSED:
 			characterStateManager.transition(STATE.CROUCHED);
 			break;
+		case NO_COLLISION:
+			characterStateManager.transition(STATE.FALLING);
+			break;
 		default:
 			break;
 
