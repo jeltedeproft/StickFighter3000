@@ -42,6 +42,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private AnimationManager animationManager;
 	private Character player;
 	private NpcCharacter enemy;
+	private ProgressBar hp;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -88,7 +89,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		table.setFillParent(true); // Makes the table fill the entire screen
 		table.setPosition(0, 0);
 
-		ProgressBar hp = new ProgressBar(0, 10, 1, false, skin, "hp");
+		hp = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
 		table.add(hp).expand().left().top(); // Positions the button in the center of the table
 
 		uiStage.addActor(table); // Adds the table to the stage
@@ -147,6 +148,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_PLAYER:
 			player = (Character) message.getValue();
+			hp.setValue(player.getCurrentHp());
 			break;
 		case RENDER_ENEMY:
 			enemy = (NpcCharacter) message.getValue();

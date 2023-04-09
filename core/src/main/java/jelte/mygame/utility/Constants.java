@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 public class Constants {
 
 	public static final int MAX_DOWNKEYS = 10;
+	public static final int PLAYER_MAX_HP = 100;
 
 	// PHYSICS
 	public static final float MAX_SPEED = 1000;
@@ -48,6 +49,7 @@ public class Constants {
 	public static final String LEFT = "left";
 	public static final String DOWN = "down";
 	public static final String UP = "up";
+	public static final String ATTACK = "attack";
 	public static final String CAMERA_LEFT_KEY = "cameraLeft";
 	public static final String CAMERA_RIGHT_KEY = "cameraRight";
 	public static final String CAMERA_UP_KEY = "cameraUp";

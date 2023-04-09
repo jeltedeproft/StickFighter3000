@@ -69,6 +69,11 @@ public class KeyBindings {
 		} else {
 			keyBindings.put(Constants.CAMERA_DOWN_KEY, MyKeys.D);
 		}
+		if (map.containsKey(Constants.ATTACK)) {
+			keyBindings.put(Constants.ATTACK, bindingsPreferences.getInteger(Constants.ATTACK));
+		} else {
+			keyBindings.put(Constants.ATTACK, MyKeys.RIGHT_MOUSE);
+		}
 	}
 
 	/**
@@ -302,10 +307,12 @@ public class KeyBindings {
 		 * @return a human readable representation of the keycode. The returned value can be used in {@link Input.Keys#valueOf(String)}
 		 */
 		public static String toString(int keycode) {
-			if (keycode < 0)
+			if (keycode < 0) {
 				throw new IllegalArgumentException("keycode cannot be negative, keycode: " + keycode);
-			if (keycode > MAX_KEYCODE)
+			}
+			if (keycode > MAX_KEYCODE) {
 				throw new IllegalArgumentException("keycode cannot be greater than 255, keycode: " + keycode);
+			}
 			switch (keycode) {
 			// META* variables should not be used with this method.
 			case UNKNOWN:
@@ -660,8 +667,9 @@ public class KeyBindings {
 		 * @return the int keycode
 		 */
 		public static int valueOf(String keyname) {
-			if (keyNames == null)
+			if (keyNames == null) {
 				initializeKeyNames();
+			}
 			return keyNames.get(keyname, -1);
 		}
 
@@ -670,8 +678,9 @@ public class KeyBindings {
 			keyNames = new ObjectIntMap<>();
 			for (int i = 0; i < 256; i++) {
 				String name = toString(i);
-				if (name != null)
+				if (name != null) {
 					keyNames.put(name, i);
+				}
 			}
 		}
 	}
