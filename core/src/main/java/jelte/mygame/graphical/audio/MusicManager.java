@@ -35,11 +35,26 @@ public class MusicManager implements Disposable {
 	private final SoundListener listener;
 
 	public enum AudioCommand {
-		MUSIC_PLAY_ONCE, MUSIC_PLAY_LOOP, MUSIC_STOP, MUSIC_STOP_ALL, SOUND_LOAD, SOUND_PLAY_ONCE, SOUND_PLAY_LOOP, SOUND_PLAY_LOOP_FOR, SOUND_STOP, MUSIC_PAUSE, MUSIC_RESUME, SOUND_PLAY_ONCE_WITH_COOLDOWN, SOUND_PLAY_LOOP_UNIQUE, STOP_ALL, PAUZE_ALL, RESUME_ALL
+		MUSIC_PLAY_ONCE,
+		MUSIC_PLAY_LOOP,
+		MUSIC_STOP,
+		MUSIC_STOP_ALL,
+		SOUND_LOAD,
+		SOUND_PLAY_ONCE,
+		SOUND_PLAY_LOOP,
+		SOUND_PLAY_LOOP_FOR,
+		SOUND_STOP,
+		MUSIC_PAUSE,
+		MUSIC_RESUME,
+		SOUND_PLAY_ONCE_WITH_COOLDOWN,
+		SOUND_PLAY_LOOP_UNIQUE,
+		STOP_ALL,
+		PAUZE_ALL,
+		RESUME_ALL
 	}
 
 	public enum AudioEnum {
-		MAIN_THEME, WALK1, WALK2, WALK3, WALK4, JUMP1, FALL1;// keep in sync with file
+		MAIN_THEME, MAIN2, WALK1, WALK2, WALK3, WALK4, JUMP1, LANDING1, FALL1;// keep in sync with file
 
 		private static final AudioEnum[] copyOfValues = AudioEnum.values();
 
@@ -124,7 +139,7 @@ public class MusicManager implements Disposable {
 			break;
 		case SOUND_PLAY_LOOP_UNIQUE:
 			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
-			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
+			if ((uniqueSounds == null) || uniqueSounds.isEmpty()) {
 				playSound(true, audioData.getAudioFileName(), volume, pos);
 			}
 			break;
@@ -176,7 +191,7 @@ public class MusicManager implements Disposable {
 			break;
 		case SOUND_PLAY_LOOP_UNIQUE:
 			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
-			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
+			if ((uniqueSounds == null) || uniqueSounds.isEmpty()) {
 				playSound(true, audioData.getAudioFileName(), volume);
 			}
 			break;
@@ -196,7 +211,7 @@ public class MusicManager implements Disposable {
 			break;
 		case SOUND_STOP:
 			final Array<BufferedSoundSource> sounds = queuedSounds.get(audioData.getAudioFileName());
-			if (sounds != null && sounds.size > 0) {
+			if ((sounds != null) && (sounds.size > 0)) {
 				sounds.get(0).stop();// TODO removes the first, is this ok? maybe we wanna stop the second
 				sounds.removeIndex(0);
 			}
@@ -224,7 +239,7 @@ public class MusicManager implements Disposable {
 	}
 
 	private boolean offCooldown(AudioEnum event) {
-		return cooldowns.get(event) == null || cooldowns.get(event) <= 0;
+		return (cooldowns.get(event) == null) || (cooldowns.get(event) <= 0);
 	}
 
 	private AudioData getAudioData(AudioEnum event) {

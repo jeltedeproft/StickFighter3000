@@ -56,6 +56,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.WALK1);
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.JUMP1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.LANDING1);
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.FALL1);
 
 		batch = new SpriteBatch();

@@ -2,6 +2,9 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -17,8 +20,7 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.FALL1);
 	}
 
 	@Override
@@ -57,8 +59,7 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.FALL1);
 	}
 
 	@Override

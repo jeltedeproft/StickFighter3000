@@ -53,6 +53,7 @@ public class CharacterStateManager {
 	}
 
 	public void transition(STATE state) {
+		System.out.println("changing from " + currentCharacterState.getState() + " to " + state);
 		currentCharacterState.exit();
 		switch (state) {
 		case APPEARING:
