@@ -72,7 +72,7 @@ public class KeyBindings {
 		if (map.containsKey(Constants.ATTACK)) {
 			keyBindings.put(Constants.ATTACK, bindingsPreferences.getInteger(Constants.ATTACK));
 		} else {
-			keyBindings.put(Constants.ATTACK, MyKeys.RIGHT_MOUSE);
+			keyBindings.put(Constants.ATTACK, MyKeys.LEFT_MOUSE);
 		}
 	}
 

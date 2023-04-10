@@ -56,7 +56,7 @@ public class Character {
 	}
 
 	public void heal(float amount) {
-		if (data.getMaxHP() <= currentHp + amount) {
+		if (data.getMaxHP() <= (currentHp + amount)) {
 			currentHp = data.getMaxHP();
 		} else {
 			currentHp += amount;
@@ -97,6 +97,9 @@ public class Character {
 			break;
 		case UP_PRESSED:
 			characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
 			break;
 		default:
 			break;

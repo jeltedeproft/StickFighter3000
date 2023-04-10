@@ -1,6 +1,7 @@
 package jelte.mygame.input;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -10,6 +11,7 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.input.KeyBindings.MyKeys;
 import jelte.mygame.utility.Constants;
 
 public class InputHandlerImpl implements InputHandler, InputProcessor {
@@ -43,6 +45,20 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 	}
 
 	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		int key = button == Buttons.LEFT	? MyKeys.LEFT_MOUSE
+											: MyKeys.RIGHT_MOUSE;
+		return keyDown(key);
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		int key = button == Buttons.LEFT	? MyKeys.LEFT_MOUSE
+											: MyKeys.RIGHT_MOUSE;
+		return keyUp(key);
+	}
+
+	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
@@ -55,6 +71,9 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		}
 		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_PRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.ATTACK)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ATTACK_PRESSED));
 		}
 		if (keycode == KeyBindings.getBinding(Constants.CAMERA_LEFT_KEY)) {
 			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_LEFT));
@@ -99,18 +118,6 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
 		return false;
 	}

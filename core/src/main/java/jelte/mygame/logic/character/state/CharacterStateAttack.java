@@ -25,6 +25,7 @@ public class CharacterStateAttack implements CharacterState {
 	public void update(float delta) {
 		timer -= delta;
 		if (timer <= 0) {
+			timer = duration;
 			characterStateManager.transition(STATE.IDLE);
 		}
 

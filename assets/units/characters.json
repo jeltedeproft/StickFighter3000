@@ -67,7 +67,7 @@
 		"appearFrameDuration":0.1f,
 		"idleFrameDuration": 0.2f,
 		"runningFrameDuration": 0.2f,
-		"attackFullTime": 1f,
+		"attackFullTime": 3f,
 		"hurtFullTime": 1f,
 		"appearFullTime": 1f,
 		"landingFullTime": 1f,
