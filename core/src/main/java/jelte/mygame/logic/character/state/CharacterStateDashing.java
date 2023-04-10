@@ -1,9 +1,7 @@
 package jelte.mygame.logic.character.state;
 
-import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
-import jelte.mygame.utility.Constants;
 
 public class CharacterStateDashing implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -34,31 +32,6 @@ public class CharacterStateDashing implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case ATTACK_PRESSED:
-			characterStateManager.transition(STATE.ATTACKING);
-			break;
-		case DAMAGE_TAKEN:
-			characterStateManager.transition(STATE.HURT);
-			break;
-		case JUMP_PRESSED:
-			characterStateManager.transition(STATE.JUMPING);
-			break;
-		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
-			characterStateManager.transition(STATE.RUNNING);
-			break;
-		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			break;
-		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
-			characterStateManager.transition(STATE.RUNNING);
-			break;
-		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			break;
 		default:
 			break;
 

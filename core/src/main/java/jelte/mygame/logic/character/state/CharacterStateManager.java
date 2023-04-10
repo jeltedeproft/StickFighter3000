@@ -16,10 +16,26 @@ public class CharacterStateManager {
 	private CharacterState characterStateCrouched;
 	private CharacterState characterStateLanding;
 	private CharacterState characterStateDashing;
+	private CharacterState characterStateCasting;
+	private CharacterState characterStateIdleCrouch;
+	private CharacterState characterStateHolding;
+	private CharacterState characterStateBlocking;
+	private CharacterState characterStateTeleporting;
+	private CharacterState characterStateGrabbing;
+	private CharacterState characterStateRollAttacking;
+	private CharacterState characterStateRolling;
+	private CharacterState characterStateWalking;
+	private CharacterState characterStateSprinting;
+	private CharacterState characterStateWallSliding;
+	private CharacterState characterStateWallSlidingStop;
+	private CharacterState characterStateFallAttacking;
+	private CharacterState characterStateClimbing;
+	private CharacterState characterStateHoldingToSliding;
+	private CharacterState characterStateJumpToFall;
 	private Character character;
 
 	public enum STATE {
-		ATTACKING, DIE, HURT, IDLE, JUMPING, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, DASHING, CLIMBING, IDLECROUCH, HOLDING
+		ATTACKING, DIE, HURT, IDLE, JUMPING, JUMPTOFALL, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, CLIMBING, DASHING, IDLECROUCH, HOLDING, BLOCKING, TELEPORTING, GRABBING, ROLLATTACK, ROLLING, WALKING, SPRINTING, WALLSLIDING, WALLSLIDINGSTOP, FALLATTACKING, HOLDINGTOSLIDING
 	}
 
 	public enum EVENT {
@@ -41,6 +57,23 @@ public class CharacterStateManager {
 		characterStateFalling = new CharacterStateFalling(this);
 		characterStateLanding = new CharacterStateLanding(this, data.getLandingFullTime());
 		characterStateAppear = new CharacterStateAppear(this, data.getAppearFullTime());
+		characterStateDashing = new CharacterStateDashing(this, data.getAppearFullTime());
+		characterStateCasting = new CharacterStateCasting(this, data.getAppearFullTime());
+		characterStateIdleCrouch = new CharacterStateIdleCrouch(this);
+		characterStateHolding = new CharacterStateHolding(this);
+		characterStateBlocking = new CharacterStateBlocking(this);
+		characterStateTeleporting = new CharacterStateTeleporting(this, data.getAppearFullTime());
+		characterStateGrabbing = new CharacterStateGrabbing(this);
+		characterStateRollAttacking = new CharacterStateRollAttacking(this, data.getAppearFullTime());
+		characterStateRolling = new CharacterStateRolling(this);
+		characterStateWalking = new CharacterStateWalking(this);
+		characterStateSprinting = new CharacterStateSprinting(this);
+		characterStateWallSliding = new CharacterStateWallSliding(this);
+		characterStateWallSlidingStop = new CharacterStateWallSlidingStop(this);
+		characterStateFallAttacking = new CharacterStateFallAttacking(this);
+		characterStateClimbing = new CharacterStateClimbing(this);
+		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this);
+		characterStateJumpToFall = new CharacterStateJumpToFall(this);
 		currentCharacterState = characterStateAppear;
 	}
 
@@ -88,6 +121,57 @@ public class CharacterStateManager {
 			break;
 		case FALLING:
 			currentCharacterState = characterStateFalling;
+			break;
+		case BLOCKING:
+			currentCharacterState = characterStateBlocking;
+			break;
+		case CAST:
+			currentCharacterState = characterStateCasting;
+			break;
+		case CLIMBING:
+			currentCharacterState = characterStateClimbing;
+			break;
+		case DASHING:
+			currentCharacterState = characterStateDashing;
+			break;
+		case FALLATTACKING:
+			currentCharacterState = characterStateFallAttacking;
+			break;
+		case GRABBING:
+			currentCharacterState = characterStateGrabbing;
+			break;
+		case HOLDING:
+			currentCharacterState = characterStateHolding;
+			break;
+		case IDLECROUCH:
+			currentCharacterState = characterStateIdleCrouch;
+			break;
+		case ROLLATTACK:
+			currentCharacterState = characterStateRollAttacking;
+			break;
+		case ROLLING:
+			currentCharacterState = characterStateRolling;
+			break;
+		case SPRINTING:
+			currentCharacterState = characterStateSprinting;
+			break;
+		case TELEPORTING:
+			currentCharacterState = characterStateTeleporting;
+			break;
+		case WALKING:
+			currentCharacterState = characterStateWalking;
+			break;
+		case WALLSLIDING:
+			currentCharacterState = characterStateWallSliding;
+			break;
+		case WALLSLIDINGSTOP:
+			currentCharacterState = characterStateWallSlidingStop;
+			break;
+		case HOLDINGTOSLIDING:
+			currentCharacterState = characterStateHoldingToSliding;
+			break;
+		case JUMPTOFALL:
+			currentCharacterState = characterStateJumpToFall;
 			break;
 		default:
 			break;

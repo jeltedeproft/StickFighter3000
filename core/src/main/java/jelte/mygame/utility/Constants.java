@@ -18,8 +18,11 @@ public class Constants {
 	public static final Vector2 ENEMY_START = new Vector2(50, 50);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
+	public static final float WALK_SPEED = 2.0f;
 	public static final float MOVEMENT_SPEED = 3.0f;
-	public static final float MOVEMENT_SPEED_CROUCHED = 10.0f;
+	public static final float SPRINT_SPEED = 4.0f;
+	public static final float DASH_SPEED = 15.0f;
+	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
 	// PATHS

@@ -27,7 +27,6 @@ public class Character {
 	protected Vector2 movementVector;
 	protected Vector2 positionVector;
 	protected Vector2 accelerationVector;
-	private Gun gun;
 
 	public Character(CharacterData data, UUID id) {
 		this.id = id;
@@ -57,7 +56,7 @@ public class Character {
 	}
 
 	public void heal(float amount) {
-		if (data.getMaxHP() <= (currentHp + amount)) {
+		if (data.getMaxHP() <= currentHp + amount) {
 			currentHp = data.getMaxHP();
 		} else {
 			currentHp += amount;

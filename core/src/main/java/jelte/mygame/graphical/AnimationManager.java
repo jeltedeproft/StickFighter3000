@@ -48,16 +48,25 @@ public class AnimationManager {
 		playmodes.put(STATE.HURT, PlayMode.NORMAL);
 		playmodes.put(STATE.IDLE, PlayMode.LOOP);
 		playmodes.put(STATE.JUMPING, PlayMode.NORMAL);
+		playmodes.put(STATE.WALKING, PlayMode.LOOP);
 		playmodes.put(STATE.RUNNING, PlayMode.LOOP);
+		playmodes.put(STATE.SPRINTING, PlayMode.LOOP);
 		playmodes.put(STATE.FALLING, PlayMode.LOOP);
 		playmodes.put(STATE.CAST, PlayMode.NORMAL);
 		playmodes.put(STATE.CROUCHED, PlayMode.NORMAL);
 		playmodes.put(STATE.LANDING, PlayMode.NORMAL);
 		playmodes.put(STATE.STOPRUNNING, PlayMode.NORMAL);
-		playmodes.put(STATE.DASHING, PlayMode.NORMAL);
-		playmodes.put(STATE.CLIMBING, PlayMode.LOOP);
+		playmodes.put(STATE.DASHING, PlayMode.LOOP);
 		playmodes.put(STATE.IDLECROUCH, PlayMode.NORMAL);
 		playmodes.put(STATE.HOLDING, PlayMode.NORMAL);
+		playmodes.put(STATE.BLOCKING, PlayMode.NORMAL);
+		playmodes.put(STATE.TELEPORTING, PlayMode.NORMAL);
+		playmodes.put(STATE.GRABBING, PlayMode.NORMAL);
+		playmodes.put(STATE.ROLLATTACK, PlayMode.NORMAL);
+		playmodes.put(STATE.ROLLING, PlayMode.LOOP);
+		playmodes.put(STATE.WALLSLIDING, PlayMode.LOOP);
+		playmodes.put(STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
+		playmodes.put(STATE.FALLATTACKING, PlayMode.LOOP);
 	}
 
 	public void initializeAvailableStates() {

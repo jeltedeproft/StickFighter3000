@@ -22,7 +22,7 @@ public class LogicManagerImpl implements LogicManager {
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
 		movementSystem = new MovementSystem();
-		player = new Character(CharacterFileReader.getUnitData().get(2), UUID.randomUUID());
+		player = new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID());
 		enemy = new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID());
 	}
 
