@@ -33,7 +33,7 @@ public class LogicManagerImpl implements LogicManager {
 		movementSystem.update(delta, player);
 		movementSystem.update(delta, enemy);
 		player.update(delta);
-		enemy.update(delta, player);
+		// enemy.update(delta, player);
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPositionVector()));
 	}
 

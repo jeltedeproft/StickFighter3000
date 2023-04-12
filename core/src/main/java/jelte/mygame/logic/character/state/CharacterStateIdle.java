@@ -42,7 +42,7 @@ public class CharacterStateIdle implements CharacterState {
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
-			characterStateManager.transition(STATE.RUNNING);
+			characterStateManager.transition(STATE.WALKING);
 			break;
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
@@ -53,7 +53,7 @@ public class CharacterStateIdle implements CharacterState {
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			System.out.println("IDLE : right pressed, acceleration = " + characterStateManager.getCharacter().getAccelerationVector());
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
-			characterStateManager.transition(STATE.RUNNING);
+			characterStateManager.transition(STATE.WALKING);
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(STATE.CROUCHED);

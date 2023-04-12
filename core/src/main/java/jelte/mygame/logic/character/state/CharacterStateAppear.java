@@ -46,7 +46,7 @@ public class CharacterStateAppear implements CharacterState {
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
-			characterStateManager.transition(STATE.RUNNING);
+			characterStateManager.transition(STATE.WALKING);
 			break;
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
@@ -54,7 +54,7 @@ public class CharacterStateAppear implements CharacterState {
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
-			characterStateManager.transition(STATE.RUNNING);
+			characterStateManager.transition(STATE.WALKING);
 			break;
 		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;

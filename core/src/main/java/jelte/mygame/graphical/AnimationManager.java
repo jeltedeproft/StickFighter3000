@@ -101,6 +101,7 @@ public class AnimationManager {
 	}
 
 	public Sprite stringToTexture(String animationName, Character character) {
+		System.out.println("returning : " + animationName);
 		usedIds.add(character.getId());
 		final String previous = animationsPrevious.get(character.getId());
 		// new animation or changed animation, reset frameTime
@@ -140,6 +141,10 @@ public class AnimationManager {
 		case JUMPING:
 			return character.getData().getJumpFrameDuration();
 		case RUNNING:
+			return character.getData().getRunningFrameDuration();
+		case WALKING:
+			return character.getData().getRunningFrameDuration();
+		case SPRINTING:
 			return character.getData().getRunningFrameDuration();
 		default:
 			return Constants.DEFAULT_ANIMATION_SPEED;

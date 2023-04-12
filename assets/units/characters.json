@@ -116,7 +116,7 @@
 		"dieFrameDuration":0.1f,
 		"appearFrameDuration":0.1f,
 		"idleFrameDuration": 0.05f,
-		"runningFrameDuration": 0.05f,
+		"runningFrameDuration": 0.1f,
 		"attackFullTime": 1f,
 		"hurtFullTime": 1f,
 		"appearFullTime": 1f,
