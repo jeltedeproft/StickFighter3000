@@ -44,7 +44,7 @@
 	{
 		"id": 6,
 		"name": "jump1",
-		"audioFileName": "audio/jump8.wav",
+		"audioFileName": "audio/jump9.wav",
 		"volume": 1.0f,
 		"duration": 1.0f,
 	},
@@ -58,7 +58,7 @@
 	{
 		"id": 8,
 		"name": "fall1",
-		"audioFileName": "audio/fall1.wav",
+		"audioFileName": "audio/fall3.wav",
 		"volume": 1.0f,
 		"duration": 1.0f,
 	}
