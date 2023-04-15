@@ -48,6 +48,13 @@ public class LogicManagerImpl implements LogicManager {
 		case RIGHT_UNPRESSED:
 		case UP_PRESSED:
 		case ATTACK_PRESSED:
+		case DASH_PRESSED:
+		case ROLL_PRESSED:
+		case TELEPORT_PRESSED:
+		case SPRINT_PRESSED:
+		case SPRINT_UNPRESSED:
+		case BLOCK_PRESSED:
+		case BLOCK_UNPRESSED:
 			player.receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:

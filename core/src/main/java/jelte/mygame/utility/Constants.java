@@ -14,14 +14,15 @@ public class Constants {
 	public static final float MAX_SPEED = 1000;
 	public static final Vector2 GRAVITY = new Vector2(0, -10);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
-	public static final Vector2 PLAYER_START = new Vector2(50, 50);
+	public static final Vector2 PLAYER_START = new Vector2(100, 50);
 	public static final Vector2 ENEMY_START = new Vector2(50, 50);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
 	public static final float WALK_SPEED = 2.0f;
 	public static final float MOVEMENT_SPEED = 3.0f;
 	public static final float SPRINT_SPEED = 4.0f;
-	public static final float DASH_SPEED = 15.0f;
+	public static final float ROLL_SPEED = 6.0f;
+	public static final float DASH_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
@@ -53,10 +54,11 @@ public class Constants {
 	public static final String DOWN = "down";
 	public static final String UP = "up";
 	public static final String ATTACK = "attack";
-	public static final String CAMERA_LEFT_KEY = "cameraLeft";
-	public static final String CAMERA_RIGHT_KEY = "cameraRight";
-	public static final String CAMERA_UP_KEY = "cameraUp";
-	public static final String CAMERA_DOWN_KEY = "cameraDown";
+	public static final String KEY_SPRINT = "sprint";
+	public static final String KEY_BLOCK = "block";
+	public static final String KEY_DASH = "dash";
+	public static final String KEY_ROLL = "roll";
+	public static final String KEY_TELEPORT = "teleport";
 
 	// TIMES
 	public static final Long DASH_TIME = 1000L;

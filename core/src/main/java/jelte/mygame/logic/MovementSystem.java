@@ -26,7 +26,7 @@ public class MovementSystem {
 		}
 
 		Vector2 futurePlayerPos = position.cpy().add(velocity.cpy().scl(delta));
-		Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
+		Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
 
 		Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
 

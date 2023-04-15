@@ -101,6 +101,27 @@ public class Character {
 		case ATTACK_PRESSED:
 			characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
 			break;
+		case BLOCK_PRESSED:
+			characterStateManager.handleEvent(EVENT.BLOCK_PRESSED);
+			break;
+		case BLOCK_UNPRESSED:
+			characterStateManager.handleEvent(EVENT.BLOCK_UNPRESSED);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.handleEvent(EVENT.DASH_PRESSED);
+			break;
+		case ROLL_PRESSED:
+			characterStateManager.handleEvent(EVENT.ROLL_PRESSED);
+			break;
+		case SPRINT_PRESSED:
+			characterStateManager.handleEvent(EVENT.SPRINT_PRESSED);
+			break;
+		case SPRINT_UNPRESSED:
+			characterStateManager.handleEvent(EVENT.SPRINT_UNPRESSED);
+			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
+			break;
 		default:
 			break;
 

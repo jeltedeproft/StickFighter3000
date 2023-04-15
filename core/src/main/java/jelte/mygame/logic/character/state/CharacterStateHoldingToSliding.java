@@ -5,10 +5,14 @@ import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
 public class CharacterStateHoldingToSliding implements CharacterState {
 	private CharacterStateManager characterStateManager;
+	private float duration;
+	private float timer = 0f;
 	private STATE state = STATE.HOLDINGTOSLIDING;
 
-	public CharacterStateHoldingToSliding(CharacterStateManager characterStateManager) {
+	public CharacterStateHoldingToSliding(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
+		this.duration = duration;
+		timer = duration;
 	}
 
 	@Override
@@ -19,8 +23,11 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
-
+		timer -= delta;
+		if (timer <= 0) {
+			timer = duration;
+			characterStateManager.transition(STATE.WALLSLIDING);
+		}
 	}
 
 	@Override

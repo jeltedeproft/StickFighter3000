@@ -46,15 +46,15 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		int key = button == Buttons.LEFT	? MyKeys.LEFT_MOUSE
-											: MyKeys.RIGHT_MOUSE;
+		int key = button == Buttons.LEFT ? MyKeys.LEFT_MOUSE
+				: MyKeys.RIGHT_MOUSE;
 		return keyDown(key);
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		int key = button == Buttons.LEFT	? MyKeys.LEFT_MOUSE
-											: MyKeys.RIGHT_MOUSE;
+		int key = button == Buttons.LEFT ? MyKeys.LEFT_MOUSE
+				: MyKeys.RIGHT_MOUSE;
 		return keyUp(key);
 	}
 
@@ -75,17 +75,20 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		if (keycode == KeyBindings.getBinding(Constants.ATTACK)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ATTACK_PRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_LEFT_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_LEFT));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_SPRINT)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_PRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_RIGHT_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_RIGHT));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_BLOCK)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_PRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_UP_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_UP));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_DASH)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DASH_PRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_DOWN_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_DOWN));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_ROLL)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ROLL_PRESSED));
+		}
+		if (keycode == KeyBindings.getBinding(Constants.KEY_TELEPORT)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.TELEPORT_PRESSED));
 		}
 		return true;
 	}
@@ -101,17 +104,11 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_UNPRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_LEFT_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_LEFT_UNPRESSED));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_SPRINT)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_UNPRESSED));
 		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_RIGHT_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_RIGHT_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_UP_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_UP_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.CAMERA_DOWN_KEY)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.CAMERA_DOWN_UNPRESSED));
+		if (keycode == KeyBindings.getBinding(Constants.KEY_BLOCK)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_UNPRESSED));
 		}
 		return true;
 	}

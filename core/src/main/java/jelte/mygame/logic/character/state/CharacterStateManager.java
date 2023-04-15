@@ -35,11 +35,56 @@ public class CharacterStateManager {
 	private Character character;
 
 	public enum STATE {
-		ATTACKING, DIE, HURT, IDLE, JUMPING, JUMPTOFALL, FALLING, RUNNING, APPEARING, CAST, CROUCHED, LANDING, STOPRUNNING, CLIMBING, DASHING, IDLECROUCH, HOLDING, BLOCKING, TELEPORTING, GRABBING, ROLLATTACK, ROLLING, WALKING, SPRINTING, WALLSLIDING, WALLSLIDINGSTOP, FALLATTACKING, HOLDINGTOSLIDING
+		ATTACKING,
+		DIE,
+		HURT,
+		IDLE,
+		JUMPING,
+		JUMPTOFALL,
+		FALLING,
+		RUNNING,
+		APPEARING,
+		CAST,
+		CROUCHED,
+		LANDING,
+		STOPRUNNING,
+		CLIMBING,
+		DASHING,
+		IDLECROUCH,
+		HOLDING,
+		BLOCKING,
+		TELEPORTING,
+		GRABBING,
+		ROLLATTACK,
+		ROLLING,
+		WALKING,
+		SPRINTING,
+		WALLSLIDING,
+		WALLSLIDINGSTOP,
+		FALLATTACKING,
+		HOLDINGTOSLIDING;
 	}
 
 	public enum EVENT {
-		DAMAGE_TAKEN, JUMP_PRESSED, ATTACK_PRESSED, DIED, DOWN_PRESSED, DOWN_UNPRESSED, LEFT_PRESSED, LEFT_UNPRESSED, RIGHT_PRESSED, RIGHT_UNPRESSED, JUMP_UNPRESSED, NO_COLLISION
+		DAMAGE_TAKEN,
+		JUMP_PRESSED,
+		ATTACK_PRESSED,
+		DIED,
+		DOWN_PRESSED,
+		DOWN_UNPRESSED,
+		LEFT_PRESSED,
+		LEFT_UNPRESSED,
+		RIGHT_PRESSED,
+		RIGHT_UNPRESSED,
+		JUMP_UNPRESSED,
+		NO_COLLISION,
+		DASH_PRESSED,
+		ROLL_PRESSED,
+		TELEPORT_PRESSED,
+		BLOCK_PRESSED,
+		BLOCK_UNPRESSED,
+		SPRINT_PRESSED,
+		SPRINT_UNPRESSED;
 	}
 
 	public CharacterStateManager(Character character) {
@@ -57,22 +102,21 @@ public class CharacterStateManager {
 		characterStateFalling = new CharacterStateFalling(this);
 		characterStateLanding = new CharacterStateLanding(this, data.getLandingFullTime());
 		characterStateAppear = new CharacterStateAppear(this, data.getAppearFullTime());
-		characterStateDashing = new CharacterStateDashing(this, data.getAppearFullTime());
-		characterStateCasting = new CharacterStateCasting(this, data.getAppearFullTime());
+		characterStateCasting = new CharacterStateCasting(this, data.getDefaultCastFullTime());
 		characterStateIdleCrouch = new CharacterStateIdleCrouch(this);
 		characterStateHolding = new CharacterStateHolding(this);
 		characterStateBlocking = new CharacterStateBlocking(this);
-		characterStateTeleporting = new CharacterStateTeleporting(this, data.getAppearFullTime());
+		characterStateTeleporting = new CharacterStateTeleporting(this, data.getTeleportFullTime());
 		characterStateGrabbing = new CharacterStateGrabbing(this);
-		characterStateRollAttacking = new CharacterStateRollAttacking(this, data.getAppearFullTime());
-		characterStateRolling = new CharacterStateRolling(this);
+		characterStateRollAttacking = new CharacterStateRollAttacking(this, data.getRollAttackFullTime());
+		characterStateRolling = new CharacterStateRolling(this, data.getRollFullTime());
 		characterStateWalking = new CharacterStateWalking(this);
 		characterStateSprinting = new CharacterStateSprinting(this);
 		characterStateWallSliding = new CharacterStateWallSliding(this);
-		characterStateWallSlidingStop = new CharacterStateWallSlidingStop(this);
-		characterStateFallAttacking = new CharacterStateFallAttacking(this);
+		characterStateWallSlidingStop = new CharacterStateWallSlidingStop(this, data.getWallSlidingStopFullTime());
+		characterStateFallAttacking = new CharacterStateFallAttacking(this, data.getFallAttackingFullTime());
 		characterStateClimbing = new CharacterStateClimbing(this);
-		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this);
+		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this, data.getHoldToSlideFullTime());
 		characterStateJumpToFall = new CharacterStateJumpToFall(this);
 		currentCharacterState = characterStateAppear;
 	}

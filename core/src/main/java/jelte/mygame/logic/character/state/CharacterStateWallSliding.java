@@ -20,7 +20,7 @@ public class CharacterStateWallSliding implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.WALK1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SLIDE1);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class CharacterStateWallSliding implements CharacterState {
 
 	@Override
 	public void exit() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.WALK1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_SLIDE1);
 	}
 
 	@Override

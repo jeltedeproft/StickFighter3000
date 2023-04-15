@@ -20,7 +20,7 @@ public class CharacterStateSprinting implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.WALK1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_SPRINTING1);
 	}
 
 	@Override
@@ -62,6 +62,21 @@ public class CharacterStateSprinting implements CharacterState {
 		case NO_COLLISION:
 			characterStateManager.transition(STATE.FALLING);
 			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(STATE.TELEPORTING);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.transition(STATE.DASHING);
+			break;
+		case ROLL_PRESSED:
+			characterStateManager.transition(STATE.ROLLING);
+			break;
+		case BLOCK_PRESSED:
+			characterStateManager.transition(STATE.BLOCKING);
+			break;
+		case SPRINT_UNPRESSED:
+			characterStateManager.transition(STATE.RUNNING);
+			break;
 		default:
 			break;
 
@@ -70,7 +85,7 @@ public class CharacterStateSprinting implements CharacterState {
 
 	@Override
 	public void exit() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.WALK1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_SPRINTING1);
 	}
 
 	@Override

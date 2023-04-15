@@ -51,7 +51,6 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
-			System.out.println("IDLE : right pressed, acceleration = " + characterStateManager.getCharacter().getAccelerationVector());
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
 			characterStateManager.transition(STATE.WALKING);
 			break;
@@ -60,6 +59,18 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 		case NO_COLLISION:
 			characterStateManager.transition(STATE.FALLING);
+			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(STATE.TELEPORTING);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.transition(STATE.DASHING);
+			break;
+		case ROLL_PRESSED:
+			characterStateManager.transition(STATE.ROLLING);
+			break;
+		case BLOCK_PRESSED:
+			characterStateManager.transition(STATE.BLOCKING);
 			break;
 		default:
 			break;

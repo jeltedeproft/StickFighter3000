@@ -54,7 +54,7 @@ public class MusicManager implements Disposable {
 	}
 
 	public enum AudioEnum {
-		MAIN_THEME, MAIN2, WALK1, WALK2, WALK3, WALK4, JUMP1, LANDING1, FALL1;// keep in sync with file
+		MAIN_THEME, MAIN2, SOUND_WALK1, SOUND_WALK2, SOUND_WALK3, SOUND_WALK4, SOUND_JUMP1, SOUND_LANDING1, SOUND_FALL1, SOUND_APPEAR1, SOUND_ATTACK1, SOUND_SHIELD1, SOUND_CLIMB1, SOUND_DASH1, SOUND_DEATH1, SOUND_GRAB1, SOUND_HURT1, SOUND_ROLL1, SOUND_SPRINTING1, SOUND_TELEPORT1, SOUND_SLIDE1;// keep in sync with file
 
 		private static final AudioEnum[] copyOfValues = AudioEnum.values();
 
@@ -78,6 +78,13 @@ public class MusicManager implements Disposable {
 		audio = Audio.init(config);
 		audio.setDefaultAttenuationMaxDistance(5f);
 		listener = audio.getListener();
+
+		// load sounds
+		for (AudioEnum audioEnum : AudioEnum.values()) {
+			if (audioEnum.name().startsWith("SOUND_")) {
+				loadSound(audioEnum);
+			}
+		}
 	}
 
 	public static MusicManager getInstance() {
@@ -139,7 +146,7 @@ public class MusicManager implements Disposable {
 			break;
 		case SOUND_PLAY_LOOP_UNIQUE:
 			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
-			if ((uniqueSounds == null) || uniqueSounds.isEmpty()) {
+			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
 				playSound(true, audioData.getAudioFileName(), volume, pos);
 			}
 			break;
@@ -184,14 +191,14 @@ public class MusicManager implements Disposable {
 			}
 			break;
 		case SOUND_LOAD:
-			AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
+			loadSound(event);
 			break;
 		case SOUND_PLAY_LOOP:
 			playSound(true, audioData.getAudioFileName(), volume);
 			break;
 		case SOUND_PLAY_LOOP_UNIQUE:
 			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
-			if ((uniqueSounds == null) || uniqueSounds.isEmpty()) {
+			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
 				playSound(true, audioData.getAudioFileName(), volume);
 			}
 			break;
@@ -211,7 +218,7 @@ public class MusicManager implements Disposable {
 			break;
 		case SOUND_STOP:
 			final Array<BufferedSoundSource> sounds = queuedSounds.get(audioData.getAudioFileName());
-			if ((sounds != null) && (sounds.size > 0)) {
+			if (sounds != null && sounds.size > 0) {
 				sounds.get(0).stop();// TODO removes the first, is this ok? maybe we wanna stop the second
 				sounds.removeIndex(0);
 			}
@@ -234,12 +241,17 @@ public class MusicManager implements Disposable {
 		}
 	}
 
+	private void loadSound(AudioEnum event) {
+		final AudioData audioData = getAudioData(event);
+		AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
+	}
+
 	private void setCooldown(AudioEnum event, float cooldown) {
 		cooldowns.put(event, cooldown);
 	}
 
 	private boolean offCooldown(AudioEnum event) {
-		return (cooldowns.get(event) == null) || (cooldowns.get(event) <= 0);
+		return cooldowns.get(event) == null || cooldowns.get(event) <= 0;
 	}
 
 	private AudioData getAudioData(AudioEnum event) {

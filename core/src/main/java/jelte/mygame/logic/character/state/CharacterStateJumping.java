@@ -21,13 +21,13 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void entry() {
 		characterStateManager.getCharacter().getMovementVector().y = Constants.JUMP_SPEED.y;
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.JUMP1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP1);
 	}
 
 	@Override
 	public void update(float delta) {
 		if (characterStateManager.getCharacter().getMovementVector().y < 0.1) {
-			characterStateManager.transition(STATE.FALLING);
+			characterStateManager.transition(STATE.JUMPTOFALL);
 		}
 
 	}
@@ -50,6 +50,12 @@ public class CharacterStateJumping implements CharacterState {
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
+			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(STATE.TELEPORTING);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.transition(STATE.DASHING);
 			break;
 		default:
 			break;

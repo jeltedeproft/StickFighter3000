@@ -67,6 +67,7 @@ public class AnimationManager {
 		playmodes.put(STATE.WALLSLIDING, PlayMode.LOOP);
 		playmodes.put(STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
 		playmodes.put(STATE.FALLATTACKING, PlayMode.LOOP);
+		playmodes.put(STATE.JUMPTOFALL, PlayMode.NORMAL);
 	}
 
 	public void initializeAvailableStates() {

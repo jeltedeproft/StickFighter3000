@@ -12,6 +12,7 @@ import jelte.mygame.utility.Constants;
 
 public class CharacterStateJumpToFall implements CharacterState {
 	private CharacterStateManager characterStateManager;
+
 	private STATE state = STATE.JUMPTOFALL;
 
 	public CharacterStateJumpToFall(CharacterStateManager characterStateManager) {
@@ -20,13 +21,13 @@ public class CharacterStateJumpToFall implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.FALL1);
+
 	}
 
 	@Override
 	public void update(float delta) {
-		if (Math.abs(characterStateManager.getCharacter().getMovementVector().y) < 0.1) {
-			characterStateManager.transition(STATE.LANDING);
+		if (characterStateManager.getCharacter().getMovementVector().y * delta < -0.1) {
+			characterStateManager.transition(STATE.FALLING);
 		}
 	}
 
@@ -41,16 +42,13 @@ public class CharacterStateJumpToFall implements CharacterState {
 			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
 			break;
 		case LEFT_UNPRESSED:
+		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 			break;
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
-			break;
-		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 			break;
 		default:
 			break;
@@ -59,7 +57,7 @@ public class CharacterStateJumpToFall implements CharacterState {
 
 	@Override
 	public void exit() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.FALL1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_FALL1);
 	}
 
 	@Override

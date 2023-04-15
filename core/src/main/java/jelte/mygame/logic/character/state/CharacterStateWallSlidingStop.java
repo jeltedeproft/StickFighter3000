@@ -2,9 +2,6 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -12,20 +9,28 @@ import jelte.mygame.utility.Constants;
 
 public class CharacterStateWallSlidingStop implements CharacterState {
 	private CharacterStateManager characterStateManager;
+	private float duration;
+	private float timer = 0f;
 	private STATE state = STATE.WALLSLIDINGSTOP;
 
-	public CharacterStateWallSlidingStop(CharacterStateManager characterStateManager) {
+	public CharacterStateWallSlidingStop(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
+		this.duration = duration;
+		timer = duration;
 	}
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.WALK1);
+
 	}
 
 	@Override
 	public void update(float delta) {
-
+		timer -= delta;
+		if (timer <= 0) {
+			timer = duration;
+			characterStateManager.transition(STATE.HOLDING);
+		}
 	}
 
 	@Override
@@ -70,7 +75,7 @@ public class CharacterStateWallSlidingStop implements CharacterState {
 
 	@Override
 	public void exit() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.WALK1);
+
 	}
 
 	@Override

@@ -24,13 +24,14 @@ public class CharacterStateLanding implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.LANDING1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_LANDING1);
 	}
 
 	@Override
 	public void update(float delta) {
 		timer -= delta;
 		if (timer <= 0) {
+			timer = duration;
 			characterStateManager.transition(STATE.IDLE);
 		}
 	}
@@ -64,6 +65,18 @@ public class CharacterStateLanding implements CharacterState {
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(STATE.CROUCHED);
+			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(STATE.TELEPORTING);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.transition(STATE.DASHING);
+			break;
+		case ROLL_PRESSED:
+			characterStateManager.transition(STATE.ROLLING);
+			break;
+		case BLOCK_PRESSED:
+			characterStateManager.transition(STATE.BLOCKING);
 			break;
 		default:
 			break;

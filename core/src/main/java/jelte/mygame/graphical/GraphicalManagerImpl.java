@@ -54,10 +54,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.WALK1);
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.JUMP1);
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.LANDING1);
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_LOAD, AudioEnum.FALL1);
 
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
@@ -138,12 +134,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
-		case CAMERA_LEFT:
-			cameraManager.moveCamera(-Constants.CAMERA_MOVE_SPEED, 0);
-			break;
-		case CAMERA_RIGHT:
-			cameraManager.moveCamera(Constants.CAMERA_MOVE_SPEED, 0);
-			break;
 		case CAMERA_ZOOM:
 			cameraManager.zoomCamera((float) message.getValue());
 			break;

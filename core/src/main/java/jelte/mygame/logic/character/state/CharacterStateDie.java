@@ -1,5 +1,8 @@
 package jelte.mygame.logic.character.state;
 
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
@@ -13,8 +16,7 @@ public class CharacterStateDie implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH1);
 	}
 
 	@Override

@@ -49,30 +49,35 @@ public class KeyBindings {
 		} else {
 			keyBindings.put(Constants.DOWN, MyKeys.DOWN);
 		}
-		if (map.containsKey(Constants.CAMERA_LEFT_KEY)) {
-			keyBindings.put(Constants.CAMERA_LEFT_KEY, bindingsPreferences.getInteger(Constants.CAMERA_LEFT_KEY));
-		} else {
-			keyBindings.put(Constants.CAMERA_LEFT_KEY, MyKeys.Q);
-		}
-		if (map.containsKey(Constants.CAMERA_RIGHT_KEY)) {
-			keyBindings.put(Constants.CAMERA_RIGHT_KEY, bindingsPreferences.getInteger(Constants.CAMERA_RIGHT_KEY));
-		} else {
-			keyBindings.put(Constants.CAMERA_RIGHT_KEY, MyKeys.D);
-		}
-		if (map.containsKey(Constants.CAMERA_UP_KEY)) {
-			keyBindings.put(Constants.CAMERA_UP_KEY, bindingsPreferences.getInteger(Constants.CAMERA_UP_KEY));
-		} else {
-			keyBindings.put(Constants.CAMERA_UP_KEY, MyKeys.Q);
-		}
-		if (map.containsKey(Constants.CAMERA_DOWN_KEY)) {
-			keyBindings.put(Constants.CAMERA_DOWN_KEY, bindingsPreferences.getInteger(Constants.CAMERA_DOWN_KEY));
-		} else {
-			keyBindings.put(Constants.CAMERA_DOWN_KEY, MyKeys.D);
-		}
 		if (map.containsKey(Constants.ATTACK)) {
 			keyBindings.put(Constants.ATTACK, bindingsPreferences.getInteger(Constants.ATTACK));
 		} else {
 			keyBindings.put(Constants.ATTACK, MyKeys.LEFT_MOUSE);
+		}
+		if (map.containsKey(Constants.KEY_SPRINT)) {
+			keyBindings.put(Constants.KEY_SPRINT, bindingsPreferences.getInteger(Constants.KEY_SPRINT));
+		} else {
+			keyBindings.put(Constants.KEY_SPRINT, MyKeys.SHIFT_LEFT);
+		}
+		if (map.containsKey(Constants.KEY_BLOCK)) {
+			keyBindings.put(Constants.KEY_BLOCK, bindingsPreferences.getInteger(Constants.KEY_BLOCK));
+		} else {
+			keyBindings.put(Constants.KEY_BLOCK, MyKeys.ALT_LEFT);
+		}
+		if (map.containsKey(Constants.KEY_DASH)) {
+			keyBindings.put(Constants.KEY_DASH, bindingsPreferences.getInteger(Constants.KEY_DASH));
+		} else {
+			keyBindings.put(Constants.KEY_DASH, MyKeys.TAB);
+		}
+		if (map.containsKey(Constants.KEY_ROLL)) {
+			keyBindings.put(Constants.KEY_ROLL, bindingsPreferences.getInteger(Constants.KEY_ROLL));
+		} else {
+			keyBindings.put(Constants.KEY_ROLL, MyKeys.R);
+		}
+		if (map.containsKey(Constants.KEY_TELEPORT)) {
+			keyBindings.put(Constants.KEY_TELEPORT, bindingsPreferences.getInteger(Constants.KEY_TELEPORT));
+		} else {
+			keyBindings.put(Constants.KEY_TELEPORT, MyKeys.T);
 		}
 	}
 

@@ -1,5 +1,8 @@
 package jelte.mygame.logic.character.state;
 
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -19,14 +22,14 @@ public class CharacterStateAppear implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_APPEAR1);
 	}
 
 	@Override
 	public void update(float delta) {
 		timer -= delta;
 		if (timer <= 0) {
+			timer = duration;
 			characterStateManager.transition(STATE.IDLE);
 		}
 	}
@@ -58,6 +61,18 @@ public class CharacterStateAppear implements CharacterState {
 			break;
 		case RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			break;
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(STATE.TELEPORTING);
+			break;
+		case DASH_PRESSED:
+			characterStateManager.transition(STATE.DASHING);
+			break;
+		case ROLL_PRESSED:
+			characterStateManager.transition(STATE.ROLLING);
+			break;
+		case BLOCK_PRESSED:
+			characterStateManager.transition(STATE.BLOCKING);
 			break;
 		default:
 			break;
