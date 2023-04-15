@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.math.Vector2;
+
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
@@ -36,6 +38,11 @@ public class CharacterStateCasting implements CharacterState {
 		switch (event) {
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(STATE.HURT);
+			break;
+		case RIGHT_UNPRESSED:
+		case LEFT_UNPRESSED:
+			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
 			break;
 		default:
 			break;

@@ -45,9 +45,6 @@ public class CharacterStateAttack implements CharacterState {
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getAccelerationVector().x = 0;
 			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
-			if (characterStateManager.getCharacter().getMovementVector().epsilonEquals(0, 0)) {
-				characterStateManager.transition(STATE.STOPRUNNING);
-			}
 			break;
 		default:
 			break;

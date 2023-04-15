@@ -98,7 +98,7 @@ public class AnimationManager {
 		if (animationsPossible.get(spriteName).contains(characterState.getState(), false)) {
 			return stringToTexture(spriteName + "-" + characterState.getState().toString() + "1" + "-" + direction.name(), character);
 		}
-		return stringToTexture(spriteName + "-" + STATE.IDLE.toString() + "1" + "-" + Direction.right.name(), character);// TODO randomize the index for which animation should play
+		return stringToTexture(spriteName + "-" + STATE.IDLE.toString() + "1" + "-" + direction.name(), character);// TODO randomize the index for which animation should play
 	}
 
 	public Sprite stringToTexture(String animationName, Character character) {

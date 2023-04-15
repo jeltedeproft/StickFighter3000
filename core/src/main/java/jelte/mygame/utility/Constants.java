@@ -21,7 +21,7 @@ public class Constants {
 	public static final float WALK_SPEED = 2.0f;
 	public static final float MOVEMENT_SPEED = 3.0f;
 	public static final float SPRINT_SPEED = 4.0f;
-	public static final float ROLL_SPEED = 6.0f;
+	public static final float ROLL_SPEED = 90.0f;
 	public static final float DASH_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
