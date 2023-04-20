@@ -18,6 +18,7 @@ public class LogicManagerImpl implements LogicManager {
 	private Character player;
 	private NpcCharacter enemy;
 	private MovementSystem movementSystem;
+	private CollisionSystem collisionSystem;
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
