@@ -1,5 +1,8 @@
 package jelte.mygame.logic;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -12,31 +15,37 @@ import jelte.mygame.utility.Constants;
 public class CollisionSystem {
 	private Array<TypedRectangle> blockingRectangles = new Array<>();
 
-	public void update(float delta, Character player) {
-		Vector2 position = player.getPositionVector();
-		Vector2 velocity = player.getMovementVector();
-		Vector2 acceleration = player.getAccelerationVector();
+	public void updateCollisions(float delta, Map<Character, Vector2> futurePositions, Array<Character> enemies) {
 
-		velocity.add(acceleration);
-		velocity.add(Constants.GRAVITY);
+		updateCollisionsStaticObjects(futurePositions);
+		updateCollisionsDynamicObjects(enemies);
+	}
 
-		// Limit speed
-		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
-			velocity.setLength(Constants.MAX_SPEED);
+	private void updateCollisionsDynamicObjects(Array<Character> enemies) {
+		for (Character enemy : enemies) {
+			if (enemy.get) {
+
+			}
 		}
 
-		Vector2 futurePlayerPos = position.cpy().add(velocity.cpy().scl(delta));
-		Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+	}
 
-		Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
+	private void updateCollisionsStaticObjects(Map<Character, Vector2> futurePositions) {
+		for (Entry<Character, Vector2> characterWithFuturePosition : futurePositions.entrySet()) {
+			Character character = characterWithFuturePosition.getKey();
+			Vector2 futurePlayerPos = characterWithFuturePosition.getValue();
 
-		if (!overlappingObstacles.isEmpty()) {
-			handleCollision(player, futurePlayerPos, velocity, overlappingObstacles, playerRect);
-		} else {
-			player.getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
+			Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+			Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
+
+			if (!overlappingObstacles.isEmpty()) {
+				handleCollision(character, futurePlayerPos, overlappingObstacles, playerRect);
+			} else {
+				character.getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
+			}
+
+			character.setPositionVector(futurePlayerPos);
 		}
-
-		player.setPositionVector(futurePlayerPos);
 	}
 
 	private Array<TypedRectangle> getOverlappingObstacles(Rectangle playerRect) {
@@ -52,34 +61,34 @@ public class CollisionSystem {
 		return overlappingObstacles;
 	}
 
-	private void handleCollision(Character player, Vector2 futurePlayerPos, Vector2 velocity, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
+	private void handleCollision(Character character, Vector2 futurePlayerPos, Array<TypedRectangle> overlappingObstacles, Rectangle playerRect) {
 		overlappingObstacles.sort();
 
 		TypedRectangle obstacle = overlappingObstacles.first();
 
 		if (obstacle.isBlocksTop()) {
 			futurePlayerPos.y -= obstacle.getOverlapY();
-			velocity.y = 0;
+			character.getMovementVector().y = 0;
 		}
 
 		if (obstacle.isBlocksBot()) {
 			futurePlayerPos.y += obstacle.getOverlapY();
-			velocity.y = 0;
+			character.getMovementVector().y = 0;
 		}
 
 		if (obstacle.isBlocksLeft()) {
 			futurePlayerPos.x += obstacle.getOverlapX();
-			velocity.x = 0;
+			character.getMovementVector().y = 0;
 		}
 
 		if (obstacle.isBlocksRight()) {
 			futurePlayerPos.x -= obstacle.getOverlapX();
-			velocity.x = 0;
+			character.getMovementVector().y = 0;
 		}
 
-		if (obstacle.isFallTrough() && player.getCurrentCharacterState().getState() != STATE.CROUCHED) {
+		if (obstacle.isFallTrough() && character.getCurrentCharacterState().getState() != STATE.CROUCHED) {
 			futurePlayerPos.y += obstacle.getOverlapY();
-			velocity.y = 0;
+			character.getMovementVector().y = 0;
 		}
 
 	}

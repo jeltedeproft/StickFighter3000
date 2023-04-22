@@ -1,7 +1,9 @@
 package jelte.mygame.logic;
 
+import java.util.Map;
 import java.util.UUID;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
@@ -17,12 +19,15 @@ public class LogicManagerImpl implements LogicManager {
 	private MessageListener listener;
 	private Character player;
 	private NpcCharacter enemy;
+	private Array<Character> allCharacters;
 	private MovementSystem movementSystem;
 	private CollisionSystem collisionSystem;
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
 		movementSystem = new MovementSystem();
+		collisionSystem = new CollisionSystem();
+		allCharacters = new Array<>();
 		player = new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID());
 		enemy = new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID());
 	}
@@ -31,8 +36,11 @@ public class LogicManagerImpl implements LogicManager {
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, player));
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy));
-		movementSystem.update(delta, player);
-		movementSystem.update(delta, enemy);
+		allCharacters.clear();
+		allCharacters.add(player);
+		allCharacters.add(enemy);
+		Map<Character, Vector2> futurePositions = movementSystem.update(delta, allCharacters);
+		collisionSystem.updateCollisions(delta, futurePositions);
 		player.update(delta);
 		// enemy.update(delta, player);
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPositionVector()));
@@ -59,7 +67,7 @@ public class LogicManagerImpl implements LogicManager {
 			player.receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:
-			movementSystem.setBlockingRectangles((Array<TypedRectangle>) message.getValue());
+			collisionSystem.setBlockingRectangles((Array<TypedRectangle>) message.getValue());
 			break;
 		default:
 			break;
