@@ -40,7 +40,7 @@ public class LogicManagerImpl implements LogicManager {
 		allCharacters.add(player);
 		allCharacters.add(enemy);
 		Map<Character, Vector2> futurePositions = movementSystem.update(delta, allCharacters);
-		collisionSystem.updateCollisions(delta, futurePositions);
+		collisionSystem.updateCollisions(futurePositions, allCharacters);
 		player.update(delta);
 		// enemy.update(delta, player);
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPositionVector()));

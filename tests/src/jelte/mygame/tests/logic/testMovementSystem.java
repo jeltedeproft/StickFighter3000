@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
+import jelte.mygame.logic.CollisionSystem;
 import jelte.mygame.logic.MovementSystem;
 import jelte.mygame.logic.TypedRectangle;
 import jelte.mygame.logic.TypedRectangle.BLOCKING_TYPE;
@@ -23,43 +24,49 @@ import jelte.mygame.utility.Constants;
 @RunWith(GdxTestRunner.class)
 public class testMovementSystem {
 	private MovementSystem movementSystem;
+	private CollisionSystem collisionSystem;
+	private Array<Character> testCharacters;
 	private Character testCharacter;
 	private CharacterData characterData;
 
 	@Before
 	public void prepareMovementSystem() {
 		movementSystem = new MovementSystem();
+		collisionSystem = new CollisionSystem();
 		CharacterFileReader.loadUnitStatsInMemory();
 		characterData = CharacterFileReader.getUnitData().get(2);
+		testCharacters = new Array<>();
 		testCharacter = new Character(characterData, UUID.randomUUID());
 		testCharacter.setPositionVector(new Vector2(0, 0));
+		testCharacters.add(testCharacter);
 	}
 
 	@Test
 	public void testCharacterMoveRightNoBlock() {
 		testCharacter.setMovementVector(new Vector2(10, 0));
-		movementSystem.update(1, testCharacter);
+		movementSystem.update(1, testCharacters);
+		collisionSystem.updateCollisions(null, testCharacters);
 		Assert.assertEquals(new Vector2(10, Constants.GRAVITY.y), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveLeftNoBlock() {
 		testCharacter.setMovementVector(new Vector2(-10, 0));
-		movementSystem.update(1, testCharacter);
+		movementSystem.update(1, testCharacters);
 		Assert.assertEquals(new Vector2(-10, Constants.GRAVITY.y), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveUpNoBlock() {
 		testCharacter.setMovementVector(new Vector2(0, 10));
-		movementSystem.update(1, testCharacter);
+		movementSystem.update(1, testCharacters);
 		Assert.assertEquals(new Vector2(0, Constants.GRAVITY.y + 10), testCharacter.getPositionVector());
 	}
 
 	@Test
 	public void testCharacterMoveDownNoBlock() {
 		testCharacter.setMovementVector(new Vector2(0, -10));
-		movementSystem.update(1, testCharacter);
+		movementSystem.update(1, testCharacters);
 		Assert.assertEquals(new Vector2(0, Constants.GRAVITY.y - 10), testCharacter.getPositionVector());
 	}
 
@@ -68,7 +75,7 @@ public class testMovementSystem {
 		System.out.println("testing right into wall");
 		testCharacter.setMovementVector(new Vector2(90, 0));
 		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(25, -500, 1000, 1000, BLOCKING_TYPE.WALL));
+		blockingObjects.add(new TypedRectangle(25, -500, 1000, 1000, Constants.BLOCK_TYPE_RIGHT));
 		movementSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + testCharacter.getPositionVector());
 		movementSystem.update(0.1f, testCharacter);

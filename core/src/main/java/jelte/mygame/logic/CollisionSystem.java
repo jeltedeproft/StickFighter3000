@@ -15,7 +15,7 @@ import jelte.mygame.utility.Constants;
 public class CollisionSystem {
 	private Array<TypedRectangle> blockingRectangles = new Array<>();
 
-	public void updateCollisions(float delta, Map<Character, Vector2> futurePositions, Array<Character> enemies) {
+	public void updateCollisions(Map<Character, Vector2> futurePositions, Array<Character> enemies) {
 
 		updateCollisionsStaticObjects(futurePositions);
 		updateCollisionsDynamicObjects(enemies);
@@ -23,9 +23,9 @@ public class CollisionSystem {
 
 	private void updateCollisionsDynamicObjects(Array<Character> enemies) {
 		for (Character enemy : enemies) {
-			if (enemy.get) {
-
-			}
+//			if (enemy.get) {
+//
+//			}
 		}
 
 	}
@@ -35,7 +35,7 @@ public class CollisionSystem {
 			Character character = characterWithFuturePosition.getKey();
 			Vector2 futurePlayerPos = characterWithFuturePosition.getValue();
 
-			Rectangle playerRect = new Rectangle(futurePlayerPos.x, futurePlayerPos.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+			Rectangle playerRect = new Rectangle(futurePlayerPos.x - Constants.PLAYER_WIDTH / 2, futurePlayerPos.y - Constants.PLAYER_HEIGHT / 2, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
 			Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(playerRect);
 
 			if (!overlappingObstacles.isEmpty()) {
