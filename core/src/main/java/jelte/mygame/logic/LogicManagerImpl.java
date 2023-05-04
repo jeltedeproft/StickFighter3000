@@ -1,9 +1,7 @@
 package jelte.mygame.logic;
 
-import java.util.Map;
 import java.util.UUID;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
@@ -12,38 +10,38 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
-import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.physics.PhysicsComponent;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
 public class LogicManagerImpl implements LogicManager {
 	private static final String TAG = LogicManagerImpl.class.getSimpleName();
 	private MessageListener listener;
-	private Character player;
-	private NpcCharacter enemy;
-	private Array<Character> allCharacters;
-	private MovementSystem movementSystem;
-	private CollisionSystem collisionSystem;
+	private CollisionSystemImpl collisionSystem;
+	private CharacterManager characterManager;
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
-		movementSystem = new MovementSystem();
-		collisionSystem = new CollisionSystem();
-		allCharacters = new Array<>();
-		player = new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID());
-		enemy = new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID());
+		collisionSystem = new CollisionSystemImpl();
+		characterManager = new CharacterManager(new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
+		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
 	}
 
 	@Override
 	public void update(float delta) {
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, player));
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy));
-		allCharacters.clear();
-		allCharacters.add(player);
-		allCharacters.add(enemy);
-		Map<Character, Vector2> futurePositions = movementSystem.update(delta, allCharacters);
-		collisionSystem.updateCollisions(futurePositions, allCharacters);
-		player.update(delta);
-		// enemy.update(delta, player);
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, player.getPositionVector()));
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
+		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
+		characterManager.update(delta);
+		characterManager.getBodies().forEach(this::checkCollision);
+		collisionSystem.updateCollisions(characterManager.getBodies());
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
+	}
+
+	private void checkCollision(PhysicsComponent body) {
+		if (body.isCollided()) {
+			body.setCollided(false);
+		} else {
+			characterManager.getCharacterById(body.getPlayerReference()).getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
+		}
 	}
 
 	@Override
@@ -64,7 +62,7 @@ public class LogicManagerImpl implements LogicManager {
 		case SPRINT_UNPRESSED:
 		case BLOCK_PRESSED:
 		case BLOCK_UNPRESSED:
-			player.receiveMessage(message);
+			characterManager.getPlayer().receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:
 			collisionSystem.setBlockingRectangles((Array<TypedRectangle>) message.getValue());

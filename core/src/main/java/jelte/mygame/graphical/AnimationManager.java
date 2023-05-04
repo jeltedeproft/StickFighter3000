@@ -93,7 +93,7 @@ public class AnimationManager {
 	public Sprite getSprite(jelte.mygame.logic.character.Character character) {
 		usedIds.add(character.getId());
 		String spriteName = character.getData().getEntitySpriteName();
-		Direction direction = character.getCurrentDirection();
+		Direction direction = character.getPhysicsComponent().getDirection();
 		CharacterState characterState = character.getCurrentCharacterState();
 		if (animationsPossible.get(spriteName).contains(characterState.getState(), false)) {
 			return stringToTexture(spriteName + "-" + characterState.getState().toString() + "1" + "-" + direction.name(), character);

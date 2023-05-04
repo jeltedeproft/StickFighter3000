@@ -25,11 +25,11 @@ public class CharacterStateDashing implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
-		Direction direction = characterStateManager.getCharacter().getCurrentDirection();
+		Direction direction = characterStateManager.getCharacter().getPhysicsComponent().getDirection();
 		if (direction.equals(Direction.right)) {
-			characterStateManager.getCharacter().getPositionVector().add(Constants.DASH_DISTANCE, 0);// TODO make this smooth in update method.
+			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(Constants.DASH_DISTANCE, 0);// TODO make this smooth in update method.
 		} else {
-			characterStateManager.getCharacter().getPositionVector().add(-Constants.DASH_DISTANCE, 0);
+			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(-Constants.DASH_DISTANCE, 0);
 		}
 
 	}
@@ -48,8 +48,8 @@ public class CharacterStateDashing implements CharacterState {
 		switch (event) {
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
 		default:
 			break;

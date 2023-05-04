@@ -41,8 +41,8 @@ public class CharacterStateCasting implements CharacterState {
 			break;
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
 		default:
 			break;

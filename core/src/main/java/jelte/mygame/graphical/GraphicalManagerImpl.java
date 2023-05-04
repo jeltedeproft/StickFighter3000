@@ -115,12 +115,12 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private void renderBodies() {
 		if (player != null) {
 			Sprite sprite = animationManager.getSprite(player);
-			sprite.setPosition(player.getPositionVector().x, player.getPositionVector().y);
+			sprite.setPosition(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
 			Sprite sprite = animationManager.getSprite(enemy);
-			sprite.setPosition(enemy.getPositionVector().x, enemy.getPositionVector().y);
+			sprite.setPosition(enemy.getPhysicsComponent().getPosition().x, enemy.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}
 	}

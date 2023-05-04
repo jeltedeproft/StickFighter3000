@@ -1,15 +1,14 @@
 package jelte.mygame.logic.character;
 
+import java.util.Objects;
 import java.util.UUID;
 
-import com.badlogic.gdx.math.Vector2;
-
 import jelte.mygame.Message;
-import jelte.mygame.logic.Direction;
+import jelte.mygame.logic.character.physics.PhysicsComponent;
+import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,24 +22,19 @@ public class Character {
 	protected UUID id;
 	protected boolean dead;
 	protected CharacterStateManager characterStateManager;
-	protected Direction currentDirection;
-	protected Vector2 movementVector;
-	protected Vector2 positionVector;
-	protected Vector2 accelerationVector;
+	protected PhysicsComponent physicsComponent;
 
 	public Character(CharacterData data, UUID id) {
 		this.id = id;
 		this.data = data;
-		positionVector = Constants.PLAYER_START.cpy();
-		movementVector = new Vector2(0, 0);
-		accelerationVector = new Vector2(0, 0);
 		characterStateManager = new CharacterStateManager(this);
-		currentDirection = Direction.right;
+		physicsComponent = new StandardPhysicsComponent(id);
 		currentHp = data.getMaxHP();
 	}
 
 	public void update(float delta) {
 		characterStateManager.update(delta);
+		physicsComponent.update(delta);
 	}
 
 	public boolean damage(float amount) {
@@ -126,6 +120,23 @@ public class Character {
 			break;
 
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
+		Character other = (Character) obj;
+		return Objects.equals(id, other.id);
 	}
 
 }

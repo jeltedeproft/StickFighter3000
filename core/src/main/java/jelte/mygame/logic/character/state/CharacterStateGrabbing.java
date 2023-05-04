@@ -40,19 +40,19 @@ public class CharacterStateGrabbing implements CharacterState {
 			characterStateManager.transition(STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
+			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			characterStateManager.transition(STATE.RUNNING);
 			break;
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
-			System.out.println("IDLE : right pressed, acceleration = " + characterStateManager.getCharacter().getAccelerationVector());
-			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
+			System.out.println("IDLE : right pressed, acceleration = " + characterStateManager.getCharacter().getPhysicsComponent().getAcceleration());
+			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 			characterStateManager.transition(STATE.RUNNING);
 			break;
 		case DOWN_PRESSED:

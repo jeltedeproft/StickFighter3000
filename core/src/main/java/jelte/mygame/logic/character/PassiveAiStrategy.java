@@ -18,7 +18,7 @@ public class PassiveAiStrategy implements AiStrategy {
 	public void update(float delta, Character player) {
 		timeSinceLastCommand += delta;
 		if (timeSinceLastCommand >= 2.0f) {
-			if (self.getCurrentDirection() == Direction.left) {
+			if (self.getPhysicsComponent().getDirection() == Direction.left) {
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 				sendMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
 			} else {

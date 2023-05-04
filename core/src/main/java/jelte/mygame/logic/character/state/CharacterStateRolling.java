@@ -32,18 +32,18 @@ public class CharacterStateRolling implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			if (Math.abs(characterStateManager.getCharacter().getMovementVector().x) > 0) {
+			if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x) > 0) {
 				characterStateManager.transition(STATE.RUNNING);
 			} else {
 				characterStateManager.transition(STATE.IDLE);
 			}
 
 		}
-		Direction direction = characterStateManager.getCharacter().getCurrentDirection();
+		Direction direction = characterStateManager.getCharacter().getPhysicsComponent().getDirection();
 		if (direction.equals(Direction.right)) {
-			characterStateManager.getCharacter().getPositionVector().add(Constants.ROLL_SPEED * delta, 0);// TODO make this smooth in update method.
+			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(Constants.ROLL_SPEED * delta, 0);// TODO make this smooth in update method.
 		} else {
-			characterStateManager.getCharacter().getPositionVector().add(-Constants.ROLL_SPEED * delta, 0);
+			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(-Constants.ROLL_SPEED * delta, 0);
 		}
 	}
 
@@ -52,16 +52,16 @@ public class CharacterStateRolling implements CharacterState {
 		switch (event) {
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
-			characterStateManager.getCharacter().setMovementVector(new Vector2(0, 0));
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
 //		case RIGHT_PRESSED:TODO find a way to remember that we pressed left or right during roll so that we can move appropriately after finishing the roll
-//			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED;
-//			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
+//			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
+//			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 //			break;
 //		case LEFT_PRESSED:
-//			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED;
-//			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
+//			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
+//			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 //			break;
 		default:
 			break;

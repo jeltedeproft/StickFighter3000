@@ -15,8 +15,7 @@ public class CharacterStateCrouched implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		characterStateManager.getCharacter().getPhysicsComponent().setFallTrough(true);
 	}
 
 	@Override
@@ -32,18 +31,18 @@ public class CharacterStateCrouched implements CharacterState {
 			characterStateManager.transition(STATE.IDLE);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = -Constants.MOVEMENT_SPEED_CROUCHED;
-			characterStateManager.getCharacter().setCurrentDirection(Direction.left);
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED_CROUCHED;
+			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			break;
 		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = Constants.MOVEMENT_SPEED_CROUCHED;
-			characterStateManager.getCharacter().setCurrentDirection(Direction.right);
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED_CROUCHED;
+			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 			break;
 		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getAccelerationVector().x = 0;
+			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			break;
 		case NO_COLLISION:
 			characterStateManager.transition(STATE.FALLING);
@@ -56,8 +55,7 @@ public class CharacterStateCrouched implements CharacterState {
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-
+		characterStateManager.getCharacter().getPhysicsComponent().setFallTrough(false);
 	}
 
 	@Override

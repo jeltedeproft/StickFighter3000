@@ -148,7 +148,7 @@
 		"attackFullTime": 0.6f,
 		"hurtFullTime": 1f,
 		"appearFullTime": 1f,
-		"landingFullTime": 1f,
+		"landingFullTime": 0.2f,
 		"stopRunningFullTime": 1f,
 		"dashingFullTime": 0.3f,
 		"defaultCastFullTime": 1f,

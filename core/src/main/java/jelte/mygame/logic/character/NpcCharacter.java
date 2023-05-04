@@ -9,7 +9,7 @@ public class NpcCharacter extends Character {
 
 	public NpcCharacter(CharacterData data, UUID id) {
 		super(data, id);
-		positionVector = Constants.ENEMY_START.cpy();
+		physicsComponent.setPosition(Constants.ENEMY_START.cpy());
 		aiStrategy = new PassiveAiStrategy(this);
 	}
 
