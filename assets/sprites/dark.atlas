@@ -3496,14 +3496,14 @@ shocker-IDLE1-left
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 3
+  index: 24
 shocker-IDLE1-left
   rotate: false
   xy: 1095, 2
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 24
+  index: 3
 shocker-IDLE1-left
   rotate: false
   xy: 1095, 2
@@ -3636,7 +3636,7 @@ shocker-IDLE1-right
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 1
+  index: 15
 shocker-IDLE1-right
   rotate: false
   xy: 744, 2
@@ -3657,7 +3657,7 @@ shocker-IDLE1-right
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 15
+  index: 1
 shocker-IDLE1-right
   rotate: false
   xy: 822, 2

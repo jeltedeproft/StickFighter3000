@@ -94,7 +94,7 @@ public class TestCollisionSystem {
 		collisionSystem.updateCollisions(testBodies);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
-		Assert.assertEquals(new Vector2(0, Constants.PLAYER_HEIGHT / 2), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(0, 0), mainBody.getPosition());
 	}
 
 	@Test
@@ -110,7 +110,7 @@ public class TestCollisionSystem {
 		collisionSystem.updateCollisions(testBodies);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
-		Assert.assertEquals(new Vector2(27, Constants.PLAYER_HEIGHT / 2), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(27, 0), mainBody.getPosition());
 	}
 
 	@Test
@@ -142,7 +142,7 @@ public class TestCollisionSystem {
 		collisionSystem.updateCollisions(testBodies);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
-		Assert.assertEquals(new Vector2(0, Constants.PLAYER_HEIGHT / 2), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(0, 0), mainBody.getPosition());
 	}
 
 	@Test
@@ -160,7 +160,7 @@ public class TestCollisionSystem {
 		collisionSystem.updateCollisions(testBodies);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
-		Assert.assertEquals(new Vector2(Constants.PLAYER_WIDTH / 2, Constants.PLAYER_HEIGHT / 2), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(Constants.PLAYER_WIDTH / 2, 0), mainBody.getPosition());
 	}
 
 	@After

@@ -19,6 +19,10 @@ public interface PhysicsComponent {
 
 	public void setVelocity(Vector2 velocity);
 
+	public void setVelocityY(float y);
+
+	public void setVelocityX(float x);
+
 	public Vector2 getAcceleration();
 
 	public void setAcceleration(Vector2 acceleration);

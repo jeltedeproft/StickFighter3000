@@ -29,7 +29,7 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		direction = Direction.right;
-		rectangle = new Rectangle(position.x - Constants.PLAYER_WIDTH / 2, position.y - Constants.PLAYER_HEIGHT / 2, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+		rectangle = new Rectangle(position.x - Constants.PLAYER_WIDTH / 2, position.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
 	}
 
 	@Override
@@ -45,10 +45,18 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		setPosition(position.add(velocity.cpy().scl(delta)));
 	}
 
+	public void setVelocityY(float y) {
+		velocity.y = y;
+	}
+
+	public void setVelocityX(float x) {
+		velocity.x = x;
+	}
+
 	@Override
 	public void setPosition(Vector2 pos) {
 		rectangle.x = pos.x - Constants.PLAYER_WIDTH / 2;
-		rectangle.y = pos.y - Constants.PLAYER_HEIGHT / 2;
+		rectangle.y = pos.y;
 		this.position = pos;
 	}
 
