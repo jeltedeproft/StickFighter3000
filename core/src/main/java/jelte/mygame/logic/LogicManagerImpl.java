@@ -10,6 +10,7 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
+import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -23,7 +24,7 @@ public class LogicManagerImpl implements LogicManager {
 		this.listener = listener;
 		collisionSystem = new CollisionSystemImpl();
 		characterManager = new CharacterManager(new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
-		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
+		characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
 	}
 
 	@Override
@@ -32,7 +33,7 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
-		collisionSystem.updateCollisions(characterManager.getBodies());
+		collisionSystem.updateCollisions(characterManager.getAllCharacters());
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}
 

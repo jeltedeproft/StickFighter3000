@@ -4,19 +4,21 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
+import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 
 public class CollisionSystemImpl implements CollisionSystem {
 	private Array<TypedRectangle> blockingRectangles = new Array<>();
 
 	@Override
-	public void updateCollisions(Array<PhysicsComponent> bodies) {
-		updateCollisionsStaticObjects(bodies);
-		updateCollisionsDynamicObjects(bodies);
+	public void updateCollisions(Array<Character> characters) {
+		updateCollisionsStaticObjects(characters);
+		updateCollisionsDynamicObjects(characters);
 	}
 
-	private void updateCollisionsStaticObjects(Array<PhysicsComponent> bodies) {
-		for (PhysicsComponent body : bodies) {
+	private void updateCollisionsStaticObjects(Array<Character> characters) {
+		for (Character character : characters) {
+			PhysicsComponent body = character.getPhysicsComponent();
 			Array<TypedRectangle> overlappingObstacles = getOverlappingObstacles(body.getRectangle());
 			boolean collided = !overlappingObstacles.isEmpty();
 
@@ -74,8 +76,18 @@ public class CollisionSystemImpl implements CollisionSystem {
 		}
 	}
 
-	private void updateCollisionsDynamicObjects(Array<PhysicsComponent> bodies) {
-		// TODO
+	private void updateCollisionsDynamicObjects(Array<Character> characters) {
+		for (int i = 0; i < characters.size; i++) {
+			for (int j = 0; j < characters.size; j++) {
+				if (i != j) {
+					PhysicsComponent mainBody = characters.get(i).getPhysicsComponent();
+					PhysicsComponent otherBody = characters.get(j).getPhysicsComponent();
+					if (mainBody.getRectangle().overlaps(otherBody.getRectangle())) {
+						characters.get(i).damage(0.5f);
+					}
+				}
+			}
+		}
 	}
 
 	@Override

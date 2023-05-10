@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.math.Vector2;
+
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 
@@ -17,8 +19,8 @@ public class CharacterStateHurt implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		characterStateManager.getCharacter().getPhysicsComponent().setAcceleration(new Vector2(0, 0));
 	}
 
 	@Override
@@ -39,6 +41,7 @@ public class CharacterStateHurt implements CharacterState {
 			break;
 		case DIED:
 			characterStateManager.transition(STATE.DIE);
+			break;
 		default:
 			break;
 

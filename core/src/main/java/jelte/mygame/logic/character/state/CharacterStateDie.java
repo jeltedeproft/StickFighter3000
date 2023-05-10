@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.math.Vector2;
+
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
@@ -17,6 +19,8 @@ public class CharacterStateDie implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH1);
+		characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		characterStateManager.getCharacter().getPhysicsComponent().setAcceleration(new Vector2(0, 0));
 	}
 
 	@Override
