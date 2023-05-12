@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.CollisionSystemImpl;
-import jelte.mygame.logic.TypedRectangle;
+import jelte.mygame.logic.StaticBlock;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.tests.util.GdxTestRunner;
@@ -66,8 +66,8 @@ public class TestCollisionSystem {
 	public void mainBodyMoveRightIntoWall() {
 		System.out.println("testing right into wall");
 		mainBody.setVelocity(new Vector2(90, 0));
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(25, -500, 1000, 1000, Constants.BLOCK_TYPE_RIGHT));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(25, -500, 1000, 1000, Constants.BLOCK_TYPE_RIGHT));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + mainBody.getPosition());
 		mainBody.update(0.1f);
@@ -85,8 +85,8 @@ public class TestCollisionSystem {
 	@Test
 	public void mainBodyStandStillOnPlatform() {
 		System.out.println("testing still on platform");
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, Constants.BLOCK_TYPE_PLATFORM));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(0, -100, 1000, 100, Constants.BLOCK_TYPE_PLATFORM));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
@@ -101,8 +101,8 @@ public class TestCollisionSystem {
 	public void mainBodyMoveRightOnPlatform() {
 		System.out.println("testing move right on platform");
 		mainBody.setVelocity(new Vector2(90, 0));
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, Constants.BLOCK_TYPE_PLATFORM));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(0, -100, 1000, 100, Constants.BLOCK_TYPE_PLATFORM));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
@@ -117,8 +117,8 @@ public class TestCollisionSystem {
 	public void mainBodyMoveLeftIntoWall() {
 		System.out.println("testing left into wall");
 		mainBody.setVelocity(new Vector2(-90, 0));
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(-25, -500, 20, 1000, Constants.BLOCK_TYPE_LEFT));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(-25, -500, 20, 1000, Constants.BLOCK_TYPE_LEFT));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		System.out.println("pos = " + mainBody.getPosition());
 		mainBody.update(0.1f);
@@ -133,8 +133,8 @@ public class TestCollisionSystem {
 	@Test
 	public void mainBodyStandStillOnGround() {
 		System.out.println("testing still on ground");
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(0, -100, 1000, 100, Constants.BLOCK_TYPE_BOT));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(0, -100, 1000, 100, Constants.BLOCK_TYPE_BOT));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);
@@ -150,9 +150,9 @@ public class TestCollisionSystem {
 		System.out.println("testing 2 blocking objects collision");
 		mainBody.setPosition(new Vector2(20, 0));
 		mainBody.setVelocity(new Vector2(-90, 0));
-		Array<TypedRectangle> blockingObjects = new Array<>();
-		blockingObjects.add(new TypedRectangle(-10, 0, 10, 100, Constants.BLOCK_TYPE_LEFT));
-		blockingObjects.add(new TypedRectangle(0, -10, 100, 10, Constants.BLOCK_TYPE_BOT));
+		Array<StaticBlock> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlock(-10, 0, 10, 100, Constants.BLOCK_TYPE_LEFT));
+		blockingObjects.add(new StaticBlock(0, -10, 100, 10, Constants.BLOCK_TYPE_BOT));
 		collisionSystem.setBlockingRectangles(blockingObjects);
 		mainBody.update(0.1f);
 		collisionSystem.updateCollisions(testBodies);

@@ -2,6 +2,7 @@ package jelte.mygame.logic;
 
 import java.util.UUID;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
@@ -66,7 +67,10 @@ public class LogicManagerImpl implements LogicManager {
 			characterManager.getPlayer().receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:
-			collisionSystem.setBlockingRectangles((Array<TypedRectangle>) message.getValue());
+			collisionSystem.setBlockingRectangles((Array<StaticBlock>) message.getValue());
+			break;
+		case SEND_MAP_DIMENSIONS:
+			collisionSystem.initSpatialMesh((Vector2) message.getValue());
 			break;
 		default:
 			break;

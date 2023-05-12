@@ -26,6 +26,9 @@ public class Constants {
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
+	// COLLISION
+	public static final int SPATIAL_MESH_CELL_SIZE = 32;
+
 	// PATHS
 	public static final String SPRITES_ATLAS_PATH = "sprites/dark.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";

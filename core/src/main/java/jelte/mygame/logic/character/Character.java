@@ -3,7 +3,10 @@ package jelte.mygame.logic.character;
 import java.util.Objects;
 import java.util.UUID;
 
+import com.badlogic.gdx.math.Rectangle;
+
 import jelte.mygame.Message;
+import jelte.mygame.logic.Collidable;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
@@ -16,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Character {
+public class Character implements Collidable {
 	protected float currentHp;
 	protected CharacterData data;
 	protected UUID id;
@@ -137,6 +140,11 @@ public class Character {
 		}
 		Character other = (Character) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public Rectangle getRectangle() {
+		return physicsComponent.getRectangle();
 	}
 
 }
