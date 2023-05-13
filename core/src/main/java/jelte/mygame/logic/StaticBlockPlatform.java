@@ -21,7 +21,11 @@ public class StaticBlockPlatform extends StaticBlock {
 			pos.y += overlapY;
 			body.getVelocity().y = 0;
 		}
+	}
 
+	@Override
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.STATIC_PLATFORM;
 	}
 
 }

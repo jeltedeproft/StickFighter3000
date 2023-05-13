@@ -44,6 +44,26 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	}
 
 	@Override
+	public Vector2 getOldPosition() {
+		return new Vector2(this.x, this.y);
+	}
+
+	@Override
+	public boolean hasMoved() {
+		return false;
+	}
+
+	@Override
+	public boolean isStatic() {
+		return true;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return false;
+	}
+
+	@Override
 	public int compareTo(StaticBlock o) {
 		float totalOverlapObject = Math.abs(o.getOverlapX()) + Math.abs(o.getOverlapY());
 		Float totalOverlapThis = Math.abs(overlapX) + Math.abs(overlapY);
@@ -63,7 +83,7 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 		if (this == obj) {
 			return true;
 		}
-		if (!super.equals(obj) || (getClass() != obj.getClass())) {
+		if (!super.equals(obj) || getClass() != obj.getClass()) {
 			return false;
 		}
 		StaticBlock other = (StaticBlock) obj;

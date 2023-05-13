@@ -49,4 +49,6 @@ public interface PhysicsComponent {
 
 	public void setDirection(Direction direction);
 
+	public Vector2 getOldPosition();
+
 }

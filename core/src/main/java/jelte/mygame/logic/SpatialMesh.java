@@ -1,7 +1,11 @@
 package jelte.mygame.logic;
 
+import java.awt.Point;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
@@ -9,13 +13,21 @@ import jelte.mygame.utility.Constants;
 
 //creates squares inside the map, goal is to make collision detection more efficient
 public class SpatialMesh {
-	private float numberofCellsX;
-	private float numberofCellsY;
-	private Array<Collidable>[][] spatialMesh;
+	private int numberofCellsX;
+	private int numberofCellsY;
+	private SpatialMeshCell[][] spatialMesh;
+	private Set<Point> cellsWithDynamicCollidables;
 
 	public SpatialMesh(Vector2 mapBoundaries) {
-		numberofCellsX = mapBoundaries.x / Constants.SPATIAL_MESH_CELL_SIZE;
-		numberofCellsY = mapBoundaries.y / Constants.SPATIAL_MESH_CELL_SIZE;
+		cellsWithDynamicCollidables = new HashSet<>();
+		numberofCellsX = (int) Math.ceil(mapBoundaries.x / Constants.SPATIAL_MESH_CELL_SIZE);
+		numberofCellsY = (int) Math.ceil(mapBoundaries.y / Constants.SPATIAL_MESH_CELL_SIZE);
+		spatialMesh = new SpatialMeshCell[numberofCellsX][numberofCellsY];
+		for (int x = 0; x < numberofCellsX; x++) {
+			for (int y = 0; y < numberofCellsY; y++) {
+				spatialMesh[x][y] = new SpatialMeshCell();
+			}
+		}
 	}
 
 	public void initializeCollidables(Array<Collidable> collidables) {
@@ -25,37 +37,93 @@ public class SpatialMesh {
 	}
 
 	public void addCollidable(Collidable collidable) {
-		spatialMesh[getCellX(collidable)][getCellY(collidable)].add(collidable);
+		Rectangle rect = collidable.getRectangle();
+		Set<Point> collidedPoints = getCollidingCells(rect);
+		for (Point point : collidedPoints) {
+			int cellX = getCellX(point.x);
+			int cellY = getCellY(point.y);
+			spatialMesh[cellX][cellY].addCollidable(collidable);
+		}
 	}
 
-	public void removeCollidable(Collidable collidable) {
-		spatialMesh[getCellX(collidable)][getCellY(collidable)].removeValue(collidable, false);
+	public Set<Point> getCollidingCells(Rectangle rect) {
+		Set<Point> collidingCells = new HashSet<>();
+
+		int startCol = (int) Math.floor((double) rect.x / Constants.SPATIAL_MESH_CELL_SIZE);
+		int endCol = (int) Math.ceil((double) (rect.x + rect.width) / Constants.SPATIAL_MESH_CELL_SIZE) - 1;
+		int startRow = (int) Math.floor((double) rect.y / Constants.SPATIAL_MESH_CELL_SIZE);
+		int endRow = (int) Math.ceil((double) (rect.y + rect.height) / Constants.SPATIAL_MESH_CELL_SIZE) - 1;
+
+		for (int row = startRow; row <= endRow; row++) {
+			for (int col = startCol; col <= endCol; col++) {
+				if (row >= 0 && row < numberofCellsY && col >= 0 && col < numberofCellsX) {
+					collidingCells.add(new Point(col, row));
+				}
+			}
+		}
+
+		return collidingCells;
 	}
 
-	public Array<Collidable> getCollidables(int x, int y) {
-		return spatialMesh[getCellX(x)][getCellY(y)];
+	public void removeDynamicCollidable(Collidable collidable) {
+		Rectangle rect = collidable.getRectangle();
+		Set<Point> collidedPoints = getCollidingCells(rect);
+		for (Point point : collidedPoints) {
+			int cellX = getCellX(point.x);
+			int cellY = getCellY(point.y);
+			spatialMesh[cellX][cellY].removeCollidable(collidable);
+			if (!spatialMesh[cellX][cellY].isContainsDynamic()) {
+				cellsWithDynamicCollidables.remove(new Point(cellX, cellY));
+			}
+		}
 	}
 
-	public void updateCollidable(Collidable collidable, Vector2 oldPosition) {
-		final Iterator<Collidable> iterator = getCollidables((int) oldPosition.x, (int) oldPosition.y).iterator();
-		while (iterator.hasNext()) {
-			final Collidable currentCollidable = iterator.next();
-			if (currentCollidable.equals(collidable)) {
-				iterator.remove();
-				break;
+	public Array<Collidable> getDynamicCollidables(int x, int y) {
+		return spatialMesh[getCellX(x)][getCellY(y)].getDynamicCollidables();
+	}
+
+	public Array<Collidable> getStaticCollidables(int x, int y) {
+		return spatialMesh[getCellX(x)][getCellY(y)].getStaticCollidables();
+	}
+
+	public void updateCollidables(Array<Collidable> collidables) {
+		for (Collidable collidable : collidables) {
+			if (collidable.hasMoved()) {
+				updateCollidable(collidable);
+			}
+		}
+	}
+
+	public void updateCollidable(Collidable collidable) {
+		Vector2 oldPosition = collidable.getOldPosition();
+		Rectangle oldRect = new Rectangle(collidable.getRectangle());
+		oldRect.setPosition(oldPosition);
+		Set<Point> collidedPoints = getCollidingCells(oldRect);
+		for (Point point : collidedPoints) {
+			final Iterator<Collidable> iterator = getDynamicCollidables(point.x, point.y).iterator();
+			while (iterator.hasNext()) {
+				final Collidable currentCollidable = iterator.next();
+				if (currentCollidable.equals(collidable)) {
+					removeDynamicCollidable(currentCollidable);
+				}
 			}
 		}
 		addCollidable(collidable);
 	}
 
-	public Array<Array<Collidable>> getAllArraysOf2OrMoreCollidables() {
-		// TODO keep track of cells who have filed arrays so that we only iterate over those, adds some overhead with insert and remove, but this gets called
-		// every frame
-		Array<Array<Collidable>> arrayOfArrayOfCollidables = new Array<>();
+	public Array<CollisionData> getAllPossibleCollisions() {
+		Array<CollisionData> collisionDatas = new Array<>();
 
+		for (Point point : cellsWithDynamicCollidables) {
+			Array<Collidable> dynamicCollidables = spatialMesh[point.x][point.y].getDynamicCollidables();
+			Array<Collidable> staticCollidables = spatialMesh[point.x][point.y].getStaticCollidables();
+			CollisionData collisionData = new CollisionData(dynamicCollidables, staticCollidables);
+			collisionDatas.add(collisionData);
+		}
+		return collisionDatas;
 	}
 
-	public int getCellX(int collidableX) {// TODO check for boundaries
+	public int getCellX(int collidableX) {// TODO check for boundaries = more efficient
 		return collidableX >> (int) (Math.log(Constants.SPATIAL_MESH_CELL_SIZE) / Math.log(2));
 	}
 

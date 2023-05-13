@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.Collidable;
@@ -24,6 +25,7 @@ public class Character implements Collidable {
 	protected CharacterData data;
 	protected UUID id;
 	protected boolean dead;
+	protected boolean hasMoved;
 	protected CharacterStateManager characterStateManager;
 	protected PhysicsComponent physicsComponent;
 
@@ -145,6 +147,31 @@ public class Character implements Collidable {
 	@Override
 	public Rectangle getRectangle() {
 		return physicsComponent.getRectangle();
+	}
+
+	@Override
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.CHARACTER;
+	}
+
+	@Override
+	public Vector2 getOldPosition() {
+		return physicsComponent.getOldPosition();
+	}
+
+	@Override
+	public boolean hasMoved() {
+		return hasMoved;
+	}
+
+	@Override
+	public boolean isStatic() {
+		return false;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 }

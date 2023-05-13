@@ -20,6 +20,7 @@ public class LogicManagerImpl implements LogicManager {
 	private MessageListener listener;
 	private CollisionSystemImpl collisionSystem;
 	private CharacterManager characterManager;
+	private Array<Collidable> blockingObjects;
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
@@ -34,7 +35,8 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
-		collisionSystem.updateCollisions(characterManager.getAllCharacters());
+		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacters());
+		collisionSystem.updateSpatialMesh(collidables);
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}
 
@@ -67,10 +69,13 @@ public class LogicManagerImpl implements LogicManager {
 			characterManager.getPlayer().receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:
-			collisionSystem.setBlockingRectangles((Array<StaticBlock>) message.getValue());
+			blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());
 			break;
 		case SEND_MAP_DIMENSIONS:
 			collisionSystem.initSpatialMesh((Vector2) message.getValue());
+			Array<Collidable> characterCollidables = new Array<>(characterManager.getAllCharacters());
+			collisionSystem.addToSpatialMesh(characterCollidables);
+			collisionSystem.addToSpatialMesh(blockingObjects);
 			break;
 		default:
 			break;

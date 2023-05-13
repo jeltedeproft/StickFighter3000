@@ -21,4 +21,9 @@ public class StaticBlockLeft extends StaticBlock {
 		body.getVelocity().x = 0;
 	}
 
+	@Override
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.STATIC_LEFT;
+	}
+
 }

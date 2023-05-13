@@ -16,6 +16,7 @@ import lombok.Setter;
 public class StandardPhysicsComponent implements PhysicsComponent {
 	private UUID playerReference;
 	private Vector2 position;
+	private Vector2 oldPosition;
 	private Vector2 velocity;
 	private Vector2 acceleration;
 	private Rectangle rectangle;
@@ -26,6 +27,7 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 	public StandardPhysicsComponent(UUID playerReference) {
 		this.playerReference = playerReference;
 		this.position = Constants.PLAYER_START.cpy();
+		this.oldPosition = Constants.PLAYER_START.cpy();
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		direction = Direction.right;
@@ -34,6 +36,8 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 
 	@Override
 	public void update(float delta) {
+		oldPosition.x = position.x;
+		oldPosition.y = position.y;
 		velocity.add(acceleration);
 		velocity.add(Constants.GRAVITY);
 
@@ -45,10 +49,12 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		setPosition(position.add(velocity.cpy().scl(delta)));
 	}
 
+	@Override
 	public void setVelocityY(float y) {
 		velocity.y = y;
 	}
 
+	@Override
 	public void setVelocityX(float x) {
 		velocity.x = x;
 	}
@@ -75,6 +81,11 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		}
 		StandardPhysicsComponent other = (StandardPhysicsComponent) obj;
 		return Objects.equals(playerReference, other.playerReference);
+	}
+
+	@Override
+	public Vector2 getOldPosition() {
+		return oldPosition;
 	}
 
 }
