@@ -63,4 +63,20 @@ public class CharacterManager {
 		getAllCharacters().forEach(character -> character.update(delta));
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("player");
+		sb.append(" --> ");
+		sb.append(player.toString());
+		sb.append("\n");
+		for (Character enemy : enemies) {
+			sb.append("character");
+			sb.append(" --> ");
+			sb.append(enemy.toString());
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+
 }

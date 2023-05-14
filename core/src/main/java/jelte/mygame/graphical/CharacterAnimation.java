@@ -95,4 +95,9 @@ public class CharacterAnimation {
 		return changed;
 	}
 
+	@Override
+	public String toString() {
+		return fullName;
+	}
+
 }

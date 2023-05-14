@@ -1,6 +1,5 @@
 package jelte.mygame.graphical;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import jelte.mygame.logic.character.Character;
@@ -19,7 +18,6 @@ public class AnimationManager {
 
 	public Sprite getSprite(Character character) {
 		String animationName = animationNameManager.getAnimationName(character);
-		Gdx.app.debug(TAG, "animationName = " + animationName);
 		return animationTextureManager.getSprite(animationName, character);
 	}
 

@@ -30,7 +30,7 @@ public class SpatialMesh {
 		}
 	}
 
-	public void initializeCollidables(Array<Collidable> collidables) {
+	public void addCollidables(Array<Collidable> collidables) {
 		for (Collidable collidable : collidables) {
 			addCollidable(collidable);
 		}
@@ -40,9 +40,10 @@ public class SpatialMesh {
 		Rectangle rect = collidable.getRectangle();
 		Set<Point> collidedPoints = getCollidingCells(rect);
 		for (Point point : collidedPoints) {
-			int cellX = getCellX(point.x);
-			int cellY = getCellY(point.y);
-			spatialMesh[cellX][cellY].addCollidable(collidable);
+			spatialMesh[point.x][point.y].addCollidable(collidable);
+			if (collidable.isDynamic()) {
+				cellsWithDynamicCollidables.add(point);
+			}
 		}
 	}
 
@@ -151,6 +152,30 @@ public class SpatialMesh {
 
 	public boolean isYInsideField(int y) {
 		return y < numberofCellsY && y >= 0;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("cells X");
+		sb.append(" --> ");
+		sb.append(numberofCellsX);
+		sb.append("\n");
+		sb.append("cells Y");
+		sb.append(" --> ");
+		sb.append(numberofCellsY);
+		sb.append("\n");
+		for (int i = 0; i < spatialMesh.length; i++) {
+			for (int j = 0; j < spatialMesh[i].length; j++) {
+				sb.append("dynamic(");
+				sb.append(spatialMesh[i][j].getDynamicCollidables().size);
+				sb.append(") static(");
+				sb.append(spatialMesh[i][j].getStaticCollidables().size);
+				sb.append(")\t");
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 }

@@ -16,4 +16,20 @@ public class CollisionData {
 		this.staticCollidables = staticCollidables;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Collidable coll : dynamicCollidables) {
+			sb.append("dynamic : ");
+			sb.append(coll);
+			sb.append("\n");
+		}
+		for (Collidable coll : staticCollidables) {
+			sb.append("static : ");
+			sb.append(coll);
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+
 }

@@ -45,4 +45,9 @@ public class Message {
 	public enum RECIPIENT {
 		LOGIC, GRAPHIC, INPUT
 	}
+
+	@Override
+	public String toString() {
+		return this.action.name() + "for : " + this.recipient;
+	}
 }

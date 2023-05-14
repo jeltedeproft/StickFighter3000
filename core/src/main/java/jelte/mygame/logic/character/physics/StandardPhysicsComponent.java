@@ -88,4 +88,41 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		return oldPosition;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("position");
+		sb.append(" --> ");
+		sb.append(position);
+		sb.append("\n");
+
+		sb.append("oldPosition");
+		sb.append(" --> ");
+		sb.append(oldPosition);
+		sb.append("\n");
+
+		sb.append("velocity");
+		sb.append(" --> ");
+		sb.append(velocity);
+		sb.append("\n");
+
+		sb.append("acceleration");
+		sb.append(" --> ");
+		sb.append(acceleration);
+		sb.append("\n");
+
+		sb.append("direction");
+		sb.append(" --> ");
+		sb.append(direction);
+		sb.append("\n");
+
+		sb.append("collided");
+		sb.append(" --> ");
+		sb.append(collided);
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
 }

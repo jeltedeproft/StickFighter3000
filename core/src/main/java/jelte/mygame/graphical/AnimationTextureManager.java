@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -148,6 +149,18 @@ public class AnimationTextureManager {
 			return Constants.DEFAULT_ANIMATION_SPEED;
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Entry<UUID, String> anim : previous.entrySet()) {
+			sb.append(anim.getKey());
+			sb.append(" --> ");
+			sb.append(anim.getValue());
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 }

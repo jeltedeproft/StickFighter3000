@@ -18,7 +18,7 @@ public class CollisionSystemImpl implements CollisionSystem {
 
 	@Override
 	public void addToSpatialMesh(Array<Collidable> collidables) {
-		spatialMesh.initializeCollidables(collidables);
+		spatialMesh.addCollidables(collidables);
 	}
 
 	@Override

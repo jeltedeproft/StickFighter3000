@@ -174,4 +174,31 @@ public class Character implements Collidable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("\n");
+		sb.append("currentHp");
+		sb.append(" --> ");
+		sb.append(currentHp);
+		sb.append("\n");
+
+		sb.append("id");
+		sb.append(" --> ");
+		sb.append(id);
+		sb.append("\n");
+
+		sb.append("state");
+		sb.append(" --> ");
+		sb.append(characterStateManager.getCurrentCharacterState());
+		sb.append("\n");
+
+		sb.append("position");
+		sb.append(" --> ");
+		sb.append(physicsComponent.getPosition());
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
 }

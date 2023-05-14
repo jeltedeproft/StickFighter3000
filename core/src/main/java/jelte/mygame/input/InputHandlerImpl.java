@@ -143,4 +143,9 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	}
 
+	@Override
+	public String toString() {
+		return downKeys.toString();
+	}
+
 }

@@ -15,8 +15,8 @@ public class CameraManager {
 	}
 
 	public void update(float mapWidth, float mapHeight, float viewportWidth, float viewportHeight) {
-		camera.position.x = MathUtils.clamp(cameraPosition.x, viewportWidth / 2, mapWidth - (viewportWidth / 2));
-		camera.position.y = MathUtils.clamp(cameraPosition.y, viewportHeight / 2, mapHeight - (viewportHeight / 2));
+		camera.position.x = MathUtils.clamp(cameraPosition.x, viewportWidth / 2, mapWidth - viewportWidth / 2);
+		camera.position.y = MathUtils.clamp(cameraPosition.y, viewportHeight / 2, mapHeight - viewportHeight / 2);
 		camera.update();
 	}
 
@@ -36,6 +36,11 @@ public class CameraManager {
 
 	public void updateCameraPos(Vector2 value) {
 		cameraPosition = value;
+	}
+
+	@Override
+	public String toString() {
+		return cameraPosition.toString();
 	}
 
 }

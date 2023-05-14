@@ -44,4 +44,14 @@ public class CharacterStateDie implements CharacterState {
 	public STATE getState() {
 		return state;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("in");
+		sb.append(state.name());
+
+		return sb.toString();
+	}
 }

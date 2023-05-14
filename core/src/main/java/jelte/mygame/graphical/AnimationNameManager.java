@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 
@@ -55,13 +54,8 @@ public class AnimationNameManager {
 
 	public String getAnimationName(Character character) {
 		CharacterAnimation characterAnimation = getCharacterAnimation(character);
-		if (character.getCurrentCharacterState().getState().equals(STATE.STOPRUNNING)) {
-			int j = 5;
-		}
 		STATE state = animationExists(character.getData().getEntitySpriteName(), character.getCurrentCharacterState().getState()) ? character.getCurrentCharacterState().getState() : STATE.IDLE;
-		Gdx.app.debug("nameManager", "state = " + state);
 		characterAnimation.updateData(character.getData().getEntitySpriteName(), 1, character.getPhysicsComponent().getDirection(), state);// TODO randomize the index for which animation should play
-		System.out.println("returning fullname = " + characterAnimation.getFullName());
 		return characterAnimation.getFullName();
 	}
 
@@ -92,6 +86,16 @@ public class AnimationNameManager {
 			possibleAnimationsCharacter.put(characterName, availableStates);
 
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (CharacterAnimation anim : animationNames.values()) {
+			sb.append(anim);
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 }

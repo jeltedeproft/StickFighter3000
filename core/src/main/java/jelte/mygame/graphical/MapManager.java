@@ -95,4 +95,23 @@ public class MapManager implements Disposable {
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("currentMapWidth");
+		sb.append(" --> ");
+		sb.append(currentMapWidth);
+		sb.append("\n");
+		sb.append("currentMapHeight");
+		sb.append(" --> ");
+		sb.append(currentMapHeight);
+		sb.append("\n");
+		sb.append("mapName");
+		sb.append(" --> ");
+		sb.append(Constants.DEFAULT_MAP_PATH);
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
 }

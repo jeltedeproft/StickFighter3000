@@ -34,4 +34,16 @@ public class PassiveAiStrategy implements AiStrategy {
 		self.receiveMessage(message);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("strategy");
+		sb.append(" --> ");
+		sb.append("passive");
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
 }

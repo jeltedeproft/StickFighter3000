@@ -59,4 +59,17 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 		return state;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("in");
+		sb.append(state.name());
+		sb.append("for");
+		sb.append(timer);
+		sb.append("seconds");
+
+		return sb.toString();
+	}
+
 }

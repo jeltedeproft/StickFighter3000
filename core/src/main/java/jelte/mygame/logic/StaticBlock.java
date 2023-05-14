@@ -90,4 +90,26 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("fallTrough = ");
+		sb.append(" --> ");
+		sb.append(fallTrough);
+		sb.append("\n");
+		sb.append("overlapX = ");
+		sb.append(" --> ");
+		sb.append(overlapX);
+		sb.append("\n");
+		sb.append("overlapY = ");
+		sb.append(" --> ");
+		sb.append(overlapY);
+		sb.append("\n");
+		sb.append("name = ");
+		sb.append(" --> ");
+		sb.append(name);
+		sb.append("\n");
+		return sb.toString();
+	}
+
 }

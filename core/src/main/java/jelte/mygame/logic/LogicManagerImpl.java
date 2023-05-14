@@ -37,6 +37,7 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getBodies().forEach(this::checkCollision);
 		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacters());
 		collisionSystem.updateSpatialMesh(collidables);
+		collisionSystem.executeCollisions();
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}
 

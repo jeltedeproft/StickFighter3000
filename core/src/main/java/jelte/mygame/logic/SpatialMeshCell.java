@@ -1,5 +1,6 @@
 package jelte.mygame.logic;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SpatialMeshCell {
+	private static final String TAG = SpatialMeshCell.class.getSimpleName();
 	private Array<Collidable> staticCollidables;
 	private Array<Collidable> dynamicCollidables;
 	private boolean containsStatic;
@@ -27,6 +29,7 @@ public class SpatialMeshCell {
 		}
 
 		if (collidable.isDynamic()) {
+			Gdx.app.debug(TAG, "adding dynamic collidable : )" + collidable);
 			dynamicCollidables.add(collidable);
 			containsDynamic = true;
 		}
@@ -46,5 +49,31 @@ public class SpatialMeshCell {
 				containsDynamic = false;
 			}
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("contains static : ");
+		sb.append(" --> ");
+		sb.append(containsStatic);
+		sb.append("\n");
+		sb.append("contains dynamic : ");
+		sb.append(" --> ");
+		sb.append(containsDynamic);
+		sb.append("\n");
+		for (Collidable coll : staticCollidables) {
+			sb.append("static : ");
+			sb.append(" --> ");
+			sb.append(coll);
+			sb.append("\n");
+		}
+		for (Collidable coll : dynamicCollidables) {
+			sb.append("dynamic : ");
+			sb.append(" --> ");
+			sb.append(coll);
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 }

@@ -233,4 +233,15 @@ public class CharacterStateManager {
 
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("currentCharacterState");
+		sb.append(" --> ");
+		sb.append(currentCharacterState);
+
+		return sb.toString();
+	}
+
 }

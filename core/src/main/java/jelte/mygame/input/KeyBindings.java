@@ -2,6 +2,7 @@ package jelte.mygame.input;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -688,5 +689,17 @@ public class KeyBindings {
 				}
 			}
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Entry<String, Integer> anim : keyBindings.entrySet()) {
+			sb.append(anim.getKey());
+			sb.append(" --> ");
+			sb.append(anim.getValue());
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 }
