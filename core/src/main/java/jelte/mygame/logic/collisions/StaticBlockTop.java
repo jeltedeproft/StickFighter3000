@@ -1,29 +1,29 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 
-public class StaticBlockBot extends StaticBlock {
+public class StaticBlockTop extends StaticBlock {
 
-	public StaticBlockBot(Rectangle rectangle) {
+	public StaticBlockTop(Rectangle rectangle) {
 		super(rectangle);
 	}
 
-	public StaticBlockBot(int x, int y, int width, int height) {
+	public StaticBlockTop(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
 
 	@Override
 	void handleCollision(PhysicsComponent body, Vector2 pos) {
-		pos.y += overlapY;
+		pos.y -= overlapY;
 		body.getVelocity().y = 0;
 	}
 
 	@Override
 	public COLLIDABLE_TYPE getType() {
-		return COLLIDABLE_TYPE.STATIC_BOT;
+		return COLLIDABLE_TYPE.STATIC_TOP;
 	}
 
 }

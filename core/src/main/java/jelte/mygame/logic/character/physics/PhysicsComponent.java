@@ -33,6 +33,8 @@ public interface PhysicsComponent {
 
 	public boolean isCollided();
 
+	public boolean isHasMoved();
+
 	public void setFallTrough(boolean falltrough);
 
 	public void setCollided(boolean b);

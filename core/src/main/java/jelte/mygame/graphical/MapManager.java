@@ -12,12 +12,12 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
-import jelte.mygame.logic.StaticBlock;
-import jelte.mygame.logic.StaticBlockBot;
-import jelte.mygame.logic.StaticBlockLeft;
-import jelte.mygame.logic.StaticBlockPlatform;
-import jelte.mygame.logic.StaticBlockRight;
-import jelte.mygame.logic.StaticBlockTop;
+import jelte.mygame.logic.collisions.StaticBlock;
+import jelte.mygame.logic.collisions.StaticBlockBot;
+import jelte.mygame.logic.collisions.StaticBlockLeft;
+import jelte.mygame.logic.collisions.StaticBlockPlatform;
+import jelte.mygame.logic.collisions.StaticBlockRight;
+import jelte.mygame.logic.collisions.StaticBlockTop;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;

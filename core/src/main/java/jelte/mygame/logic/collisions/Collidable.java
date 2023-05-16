@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import java.util.UUID;
 

@@ -7,10 +7,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.Collidable;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager;
+import jelte.mygame.logic.collisions.Collidable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

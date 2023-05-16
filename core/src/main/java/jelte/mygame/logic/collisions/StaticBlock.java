@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -93,21 +93,18 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("\n");
 		sb.append("fallTrough = ");
-		sb.append(" --> ");
 		sb.append(fallTrough);
 		sb.append("\n");
 		sb.append("overlapX = ");
-		sb.append(" --> ");
 		sb.append(overlapX);
 		sb.append("\n");
 		sb.append("overlapY = ");
-		sb.append(" --> ");
 		sb.append(overlapY);
 		sb.append("\n");
-		sb.append("name = ");
-		sb.append(" --> ");
-		sb.append(name);
+		sb.append("pos = ");
+		sb.append("(" + this.x + "," + this.y + ")");
 		sb.append("\n");
 		return sb.toString();
 	}

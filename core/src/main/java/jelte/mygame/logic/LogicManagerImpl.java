@@ -14,6 +14,9 @@ import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.collisions.Collidable;
+import jelte.mygame.logic.collisions.CollisionSystemImpl;
+import jelte.mygame.logic.collisions.StaticBlock;
 
 public class LogicManagerImpl implements LogicManager {
 	private static final String TAG = LogicManagerImpl.class.getSimpleName();

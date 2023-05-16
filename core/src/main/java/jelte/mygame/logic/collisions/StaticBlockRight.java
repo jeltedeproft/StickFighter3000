@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;

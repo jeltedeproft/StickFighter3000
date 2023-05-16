@@ -7,12 +7,12 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.Collidable;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.collisions.Collidable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,7 +25,6 @@ public class Character implements Collidable {
 	protected CharacterData data;
 	protected UUID id;
 	protected boolean dead;
-	protected boolean hasMoved;
 	protected CharacterStateManager characterStateManager;
 	protected PhysicsComponent physicsComponent;
 
@@ -161,7 +160,7 @@ public class Character implements Collidable {
 
 	@Override
 	public boolean hasMoved() {
-		return hasMoved;
+		return physicsComponent.isHasMoved();
 	}
 
 	@Override
@@ -178,23 +177,19 @@ public class Character implements Collidable {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
-		sb.append("currentHp");
-		sb.append(" --> ");
+		sb.append("currentHp : ");
 		sb.append(currentHp);
 		sb.append("\n");
 
-		sb.append("id");
-		sb.append(" --> ");
+		sb.append("id : ");
 		sb.append(id);
 		sb.append("\n");
 
-		sb.append("state");
-		sb.append(" --> ");
+		sb.append("state : ");
 		sb.append(characterStateManager.getCurrentCharacterState());
 		sb.append("\n");
 
-		sb.append("position");
-		sb.append(" --> ");
+		sb.append("position : ");
 		sb.append(physicsComponent.getPosition());
 		sb.append("\n");
 

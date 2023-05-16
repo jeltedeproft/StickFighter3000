@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
@@ -55,24 +55,20 @@ public class SpatialMeshCell {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("contains static : ");
-		sb.append(" --> ");
 		sb.append(containsStatic);
 		sb.append("\n");
 		sb.append("contains dynamic : ");
-		sb.append(" --> ");
 		sb.append(containsDynamic);
 		sb.append("\n");
 		for (Collidable coll : staticCollidables) {
 			sb.append("static : ");
-			sb.append(" --> ");
-			sb.append(coll);
 			sb.append("\n");
+			sb.append(coll);
 		}
 		for (Collidable coll : dynamicCollidables) {
 			sb.append("dynamic : ");
-			sb.append(" --> ");
-			sb.append(coll);
 			sb.append("\n");
+			sb.append(coll);
 		}
 		return sb.toString();
 	}

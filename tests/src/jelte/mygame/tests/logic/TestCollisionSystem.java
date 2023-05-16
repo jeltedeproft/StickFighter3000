@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.CollisionSystemImpl;
-import jelte.mygame.logic.StaticBlock;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
-import jelte.mygame.tests.util.GdxTestRunner;
+import jelte.mygame.logic.collisions.CollisionSystemImpl;
+import jelte.mygame.logic.collisions.StaticBlock;
+import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 
 @RunWith(GdxTestRunner.class)

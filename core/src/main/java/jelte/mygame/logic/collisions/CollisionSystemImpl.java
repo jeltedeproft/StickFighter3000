@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,9 +8,9 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
+import jelte.mygame.logic.collisions.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.logic.spells.Spell;
 
 public class CollisionSystemImpl implements CollisionSystem {
@@ -34,7 +34,9 @@ public class CollisionSystemImpl implements CollisionSystem {
 			Array<Collidable> staticCollidables = collisionData.getStaticCollidables();
 			if (!dynamicCollidables.isEmpty()) {
 				if (dynamicCollidables.size == 1) {
-					handleStaticCollision(dynamicCollidables.get(0), staticCollidables, doneCollisions);
+					if (!staticCollidables.isEmpty()) {
+						handleStaticCollision(dynamicCollidables.get(0), staticCollidables, doneCollisions);
+					}
 				} else {
 					for (int i = 0; i < dynamicCollidables.size - 1; i++) {
 						for (int j = i + 1; j < dynamicCollidables.size; j++) {

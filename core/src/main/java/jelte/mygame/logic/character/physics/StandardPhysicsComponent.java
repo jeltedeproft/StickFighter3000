@@ -23,6 +23,7 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 	private Direction direction;
 	private boolean fallTrough;
 	private boolean collided;
+	private boolean hasMoved;
 
 	public StandardPhysicsComponent(UUID playerReference) {
 		this.playerReference = playerReference;
@@ -36,6 +37,7 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 
 	@Override
 	public void update(float delta) {
+		hasMoved = false;
 		oldPosition.x = position.x;
 		oldPosition.y = position.y;
 		velocity.add(acceleration);
@@ -47,6 +49,10 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 		}
 
 		setPosition(position.add(velocity.cpy().scl(delta)));
+
+		if (!oldPosition.equals(position)) {
+			hasMoved = true;
+		}
 	}
 
 	@Override

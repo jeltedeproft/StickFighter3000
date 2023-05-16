@@ -1,4 +1,4 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.collisions;
 
 import java.awt.Point;
 import java.util.HashSet;
@@ -10,8 +10,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.utility.Constants;
+import lombok.Getter;
 
 //creates squares inside the map, goal is to make collision detection more efficient
+@Getter
 public class SpatialMesh {
 	private int numberofCellsX;
 	private int numberofCellsY;

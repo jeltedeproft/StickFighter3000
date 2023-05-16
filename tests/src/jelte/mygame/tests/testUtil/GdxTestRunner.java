@@ -14,7 +14,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-package jelte.mygame.tests.util;
+package jelte.mygame.tests.testUtil;
 
 import java.util.HashMap;
 import java.util.Map;

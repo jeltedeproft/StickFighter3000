@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 
 import com.badlogic.gdx.Gdx;
 
-import jelte.mygame.tests.util.GdxTestRunner;
+import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)
 public class AssetExistsExampleTest {
