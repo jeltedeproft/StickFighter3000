@@ -1,7 +1,7 @@
 package jelte.mygame.logic.collisions;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Array;
+import java.util.HashSet;
+import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,14 +10,14 @@ import lombok.Setter;
 @Setter
 public class SpatialMeshCell {
 	private static final String TAG = SpatialMeshCell.class.getSimpleName();
-	private Array<Collidable> staticCollidables;
-	private Array<Collidable> dynamicCollidables;
+	private Set<Collidable> staticCollidables;
+	private Set<Collidable> dynamicCollidables;
 	private boolean containsStatic;
 	private boolean containsDynamic;
 
 	public SpatialMeshCell() {
-		staticCollidables = new Array<>();
-		dynamicCollidables = new Array<>();
+		staticCollidables = new HashSet<>();
+		dynamicCollidables = new HashSet<>();
 		containsStatic = false;
 		containsDynamic = false;
 	}
@@ -29,22 +29,26 @@ public class SpatialMeshCell {
 		}
 
 		if (collidable.isDynamic()) {
-			Gdx.app.debug(TAG, "adding dynamic collidable : )" + collidable);
 			dynamicCollidables.add(collidable);
 			containsDynamic = true;
 		}
 	}
 
+	public void removeAll() {
+		staticCollidables.clear();
+		dynamicCollidables.clear();
+	}
+
 	public void removeCollidable(Collidable collidable) {
 		if (collidable.isStatic()) {
-			staticCollidables.removeValue(collidable, false);
+			staticCollidables.remove(collidable);
 			if (staticCollidables.isEmpty()) {
 				containsStatic = false;
 			}
 		}
 
 		if (collidable.isDynamic()) {
-			dynamicCollidables.removeValue(collidable, false);
+			dynamicCollidables.remove(collidable);
 			if (dynamicCollidables.isEmpty()) {
 				containsDynamic = false;
 			}

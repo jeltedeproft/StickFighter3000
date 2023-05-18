@@ -2,6 +2,7 @@ package jelte.mygame.logic.collisions;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
@@ -17,6 +18,16 @@ public class CollisionSystemImpl implements CollisionSystem {
 	private SpatialMesh spatialMesh;
 
 	@Override
+	public void addToSpatialMesh(Collidable collidable) {// TODO shouldnt know about spatialMesh, just executreCollisions and check inside spatialmesh if new characters needto be added or updated
+		spatialMesh.addCollidable(collidable);
+	}
+
+	@Override
+	public void updateSpatialMesh(Collidable collidable) {
+		spatialMesh.updateCollidable(collidable);
+	}
+
+	@Override
 	public void addToSpatialMesh(Array<Collidable> collidables) {
 		spatialMesh.addCollidables(collidables);
 	}
@@ -30,18 +41,22 @@ public class CollisionSystemImpl implements CollisionSystem {
 	public void executeCollisions() {
 		Map<UUID, UUID> doneCollisions = new HashMap<>();
 		for (CollisionData collisionData : spatialMesh.getAllPossibleCollisions()) {
-			Array<Collidable> dynamicCollidables = collisionData.getDynamicCollidables();
-			Array<Collidable> staticCollidables = collisionData.getStaticCollidables();
+			Set<Collidable> dynamicCollidables = collisionData.getDynamicCollidables();
+			Set<Collidable> staticCollidables = collisionData.getStaticCollidables();
 			if (!dynamicCollidables.isEmpty()) {
-				if (dynamicCollidables.size == 1) {
+				if (dynamicCollidables.size() == 1) {
 					if (!staticCollidables.isEmpty()) {
-						handleStaticCollision(dynamicCollidables.get(0), staticCollidables, doneCollisions);
+						for (Collidable dynamicCollidable : dynamicCollidables) {
+							handleStaticCollision(dynamicCollidable, staticCollidables, doneCollisions);
+						}
+
 					}
 				} else {
-					for (int i = 0; i < dynamicCollidables.size - 1; i++) {
-						for (int j = i + 1; j < dynamicCollidables.size; j++) {
-							Collidable currentDynamicCollidable = dynamicCollidables.get(i);
-							Collidable nextDynamicCollidable = dynamicCollidables.get(j);
+					Array<Collidable> dynamicCollidablesArray = new Array<>(dynamicCollidables.toArray(new Collidable[0]));
+					for (int i = 0; i < dynamicCollidablesArray.size - 1; i++) {
+						for (int j = i + 1; j < dynamicCollidablesArray.size; j++) {
+							Collidable currentDynamicCollidable = dynamicCollidablesArray.get(i);
+							Collidable nextDynamicCollidable = dynamicCollidablesArray.get(j);
 							if (doneCollisions.containsKey(currentDynamicCollidable.getId()) && doneCollisions.containsValue(nextDynamicCollidable.getId()) || doneCollisions.containsKey(nextDynamicCollidable.getId()) && doneCollisions.containsValue(currentDynamicCollidable.getId())) {
 								continue;
 							}
@@ -49,15 +64,15 @@ public class CollisionSystemImpl implements CollisionSystem {
 							handleStaticCollision(currentDynamicCollidable, staticCollidables, doneCollisions);
 						}
 					}
-					handleStaticCollision(dynamicCollidables.get(dynamicCollidables.size - 1), staticCollidables, doneCollisions);// dont forget the last one
+					handleStaticCollision(dynamicCollidablesArray.get(dynamicCollidablesArray.size - 1), staticCollidables, doneCollisions);// dont forget the last one
 				}
 			}
 		}
 	}
 
-	private void handleStaticCollision(Collidable collidable, Array<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
+	private void handleStaticCollision(Collidable collidable, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
 		if (collidable.getType().equals(COLLIDABLE_TYPE.CHARACTER)) {
-			handleStaticCollisionCharacter((Character) collidable, staticColliders, doneCollisions);
+			handleStaticCollisionCharacter((PhysicsComponent) collidable, staticColliders, doneCollisions);
 		}
 
 		if (collidable.getType().equals(COLLIDABLE_TYPE.SPELL)) {
@@ -65,25 +80,22 @@ public class CollisionSystemImpl implements CollisionSystem {
 		}
 	}
 
-	private void handleStaticCollisionSpell(Spell collidable, Array<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
+	private void handleStaticCollisionSpell(Spell collidable, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
 		// TODO Auto-generated method stub
 	}
 
-	private void handleStaticCollisionCharacter(Character character, Array<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
-		PhysicsComponent body = character.getPhysicsComponent();
+	private void handleStaticCollisionCharacter(PhysicsComponent body, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
 		Array<StaticBlock> overlappingObstacles = getOverlappingObstacles(body.getRectangle(), staticColliders);
 		boolean collided = !overlappingObstacles.isEmpty();
 
 		if (collided) {
 			System.out.println("collision");
 			body.setCollided(true);
-			Vector2 pos = body.getPosition();
-			handleCollision(body, pos, overlappingObstacles, doneCollisions);
-			body.setPosition(pos);
+			handleCollision(body, body.getPosition(), overlappingObstacles, doneCollisions);
 		}
 	}
 
-	private Array<StaticBlock> getOverlappingObstacles(Rectangle playerRect, Array<Collidable> staticColliders) {
+	private Array<StaticBlock> getOverlappingObstacles(Rectangle playerRect, Set<Collidable> staticColliders) {
 		Array<StaticBlock> overlappingObstacles = new Array<>();
 
 		for (Collidable obstacle : staticColliders) {
@@ -149,6 +161,11 @@ public class CollisionSystemImpl implements CollisionSystem {
 
 	public void initSpatialMesh(Vector2 mapBoundaries) {
 		spatialMesh = new SpatialMesh(mapBoundaries);
+	}
+
+	@Override
+	public void reset() {
+		spatialMesh.removeAllCollidables();
 	}
 
 }

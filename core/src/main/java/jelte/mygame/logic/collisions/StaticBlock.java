@@ -93,18 +93,20 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append("pos = ");
+		sb.append("(" + this.x + "," + this.y + ")");
 		sb.append("\n");
-		sb.append("fallTrough = ");
-		sb.append(fallTrough);
+		sb.append("width = ");
+		sb.append(width);
+		sb.append("\n");
+		sb.append("height = ");
+		sb.append(height);
 		sb.append("\n");
 		sb.append("overlapX = ");
 		sb.append(overlapX);
 		sb.append("\n");
 		sb.append("overlapY = ");
 		sb.append(overlapY);
-		sb.append("\n");
-		sb.append("pos = ");
-		sb.append("(" + this.x + "," + this.y + ")");
 		sb.append("\n");
 		return sb.toString();
 	}

@@ -3,7 +3,6 @@ package jelte.mygame.logic.character;
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
-import jelte.mygame.logic.Direction;
 
 public class PassiveAiStrategy implements AiStrategy {
 	private NpcCharacter self;

@@ -3,16 +3,13 @@ package jelte.mygame.logic.character;
 import java.util.Objects;
 import java.util.UUID;
 
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.collisions.Collidable;
+import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,7 +17,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Character implements Collidable {
+public class Character {
 	protected float currentHp;
 	protected CharacterData data;
 	protected UUID id;
@@ -32,7 +29,7 @@ public class Character implements Collidable {
 		this.id = id;
 		this.data = data;
 		characterStateManager = new CharacterStateManager(this);
-		physicsComponent = new StandardPhysicsComponent(id);
+		physicsComponent = new StandardPhysicsComponent(id, Constants.PLAYER_START.cpy());
 		currentHp = data.getMaxHP();
 	}
 
@@ -144,36 +141,6 @@ public class Character implements Collidable {
 	}
 
 	@Override
-	public Rectangle getRectangle() {
-		return physicsComponent.getRectangle();
-	}
-
-	@Override
-	public COLLIDABLE_TYPE getType() {
-		return COLLIDABLE_TYPE.CHARACTER;
-	}
-
-	@Override
-	public Vector2 getOldPosition() {
-		return physicsComponent.getOldPosition();
-	}
-
-	@Override
-	public boolean hasMoved() {
-		return physicsComponent.isHasMoved();
-	}
-
-	@Override
-	public boolean isStatic() {
-		return false;
-	}
-
-	@Override
-	public boolean isDynamic() {
-		return true;
-	}
-
-	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
@@ -189,8 +156,7 @@ public class Character implements Collidable {
 		sb.append(characterStateManager.getCurrentCharacterState());
 		sb.append("\n");
 
-		sb.append("position : ");
-		sb.append(physicsComponent.getPosition());
+		sb.append(physicsComponent);
 		sb.append("\n");
 
 		return sb.toString();

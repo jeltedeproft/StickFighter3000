@@ -18,7 +18,7 @@ public class StaticBlockPlatform extends StaticBlock {
 	@Override
 	void handleCollision(PhysicsComponent body, Vector2 pos) {
 		if (!body.isFallTrough()) {
-			pos.y += overlapY;
+			body.move(0, overlapY);
 			body.getVelocity().y = 0;
 		}
 	}

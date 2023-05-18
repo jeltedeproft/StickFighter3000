@@ -6,17 +6,19 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.logic.Direction;
+import jelte.mygame.logic.character.Direction;
+import jelte.mygame.logic.collisions.Collidable;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class StandardPhysicsComponent implements PhysicsComponent {
+public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	private UUID playerReference;
-	private Vector2 position;
 	private Vector2 oldPosition;
+	private Vector2 position;
+	private Vector2 newPosition;
 	private Vector2 velocity;
 	private Vector2 acceleration;
 	private Rectangle rectangle;
@@ -25,10 +27,11 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 	private boolean collided;
 	private boolean hasMoved;
 
-	public StandardPhysicsComponent(UUID playerReference) {
+	public StandardPhysicsComponent(UUID playerReference, Vector2 startPosition) {
 		this.playerReference = playerReference;
-		this.position = Constants.PLAYER_START.cpy();
-		this.oldPosition = Constants.PLAYER_START.cpy();
+		this.position = startPosition;
+		this.oldPosition = startPosition;
+		this.newPosition = new Vector2();
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		direction = Direction.right;
@@ -38,8 +41,11 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 	@Override
 	public void update(float delta) {
 		hasMoved = false;
-		oldPosition.x = position.x;
-		oldPosition.y = position.y;
+
+		if (!oldPosition.equals(position)) {
+			hasMoved = true;
+		}
+
 		velocity.add(acceleration);
 		velocity.add(Constants.GRAVITY);
 
@@ -48,11 +54,16 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
 
-		setPosition(position.add(velocity.cpy().scl(delta)));
+		newPosition.x = position.x + velocity.x * delta;
+		newPosition.y = position.y + velocity.y * delta;
 
-		if (!oldPosition.equals(position)) {
-			hasMoved = true;
-		}
+		// Clamp position to map bounds
+//	    float minX = 0; // Minimum x position of the map
+//	    float maxX = MAP_WIDTH; // Maximum x position of the map
+//	    float minY = 0; // Minimum y position of the map
+//	    float maxY = MAP_HEIGHT; // Maximum y position of the map
+
+		setPosition(newPosition);
 	}
 
 	@Override
@@ -67,9 +78,26 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 
 	@Override
 	public void setPosition(Vector2 pos) {
-		rectangle.x = pos.x - Constants.PLAYER_WIDTH / 2;
-		rectangle.y = pos.y;
-		this.position = pos;
+		if (!pos.equals(position)) {
+			oldPosition.x = position.x;
+			oldPosition.y = position.y;
+			position.x = pos.x;
+			position.y = pos.y;
+			rectangle.x = pos.x - Constants.PLAYER_WIDTH / 2;
+			rectangle.y = pos.y;
+		}
+	}
+
+	@Override
+	public void move(float x, float y) {
+		newPosition.x += x;
+		newPosition.y += y;
+		oldPosition.x = position.x;
+		oldPosition.y = position.y;
+		position.x = newPosition.x;
+		position.y = newPosition.y;
+		rectangle.x = newPosition.x - Constants.PLAYER_WIDTH / 2;
+		rectangle.y = newPosition.y;
 	}
 
 	@Override
@@ -90,45 +118,73 @@ public class StandardPhysicsComponent implements PhysicsComponent {
 	}
 
 	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("position : ");
+		sb.append(position);
+		sb.append("\n");
+
+		sb.append("oldPosition : ");
+		sb.append(oldPosition);
+		sb.append("\n");
+
+		sb.append("velocity : ");
+		sb.append(velocity);
+		sb.append("\n");
+
+		sb.append("acceleration : ");
+		sb.append(acceleration);
+		sb.append("\n");
+
+		sb.append("direction : ");
+		sb.append(direction);
+		sb.append("\n");
+
+		sb.append("collided : ");
+		sb.append(collided);
+		sb.append("\n");
+
+		sb.append("hasMoved : ");
+		sb.append(hasMoved);
+		sb.append("\n");
+
+		return sb.toString();
+	}
+
+	@Override
+	public UUID getId() {
+		return playerReference;
+	}
+
+	@Override
+	public Rectangle getRectangle() {
+		return rectangle;
+	}
+
+	@Override
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.CHARACTER;
+	}
+
+	@Override
 	public Vector2 getOldPosition() {
 		return oldPosition;
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
+	public boolean hasMoved() {
+		return hasMoved;
+	}
 
-		sb.append("position");
-		sb.append(" --> ");
-		sb.append(position);
-		sb.append("\n");
+	@Override
+	public boolean isStatic() {
+		return false;
+	}
 
-		sb.append("oldPosition");
-		sb.append(" --> ");
-		sb.append(oldPosition);
-		sb.append("\n");
-
-		sb.append("velocity");
-		sb.append(" --> ");
-		sb.append(velocity);
-		sb.append("\n");
-
-		sb.append("acceleration");
-		sb.append(" --> ");
-		sb.append(acceleration);
-		sb.append("\n");
-
-		sb.append("direction");
-		sb.append(" --> ");
-		sb.append(direction);
-		sb.append("\n");
-
-		sb.append("collided");
-		sb.append(" --> ");
-		sb.append(collided);
-		sb.append("\n");
-
-		return sb.toString();
+	@Override
+	public boolean isDynamic() {
+		return true;
 	}
 
 }

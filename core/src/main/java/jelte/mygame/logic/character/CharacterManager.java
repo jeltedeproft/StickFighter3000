@@ -1,10 +1,9 @@
-package jelte.mygame.logic;
+package jelte.mygame.logic.character;
 
 import java.util.UUID;
 
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 
 public class CharacterManager {
@@ -45,6 +44,15 @@ public class CharacterManager {
 		Array<Character> allCharacters = new Array<>(enemies);
 		allCharacters.add(player);
 		return allCharacters;
+	}
+
+	public Array<PhysicsComponent> getAllCharacterbodies() {
+		Array<PhysicsComponent> characterbodies = new Array<>();
+		characterbodies.add(player.getPhysicsComponent());
+		for (Character enemy : enemies) {
+			characterbodies.add(enemy.getPhysicsComponent());
+		}
+		return characterbodies;
 	}
 
 	public Array<Character> getEnemies() {

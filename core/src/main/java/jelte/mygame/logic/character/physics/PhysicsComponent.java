@@ -5,9 +5,10 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.logic.Direction;
+import jelte.mygame.logic.character.Direction;
+import jelte.mygame.logic.collisions.Collidable;
 
-public interface PhysicsComponent {
+public interface PhysicsComponent extends Collidable {
 
 	public void update(float delta);
 
@@ -27,6 +28,7 @@ public interface PhysicsComponent {
 
 	public void setAcceleration(Vector2 acceleration);
 
+	@Override
 	public Rectangle getRectangle();
 
 	public boolean isFallTrough();
@@ -51,6 +53,9 @@ public interface PhysicsComponent {
 
 	public void setDirection(Direction direction);
 
+	@Override
 	public Vector2 getOldPosition();
+
+	public void move(float x, float y);
 
 }

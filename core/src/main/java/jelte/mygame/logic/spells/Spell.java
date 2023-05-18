@@ -27,10 +27,10 @@ public class Spell implements Collidable {
 	protected CharacterStateManager characterStateManager;
 	protected PhysicsComponent physicsComponent;
 
-	public Spell(SpellData data, UUID id) {
+	public Spell(SpellData data, UUID id, Vector2 startPosition) {
 		this.id = id;
 		this.data = data;
-		physicsComponent = new StandardPhysicsComponent(id);
+		physicsComponent = new StandardPhysicsComponent(id, startPosition);
 	}
 
 	public void update(float delta) {

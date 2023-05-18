@@ -1,6 +1,6 @@
 package jelte.mygame.graphical;
 
-import jelte.mygame.logic.Direction;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 import lombok.Getter;
 import lombok.Setter;

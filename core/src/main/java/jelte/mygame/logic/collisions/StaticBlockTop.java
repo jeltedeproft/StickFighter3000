@@ -17,7 +17,7 @@ public class StaticBlockTop extends StaticBlock {
 
 	@Override
 	void handleCollision(PhysicsComponent body, Vector2 pos) {
-		pos.y -= overlapY;
+		body.move(0, -overlapY);
 		body.getVelocity().y = 0;
 	}
 

@@ -11,6 +11,7 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
+import jelte.mygame.logic.character.CharacterManager;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -38,7 +39,7 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
-		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacters());
+		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
 		collisionSystem.updateSpatialMesh(collidables);
 		collisionSystem.executeCollisions();
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
@@ -77,8 +78,8 @@ public class LogicManagerImpl implements LogicManager {
 			break;
 		case SEND_MAP_DIMENSIONS:
 			collisionSystem.initSpatialMesh((Vector2) message.getValue());
-			Array<Collidable> characterCollidables = new Array<>(characterManager.getAllCharacters());
-			collisionSystem.addToSpatialMesh(characterCollidables);
+			Array<Collidable> characterBodies = new Array<>(characterManager.getAllCharacterbodies());
+			collisionSystem.addToSpatialMesh(characterBodies);
 			collisionSystem.addToSpatialMesh(blockingObjects);
 			break;
 		default:
