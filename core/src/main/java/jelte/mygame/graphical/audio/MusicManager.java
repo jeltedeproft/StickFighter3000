@@ -261,12 +261,12 @@ public class MusicManager implements Disposable {
 	private void playMusic(boolean isLooping, String fullFilePath, float volume, Vector2 pos) {
 		StreamedSoundSource music = createMusic(isLooping, fullFilePath, volume);
 		music.setPosition(new Vector3(pos.x, pos.y, 0));
-		music.play();
+		// music.play();
 	}
 
 	private void playMusic(boolean isLooping, String fullFilePath, float volume) {
 		StreamedSoundSource music = createMusic(isLooping, fullFilePath, volume);
-		music.play();
+		// music.play();
 	}
 
 	private StreamedSoundSource createMusic(boolean isLooping, String fullFilePath, float volume) {
@@ -286,7 +286,7 @@ public class MusicManager implements Disposable {
 	private void playSound(boolean isLooping, String fullFilePath, float volume) {
 		BufferedSoundSource sound = createSound(isLooping, fullFilePath, volume);
 		if (sound != null) {
-			sound.play();
+			// sound.play();
 		}
 	}
 
@@ -295,7 +295,7 @@ public class MusicManager implements Disposable {
 		if (sound != null) {
 			sound.setDirection(new Vector3(1, 1, 0));
 			sound.setPosition(pos.x, pos.y, 0);
-			sound.play();
+			// sound.play();
 		}
 	}
 

@@ -18,6 +18,7 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	protected float overlapY;
 	private String name;
 	private UUID id;
+	protected boolean contains = false;
 
 	protected StaticBlock(Rectangle rectangle) {
 		super(rectangle);
@@ -109,6 +110,10 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 		sb.append(overlapY);
 		sb.append("\n");
 		return sb.toString();
+	}
+
+	public void contains() {
+		contains = true;
 	}
 
 }

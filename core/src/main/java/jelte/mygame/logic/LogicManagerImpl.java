@@ -39,9 +39,13 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
+		characterManager.getBodies().forEach(body -> System.out.println("body position before : " + body.getPosition()));
 		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
 		collisionSystem.updateSpatialMesh(collidables);
+		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after update spatial mesh: " + collidable.getPosition()));
 		collisionSystem.executeCollisions();
+		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after collisions: " + collidable.getPosition()));
+		System.out.println("\n\n\n\n");
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}
 

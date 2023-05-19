@@ -89,7 +89,6 @@ public class CollisionSystemImpl implements CollisionSystem {
 		boolean collided = !overlappingObstacles.isEmpty();
 
 		if (collided) {
-			System.out.println("collision");
 			body.setCollided(true);
 			handleCollision(body, body.getPosition(), overlappingObstacles, doneCollisions);
 		}
@@ -100,7 +99,12 @@ public class CollisionSystemImpl implements CollisionSystem {
 
 		for (Collidable obstacle : staticColliders) {
 			StaticBlock staticBlock = (StaticBlock) obstacle;
-			if (staticBlock.overlaps(playerRect)) {
+
+			boolean isInside = staticBlock.overlaps(playerRect) && staticBlock.contains(playerRect);
+			if (isInside) {
+				staticBlock.contains();
+				overlappingObstacles.add(staticBlock);
+			} else if (staticBlock.overlaps(playerRect)) {
 				staticBlock.calculateOverlapPlayer(playerRect);
 				overlappingObstacles.add(staticBlock);
 			}
@@ -110,11 +114,11 @@ public class CollisionSystemImpl implements CollisionSystem {
 	}
 
 	private void handleCollision(PhysicsComponent body, Vector2 pos, Array<StaticBlock> overlappingObstacles, Map<UUID, UUID> doneCollisions) {
-		overlappingObstacles.sort();
-		StaticBlock obstacle = overlappingObstacles.first();
-		if (!doneCollisions.containsKey(body.getPlayerReference()) || !doneCollisions.containsValue(obstacle.getId())) {
-			doneCollisions.put(body.getPlayerReference(), obstacle.getId());
-			obstacle.handleCollision(body, pos);
+		for (StaticBlock obstacle : overlappingObstacles) {
+			if (!doneCollisions.containsKey(body.getPlayerReference()) || !doneCollisions.containsValue(obstacle.getId())) {
+				doneCollisions.put(body.getPlayerReference(), obstacle.getId());
+				obstacle.handleCollision(body, pos);
+			}
 		}
 	}
 

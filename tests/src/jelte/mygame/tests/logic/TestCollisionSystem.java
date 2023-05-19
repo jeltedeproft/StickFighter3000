@@ -96,6 +96,29 @@ public class TestCollisionSystem {
 	}
 
 	@Test
+	public void mainBodyStartInWall() {
+		initPlayerBody(new Vector2(0, 0));
+		mainBody.setVelocity(new Vector2(15, 0));
+		Array<Collidable> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlockLeft(0, 0, 50, 100));
+		collisionSystem.addToSpatialMesh(blockingObjects);
+		collisionSystem.executeCollisions();
+		mainBody.update(1f);
+		System.out.println("position = " + mainBody.getPosition());
+		collisionSystem.updateSpatialMesh(mainBody);
+		collisionSystem.executeCollisions();
+		mainBody.update(1f);
+		System.out.println("position = " + mainBody.getPosition());
+		collisionSystem.updateSpatialMesh(mainBody);
+		collisionSystem.executeCollisions();
+		mainBody.update(1f);
+		System.out.println("position = " + mainBody.getPosition());
+		collisionSystem.updateSpatialMesh(mainBody);
+		collisionSystem.executeCollisions();
+		Assert.assertEquals(new Vector2(45, 10), mainBody.getPosition());
+	}
+
+	@Test
 	public void mainBodyStandStillOnPlatform() {
 		initPlayerBody(new Vector2(15, 60));
 		Array<Collidable> blockingObjects = new Array<>();
@@ -130,7 +153,7 @@ public class TestCollisionSystem {
 		mainBody.update(1f);
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(60, 50), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(60, 30), mainBody.getPosition());
 	}
 
 	@Test
