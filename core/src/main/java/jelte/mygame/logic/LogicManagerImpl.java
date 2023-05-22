@@ -37,6 +37,11 @@ public class LogicManagerImpl implements LogicManager {
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
+		for (PhysicsComponent collidable : characterManager.getAllCharacterbodies()) {
+			if (collidable.getPosition().y < 32) {
+				int j = 5;
+			}
+		}
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
 		characterManager.getBodies().forEach(body -> System.out.println("body position before : " + body.getPosition()));
@@ -45,6 +50,7 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after update spatial mesh: " + collidable.getPosition()));
 		collisionSystem.executeCollisions();
 		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after collisions: " + collidable.getPosition()));
+
 		System.out.println("\n\n\n\n");
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}

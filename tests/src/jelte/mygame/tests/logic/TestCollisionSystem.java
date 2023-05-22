@@ -1,5 +1,8 @@
 package jelte.mygame.tests.logic;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.UUID;
 
 import org.junit.After;
@@ -20,6 +23,8 @@ import jelte.mygame.logic.collisions.StaticBlockLeft;
 import jelte.mygame.logic.collisions.StaticBlockPlatform;
 import jelte.mygame.logic.collisions.StaticBlockRight;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
+import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.UtilityFunctions;
 
 @RunWith(GdxTestRunner.class)
 public class TestCollisionSystem {
@@ -96,6 +101,63 @@ public class TestCollisionSystem {
 	}
 
 	@Test
+	public void mainBodyMoveRightIntoWallRealisticTimestep() {
+		initPlayerBody(new Vector2(25, 10));
+		mainBody.setVelocity(new Vector2(15, 0));
+		Array<Collidable> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlockRight(50, 0, 10, 100));
+		collisionSystem.addToSpatialMesh(blockingObjects);
+		Array<Vector2> positions = new Array<>();
+		for (int i = 0; i < 1000; i++) {
+			mainBody.update(0.01f);
+			collisionSystem.updateSpatialMesh(mainBody);
+			collisionSystem.executeCollisions();
+			positions.add(mainBody.getPosition().cpy());
+		}
+		UtilityFunctions.writeArrayToFile(positions, Constants.TEST_FILE_POSITIONS_ACTUAL);
+
+		String file1Path = Constants.TEST_FILE_POSITIONS_EXPECTED;
+		String file2Path = Constants.TEST_FILE_POSITIONS_ACTUAL;
+
+		try {
+			byte[] file1Bytes = Files.readAllBytes(Path.of(file1Path));
+			byte[] file2Bytes = Files.readAllBytes(Path.of(file2Path));
+			Assert.assertArrayEquals(file1Bytes, file2Bytes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void mainBodyAccelerateRightIntoWallRealisticTimestep() {
+		initPlayerBody(new Vector2(25, 10));
+		mainBody.setAcceleration(new Vector2(Constants.MOVEMENT_SPEED, 0));
+		Array<Collidable> blockingObjects = new Array<>();
+		blockingObjects.add(new StaticBlockRight(50, 0, 10, 100));
+		collisionSystem.addToSpatialMesh(blockingObjects);
+		Array<Vector2> positions = new Array<>();
+		for (int i = 0; i < 1000; i++) {
+			mainBody.update(0.01f);
+			collisionSystem.updateSpatialMesh(mainBody);
+			collisionSystem.executeCollisions();
+			positions.add(mainBody.getPosition().cpy());
+		}
+		UtilityFunctions.writeArrayToFile(positions, Constants.TEST_FILE_ACCELERATION_ACTUAL);
+
+		String file1Path = Constants.TEST_FILE_ACCELERATION_EXPECTED;
+		String file2Path = Constants.TEST_FILE_ACCELERATION_ACTUAL;
+
+		try {
+			byte[] file1Bytes = Files.readAllBytes(Path.of(file1Path));
+			byte[] file2Bytes = Files.readAllBytes(Path.of(file2Path));
+			Assert.assertArrayEquals(file1Bytes, file2Bytes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
 	public void mainBodyStartInWall() {
 		initPlayerBody(new Vector2(0, 0));
 		mainBody.setVelocity(new Vector2(15, 0));
@@ -115,7 +177,7 @@ public class TestCollisionSystem {
 		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(85, 10), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(50, 10), mainBody.getPosition());// velocity is 0 after exiting wall
 	}
 
 	@Test

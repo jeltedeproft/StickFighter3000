@@ -551,6 +551,16 @@ public class TestSpatialMesh {
 	}
 
 	@Test
+	public void testGetCollidingCellsCharacter100and11() {
+		testPhysicsComponent1.setPosition(new Vector2(100.0f, 11.771829f));
+		Set<Point> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
+		Set<Point> collidingCellsExpected = new HashSet<>();
+		collidingCellsExpected.add(new Point(2, 0));
+		collidingCellsExpected.add(new Point(3, 0));
+		Assert.assertEquals(collidingCellsExpected, collidingCells);
+	}
+
+	@Test
 	public void testGetCellAtNegativeXShouldThrowException() throws OutOfBoundsException {
 		try {
 			Assert.assertEquals(0, spatialMesh.getCellX(-50));

@@ -58,4 +58,6 @@ public interface PhysicsComponent extends Collidable {
 
 	public void move(float x, float y);
 
+	public void collided(COLLIDABLE_TYPE type);
+
 }

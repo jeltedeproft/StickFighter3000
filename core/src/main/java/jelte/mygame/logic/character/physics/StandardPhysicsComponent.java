@@ -42,10 +42,6 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	public void update(float delta) {
 		hasMoved = false;
 
-		if (!oldPosition.equals(position)) {
-			hasMoved = true;
-		}
-
 		velocity.add(acceleration);
 		velocity.add(Constants.GRAVITY);
 
@@ -79,6 +75,7 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	@Override
 	public void setPosition(Vector2 pos) {
 		if (!pos.equals(position)) {
+			hasMoved = true;
 			oldPosition.x = position.x;
 			oldPosition.y = position.y;
 			position.x = pos.x;
@@ -185,6 +182,22 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	@Override
 	public boolean isDynamic() {
 		return true;
+	}
+
+	@Override
+	public void collided(COLLIDABLE_TYPE type) {
+		collided = true;
+		switch (type) {
+		case CHARACTER:
+			break;
+		case SPELL:
+			break;
+		case STATIC:
+			break;
+		default:
+			break;
+
+		}
 	}
 
 }

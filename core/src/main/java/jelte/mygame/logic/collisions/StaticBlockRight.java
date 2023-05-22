@@ -22,8 +22,9 @@ public class StaticBlockRight extends StaticBlock {
 			body.move(-width + (body.getPosition().x - x), 0);
 		} else {
 			body.move(-overlapX, 0);
-			body.getVelocity().x = 0;
 		}
+		body.getVelocity().x = 0;
+		body.getAcceleration().x = 0;
 	}
 
 	@Override

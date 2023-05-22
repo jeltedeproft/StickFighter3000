@@ -9,7 +9,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.collisions.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.logic.spells.Spell;
@@ -89,7 +88,7 @@ public class CollisionSystemImpl implements CollisionSystem {
 		boolean collided = !overlappingObstacles.isEmpty();
 
 		if (collided) {
-			body.setCollided(true);
+			body.collided(COLLIDABLE_TYPE.STATIC);
 			handleCollision(body, body.getPosition(), overlappingObstacles, doneCollisions);
 		}
 	}
@@ -128,15 +127,15 @@ public class CollisionSystemImpl implements CollisionSystem {
 		COLLIDABLE_TYPE type2 = object2.getType();
 
 		if (COLLIDABLE_TYPE.CHARACTER.equals(type1) && COLLIDABLE_TYPE.CHARACTER.equals(type2)) {
-			resolveCollisionCharacterCharacter((Character) object1, (Character) object2);
+			resolveCollisionCharacterCharacter((PhysicsComponent) object1, (PhysicsComponent) object2);// TODO cast class exception phsysicscomponent to character
 		}
 
 		if (COLLIDABLE_TYPE.CHARACTER.equals(type1) && COLLIDABLE_TYPE.SPELL.equals(type2)) {
-			resolveCollisionCharacterSpell((Character) object1, (Spell) object2);
+			resolveCollisionCharacterSpell((PhysicsComponent) object1, (Spell) object2);
 		}
 
 		if (COLLIDABLE_TYPE.SPELL.equals(type1) && COLLIDABLE_TYPE.CHARACTER.equals(type2)) {
-			resolveCollisionCharacterSpell((Character) object2, (Spell) object1);
+			resolveCollisionCharacterSpell((PhysicsComponent) object2, (Spell) object1);
 		}
 
 		if (COLLIDABLE_TYPE.SPELL.equals(type1) && COLLIDABLE_TYPE.SPELL.equals(type2)) {
@@ -149,17 +148,15 @@ public class CollisionSystemImpl implements CollisionSystem {
 
 	}
 
-	private void resolveCollisionCharacterSpell(Character object1, Spell object2) {
+	private void resolveCollisionCharacterSpell(PhysicsComponent object1, Spell object2) {
 		// TODO Auto-generated method stub
 
 	}
 
-	private void resolveCollisionCharacterCharacter(Character character1, Character character2) {
-		PhysicsComponent mainBody = character1.getPhysicsComponent();
-		PhysicsComponent otherBody = character2.getPhysicsComponent();
-		if (mainBody.getRectangle().overlaps(otherBody.getRectangle())) {
-			character1.damage(0.5f);
-			character2.damage(0.5f);
+	private void resolveCollisionCharacterCharacter(PhysicsComponent character1Body, PhysicsComponent character2Body) {
+		if (character1Body.getRectangle().overlaps(character2Body.getRectangle())) {
+			character1Body.collided(COLLIDABLE_TYPE.CHARACTER);
+			character2Body.collided(COLLIDABLE_TYPE.CHARACTER);
 		}
 	}
 

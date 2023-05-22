@@ -38,6 +38,12 @@ public class Constants {
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
 	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
 
+	// TEST
+	public static final String TEST_FILE_POSITIONS_EXPECTED = "tests/TestCollisionSystem/expected/positions.txt";
+	public static final String TEST_FILE_POSITIONS_ACTUAL = "tests/TestCollisionSystem/actual/positions.txt";
+	public static final String TEST_FILE_ACCELERATION_EXPECTED = "tests/TestCollisionSystem/expected/accelerations.txt";
+	public static final String TEST_FILE_ACCELERATION_ACTUAL = "tests/TestCollisionSystem/actual/accelerations.txt";
+
 	// NAMES
 	public static final String PLAYER_SPRITE_NAME = "archer";
 	public static final String PARALLAX_BG_NAME = "layer";
