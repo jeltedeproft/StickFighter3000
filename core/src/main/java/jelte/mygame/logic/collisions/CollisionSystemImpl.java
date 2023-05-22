@@ -100,7 +100,7 @@ public class CollisionSystemImpl implements CollisionSystem {
 		for (Collidable obstacle : staticColliders) {
 			StaticBlock staticBlock = (StaticBlock) obstacle;
 
-			boolean isInside = staticBlock.overlaps(playerRect) && staticBlock.contains(playerRect);
+			boolean isInside = staticBlock.areRectanglesOverlapping(staticBlock, playerRect);
 			if (isInside) {
 				staticBlock.contains();
 				overlappingObstacles.add(staticBlock);

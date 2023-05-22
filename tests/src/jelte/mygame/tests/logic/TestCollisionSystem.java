@@ -115,7 +115,7 @@ public class TestCollisionSystem {
 		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(45, 10), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(85, 10), mainBody.getPosition());
 	}
 
 	@Test
