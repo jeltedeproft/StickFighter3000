@@ -2,10 +2,9 @@ package jelte.mygame.logic.collisions;
 
 import java.awt.Point;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.UUID;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -17,6 +16,7 @@ import lombok.Getter;
 //creates squares inside the map, goal is to make collision detection more efficient
 @Getter
 public class SpatialMesh {
+	private static final String TAG = SpatialMesh.class.getSimpleName();
 	private int numberofCellsX;
 	private int numberofCellsY;
 	private float mapWidth;
@@ -85,18 +85,18 @@ public class SpatialMesh {
 	public void removeDynamicCollidable(Collidable collidable) {
 		Rectangle rect = collidable.getRectangle();
 		Set<Point> collidedPoints = getCollidingCells(rect);
-		for (Point point : collidedPoints) {
-			spatialMesh[point.x][point.y].removeCollidable(collidable);
-			if (!spatialMesh[point.x][point.y].isContainsDynamic()) {
-				cellsWithDynamicCollidables.remove(new Point(point.x, point.y));
-			}
-		}
+		removeCollidableFrom(collidable, collidedPoints);
 	}
 
 	public void removeStaticCollidable(Collidable collidable) {
 		Rectangle rect = collidable.getRectangle();
 		Set<Point> collidedPoints = getCollidingCells(rect);
+		removeCollidableFrom(collidable, collidedPoints);
+	}
+
+	private void removeCollidableFrom(Collidable collidable, Set<Point> collidedPoints) {
 		for (Point point : collidedPoints) {
+			Gdx.app.log(TAG, "removing from : " + point);
 			spatialMesh[point.x][point.y].removeCollidable(collidable);
 			if (!spatialMesh[point.x][point.y].isContainsDynamic()) {
 				cellsWithDynamicCollidables.remove(new Point(point.x, point.y));
@@ -126,31 +126,17 @@ public class SpatialMesh {
 		Rectangle oldRect = new Rectangle(collidable.getRectangle());
 		oldRect.setPosition(oldPosition);
 		Set<Point> oldCollidedPoints = getCollidingCells(oldRect);
-
 		// new cells
 		Set<Point> newCollidedPoints = getCollidingCells(collidable.getRectangle());
-
 		if (!oldCollidedPoints.equals(newCollidedPoints)) {
-			for (Point point : oldCollidedPoints) {
-				removeDynamicCollidable(point, collidable.getId());
-			}
+			removeCollidableFrom(collidable, oldCollidedPoints);
 			addCollidable(collidable);
-		}
-
-	}
-
-	private void removeDynamicCollidable(Point point, UUID id) {
-		final Iterator<Collidable> iterator = getDynamicCollidables(point.x, point.y).iterator();
-		while (iterator.hasNext()) {
-			final Collidable currentCollidable = iterator.next();
-			if (currentCollidable.getId().equals(id)) {
-				iterator.remove();
-			}
 		}
 	}
 
 	public Array<CollisionData> getAllPossibleCollisions() {
 		Array<CollisionData> collisionDatas = new Array<>();
+		// Gdx.app.log(TAG, "cells with dynamic : " + cellsWithDynamicCollidables);
 
 		for (Point point : cellsWithDynamicCollidables) {
 			Set<Collidable> dynamicCollidables = spatialMesh[point.x][point.y].getDynamicCollidables();

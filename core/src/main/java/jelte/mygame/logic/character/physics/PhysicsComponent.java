@@ -41,6 +41,12 @@ public interface PhysicsComponent extends Collidable {
 
 	public void setCollided(boolean b);
 
+	public void setDimensions(float width, float height);
+
+	public float getWidth();
+
+	public float getHeight();
+
 	public UUID getPlayerReference();
 
 	@Override

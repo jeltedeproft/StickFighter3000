@@ -27,16 +27,18 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	private boolean fallTrough;
 	private boolean collided;
 	private boolean hasMoved;
+	private float width = Constants.PLAYER_WIDTH;
+	private float height = Constants.PLAYER_HEIGHT;
 
 	public StandardPhysicsComponent(UUID playerReference, Vector2 startPosition) {
 		this.playerReference = playerReference;
-		this.position = startPosition;
-		this.oldPosition = startPosition;
+		this.position = startPosition.cpy();
+		this.oldPosition = startPosition.cpy();
 		this.newPosition = new Vector2();
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		direction = Direction.right;
-		rectangle = new Rectangle(position.x - Constants.PLAYER_WIDTH / 2, position.y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+		rectangle = new Rectangle(position.x, position.y, width, height);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
 	}
 
 	@Override
@@ -81,7 +83,7 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 			oldPosition.y = position.y;
 			position.x = pos.x;
 			position.y = pos.y;
-			rectangle.x = pos.x - Constants.PLAYER_WIDTH / 2;
+			rectangle.x = pos.x;
 			rectangle.y = pos.y;
 		}
 	}
@@ -94,7 +96,7 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 		oldPosition.y = position.y;
 		position.x = newPosition.x;
 		position.y = newPosition.y;
-		rectangle.x = newPosition.x - Constants.PLAYER_WIDTH / 2;
+		rectangle.x = newPosition.x;
 		rectangle.y = newPosition.y;
 	}
 
@@ -201,4 +203,11 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 		}
 	}
 
+	@Override
+	public void setDimensions(float width, float height) {
+		this.width = width;
+		this.height = height;
+		rectangle.setWidth(width);
+		rectangle.setHeight(height);
+	}
 }

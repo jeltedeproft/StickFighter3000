@@ -48,7 +48,6 @@ public class CollisionSystemImpl implements CollisionSystem {
 						for (Collidable dynamicCollidable : dynamicCollidables) {
 							handleStaticCollision(dynamicCollidable, staticCollidables, doneCollisions);
 						}
-
 					}
 				} else {
 					Array<Collidable> dynamicCollidablesArray = new Array<>(dynamicCollidables.toArray(new Collidable[0]));

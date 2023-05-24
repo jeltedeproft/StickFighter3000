@@ -98,7 +98,7 @@ public class TestCollisionSystem {
 		mainBody.update(1f);
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(45, 10), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(40, 10), mainBody.getPosition());
 	}
 
 	@Test
@@ -243,7 +243,7 @@ public class TestCollisionSystem {
 		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(35, 10), mainBody.getPosition());// velocity is 0 after exiting wall
+		Assert.assertEquals(new Vector2(40, 10), mainBody.getPosition());// velocity is 0 after exiting wall
 	}
 
 	@Test
@@ -301,7 +301,7 @@ public class TestCollisionSystem {
 		mainBody.update(1f);
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
-		Assert.assertEquals(new Vector2(15, 10), mainBody.getPosition());
+		Assert.assertEquals(new Vector2(10, 10), mainBody.getPosition());
 	}
 
 	@Test
