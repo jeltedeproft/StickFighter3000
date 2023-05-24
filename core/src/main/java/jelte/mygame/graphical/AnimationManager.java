@@ -26,4 +26,8 @@ public class AnimationManager {
 		animationTextureManager.update(delta);
 	}
 
+	public float getSpriteOffset(String spriteName) {
+		return animationTextureManager.getSpriteOffset(spriteName);
+	}
+
 }

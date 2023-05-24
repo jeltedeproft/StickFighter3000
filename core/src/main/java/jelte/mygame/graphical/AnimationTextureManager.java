@@ -3,6 +3,7 @@ package jelte.mygame.graphical;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
@@ -17,22 +18,35 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.SpriteUtils;
+import jelte.mygame.utility.UtilityFunctions;
 
 public class AnimationTextureManager {
 	private static final String TAG = AnimationTextureManager.class.getSimpleName();
 	private final Map<String, Animation<Sprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
+	private final Map<String, Float> animationNameToOffset;// TODO make class and optimize, remove all animations of character that is dead for example
 	private final Map<UUID, String> previous;
 	private final Map<UUID, Float> timers;
 	private final Map<STATE, PlayMode> playmodes;
 	private final ConcurrentLinkedQueue<UUID> usedIds;
 
 	public AnimationTextureManager() {
+		animationNameToOffset = new HashMap<>();
 		cache = new HashMap<>();
 		previous = new HashMap<>();
 		timers = new HashMap<>();
 		playmodes = new EnumMap<>(STATE.class);
 		usedIds = new ConcurrentLinkedQueue<>();
 		initPlayModes();
+		calculateOffsets();
+	}
+
+	private void calculateOffsets() {
+		List<String> spriteNames = UtilityFunctions.findImageFiles(Constants.IMAGE_FILES_PATH);
+		for (String absolutePath : spriteNames) {
+			String imageName = SpriteUtils.imageNameFromAbsolutePath(absolutePath);
+			animationNameToOffset.put(imageName, SpriteUtils.calculateAttackOffset(SpriteUtils.convertToTextureRegion(absolutePath), imageName.contains("left")));
+		}
 	}
 
 	private void initPlayModes() {
@@ -148,7 +162,10 @@ public class AnimationTextureManager {
 		default:
 			return Constants.DEFAULT_ANIMATION_SPEED;
 		}
+	}
 
+	public float getSpriteOffset(String spriteName) {
+		return animationNameToOffset.get(spriteName);
 	}
 
 	@Override

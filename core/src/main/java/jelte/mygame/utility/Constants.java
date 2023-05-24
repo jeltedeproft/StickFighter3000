@@ -37,6 +37,7 @@ public class Constants {
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
 	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
+	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 
 	// TEST
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";

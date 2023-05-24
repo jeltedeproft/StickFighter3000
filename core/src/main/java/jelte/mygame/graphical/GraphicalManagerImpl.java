@@ -3,6 +3,7 @@ package jelte.mygame.graphical;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -24,6 +25,7 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.SpriteUtils;
 
 public class GraphicalManagerImpl implements GraphicalManager {
 
@@ -129,14 +131,14 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private void renderBodies() {
 		if (player != null) {
-			RepositionedSprite sprite = animationManager.getSprite(player);
+			Sprite sprite = animationManager.getSprite(player);
 			player.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
-			sprite.setPosition(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
+			sprite.setPosition(player.getPhysicsComponent().getPosition().x - animationManager.getSpriteOffset(SpriteUtils.getImageNameFromSprite(sprite)), player.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
 			// TODO set the dimensions of all the enemies here same as player
-			RepositionedSprite sprite = animationManager.getSprite(enemy);
+			Sprite sprite = animationManager.getSprite(enemy);
 			sprite.setPosition(enemy.getPhysicsComponent().getPosition().x, enemy.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}
