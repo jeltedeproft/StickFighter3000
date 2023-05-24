@@ -2,6 +2,7 @@ package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -43,6 +44,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private Character player;
 	private NpcCharacter enemy;
 	private ProgressBar hp;
+	private BitmapFont font;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -58,6 +60,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
 		animationManager = new AnimationManager();
+		font = new BitmapFont();
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
@@ -109,6 +112,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.end();
 
 		renderUI();
+
+		// debug
+		batch.begin();
+		font.draw(batch, "player position : " + player.getPhysicsComponent().getPosition(), 0, Gdx.graphics.getHeight() - 10);
+		font.draw(batch, "player velocity : " + player.getPhysicsComponent().getVelocity(), 0, Gdx.graphics.getHeight() - 50);
+		font.draw(batch, "player acceleration : " + player.getPhysicsComponent().getAcceleration(), 0, Gdx.graphics.getHeight() - 100);
+		font.draw(batch, "collided : " + player.getPhysicsComponent().isCollided(), 0, Gdx.graphics.getHeight() - 150);
+		font.draw(batch, "falltrough : " + player.getPhysicsComponent().isFallTrough(), 0, Gdx.graphics.getHeight() - 200);
+		font.draw(batch, "state : " + player.getCurrentCharacterState().getState(), 0, Gdx.graphics.getHeight() - 250);
+		batch.end();
 
 	}
 
@@ -165,6 +178,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.dispose();
 		stage.dispose();
 		mapManager.dispose();
+		font.dispose();
 	}
 
 }

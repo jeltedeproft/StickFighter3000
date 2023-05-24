@@ -55,14 +55,10 @@ public class CharacterStateRolling implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
-//		case RIGHT_PRESSED:TODO find a way to remember that we pressed left or right during roll so that we can move appropriately after finishing the roll
-//			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-//			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
-//			break;
-//		case LEFT_PRESSED:
-//			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-//			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
-//			break;
+		case RIGHT_PRESSED:
+		case LEFT_PRESSED:
+			characterStateManager.getStack().add(event);
+			break;
 		default:
 			break;
 

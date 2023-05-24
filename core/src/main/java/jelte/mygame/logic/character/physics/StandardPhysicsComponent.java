@@ -15,6 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
+	private static final String TAG = StandardPhysicsComponent.class.getSimpleName();
 	private UUID playerReference;
 	private Vector2 oldPosition;
 	private Vector2 position;

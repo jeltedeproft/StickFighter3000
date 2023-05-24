@@ -12,7 +12,6 @@ import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
-import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.Collidable;
@@ -30,28 +29,19 @@ public class LogicManagerImpl implements LogicManager {
 		this.listener = listener;
 		collisionSystem = new CollisionSystemImpl();
 		characterManager = new CharacterManager(new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
-		characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
+		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
 	}
 
 	@Override
 	public void update(float delta) {
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
-		for (PhysicsComponent collidable : characterManager.getAllCharacterbodies()) {
-			if (collidable.getPosition().y < 32) {
-				int j = 5;
-			}
-		}
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
-		characterManager.getBodies().forEach(body -> System.out.println("body position before : " + body.getPosition()));
 		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
 		collisionSystem.updateSpatialMesh(collidables);
-		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after update spatial mesh: " + collidable.getPosition()));
 		collisionSystem.executeCollisions();
-		characterManager.getAllCharacterbodies().forEach(collidable -> System.out.println("body position after collisions: " + collidable.getPosition()));
 
-		System.out.println("\n\n\n\n");
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
 	}
 

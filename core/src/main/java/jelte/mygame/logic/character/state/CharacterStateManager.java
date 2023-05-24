@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character.state;
 
+import java.util.Stack;
+
 import jelte.mygame.logic.character.Character;
 
 public class CharacterStateManager {
@@ -33,6 +35,7 @@ public class CharacterStateManager {
 	private CharacterState characterStateHoldingToSliding;
 	private CharacterState characterStateJumpToFall;
 	private Character character;
+	private Stack<EVENT> pressedKeysBuffer = new Stack<>();
 
 	public enum STATE {
 		ATTACKING,
@@ -230,7 +233,10 @@ public class CharacterStateManager {
 
 	public Character getCharacter() {
 		return character;
+	}
 
+	public Stack<EVENT> getStack() {
+		return pressedKeysBuffer;
 	}
 
 	@Override

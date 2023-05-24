@@ -39,10 +39,14 @@ public class Constants {
 	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
 
 	// TEST
+	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
+	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";
 	public static final String TEST_FILE_POSITIONS_EXPECTED = "tests/TestCollisionSystem/expected/positions.txt";
 	public static final String TEST_FILE_POSITIONS_ACTUAL = "tests/TestCollisionSystem/actual/positions.txt";
 	public static final String TEST_FILE_ACCELERATION_EXPECTED = "tests/TestCollisionSystem/expected/accelerations.txt";
 	public static final String TEST_FILE_ACCELERATION_ACTUAL = "tests/TestCollisionSystem/actual/accelerations.txt";
+	public static final String TEST_FILE_STUCK_IN_WALL_EXPECTED = "tests/TestCollisionSystem/expected/stuckInWall.txt";
+	public static final String TEST_FILE_STUCK_IN_WALL_ACTUAL = "tests/TestCollisionSystem/actual/stuckInWall.txt";
 
 	// NAMES
 	public static final String PLAYER_SPRITE_NAME = "archer";

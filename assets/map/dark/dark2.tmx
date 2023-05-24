@@ -30,9 +30,9 @@
   <object id="2" name="LEFT" x="0" y="0" width="14.8162" height="384"/>
   <object id="3" name="TOP" x="-0.0434783" y="-0.0869565" width="400" height="13.8867"/>
   <object id="4" name="RIGHT" x="352.113" y="-0.130435" width="15.8867" height="254.75"/>
-  <object id="6" name="PLATFORM" x="208.079" y="128.191" width="48.2056" height="3.71875"/>
+  <object id="6" name="PLATFORM" x="208.079" y="128.191" width="48.2056" height="7"/>
   <object id="7" name="BOT" x="0.101229" y="352.068" width="399.82" height="31.264"/>
-  <object id="8" name="PLATFORM" x="208.158" y="176.141" width="47.9447" height="2.89266"/>
+  <object id="8" name="PLATFORM" x="208.158" y="176.141" width="47.9447" height="4.46368"/>
   <object id="9" name="RIGHT" x="208.449" y="276.932" width="12.4773" height="37.4063"/>
   <object id="10" name="TOP" x="-0.25" y="15.3067" width="238.5" height="30.3867"/>
   <object id="11" name="RIGHT" x="368.117" y="0.25" width="30.6367" height="384"/>

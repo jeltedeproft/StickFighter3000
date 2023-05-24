@@ -21,25 +21,26 @@ import de.pottgames.tuningfork.SoundListener;
 import de.pottgames.tuningfork.StreamedSoundSource;
 import jelte.mygame.utility.AssetManagerUtility;
 
+//TODO add link between entity and sond so that we can update pos sound
+//TODO start usins positions and maybe reverb in cave
 public class MusicManager implements Disposable {
 	private static final String TAG = MusicManager.class.getSimpleName();
+	private static MusicManager instance = null;
+
 	private static final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
 	private static final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
 	private static final Map<Integer, AudioData> audioDataForIds = new HashMap<>();
 
-	private static MusicManager instance = null;
-	private Audio audio;
-
 	private final HashMap<String, StreamedSoundSource> queuedMusic;
 	private final HashMap<String, Array<BufferedSoundSource>> queuedSounds;
 	private final SoundListener listener;
+	private Audio audio;
 
 	public enum AudioCommand {
 		MUSIC_PLAY_ONCE,
 		MUSIC_PLAY_LOOP,
 		MUSIC_STOP,
 		MUSIC_STOP_ALL,
-		SOUND_LOAD,
 		SOUND_PLAY_ONCE,
 		SOUND_PLAY_LOOP,
 		SOUND_PLAY_LOOP_FOR,
@@ -69,6 +70,14 @@ public class MusicManager implements Disposable {
 
 	}
 
+	public static MusicManager getInstance() {
+		if (instance == null) {
+			instance = new MusicManager();
+		}
+
+		return instance;
+	}
+
 	private MusicManager() {
 		queuedMusic = new HashMap<>();
 		queuedSounds = new HashMap<>();
@@ -79,7 +88,6 @@ public class MusicManager implements Disposable {
 		audio.setDefaultAttenuationMaxDistance(5f);
 		listener = audio.getListener();
 
-		// load sounds
 		for (AudioEnum audioEnum : AudioEnum.values()) {
 			if (audioEnum.name().startsWith("SOUND_")) {
 				loadSound(audioEnum);
@@ -87,32 +95,24 @@ public class MusicManager implements Disposable {
 		}
 	}
 
-	public static MusicManager getInstance() {
-		if (instance == null) {
-			instance = new MusicManager();
-		}
-
-		return instance;
+	private void loadSound(AudioEnum event) {
+		final AudioData audioData = getAudioData(event);
+		AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
 	}
 
 	public void update(float delta, float cameraX, float cameraY) {
 		listener.setPosition(new Vector3(cameraX, cameraY, 0));
-		for (Array<Float> numbersToUpdate : musicTimers.values()) {
-			for (int i = 0; i < numbersToUpdate.size; i++) {
-				Float original = numbersToUpdate.get(i);
-				numbersToUpdate.set(i, original - delta);
-			}
-		}
+		decreaseTimers(delta);
 		cooldowns.replaceAll((k, v) -> v = v - delta);
 		stopAudioIfTimerUp();
+		cleanup();
+	}
+
+	private void decreaseTimers(float delta) {
 		for (Array<Float> timers : musicTimers.values()) {
-			final Iterator<Float> iterator = timers.iterator();
-			while (iterator.hasNext()) {
-				final Float currentTimer = iterator.next();
-				if (currentTimer <= 0f) {
-					iterator.remove();
-					break;
-				}
+			for (int i = 0; i < timers.size; i++) {
+				Float original = timers.get(i);
+				timers.set(i, original - delta);
 			}
 		}
 	}
@@ -122,6 +122,19 @@ public class MusicManager implements Disposable {
 			for (Float timer : entry.getValue()) {
 				if (timer <= 0f) {
 					sendCommand(AudioCommand.SOUND_STOP, entry.getKey());
+				}
+			}
+		}
+	}
+
+	private void cleanup() {
+		for (Array<Float> timers : musicTimers.values()) {
+			final Iterator<Float> iterator = timers.iterator();
+			while (iterator.hasNext()) {
+				final Float currentTimer = iterator.next();
+				if (currentTimer <= 0f) {
+					iterator.remove();
+					break;
 				}
 			}
 		}
@@ -190,9 +203,6 @@ public class MusicManager implements Disposable {
 				musicStop.stop();
 			}
 			break;
-		case SOUND_LOAD:
-			loadSound(event);
-			break;
 		case SOUND_PLAY_LOOP:
 			playSound(true, audioData.getAudioFileName(), volume);
 			break;
@@ -239,11 +249,6 @@ public class MusicManager implements Disposable {
 		default:
 			break;
 		}
-	}
-
-	private void loadSound(AudioEnum event) {
-		final AudioData audioData = getAudioData(event);
-		AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
 	}
 
 	private void setCooldown(AudioEnum event, float cooldown) {
