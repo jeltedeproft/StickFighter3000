@@ -3,9 +3,7 @@ package jelte.mygame.graphical;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
@@ -25,7 +23,6 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
-import jelte.mygame.utility.SpriteUtils;
 
 public class GraphicalManagerImpl implements GraphicalManager {
 
@@ -33,7 +30,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private MessageListener messageListener;
 	private SpriteBatch batch;
-	private OrthogonalTiledMapRenderer mapRenderer;
 	private ExtendViewport gameViewport;
 	private ScreenViewport uiViewport;
 	private Stage stage;
@@ -123,6 +119,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, "falltrough : " + player.getPhysicsComponent().isFallTrough(), 0, Gdx.graphics.getHeight() - 130);
 		font.draw(batch, "state : " + player.getCurrentCharacterState().getState(), 0, Gdx.graphics.getHeight() - 160);
 		font.draw(batch, "dimensions : " + player.getPhysicsComponent().getWidth() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 190);
+		font.draw(batch, "offset : " + animationManager.getSprite(player).getOffset() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 220);
+		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 250);
 		batch.end();
 
 		debugRectangles();
@@ -131,14 +129,14 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private void renderBodies() {
 		if (player != null) {
-			Sprite sprite = animationManager.getSprite(player);
+			CharacterSprite sprite = animationManager.getSprite(player);
 			player.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
-			sprite.setPosition(player.getPhysicsComponent().getPosition().x - animationManager.getSpriteOffset(SpriteUtils.getImageNameFromSprite(sprite)), player.getPhysicsComponent().getPosition().y);
+			sprite.setPosition(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
 			// TODO set the dimensions of all the enemies here same as player
-			Sprite sprite = animationManager.getSprite(enemy);
+			CharacterSprite sprite = animationManager.getSprite(enemy);
 			sprite.setPosition(enemy.getPhysicsComponent().getPosition().x, enemy.getPhysicsComponent().getPosition().y);
 			sprite.draw(batch);
 		}

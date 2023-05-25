@@ -27,9 +27,9 @@ public class CharacterStateTeleporting implements CharacterState {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
 		Direction direction = characterStateManager.getCharacter().getPhysicsComponent().getDirection();
 		if (direction.equals(Direction.right)) {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(Constants.DASH_DISTANCE, 0);// TODO make this smooth in update method.
+			characterStateManager.getCharacter().getPhysicsComponent().move(Constants.TELEPORT_DISTANCE, 0);
 		} else {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(-Constants.DASH_DISTANCE, 0);
+			characterStateManager.getCharacter().getPhysicsComponent().move(-Constants.TELEPORT_DISTANCE, 0);
 		}
 	}
 

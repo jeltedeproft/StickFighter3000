@@ -13,6 +13,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
@@ -23,8 +24,8 @@ import jelte.mygame.utility.UtilityFunctions;
 
 public class AnimationTextureManager {
 	private static final String TAG = AnimationTextureManager.class.getSimpleName();
-	private final Map<String, Animation<Sprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
-	private final Map<String, Float> animationNameToOffset;// TODO make class and optimize, remove all animations of character that is dead for example
+	private final Map<String, Animation<CharacterSprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
+	private final Map<String, Float> animationNameToOffset;
 	private final Map<UUID, String> previous;
 	private final Map<UUID, Float> timers;
 	private final Map<STATE, PlayMode> playmodes;
@@ -82,7 +83,7 @@ public class AnimationTextureManager {
 		usedIds.add(id);
 	}
 
-	public Animation<Sprite> checkCache(String animationName) {
+	public Animation<CharacterSprite> checkCache(String animationName) {
 		return cache.get(animationName);
 	}
 
@@ -90,7 +91,7 @@ public class AnimationTextureManager {
 		return playmodes.get(state);
 	}
 
-	public void cache(String animationName, Animation<Sprite> animation) {
+	public void cache(String animationName, Animation<CharacterSprite> animation) {
 		cache.put(animationName, animation);
 	}
 
@@ -112,7 +113,7 @@ public class AnimationTextureManager {
 		usedIds.clear();
 	}
 
-	public Sprite getSprite(String animationName, Character character) {
+	public CharacterSprite getSprite(String animationName, Character character) {
 		addUsedId(character.getId());
 
 		final String previousAnimationName = previous.get(character.getId());
@@ -123,13 +124,18 @@ public class AnimationTextureManager {
 		}
 
 		// is animation already loaded?
-		Animation<Sprite> animation = checkCache(animationName);
+		Animation<CharacterSprite> animation = checkCache(animationName);
 		if (animation == null) {
-			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
-			if (animation == null) {
+			Animation<Sprite> spriteAnimation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
+			if (spriteAnimation == null) {
 				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
 				return null;
 			}
+			Array<CharacterSprite> characterSprites = new Array<>();
+			for (Sprite sprite : spriteAnimation.getKeyFrames()) {
+				characterSprites.add(new CharacterSprite(sprite, animationName, getSpriteOffset(animationName, spriteAnimation.getKeyFrameIndex(timers.get(character.getId())))));
+			}
+			animation = new Animation<>(getFrameDuration(character), characterSprites, getPlayMode(character.getCurrentCharacterState().getState()));
 			cache(animationName, animation);
 
 		}
@@ -164,8 +170,8 @@ public class AnimationTextureManager {
 		}
 	}
 
-	public float getSpriteOffset(String spriteName) {
-		return animationNameToOffset.get(spriteName);
+	public float getSpriteOffset(String spriteName, int index) {
+		return animationNameToOffset.get(spriteName + "_" + (index + 1));
 	}
 
 	@Override

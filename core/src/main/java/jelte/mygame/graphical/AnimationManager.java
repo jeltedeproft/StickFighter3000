@@ -1,7 +1,5 @@
 package jelte.mygame.graphical;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
-
 import jelte.mygame.logic.character.Character;
 import lombok.ToString;
 
@@ -16,7 +14,7 @@ public class AnimationManager {
 		animationTextureManager = new AnimationTextureManager();
 	}
 
-	public Sprite getSprite(Character character) {
+	public CharacterSprite getSprite(Character character) {
 		String animationName = animationNameManager.getAnimationName(character);
 		return animationTextureManager.getSprite(animationName, character);
 	}
@@ -25,9 +23,4 @@ public class AnimationManager {
 		animationNameManager.update();
 		animationTextureManager.update(delta);
 	}
-
-	public float getSpriteOffset(String spriteName) {
-		return animationTextureManager.getSpriteOffset(spriteName);
-	}
-
 }

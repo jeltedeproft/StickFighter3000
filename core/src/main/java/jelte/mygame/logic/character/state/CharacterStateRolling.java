@@ -39,11 +39,10 @@ public class CharacterStateRolling implements CharacterState {
 			}
 
 		}
-		Direction direction = characterStateManager.getCharacter().getPhysicsComponent().getDirection();
-		if (direction.equals(Direction.right)) {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(Constants.ROLL_SPEED * delta, 0);// TODO make this smooth in update method.
+		if (characterStateManager.getCharacter().getPhysicsComponent().getDirection().equals(Direction.right)) {
+			characterStateManager.getCharacter().getPhysicsComponent().move(Constants.ROLL_SPEED * delta, 0);
 		} else {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(-Constants.ROLL_SPEED * delta, 0);
+			characterStateManager.getCharacter().getPhysicsComponent().move(-Constants.ROLL_SPEED * delta, 0);
 		}
 	}
 

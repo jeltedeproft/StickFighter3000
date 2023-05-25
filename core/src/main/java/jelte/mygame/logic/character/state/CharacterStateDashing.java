@@ -25,18 +25,16 @@ public class CharacterStateDashing implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
-		Direction direction = characterStateManager.getCharacter().getPhysicsComponent().getDirection();
-		if (direction.equals(Direction.right)) {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(Constants.DASH_DISTANCE, 0);// TODO make this smooth in update method.
-		} else {
-			characterStateManager.getCharacter().getPhysicsComponent().getPosition().add(-Constants.DASH_DISTANCE, 0);
-		}
-
 	}
 
 	@Override
 	public void update(float delta) {
 		timer -= delta;
+		if (characterStateManager.getCharacter().getPhysicsComponent().getDirection().equals(Direction.right)) {
+			characterStateManager.getCharacter().getPhysicsComponent().move(Constants.DASH_DISTANCE * delta, 0);
+		} else {
+			characterStateManager.getCharacter().getPhysicsComponent().move(-Constants.DASH_DISTANCE * delta, 0);
+		}
 		if (timer <= 0) {
 			timer = duration;
 			characterStateManager.transition(STATE.IDLE);

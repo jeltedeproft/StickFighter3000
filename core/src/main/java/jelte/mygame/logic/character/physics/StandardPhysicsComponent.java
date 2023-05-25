@@ -3,6 +3,7 @@ package jelte.mygame.logic.character.physics;
 import java.util.Objects;
 import java.util.UUID;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -77,6 +78,13 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 
 	@Override
 	public void setPosition(Vector2 pos) {
+		Gdx.app.debug(TAG, "setting pos to : " + pos);
+		if (pos.x < 0) {
+			pos.x = 0;
+		}
+		if (pos.y < 0) {
+			pos.y = 0;
+		}
 		if (!pos.equals(position)) {
 			hasMoved = true;
 			oldPosition.x = position.x;
@@ -92,12 +100,7 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	public void move(float x, float y) {
 		newPosition.x += x;
 		newPosition.y += y;
-		oldPosition.x = position.x;
-		oldPosition.y = position.y;
-		position.x = newPosition.x;
-		position.y = newPosition.y;
-		rectangle.x = newPosition.x;
-		rectangle.y = newPosition.y;
+		setPosition(newPosition);
 	}
 
 	@Override

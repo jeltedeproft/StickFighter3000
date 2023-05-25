@@ -23,9 +23,9 @@ import jelte.mygame.utility.AssetManagerUtility;
 
 //TODO add link between entity and sond so that we can update pos sound
 //TODO start usins positions and maybe reverb in cave
-public class MusicManager implements Disposable {
+public class MusicManager implements Disposable, MusicManagerInterface {
 	private static final String TAG = MusicManager.class.getSimpleName();
-	private static MusicManager instance = null;
+	private static MusicManagerInterface instance = null;
 
 	private static final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
 	private static final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
@@ -70,12 +70,16 @@ public class MusicManager implements Disposable {
 
 	}
 
-	public static MusicManager getInstance() {
+	public static MusicManagerInterface getInstance() {
 		if (instance == null) {
 			instance = new MusicManager();
 		}
 
 		return instance;
+	}
+
+	public static void setInstance(MusicManagerInterface newInstance) {
+		instance = newInstance;
 	}
 
 	private MusicManager() {
@@ -100,6 +104,7 @@ public class MusicManager implements Disposable {
 		AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
 	}
 
+	@Override
 	public void update(float delta, float cameraX, float cameraY) {
 		listener.setPosition(new Vector3(cameraX, cameraY, 0));
 		decreaseTimers(delta);
@@ -140,6 +145,7 @@ public class MusicManager implements Disposable {
 		}
 	}
 
+	@Override
 	public void sendCommand(AudioCommand command, String string) {
 		AudioEnum sound = AudioEnum.forName(string);
 		if (sound != null) {
@@ -147,6 +153,7 @@ public class MusicManager implements Disposable {
 		}
 	}
 
+	@Override
 	public void sendCommand(AudioCommand command, AudioEnum event, Vector2 pos) {
 		final AudioData audioData = getAudioData(event);
 		final float volume = audioData.getVolume();
@@ -182,6 +189,7 @@ public class MusicManager implements Disposable {
 		}
 	}
 
+	@Override
 	public void sendCommand(AudioCommand command, AudioEnum event) {
 		final AudioData audioData = getAudioData(event);
 		final float volume = audioData.getVolume();

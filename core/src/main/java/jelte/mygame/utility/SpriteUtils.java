@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class SpriteUtils {
@@ -54,7 +53,7 @@ public class SpriteUtils {
 		}
 		Pixmap pixmap = textureData.consumePixmap();
 
-		float attackOffset = 0;
+		float attackOffset = frameWidth; // Initialize with maximum value for left offset
 
 		for (int x = 0; x < frameWidth; x++) {
 			for (int y = 0; y < frameHeight; y++) {
@@ -62,20 +61,19 @@ public class SpriteUtils {
 
 				if (framePixels.a > 0) {
 					if (isLeft) {
-						attackOffset = Math.min(attackOffset, x);
+						attackOffset = Math.max(attackOffset, x); // Update the maximum for left offset
 						break;
 					}
-					attackOffset = Math.max(attackOffset, x);
+					attackOffset = Math.min(attackOffset, x); // Update the minimum for right offset
 					break;
-
 				}
 			}
 		}
 
 		if (isLeft) {
-			endAttackOffset = Math.min(endAttackOffset, attackOffset);
+			endAttackOffset = attackOffset;
 		} else {
-			endAttackOffset = Math.max(endAttackOffset, attackOffset);
+			endAttackOffset = frameWidth - attackOffset;
 		}
 
 		pixmap.dispose(); // Dispose the pixmap to avoid memory leaks
@@ -98,13 +96,5 @@ public class SpriteUtils {
 			return fileName.substring(0, dotIndex);
 		}
 		return fileName;
-	}
-
-	public static String getImageNameFromSprite(Sprite sprite) {
-		TextureRegion textureRegion = new TextureRegion(sprite.getTexture());
-		String textureName = textureRegion.getTexture().toString();
-		int startIndex = textureName.lastIndexOf("/") + 1;
-		int endIndex = textureName.lastIndexOf(".");
-		return textureName.substring(startIndex, endIndex);
 	}
 }
