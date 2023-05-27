@@ -1,6 +1,7 @@
 package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -21,8 +22,10 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.GraphicalUtility;
 
 public class GraphicalManagerImpl implements GraphicalManager {
 
@@ -110,9 +113,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		renderUI();
 
-		// debug
+		debugRectangles();
+		debugStaticObjects();
+
+		// debug info player
 		batch.begin();
 		font.draw(batch, "player position : " + player.getPhysicsComponent().getPosition(), 0, Gdx.graphics.getHeight() - 10);
+		font.draw(batch, "player rectangle : " + player.getPhysicsComponent().getRectangle(), 0, Gdx.graphics.getHeight() - 25);
 		font.draw(batch, "player velocity : " + player.getPhysicsComponent().getVelocity(), 0, Gdx.graphics.getHeight() - 40);
 		font.draw(batch, "player acceleration : " + player.getPhysicsComponent().getAcceleration(), 0, Gdx.graphics.getHeight() - 70);
 		font.draw(batch, "collided : " + player.getPhysicsComponent().isCollided(), 0, Gdx.graphics.getHeight() - 100);
@@ -123,21 +130,19 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 250);
 		batch.end();
 
-		debugRectangles();
-
 	}
 
 	private void renderBodies() {
 		if (player != null) {
 			CharacterSprite sprite = animationManager.getSprite(player);
 			player.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
-			sprite.setPosition(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
+			sprite.setPosition(player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
 			// TODO set the dimensions of all the enemies here same as player
 			CharacterSprite sprite = animationManager.getSprite(enemy);
-			sprite.setPosition(enemy.getPhysicsComponent().getPosition().x, enemy.getPhysicsComponent().getPosition().y);
+			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
 	}
@@ -187,8 +192,17 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private void debugRectangles() {
 		batch.begin();
-		// GraphicalUtility.drawDebugRectangle(player.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
+		GraphicalUtility.drawDebugRectangle(player.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
 		// GraphicalUtility.drawDebugRectangle(enemy.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
+		batch.end();
+	}
+
+	private void debugStaticObjects() {
+		batch.begin();
+		for (StaticBlock rect : mapManager.getBlockingRectangles()) {
+			GraphicalUtility.drawDebugRectangle(rect.getRectangle(), 3, Color.BLUE, gameViewport.getCamera().combined);
+		}
+
 		batch.end();
 	}
 

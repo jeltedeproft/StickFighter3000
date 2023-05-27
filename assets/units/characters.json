@@ -30,6 +30,7 @@
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
 		"fallAttackingFullTime": 1f,
+		"blockingFullTime": 1f,
 	},
 	{
 		"id": 1,
@@ -62,6 +63,7 @@
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
 		"fallAttackingFullTime": 1f,
+		"blockingFullTime": 1f,
 	},
 	{
 		"id": 2,
@@ -94,6 +96,7 @@
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
 		"fallAttackingFullTime": 1f,
+		"blockingFullTime": 1f,
 	},
 	{
 		"id": 3,
@@ -126,6 +129,7 @@
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
 		"fallAttackingFullTime": 1f,
+		"blockingFullTime": 1f,
 	},
 	{
 		"id": 4,
@@ -149,7 +153,7 @@
 		"hurtFullTime": 0.6f,
 		"appearFullTime": 1f,
 		"landingFullTime": 0.2f,
-		"stopRunningFullTime": 1f,
+		"stopRunningFullTime": 0.2f,
 		"dashingFullTime": 0.3f,
 		"defaultCastFullTime": 1f,
 		"teleportFullTime": 0.4f,
@@ -158,5 +162,6 @@
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
 		"fallAttackingFullTime": 1f,
+		"blockingFullTime": 0.3f,
 	}
 ]

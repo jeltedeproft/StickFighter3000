@@ -16,6 +16,7 @@ public class CharacterStateCrouched implements CharacterState {
 	@Override
 	public void entry() {
 		characterStateManager.getCharacter().getPhysicsComponent().setFallTrough(true);
+		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y -= 50;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 eclipse.project.name = appName + "-tests"
+sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
 
 dependencies {
         api project(":core")

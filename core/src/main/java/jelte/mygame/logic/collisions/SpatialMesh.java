@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -96,7 +95,6 @@ public class SpatialMesh {
 
 	private void removeCollidableFrom(Collidable collidable, Set<Point> collidedPoints) {
 		for (Point point : collidedPoints) {
-			Gdx.app.log(TAG, "removing from : " + point);
 			spatialMesh[point.x][point.y].removeCollidable(collidable);
 			if (!spatialMesh[point.x][point.y].isContainsDynamic()) {
 				cellsWithDynamicCollidables.remove(new Point(point.x, point.y));

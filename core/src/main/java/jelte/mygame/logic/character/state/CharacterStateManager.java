@@ -108,7 +108,7 @@ public class CharacterStateManager {
 		characterStateCasting = new CharacterStateCasting(this, data.getDefaultCastFullTime());
 		characterStateIdleCrouch = new CharacterStateIdleCrouch(this);
 		characterStateHolding = new CharacterStateHolding(this);
-		characterStateBlocking = new CharacterStateBlocking(this);
+		characterStateBlocking = new CharacterStateBlocking(this, data.getBlockingFullTime());
 		characterStateTeleporting = new CharacterStateTeleporting(this, data.getTeleportFullTime());
 		characterStateGrabbing = new CharacterStateGrabbing(this);
 		characterStateRollAttacking = new CharacterStateRollAttacking(this, data.getRollAttackFullTime());
@@ -133,7 +133,6 @@ public class CharacterStateManager {
 	}
 
 	public void transition(STATE state) {
-		System.out.println("changing from " + currentCharacterState.getState() + " to " + state);
 		currentCharacterState.exit();
 		switch (state) {
 		case APPEARING:
@@ -228,14 +227,50 @@ public class CharacterStateManager {
 	}
 
 	public void handleEvent(EVENT event) {
+		updateBuffer(event);
 		currentCharacterState.handleEvent(event);
+	}
+
+	private void updateBuffer(EVENT event) {
+		switch (event) {
+		case ATTACK_PRESSED:
+		case BLOCK_PRESSED:
+		case BLOCK_UNPRESSED:
+		case DAMAGE_TAKEN:
+		case DASH_PRESSED:
+		case DIED:
+		case JUMP_PRESSED:
+		case JUMP_UNPRESSED:
+		case NO_COLLISION:
+		case ROLL_PRESSED:
+		case TELEPORT_PRESSED:
+			break;
+		case DOWN_PRESSED:
+		case LEFT_PRESSED:
+		case RIGHT_PRESSED:
+		case SPRINT_PRESSED:
+			pressedKeysBuffer.add(event);
+			break;
+		case DOWN_UNPRESSED:
+			pressedKeysBuffer.remove(EVENT.DOWN_PRESSED);
+			break;
+		case LEFT_UNPRESSED:
+			pressedKeysBuffer.remove(EVENT.LEFT_PRESSED);
+			break;
+		case RIGHT_UNPRESSED:
+			pressedKeysBuffer.remove(EVENT.RIGHT_PRESSED);
+			break;
+		default:
+			break;
+
+		}
 	}
 
 	public Character getCharacter() {
 		return character;
 	}
 
-	public Stack<EVENT> getStack() {
+	public Stack<EVENT> getPressedKeysBuffer() {
 		return pressedKeysBuffer;
 	}
 

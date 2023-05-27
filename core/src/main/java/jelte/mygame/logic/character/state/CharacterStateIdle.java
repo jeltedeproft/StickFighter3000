@@ -17,8 +17,9 @@ public class CharacterStateIdle implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		for (EVENT event : characterStateManager.getPressedKeysBuffer()) {
+			handleEvent(event);
+		}
 	}
 
 	@Override

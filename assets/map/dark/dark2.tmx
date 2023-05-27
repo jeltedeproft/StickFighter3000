@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="35" height="35" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="26">
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="35" height="35" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="27">
  <tileset firstgid="1" name="dark" tilewidth="16" tileheight="16" tilecount="288" columns="18">
   <image source="DARK Edition Tileset No background.png" width="288" height="256"/>
  </tileset>
@@ -27,28 +27,29 @@
   </data>
  </layer>
  <objectgroup id="4" name="blocks">
-  <object id="2" name="LEFT" x="0" y="176" width="14.8162" height="384"/>
+  <object id="2" name="LEFT" x="0" y="222" width="14.8162" height="338"/>
   <object id="3" name="TOP" x="-0.0434783" y="0.913044" width="368.333" height="188.887"/>
-  <object id="4" name="RIGHT" x="352.113" y="175.87" width="15.8867" height="254.75"/>
-  <object id="6" name="PLATFORM" x="208.079" y="304.191" width="48.2056" height="7"/>
-  <object id="7" name="BOT" x="0.101229" y="528.068" width="399.82" height="31.264"/>
-  <object id="8" name="PLATFORM" x="208.158" y="352.141" width="47.9447" height="4.46368"/>
-  <object id="9" name="RIGHT" x="208.449" y="452.932" width="12.4773" height="37.4063"/>
-  <object id="10" name="TOP" x="-0.25" y="191.307" width="238.5" height="30.3867"/>
+  <object id="4" name="RIGHT" x="352.113" y="189.957" width="15.8867" height="241.75"/>
+  <object id="6" name="PLATFORM" x="208.079" y="304.191" width="48.2056" height="2.5"/>
+  <object id="7" name="BOT" x="15.0103" y="528.068" width="352.729" height="31.264"/>
+  <object id="8" name="PLATFORM" x="208.158" y="352.141" width="47.9447" height="2.33868"/>
+  <object id="9" name="RIGHT" x="208.058" y="450.845" width="12.8686" height="41.928"/>
+  <object id="10" name="TOP" x="1.65909" y="189.943" width="223.045" height="32.7503"/>
   <object id="11" name="RIGHT" x="368.117" y="0.583333" width="191.637" height="559.667"/>
-  <object id="12" name="TOP" x="319.807" y="175.875" width="32.6367" height="48"/>
-  <object id="13" name="BOT" x="262.725" y="304.011" width="90.2019" height="51.5"/>
-  <object id="14" name="TOP" x="317.057" y="416.25" width="35.3867" height="26.5"/>
-  <object id="15" name="LEFT" x="16.2957" y="221.228" width="46.6367" height="83.25"/>
-  <object id="16" name="RIGHT" x="256.432" y="307.965" width="6.3867" height="107.313"/>
+  <object id="12" name="TOP" x="320.111" y="189.966" width="31.8541" height="33.7787"/>
+  <object id="13" name="BOT" x="262.725" y="304.011" width="88.9519" height="51.5"/>
+  <object id="14" name="TOP" x="320.187" y="415.902" width="31.7345" height="26.6739"/>
+  <object id="15" name="LEFT" x="14.9321" y="221.864" width="47.8185" height="82.375"/>
+  <object id="16" name="RIGHT" x="256.128" y="307.965" width="6.69105" height="107.878"/>
   <object id="17" name="TOP" x="15.3065" y="353.516" width="184.909" height="62.4239"/>
   <object id="18" name="BOT" x="200.619" y="304.293" width="7.34896" height="3.73777"/>
-  <object id="19" name="TOP" x="262.932" y="355.75" width="89.6367" height="59.25"/>
-  <object id="20" name="LEFT" x="200.459" y="308.079" width="7.51713" height="107.351"/>
-  <object id="21" name="BOT" x="208.761" y="449.297" width="45.4773" height="2.9063"/>
-  <object id="22" name="LEFT" x="246.011" y="449.547" width="8.9773" height="44.1563"/>
-  <object id="23" name="TOP" x="218.511" y="491.047" width="45.4773" height="2.9063"/>
-  <object id="24" name="BOT" x="15.138" y="304.522" width="185.474" height="48.9565"/>
+  <object id="19" name="TOP" x="262.932" y="355.75" width="89.028" height="59.9022"/>
+  <object id="20" name="LEFT" x="200.459" y="308.079" width="7.51713" height="107.699"/>
+  <object id="21" name="BOT" x="208.109" y="448.036" width="47.9556" height="2.64543"/>
+  <object id="22" name="LEFT" x="246.881" y="450.938" width="8.9773" height="41.9389"/>
+  <object id="23" name="TOP" x="208.033" y="492.96" width="47.8686" height="2.9063"/>
+  <object id="24" name="BOT" x="15.138" y="304.218" width="185.474" height="49.2608"/>
   <object id="25" name="BOT" x="256.326" y="304.1" width="6.31771" height="3.73777"/>
+  <object id="26" name="TOP" x="224.974" y="189.853" width="14.9409" height="17.4292" rotation="0.52935"/>
  </objectgroup>
 </map>

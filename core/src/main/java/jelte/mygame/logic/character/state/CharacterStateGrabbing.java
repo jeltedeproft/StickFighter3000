@@ -51,7 +51,6 @@ public class CharacterStateGrabbing implements CharacterState {
 			break;
 		case RIGHT_PRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			System.out.println("IDLE : right pressed, acceleration = " + characterStateManager.getCharacter().getPhysicsComponent().getAcceleration());
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 			characterStateManager.transition(STATE.RUNNING);
 			break;

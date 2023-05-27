@@ -23,6 +23,7 @@ import jelte.mygame.utility.AssetManagerUtility;
 
 //TODO add link between entity and sond so that we can update pos sound
 //TODO start usins positions and maybe reverb in cave
+//TODO memory efficiency, after spamming it overflows, cleanup
 public class MusicManager implements Disposable, MusicManagerInterface {
 	private static final String TAG = MusicManager.class.getSimpleName();
 	private static MusicManagerInterface instance = null;

@@ -72,7 +72,7 @@ public class CharacterStateWallSlidingStop implements CharacterState {
 
 	@Override
 	public void exit() {
-
+		timer = duration;
 	}
 
 	@Override

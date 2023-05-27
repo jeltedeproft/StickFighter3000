@@ -3,7 +3,6 @@ package jelte.mygame.logic.character.physics;
 import java.util.Objects;
 import java.util.UUID;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -39,7 +38,8 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		direction = Direction.right;
-		rectangle = new Rectangle(position.x, position.y, width, height);// TODO dynamically change the size of thre player, idea : add size for every animation in character json
+		System.out.println("initializing rectangle : " + position.x);
+		rectangle = new Rectangle(position.x, position.y, width, height);
 	}
 
 	@Override
@@ -78,21 +78,44 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 
 	@Override
 	public void setPosition(Vector2 pos) {
-		Gdx.app.debug(TAG, "setting pos to : " + pos);
-		if (pos.x < 0) {
-			pos.x = 0;
+		System.out.println("Setting position to: " + pos);
+
+		float newX = clampXCoordinate(pos.x);
+		float newY = clampYCoordinate(pos.y);
+
+		if (shouldUpdatePosition(pos, newX, newY)) {
+			updatePosition(newX, newY);
 		}
-		if (pos.y < 0) {
-			pos.y = 0;
+	}
+
+	private float clampXCoordinate(float x) {
+		if (x < 0) {
+			return direction == Direction.left ? rectangle.width : 0;
 		}
-		if (!pos.equals(position)) {
-			hasMoved = true;
-			oldPosition.x = position.x;
-			oldPosition.y = position.y;
-			position.x = pos.x;
-			position.y = pos.y;
-			rectangle.x = pos.x;
-			rectangle.y = pos.y;
+		return x;
+	}
+
+	private float clampYCoordinate(float y) {
+		if (y < 0) {
+			System.out.println("Setting y to zero");
+			return 0;
+		}
+		return y;
+	}
+
+	private boolean shouldUpdatePosition(Vector2 pos, float newX, float newY) {
+		return !pos.equals(position) || newX == 0 && newY == 0;
+	}
+
+	private void updatePosition(float newX, float newY) {
+		System.out.println("Moving to new position");
+		hasMoved = true;
+		oldPosition.set(position);
+		position.set(newX, newY);
+		rectangle.setPosition(newX, newY);
+
+		if (direction == Direction.left) {
+			rectangle.x -= rectangle.width;
 		}
 	}
 
@@ -208,9 +231,11 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 
 	@Override
 	public void setDimensions(float width, float height) {
-		this.width = width;
-		this.height = height;
-		rectangle.setWidth(width);
-		rectangle.setHeight(height);
+		if (this.width != width || this.height != height) {
+			this.width = width;
+			this.height = height;
+			rectangle.setWidth(width);
+			rectangle.setHeight(height);
+		}
 	}
 }

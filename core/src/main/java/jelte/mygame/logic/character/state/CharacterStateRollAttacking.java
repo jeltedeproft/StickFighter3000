@@ -45,8 +45,7 @@ public class CharacterStateRollAttacking implements CharacterState {
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-
+		timer = duration;
 	}
 
 	@Override

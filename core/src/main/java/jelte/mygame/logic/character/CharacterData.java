@@ -43,4 +43,5 @@ public class CharacterData {
 	private float wallSlidingStopFullTime;
 	private float holdToSlideFullTime;
 	private float fallAttackingFullTime;
+	private float blockingFullTime;
 }

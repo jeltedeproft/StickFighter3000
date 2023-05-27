@@ -23,7 +23,6 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		System.out.println("velocity y = " + characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y);
 		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0) {
 			characterStateManager.transition(STATE.LANDING);
 		}

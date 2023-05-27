@@ -54,10 +54,6 @@ public class CharacterStateRolling implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
-		case RIGHT_PRESSED:
-		case LEFT_PRESSED:
-			characterStateManager.getStack().add(event);
-			break;
 		default:
 			break;
 
@@ -67,6 +63,7 @@ public class CharacterStateRolling implements CharacterState {
 	@Override
 	public void exit() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_ROLL1);
+		timer = duration;
 	}
 
 	@Override
