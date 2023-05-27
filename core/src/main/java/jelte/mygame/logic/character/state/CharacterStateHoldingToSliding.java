@@ -1,13 +1,13 @@
 package jelte.mygame.logic.character.state;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class CharacterStateHoldingToSliding implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float duration;
 	private float timer = 0f;
-	private STATE state = STATE.HOLDINGTOSLIDING;
+	private CHARACTER_STATE state = CHARACTER_STATE.HOLDINGTOSLIDING;
 
 	public CharacterStateHoldingToSliding(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
@@ -26,7 +26,7 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.WALLSLIDING);
+			characterStateManager.transition(CHARACTER_STATE.WALLSLIDING);
 		}
 	}
 
@@ -34,13 +34,13 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(STATE.HURT);
+			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case JUMP_PRESSED:
-			characterStateManager.transition(STATE.JUMPING);
+			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case DOWN_PRESSED:
-			characterStateManager.transition(STATE.WALLSLIDING);
+			characterStateManager.transition(CHARACTER_STATE.WALLSLIDING);
 			break;
 		default:
 			break;
@@ -54,7 +54,7 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

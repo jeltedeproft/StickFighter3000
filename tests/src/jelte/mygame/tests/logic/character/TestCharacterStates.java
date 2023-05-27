@@ -24,7 +24,7 @@ import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 
@@ -55,26 +55,26 @@ public class TestCharacterStates {
 
 	@Test
 	public void testStartInAppear() {
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.APPEARING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.APPEARING);
 	}
 
 	@Test
 	public void testAppearUpdate() {
 		characterStateManager.update(1000);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.IDLE);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.IDLE);
 	}
 
 	@Test
 	public void testAppearToAttack() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_APPEAR1);
 		characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.ATTACKING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ATTACKING);
 	}
 
 	@Test
 	public void testAppearToHurt() {
 		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.HURT);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
@@ -85,7 +85,7 @@ public class TestCharacterStates {
 	public void testAppearToJumping() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP1);
 		characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.JUMPING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.JUMPING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == Constants.JUMP_SPEED.y);
 	}
 
@@ -93,7 +93,7 @@ public class TestCharacterStates {
 	public void testAppearToWalkingLeft() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK1);
 		characterStateManager.handleEvent(EVENT.LEFT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.WALKING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == -Constants.MOVEMENT_SPEED);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.left);
@@ -110,7 +110,7 @@ public class TestCharacterStates {
 	public void testAppearToWalkingRight() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK1);
 		characterStateManager.handleEvent(EVENT.RIGHT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.WALKING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == Constants.MOVEMENT_SPEED);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right);
@@ -128,7 +128,7 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == Constants.TELEPORT_DISTANCE);
 	}
 
@@ -137,7 +137,7 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == 0);
 	}
 
@@ -147,7 +147,7 @@ public class TestCharacterStates {
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.getCharacter().getPhysicsComponent().setPosition(new Vector2(Constants.TELEPORT_DISTANCE, 0));
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == 0);
 	}
 
@@ -155,21 +155,21 @@ public class TestCharacterStates {
 	public void testAppearToDash() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
 		characterStateManager.handleEvent(EVENT.DASH_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.DASHING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.DASHING);
 	}
 
 	@Test
 	public void testAppearToRoll() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL1);
 		characterStateManager.handleEvent(EVENT.ROLL_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.ROLLING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ROLLING);
 	}
 
 	@Test
 	public void testAppearToBlock() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD1);
 		characterStateManager.handleEvent(EVENT.BLOCK_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.BLOCKING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.BLOCKING);
 	}
 
 	//
@@ -185,21 +185,21 @@ public class TestCharacterStates {
 	// ATTACK //////////////////////////////////////////////
 	private void switchToAttackingState() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK1);
-		characterStateManager.transition(STATE.ATTACKING);
+		characterStateManager.transition(CHARACTER_STATE.ATTACKING);
 	}
 
 	@Test
 	public void testAttackUpdate() {
 		switchToAttackingState();
 		characterStateManager.update(1000);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.IDLE);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.IDLE);
 	}
 
 	@Test
 	public void testAttackToHurt() {
 		switchToAttackingState();
 		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.HURT);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
@@ -237,14 +237,14 @@ public class TestCharacterStates {
 	// BLOCKING //////////////////////////////////////////////
 	private void switchToBlockingState() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD1);
-		characterStateManager.transition(STATE.BLOCKING);
+		characterStateManager.transition(CHARACTER_STATE.BLOCKING);
 	}
 
 	@Test
 	public void testBlockToIdle() {
 		switchToBlockingState();
 		characterStateManager.update(1000f);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.IDLE);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.IDLE);
 	}
 
 	@Test
@@ -271,7 +271,7 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == Constants.TELEPORT_DISTANCE);
 	}
 
@@ -281,7 +281,7 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == 0);
 	}
 
@@ -292,7 +292,7 @@ public class TestCharacterStates {
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.getCharacter().getPhysicsComponent().setPosition(new Vector2(Constants.TELEPORT_DISTANCE, 0));
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.TELEPORTING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getPosition().x == 0);
 	}
 
@@ -301,7 +301,7 @@ public class TestCharacterStates {
 		switchToBlockingState();
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
 		characterStateManager.handleEvent(EVENT.DASH_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.DASHING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.DASHING);
 	}
 
 	@Test
@@ -309,7 +309,59 @@ public class TestCharacterStates {
 		switchToBlockingState();
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL1);
 		characterStateManager.handleEvent(EVENT.ROLL_PRESSED);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), STATE.ROLLING);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ROLLING);
+	}
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	// CAST //////////////////////////////////////////////
+	private void switchToCastingState() {
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.FIREBALL1);
+		characterStateManager.transition(CHARACTER_STATE.CAST);
+	}
+
+	@Test
+	public void testCastUpdate() {
+		switchToCastingState();
+		characterStateManager.update(1000);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.IDLE);
+	}
+
+	@Test
+	public void testCastToHurt() {
+		switchToCastingState();
+		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
+		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
+	}
+
+	@Test
+	public void testCastLeftUnpressed() {
+		switchToCastingState();
+		characterStateManager.handleEvent(EVENT.LEFT_UNPRESSED);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
+	}
+
+	@Test
+	public void testCastRightUnpressed() {
+		switchToCastingState();
+		characterStateManager.handleEvent(EVENT.RIGHT_UNPRESSED);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
 	}
 
 }

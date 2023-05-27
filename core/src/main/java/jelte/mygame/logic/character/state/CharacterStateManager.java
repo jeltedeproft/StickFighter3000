@@ -18,6 +18,7 @@ public class CharacterStateManager {
 	private CharacterState characterStateCrouched;
 	private CharacterState characterStateLanding;
 	private CharacterState characterStateDashing;
+	private CharacterState characterStatePreCasting;
 	private CharacterState characterStateCasting;
 	private CharacterState characterStateIdleCrouch;
 	private CharacterState characterStateHolding;
@@ -37,7 +38,7 @@ public class CharacterStateManager {
 	private Character character;
 	private Stack<EVENT> pressedKeysBuffer = new Stack<>();
 
-	public enum STATE {
+	public enum CHARACTER_STATE {
 		ATTACKING,
 		DIE,
 		HURT,
@@ -47,6 +48,7 @@ public class CharacterStateManager {
 		FALLING,
 		RUNNING,
 		APPEARING,
+		PRECAST,
 		CAST,
 		CROUCHED,
 		LANDING,
@@ -72,6 +74,7 @@ public class CharacterStateManager {
 		DAMAGE_TAKEN,
 		JUMP_PRESSED,
 		ATTACK_PRESSED,
+		CAST_PRESSED,
 		DIED,
 		DOWN_PRESSED,
 		DOWN_UNPRESSED,
@@ -105,6 +108,7 @@ public class CharacterStateManager {
 		characterStateFalling = new CharacterStateFalling(this);
 		characterStateLanding = new CharacterStateLanding(this, data.getLandingFullTime());
 		characterStateAppear = new CharacterStateAppear(this, data.getAppearFullTime());
+		characterStatePreCasting = new CharacterStatePreCasting(this, data.getDefaultPreCastFullTime());
 		characterStateCasting = new CharacterStateCasting(this, data.getDefaultCastFullTime());
 		characterStateIdleCrouch = new CharacterStateIdleCrouch(this);
 		characterStateHolding = new CharacterStateHolding(this);
@@ -132,7 +136,7 @@ public class CharacterStateManager {
 		return currentCharacterState;
 	}
 
-	public void transition(STATE state) {
+	public void transition(CHARACTER_STATE state) {
 		currentCharacterState.exit();
 		switch (state) {
 		case APPEARING:
@@ -172,7 +176,7 @@ public class CharacterStateManager {
 			currentCharacterState = characterStateBlocking;
 			break;
 		case CAST:
-			currentCharacterState = characterStateCasting;
+			currentCharacterState = characterStatePreCasting;
 			break;
 		case CLIMBING:
 			currentCharacterState = characterStateClimbing;
@@ -236,6 +240,7 @@ public class CharacterStateManager {
 		case ATTACK_PRESSED:
 		case BLOCK_PRESSED:
 		case BLOCK_UNPRESSED:
+		case CAST_PRESSED:
 		case DAMAGE_TAKEN:
 		case DASH_PRESSED:
 		case DIED:

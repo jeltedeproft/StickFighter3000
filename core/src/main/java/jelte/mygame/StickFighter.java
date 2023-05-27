@@ -12,6 +12,8 @@ import jelte.mygame.input.InputHandlerImpl;
 import jelte.mygame.logic.LogicManager;
 import jelte.mygame.logic.LogicManagerImpl;
 import jelte.mygame.logic.character.CharacterFileReader;
+import jelte.mygame.logic.spells.ModifierFileReader;
+import jelte.mygame.logic.spells.SpellFileReader;
 
 public class StickFighter implements ApplicationListener, MessageListener {
 	private InputHandler inputHandler;
@@ -23,6 +25,8 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		CharacterFileReader.loadUnitStatsInMemory();
 		AudioFileReader.loadAudioInMemory();
+		SpellFileReader.loadSpellsInMemory();
+		ModifierFileReader.loadModifiersInMemory();
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
 		graphicalManager = new GraphicalManagerImpl(this);

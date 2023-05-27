@@ -74,6 +74,7 @@ public class Constants {
 	public static final String KEY_DASH = "dash";
 	public static final String KEY_ROLL = "roll";
 	public static final String KEY_TELEPORT = "teleport";
+	public static final String KEY_SPELL0 = "spell0";
 
 	// TIMES
 	public static final Long DASH_TIME = 1000L;

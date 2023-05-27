@@ -1,0 +1,12 @@
+[
+	{
+		"id": 0,
+		"name": "Fire",
+		"modifierSpriteName": "fireEffect",
+		"modifierType": "DOT",
+		"tickInterval": 250,
+		"amount": 10,
+		"polygonPoints": "0,0 32,0 32,32 0,32"
+		"infoText": "Fire modifier, ouch it burns."
+	}
+]

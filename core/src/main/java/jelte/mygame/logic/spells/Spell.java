@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
@@ -26,11 +27,24 @@ public class Spell implements Collidable {
 	protected boolean hasMoved;
 	protected CharacterStateManager characterStateManager;
 	protected PhysicsComponent physicsComponent;
+	protected Vector2 startPosition;
+	protected Vector2 targetPosition;
 
-	public Spell(SpellData data, UUID id, Vector2 startPosition) {
-		this.id = id;
-		this.data = data;
-		physicsComponent = new StandardPhysicsComponent(id, startPosition);
+	// TODO use a pool, bc we have many objects here.
+	public enum SPELL_TYPE {
+		LASER, ON_MOUSE, PROJECTILE, OBJECT, SHIELD, EFFECT, SUMMON
+	}
+
+	public enum AFFECTS {
+		FRIENDLY, ENEMY, BOTH, NONE
+	}
+
+	public Spell(SpellData spellData, Vector2 casterPosition, Vector3 mousePosition) {
+		id = UUID.randomUUID();
+		this.data = spellData;
+		targetPosition = new Vector2(mousePosition.x, mousePosition.y);
+		startPosition = casterPosition.cpy();
+		physicsComponent = new StandardPhysicsComponent(id, casterPosition.cpy());// TODO switch on type here
 	}
 
 	public void update(float delta) {
@@ -38,7 +52,7 @@ public class Spell implements Collidable {
 	}
 
 	public String getSpriteName() {
-		return data.getEntitySpriteName();
+		return data.getSpriteName();
 	}
 
 	public String getName() {

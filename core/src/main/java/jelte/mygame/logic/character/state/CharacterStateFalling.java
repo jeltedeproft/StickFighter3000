@@ -5,12 +5,12 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateFalling implements CharacterState {
 	private CharacterStateManager characterStateManager;
-	private STATE state = STATE.FALLING;
+	private CHARACTER_STATE state = CHARACTER_STATE.FALLING;
 
 	public CharacterStateFalling(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -24,7 +24,7 @@ public class CharacterStateFalling implements CharacterState {
 	@Override
 	public void update(float delta) {
 		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0) {
-			characterStateManager.transition(STATE.LANDING);
+			characterStateManager.transition(CHARACTER_STATE.LANDING);
 		}
 	}
 
@@ -32,7 +32,7 @@ public class CharacterStateFalling implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case JUMP_PRESSED:
-			characterStateManager.transition(STATE.JUMPING);
+			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
@@ -48,10 +48,13 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 			break;
 		case TELEPORT_PRESSED:
-			characterStateManager.transition(STATE.TELEPORTING);
+			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
 			break;
 		case DASH_PRESSED:
-			characterStateManager.transition(STATE.DASHING);
+			characterStateManager.transition(CHARACTER_STATE.DASHING);
+			break;
+		case CAST_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.PRECAST);
 			break;
 		default:
 			break;
@@ -64,7 +67,7 @@ public class CharacterStateFalling implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

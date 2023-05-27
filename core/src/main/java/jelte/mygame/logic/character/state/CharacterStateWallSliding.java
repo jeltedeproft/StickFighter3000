@@ -7,12 +7,12 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateWallSliding implements CharacterState {
 	private CharacterStateManager characterStateManager;
-	private STATE state = STATE.WALLSLIDING;
+	private CHARACTER_STATE state = CHARACTER_STATE.WALLSLIDING;
 
 	public CharacterStateWallSliding(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -32,13 +32,13 @@ public class CharacterStateWallSliding implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case ATTACK_PRESSED:
-			characterStateManager.transition(STATE.ATTACKING);
+			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
 			break;
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(STATE.HURT);
+			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case JUMP_PRESSED:
-			characterStateManager.transition(STATE.JUMPING);
+			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
@@ -54,10 +54,10 @@ public class CharacterStateWallSliding implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 			break;
 		case DOWN_PRESSED:
-			characterStateManager.transition(STATE.CROUCHED);
+			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
 			break;
 		case NO_COLLISION:
-			characterStateManager.transition(STATE.FALLING);
+			characterStateManager.transition(CHARACTER_STATE.FALLING);
 			break;
 		default:
 			break;
@@ -71,7 +71,7 @@ public class CharacterStateWallSliding implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

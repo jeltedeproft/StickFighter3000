@@ -6,11 +6,11 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class CharacterStateBlocking implements CharacterState {
 	private CharacterStateManager characterStateManager;
-	private STATE state = STATE.BLOCKING;
+	private CHARACTER_STATE state = CHARACTER_STATE.BLOCKING;
 	private float timer = 0f;
 	private float duration;
 
@@ -32,7 +32,7 @@ public class CharacterStateBlocking implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(CHARACTER_STATE.IDLE);
 		}
 	}
 
@@ -45,13 +45,19 @@ public class CharacterStateBlocking implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
 		case TELEPORT_PRESSED:
-			characterStateManager.transition(STATE.TELEPORTING);
+			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
 			break;
 		case DASH_PRESSED:
-			characterStateManager.transition(STATE.DASHING);
+			characterStateManager.transition(CHARACTER_STATE.DASHING);
 			break;
 		case ROLL_PRESSED:
-			characterStateManager.transition(STATE.ROLLING);
+			characterStateManager.transition(CHARACTER_STATE.ROLLING);
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
+			break;
+		case CAST_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.PRECAST);
 			break;
 		default:
 			break;
@@ -65,7 +71,7 @@ public class CharacterStateBlocking implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

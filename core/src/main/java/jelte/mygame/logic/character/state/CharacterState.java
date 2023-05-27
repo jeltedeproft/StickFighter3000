@@ -1,7 +1,7 @@
 package jelte.mygame.logic.character.state;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public interface CharacterState {
 	public void entry();
@@ -12,6 +12,6 @@ public interface CharacterState {
 
 	public void exit();
 
-	public STATE getState();
+	public CHARACTER_STATE getState();
 
 }

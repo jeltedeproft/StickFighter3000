@@ -6,11 +6,11 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class CharacterStateDie implements CharacterState {
 	private CharacterStateManager characterStateManager;
-	private STATE state = STATE.DIE;
+	private CHARACTER_STATE state = CHARACTER_STATE.DIE;
 
 	public CharacterStateDie(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -41,7 +41,7 @@ public class CharacterStateDie implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

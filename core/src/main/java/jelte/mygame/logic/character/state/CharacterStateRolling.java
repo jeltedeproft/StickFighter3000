@@ -7,14 +7,14 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateRolling implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float duration;
 	private float timer = 0f;
-	private STATE state = STATE.ROLLING;
+	private CHARACTER_STATE state = CHARACTER_STATE.ROLLING;
 
 	public CharacterStateRolling(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
@@ -33,9 +33,9 @@ public class CharacterStateRolling implements CharacterState {
 		if (timer <= 0) {
 			timer = duration;
 			if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x) > 0) {
-				characterStateManager.transition(STATE.RUNNING);
+				characterStateManager.transition(CHARACTER_STATE.RUNNING);
 			} else {
-				characterStateManager.transition(STATE.IDLE);
+				characterStateManager.transition(CHARACTER_STATE.IDLE);
 			}
 
 		}
@@ -67,7 +67,7 @@ public class CharacterStateRolling implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

@@ -80,6 +80,11 @@ public class KeyBindings {
 		} else {
 			keyBindings.put(Constants.KEY_TELEPORT, MyKeys.T);
 		}
+		if (map.containsKey(Constants.KEY_SPELL0)) {
+			keyBindings.put(Constants.KEY_SPELL0, bindingsPreferences.getInteger(Constants.KEY_SPELL0));
+		} else {
+			keyBindings.put(Constants.KEY_SPELL0, MyKeys.F);
+		}
 	}
 
 	/**

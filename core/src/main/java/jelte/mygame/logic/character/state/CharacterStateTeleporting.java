@@ -7,13 +7,13 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateTeleporting implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
-	private STATE state = STATE.TELEPORTING;
+	private CHARACTER_STATE state = CHARACTER_STATE.TELEPORTING;
 	private float duration;
 
 	public CharacterStateTeleporting(CharacterStateManager characterStateManager, float duration) {
@@ -38,7 +38,7 @@ public class CharacterStateTeleporting implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(CHARACTER_STATE.IDLE);
 		}
 	}
 
@@ -62,7 +62,7 @@ public class CharacterStateTeleporting implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

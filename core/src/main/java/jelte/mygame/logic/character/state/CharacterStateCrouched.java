@@ -2,12 +2,12 @@ package jelte.mygame.logic.character.state;
 
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateCrouched implements CharacterState {
 	private CharacterStateManager characterStateManager;
-	private STATE state = STATE.CROUCHED;
+	private CHARACTER_STATE state = CHARACTER_STATE.CROUCHED;
 
 	public CharacterStateCrouched(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -29,7 +29,7 @@ public class CharacterStateCrouched implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DOWN_UNPRESSED:
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(CHARACTER_STATE.IDLE);
 			break;
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED_CROUCHED;
@@ -46,7 +46,10 @@ public class CharacterStateCrouched implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			break;
 		case NO_COLLISION:
-			characterStateManager.transition(STATE.FALLING);
+			characterStateManager.transition(CHARACTER_STATE.FALLING);
+			break;
+		case CAST_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.PRECAST);
 			break;
 		default:
 			break;
@@ -60,7 +63,7 @@ public class CharacterStateCrouched implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

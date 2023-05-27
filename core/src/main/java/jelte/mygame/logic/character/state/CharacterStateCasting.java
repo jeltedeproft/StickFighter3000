@@ -3,13 +3,15 @@ package jelte.mygame.logic.character.state;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.spells.SpellsEnum;
 
 public class CharacterStateCasting implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
 	private float duration;
-	private STATE state = STATE.CAST;
+	private CHARACTER_STATE state = CHARACTER_STATE.CAST;
+	private SpellsEnum spellsEnum;
 
 	public CharacterStateCasting(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
@@ -28,7 +30,7 @@ public class CharacterStateCasting implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(CHARACTER_STATE.IDLE);
 		}
 
 	}
@@ -37,7 +39,7 @@ public class CharacterStateCasting implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(STATE.HURT);
+			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
@@ -56,7 +58,7 @@ public class CharacterStateCasting implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

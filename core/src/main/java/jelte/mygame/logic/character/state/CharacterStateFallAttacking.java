@@ -6,13 +6,13 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class CharacterStateFallAttacking implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
 	private float duration;
-	private STATE state = STATE.FALLATTACKING;
+	private CHARACTER_STATE state = CHARACTER_STATE.FALLATTACKING;
 
 	public CharacterStateFallAttacking(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
@@ -30,7 +30,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.FALLING);
+			characterStateManager.transition(CHARACTER_STATE.FALLING);
 		}
 	}
 
@@ -38,7 +38,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(STATE.HURT);
+			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case RIGHT_UNPRESSED:
 		case LEFT_UNPRESSED:
@@ -57,7 +57,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 

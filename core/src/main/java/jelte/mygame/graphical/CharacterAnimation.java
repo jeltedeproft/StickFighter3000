@@ -1,7 +1,7 @@
 package jelte.mygame.graphical;
 
 import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,13 +9,13 @@ import lombok.Setter;
 @Setter
 public class CharacterAnimation {
 	private String characterName;
-	private STATE state;
+	private CHARACTER_STATE state;
 	private int animationIndex;
 	private Direction direction;
 	private Float timeRunning = 0f;
 	private String fullName;
 
-	public CharacterAnimation(String characterName, STATE state, int animationIndex, Direction direction) {
+	public CharacterAnimation(String characterName, CHARACTER_STATE state, int animationIndex, Direction direction) {
 		this.characterName = characterName;
 		this.state = state;
 		this.animationIndex = animationIndex;
@@ -29,7 +29,7 @@ public class CharacterAnimation {
 		resetTimer();
 	}
 
-	public void changeState(STATE newState) {
+	public void changeState(CHARACTER_STATE newState) {
 		state = newState;
 		rebuildName();
 		resetTimer();
@@ -70,7 +70,7 @@ public class CharacterAnimation {
 		timeRunning += delta;
 	}
 
-	public boolean updateData(String characterName, int animationIndex, Direction direction, STATE state) {
+	public boolean updateData(String characterName, int animationIndex, Direction direction, CHARACTER_STATE state) {
 		boolean changed = false;
 		if (!characterName.equals(this.characterName)) {
 			changed = true;

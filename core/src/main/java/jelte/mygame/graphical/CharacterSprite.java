@@ -22,15 +22,4 @@ public class CharacterSprite extends Sprite {
 		this.offset = offset;
 		isRight = name.contains("right");
 	}
-
-	@Override
-	public void setPosition(float x, float y) {
-		super.setPosition(x, y);
-//		if (isRight) {
-//			translateX(-offset);
-//		} else {
-//			translateX(-offset / 2);
-//		}
-	}
-
 }

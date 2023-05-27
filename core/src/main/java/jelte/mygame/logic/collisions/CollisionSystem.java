@@ -1,8 +1,10 @@
 package jelte.mygame.logic.collisions;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 public interface CollisionSystem {
+	public void initSpatialMesh(Vector2 value);
 
 	public void addToSpatialMesh(Array<Collidable> collidables);
 

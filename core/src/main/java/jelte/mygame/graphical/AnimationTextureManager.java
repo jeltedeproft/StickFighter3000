@@ -16,7 +16,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.SpriteUtils;
@@ -28,7 +29,7 @@ public class AnimationTextureManager {
 	private final Map<String, Float> animationNameToOffset;
 	private final Map<UUID, String> previous;
 	private final Map<UUID, Float> timers;
-	private final Map<STATE, PlayMode> playmodes;
+	private final Map<CHARACTER_STATE, PlayMode> playmodes;
 	private final ConcurrentLinkedQueue<UUID> usedIds;
 
 	public AnimationTextureManager() {
@@ -36,7 +37,7 @@ public class AnimationTextureManager {
 		cache = new HashMap<>();
 		previous = new HashMap<>();
 		timers = new HashMap<>();
-		playmodes = new EnumMap<>(STATE.class);
+		playmodes = new EnumMap<>(CHARACTER_STATE.class);
 		usedIds = new ConcurrentLinkedQueue<>();
 		initPlayModes();
 		calculateOffsets();
@@ -51,32 +52,32 @@ public class AnimationTextureManager {
 	}
 
 	private void initPlayModes() {
-		playmodes.put(STATE.APPEARING, PlayMode.NORMAL);
-		playmodes.put(STATE.ATTACKING, PlayMode.NORMAL);
-		playmodes.put(STATE.DIE, PlayMode.NORMAL);
-		playmodes.put(STATE.HURT, PlayMode.NORMAL);
-		playmodes.put(STATE.IDLE, PlayMode.LOOP);
-		playmodes.put(STATE.JUMPING, PlayMode.NORMAL);
-		playmodes.put(STATE.WALKING, PlayMode.LOOP);
-		playmodes.put(STATE.RUNNING, PlayMode.LOOP);
-		playmodes.put(STATE.SPRINTING, PlayMode.LOOP);
-		playmodes.put(STATE.FALLING, PlayMode.LOOP);
-		playmodes.put(STATE.CAST, PlayMode.NORMAL);
-		playmodes.put(STATE.CROUCHED, PlayMode.NORMAL);
-		playmodes.put(STATE.LANDING, PlayMode.NORMAL);
-		playmodes.put(STATE.STOPRUNNING, PlayMode.NORMAL);
-		playmodes.put(STATE.DASHING, PlayMode.LOOP);
-		playmodes.put(STATE.IDLECROUCH, PlayMode.NORMAL);
-		playmodes.put(STATE.HOLDING, PlayMode.NORMAL);
-		playmodes.put(STATE.BLOCKING, PlayMode.NORMAL);
-		playmodes.put(STATE.TELEPORTING, PlayMode.NORMAL);
-		playmodes.put(STATE.GRABBING, PlayMode.NORMAL);
-		playmodes.put(STATE.ROLLATTACK, PlayMode.NORMAL);
-		playmodes.put(STATE.ROLLING, PlayMode.LOOP);
-		playmodes.put(STATE.WALLSLIDING, PlayMode.LOOP);
-		playmodes.put(STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
-		playmodes.put(STATE.FALLATTACKING, PlayMode.LOOP);
-		playmodes.put(STATE.JUMPTOFALL, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.APPEARING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.ATTACKING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.DIE, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.HURT, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.IDLE, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.JUMPING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.WALKING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.RUNNING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.SPRINTING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.FALLING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.CAST, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.CROUCHED, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.LANDING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.STOPRUNNING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.DASHING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.IDLECROUCH, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.HOLDING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.BLOCKING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.TELEPORTING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.GRABBING, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.ROLLATTACK, PlayMode.NORMAL);
+		playmodes.put(CHARACTER_STATE.ROLLING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.WALLSLIDING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.FALLATTACKING, PlayMode.LOOP);
+		playmodes.put(CHARACTER_STATE.JUMPTOFALL, PlayMode.NORMAL);
 	}
 
 	public void addUsedId(UUID id) {
@@ -87,7 +88,7 @@ public class AnimationTextureManager {
 		return cache.get(animationName);
 	}
 
-	public PlayMode getPlayMode(STATE state) {
+	public PlayMode getPlayMode(CHARACTER_STATE state) {
 		return playmodes.get(state);
 	}
 
@@ -141,6 +142,38 @@ public class AnimationTextureManager {
 		}
 
 		final float frameTime = timers.get(character.getId());
+
+		return animation.getKeyFrame(frameTime);
+	}
+
+	public SpellSprite getSprite(String animationName, Spell spell) {
+		addUsedId(spell.getId());
+
+		final String previousAnimationName = previous.get(spell.getId());
+		// new animation or changed animation, reset frameTime
+		if (previousAnimationName == null || !previousAnimationName.equals(animationName)) {
+			previous.put(spell.getId(), animationName);
+			timers.put(spell.getId(), 0f);
+		}
+
+		// is animation already loaded?
+		Animation<SpellSprite> animation = checkCache(animationName);
+		if (animation == null) {
+			Animation<Sprite> spriteAnimation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(spell), getPlayMode(spell));// TODO get state from name here because state of character might be different
+			if (spriteAnimation == null) {
+				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
+				return null;
+			}
+			Array<SpellSprite> spellSprites = new Array<>();
+			for (Sprite sprite : spriteAnimation.getKeyFrames()) {
+				spellSprites.add(new SpellSprite(sprite, animationName, getSpriteOffset(animationName, spriteAnimation.getKeyFrameIndex(timers.get(spell.getId())))));
+			}
+			animation = new Animation<>(getFrameDuration(spell), spellSprites, getPlayMode(spell));
+			cache(animationName, animation);
+
+		}
+
+		final float frameTime = timers.get(spell.getId());
 
 		return animation.getKeyFrame(frameTime);
 	}

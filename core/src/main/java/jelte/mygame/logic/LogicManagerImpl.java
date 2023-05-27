@@ -12,23 +12,28 @@ import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
+import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.Collidable;
+import jelte.mygame.logic.collisions.CollisionSystem;
 import jelte.mygame.logic.collisions.CollisionSystemImpl;
 import jelte.mygame.logic.collisions.StaticBlock;
+import jelte.mygame.logic.spells.SpellManager;
 
 public class LogicManagerImpl implements LogicManager {
 	private static final String TAG = LogicManagerImpl.class.getSimpleName();
 	private MessageListener listener;
-	private CollisionSystemImpl collisionSystem;
+	private CollisionSystem collisionSystem;
 	private CharacterManager characterManager;
+	private SpellManager spellManager;
 	private Array<Collidable> blockingObjects;
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
 		collisionSystem = new CollisionSystemImpl();
-		characterManager = new CharacterManager(new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
+		spellManager = new SpellManager();
+		characterManager = new CharacterManager(new PlayerCharacter(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
 		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
 	}
 
@@ -38,11 +43,18 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
+		characterManager.getAllCharacters().forEach(this::createQueuedSpells);
 		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
 		collisionSystem.updateSpatialMesh(collidables);
 		collisionSystem.executeCollisions();
 
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
+	}
+
+	private void createQueuedSpells(Character character) {
+		while (character.getSpellsToCast().notEmpty()) {
+			spellManager.addSpell(character.getSpellsToCast().removeFirst());
+		}
 	}
 
 	private void checkCollision(PhysicsComponent body) {
@@ -71,6 +83,8 @@ public class LogicManagerImpl implements LogicManager {
 		case SPRINT_UNPRESSED:
 		case BLOCK_PRESSED:
 		case BLOCK_UNPRESSED:
+		case CAST_PRESSED:
+		case SEND_MOUSE_COORDINATES:
 			characterManager.getPlayer().receiveMessage(message);
 			break;
 		case SEND_BLOCKING_OBJECTS:

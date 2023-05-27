@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
@@ -23,6 +25,7 @@ import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.collisions.StaticBlock;
+import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.GraphicalUtility;
@@ -45,6 +48,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private NpcCharacter enemy;
 	private ProgressBar hp;
 	private BitmapFont font;
+	private Array<Spell> spellsToRender;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -61,6 +65,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		mapManager = new MapManager(batch);
 		animationManager = new AnimationManager();
 		font = new BitmapFont();
+		spellsToRender = new Array<>();
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
@@ -109,6 +114,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		batch.begin();
 		renderBodies();
+		renderSpells();
 		batch.end();
 
 		renderUI();
@@ -130,6 +136,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 250);
 		batch.end();
 
+		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
+	}
+
+	private void renderSpells() {
+		for (Spell spell : spellsToRender) {
+			SpellSprite sprite = animationManager.getSprite(spell);
+			spell.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
+			sprite.setPosition(spell.getPhysicsComponent().getRectangle().x, spell.getPhysicsComponent().getRectangle().y);
+			sprite.draw(batch);
+		}
 	}
 
 	private void renderBodies() {
@@ -166,6 +182,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		case RENDER_ENEMY:
 			enemy = (NpcCharacter) message.getValue();
 			break;
+		case RENDER_SPELLS:
+			enemy = (NpcCharacter) message.getValue();
+			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());
 			break;
@@ -180,6 +199,10 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		gameViewport.update(width, height);
 		uiViewport.update(width, height);
 		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
+	}
+
+	public Vector3 getMousePosition() {
+		return gameViewport.getCamera().unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 	}
 
 	@Override

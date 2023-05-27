@@ -37,6 +37,7 @@ public class CharacterData {
 	private float stopRunningFullTime;
 	private float dashingFullTime;
 	private float defaultCastFullTime;
+	private float defaultPreCastFullTime;
 	private float teleportFullTime;
 	private float rollAttackFullTime;
 	private float rollFullTime;

@@ -1,0 +1,21 @@
+[
+	{
+		"id": 0,
+		"name": "fireball",
+		"spriteName": "fireball",
+		"iconSpriteName": "fireballIcon",
+		"coolDown": 10,
+		"type": "PROJECTILE",
+		"duration": 3,
+		"speed": 250,
+		"spellSound": "FIREBALL",
+		"goesTroughObstacles": false,
+		"affects": ENEMY,
+		"damage": 15,
+		"range": 5,
+		"areaOfEffectRange": 2,
+		"polygonPoints": "0,0 60,0 60,35 0,35"
+		"infoText": "fireball!.",
+		"animationSpeed": 0.1f
+	}
+]

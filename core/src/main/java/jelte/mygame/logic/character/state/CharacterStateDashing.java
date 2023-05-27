@@ -7,13 +7,13 @@ import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.character.state.CharacterStateManager.STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateDashing implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
-	private STATE state = STATE.DASHING;
+	private CHARACTER_STATE state = CHARACTER_STATE.DASHING;
 	private float duration;
 
 	public CharacterStateDashing(CharacterStateManager characterStateManager, float duration) {
@@ -37,7 +37,7 @@ public class CharacterStateDashing implements CharacterState {
 		}
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(STATE.IDLE);
+			characterStateManager.transition(CHARACTER_STATE.IDLE);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class CharacterStateDashing implements CharacterState {
 	}
 
 	@Override
-	public STATE getState() {
+	public CHARACTER_STATE getState() {
 		return state;
 	}
 
