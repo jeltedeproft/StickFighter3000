@@ -22,8 +22,9 @@ import jelte.mygame.MessageListener;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.utility.AssetManagerUtility;
@@ -44,7 +45,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private MapManager mapManager;
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
-	private Character player;
+	private SpecialEffectsManager specialEffectsManager;
+	private PlayerCharacter player;
 	private NpcCharacter enemy;
 	private ProgressBar hp;
 	private BitmapFont font;
@@ -112,15 +114,17 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.setProjectionMatrix(cameraManager.getCamera().combined);
 		mapManager.renderCurrentMap(cameraManager.getCamera());
 
+		checkStateChanges(player);// TODO for all characters
+
 		batch.begin();
-		renderBodies();
+		renderCharacters();
 		renderSpells();
 		batch.end();
 
 		renderUI();
 
-		debugRectangles();
-		debugStaticObjects();
+//		debugRectangles();
+//		debugStaticObjects();
 
 		// debug info player
 		batch.begin();
@@ -132,35 +136,48 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, "falltrough : " + player.getPhysicsComponent().isFallTrough(), 0, Gdx.graphics.getHeight() - 130);
 		font.draw(batch, "state : " + player.getCurrentCharacterState().getState(), 0, Gdx.graphics.getHeight() - 160);
 		font.draw(batch, "dimensions : " + player.getPhysicsComponent().getWidth() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 190);
-		font.draw(batch, "offset : " + animationManager.getSprite(player).getOffset() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 220);
-		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 250);
+		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 220);
 		batch.end();
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
 	}
 
-	private void renderSpells() {
-		for (Spell spell : spellsToRender) {
-			SpellSprite sprite = animationManager.getSprite(spell);
-			spell.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
-			sprite.setPosition(spell.getPhysicsComponent().getRectangle().x, spell.getPhysicsComponent().getRectangle().y);
-			sprite.draw(batch);
+	private void checkStateChanges(PlayerCharacter player2) {
+		if (player.getCharacterStateManager().isStateChanged()) {
+			CHARACTER_STATE oldState = player.getCharacterStateManager().getPreviousCharacterState();
+			CHARACTER_STATE newState = player.getCharacterStateManager().getPreviousCharacterState();
+
+			if (oldState.equals(CHARACTER_STATE.FALLATTACKING) && newState.equals(CHARACTER_STATE.LANDING)) {
+				// TODO create particle here and also dont forget to finish the attack particle sprites and activate them here??
+				// or else make spels otuof them that do not have any effect?? but weird
+				jjjj
+			}
 		}
 	}
 
-	private void renderBodies() {
+	private void renderCharacters() {
 		if (player != null) {
-			CharacterSprite sprite = animationManager.getSprite(player);
+			NamedSprite sprite = animationManager.getSprite(player);
 			player.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
-			// TODO set the dimensions of all the enemies here same as player
-			CharacterSprite sprite = animationManager.getSprite(enemy);
+			NamedSprite sprite = animationManager.getSprite(enemy);
+			enemy.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
+	}
+
+	private void renderSpells() {
+		for (Spell spell : spellsToRender) {
+			NamedSprite sprite = animationManager.getSprite(spell);
+			spell.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
+			sprite.setPosition(spell.getPhysicsComponent().getRectangle().x, spell.getPhysicsComponent().getRectangle().y);
+			sprite.draw(batch);
+		}
+
 	}
 
 	private void renderUI() {
@@ -176,16 +193,19 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			cameraManager.zoomCamera((float) message.getValue());
 			break;
 		case RENDER_PLAYER:
-			player = (Character) message.getValue();
+			player = (PlayerCharacter) message.getValue();
 			hp.setValue(player.getCurrentHp());
 			break;
 		case RENDER_ENEMY:
 			enemy = (NpcCharacter) message.getValue();
 			break;
 		case RENDER_SPELLS:
-			enemy = (NpcCharacter) message.getValue();
+			spellsToRender = (Array<Spell>) message.getValue();
 			break;
 		case UPDATE_CAMERA_POS:
+			cameraManager.updateCameraPos((Vector2) message.getValue());
+			break;
+		case STATE_CHANGED_OLD:
 			cameraManager.updateCameraPos((Vector2) message.getValue());
 			break;
 		default:

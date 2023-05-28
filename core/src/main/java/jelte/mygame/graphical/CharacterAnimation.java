@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CharacterAnimation {
+public class CharacterAnimation implements AnimationName {
 	private String characterName;
 	private CHARACTER_STATE state;
 	private int animationIndex;
@@ -47,6 +47,7 @@ public class CharacterAnimation {
 		resetTimer();
 	}
 
+	@Override
 	public void rebuildName() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(characterName);
@@ -58,14 +59,17 @@ public class CharacterAnimation {
 		fullName = sb.toString();
 	}
 
+	@Override
 	public String getFullName() {
 		return fullName;
 	}
 
+	@Override
 	public void resetTimer() {
 		timeRunning = 0f;
 	}
 
+	@Override
 	public void update(float delta) {
 		timeRunning += delta;
 	}

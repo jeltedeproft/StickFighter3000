@@ -1,5 +1,6 @@
 package jelte.mygame.logic.spells;
 
+import java.util.Iterator;
 import java.util.UUID;
 
 import com.badlogic.gdx.utils.Array;
@@ -20,7 +21,7 @@ public class SpellManager {
 		bodies.add(spell.getPhysicsComponent());
 	}
 
-	public void removeEnemy(Spell spell) {
+	public void removeSpell(Spell spell) {
 		spells.removeValue(spell, false);
 		bodies.removeValue(spell.getPhysicsComponent(), false);
 	}
@@ -44,6 +45,14 @@ public class SpellManager {
 
 	public void update(float delta) {
 		spells.forEach(spell -> spell.update(delta));
+		final Iterator<Spell> iterator = spells.iterator();
+		while (iterator.hasNext()) {
+			final Spell spell = iterator.next();
+			if (spell.isDead()) {
+				bodies.removeValue(spell.getPhysicsComponent(), false);
+				iterator.remove();
+			}
+		}
 	}
 
 	@Override

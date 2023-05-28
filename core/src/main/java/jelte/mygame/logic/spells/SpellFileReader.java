@@ -9,11 +9,12 @@ import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.badlogic.gdx.utils.reflect.ReflectionException;
 
+import jelte.mygame.utility.Constants;
+
 public class SpellFileReader {
 	private static final String TAG = SpellFileReader.class.getSimpleName();
 	private static boolean statsLoaded = false;
 	private static ObjectMap<Integer, SpellData> spellData = new ObjectMap<>();
-	private static final String UNIT_STATS_FILE_LOCATION = "spells/spells.json";
 
 	private SpellFileReader() {
 
@@ -25,7 +26,7 @@ public class SpellFileReader {
 			final Json json = new Json();
 			ArrayList<SpellData> unitStats;
 			try {
-				unitStats = (ArrayList<SpellData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("com.jelte.myGames.shared.spells.SpellData"), Gdx.files.internal(UNIT_STATS_FILE_LOCATION));
+				unitStats = (ArrayList<SpellData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.spells.SpellData"), Gdx.files.internal(Constants.SPELL_STATS_FILE_LOCATION));
 				for (int i = 0; i < unitStats.size(); i++) {
 					final SpellData data = unitStats.get(i);
 					spellData.put(data.getId(), data);

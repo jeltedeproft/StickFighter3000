@@ -7,15 +7,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SpellSprite extends Sprite {
+public class NamedSprite extends Sprite {
 	private String name;
 
-	public SpellSprite() {
+	public NamedSprite() {
 		super();
 	}
 
-	public SpellSprite(Sprite sprite, String name) {
+	public NamedSprite(Sprite sprite, String name) {
 		super(sprite);
 		this.name = name;
+
 	}
 }

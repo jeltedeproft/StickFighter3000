@@ -27,6 +27,7 @@ public class PlayerCharacter extends Character {
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
 		case CAST_PRESSED:
+			System.out.println("adding spell to spellsToCast of player with index" + (int) message.getValue());
 			spellsToCast.addLast(new Spell(SpellFileReader.getSpellData().get((int) message.getValue()), physicsComponent.getPosition(), lastKnownMouseCoords));
 			characterStateManager.handleEvent(EVENT.CAST_PRESSED);
 			break;

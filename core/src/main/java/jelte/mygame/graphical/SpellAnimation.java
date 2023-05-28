@@ -1,88 +1,64 @@
 package jelte.mygame.graphical;
 
-import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class SpellAnimation {
+public class SpellAnimation implements AnimationName {
 	private String spellName;
-	private CHARACTER_STATE state;
-	private int animationIndex;
-	private Direction direction;
+	private SPELL_STATE state;
 	private Float timeRunning = 0f;
 	private String fullName;
 
-	public SpellAnimation(String characterName, CHARACTER_STATE state, int animationIndex, Direction direction) {
-		this.characterName = characterName;
+	public SpellAnimation(String spellName, SPELL_STATE state) {
+		this.spellName = spellName;
 		this.state = state;
-		this.animationIndex = animationIndex;
-		this.direction = direction;
 		rebuildName();
 	}
 
-	public void changeCharacter(String newCharacterName) {
-		characterName = newCharacterName;
+	public void changeSpell(String newSpellName) {
+		spellName = newSpellName;
 		rebuildName();
 		resetTimer();
 	}
 
-	public void changeState(CHARACTER_STATE newState) {
+	public void changeState(SPELL_STATE newState) {
 		state = newState;
 		rebuildName();
 		resetTimer();
 	}
 
-	public void changeAnimationIndex(int newAnimationIndex) {
-		animationIndex = newAnimationIndex;
-		rebuildName();
-		resetTimer();
-	}
-
-	public void changeDirection(Direction newDirection) {
-		direction = newDirection;
-		rebuildName();
-		resetTimer();
-	}
-
+	@Override
 	public void rebuildName() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(characterName);
+		sb.append(spellName);
 		sb.append("-");
 		sb.append(state.toString());
-		sb.append(animationIndex);
-		sb.append("-");
-		sb.append(direction);
 		fullName = sb.toString();
 	}
 
+	@Override
 	public String getFullName() {
 		return fullName;
 	}
 
+	@Override
 	public void resetTimer() {
 		timeRunning = 0f;
 	}
 
+	@Override
 	public void update(float delta) {
 		timeRunning += delta;
 	}
 
-	public boolean updateData(String characterName, int animationIndex, Direction direction, CHARACTER_STATE state) {
+	public boolean updateData(String spellName, SPELL_STATE state) {
 		boolean changed = false;
-		if (!characterName.equals(this.characterName)) {
+		if (!spellName.equals(this.spellName)) {
 			changed = true;
-			this.characterName = characterName;
-		}
-		if (animationIndex != this.animationIndex) {
-			changed = true;
-			this.animationIndex = animationIndex;
-		}
-		if (!direction.equals(this.direction)) {
-			changed = true;
-			this.direction = direction;
+			this.spellName = spellName;
 		}
 		if (!state.equals(this.state)) {
 			changed = true;

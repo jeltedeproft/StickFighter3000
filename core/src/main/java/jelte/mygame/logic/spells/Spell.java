@@ -8,10 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.character.physics.PhysicsComponent;
-import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
-import jelte.mygame.logic.character.state.CharacterStateManager;
+import jelte.mygame.logic.character.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.collisions.Collidable;
+import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,12 +22,13 @@ public class Spell implements Collidable {
 	protected float currentHp;
 	protected SpellData data;
 	protected UUID id;
-	protected boolean dead;
+	protected boolean dead = false;
 	protected boolean hasMoved;
-	protected CharacterStateManager characterStateManager;
-	protected PhysicsComponent physicsComponent;
+	protected SpellStateManager spellStateManager;
+	protected SpellPhysicsComponent physicsComponent;
 	protected Vector2 startPosition;
 	protected Vector2 targetPosition;
+	protected float timeAlive = 0f;
 
 	// TODO use a pool, bc we have many objects here.
 	public enum SPELL_TYPE {
@@ -42,13 +42,19 @@ public class Spell implements Collidable {
 	public Spell(SpellData spellData, Vector2 casterPosition, Vector3 mousePosition) {
 		id = UUID.randomUUID();
 		this.data = spellData;
+		spellStateManager = new SpellStateManager(this);
 		targetPosition = new Vector2(mousePosition.x, mousePosition.y);
 		startPosition = casterPosition.cpy();
-		physicsComponent = new StandardPhysicsComponent(id, casterPosition.cpy());// TODO switch on type here
+		physicsComponent = new SpellPhysicsComponent(id, casterPosition.cpy());// TODO switch on type here
+		physicsComponent.setVelocity(new Vector2(mousePosition.x - casterPosition.x, mousePosition.y - casterPosition.y));
 	}
 
 	public void update(float delta) {
 		physicsComponent.update(delta);
+		timeAlive += delta;
+		if (timeAlive > data.getDuration()) {
+			dead = true;
+		}
 	}
 
 	public String getSpriteName() {

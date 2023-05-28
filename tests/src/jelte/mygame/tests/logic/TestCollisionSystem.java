@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
+import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
-import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
 import jelte.mygame.logic.collisions.Collidable;
 import jelte.mygame.logic.collisions.CollisionSystemImpl;
 import jelte.mygame.logic.collisions.StaticBlockBot;
@@ -40,7 +40,7 @@ public class TestCollisionSystem {
 	}
 
 	private void initPlayerBody(Vector2 startPos) {
-		mainBody = new StandardPhysicsComponent(UUID.randomUUID(), startPos);
+		mainBody = new CharacterPhysicsComponent(UUID.randomUUID(), startPos);
 		collisionSystem.addToSpatialMesh(mainBody);
 	}
 

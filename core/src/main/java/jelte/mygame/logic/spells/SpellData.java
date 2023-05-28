@@ -21,6 +21,12 @@ public class SpellData {
 	private int areaOfEffectRange;
 	private String polygonPoints;
 	private String infoText;
+	private float windupFullTime;
+	private float loopFullTime;
+	private float endFullTime;
+	private float windupFrameDuration;
+	private float loopFrameDuration;
+	private float endFrameDuration;
 	private float animationSpeed;
 
 }

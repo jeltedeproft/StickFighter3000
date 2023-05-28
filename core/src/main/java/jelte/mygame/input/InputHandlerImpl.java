@@ -113,6 +113,9 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		if (keycode == KeyBindings.getBinding(Constants.KEY_BLOCK)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_UNPRESSED));
 		}
+		if (keycode == KeyBindings.getBinding(Constants.KEY_SPELL0)) {
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_RELEASED, 0));
+		}
 		return true;
 	}
 

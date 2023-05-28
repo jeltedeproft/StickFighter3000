@@ -17,7 +17,7 @@ import jelte.mygame.utility.AssetManagerUtility;
 
 public class AnimationNameManager {
 
-	private final Map<UUID, CharacterAnimation> animationNames;
+	private final Map<UUID, AnimationName> animationNames;
 	private final Map<String, Array<CHARACTER_STATE>> possibleAnimationsCharacter;
 	private final ConcurrentLinkedQueue<UUID> usedIds;
 
@@ -54,14 +54,14 @@ public class AnimationNameManager {
 	}
 
 	public String getAnimationName(Character character) {
-		CharacterAnimation characterAnimation = getCharacterAnimation(character);
+		CharacterAnimation characterAnimation = (CharacterAnimation) getCharacterAnimation(character);
 		CHARACTER_STATE state = animationExists(character.getData().getEntitySpriteName(), character.getCurrentCharacterState().getState()) ? character.getCurrentCharacterState().getState() : CHARACTER_STATE.IDLE;
 		characterAnimation.updateData(character.getData().getEntitySpriteName(), 1, character.getPhysicsComponent().getDirection(), state);// TODO randomize the index for which animation should play
 		return characterAnimation.getFullName();
 	}
 
-	public CharacterAnimation getCharacterAnimation(Character character) {
-		CharacterAnimation animation = animationNames.get(character.getId());
+	public AnimationName getCharacterAnimation(Character character) {
+		AnimationName animation = animationNames.get(character.getId());
 		if (animation == null) {
 			animationNames.put(character.getId(), new CharacterAnimation(character.getName(), character.getCurrentCharacterState().getState(), 1, character.getPhysicsComponent().getDirection()));
 			return animationNames.get(character.getId());
@@ -70,17 +70,16 @@ public class AnimationNameManager {
 	}
 
 	public String getAnimationName(Spell spell) {
-		SpellAnimation spellAnimation = getSpellAnimation(spell);
-		CHARACTER_STATE state = animationExists(character.getData().getEntitySpriteName(), character.getCurrentCharacterState().getState()) ? character.getCurrentCharacterState().getState() : CHARACTER_STATE.IDLE;
-		characterAnimation.updateData(character.getData().getEntitySpriteName(), 1, character.getPhysicsComponent().getDirection(), state);// TODO randomize the index for which animation should play
-		return characterAnimation.getFullName();
+		SpellAnimation spellAnimation = (SpellAnimation) getSpellAnimation(spell);
+		spellAnimation.updateData(spell.getData().getSpriteName(), spell.getSpellStateManager().getCurrentSpellState().getState());
+		return spellAnimation.getFullName();
 	}
 
-	public CharacterAnimation getSpellAnimation(Spell character) {
-		CharacterAnimation animation = animationNames.get(character.getId());
+	public AnimationName getSpellAnimation(Spell spell) {
+		AnimationName animation = animationNames.get(spell.getId());
 		if (animation == null) {
-			animationNames.put(character.getId(), new CharacterAnimation(character.getName(), character.getCurrentCharacterState().getState(), 1, character.getPhysicsComponent().getDirection()));
-			return animationNames.get(character.getId());
+			animationNames.put(spell.getId(), new SpellAnimation(spell.getName(), spell.getSpellStateManager().getCurrentSpellState().getState()));
+			return animationNames.get(spell.getId());
 		}
 		return animation;
 	}
@@ -108,7 +107,7 @@ public class AnimationNameManager {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (CharacterAnimation anim : animationNames.values()) {
+		for (AnimationName anim : animationNames.values()) {
 			sb.append(anim);
 			sb.append("\n");
 		}

@@ -3,7 +3,6 @@ package jelte.mygame.graphical;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
@@ -12,87 +11,86 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
-import jelte.mygame.utility.SpriteUtils;
-import jelte.mygame.utility.UtilityFunctions;
 
 public class AnimationTextureManager {
 	private static final String TAG = AnimationTextureManager.class.getSimpleName();
-	private final Map<String, Animation<CharacterSprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
-	private final Map<String, Float> animationNameToOffset;
+	private final Map<String, Animation<NamedSprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
 	private final Map<UUID, String> previous;
 	private final Map<UUID, Float> timers;
-	private final Map<CHARACTER_STATE, PlayMode> playmodes;
+	private final Map<CHARACTER_STATE, PlayMode> characterPlayModes;
+	private final Map<SPELL_STATE, PlayMode> spellPlayModes;
 	private final ConcurrentLinkedQueue<UUID> usedIds;
 
 	public AnimationTextureManager() {
-		animationNameToOffset = new HashMap<>();
 		cache = new HashMap<>();
 		previous = new HashMap<>();
 		timers = new HashMap<>();
-		playmodes = new EnumMap<>(CHARACTER_STATE.class);
+		characterPlayModes = new EnumMap<>(CHARACTER_STATE.class);
+		spellPlayModes = new EnumMap<>(SPELL_STATE.class);
 		usedIds = new ConcurrentLinkedQueue<>();
 		initPlayModes();
-		calculateOffsets();
-	}
-
-	private void calculateOffsets() {
-		List<String> spriteNames = UtilityFunctions.findImageFiles(Constants.IMAGE_FILES_PATH);
-		for (String absolutePath : spriteNames) {
-			String imageName = SpriteUtils.imageNameFromAbsolutePath(absolutePath);
-			animationNameToOffset.put(imageName, SpriteUtils.calculateAttackOffset(SpriteUtils.convertToTextureRegion(absolutePath), imageName.contains("left")));
-		}
 	}
 
 	private void initPlayModes() {
-		playmodes.put(CHARACTER_STATE.APPEARING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.ATTACKING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.DIE, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.HURT, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.IDLE, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.JUMPING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.WALKING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.RUNNING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.SPRINTING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.FALLING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.CAST, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.CROUCHED, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.LANDING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.STOPRUNNING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.DASHING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.IDLECROUCH, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.HOLDING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.BLOCKING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.TELEPORTING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.GRABBING, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.ROLLATTACK, PlayMode.NORMAL);
-		playmodes.put(CHARACTER_STATE.ROLLING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.WALLSLIDING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.FALLATTACKING, PlayMode.LOOP);
-		playmodes.put(CHARACTER_STATE.JUMPTOFALL, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.APPEARING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.ATTACKING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.DIE, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.HURT, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.IDLE, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.JUMPING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.WALKING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.RUNNING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.STOPRUNNING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.CLIMBING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.SPRINTING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.FALLING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.PRECAST, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.CAST, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.CROUCHED, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.LANDING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.DASHING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.IDLECROUCH, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.HOLDING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.BLOCKING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.TELEPORTING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.GRABBING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.ROLLATTACK, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.ROLLING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.WALLSLIDING, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
+		characterPlayModes.put(CHARACTER_STATE.FALLATTACKING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.HOLDINGTOSLIDING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.JUMPTOFALL, PlayMode.NORMAL);
+		spellPlayModes.put(SPELL_STATE.DEAD, PlayMode.NORMAL);
+		spellPlayModes.put(SPELL_STATE.LOOP, PlayMode.LOOP);
+		spellPlayModes.put(SPELL_STATE.WINDUP, PlayMode.NORMAL);
+		spellPlayModes.put(SPELL_STATE.END, PlayMode.NORMAL);
 	}
 
 	public void addUsedId(UUID id) {
 		usedIds.add(id);
 	}
 
-	public Animation<CharacterSprite> checkCache(String animationName) {
+	public Animation<NamedSprite> checkCache(String animationName) {
 		return cache.get(animationName);
 	}
 
 	public PlayMode getPlayMode(CHARACTER_STATE state) {
-		return playmodes.get(state);
+		return characterPlayModes.get(state);
 	}
 
-	public void cache(String animationName, Animation<CharacterSprite> animation) {
+	public PlayMode getPlayMode(SPELL_STATE state) {
+		return spellPlayModes.get(state);
+	}
+
+	public void cache(String animationName, Animation<NamedSprite> animation) {
 		cache.put(animationName, animation);
 	}
 
@@ -114,7 +112,7 @@ public class AnimationTextureManager {
 		usedIds.clear();
 	}
 
-	public CharacterSprite getSprite(String animationName, Character character) {
+	public NamedSprite getSprite(String animationName, Character character) {
 		addUsedId(character.getId());
 
 		final String previousAnimationName = previous.get(character.getId());
@@ -125,18 +123,13 @@ public class AnimationTextureManager {
 		}
 
 		// is animation already loaded?
-		Animation<CharacterSprite> animation = checkCache(animationName);
+		Animation<NamedSprite> animation = checkCache(animationName);
 		if (animation == null) {
-			Animation<Sprite> spriteAnimation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
-			if (spriteAnimation == null) {
+			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
+			if (animation == null) {
 				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
 				return null;
 			}
-			Array<CharacterSprite> characterSprites = new Array<>();
-			for (Sprite sprite : spriteAnimation.getKeyFrames()) {
-				characterSprites.add(new CharacterSprite(sprite, animationName, getSpriteOffset(animationName, spriteAnimation.getKeyFrameIndex(timers.get(character.getId())))));
-			}
-			animation = new Animation<>(getFrameDuration(character), characterSprites, getPlayMode(character.getCurrentCharacterState().getState()));
 			cache(animationName, animation);
 
 		}
@@ -146,7 +139,7 @@ public class AnimationTextureManager {
 		return animation.getKeyFrame(frameTime);
 	}
 
-	public SpellSprite getSprite(String animationName, Spell spell) {
+	public NamedSprite getSprite(String animationName, Spell spell) {
 		addUsedId(spell.getId());
 
 		final String previousAnimationName = previous.get(spell.getId());
@@ -157,18 +150,13 @@ public class AnimationTextureManager {
 		}
 
 		// is animation already loaded?
-		Animation<SpellSprite> animation = checkCache(animationName);
+		Animation<NamedSprite> animation = checkCache(animationName);
 		if (animation == null) {
-			Animation<Sprite> spriteAnimation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(spell), getPlayMode(spell));// TODO get state from name here because state of character might be different
-			if (spriteAnimation == null) {
+			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(spell), getPlayMode(spell.getSpellStateManager().getCurrentSpellState().getState()));// TODO get state from name here because state of character might be different
+			if (animation == null) {
 				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
 				return null;
 			}
-			Array<SpellSprite> spellSprites = new Array<>();
-			for (Sprite sprite : spriteAnimation.getKeyFrames()) {
-				spellSprites.add(new SpellSprite(sprite, animationName, getSpriteOffset(animationName, spriteAnimation.getKeyFrameIndex(timers.get(spell.getId())))));
-			}
-			animation = new Animation<>(getFrameDuration(spell), spellSprites, getPlayMode(spell));
 			cache(animationName, animation);
 
 		}
@@ -203,8 +191,18 @@ public class AnimationTextureManager {
 		}
 	}
 
-	public float getSpriteOffset(String spriteName, int index) {
-		return animationNameToOffset.get(spriteName + "_" + (index + 1));
+	private float getFrameDuration(Spell spell) {
+		switch (spell.getSpellStateManager().getCurrentSpellState().getState()) {
+		case END:
+			return spell.getData().getEndFrameDuration();
+		case LOOP:
+			return spell.getData().getLoopFrameDuration();
+		case WINDUP:
+			return spell.getData().getWindupFrameDuration();
+		case DEAD:
+		default:
+			return Constants.DEFAULT_ANIMATION_SPEED;
+		}
 	}
 
 	@Override

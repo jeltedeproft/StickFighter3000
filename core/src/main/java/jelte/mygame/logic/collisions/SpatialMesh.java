@@ -3,6 +3,7 @@ package jelte.mygame.logic.collisions;
 import java.awt.Point;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -22,10 +23,12 @@ public class SpatialMesh {
 	private float mapHeight;
 	private SpatialMeshCell[][] spatialMesh;
 	private Set<Point> cellsWithDynamicCollidables;
+	private Set<UUID> idsInPlay;
 
 	public SpatialMesh(Vector2 mapBoundaries) {
 		mapWidth = mapBoundaries.x;
 		mapHeight = mapBoundaries.y;
+		idsInPlay = new HashSet<>();
 		cellsWithDynamicCollidables = new HashSet<>();
 		numberofCellsX = (int) Math.ceil(mapBoundaries.x / Constants.SPATIAL_MESH_CELL_SIZE);
 		numberofCellsY = (int) Math.ceil(mapBoundaries.y / Constants.SPATIAL_MESH_CELL_SIZE);
@@ -49,6 +52,7 @@ public class SpatialMesh {
 		for (Point point : collidedPoints) {
 			spatialMesh[point.x][point.y].addCollidable(collidable);
 			if (collidable.isDynamic()) {
+				idsInPlay.add(collidable.getId());
 				cellsWithDynamicCollidables.add(point);
 			}
 		}
@@ -74,6 +78,7 @@ public class SpatialMesh {
 	}
 
 	public void removeAllCollidables() {
+		idsInPlay.clear();
 		for (int x = 0; x < numberofCellsX; x++) {
 			for (int y = 0; y < numberofCellsY; y++) {
 				spatialMesh[x][y].removeAll();
@@ -82,12 +87,7 @@ public class SpatialMesh {
 	}
 
 	public void removeDynamicCollidable(Collidable collidable) {
-		Rectangle rect = collidable.getRectangle();
-		Set<Point> collidedPoints = getCollidingCells(rect);
-		removeCollidableFrom(collidable, collidedPoints);
-	}
-
-	public void removeStaticCollidable(Collidable collidable) {
+		idsInPlay.remove(collidable.getId());
 		Rectangle rect = collidable.getRectangle();
 		Set<Point> collidedPoints = getCollidingCells(rect);
 		removeCollidableFrom(collidable, collidedPoints);
@@ -111,6 +111,18 @@ public class SpatialMesh {
 	}
 
 	public void updateCollidables(Array<Collidable> collidables) {
+		// Find removed objects
+		Set<UUID> removed = new HashSet<>(idsInPlay);
+		Set<UUID> updatedSet = new HashSet<>();
+		collidables.forEach(c -> updatedSet.add(c.getId()));
+		removed.removeAll(updatedSet);
+		removed.forEach(id -> idsInPlay.remove(id));
+
+		// Find added objects
+		Set<UUID> added = new HashSet<>(updatedSet);
+		added.removeAll(idsInPlay);
+		added.forEach(id -> idsInPlay.add(id));
+
 		for (Collidable collidable : collidables) {
 			if (collidable.hasMoved()) {
 				updateCollidable(collidable);

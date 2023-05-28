@@ -16,6 +16,12 @@
 		"areaOfEffectRange": 2,
 		"polygonPoints": "0,0 60,0 60,35 0,35"
 		"infoText": "fireball!.",
+		"windupFullTime": 1f,
+		"windupFrameDuration": 1f,
+		"loopFullTime": 0.2f,
+		"loopFrameDuration": 0.2f,
+		"endFullTime": 0.2f,
+		"endFrameDuration": 0.2f,
 		"animationSpeed": 0.1f
 	}
 ]

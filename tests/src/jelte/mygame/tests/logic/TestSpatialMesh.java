@@ -18,7 +18,8 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
+import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
+import jelte.mygame.logic.character.physics.PhysicsComponentImpl;
 import jelte.mygame.logic.collisions.SpatialMesh;
 import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.logic.collisions.StaticBlockBot;
@@ -36,10 +37,10 @@ public class TestSpatialMesh {
 	private static final int HEIGHT = 320;
 
 	private SpatialMesh spatialMesh;
-	private StandardPhysicsComponent testPhysicsComponent1;
-	private StandardPhysicsComponent testPhysicsComponent2;
-	private StandardPhysicsComponent testPhysicsComponent3;
-	private StandardPhysicsComponent testPhysicsComponent4;
+	private PhysicsComponentImpl testPhysicsComponent1;
+	private PhysicsComponentImpl testPhysicsComponent2;
+	private PhysicsComponentImpl testPhysicsComponent3;
+	private PhysicsComponentImpl testPhysicsComponent4;
 	private StaticBlock testBlockBottom10High;
 	private StaticBlock testBlockLeft10Width;
 	private StaticBlock testBlockRight10Width;
@@ -49,10 +50,10 @@ public class TestSpatialMesh {
 	@Before
 	public void beforeEveryTest() {
 		spatialMesh = new SpatialMesh(new Vector2(WIDTH, HEIGHT));
-		testPhysicsComponent1 = new StandardPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
-		testPhysicsComponent2 = new StandardPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
-		testPhysicsComponent3 = new StandardPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
-		testPhysicsComponent4 = new StandardPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
+		testPhysicsComponent1 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
+		testPhysicsComponent2 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
+		testPhysicsComponent3 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
+		testPhysicsComponent4 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testBlockBottom10High = new StaticBlockBot(new Rectangle(0, 0, 320, 10));
 		testBlockLeft10Width = new StaticBlockLeft(new Rectangle(0, 0, 10, 320));
 		testBlockRight10Width = new StaticBlockRight(new Rectangle(310, 0, 10, 320));

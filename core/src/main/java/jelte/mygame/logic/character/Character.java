@@ -6,8 +6,7 @@ import java.util.UUID;
 import com.badlogic.gdx.utils.Queue;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.character.physics.PhysicsComponent;
-import jelte.mygame.logic.character.physics.StandardPhysicsComponent;
+import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -26,7 +25,7 @@ public class Character {
 	protected UUID id;
 	protected boolean dead;
 	protected CharacterStateManager characterStateManager;
-	protected PhysicsComponent physicsComponent;
+	protected CharacterPhysicsComponent physicsComponent;
 	protected Queue<Spell> spellsToCast;
 
 	public Character(CharacterData data, UUID id) {
@@ -34,7 +33,7 @@ public class Character {
 		this.data = data;
 		spellsToCast = new Queue<>();
 		characterStateManager = new CharacterStateManager(this);
-		physicsComponent = new StandardPhysicsComponent(id, Constants.PLAYER_START.cpy());
+		physicsComponent = new CharacterPhysicsComponent(id, Constants.PLAYER_START.cpy());
 		currentHp = data.getMaxHP();
 	}
 

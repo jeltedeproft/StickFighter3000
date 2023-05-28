@@ -13,5 +13,4 @@ public interface MusicManagerInterface {
 	void sendCommand(AudioCommand command, AudioEnum event, Vector2 pos);
 
 	void sendCommand(AudioCommand command, AudioEnum event);
-	// Add other methods from the MusicManager that are used by the CharacterStateManager
 }

@@ -6,64 +6,34 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.collisions.Collidable;
-import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
-	private static final String TAG = StandardPhysicsComponent.class.getSimpleName();
-	private UUID playerReference;
-	private Vector2 oldPosition;
-	private Vector2 position;
-	private Vector2 newPosition;
-	private Vector2 velocity;
-	private Vector2 acceleration;
-	private Rectangle rectangle;
-	private Direction direction;
-	private boolean fallTrough;
-	private boolean collided;
-	private boolean hasMoved;
-	private float width = Constants.PLAYER_WIDTH;
-	private float height = Constants.PLAYER_HEIGHT;
+public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidable {
+	private static final String TAG = PhysicsComponentImpl.class.getSimpleName();
+	protected UUID playerReference;
+	protected Vector2 oldPosition;
+	protected Vector2 position;
+	protected Vector2 newPosition;
+	protected Vector2 velocity;
+	protected Vector2 acceleration;
+	protected Rectangle rectangle;
+	protected boolean collided;
+	protected boolean hasMoved;
+	protected float width;
+	protected float height;
 
-	public StandardPhysicsComponent(UUID playerReference, Vector2 startPosition) {
+	protected PhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
 		this.playerReference = playerReference;
 		this.position = startPosition.cpy();
 		this.oldPosition = startPosition.cpy();
 		this.newPosition = new Vector2();
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
-		direction = Direction.right;
-		System.out.println("initializing rectangle : " + position.x);
 		rectangle = new Rectangle(position.x, position.y, width, height);
-	}
-
-	@Override
-	public void update(float delta) {
-		hasMoved = false;
-
-		velocity.add(acceleration);
-		velocity.add(Constants.GRAVITY);
-
-		// Limit speed
-		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
-			velocity.setLength(Constants.MAX_SPEED);
-		}
-
-		newPosition.x = position.x + velocity.x * delta;
-		newPosition.y = position.y + velocity.y * delta;
-
-		// Clamp position to map bounds
-//	    float minX = 0; // Minimum x position of the map
-//	    float maxX = MAP_WIDTH; // Maximum x position of the map
-//	    float minY = 0; // Minimum y position of the map
-//	    float maxY = MAP_HEIGHT; // Maximum y position of the map
-
-		setPosition(newPosition);
 	}
 
 	@Override
@@ -78,8 +48,6 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 
 	@Override
 	public void setPosition(Vector2 pos) {
-		System.out.println("Setting position to: " + pos);
-
 		float newX = clampXCoordinate(pos.x);
 		float newY = clampYCoordinate(pos.y);
 
@@ -88,36 +56,25 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 		}
 	}
 
-	private float clampXCoordinate(float x) {
-		if (x < 0) {
-			return direction == Direction.left ? rectangle.width : 0;
+	protected float clampXCoordinate(float x) {
+		if (x < rectangle.width) {
+			return rectangle.width;
 		}
 		return x;
 	}
 
-	private float clampYCoordinate(float y) {
-		if (y < 0) {
-			System.out.println("Setting y to zero");
-			return 0;
+	protected float clampYCoordinate(float y) {
+		if (y < rectangle.height) {
+			return rectangle.height;
 		}
 		return y;
 	}
 
-	private boolean shouldUpdatePosition(Vector2 pos, float newX, float newY) {
+	protected boolean shouldUpdatePosition(Vector2 pos, float newX, float newY) {
 		return !pos.equals(position) || newX == 0 && newY == 0;
 	}
 
-	private void updatePosition(float newX, float newY) {
-		System.out.println("Moving to new position");
-		hasMoved = true;
-		oldPosition.set(position);
-		position.set(newX, newY);
-		rectangle.setPosition(newX, newY);
-
-		if (direction == Direction.left) {
-			rectangle.x -= rectangle.width;
-		}
-	}
+	protected abstract void updatePosition(float newX, float newY);
 
 	@Override
 	public void move(float x, float y) {
@@ -139,7 +96,7 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
-		StandardPhysicsComponent other = (StandardPhysicsComponent) obj;
+		PhysicsComponentImpl other = (PhysicsComponentImpl) obj;
 		return Objects.equals(playerReference, other.playerReference);
 	}
 
@@ -161,10 +118,6 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 
 		sb.append("acceleration : ");
 		sb.append(acceleration);
-		sb.append("\n");
-
-		sb.append("direction : ");
-		sb.append(direction);
 		sb.append("\n");
 
 		sb.append("collided : ");
@@ -211,22 +164,6 @@ public class StandardPhysicsComponent implements PhysicsComponent, Collidable {
 	@Override
 	public boolean isDynamic() {
 		return true;
-	}
-
-	@Override
-	public void collided(COLLIDABLE_TYPE type) {
-		collided = true;
-		switch (type) {
-		case CHARACTER:
-			break;
-		case SPELL:
-			break;
-		case STATIC:
-			break;
-		default:
-			break;
-
-		}
 	}
 
 	@Override

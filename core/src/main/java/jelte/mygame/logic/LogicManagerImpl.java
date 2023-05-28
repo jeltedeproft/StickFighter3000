@@ -44,7 +44,10 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.update(delta);
 		characterManager.getBodies().forEach(this::checkCollision);
 		characterManager.getAllCharacters().forEach(this::createQueuedSpells);
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_SPELLS, spellManager.getAllSpells()));
+		spellManager.update(delta);
 		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
+		collidables.addAll(spellManager.getAllSpells());
 		collisionSystem.updateSpatialMesh(collidables);
 		collisionSystem.executeCollisions();
 

@@ -5,7 +5,6 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.collisions.Collidable;
 
 public interface PhysicsComponent extends Collidable {
@@ -31,13 +30,9 @@ public interface PhysicsComponent extends Collidable {
 	@Override
 	public Rectangle getRectangle();
 
-	public boolean isFallTrough();
-
 	public boolean isCollided();
 
 	public boolean isHasMoved();
-
-	public void setFallTrough(boolean falltrough);
 
 	public void setCollided(boolean b);
 
@@ -54,10 +49,6 @@ public interface PhysicsComponent extends Collidable {
 
 	@Override
 	public int hashCode();
-
-	public Direction getDirection();
-
-	public void setDirection(Direction direction);
 
 	@Override
 	public Vector2 getOldPosition();

@@ -152,5 +152,40 @@
 		"audioFileName": "audio/fireball1.wav",
 		"volume": 1.0f,
 		"duration": 1.0f,
+	},
+	{
+		"id": 22,
+		"name": "fireEnd",
+		"audioFileName": "audio/fireEnd.wav",
+		"volume": 1.0f,
+		"duration": 1.0f,
+	},
+	{
+		"id": 23,
+		"name": "fireWindup",
+		"audioFileName": "audio/fireWindup.wav",
+		"volume": 1.0f,
+		"duration": 1.0f,
+	},
+	{
+		"id": 24,
+		"name": "boom",
+		"audioFileName": "audio/boom.wav",
+		"volume": 1.0f,
+		"duration": 1.0f,
+	},
+	{
+		"id": 25,
+		"name": "flyby",
+		"audioFileName": "audio/flyby.wav",
+		"volume": 1.0f,
+		"duration": 1.0f,
+	},
+	{
+		"id": 26,
+		"name": "fallstrike",
+		"audioFileName": "audio/fallstrike.wav",
+		"volume": 1.0f,
+		"duration": 1.0f
 	}
 ]

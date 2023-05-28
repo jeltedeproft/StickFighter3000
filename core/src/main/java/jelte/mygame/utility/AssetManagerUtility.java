@@ -1,5 +1,6 @@
 package jelte.mygame.utility;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,7 @@ import com.ray3k.stripe.FreeTypeSkinLoader;
 
 import de.pottgames.tuningfork.SoundBuffer;
 import de.pottgames.tuningfork.SoundBufferLoader;
+import jelte.mygame.graphical.NamedSprite;
 
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();
@@ -51,7 +53,7 @@ public class AssetManagerUtility implements Disposable {
 	private static TextureAtlasLoader textureAtlasLoader = new TextureAtlasLoader(filePathResolver);
 	private static SoundBufferLoader soundBufferLoader = new SoundBufferLoader(new InternalFileHandleResolver());
 
-	private static Map<String, Array<Sprite>> cachedAnimations = new HashMap<>();
+	private static Map<String, Array<NamedSprite>> cachedAnimations = new HashMap<>();
 
 	public static void loadMapAsset(final String mapFilenamePath) {
 		loadAsset(mapFilenamePath, TiledMap.class);
@@ -194,20 +196,25 @@ public class AssetManagerUtility implements Disposable {
 		return matched;
 	}
 
-	public static Animation<Sprite> getAnimation(String animationName, float frameDuration, PlayMode playMode) {
+	// TODO refactor this, the 2 methods are almost identical
+	public static Animation<NamedSprite> getAnimation(String animationName, float frameDuration, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
 			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
 			return null;
 		}
 
-		Array<Sprite> cachedAnimation = cachedAnimations.get(animationName);
+		Array<NamedSprite> cachedAnimation = cachedAnimations.get(animationName);
 
 		if (cachedAnimation == null) {
-			cachedAnimation = atlas.createSprites(animationName);
+			Sprite[] sprites = atlas.createSprites(animationName).toArray();
+			NamedSprite[] namedSprites = Arrays.stream(sprites)
+					.map(sprite -> new NamedSprite(sprite, animationName))
+					.toArray(NamedSprite[]::new);
+			cachedAnimation = new Array<>(namedSprites);
 		}
 
-		if (cachedAnimation == null || cachedAnimation.size == 0) {
+		if (cachedAnimation.size == 0) {
 			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
 			return null;
 		}
@@ -215,20 +222,24 @@ public class AssetManagerUtility implements Disposable {
 		return new Animation<>(frameDuration, cachedAnimation, playMode);
 	}
 
-	public static Animation<Sprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
+	public static Animation<NamedSprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		if (atlas == null) {
 			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 			return null;
 		}
 
-		Array<Sprite> cachedAnimation = cachedAnimations.get(animationName);
+		Array<NamedSprite> cachedAnimation = cachedAnimations.get(animationName);
 
 		if (cachedAnimation == null) {
-			cachedAnimation = atlas.createSprites(animationName);
+			Sprite[] sprites = atlas.createSprites(animationName).toArray();
+			NamedSprite[] namedSprites = Arrays.stream(sprites)
+					.map(sprite -> new NamedSprite(sprite, animationName))
+					.toArray(NamedSprite[]::new);
+			cachedAnimation = new Array<>(namedSprites);
 		}
 
-		if (cachedAnimation == null || cachedAnimation.size == 0) {
+		if (cachedAnimation.size == 0) {
 			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
 			return null;
 		}

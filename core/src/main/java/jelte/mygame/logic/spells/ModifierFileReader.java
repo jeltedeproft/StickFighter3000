@@ -9,11 +9,12 @@ import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.badlogic.gdx.utils.reflect.ReflectionException;
 
+import jelte.mygame.utility.Constants;
+
 public class ModifierFileReader {
 	private static final String TAG = ModifierFileReader.class.getSimpleName();
 	private static boolean statsLoaded = false;
 	private static ObjectMap<Integer, ModifierData> modifierData = new ObjectMap<>();
-	private static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";
 
 	private ModifierFileReader() {
 
@@ -25,8 +26,7 @@ public class ModifierFileReader {
 			final Json json = new Json();
 			ArrayList<ModifierData> modifierStats;
 			try {
-				modifierStats = (ArrayList<ModifierData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("com.jelte.myGames.shared.spells.ModifierData"),
-						Gdx.files.internal(MODIFIER_STATS_FILE_LOCATION));
+				modifierStats = (ArrayList<ModifierData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.spells.ModifierData"), Gdx.files.internal(Constants.MODIFIER_STATS_FILE_LOCATION));
 				for (int i = 0; i < modifierStats.size(); i++) {
 					final ModifierData data = modifierStats.get(i);
 					modifierData.put(data.getId(), data);

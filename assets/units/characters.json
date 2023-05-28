@@ -153,7 +153,7 @@
 		"hurtFullTime": 0.6f,
 		"appearFullTime": 1f,
 		"landingFullTime": 0.2f,
-		"stopRunningFullTime": 0.2f,
+		"stopRunningFullTime": 0.1f,
 		"dashingFullTime": 0.3f,
 		"defaultCastFullTime": 1f,
 		"teleportFullTime": 0.4f,

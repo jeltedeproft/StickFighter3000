@@ -22,6 +22,7 @@ public class Constants {
 	public static final float MOVEMENT_SPEED = 3.0f;
 	public static final float SPRINT_SPEED = 4.0f;
 	public static final float ROLL_SPEED = 90.0f;
+	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
 	public static final float DASH_DISTANCE = 300f;
 	public static final float TELEPORT_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
@@ -38,7 +39,9 @@ public class Constants {
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
 	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
+	public static final String SPELL_STATS_FILE_LOCATION = "spells/spells.json";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
+	public static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";
 
 	// TEST
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";

@@ -36,6 +36,8 @@ public class CharacterStateManager {
 	private CharacterState characterStateHoldingToSliding;
 	private CharacterState characterStateJumpToFall;
 	private Character character;
+	private boolean stateChanged = false;
+	private CHARACTER_STATE previousCharacterState;
 	private Stack<EVENT> pressedKeysBuffer = new Stack<>();
 
 	public enum CHARACTER_STATE {
@@ -75,6 +77,7 @@ public class CharacterStateManager {
 		JUMP_PRESSED,
 		ATTACK_PRESSED,
 		CAST_PRESSED,
+		CAST_RELEASED,
 		DIED,
 		DOWN_PRESSED,
 		DOWN_UNPRESSED,
@@ -121,11 +124,12 @@ public class CharacterStateManager {
 		characterStateSprinting = new CharacterStateSprinting(this);
 		characterStateWallSliding = new CharacterStateWallSliding(this);
 		characterStateWallSlidingStop = new CharacterStateWallSlidingStop(this, data.getWallSlidingStopFullTime());
-		characterStateFallAttacking = new CharacterStateFallAttacking(this, data.getFallAttackingFullTime());
+		characterStateFallAttacking = new CharacterStateFallAttacking(this);
 		characterStateClimbing = new CharacterStateClimbing(this);
 		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this, data.getHoldToSlideFullTime());
 		characterStateJumpToFall = new CharacterStateJumpToFall(this);
 		currentCharacterState = characterStateAppear;
+		previousCharacterState = CHARACTER_STATE.APPEARING;
 	}
 
 	public void update(float delta) {
@@ -137,6 +141,8 @@ public class CharacterStateManager {
 	}
 
 	public void transition(CHARACTER_STATE state) {
+		stateChanged = true;
+		previousCharacterState = currentCharacterState.getState();
 		currentCharacterState.exit();
 		switch (state) {
 		case APPEARING:
@@ -175,8 +181,11 @@ public class CharacterStateManager {
 		case BLOCKING:
 			currentCharacterState = characterStateBlocking;
 			break;
-		case CAST:
+		case PRECAST:
 			currentCharacterState = characterStatePreCasting;
+			break;
+		case CAST:
+			currentCharacterState = characterStateCasting;
 			break;
 		case CLIMBING:
 			currentCharacterState = characterStateClimbing;
@@ -277,6 +286,14 @@ public class CharacterStateManager {
 
 	public Stack<EVENT> getPressedKeysBuffer() {
 		return pressedKeysBuffer;
+	}
+
+	public boolean isStateChanged() {
+		return stateChanged;
+	}
+
+	public CHARACTER_STATE getPreviousCharacterState() {
+		return previousCharacterState;
 	}
 
 	@Override

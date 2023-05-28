@@ -8,17 +8,15 @@ public class SpellStateManager {
 	private SpellState currentSpellState;
 	private SpellState spellStateWindup;
 	private SpellState spellStateLoop;
-	private SpellState spellStateFinish;
+	private SpellState spellStateEnd;
+	private SpellState spellStateDead;
 	private Spell spell;
 
 	public enum SPELL_STATE {
 		WINDUP,
 		LOOP,
-		FINISH;
-	}
-
-	public enum SPELL_EVENT {
-		CAST_RELEASED;// TODO make spells that activate using a key?
+		END,
+		DEAD;
 	}
 
 	public SpellStateManager(Spell spell) {
@@ -26,7 +24,8 @@ public class SpellStateManager {
 		SpellData data = spell.getData();
 		spellStateWindup = new SpellStateWindup(this, data.getWindupFullTime());
 		spellStateLoop = new SpellStateLoop(this, data.getLoopFullTime());
-		spellStateFinish = new SpellStateFinish(this, data.getFinishFullTime());
+		spellStateEnd = new SpellStateEnd(this, data.getEndFullTime());
+		spellStateDead = new SpellStateDead(this);
 		currentSpellState = spellStateWindup;
 	}
 
@@ -41,14 +40,14 @@ public class SpellStateManager {
 	public void transition(SPELL_STATE state) {
 		currentSpellState.exit();
 		switch (state) {
-		case FINISH:
-			currentSpellState = spellStateFinish;
+		case END:
+			currentSpellState = spellStateEnd;
 			break;
 		case LOOP:
 			currentSpellState = spellStateLoop;
 			break;
 		case WINDUP:
-			currentSpellState = spellStateFinish;
+			currentSpellState = spellStateWindup;
 			break;
 		default:
 			break;

@@ -324,7 +324,7 @@ public class TestCharacterStates {
 	//
 	// CAST //////////////////////////////////////////////
 	private void switchToCastingState() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.FIREBALL1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SPELL_SOUND_FIREBALL_LOOP);
 		characterStateManager.transition(CHARACTER_STATE.CAST);
 	}
 

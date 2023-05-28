@@ -4,8 +4,8 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateFalling implements CharacterState {
@@ -55,6 +55,9 @@ public class CharacterStateFalling implements CharacterState {
 			break;
 		case CAST_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.PRECAST);
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.FALLATTACKING);
 			break;
 		default:
 			break;

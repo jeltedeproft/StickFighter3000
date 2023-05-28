@@ -3,6 +3,7 @@ package jelte.mygame.logic.collisions;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 
 public class StaticBlockPlatform extends StaticBlock {
@@ -17,14 +18,18 @@ public class StaticBlockPlatform extends StaticBlock {
 
 	@Override
 	void handleCollision(PhysicsComponent body, Vector2 pos) {
-		if (!body.isFallTrough() && body.getVelocity().y < 0) {
-			body.move(0, overlapY);
-			body.getVelocity().y = 0;
-			body.getAcceleration().y = 0;
+		if (body instanceof CharacterPhysicsComponent) {
+			CharacterPhysicsComponent characterBody = (CharacterPhysicsComponent) body;
+			if (!characterBody.isFallTrough() && characterBody.getVelocity().y < 0) {
+				characterBody.move(0, overlapY);
+				characterBody.getVelocity().y = 0;
+				characterBody.getAcceleration().y = 0;
+			}
+			if (characterBody.isFallTrough()) {
+				characterBody.move(0, -overlapY * 3);
+			}
 		}
-		if (body.isFallTrough()) {
-			body.move(0, -overlapY * 3);
-		}
+
 	}
 
 	@Override

@@ -6,8 +6,8 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
 import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateRolling implements CharacterState {
@@ -53,6 +53,9 @@ public class CharacterStateRolling implements CharacterState {
 		case LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.ROLLATTACK);
 			break;
 		default:
 			break;

@@ -15,12 +15,12 @@ public class AnimationManager {
 		animationTextureManager = new AnimationTextureManager();
 	}
 
-	public CharacterSprite getSprite(Character character) {
+	public NamedSprite getSprite(Character character) {
 		String animationName = animationNameManager.getAnimationName(character);
 		return animationTextureManager.getSprite(animationName, character);
 	}
 
-	public SpellSprite getSprite(Spell spell) {
+	public NamedSprite getSprite(Spell spell) {
 		String animationName = animationNameManager.getAnimationName(spell);
 		return animationTextureManager.getSprite(animationName, spell);
 	}
