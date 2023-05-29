@@ -32,11 +32,13 @@ public class CharacterStateManager {
 	private CharacterState characterStateWallSliding;
 	private CharacterState characterStateWallSlidingStop;
 	private CharacterState characterStateFallAttacking;
+	private CharacterState characterStateLandAttacking;
 	private CharacterState characterStateClimbing;
 	private CharacterState characterStateHoldingToSliding;
 	private CharacterState characterStateJumpToFall;
 	private Character character;
 	private boolean stateChanged = false;
+	private boolean stateChangedLastFrame = false;
 	private CHARACTER_STATE previousCharacterState;
 	private Stack<EVENT> pressedKeysBuffer = new Stack<>();
 
@@ -69,7 +71,8 @@ public class CharacterStateManager {
 		WALLSLIDING,
 		WALLSLIDINGSTOP,
 		FALLATTACKING,
-		HOLDINGTOSLIDING;
+		HOLDINGTOSLIDING,
+		LANDATTACKING;
 	}
 
 	public enum EVENT {
@@ -125,6 +128,7 @@ public class CharacterStateManager {
 		characterStateWallSliding = new CharacterStateWallSliding(this);
 		characterStateWallSlidingStop = new CharacterStateWallSlidingStop(this, data.getWallSlidingStopFullTime());
 		characterStateFallAttacking = new CharacterStateFallAttacking(this);
+		characterStateLandAttacking = new CharacterStateLandAttacking(this, data.getLandAttackingFullTime());
 		characterStateClimbing = new CharacterStateClimbing(this);
 		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this, data.getHoldToSlideFullTime());
 		characterStateJumpToFall = new CharacterStateJumpToFall(this);
@@ -134,6 +138,16 @@ public class CharacterStateManager {
 
 	public void update(float delta) {
 		currentCharacterState.update(delta);
+		updateStateChange();
+	}
+
+	private void updateStateChange() {
+		if (!stateChangedLastFrame && stateChanged) {
+			stateChangedLastFrame = true;
+		} else if (stateChangedLastFrame && stateChanged) {
+			stateChanged = false;
+			stateChangedLastFrame = false;
+		}
 	}
 
 	public CharacterState getCurrentCharacterState() {
@@ -195,6 +209,9 @@ public class CharacterStateManager {
 			break;
 		case FALLATTACKING:
 			currentCharacterState = characterStateFallAttacking;
+			break;
+		case LANDATTACKING:
+			currentCharacterState = characterStateLandAttacking;
 			break;
 		case GRABBING:
 			currentCharacterState = characterStateGrabbing;

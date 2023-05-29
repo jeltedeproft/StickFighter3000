@@ -1,8 +1,8 @@
 package jelte.mygame.logic.spells.state;
 
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 
@@ -17,7 +17,7 @@ public class SpellStateLoop implements SpellState {
 		this.spellStateManager = spellStateManager;
 		timer = duration;
 		this.duration = duration;
-		audioEnum = AudioEnum.forName("SPELL_SOUND_" + spellStateManager.getSpell().getName() + "_" + state);
+		audioEnum = AudioEnum.forName("SOUND_" + spellStateManager.getSpell().getName() + "_" + state);
 	}
 
 	@Override

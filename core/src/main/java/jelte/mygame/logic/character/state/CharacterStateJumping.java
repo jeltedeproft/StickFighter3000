@@ -1,11 +1,11 @@
 package jelte.mygame.logic.character.state;
 
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateJumping implements CharacterState {
@@ -19,7 +19,7 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void entry() {
 		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP1);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 	}
 
 	@Override
@@ -57,6 +57,9 @@ public class CharacterStateJumping implements CharacterState {
 			break;
 		case CAST_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.PRECAST);
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
 			break;
 		default:
 			break;

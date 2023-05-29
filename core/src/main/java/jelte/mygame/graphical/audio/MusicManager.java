@@ -23,7 +23,7 @@ import jelte.mygame.utility.AssetManagerUtility;
 
 //TODO add link between entity and sond so that we can update pos sound
 //TODO start usins positions and maybe reverb in cave
-//TODO memory efficiency, after spamming it overflows, cleanup
+//TODO refactor
 public class MusicManager implements Disposable, MusicManagerInterface {
 	private static final String TAG = MusicManager.class.getSimpleName();
 	private static MusicManagerInterface instance = null;
@@ -37,78 +37,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	private final SoundListener listener;
 	private Audio audio;
 
-	public enum AudioCommand {
-		MUSIC_PLAY_ONCE,
-		MUSIC_PLAY_LOOP,
-		MUSIC_STOP,
-		MUSIC_STOP_ALL,
-		SOUND_PLAY_ONCE,
-		SOUND_PLAY_LOOP,
-		SOUND_PLAY_LOOP_FOR,
-		SOUND_STOP,
-		MUSIC_PAUSE,
-		MUSIC_RESUME,
-		SOUND_PLAY_ONCE_WITH_COOLDOWN,
-		SOUND_PLAY_LOOP_UNIQUE,
-		STOP_ALL,
-		PAUZE_ALL,
-		RESUME_ALL
-	}
-
-	public enum AudioEnum {
-		MAIN_THEME,
-		MAIN2,
-		SOUND_WALK1,
-		SOUND_WALK2,
-		SOUND_WALK3,
-		SOUND_WALK4,
-		SOUND_JUMP1,
-		SOUND_LANDING1,
-		SOUND_FALL1,
-		SOUND_APPEAR1,
-		SOUND_ATTACK1,
-		SOUND_SHIELD1,
-		SOUND_CLIMB1,
-		SOUND_DASH1,
-		SOUND_DEATH1,
-		SOUND_GRAB1,
-		SOUND_HURT1,
-		SOUND_ROLL1,
-		SOUND_SPRINTING1,
-		SOUND_TELEPORT1,
-		SOUND_SLIDE1,
-		SPELL_SOUND_FIREBALL_LOOP,
-		SPELL_SOUND_FIREBALL_END,
-		SPELL_SOUND_FIREBALL_WINDUP,
-		SOUND_BOOM,
-		SOUND_FLYBY,
-		SOUND_FALLSTRIKE;// keep in sync with file
-
-		private static final AudioEnum[] copyOfValues = AudioEnum.values();
-
-		public static AudioEnum forName(String name) {
-			for (AudioEnum value : copyOfValues) {
-				if (value.name().equalsIgnoreCase(name)) {
-					return value;
-				}
-			}
-			return null;
-		}
-
-	}
-
-	public static MusicManagerInterface getInstance() {
-		if (instance == null) {
-			instance = new MusicManager();
-		}
-
-		return instance;
-	}
-
-	public static void setInstance(MusicManagerInterface newInstance) {
-		instance = newInstance;
-	}
-
 	private MusicManager() {
 		queuedMusic = new HashMap<>();
 		queuedSounds = new HashMap<>();
@@ -118,17 +46,23 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		audio = Audio.init(config);
 		audio.setDefaultAttenuationMaxDistance(5f);
 		listener = audio.getListener();
+		autoloadSounds();
+	}
 
+	private void autoloadSounds() {
 		for (AudioEnum audioEnum : AudioEnum.values()) {
 			if (audioEnum.name().startsWith("SOUND_")) {
-				loadSound(audioEnum);
+				final AudioData audioData = getAudioData(audioEnum);
+				if (audioData == null) {
+					int j = 5;
+				}
+				audioData.getAudioFileName().forEach(AssetManagerUtility::loadSoundBufferAsset);
 			}
 		}
 	}
 
-	private void loadSound(AudioEnum event) {
-		final AudioData audioData = getAudioData(event);
-		AssetManagerUtility.loadSoundBufferAsset(audioData.getAudioFileName());
+	private AudioData getAudioData(AudioEnum event) {
+		return audioDataForIds.computeIfAbsent(event.ordinal(), k -> AudioFileReader.getAudioData().get(k));
 	}
 
 	@Override
@@ -173,41 +107,34 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	}
 
 	@Override
-	public void sendCommand(AudioCommand command, String string) {
-		AudioEnum sound = AudioEnum.forName(string);
-		if (sound != null) {
-			sendCommand(command, AudioEnum.forName(string));
-		}
-	}
-
-	@Override
 	public void sendCommand(AudioCommand command, AudioEnum event, Vector2 pos) {
 		final AudioData audioData = getAudioData(event);
 		final float volume = audioData.getVolume();
+
 		switch (command) {
 		case MUSIC_PLAY_LOOP:
-			playMusic(true, audioData.getAudioFileName(), volume, pos);
+			playMusic(true, audioData.getRandomAudioFileName(), volume, pos);
 			break;
 		case SOUND_PLAY_LOOP:
-			playSound(true, audioData.getAudioFileName(), volume, pos);
+			playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
 			break;
 		case SOUND_PLAY_LOOP_UNIQUE:
-			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
+			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getRandomAudioFileName());
 			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
-				playSound(true, audioData.getAudioFileName(), volume, pos);
+				playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
 			}
 			break;
 		case SOUND_PLAY_LOOP_FOR:
 			musicTimers.computeIfAbsent(event, s -> new Array<>());
 			musicTimers.get(event).add(audioData.getDuration());
-			playSound(true, audioData.getAudioFileName(), volume, pos);
+			playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
 			break;
 		case SOUND_PLAY_ONCE:
-			playSound(false, audioData.getAudioFileName(), volume, pos);
+			playAndForget(audioData.getRandomAudioFileName(), volume, pos);
 			break;
 		case SOUND_PLAY_ONCE_WITH_COOLDOWN:
 			if (offCooldown(event)) {
-				playSound(false, audioData.getAudioFileName(), volume, pos);
+				playAndForget(audioData.getRandomAudioFileName(), volume, pos);
 				setCooldown(event, audioData.getCooldown());
 			}
 			break;
@@ -220,66 +147,68 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	public void sendCommand(AudioCommand command, AudioEnum event) {
 		final AudioData audioData = getAudioData(event);
 		final float volume = audioData.getVolume();
+
 		switch (command) {
 		case MUSIC_PLAY_ONCE:
-			playMusic(false, audioData.getAudioFileName(), volume);
+			playMusic(false, audioData.getRandomAudioFileName(), volume);
 			break;
 		case MUSIC_PLAY_LOOP:
-			playMusic(true, audioData.getAudioFileName(), volume);
-			break;
-		case MUSIC_STOP:
-			final StreamedSoundSource music = queuedMusic.get(audioData.getAudioFileName());
-			if (music != null) {
-				music.stop();
-			}
-			break;
-		case MUSIC_STOP_ALL:
-			for (final StreamedSoundSource musicStop : queuedMusic.values()) {
-				musicStop.stop();
-			}
-			break;
-		case SOUND_PLAY_LOOP:
-			playSound(true, audioData.getAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_LOOP_UNIQUE:
-			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getAudioFileName());
-			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
-				playSound(true, audioData.getAudioFileName(), volume);
-			}
-			break;
-		case SOUND_PLAY_LOOP_FOR:
-			musicTimers.computeIfAbsent(event, s -> new Array<>());
-			musicTimers.get(event).add(audioData.getDuration());
-			playSound(true, audioData.getAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_ONCE:
-			playSound(false, audioData.getAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_ONCE_WITH_COOLDOWN:
-			if (offCooldown(event)) {
-				playSound(false, audioData.getAudioFileName(), volume);
-				setCooldown(event, audioData.getCooldown());
-			}
-			break;
-		case SOUND_STOP:
-			final Array<BufferedSoundSource> sounds = queuedSounds.get(audioData.getAudioFileName());
-			if (sounds != null && sounds.size > 0) {
-				sounds.get(0).stop();// TODO removes the first, is this ok? maybe we wanna stop the second
-				sounds.removeIndex(0);
-			}
+			playMusic(true, audioData.getRandomAudioFileName(), volume);
 			break;
 		case MUSIC_PAUSE:
-			final StreamedSoundSource musicToPause = queuedMusic.get(audioData.getAudioFileName());
+			final StreamedSoundSource musicToPause = queuedMusic.get(audioData.getRandomAudioFileName());
 			if (musicToPause != null) {
 				musicToPause.pause();
 			}
 			break;
 		case MUSIC_RESUME:
-			final StreamedSoundSource musicToResume = queuedMusic.get(audioData.getAudioFileName());
+			final StreamedSoundSource musicToResume = queuedMusic.get(audioData.getRandomAudioFileName());
 			if (musicToResume != null) {
 				musicToResume.setVolume(volume);
 				musicToResume.play();
 			}
+			break;
+		case MUSIC_STOP:
+			final StreamedSoundSource music = queuedMusic.get(audioData.getRandomAudioFileName());
+			if (music != null) {
+				music.stop();
+			}
+			break;
+		case MUSIC_STOP_ALL:
+			queuedMusic.values().forEach(StreamedSoundSource::stop);
+			break;
+		case SOUND_PLAY_LOOP:
+			playLoopedSound(audioData.getRandomAudioFileName(), volume);
+			break;
+		case SOUND_PLAY_LOOP_UNIQUE:
+			final Array<BufferedSoundSource> uniqueSounds = queuedSounds.get(audioData.getRandomAudioFileName());
+			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
+				playLoopedSound(audioData.getRandomAudioFileName(), volume);
+			}
+			break;
+		case SOUND_PLAY_LOOP_FOR:
+			musicTimers.computeIfAbsent(event, s -> new Array<>());
+			musicTimers.get(event).add(audioData.getDuration());
+			playLoopedSound(audioData.getRandomAudioFileName(), volume);
+			break;
+		case SOUND_PLAY_ONCE:
+			playAndForget(audioData.getRandomAudioFileName(), volume);
+			break;
+		case SOUND_PLAY_ONCE_WITH_COOLDOWN:
+			if (offCooldown(event)) {
+				playAndForget(audioData.getRandomAudioFileName(), volume);
+				setCooldown(event, audioData.getCooldown());
+			}
+			break;
+		case SOUND_STOP:
+			audioData.getAudioFileName().forEach(name -> {
+				final Array<BufferedSoundSource> sounds = queuedSounds.get(name);
+				if (sounds != null && sounds.size > 0) {
+					sounds.get(0).stop();// TODO removes the first, is this ok? maybe we wanna stop the second
+					sounds.removeIndex(0);
+				}
+			});
+
 			break;
 		default:
 			break;
@@ -292,10 +221,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	private boolean offCooldown(AudioEnum event) {
 		return cooldowns.get(event) == null || cooldowns.get(event) <= 0;
-	}
-
-	private AudioData getAudioData(AudioEnum event) {
-		return audioDataForIds.computeIfAbsent(event.ordinal(), k -> AudioFileReader.getAudioData().get(k));
 	}
 
 	private void playMusic(boolean isLooping, String fullFilePath, float volume, Vector2 pos) {
@@ -323,15 +248,15 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		return music;
 	}
 
-	private void playSound(boolean isLooping, String fullFilePath, float volume) {
-		BufferedSoundSource sound = createSound(isLooping, fullFilePath, volume);
+	private void playLoopedSound(String fullFilePath, float volume) {
+		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
 		if (sound != null) {
 			sound.play();
 		}
 	}
 
-	private void playSound(boolean isLooping, String fullFilePath, float volume, Vector2 pos) {
-		BufferedSoundSource sound = createSound(isLooping, fullFilePath, volume);
+	private void playLoopedSound(String fullFilePath, float volume, Vector2 pos) {
+		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
 		if (sound != null) {
 			sound.setDirection(new Vector3(1, 1, 0));
 			sound.setPosition(pos.x, pos.y, 0);
@@ -339,13 +264,27 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		}
 	}
 
-	private BufferedSoundSource createSound(boolean isLooping, String fullFilePath, float volume) {
+	private void playAndForget(String fullFilePath, float volume) {
+		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
+			SoundBuffer soundBuffer = AssetManagerUtility.getSoundBufferAsset(fullFilePath);
+			soundBuffer.play(volume);
+		}
+	}
+
+	private void playAndForget(String fullFilePath, float volume, Vector2 pos) {
+		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
+			SoundBuffer soundBuffer = AssetManagerUtility.getSoundBufferAsset(fullFilePath);
+			soundBuffer.play3D(volume, new Vector3(pos.x, pos.y, 0));
+		}
+	}
+
+	private BufferedSoundSource createBufferedSound(String fullFilePath, float volume) {
 		queuedSounds.computeIfAbsent(fullFilePath, s -> new Array<>());
 		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
 			SoundBuffer soundBuffer = AssetManagerUtility.getSoundBufferAsset(fullFilePath);
 			BufferedSoundSource bufferedSound = audio.obtainSource(soundBuffer);
 			bufferedSound.setVolume(volume);
-			bufferedSound.setLooping(isLooping);
+			bufferedSound.setLooping(true);
 			queuedSounds.get(fullFilePath).add(bufferedSound);
 			return bufferedSound;
 		}
@@ -353,20 +292,23 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		return null;
 	}
 
+	public static MusicManagerInterface getInstance() {
+		if (instance == null) {
+			instance = new MusicManager();
+		}
+
+		return instance;
+	}
+
+	public static void setInstance(MusicManagerInterface newInstance) {
+		instance = newInstance;
+	}
+
 	@Override
 	public void dispose() {
-		for (final StreamedSoundSource music : queuedMusic.values()) {
-			music.dispose();
-		}
-
-		for (final Array<BufferedSoundSource> sounds : queuedSounds.values()) {
-			for (BufferedSoundSource sound : sounds) {
-				sound.free();
-			}
-
-		}
-
-		this.audio.dispose();
+		queuedMusic.values().forEach(StreamedSoundSource::dispose);
+		queuedSounds.values().forEach(array -> array.forEach(BufferedSoundSource::free));
+		audio.dispose();
 	}
 
 }

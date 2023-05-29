@@ -1,8 +1,8 @@
 package jelte.mygame.logic.character.state;
 
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -26,7 +26,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 	@Override
 	public void update(float delta) {
 		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0) {
-			characterStateManager.transition(CHARACTER_STATE.LANDING);
+			characterStateManager.transition(CHARACTER_STATE.LANDATTACKING);
 		}
 	}
 

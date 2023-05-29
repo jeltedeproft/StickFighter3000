@@ -1,7 +1,9 @@
 package jelte.mygame.logic.character.state;
 
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.utility.Constants;
 
 public class CharacterStateRollAttacking implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -26,9 +28,18 @@ public class CharacterStateRollAttacking implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
-		}
+			if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x) > 0) {
+				characterStateManager.transition(CHARACTER_STATE.RUNNING);
+			} else {
+				characterStateManager.transition(CHARACTER_STATE.IDLE);
+			}
 
+		}
+		if (characterStateManager.getCharacter().getPhysicsComponent().getDirection().equals(Direction.right)) {
+			characterStateManager.getCharacter().getPhysicsComponent().move(Constants.ROLL_SPEED * delta, 0);
+		} else {
+			characterStateManager.getCharacter().getPhysicsComponent().move(-Constants.ROLL_SPEED * delta, 0);
+		}
 	}
 
 	@Override

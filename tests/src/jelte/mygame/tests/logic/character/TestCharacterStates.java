@@ -15,16 +15,16 @@ import org.mockito.MockitoAnnotations;
 
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 
@@ -66,7 +66,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToAttack() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_APPEAR1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_APPEAR);
 		characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ATTACKING);
 	}
@@ -83,7 +83,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToJumping() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 		characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.JUMPING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == Constants.JUMP_SPEED.y);
@@ -91,7 +91,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToWalkingLeft() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
 		characterStateManager.handleEvent(EVENT.LEFT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == -Constants.MOVEMENT_SPEED);
@@ -108,7 +108,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToWalkingRight() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
 		characterStateManager.handleEvent(EVENT.RIGHT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == Constants.MOVEMENT_SPEED);
@@ -125,7 +125,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToTeleportRight() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
@@ -134,7 +134,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToTeleportLeft() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
@@ -143,7 +143,7 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToTeleportLeft2() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.getCharacter().getPhysicsComponent().setPosition(new Vector2(Constants.TELEPORT_DISTANCE, 0));
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
@@ -153,21 +153,21 @@ public class TestCharacterStates {
 
 	@Test
 	public void testAppearToDash() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH);
 		characterStateManager.handleEvent(EVENT.DASH_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.DASHING);
 	}
 
 	@Test
 	public void testAppearToRoll() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL);
 		characterStateManager.handleEvent(EVENT.ROLL_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ROLLING);
 	}
 
 	@Test
 	public void testAppearToBlock() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
 		characterStateManager.handleEvent(EVENT.BLOCK_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.BLOCKING);
 	}
@@ -184,7 +184,7 @@ public class TestCharacterStates {
 	//
 	// ATTACK //////////////////////////////////////////////
 	private void switchToAttackingState() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
 		characterStateManager.transition(CHARACTER_STATE.ATTACKING);
 	}
 
@@ -236,7 +236,7 @@ public class TestCharacterStates {
 	//
 	// BLOCKING //////////////////////////////////////////////
 	private void switchToBlockingState() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
 		characterStateManager.transition(CHARACTER_STATE.BLOCKING);
 	}
 
@@ -268,7 +268,7 @@ public class TestCharacterStates {
 	@Test
 	public void testBlockToTeleportRight() {
 		switchToBlockingState();
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
@@ -278,7 +278,7 @@ public class TestCharacterStates {
 	@Test
 	public void testBlockToTeleportLeft() {
 		switchToBlockingState();
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.TELEPORTING);
@@ -288,7 +288,7 @@ public class TestCharacterStates {
 	@Test
 	public void testBlockToTeleportLeft2() {
 		switchToBlockingState();
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
 		characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 		characterStateManager.getCharacter().getPhysicsComponent().setPosition(new Vector2(Constants.TELEPORT_DISTANCE, 0));
 		characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
@@ -299,7 +299,7 @@ public class TestCharacterStates {
 	@Test
 	public void testBlockToDash() {
 		switchToBlockingState();
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH);
 		characterStateManager.handleEvent(EVENT.DASH_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.DASHING);
 	}
@@ -307,7 +307,7 @@ public class TestCharacterStates {
 	@Test
 	public void testBlockToRoll() {
 		switchToBlockingState();
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL1);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ROLL);
 		characterStateManager.handleEvent(EVENT.ROLL_PRESSED);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.ROLLING);
 	}
@@ -324,7 +324,7 @@ public class TestCharacterStates {
 	//
 	// CAST //////////////////////////////////////////////
 	private void switchToCastingState() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SPELL_SOUND_FIREBALL_LOOP);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_FIREBALL_LOOP);
 		characterStateManager.transition(CHARACTER_STATE.CAST);
 	}
 

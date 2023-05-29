@@ -19,12 +19,11 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.graphical.audio.MusicManager.AudioCommand;
-import jelte.mygame.graphical.audio.MusicManager.AudioEnum;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
-import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.utility.AssetManagerUtility;
@@ -68,6 +67,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		animationManager = new AnimationManager();
 		font = new BitmapFont();
 		spellsToRender = new Array<>();
+		specialEffectsManager = new SpecialEffectsManagerImpl();
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
@@ -114,11 +114,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.setProjectionMatrix(cameraManager.getCamera().combined);
 		mapManager.renderCurrentMap(cameraManager.getCamera());
 
-		checkStateChanges(player);// TODO for all characters
+		if (player.getCharacterStateManager().isStateChanged() && animationManager.getSpecialEffect(player) != null) {
+			specialEffectsManager.addSpecialEffect(player, animationManager.getSpecialEffect(player));
+		}
+
+		specialEffectsManager.update(delta, player);// TODO for all characters
 
 		batch.begin();
 		renderCharacters();
 		renderSpells();
+		renderSpecialEffects();
 		batch.end();
 
 		renderUI();
@@ -142,16 +147,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
 	}
 
-	private void checkStateChanges(PlayerCharacter player2) {
-		if (player.getCharacterStateManager().isStateChanged()) {
-			CHARACTER_STATE oldState = player.getCharacterStateManager().getPreviousCharacterState();
-			CHARACTER_STATE newState = player.getCharacterStateManager().getPreviousCharacterState();
-
-			if (oldState.equals(CHARACTER_STATE.FALLATTACKING) && newState.equals(CHARACTER_STATE.LANDING)) {
-				// TODO create particle here and also dont forget to finish the attack particle sprites and activate them here??
-				// or else make spels otuof them that do not have any effect?? but weird
-				jjjj
-			}
+	private void renderSpecialEffects() {
+		for (SpecialEffect effect : specialEffectsManager.getAllEffects()) {
+			effect.draw(batch);
 		}
 	}
 
@@ -203,9 +201,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			spellsToRender = (Array<Spell>) message.getValue();
 			break;
 		case UPDATE_CAMERA_POS:
-			cameraManager.updateCameraPos((Vector2) message.getValue());
-			break;
-		case STATE_CHANGED_OLD:
 			cameraManager.updateCameraPos((Vector2) message.getValue());
 			break;
 		default:

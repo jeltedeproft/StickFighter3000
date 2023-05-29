@@ -6,11 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 public class UtilityFunctions {
+	private static final Random random = new Random();
+
 	public static void writeArrayToFile(int[] array, String filePath) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 			for (int i = 0; i < array.length; i++) {
@@ -58,5 +61,10 @@ public class UtilityFunctions {
 		String extension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
 		return extension.equals("png") || extension.equals("jpg") || extension.equals("jpeg") || extension.equals("gif");
 		// Add more image file extensions as needed
+	}
+
+	// to not exclusive
+	public static int randomNumberFromTo(int from, int to) {
+		return random.nextInt(from, to);
 	}
 }

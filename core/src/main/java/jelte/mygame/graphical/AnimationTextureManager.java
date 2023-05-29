@@ -66,6 +66,7 @@ public class AnimationTextureManager {
 		characterPlayModes.put(CHARACTER_STATE.WALLSLIDING, PlayMode.LOOP);
 		characterPlayModes.put(CHARACTER_STATE.WALLSLIDINGSTOP, PlayMode.LOOP);
 		characterPlayModes.put(CHARACTER_STATE.FALLATTACKING, PlayMode.NORMAL);
+		characterPlayModes.put(CHARACTER_STATE.LANDATTACKING, PlayMode.NORMAL);
 		characterPlayModes.put(CHARACTER_STATE.HOLDINGTOSLIDING, PlayMode.NORMAL);
 		characterPlayModes.put(CHARACTER_STATE.JUMPTOFALL, PlayMode.NORMAL);
 		spellPlayModes.put(SPELL_STATE.DEAD, PlayMode.NORMAL);
@@ -110,6 +111,15 @@ public class AnimationTextureManager {
 			timers.remove(id);
 		}
 		usedIds.clear();
+	}
+
+	public Animation<NamedSprite> getAnimationNoCache(String animationName, Character character) {
+		Animation<NamedSprite> animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
+		if (animation == null) {
+			Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
+			return null;
+		}
+		return animation;
 	}
 
 	public NamedSprite getSprite(String animationName, Character character) {
@@ -186,6 +196,8 @@ public class AnimationTextureManager {
 			return character.getData().getRunningFrameDuration();
 		case SPRINTING:
 			return character.getData().getRunningFrameDuration();
+		case FALLATTACKING:
+			return character.getData().getFallAttackingFrameDuration();
 		default:
 			return Constants.DEFAULT_ANIMATION_SPEED;
 		}

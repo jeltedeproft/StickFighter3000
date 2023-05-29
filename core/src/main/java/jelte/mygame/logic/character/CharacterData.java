@@ -43,6 +43,7 @@ public class CharacterData {
 	private float rollFullTime;
 	private float wallSlidingStopFullTime;
 	private float holdToSlideFullTime;
-	private float fallAttackingFullTime;
+	private float fallAttackingFrameDuration;
+	private float landAttackingFullTime;
 	private float blockingFullTime;
 }

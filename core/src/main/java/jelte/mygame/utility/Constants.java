@@ -14,14 +14,14 @@ public class Constants {
 	public static final float MAX_SPEED = 1000;
 	public static final Vector2 GRAVITY = new Vector2(0, -10);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
-	public static final Vector2 PLAYER_START = new Vector2(100, 50);
-	public static final Vector2 ENEMY_START = new Vector2(50, 50);
+	public static final Vector2 PLAYER_START = new Vector2(400, 300);
+	public static final Vector2 ENEMY_START = new Vector2(500, 300);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
 	public static final float WALK_SPEED = 2.0f;
 	public static final float MOVEMENT_SPEED = 3.0f;
 	public static final float SPRINT_SPEED = 4.0f;
-	public static final float ROLL_SPEED = 90.0f;
+	public static final float ROLL_SPEED = 270.0f;
 	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
 	public static final float DASH_DISTANCE = 300f;
 	public static final float TELEPORT_DISTANCE = 150f;

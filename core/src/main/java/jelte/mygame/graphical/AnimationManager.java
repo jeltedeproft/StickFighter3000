@@ -1,5 +1,7 @@
 package jelte.mygame.graphical;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.spells.Spell;
 import lombok.ToString;
@@ -23,6 +25,12 @@ public class AnimationManager {
 	public NamedSprite getSprite(Spell spell) {
 		String animationName = animationNameManager.getAnimationName(spell);
 		return animationTextureManager.getSprite(animationName, spell);
+	}
+
+	public Animation<NamedSprite> getSpecialEffect(Character character) {
+		String animationName = animationNameManager.getAnimationName(character);
+		animationName += "-effect";
+		return animationTextureManager.getAnimationNoCache(animationName, character);
 	}
 
 	public void update(final float delta) {
