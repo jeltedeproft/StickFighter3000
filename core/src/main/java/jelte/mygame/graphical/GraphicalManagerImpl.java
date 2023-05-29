@@ -86,7 +86,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
 		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
-		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY_LOOP, AudioEnum.MAIN_THEME);
+		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN);
 
 		createHud();
 	}
@@ -119,6 +119,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		}
 
 		specialEffectsManager.update(delta, player);// TODO for all characters
+
+		MusicManager.getInstance().update(delta, cameraManager.getCamera().position.x, cameraManager.getCamera().position.y);
 
 		batch.begin();
 		renderCharacters();

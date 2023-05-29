@@ -82,6 +82,8 @@ public class Constants {
 	// TIMES
 	public static final Long DASH_TIME = 1000L;
 	public static final float DEFAULT_ANIMATION_SPEED = 0.05f;
+	public static final float MUSIC_FADE_IN_DURATION = 3f;
+	public static final float MUSIC_FADE_OUT_DURATION = 5f;
 
 	// DIMENSIONS
 	public static final float HUD_BARS_WIDTH = 500;

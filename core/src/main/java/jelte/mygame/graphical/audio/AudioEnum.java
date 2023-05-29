@@ -1,8 +1,7 @@
 package jelte.mygame.graphical.audio;
 
 public enum AudioEnum {
-	MAIN_THEME,
-	MAIN2,
+	PLAYLIST_MAIN,
 	SOUND_WALK,
 	SOUND_JUMP,
 	SOUND_LANDING,

@@ -13,6 +13,7 @@ public class AudioData {
 	private float volume;
 	private float duration;
 	private float cooldown;
+	private int theme;
 
 	public String getRandomAudioFileName() {
 		return audioFileName.get(UtilityFunctions.randomNumberFromTo(0, audioFileName.size()));
