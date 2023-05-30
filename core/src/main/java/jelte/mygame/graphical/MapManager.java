@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.logic.collisions.StaticBlockBot;
@@ -65,8 +66,7 @@ public class MapManager implements Disposable {
 		Array<StaticBlock> rectangles = new Array<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
-			if (object instanceof RectangleMapObject) {
-				RectangleMapObject rectangleObject = (RectangleMapObject) object;
+			if (object instanceof RectangleMapObject rectangleObject) {
 				StaticBlock rectangle = createTypedStaticBlock(rectangleObject);
 				rectangles.add(rectangle);
 			}
@@ -88,7 +88,7 @@ public class MapManager implements Disposable {
 		case Constants.BLOCK_TYPE_PLATFORM:
 			return new StaticBlockPlatform(rectangleObject.getRectangle());
 		default:
-			Gdx.app.log(TAG, "error : unknown type of static block : " + rectangleObject.getName());
+			Gdx.app.log(TAG, String.format("error: unknown type of static block: %s", rectangleObject.getName()));
 			break;
 		}
 

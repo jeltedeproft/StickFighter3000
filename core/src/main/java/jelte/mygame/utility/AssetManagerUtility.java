@@ -2,7 +2,9 @@ package jelte.mygame.utility;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -52,6 +54,7 @@ public class AssetManagerUtility implements Disposable {
 	private static MusicLoader musicLoader = new MusicLoader(filePathResolver);
 	private static TextureAtlasLoader textureAtlasLoader = new TextureAtlasLoader(filePathResolver);
 	private static SoundBufferLoader soundBufferLoader = new SoundBufferLoader(new InternalFileHandleResolver());
+	private static Set<String> spriteNames = new HashSet<>();;
 
 	private static Map<String, Array<NamedSprite>> cachedAnimations = new HashMap<>();
 
@@ -108,6 +111,13 @@ public class AssetManagerUtility implements Disposable {
 
 	public static void loadTextureAtlas(final String textureAtlasFilenamePath) {
 		loadAsset(textureAtlasFilenamePath, TextureAtlas.class);
+		final TextureAtlas atlas = getTextureAtlas(textureAtlasFilenamePath);
+		if (atlas != null) {
+			for (TextureAtlas.AtlasRegion region : atlas.getRegions()) {
+				spriteNames.add(region.name);
+			}
+		}
+		Gdx.app.debug(TAG, String.format("can't preload spritenames, texture atlas is null: %s", textureAtlasFilenamePath));
 	}
 
 	public static TextureAtlas getTextureAtlas(final String textureAtlasFilenamePath) {
@@ -131,10 +141,10 @@ public class AssetManagerUtility implements Disposable {
 		if (!isAssetLoaded(assetName) && checkValidString(assetName)) {
 			if (filePathResolver.resolve(assetName).exists()) {
 				assetManager.load(assetName, className);
-				assetManager.finishLoadingAsset(assetName);// block
-				Gdx.app.debug(TAG, className.getSimpleName() + " loaded: " + assetName);
+				assetManager.finishLoadingAsset(assetName); // block
+				Gdx.app.debug(TAG, String.format("%s loaded: %s", className.getSimpleName(), assetName));
 			} else {
-				Gdx.app.debug(TAG, className.getSimpleName() + " doesn't exist: " + assetName);
+				Gdx.app.debug(TAG, String.format("%s doesn't exist: %s", className.getSimpleName(), assetName));
 			}
 		}
 	}
@@ -146,7 +156,7 @@ public class AssetManagerUtility implements Disposable {
 		if (assetManager.isLoaded(filenamePath)) {
 			object = assetManager.get(filenamePath, className);
 		} else {
-			Gdx.app.debug(TAG, className.getSimpleName() + " is not loaded: " + filenamePath);
+			Gdx.app.debug(TAG, String.format("%s is not loaded: %s", className.getSimpleName(), filenamePath));
 		}
 
 		return object;
@@ -156,7 +166,7 @@ public class AssetManagerUtility implements Disposable {
 		if (assetManager.isLoaded(assetFilenamePath)) {
 			assetManager.unload(assetFilenamePath);
 		} else {
-			Gdx.app.debug(TAG, "Asset is not loaded; Nothing to unload: " + assetFilenamePath);
+			Gdx.app.debug(TAG, String.format("Asset is not loaded; Nothing to unload: %s", assetFilenamePath));
 		}
 	}
 
@@ -165,7 +175,7 @@ public class AssetManagerUtility implements Disposable {
 		if (atlas != null) {
 			return atlas.createSprite(spriteName);
 		}
-		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
+		Gdx.app.debug(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
 		return null;
 	}
 
@@ -174,18 +184,18 @@ public class AssetManagerUtility implements Disposable {
 		if (atlas != null) {
 			return atlas.findRegion(regionName);
 		}
-		Gdx.app.debug(TAG, "can't create sprite, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
+		Gdx.app.debug(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
 		return null;
 	}
 
 	public static Array<TextureAtlas.AtlasRegion> getAllRegionsWhichContainName(String spriteName) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
+			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
 			return null;
 		}
 		final Array<AtlasRegion> allRegions = atlas.getRegions();
-		final Array<AtlasRegion> matched = new Array(AtlasRegion.class);
+		final Array<AtlasRegion> matched = new Array<>(AtlasRegion.class);
 
 		for (int i = 0, n = allRegions.size; i < n; i++) {
 			final AtlasRegion region = allRegions.get(i);
@@ -196,11 +206,15 @@ public class AssetManagerUtility implements Disposable {
 		return matched;
 	}
 
+	public static boolean animationExists(String animationName) {
+		return spriteNames.contains(animationName);
+	}
+
 	// TODO refactor this, the 2 methods are almost identical
 	public static Animation<NamedSprite> getAnimation(String animationName, float frameDuration, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_ATLAS_PATH);
+			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
 			return null;
 		}
 
@@ -215,7 +229,7 @@ public class AssetManagerUtility implements Disposable {
 		}
 
 		if (cachedAnimation.size == 0) {
-			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
+			Gdx.app.debug(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH));
 			return null;
 		}
 
@@ -225,7 +239,7 @@ public class AssetManagerUtility implements Disposable {
 	public static Animation<NamedSprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, "can't get animation, texture atlas is null: " + Constants.SPRITES_BACKGROUND_ATLAS_PATH);
+			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
 			return null;
 		}
 
@@ -240,7 +254,7 @@ public class AssetManagerUtility implements Disposable {
 		}
 
 		if (cachedAnimation.size == 0) {
-			Gdx.app.debug(TAG, "can't get animation, no region found in atlas: " + animationName);
+			Gdx.app.debug(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH));
 			return null;
 		}
 

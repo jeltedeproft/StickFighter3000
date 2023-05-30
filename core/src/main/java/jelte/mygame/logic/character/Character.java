@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import com.badlogic.gdx.utils.Queue;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;

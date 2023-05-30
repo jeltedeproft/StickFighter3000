@@ -135,15 +135,15 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		// debug info player
 		batch.begin();
-		font.draw(batch, "player position : " + player.getPhysicsComponent().getPosition(), 0, Gdx.graphics.getHeight() - 10);
-		font.draw(batch, "player rectangle : " + player.getPhysicsComponent().getRectangle(), 0, Gdx.graphics.getHeight() - 25);
-		font.draw(batch, "player velocity : " + player.getPhysicsComponent().getVelocity(), 0, Gdx.graphics.getHeight() - 40);
-		font.draw(batch, "player acceleration : " + player.getPhysicsComponent().getAcceleration(), 0, Gdx.graphics.getHeight() - 70);
-		font.draw(batch, "collided : " + player.getPhysicsComponent().isCollided(), 0, Gdx.graphics.getHeight() - 100);
-		font.draw(batch, "falltrough : " + player.getPhysicsComponent().isFallTrough(), 0, Gdx.graphics.getHeight() - 130);
-		font.draw(batch, "state : " + player.getCurrentCharacterState().getState(), 0, Gdx.graphics.getHeight() - 160);
-		font.draw(batch, "dimensions : " + player.getPhysicsComponent().getWidth() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 190);
-		font.draw(batch, "animation Name : " + animationManager.getSprite(player).getName() + "," + player.getPhysicsComponent().getHeight(), 0, Gdx.graphics.getHeight() - 220);
+		font.draw(batch, String.format("player position: %s", player.getPhysicsComponent().getPosition()), 0, Gdx.graphics.getHeight() - 10);
+		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 0, Gdx.graphics.getHeight() - 25);
+		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 0, Gdx.graphics.getHeight() - 40);
+		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 70);
+		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 0, Gdx.graphics.getHeight() - 100);
+		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 0, Gdx.graphics.getHeight() - 130);
+		font.draw(batch, String.format("state: %s", player.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 160);
+		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 190);
+		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 220);
 		batch.end();
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));

@@ -1,5 +1,7 @@
 package jelte.mygame.logic.spells;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import lombok.Data;
 
 @Data
@@ -28,5 +30,15 @@ public class SpellData {
 	private float loopFrameDuration;
 	private float endFrameDuration;
 	private float animationSpeed;
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ");
+		sb.append(name);
+		sb.append("id: ");
+		sb.append(id);
+		return sb.toString();
+	}
 
 }

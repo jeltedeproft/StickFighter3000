@@ -1,5 +1,7 @@
 package jelte.mygame.logic.spells.state;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.logic.spells.SpellData;

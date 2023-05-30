@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.physics.SpellPhysicsComponent;
@@ -13,11 +14,9 @@ import jelte.mygame.logic.collisions.Collidable;
 import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class Spell implements Collidable {
 	protected float currentHp;
 	protected SpellData data;
@@ -45,8 +44,13 @@ public class Spell implements Collidable {
 		spellStateManager = new SpellStateManager(this);
 		targetPosition = new Vector2(mousePosition.x, mousePosition.y);
 		startPosition = casterPosition.cpy();
-		physicsComponent = new SpellPhysicsComponent(id, casterPosition.cpy());// TODO switch on type here
-		physicsComponent.setVelocity(new Vector2(mousePosition.x - casterPosition.x, mousePosition.y - casterPosition.y));
+		physicsComponent = new SpellPhysicsComponent(id, casterPosition.cpy(), data.isGoesTroughObstacles());// TODO switch on type here
+
+		Vector2 mouse = new Vector2(mousePosition.x, mousePosition.y);
+		Vector2 direction = mouse.cpy().sub(casterPosition).nor();
+		Vector2 velocity = direction.scl(spellData.getSpeed());
+
+		physicsComponent.setVelocity(velocity);
 	}
 
 	public void update(float delta) {
@@ -118,6 +122,16 @@ public class Spell implements Collidable {
 	@Override
 	public boolean isDynamic() {
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ");
+		sb.append(data.getName());
+		sb.append("id: ");
+		sb.append(id);
+		return sb.toString();
 	}
 
 }

@@ -1,5 +1,7 @@
 package jelte.mygame.graphical;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 import lombok.Getter;
 import lombok.Setter;

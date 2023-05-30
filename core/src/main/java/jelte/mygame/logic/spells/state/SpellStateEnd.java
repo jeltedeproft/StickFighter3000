@@ -1,5 +1,7 @@
 package jelte.mygame.logic.spells.state;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
@@ -17,7 +19,8 @@ public class SpellStateEnd implements SpellState {
 		this.spellStateManager = spellStateManager;
 		timer = duration;
 		this.duration = duration;
-		audioEnum = AudioEnum.forName("SOUND_" + spellStateManager.getSpell().getName() + "_" + state);
+		audioEnum = AudioEnum.forName(String.format("SOUND_%s_%s", spellStateManager.getSpell().getName(), state));
+
 	}
 
 	@Override

@@ -48,7 +48,7 @@ public class ModifierFileReader {
 				return entry.key;
 			}
 		}
-		Gdx.app.debug(TAG, "spell id not found for : " + name);
+		Gdx.app.debug(TAG, String.format("modifier id not found for: %s", name));
 		return -1;
 	}
 }

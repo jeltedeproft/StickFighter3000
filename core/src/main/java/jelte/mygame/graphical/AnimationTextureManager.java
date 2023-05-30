@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -113,10 +114,13 @@ public class AnimationTextureManager {
 		usedIds.clear();
 	}
 
+	public boolean exists(String animationName) {
+		return AssetManagerUtility.animationExists(animationName);
+	}
+
 	public Animation<NamedSprite> getAnimationNoCache(String animationName, Character character) {
 		Animation<NamedSprite> animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
 		if (animation == null) {
-			Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
 			return null;
 		}
 		return animation;
@@ -137,7 +141,7 @@ public class AnimationTextureManager {
 		if (animation == null) {
 			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
 			if (animation == null) {
-				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
+				Gdx.app.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
 				return null;
 			}
 			cache(animationName, animation);
@@ -164,7 +168,7 @@ public class AnimationTextureManager {
 		if (animation == null) {
 			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(spell), getPlayMode(spell.getSpellStateManager().getCurrentSpellState().getState()));// TODO get state from name here because state of character might be different
 			if (animation == null) {
-				Gdx.app.debug(TAG, "cannot find animation of this type : " + animationName);
+				Gdx.app.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
 				return null;
 			}
 			cache(animationName, animation);
@@ -177,44 +181,29 @@ public class AnimationTextureManager {
 	}
 
 	private float getFrameDuration(Character character) {
-		switch (character.getCurrentCharacterState().getState()) {
-		case APPEARING:
-			return character.getData().getAppearFrameDuration();
-		case ATTACKING:
-			return character.getData().getAttackFrameDuration();
-		case DIE:
-			return character.getData().getDieFrameDuration();
-		case HURT:
-			return character.getData().getHurtFrameDuration();
-		case IDLE:
-			return character.getData().getIdleFrameDuration();
-		case JUMPING:
-			return character.getData().getJumpFrameDuration();
-		case RUNNING:
-			return character.getData().getRunningFrameDuration();
-		case WALKING:
-			return character.getData().getRunningFrameDuration();
-		case SPRINTING:
-			return character.getData().getRunningFrameDuration();
-		case FALLATTACKING:
-			return character.getData().getFallAttackingFrameDuration();
-		default:
-			return Constants.DEFAULT_ANIMATION_SPEED;
-		}
+		return switch (character.getCurrentCharacterState().getState()) {
+		case APPEARING -> character.getData().getAppearFrameDuration();
+		case ATTACKING -> character.getData().getAttackFrameDuration();
+		case DIE -> character.getData().getDieFrameDuration();
+		case HURT -> character.getData().getHurtFrameDuration();
+		case IDLE -> character.getData().getIdleFrameDuration();
+		case JUMPING -> character.getData().getJumpFrameDuration();
+		case RUNNING -> character.getData().getRunningFrameDuration();
+		case WALKING -> character.getData().getRunningFrameDuration();
+		case SPRINTING -> character.getData().getRunningFrameDuration();
+		case FALLATTACKING -> character.getData().getFallAttackingFrameDuration();
+		default -> Constants.DEFAULT_ANIMATION_SPEED;
+		};
 	}
 
 	private float getFrameDuration(Spell spell) {
-		switch (spell.getSpellStateManager().getCurrentSpellState().getState()) {
-		case END:
-			return spell.getData().getEndFrameDuration();
-		case LOOP:
-			return spell.getData().getLoopFrameDuration();
-		case WINDUP:
-			return spell.getData().getWindupFrameDuration();
-		case DEAD:
-		default:
-			return Constants.DEFAULT_ANIMATION_SPEED;
-		}
+		return switch (spell.getSpellStateManager().getCurrentSpellState().getState()) {
+		case END -> spell.getData().getEndFrameDuration();
+		case LOOP -> spell.getData().getLoopFrameDuration();
+		case WINDUP -> spell.getData().getWindupFrameDuration();
+		case DEAD -> Constants.DEFAULT_ANIMATION_SPEED;
+		default -> Constants.DEFAULT_ANIMATION_SPEED;
+		};
 	}
 
 	@Override

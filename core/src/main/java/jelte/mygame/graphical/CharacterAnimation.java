@@ -1,5 +1,7 @@
 package jelte.mygame.graphical;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import lombok.Getter;

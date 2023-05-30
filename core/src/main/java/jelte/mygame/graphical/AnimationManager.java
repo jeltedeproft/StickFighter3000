@@ -1,12 +1,11 @@
 package jelte.mygame.graphical;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.spells.Spell;
-import lombok.ToString;
 
-@ToString
 public class AnimationManager {
 	private static final String TAG = AnimationManager.class.getSimpleName();
 	private final AnimationNameManager animationNameManager;
@@ -28,9 +27,14 @@ public class AnimationManager {
 	}
 
 	public Animation<NamedSprite> getSpecialEffect(Character character) {
-		String animationName = animationNameManager.getAnimationName(character);
-		animationName += "-effect";
-		return animationTextureManager.getAnimationNoCache(animationName, character);
+		StringBuilder sb = new StringBuilder();
+		sb.append(animationNameManager.getAnimationName(character));
+		sb.append("-effect");
+		String animationName = sb.toString();
+		if (animationTextureManager.exists(animationName)) {
+			return animationTextureManager.getAnimationNoCache(animationName, character);
+		}
+		return null;
 	}
 
 	public void update(final float delta) {

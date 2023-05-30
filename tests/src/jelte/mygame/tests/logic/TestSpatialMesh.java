@@ -3,7 +3,6 @@ package jelte.mygame.tests.logic;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.awt.Point;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -20,6 +19,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.character.physics.PhysicsComponentImpl;
+import jelte.mygame.logic.collisions.CellPoint;
 import jelte.mygame.logic.collisions.SpatialMesh;
 import jelte.mygame.logic.collisions.StaticBlock;
 import jelte.mygame.logic.collisions.StaticBlockBot;
@@ -84,20 +84,21 @@ public class TestSpatialMesh {
 		spatialMesh.updateCollidable(testPhysicsComponent1);
 		testPhysicsComponent1.update(1f);
 		spatialMesh.updateCollidable(testPhysicsComponent1);
-		Map<Point, Integer> expectedDynamicArraySizes = new HashMap<>();
-		expectedDynamicArraySizes.put(new Point(1, 0), 1);
-		expectedDynamicArraySizes.put(new Point(2, 0), 1);
+		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(1, 0), 1);
+		expectedDynamicArraySizes.put(new CellPoint(2, 0), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedDynamicArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
+
 	}
 
 	@Test
@@ -123,19 +124,20 @@ public class TestSpatialMesh {
 		testPhysicsComponent2.update(0f);
 		spatialMesh.updateCollidable(testPhysicsComponent1);
 		spatialMesh.updateCollidable(testPhysicsComponent2);
-		Map<Point, Integer> expectedDynamicArraySizes = new HashMap<>();
-		expectedDynamicArraySizes.put(new Point(5, 5), 2);
+		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(5, 5), 2);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedDynamicArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
+
 	}
 
 	@Test
@@ -156,19 +158,20 @@ public class TestSpatialMesh {
 		testPhysicsComponent1.setPosition(new Vector2(160, 160));
 		testPhysicsComponent1.update(0f);
 		spatialMesh.updateCollidable(testPhysicsComponent1);
-		Map<Point, Integer> expectedDynamicArraySizes = new HashMap<>();
-		expectedDynamicArraySizes.put(new Point(5, 5), 1);
+		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(5, 5), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedDynamicArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
+
 	}
 
 	@Test
@@ -209,9 +212,9 @@ public class TestSpatialMesh {
 		spatialMesh.addCollidable(testPhysicsComponent1);
 		spatialMesh.addCollidable(testPhysicsComponent1);
 		spatialMesh.addCollidable(testPhysicsComponent1);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent1);
@@ -223,9 +226,9 @@ public class TestSpatialMesh {
 	@Test
 	public void testRemoveMultipleTimesCharacter() {
 		spatialMesh.addCollidable(testPhysicsComponent1);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent1);
@@ -244,9 +247,9 @@ public class TestSpatialMesh {
 	@Test
 	public void testRemoveCellsDynamicCollidable() {
 		spatialMesh.addCollidable(testPhysicsComponent1);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent1);
@@ -286,22 +289,23 @@ public class TestSpatialMesh {
 		spatialMesh.addCollidable(testPhysicsComponent2);
 		spatialMesh.addCollidable(testPhysicsComponent3);
 		spatialMesh.addCollidable(testPhysicsComponent4);
-		Map<Point, Integer> expectedDynamicArraySizes = new HashMap<>();
-		expectedDynamicArraySizes.put(new Point(0, 0), 1);
-		expectedDynamicArraySizes.put(new Point(1, 1), 1);
-		expectedDynamicArraySizes.put(new Point(3, 0), 1);
-		expectedDynamicArraySizes.put(new Point(6, 6), 1);
+		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(0, 0), 1);
+		expectedDynamicArraySizes.put(new CellPoint(1, 1), 1);
+		expectedDynamicArraySizes.put(new CellPoint(3, 0), 1);
+		expectedDynamicArraySizes.put(new CellPoint(6, 6), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedDynamicArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
+
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent1);
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent2);
 		spatialMesh.removeDynamicCollidable(testPhysicsComponent3);
@@ -323,37 +327,38 @@ public class TestSpatialMesh {
 		spatialMesh.addCollidable(testBlockPlatform50Width);
 		spatialMesh.addCollidable(testBlockPlatform50Width);
 		spatialMesh.addCollidable(testBlockPlatform50Width);
-		Map<Point, Integer> expectedStaticArraySizes = new HashMap<>();
-		expectedStaticArraySizes.put(new Point(5, 5), 1);
-		expectedStaticArraySizes.put(new Point(6, 5), 1);
+		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
+		expectedStaticArraySizes.put(new CellPoint(5, 5), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 5), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
+
 	}
 
 	@Test
 	public void testStaticArraysFilledBlock() {
 		spatialMesh.addCollidable(testBlockPlatform50Width);
-		Map<Point, Integer> expectedStaticArraySizes = new HashMap<>();
-		expectedStaticArraySizes.put(new Point(5, 5), 1);
-		expectedStaticArraySizes.put(new Point(6, 5), 1);
+		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
+		expectedStaticArraySizes.put(new CellPoint(5, 5), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 5), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
 	}
@@ -365,54 +370,54 @@ public class TestSpatialMesh {
 		spatialMesh.addCollidable(testBlockRight10Width);
 		spatialMesh.addCollidable(testBlockTop10High);
 		spatialMesh.addCollidable(testBlockPlatform50Width);
-		Map<Point, Integer> expectedStaticArraySizes = new HashMap<>();
-		expectedStaticArraySizes.put(new Point(0, 0), 2);
-		expectedStaticArraySizes.put(new Point(0, 1), 1);
-		expectedStaticArraySizes.put(new Point(0, 2), 1);
-		expectedStaticArraySizes.put(new Point(0, 3), 1);
-		expectedStaticArraySizes.put(new Point(0, 4), 1);
-		expectedStaticArraySizes.put(new Point(0, 5), 1);
-		expectedStaticArraySizes.put(new Point(0, 6), 1);
-		expectedStaticArraySizes.put(new Point(0, 7), 1);
-		expectedStaticArraySizes.put(new Point(0, 8), 1);
-		expectedStaticArraySizes.put(new Point(0, 9), 2);
-		expectedStaticArraySizes.put(new Point(1, 0), 1);
-		expectedStaticArraySizes.put(new Point(2, 0), 1);
-		expectedStaticArraySizes.put(new Point(3, 0), 1);
-		expectedStaticArraySizes.put(new Point(4, 0), 1);
-		expectedStaticArraySizes.put(new Point(5, 0), 1);
-		expectedStaticArraySizes.put(new Point(6, 0), 1);
-		expectedStaticArraySizes.put(new Point(7, 0), 1);
-		expectedStaticArraySizes.put(new Point(8, 0), 1);
-		expectedStaticArraySizes.put(new Point(9, 0), 2);
-		expectedStaticArraySizes.put(new Point(9, 1), 1);
-		expectedStaticArraySizes.put(new Point(9, 2), 1);
-		expectedStaticArraySizes.put(new Point(9, 3), 1);
-		expectedStaticArraySizes.put(new Point(9, 4), 1);
-		expectedStaticArraySizes.put(new Point(9, 5), 1);
-		expectedStaticArraySizes.put(new Point(9, 6), 1);
-		expectedStaticArraySizes.put(new Point(9, 7), 1);
-		expectedStaticArraySizes.put(new Point(9, 8), 1);
-		expectedStaticArraySizes.put(new Point(9, 9), 2);
-		expectedStaticArraySizes.put(new Point(1, 9), 1);
-		expectedStaticArraySizes.put(new Point(2, 9), 1);
-		expectedStaticArraySizes.put(new Point(3, 9), 1);
-		expectedStaticArraySizes.put(new Point(4, 9), 1);
-		expectedStaticArraySizes.put(new Point(5, 9), 1);
-		expectedStaticArraySizes.put(new Point(6, 9), 1);
-		expectedStaticArraySizes.put(new Point(7, 9), 1);
-		expectedStaticArraySizes.put(new Point(8, 9), 1);
-		expectedStaticArraySizes.put(new Point(5, 5), 1);
-		expectedStaticArraySizes.put(new Point(6, 5), 1);
+		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
+		expectedStaticArraySizes.put(new CellPoint(0, 0), 2);
+		expectedStaticArraySizes.put(new CellPoint(0, 1), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 2), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 3), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 4), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 5), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 6), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 7), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 8), 1);
+		expectedStaticArraySizes.put(new CellPoint(0, 9), 2);
+		expectedStaticArraySizes.put(new CellPoint(1, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(2, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(3, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(4, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(5, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(7, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(8, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 0), 2);
+		expectedStaticArraySizes.put(new CellPoint(9, 1), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 2), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 3), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 4), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 5), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 6), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 7), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 8), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 9), 2);
+		expectedStaticArraySizes.put(new CellPoint(1, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(2, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(3, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(4, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(5, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(7, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(8, 9), 1);
+		expectedStaticArraySizes.put(new CellPoint(5, 5), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 5), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
 	}
@@ -427,20 +432,20 @@ public class TestSpatialMesh {
 		spatialMesh.addCollidable(testPhysicsComponent2);
 		spatialMesh.addCollidable(testPhysicsComponent3);
 		spatialMesh.addCollidable(testPhysicsComponent4);
-		Map<Point, Integer> expectedDynamicArraySizes = new HashMap<>();
-		expectedDynamicArraySizes.put(new Point(0, 0), 1);
-		expectedDynamicArraySizes.put(new Point(1, 1), 1);
-		expectedDynamicArraySizes.put(new Point(3, 0), 1);
-		expectedDynamicArraySizes.put(new Point(6, 6), 1);
+		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(0, 0), 1);
+		expectedDynamicArraySizes.put(new CellPoint(1, 1), 1);
+		expectedDynamicArraySizes.put(new CellPoint(3, 0), 1);
+		expectedDynamicArraySizes.put(new CellPoint(6, 6), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
-				Point testPoint = new Point(i, j);
+				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedDynamicArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals("for (" + i + "," + j + ")", (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedDynamicArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				} else {
-					Assert.assertEquals("for (" + i + "," + j + ")", 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
 	}
@@ -480,17 +485,17 @@ public class TestSpatialMesh {
 
 	@Test
 	public void testcellsWithDynamicCollidablesNoCharacter() {
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
 		Assert.assertEquals(cellsWithDynamic, cellsWithDynamicExpected);
 	}
 
 	@Test
 	public void testcellsWithDynamicCollidables1Character() {
 		spatialMesh.addCollidable(testPhysicsComponent1);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 	}
 
@@ -499,10 +504,10 @@ public class TestSpatialMesh {
 		testPhysicsComponent2.setPosition(new Vector2(100, 0));
 		spatialMesh.addCollidable(testPhysicsComponent1);
 		spatialMesh.addCollidable(testPhysicsComponent2);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
-		cellsWithDynamicExpected.add(new Point(3, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
+		cellsWithDynamicExpected.add(new CellPoint(3, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 	}
 
@@ -510,9 +515,9 @@ public class TestSpatialMesh {
 	public void testcellsWithDynamicCollidables2CharactersSameCell() {
 		spatialMesh.addCollidable(testPhysicsComponent1);
 		spatialMesh.addCollidable(testPhysicsComponent2);
-		Set<Point> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
-		Set<Point> cellsWithDynamicExpected = new HashSet<>();
-		cellsWithDynamicExpected.add(new Point(0, 0));
+		Set<CellPoint> cellsWithDynamic = spatialMesh.getCellsWithDynamicCollidables();
+		Set<CellPoint> cellsWithDynamicExpected = new HashSet<>();
+		cellsWithDynamicExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(cellsWithDynamicExpected, cellsWithDynamic);
 	}
 
@@ -533,45 +538,45 @@ public class TestSpatialMesh {
 
 	@Test
 	public void testGetCollidingCellsStaticBlock() {
-		Set<Point> collidingCells = spatialMesh.getCollidingCells(testBlockBottom10High.getRectangle());
-		Set<Point> collidingCellsExpected = new HashSet<>();
-		collidingCellsExpected.add(new Point(0, 0));
-		collidingCellsExpected.add(new Point(1, 0));
-		collidingCellsExpected.add(new Point(2, 0));
-		collidingCellsExpected.add(new Point(3, 0));
-		collidingCellsExpected.add(new Point(4, 0));
-		collidingCellsExpected.add(new Point(5, 0));
-		collidingCellsExpected.add(new Point(6, 0));
-		collidingCellsExpected.add(new Point(7, 0));
-		collidingCellsExpected.add(new Point(8, 0));
-		collidingCellsExpected.add(new Point(9, 0));
+		Set<CellPoint> collidingCells = spatialMesh.getCollidingCells(testBlockBottom10High.getRectangle());
+		Set<CellPoint> collidingCellsExpected = new HashSet<>();
+		collidingCellsExpected.add(new CellPoint(0, 0));
+		collidingCellsExpected.add(new CellPoint(1, 0));
+		collidingCellsExpected.add(new CellPoint(2, 0));
+		collidingCellsExpected.add(new CellPoint(3, 0));
+		collidingCellsExpected.add(new CellPoint(4, 0));
+		collidingCellsExpected.add(new CellPoint(5, 0));
+		collidingCellsExpected.add(new CellPoint(6, 0));
+		collidingCellsExpected.add(new CellPoint(7, 0));
+		collidingCellsExpected.add(new CellPoint(8, 0));
+		collidingCellsExpected.add(new CellPoint(9, 0));
 		Assert.assertEquals(collidingCellsExpected, collidingCells);
 	}
 
 	@Test
 	public void testGetCollidingCellsCharacter() {
 		testPhysicsComponent1.setPosition(new Vector2(0, 0));
-		Set<Point> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
-		Set<Point> collidingCellsExpected = new HashSet<>();
-		collidingCellsExpected.add(new Point(0, 0));
+		Set<CellPoint> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
+		Set<CellPoint> collidingCellsExpected = new HashSet<>();
+		collidingCellsExpected.add(new CellPoint(0, 0));
 		Assert.assertEquals(collidingCellsExpected, collidingCells);
 	}
 
 	@Test
 	public void testGetCollidingCellsCharacter160and160() {
 		testPhysicsComponent1.setPosition(new Vector2(160, 160));
-		Set<Point> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
-		Set<Point> collidingCellsExpected = new HashSet<>();
-		collidingCellsExpected.add(new Point(5, 5));
+		Set<CellPoint> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
+		Set<CellPoint> collidingCellsExpected = new HashSet<>();
+		collidingCellsExpected.add(new CellPoint(5, 5));
 		Assert.assertEquals(collidingCellsExpected, collidingCells);
 	}
 
 	@Test
 	public void testGetCollidingCellsCharacter100and11() {
 		testPhysicsComponent1.setPosition(new Vector2(100.0f, 11.771829f));
-		Set<Point> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
-		Set<Point> collidingCellsExpected = new HashSet<>();
-		collidingCellsExpected.add(new Point(3, 0));
+		Set<CellPoint> collidingCells = spatialMesh.getCollidingCells(testPhysicsComponent1.getRectangle());
+		Set<CellPoint> collidingCellsExpected = new HashSet<>();
+		collidingCellsExpected.add(new CellPoint(3, 0));
 		Assert.assertEquals(collidingCellsExpected, collidingCells);
 	}
 

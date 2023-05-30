@@ -1,4 +1,4 @@
-package jelte.mygame.logic.character.state;
+package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
 
 import java.util.Stack;
 

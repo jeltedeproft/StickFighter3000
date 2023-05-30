@@ -50,7 +50,7 @@ public class CharacterFileReader {
 				return entry.key;
 			}
 		}
-		Gdx.app.debug(TAG, "character id not found for : " + name);
+		Gdx.app.debug(TAG, String.format("character id not found for: %s", name));
 		return -1;
 	}
 

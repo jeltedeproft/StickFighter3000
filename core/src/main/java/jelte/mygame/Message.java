@@ -1,5 +1,7 @@
 package jelte.mygame;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,6 +54,10 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return this.action.name() + "for : " + this.recipient;
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.action.name());
+		sb.append("for : ");
+		sb.append(this.recipient);
+		return sb.toString();
 	}
 }

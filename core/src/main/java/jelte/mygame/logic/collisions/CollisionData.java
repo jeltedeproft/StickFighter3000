@@ -2,6 +2,8 @@ package jelte.mygame.logic.collisions;
 
 import java.util.Set;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import lombok.Getter;
 import lombok.Setter;
 

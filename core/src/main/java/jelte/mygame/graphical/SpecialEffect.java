@@ -3,6 +3,7 @@ package jelte.mygame.graphical;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.Direction;
@@ -45,6 +46,16 @@ public class SpecialEffect {
 
 	public void draw(SpriteBatch batch) {
 		getSprite().draw(batch);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("special effect for : ");
+		sb.append(animation.getKeyFrame(0).getName());
+		sb.append("alive for ");
+		sb.append(timeAlive);
+		return sb.toString();
 	}
 
 }

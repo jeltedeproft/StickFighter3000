@@ -232,15 +232,12 @@ public class TestCollisionSystem {
 		collisionSystem.addToSpatialMesh(blockingObjects);
 		collisionSystem.executeCollisions();
 		mainBody.update(1f);
-		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
 		mainBody.update(1f);
-		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
 		mainBody.update(1f);
-		System.out.println("position = " + mainBody.getPosition());
 		collisionSystem.updateSpatialMesh(mainBody);
 		collisionSystem.executeCollisions();
 		Assert.assertEquals(new Vector2(40, 10), mainBody.getPosition());// velocity is 0 after exiting wall

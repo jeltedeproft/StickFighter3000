@@ -1,4 +1,6 @@
-package jelte.mygame.logic.character.state;
+package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;

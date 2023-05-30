@@ -3,7 +3,7 @@
 		"id": 0,
 		"name": "mainPlayList",
 		"audioFileName": ["audio/main1.wav","audio/main2.wav","audio/main3.wav","audio/main4.wav","audio/main5.wav","audio/main6.wav","audio/main7.wav","audio/main8.wav"],
-		"volume": 1.0f,
+		"volume": 0.5f,
 		"duration": 1.0f,
 		"theme": 0,
 	},
@@ -98,7 +98,7 @@
 	{
 		"id": 12,
 		"name": "hurt",
-		"audioFileName": ["audio/hurt1.wav"],
+		"audioFileName": ["audio/hurt1.wav","audio/hurt2.wav"],
 		"volume": 1.0f,
 		"duration": 1.0f,
 		"theme": 0,
@@ -179,7 +179,23 @@
 		"id": 22,
 		"name": "fallstrike",
 		"audioFileName": ["audio/fallstrike.wav"],
-		"volume": 1.0f,
+		"volume": 0.8f,
+		"duration": 1.0f
+		"theme": 0,
+	},
+	{
+		"id": 23,
+		"name": "preCastSwordmaster",
+		"audioFileName": ["audio/preCastSwordmaster1.wav","audio/preCastSwordmaster2.wav","audio/preCastSwordmaster3.wav","audio/preCastSwordmaster4.wav","audio/preCastSwordmaster5.wav","audio/preCastSwordmaster6.wav"],
+		"volume": 0.8f,
+		"duration": 1.0f
+		"theme": 0,
+	},
+	{
+		"id": 24,
+		"name": "castSwordmaster",
+		"audioFileName": ["audio/castSwordmaster1.wav","audio/castSwordmaster2.wav","audio/castSwordmaster3.wav"],
+		"volume": 0.8f,
 		"duration": 1.0f
 		"theme": 0,
 	}

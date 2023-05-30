@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;

@@ -2,6 +2,8 @@ package jelte.mygame.logic.character;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -46,4 +48,14 @@ public class CharacterData {
 	private float fallAttackingFrameDuration;
 	private float landAttackingFullTime;
 	private float blockingFullTime;
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ");
+		sb.append(name);
+		sb.append("id: ");
+		sb.append(id);
+		return sb.toString();
+	}
 }

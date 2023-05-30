@@ -2,6 +2,8 @@ package jelte.mygame.graphical.audio;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.utility.UtilityFunctions;
 import lombok.Data;
 
@@ -17,5 +19,15 @@ public class AudioData {
 
 	public String getRandomAudioFileName() {
 		return audioFileName.get(UtilityFunctions.randomNumberFromTo(0, audioFileName.size()));
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("name: ");
+		sb.append(name);
+		sb.append("\ntheme: ");
+		sb.append(theme);
+		return sb.toString();
 	}
 }

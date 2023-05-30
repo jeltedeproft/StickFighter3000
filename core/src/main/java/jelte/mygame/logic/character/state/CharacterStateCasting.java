@@ -1,17 +1,19 @@
 package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
+import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.spells.SpellsEnum;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
 public class CharacterStateCasting implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private float timer = 0f;
 	private float duration;
 	private CHARACTER_STATE state = CHARACTER_STATE.CAST;
-	private SpellsEnum spellsEnum;
 
 	public CharacterStateCasting(CharacterStateManager characterStateManager, float duration) {
 		this.characterStateManager = characterStateManager;
@@ -21,8 +23,7 @@ public class CharacterStateCasting implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
-
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_CAST_%s", characterStateManager.getCharacter().getName().toUpperCase())));
 	}
 
 	@Override

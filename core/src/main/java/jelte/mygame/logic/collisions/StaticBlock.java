@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.physics.PhysicsComponent;
 import lombok.Getter;
@@ -94,7 +95,11 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("pos = ");
-		sb.append("(" + this.x + "," + this.y + ")");
+		sb.append("(");
+		sb.append(this.x);
+		sb.append(",");
+		sb.append(this.y);
+		sb.append(")");
 		sb.append("\n");
 		sb.append("width = ");
 		sb.append(width);
