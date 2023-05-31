@@ -3,21 +3,19 @@ package jelte.mygame.logic.spells;
 import java.util.Objects;
 import java.util.UUID;
 
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.physics.SpellPhysicsComponent;
-import jelte.mygame.logic.collisions.Collidable;
 import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Spell implements Collidable {
+public class Spell {
 	protected float currentHp;
 	protected SpellData data;
 	protected UUID id;
@@ -44,12 +42,12 @@ public class Spell implements Collidable {
 		spellStateManager = new SpellStateManager(this);
 		targetPosition = new Vector2(mousePosition.x, mousePosition.y);
 		startPosition = casterPosition.cpy();
-		physicsComponent = new SpellPhysicsComponent(id, casterPosition.cpy(), data.isGoesTroughObstacles());// TODO switch on type here
 
 		Vector2 mouse = new Vector2(mousePosition.x, mousePosition.y);
 		Vector2 direction = mouse.cpy().sub(casterPosition).nor();
 		Vector2 velocity = direction.scl(spellData.getSpeed());
 
+		physicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[spellData.getId()], casterPosition.cpy(), data.isGoesTroughObstacles());// TODO switch on type here
 		physicsComponent.setVelocity(velocity);
 	}
 
@@ -92,36 +90,6 @@ public class Spell implements Collidable {
 		}
 		Spell other = (Spell) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public Rectangle getRectangle() {
-		return physicsComponent.getRectangle();
-	}
-
-	@Override
-	public COLLIDABLE_TYPE getType() {
-		return COLLIDABLE_TYPE.CHARACTER;
-	}
-
-	@Override
-	public Vector2 getOldPosition() {
-		return physicsComponent.getOldPosition();
-	}
-
-	@Override
-	public boolean hasMoved() {
-		return hasMoved;
-	}
-
-	@Override
-	public boolean isStatic() {
-		return false;
-	}
-
-	@Override
-	public boolean isDynamic() {
-		return true;
 	}
 
 	@Override

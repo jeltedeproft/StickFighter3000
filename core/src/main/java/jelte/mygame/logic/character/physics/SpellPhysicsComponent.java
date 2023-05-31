@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,9 +15,13 @@ import lombok.Setter;
 public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	private static final String TAG = SpellPhysicsComponent.class.getSimpleName();
 	private Vector2 direction;
+	private boolean goesTroughObjects;
+	private SpellsEnum spellsEnum;
 
-	public SpellPhysicsComponent(UUID playerReference, Vector2 startPosition) {
+	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition, boolean goesTroughObjects) {
 		super(playerReference, startPosition);
+		this.goesTroughObjects = goesTroughObjects;
+		this.spellsEnum = spellsEnum;
 		direction = new Vector2(1, 0);
 		rectangle = new Rectangle(position.x, position.y, width, height);
 	}
@@ -70,19 +75,38 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	}
 
 	@Override
-	public void collided(COLLIDABLE_TYPE type) {
-		collided = true;
-		switch (type) {
-		case CHARACTER:
-			break;
-		case SPELL:
-			break;
-		case STATIC:
-			break;
-		default:
-			break;
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.SPELL;
+	}
 
-		}
+	@Override
+	public boolean goesTroughObjects() {
+		return goesTroughObjects;
+	}
+
+	@Override
+	public boolean hasMoved() {
+		return hasMoved;
+	}
+
+	@Override
+	public boolean isStatic() {
+		return false;
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return true;
+	}
+
+	@Override
+	public Rectangle getRectangle() {
+		return getRectangle();
+	}
+
+	@Override
+	public Vector2 getOldPosition() {
+		return getOldPosition();
 	}
 
 }

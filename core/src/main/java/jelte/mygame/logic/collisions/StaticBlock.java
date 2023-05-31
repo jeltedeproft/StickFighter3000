@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.physics.PhysicsComponent;
 import lombok.Getter;
 
 @Getter
@@ -17,6 +16,7 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	private boolean fallTrough = false;
 	protected float overlapX;
 	protected float overlapY;
+	protected boolean goesTroughObjects = false;
 	private String name;
 	private UUID id;
 
@@ -29,8 +29,6 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 		super(x, y, width, height);
 		id = UUID.randomUUID();
 	}
-
-	abstract void handleCollision(PhysicsComponent body, Vector2 pos);
 
 	public void calculateOverlapPlayer(Rectangle playerRect) {
 		Rectangle intersection = new Rectangle();
@@ -62,6 +60,11 @@ public abstract class StaticBlock extends Rectangle implements Comparable<Static
 	@Override
 	public boolean isDynamic() {
 		return false;
+	}
+
+	@Override
+	public boolean goesTroughObjects() {
+		return goesTroughObjects;
 	}
 
 	@Override

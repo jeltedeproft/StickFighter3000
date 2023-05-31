@@ -41,6 +41,7 @@ public class TestCollisionSystem {
 
 	private void initPlayerBody(Vector2 startPos) {
 		mainBody = new CharacterPhysicsComponent(UUID.randomUUID(), startPos);
+		mainBody.setDimensions(10, 10);
 		collisionSystem.addToSpatialMesh(mainBody);
 	}
 

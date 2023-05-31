@@ -54,6 +54,10 @@ public class TestSpatialMesh {
 		testPhysicsComponent2 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent3 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent4 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
+		testPhysicsComponent1.setDimensions(10, 10);
+		testPhysicsComponent2.setDimensions(10, 10);
+		testPhysicsComponent3.setDimensions(10, 10);
+		testPhysicsComponent4.setDimensions(10, 10);
 		testBlockBottom10High = new StaticBlockBot(new Rectangle(0, 0, 320, 10));
 		testBlockLeft10Width = new StaticBlockLeft(new Rectangle(0, 0, 10, 320));
 		testBlockRight10Width = new StaticBlockRight(new Rectangle(310, 0, 10, 320));

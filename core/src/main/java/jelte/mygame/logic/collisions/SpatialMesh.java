@@ -165,7 +165,7 @@ public class SpatialMesh {
 			throw new OutOfBoundsException(String.format("%d is a negative number, can't get spatialMeshCell", collidableX));
 		}
 		if (collidableX >= mapWidth) {
-			throw new OutOfBoundsException(String.format("%d is bigger than map size %d, can't get spatialMeshCell", collidableX, mapWidth));
+			throw new OutOfBoundsException(String.format("%d is bigger than map size %f, can't get spatialMeshCell", collidableX, mapWidth));
 		}
 		return collidableX >> (int) (Math.log(Constants.SPATIAL_MESH_CELL_SIZE) / Math.log(2));
 	}
@@ -175,7 +175,7 @@ public class SpatialMesh {
 			throw new OutOfBoundsException(String.format("%d is a negative number, can't get spatialMeshCell", collidableY));
 		}
 		if (collidableY >= mapHeight) {
-			throw new OutOfBoundsException(String.format("%d is bigger than map size %d, can't get spatialMeshCell", collidableY, mapHeight));
+			throw new OutOfBoundsException(String.format("%d is bigger than map size %f, can't get spatialMeshCell", collidableY, mapHeight));
 		}
 		return collidableY >> (int) (Math.log(Constants.SPATIAL_MESH_CELL_SIZE) / Math.log(2));
 	}

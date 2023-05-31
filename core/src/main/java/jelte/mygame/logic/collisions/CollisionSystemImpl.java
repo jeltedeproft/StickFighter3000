@@ -1,20 +1,32 @@
 package jelte.mygame.logic.collisions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.collisions.Collidable.COLLIDABLE_TYPE;
-import jelte.mygame.logic.spells.Spell;
 
 public class CollisionSystemImpl implements CollisionSystem {
 	private SpatialMesh spatialMesh;
+	private Map<COLLIDABLE_TYPE, CollisionStrategy> collisionStrategies;
+
+	public CollisionSystemImpl() {
+		collisionStrategies = new HashMap<>();
+		collisionStrategies.put(COLLIDABLE_TYPE.CHARACTER, new CharacterCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.SPELL, new SpellCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_TOP, new StaticTopCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_BOT, new StaticBotCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_LEFT, new StaticLeftCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_RIGHT, new StaticRightCollisionStrategy());
+		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_PLATFORM, new StaticPlatformCollisionStrategy());
+	}
 
 	@Override
 	public void addToSpatialMesh(Collidable collidable) {// TODO shouldnt know about spatialMesh, just executreCollisions and check inside spatialmesh if new characters needto be added or updated
@@ -38,63 +50,52 @@ public class CollisionSystemImpl implements CollisionSystem {
 
 	@Override
 	public void executeCollisions() {
-		Map<UUID, UUID> doneCollisions = new HashMap<>();
+		Set<CollisionPair> processedCollisions = new HashSet<>();
+
 		for (CollisionData collisionData : spatialMesh.getAllPossibleCollisions()) {
-			Set<Collidable> dynamicCollidables = collisionData.getDynamicCollidables();
-			Set<Collidable> staticCollidables = collisionData.getStaticCollidables();
-			if (!dynamicCollidables.isEmpty()) {
-				if (dynamicCollidables.size() == 1) {
-					if (!staticCollidables.isEmpty()) {
-						for (Collidable dynamicCollidable : dynamicCollidables) {
-							handleStaticCollision(dynamicCollidable, staticCollidables, doneCollisions);
-						}
+			List<Collidable> dynamicCollidables = new ArrayList<>(collisionData.getDynamicCollidables());
+			List<Collidable> staticCollidables = new ArrayList<>(collisionData.getStaticCollidables());
+
+			if (dynamicCollidables.isEmpty()) {
+				continue;
+			}
+
+			for (Collidable dynamicCollidable : dynamicCollidables) {
+				for (Collidable staticCollidable : staticCollidables) {
+					CollisionPair pair = new CollisionPair(dynamicCollidable, staticCollidable);
+					if (!processedCollisions.contains(pair)) {
+						resolveDynamicCollision(staticCollidable, dynamicCollidable); // DYNAMIC -- STATIC
+						processedCollisions.add(pair);
 					}
-				} else {
-					Array<Collidable> dynamicCollidablesArray = new Array<>(dynamicCollidables.toArray(new Collidable[0]));
-					for (int i = 0; i < dynamicCollidablesArray.size - 1; i++) {
-						for (int j = i + 1; j < dynamicCollidablesArray.size; j++) {
-							Collidable currentDynamicCollidable = dynamicCollidablesArray.get(i);
-							Collidable nextDynamicCollidable = dynamicCollidablesArray.get(j);
-							if (doneCollisions.containsKey(currentDynamicCollidable.getId()) && doneCollisions.containsValue(nextDynamicCollidable.getId()) || doneCollisions.containsKey(nextDynamicCollidable.getId()) && doneCollisions.containsValue(currentDynamicCollidable.getId())) {
-								continue;
-							}
-							resolveDynamicCollision(currentDynamicCollidable, nextDynamicCollidable);
-							handleStaticCollision(currentDynamicCollidable, staticCollidables, doneCollisions);
-						}
+				}
+
+				for (int i = dynamicCollidables.indexOf(dynamicCollidable) + 1; i < dynamicCollidables.size(); i++) {
+					Collidable dynamicCollidable2 = dynamicCollidables.get(i);
+					CollisionPair pair = new CollisionPair(dynamicCollidable, dynamicCollidable2);
+					if (!processedCollisions.contains(pair)) {
+						resolveDynamicCollision(dynamicCollidable, dynamicCollidable2); // DYNAMIC -- DYNAMIC
+						processedCollisions.add(pair);
 					}
-					handleStaticCollision(dynamicCollidablesArray.get(dynamicCollidablesArray.size - 1), staticCollidables, doneCollisions);// dont forget the last one
 				}
 			}
 		}
 	}
 
-	private void handleStaticCollision(Collidable collidable, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
-		if (collidable.getType().equals(COLLIDABLE_TYPE.CHARACTER)) {
-			handleStaticCollisionCharacter((PhysicsComponent) collidable, staticColliders, doneCollisions);
-		}
+	private void resolveDynamicCollision(Collidable object1, Collidable object2) {
+		COLLIDABLE_TYPE type1 = object1.getType();
+		COLLIDABLE_TYPE type2 = object2.getType();
 
-		if (collidable.getType().equals(COLLIDABLE_TYPE.SPELL)) {
-			handleStaticCollisionSpell((Spell) collidable, staticColliders, doneCollisions);
-		}
-	}
+		CollisionStrategy collisionStrategy1 = collisionStrategies.get(type1);
+		CollisionStrategy collisionStrategy2 = collisionStrategies.get(type2);
 
-	private void handleStaticCollisionSpell(Spell collidable, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
-		// TODO Auto-generated method stub
-	}
-
-	private void handleStaticCollisionCharacter(PhysicsComponent body, Set<Collidable> staticColliders, Map<UUID, UUID> doneCollisions) {
-		Array<StaticBlock> overlappingObstacles = getOverlappingObstacles(body.getRectangle(), staticColliders);
-		boolean collided = !overlappingObstacles.isEmpty();
-
-		if (collided) {
-			body.collided(COLLIDABLE_TYPE.STATIC);
-			handleCollision(body, body.getPosition(), overlappingObstacles, doneCollisions);
+		if (collisionStrategy1 != null && collisionStrategy2 != null) {
+			collisionStrategy1.resolvePossibleCollision(object1, object2);
+			collisionStrategy2.resolvePossibleCollision(object2, object1);
 		}
 	}
 
 	private Array<StaticBlock> getOverlappingObstacles(Rectangle playerRect, Set<Collidable> staticColliders) {
 		Array<StaticBlock> overlappingObstacles = new Array<>();
-
 		for (Collidable obstacle : staticColliders) {
 			StaticBlock staticBlock = (StaticBlock) obstacle;
 			if (staticBlock.overlaps(playerRect)) {
@@ -102,58 +103,10 @@ public class CollisionSystemImpl implements CollisionSystem {
 				overlappingObstacles.add(staticBlock);
 			}
 		}
-
 		return overlappingObstacles;
 	}
 
-	private void handleCollision(PhysicsComponent body, Vector2 pos, Array<StaticBlock> overlappingObstacles, Map<UUID, UUID> doneCollisions) {
-		for (StaticBlock obstacle : overlappingObstacles) {
-			if (!doneCollisions.containsKey(body.getPlayerReference()) || !doneCollisions.containsValue(obstacle.getId())) {
-				doneCollisions.put(body.getPlayerReference(), obstacle.getId());
-				obstacle.handleCollision(body, pos);
-			}
-		}
-	}
-
-	// can be spell or character
-	private void resolveDynamicCollision(Collidable object1, Collidable object2) {
-		COLLIDABLE_TYPE type1 = object1.getType();
-		COLLIDABLE_TYPE type2 = object2.getType();
-
-		if (COLLIDABLE_TYPE.CHARACTER.equals(type1) && COLLIDABLE_TYPE.CHARACTER.equals(type2)) {
-			resolveCollisionCharacterCharacter((PhysicsComponent) object1, (PhysicsComponent) object2);// TODO cast class exception phsysicscomponent to character
-		}
-
-		if (COLLIDABLE_TYPE.CHARACTER.equals(type1) && COLLIDABLE_TYPE.SPELL.equals(type2)) {
-			resolveCollisionCharacterSpell((PhysicsComponent) object1, (Spell) object2);
-		}
-
-		if (COLLIDABLE_TYPE.SPELL.equals(type1) && COLLIDABLE_TYPE.CHARACTER.equals(type2)) {
-			resolveCollisionCharacterSpell((PhysicsComponent) object2, (Spell) object1);
-		}
-
-		if (COLLIDABLE_TYPE.SPELL.equals(type1) && COLLIDABLE_TYPE.SPELL.equals(type2)) {
-			resolveCollisionSpellSpell((Spell) object1, (Spell) object2);
-		}
-	}
-
-	private void resolveCollisionSpellSpell(Spell object1, Spell object2) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void resolveCollisionCharacterSpell(PhysicsComponent object1, Spell object2) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void resolveCollisionCharacterCharacter(PhysicsComponent character1Body, PhysicsComponent character2Body) {
-		if (character1Body.getRectangle().overlaps(character2Body.getRectangle())) {
-			character1Body.collided(COLLIDABLE_TYPE.CHARACTER);
-			character2Body.collided(COLLIDABLE_TYPE.CHARACTER);
-		}
-	}
-
+	@Override
 	public void initSpatialMesh(Vector2 mapBoundaries) {
 		spatialMesh = new SpatialMesh(mapBoundaries);
 	}

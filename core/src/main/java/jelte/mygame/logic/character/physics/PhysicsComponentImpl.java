@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.collisions.Collidable;
 import lombok.Getter;
@@ -139,11 +140,6 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	@Override
 	public Rectangle getRectangle() {
 		return rectangle;
-	}
-
-	@Override
-	public COLLIDABLE_TYPE getType() {
-		return COLLIDABLE_TYPE.CHARACTER;
 	}
 
 	@Override

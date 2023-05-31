@@ -4,8 +4,10 @@ import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Queue;
 
 import jelte.mygame.logic.character.Direction;
+import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +18,7 @@ public class CharacterPhysicsComponent extends PhysicsComponentImpl {
 	private static final String TAG = CharacterPhysicsComponent.class.getSimpleName();
 	private Direction direction;
 	private boolean fallTrough;
+	private Queue<SpellsEnum> hitBy;
 
 	public CharacterPhysicsComponent(UUID playerReference, Vector2 startPosition) {
 		super(playerReference, startPosition);
@@ -73,19 +76,17 @@ public class CharacterPhysicsComponent extends PhysicsComponentImpl {
 	}
 
 	@Override
-	public void collided(COLLIDABLE_TYPE type) {
-		collided = true;
-		switch (type) {
-		case CHARACTER:
-			break;
-		case SPELL:
-			break;
-		case STATIC:
-			break;
-		default:
-			break;
+	public COLLIDABLE_TYPE getType() {
+		return COLLIDABLE_TYPE.CHARACTER;
+	}
 
-		}
+	@Override
+	public boolean goesTroughObjects() {
+		return false;
+	}
+
+	public void hitBySpell(SpellsEnum spellsEnum) {
+		hitBy.addLast(spellsEnum);
 	}
 
 }
