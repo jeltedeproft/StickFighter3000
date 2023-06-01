@@ -20,6 +20,7 @@ public class StaticPlatformCollisionStrategy implements CollisionStrategy {
 					character.getAcceleration().y = 0;
 				}
 				if (character.isFallTrough()) {
+					character.setCollided(true);
 					character.move(0, -statick.getOverlapY() * 3);
 				}
 			}

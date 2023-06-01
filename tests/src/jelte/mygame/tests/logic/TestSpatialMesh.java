@@ -338,11 +338,11 @@ public class TestSpatialMesh {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
 				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				} else {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				}
-				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 			}
 		}
 
@@ -358,11 +358,11 @@ public class TestSpatialMesh {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
 				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				} else {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				}
-				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 			}
 		}
 	}
@@ -417,11 +417,11 @@ public class TestSpatialMesh {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
 				CellPoint testPoint = new CellPoint(i, j);
 				if (expectedStaticArraySizes.containsKey(testPoint)) {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				} else {
-					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				}
-				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 			}
 		}
 	}
@@ -628,7 +628,7 @@ public class TestSpatialMesh {
 			Assert.assertEquals(0, spatialMesh.getCellX(10000));
 			fail("getCellX should throw an exception for a negative number");
 		} catch (OutOfBoundsException expected) {
-			assertEquals("10000 is bigger than map size 320.0, can't get spatialMeshCell", expected.getMessage());
+			assertEquals("10000 is bigger than map size 320,0, can't get spatialMeshCell", expected.getMessage());
 		}
 	}
 
@@ -638,7 +638,7 @@ public class TestSpatialMesh {
 			Assert.assertEquals(0, spatialMesh.getCellY(10000));
 			fail("getCellY should throw an exception for a negative number");
 		} catch (OutOfBoundsException expected) {
-			assertEquals("10000 is bigger than map size 320.0, can't get spatialMeshCell", expected.getMessage());
+			assertEquals("10000 is bigger than map size 320,0, can't get spatialMeshCell", expected.getMessage());
 		}
 	}
 
