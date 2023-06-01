@@ -37,7 +37,6 @@ public class CharacterStateCasting implements CharacterState {
 			timer = duration;
 			characterStateManager.transition(CHARACTER_STATE.IDLE);
 		}
-
 	}
 
 	@Override
