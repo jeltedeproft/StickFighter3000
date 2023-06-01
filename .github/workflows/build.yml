@@ -19,9 +19,9 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Run tests
-        run: ./gradlew test
-
+        - name: Run tests
+        run: ./gradlew.bat test
+  
       - name: Build executable
         run: ./gradlew desktop:dist
 
