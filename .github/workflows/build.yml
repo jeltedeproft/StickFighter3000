@@ -1,0 +1,35 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Build executable
+        run: ./gradlew desktop:dist
+
+      - name: Perform code quality check
+        run: ./gradlew check
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: StickFighter3000-Windows
+          path: desktop/build/libs/
+
