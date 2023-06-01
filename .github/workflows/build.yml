@@ -19,7 +19,7 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Fix permissions
+      - name: Fix permissions gradlew
         run: chmod +x gradlew.bat
 
       - name: Run tests
