@@ -2,6 +2,8 @@ package jelte.mygame.logic.collisions;
 
 import java.util.Objects;
 
+import jelte.mygame.logic.collisions.collidable.Collidable;
+
 public class CollisionPair {
 	private final Collidable collidable1;
 	private final Collidable collidable2;

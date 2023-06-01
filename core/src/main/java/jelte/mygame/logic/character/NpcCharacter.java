@@ -2,6 +2,7 @@ package jelte.mygame.logic.character;
 
 import java.util.UUID;
 
+import jelte.mygame.logic.ai.PassiveAiStrategy;
 import jelte.mygame.utility.Constants;
 
 public class NpcCharacter extends Character {

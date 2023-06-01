@@ -13,12 +13,12 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.collisions.StaticBlock;
-import jelte.mygame.logic.collisions.StaticBlockBot;
-import jelte.mygame.logic.collisions.StaticBlockLeft;
-import jelte.mygame.logic.collisions.StaticBlockPlatform;
-import jelte.mygame.logic.collisions.StaticBlockRight;
-import jelte.mygame.logic.collisions.StaticBlockTop;
+import jelte.mygame.logic.collisions.collidable.StaticBlock;
+import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
+import jelte.mygame.logic.collisions.collidable.StaticBlockLeft;
+import jelte.mygame.logic.collisions.collidable.StaticBlockPlatform;
+import jelte.mygame.logic.collisions.collidable.StaticBlockRight;
+import jelte.mygame.logic.collisions.collidable.StaticBlockTop;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;

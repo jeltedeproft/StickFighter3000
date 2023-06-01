@@ -13,12 +13,12 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
 import jelte.mygame.logic.character.PlayerCharacter;
-import jelte.mygame.logic.character.physics.PhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.collisions.Collidable;
 import jelte.mygame.logic.collisions.CollisionSystem;
 import jelte.mygame.logic.collisions.CollisionSystemImpl;
-import jelte.mygame.logic.collisions.StaticBlock;
+import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.logic.collisions.collidable.StaticBlock;
+import jelte.mygame.logic.physics.PhysicsComponent;
 import jelte.mygame.logic.spells.SpellManager;
 
 public class LogicManagerImpl implements LogicManager {

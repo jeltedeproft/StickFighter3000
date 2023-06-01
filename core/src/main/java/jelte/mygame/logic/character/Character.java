@@ -7,10 +7,10 @@ import com.badlogic.gdx.utils.Queue;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.character.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.physics.CharacterPhysicsComponent;
 import jelte.mygame.logic.spells.Spell;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;

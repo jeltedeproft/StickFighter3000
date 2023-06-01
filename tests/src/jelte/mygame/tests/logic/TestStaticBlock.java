@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 import com.badlogic.gdx.math.Rectangle;
 
-import jelte.mygame.logic.collisions.StaticBlock;
-import jelte.mygame.logic.collisions.StaticBlockBot;
+import jelte.mygame.logic.collisions.collidable.StaticBlock;
+import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)

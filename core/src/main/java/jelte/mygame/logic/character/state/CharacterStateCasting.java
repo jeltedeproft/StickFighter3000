@@ -8,6 +8,8 @@ import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.SpellFileReader;
 
 public class CharacterStateCasting implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -24,6 +26,8 @@ public class CharacterStateCasting implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_CAST_%s", characterStateManager.getCharacter().getName().toUpperCase())));
+		characterStateManager.getCharacter().getSpellsToCast().addLast(new Spell(SpellFileReader.getSpellData().get((int) message.getValue()), physicsComponent.getPosition(), lastKnownMouseCoords));
+		// TODO save spellbutton pressed in statemanagfer?? then get it in this state and put it on character to cast
 	}
 
 	@Override

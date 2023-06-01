@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.logic.collisions.collidable.Collidable;
 import lombok.Getter;
 import lombok.Setter;
 

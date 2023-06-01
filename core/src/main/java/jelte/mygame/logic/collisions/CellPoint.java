@@ -4,8 +4,8 @@ import java.awt.Point;
 import java.io.Serial;
 
 public class CellPoint implements java.io.Serializable {
-	int x;
-	int y;
+	public int x;
+	public int y;
 
 	/**
 	 * Use serialVersionUID from JDK 1.1 for interoperability.

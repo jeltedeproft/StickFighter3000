@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
-import jelte.mygame.logic.character.physics.SpellPhysicsComponent;
+import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
 import lombok.Setter;

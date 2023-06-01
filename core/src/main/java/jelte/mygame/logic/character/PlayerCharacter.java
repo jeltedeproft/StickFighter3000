@@ -6,8 +6,6 @@ import com.badlogic.gdx.math.Vector3;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.spells.Spell;
-import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.utility.Constants;
 
 public class PlayerCharacter extends Character {
@@ -27,7 +25,6 @@ public class PlayerCharacter extends Character {
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
 		case CAST_PRESSED:
-			spellsToCast.addLast(new Spell(SpellFileReader.getSpellData().get((int) message.getValue()), physicsComponent.getPosition(), lastKnownMouseCoords));
 			characterStateManager.handleEvent(EVENT.CAST_PRESSED);
 			break;
 		case SEND_MOUSE_COORDINATES:

@@ -37,7 +37,7 @@ import com.ray3k.stripe.FreeTypeSkinLoader;
 
 import de.pottgames.tuningfork.SoundBuffer;
 import de.pottgames.tuningfork.SoundBufferLoader;
-import jelte.mygame.graphical.NamedSprite;
+import jelte.mygame.graphical.animations.NamedSprite;
 
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();

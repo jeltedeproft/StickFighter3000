@@ -11,7 +11,18 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.collisions.Collidable.COLLIDABLE_TYPE;
+import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.logic.collisions.collidable.StaticBlock;
+import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
+import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
+import jelte.mygame.logic.collisions.strategy.CharacterCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.CollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.SpellCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.StaticBotCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.StaticLeftCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.StaticPlatformCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.StaticRightCollisionStrategy;
+import jelte.mygame.logic.collisions.strategy.StaticTopCollisionStrategy;
 
 public class CollisionSystemImpl implements CollisionSystem {
 	private SpatialMesh spatialMesh;
