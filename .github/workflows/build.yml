@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -19,17 +19,14 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Fix permissions gradlew
-        run: chmod +x gradlew.bat
-
       - name: Run tests
-        run: ./gradlew.bat test
+        run: gradlew.bat test
   
       - name: Build executable
-        run: ./gradlew desktop:dist
+        run: gradlew.bat desktop:dist
 
       - name: Perform code quality check
-        run: ./gradlew check
+        run: gradlew.bat check
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
