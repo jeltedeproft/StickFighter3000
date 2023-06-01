@@ -20,13 +20,13 @@ jobs:
           java-version: '17'
 
       - name: Run tests
-        run: gradlew.bat test
+        run: .\gradlew.bat test
   
       - name: Build executable
-        run: gradlew.bat desktop:dist
+        run: .\gradlew.bat desktop:dist
 
       - name: Perform code quality check
-        run: gradlew.bat check
+        run: .\gradlew.bat check
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
