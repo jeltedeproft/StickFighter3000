@@ -19,7 +19,7 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-        - name: Run tests
+      - name: Run tests
         run: ./gradlew.bat test
   
       - name: Build executable
@@ -33,4 +33,3 @@ jobs:
         with:
           name: StickFighter3000-Windows
           path: desktop/build/libs/
-
