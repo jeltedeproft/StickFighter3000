@@ -48,7 +48,6 @@ public class CharacterStateCrouched implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			break;
 		case NO_COLLISION:
-			System.out.println("no colisoin");// TODO this triggers hwen couched on p^latofrm
 			characterStateManager.transition(CHARACTER_STATE.FALLING);
 			break;
 		case CAST_PRESSED:

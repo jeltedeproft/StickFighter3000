@@ -1,11 +1,13 @@
 package jelte.mygame.logic.collisions;
 
+import java.util.Set;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 
-public interface CollisionSystem {
+public interface CollisionDetectionSystem {
 	public void initSpatialMesh(Vector2 value);
 
 	public void addToSpatialMesh(Array<Collidable> collidables);
@@ -16,7 +18,7 @@ public interface CollisionSystem {
 
 	public void updateSpatialMesh(Collidable collidables);
 
-	public void executeCollisions();
+	public Set<CollisionPair> executeCollisions();
 
 	public void reset();
 

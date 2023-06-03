@@ -58,6 +58,14 @@ public class Constants {
 	public static final String PARALLAX_BG_NAME = "layer";
 	public static final String PREFERENCES = "preferences";
 	public static final String PREFERENCES_KEYBINDINGS = "darkKeyBindings";
+	public static final String SPELL_CATEGORY_PROJECTILE = "projectile";
+	public static final String SPELL_CATEGORY_BUFF = "buff";
+	public static final String SPELL_CATEGORY_TOTEM = "totem";
+	public static final String SPELL_CATEGORY_LASER = "laser";
+	public static final String SPELL_CATEGORY_AOE = "aoe";
+	public static final String SPELL_CATEGORY_SUMMON = "summon";
+
+	public static final String SPELL_CATEGORY_AURA = "laser";
 
 	// TILED
 	public static final String BLOCK_TYPE_TOP = "TOP";
@@ -238,58 +246,63 @@ public class Constants {
 			+ "}\r\n"
 			+ "";
 
-	public static final String VERTEX_SHADER_SIMPLE = "attribute vec4 a_position;\n"
-			+ "attribute vec4 a_color;\n"
-			+ "attribute vec2 a_texCoord0;\n"
-			+ "uniform mat4 u_projTrans;\n"
-			+ "varying vec4 v_color;\n"
-			+ "varying vec2 v_texCoords;\n"
-			+ "void main() {\n"
-			+ "v_color = vec4(1, 1, 1, 1);\n"
-			+ "v_texCoords = a_texCoord0;\n"
-			+ "gl_Position =  u_projTrans * a_position;\n"
-			+ "}";
-	public static final String FRAGMENT_SHADER_SIMPLE = "#ifdef GL_ES\n"
-			+ "precision mediump float;\n"
-			+ "#endif\n"
-			+ "varying vec4 v_color;\n"
-			+ "varying vec2 v_texCoords;\n"
-			+ "uniform sampler2D u_texture;\n"
-			+ "void main() {\n"
-			+ "gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n"
-			+ "}";
+	public static final String VERTEX_SHADER_SIMPLE = """
+			attribute vec4 a_position;
+			attribute vec4 a_color;
+			attribute vec2 a_texCoord0;
+			uniform mat4 u_projTrans;
+			varying vec4 v_color;
+			varying vec2 v_texCoords;
+			void main() {
+			v_color = vec4(1, 1, 1, 1);
+			v_texCoords = a_texCoord0;
+			gl_Position =  u_projTrans * a_position;
+			}""";
+	public static final String FRAGMENT_SHADER_SIMPLE = """
+			#ifdef GL_ES
+			precision mediump float;
+			#endif
+			varying vec4 v_color;
+			varying vec2 v_texCoords;
+			uniform sampler2D u_texture;
+			void main() {
+			gl_FragColor = v_color * texture2D(u_texture, v_texCoords);
+			}""";
 
-	public static final String VERTEX_SHADER_PIXEL = "attribute vec4 a_position;\n"
-			+ "attribute vec4 a_color;\n"
-			+ "attribute vec2 a_texCoord0;\n"
-			+ "uniform mat4 u_projTrans;\n"
-			+ "varying vec4 v_color;\n"
-			+ "varying vec2 v_texCoord;\n"
-			+ "\n"
-			+ "void main()\n"
-			+ "{\n"
-			+ "    v_color = a_color;\n"
-			+ "    v_texCoord = a_texCoord0;\n"
-			+ "    gl_Position = u_projTrans * a_position;\n"
-			+ "}";
+	public static final String VERTEX_SHADER_PIXEL = """
+			attribute vec4 a_position;
+			attribute vec4 a_color;
+			attribute vec2 a_texCoord0;
+			uniform mat4 u_projTrans;
+			varying vec4 v_color;
+			varying vec2 v_texCoord;
 
-	public static final String FRAGMENT_SHADER_PIXEL = "#ifdef GL_ES\n"
-			+ "precision mediump float;\n"
-			+ "#endif\n"
-			+ "uniform sampler2D u_texture;\n"
-			+ "uniform vec2 u_texelSize;\n"
-			+ "uniform float u_texelsPerPixel;\n"
-			+ "varying vec4 v_color;\n"
-			+ "varying vec2 v_texCoord;\n"
-			+ "\n"
-			+ "void main() {\n"
-			+ "    vec2 locationWithinTexel = fract(v_texCoord);\n"
-			+ "    vec2 interpolationAmount = clamp(locationWithinTexel / u_texelsPerPixel, 0.0, 0.5) +\n"
-			+ "                               clamp((locationWithinTexel - 1.0) / u_texelsPerPixel + 0.5, 0.0, 0.5);\n"
-			+ "    vec2 finalTextureCoords = (floor(v_texCoord) + interpolationAmount) * u_texelSize;\n"
-			+ "\n"
-			+ "    gl_FragColor = texture2D(u_texture, finalTextureCoords) * v_color;\n"
-			+ "}"
-			+ "\n";
+			void main()
+			{
+			    v_color = a_color;
+			    v_texCoord = a_texCoord0;
+			    gl_Position = u_projTrans * a_position;
+			}""";
+
+	public static final String FRAGMENT_SHADER_PIXEL = """
+			#ifdef GL_ES
+			precision mediump float;
+			#endif
+			uniform sampler2D u_texture;
+			uniform vec2 u_texelSize;
+			uniform float u_texelsPerPixel;
+			varying vec4 v_color;
+			varying vec2 v_texCoord;
+
+			void main() {
+			    vec2 locationWithinTexel = fract(v_texCoord);
+			    vec2 interpolationAmount = clamp(locationWithinTexel / u_texelsPerPixel, 0.0, 0.5) +
+			                               clamp((locationWithinTexel - 1.0) / u_texelsPerPixel + 0.5, 0.0, 0.5);
+			    vec2 finalTextureCoords = (floor(v_texCoord) + interpolationAmount) * u_texelSize;
+
+			    gl_FragColor = texture2D(u_texture, finalTextureCoords) * v_color;
+			}\
+
+			""";
 
 }

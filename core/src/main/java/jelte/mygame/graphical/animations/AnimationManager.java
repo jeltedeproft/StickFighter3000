@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.AbstractSpell;
 
 public class AnimationManager {
 	private static final String TAG = AnimationManager.class.getSimpleName();
@@ -21,7 +21,7 @@ public class AnimationManager {
 		return animationTextureManager.getSprite(animationName, character);
 	}
 
-	public NamedSprite getSprite(Spell spell) {
+	public NamedSprite getSprite(AbstractSpell spell) {
 		String animationName = animationNameManager.getAnimationName(spell);
 		return animationTextureManager.getSprite(animationName, spell);
 	}

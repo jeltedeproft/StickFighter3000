@@ -268,23 +268,7 @@ public class CharacterStateManager {
 
 	private void updateBuffer(EVENT event) {
 		switch (event) {
-		case ATTACK_PRESSED:
-		case BLOCK_PRESSED:
-		case BLOCK_UNPRESSED:
-		case CAST_PRESSED:
-		case DAMAGE_TAKEN:
-		case DASH_PRESSED:
-		case DIED:
-		case JUMP_PRESSED:
-		case JUMP_UNPRESSED:
-		case NO_COLLISION:
-		case ROLL_PRESSED:
-		case TELEPORT_PRESSED:
-			break;
-		case DOWN_PRESSED:
-		case LEFT_PRESSED:
-		case RIGHT_PRESSED:
-		case SPRINT_PRESSED:
+		case SPRINT_PRESSED, DOWN_PRESSED, LEFT_PRESSED, RIGHT_PRESSED:
 			pressedKeysBuffer.add(event);
 			break;
 		case DOWN_UNPRESSED:

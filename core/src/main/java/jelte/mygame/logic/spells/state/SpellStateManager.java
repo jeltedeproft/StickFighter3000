@@ -3,7 +3,7 @@ package jelte.mygame.logic.spells.state;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.AbstractSpell;
 import jelte.mygame.logic.spells.SpellData;
 
 public class SpellStateManager {
@@ -12,7 +12,7 @@ public class SpellStateManager {
 	private SpellState spellStateLoop;
 	private SpellState spellStateEnd;
 	private SpellState spellStateDead;
-	private Spell spell;
+	private AbstractSpell spell;
 
 	public enum SPELL_STATE {
 		WINDUP,
@@ -21,7 +21,7 @@ public class SpellStateManager {
 		DEAD;
 	}
 
-	public SpellStateManager(Spell spell) {
+	public SpellStateManager(AbstractSpell spell) {
 		this.spell = spell;
 		SpellData data = spell.getData();
 		spellStateWindup = new SpellStateWindup(this, data.getWindupFullTime());
@@ -62,7 +62,7 @@ public class SpellStateManager {
 		currentSpellState.handleEvent(event);
 	}
 
-	public Spell getSpell() {
+	public AbstractSpell getSpell() {
 		return spell;
 	}
 

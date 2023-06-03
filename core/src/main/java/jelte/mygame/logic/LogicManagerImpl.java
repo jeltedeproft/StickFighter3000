@@ -1,37 +1,42 @@
 package jelte.mygame.logic;
 
+import java.util.Set;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
 import jelte.mygame.logic.character.PlayerCharacter;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.collisions.CollisionSystem;
-import jelte.mygame.logic.collisions.CollisionSystemImpl;
+import jelte.mygame.logic.collisions.CollisionDetectionSystem;
+import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
+import jelte.mygame.logic.collisions.CollisionHandlingSystem;
+import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
-import jelte.mygame.logic.physics.PhysicsComponent;
+import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.logic.spells.SpellManager;
 
 public class LogicManagerImpl implements LogicManager {
 	private static final String TAG = LogicManagerImpl.class.getSimpleName();
 	private MessageListener listener;
-	private CollisionSystem collisionSystem;
+	private CollisionDetectionSystem collisionDetectionSystem;
+	private CollisionHandlingSystem collisionhandlingSystem;
 	private CharacterManager characterManager;
 	private SpellManager spellManager;
 	private Array<Collidable> blockingObjects;
+	private Vector2 mousePosition = new Vector2();
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
-		collisionSystem = new CollisionSystemImpl();
+		collisionDetectionSystem = new CollisionDetectionSystemImpl();
+		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
 		characterManager = new CharacterManager(new PlayerCharacter(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
 		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
@@ -39,33 +44,18 @@ public class LogicManagerImpl implements LogicManager {
 
 	@Override
 	public void update(float delta) {
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
-		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
+		Set<CollisionPair> collisionPairs = collisionDetectionSystem.executeCollisions();
+		collisionhandlingSystem.handleCollisions(collisionPairs, characterManager.getAllCharacters(), spellManager.getAllSpells());
 		characterManager.update(delta);
-		characterManager.getBodies().forEach(this::checkCollision);
-		characterManager.getAllCharacters().forEach(this::createQueuedSpells);
-		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_SPELLS, spellManager.getAllSpells()));
 		spellManager.update(delta);
-		Array<Collidable> collidables = new Array<>(characterManager.getAllCharacterbodies());
-		collidables.addAll(spellManager.getAllSpellBodies());
-		collisionSystem.updateSpatialMesh(collidables);
-		collisionSystem.executeCollisions();
 
+		collisionDetectionSystem.updateSpatialMesh(characterManager.getAllCharacterbodies());
+		collisionDetectionSystem.updateSpatialMesh(spellManager.getAllSpellBodies());
+
+		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
+		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_SPELLS, spellManager.getAllSpells()));
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.UPDATE_CAMERA_POS, characterManager.getPlayer().getPhysicsComponent().getPosition()));
-	}
-
-	private void createQueuedSpells(Character character) {
-		while (character.getSpellsToCast().notEmpty()) {
-			spellManager.addSpell(character.getSpellsToCast().removeFirst());
-		}
-	}
-
-	private void checkCollision(PhysicsComponent body) {
-		if (body.isCollided()) {
-			body.setCollided(false);
-		} else {
-			characterManager.getCharacterById(body.getPlayerReference()).getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
-		}
 	}
 
 	@Override
@@ -86,18 +76,24 @@ public class LogicManagerImpl implements LogicManager {
 		case SPRINT_UNPRESSED:
 		case BLOCK_PRESSED:
 		case BLOCK_UNPRESSED:
-		case CAST_PRESSED:
-		case SEND_MOUSE_COORDINATES:
 			characterManager.getPlayer().receiveMessage(message);
+			break;
+		case SEND_MOUSE_COORDINATES:
+			Vector3 mouseVector = (Vector3) message.getValue();
+			mousePosition.x = mouseVector.x;
+			mousePosition.y = mouseVector.y;
+			break;
+		case CAST_PRESSED:
+			characterManager.getPlayer().receiveMessage(message);
+			spellManager.createSpell(SpellFileReader.getSpellData().get((int) message.getValue()), characterManager.getPlayer(), mousePosition);
 			break;
 		case SEND_BLOCKING_OBJECTS:
 			blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());
 			break;
 		case SEND_MAP_DIMENSIONS:
-			collisionSystem.initSpatialMesh((Vector2) message.getValue());
-			Array<Collidable> characterBodies = new Array<>(characterManager.getAllCharacterbodies());
-			collisionSystem.addToSpatialMesh(characterBodies);
-			collisionSystem.addToSpatialMesh(blockingObjects);
+			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
+			collisionDetectionSystem.addToSpatialMesh(characterManager.getAllCharacterbodies());
+			collisionDetectionSystem.addToSpatialMesh(blockingObjects);
 			break;
 		default:
 			break;

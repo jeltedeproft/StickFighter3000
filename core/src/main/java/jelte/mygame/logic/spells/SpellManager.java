@@ -3,23 +3,37 @@ package jelte.mygame.logic.spells;
 import java.util.Iterator;
 import java.util.UUID;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.physics.PhysicsComponent;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.utility.Constants;
 
 public class SpellManager {
 	private Array<Spell> spells;
-	private Array<PhysicsComponent> bodies;
+	private Array<Collidable> bodies;
+	private SpellFactoryRegistry registry;
+	private SpellFactorySelector selector;
 
 	public SpellManager() {
 		spells = new Array<>();
 		bodies = new Array<>();
+		registry = new SpellFactoryRegistry();
+		selector = new SpellFactorySelector();
+		registry.registerFactory(Constants.SPELL_CATEGORY_PROJECTILE, new ProjectileSpellFactory());
+		registry.registerFactory(Constants.SPELL_CATEGORY_BUFF, new BuffSpellFactory());
+		// TODO other factories
+
 	}
 
-	public void addSpell(Spell spell) {
+	public void createSpell(SpellData spellData, Character player, Vector2 mousePosition) {
+		SpellFactory factory = selector.selectFactory(spellData);
+		Spell spell = factory.createSpell(spellData, player, mousePosition);
 		spells.add(spell);
 		bodies.add(spell.getPhysicsComponent());
+
 	}
 
 	public void removeSpell(Spell spell) {
@@ -40,7 +54,7 @@ public class SpellManager {
 		return spells;
 	}
 
-	public Array<PhysicsComponent> getAllSpellBodies() {
+	public Array<Collidable> getAllSpellBodies() {
 		return bodies;
 	}
 
@@ -49,7 +63,7 @@ public class SpellManager {
 		final Iterator<Spell> iterator = spells.iterator();
 		while (iterator.hasNext()) {
 			final Spell spell = iterator.next();
-			if (spell.isDead()) {
+			if (spell.isComplete()) {
 				bodies.removeValue(spell.getPhysicsComponent(), false);
 				iterator.remove();
 			}

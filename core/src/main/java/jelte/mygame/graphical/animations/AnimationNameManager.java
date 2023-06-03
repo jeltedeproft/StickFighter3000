@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 
 public class AnimationNameManager {
@@ -70,13 +70,13 @@ public class AnimationNameManager {
 		return animation;
 	}
 
-	public String getAnimationName(Spell spell) {
+	public String getAnimationName(AbstractSpell spell) {
 		SpellAnimation spellAnimation = (SpellAnimation) getSpellAnimation(spell);
 		spellAnimation.updateData(spell.getData().getSpriteName(), spell.getSpellStateManager().getCurrentSpellState().getState());
 		return spellAnimation.getFullName();
 	}
 
-	public AnimationName getSpellAnimation(Spell spell) {
+	public AnimationName getSpellAnimation(AbstractSpell spell) {
 		AnimationName animation = animationNames.get(spell.getId());
 		if (animation == null) {
 			animationNames.put(spell.getId(), new SpellAnimation(spell.getName(), spell.getSpellStateManager().getCurrentSpellState().getState()));

@@ -13,25 +13,22 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 
 		// character
 		if (object2 instanceof CharacterPhysicsComponent character) {
-			if (statick.overlaps(character.getRectangle())) {
-				statick.calculateOverlapPlayer(character.getRectangle());
-				character.setCollided(true);
-				character.move(0, statick.getOverlapY());
-				character.getVelocity().y = 0;
-				character.getAcceleration().y = 0;
-			}
+			statick.calculateOverlapPlayer(character.getRectangle());
+			character.setCollided(true);
+			character.move(0, statick.getOverlapY());
+			character.getVelocity().y = 0;
+			character.getAcceleration().y = 0;
 
 		}
 
 		// spell
 		if (object2 instanceof SpellPhysicsComponent spell) {
-			if (statick.overlaps(spell.getRectangle())) {
-				statick.calculateOverlapPlayer(spell.getRectangle());
-				spell.setCollided(true);
-				spell.move(0, statick.getOverlapY());
-				spell.getVelocity().y = 0;
-				spell.getAcceleration().y = 0;
-			}
+			statick.calculateOverlapPlayer(spell.getRectangle());
+			spell.setCollided(true);
+			spell.move(0, statick.getOverlapY());
+			spell.getVelocity().y = 0;
+			spell.getAcceleration().y = 0;
+
 		}
 	}
 }

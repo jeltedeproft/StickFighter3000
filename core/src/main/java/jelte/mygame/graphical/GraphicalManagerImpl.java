@@ -30,7 +30,7 @@ import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.GraphicalUtility;
@@ -54,7 +54,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private NpcCharacter enemy;
 	private ProgressBar hp;
 	private BitmapFont font;
-	private Array<Spell> spellsToRender;
+	private Array<AbstractSpell> spellsToRender;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -176,7 +176,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	}
 
 	private void renderSpells() {
-		for (Spell spell : spellsToRender) {
+		for (AbstractSpell spell : spellsToRender) {
 			NamedSprite sprite = animationManager.getSprite(spell);
 			spell.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(spell.getPhysicsComponent().getRectangle().x, spell.getPhysicsComponent().getRectangle().y);
@@ -205,7 +205,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			enemy = (NpcCharacter) message.getValue();
 			break;
 		case RENDER_SPELLS:
-			spellsToRender = (Array<Spell>) message.getValue();
+			spellsToRender = (Array<AbstractSpell>) message.getValue();
 			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());

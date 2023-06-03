@@ -5,6 +5,8 @@ import java.util.UUID;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.physics.PhysicsComponent;
 
 public class CharacterManager {
@@ -47,8 +49,8 @@ public class CharacterManager {
 		return allCharacters;
 	}
 
-	public Array<PhysicsComponent> getAllCharacterbodies() {
-		Array<PhysicsComponent> characterbodies = new Array<>();
+	public Array<Collidable> getAllCharacterbodies() {
+		Array<Collidable> characterbodies = new Array<>();
 		characterbodies.add(player.getPhysicsComponent());
 		for (Character enemy : enemies) {
 			characterbodies.add(enemy.getPhysicsComponent());
@@ -70,6 +72,15 @@ public class CharacterManager {
 
 	public void update(float delta) {
 		getAllCharacters().forEach(character -> character.update(delta));
+		bodies.forEach(this::checkCollision);
+	}
+
+	private void checkCollision(PhysicsComponent body) {
+		if (body.isCollided()) {
+			body.setCollided(false);
+		} else {
+			getCharacterById(body.getPlayerReference()).getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
+		}
 	}
 
 	@Override

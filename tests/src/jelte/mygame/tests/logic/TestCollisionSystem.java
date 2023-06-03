@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.logic.collisions.CollisionSystemImpl;
+import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.logic.collisions.collidable.StaticBlockLeft;
@@ -29,12 +29,12 @@ import jelte.mygame.utility.UtilityFunctions;
 
 @RunWith(GdxTestRunner.class)
 public class TestCollisionSystem {
-	private CollisionSystemImpl collisionSystem;
+	private CollisionDetectionSystemImpl collisionSystem;
 	private PhysicsComponent mainBody;
 
 	@Before
 	public void beforeEverytest() {
-		collisionSystem = new CollisionSystemImpl();
+		collisionSystem = new CollisionDetectionSystemImpl();
 		collisionSystem.initSpatialMesh(new Vector2(100, 100));
 		collisionSystem.addToSpatialMesh(new StaticBlockBot(0, 0, 100, 10));
 	}
