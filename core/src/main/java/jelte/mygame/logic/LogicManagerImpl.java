@@ -44,7 +44,7 @@ public class LogicManagerImpl implements LogicManager {
 
 	@Override
 	public void update(float delta) {
-		Set<CollisionPair> collisionPairs = collisionDetectionSystem.executeCollisions();
+		Set<CollisionPair> collisionPairs = collisionDetectionSystem.getCollidingpairs();
 		collisionhandlingSystem.handleCollisions(collisionPairs, characterManager.getAllCharacters(), spellManager.getAllSpells());
 		characterManager.update(delta);
 		spellManager.update(delta);

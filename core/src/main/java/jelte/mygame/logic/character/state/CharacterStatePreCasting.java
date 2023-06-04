@@ -33,7 +33,6 @@ public class CharacterStatePreCasting implements CharacterState {
 			timer = duration;
 			characterStateManager.transition(CHARACTER_STATE.CAST);
 		}
-
 	}
 
 	@Override

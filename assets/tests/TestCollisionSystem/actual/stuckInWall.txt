@@ -1,1000 +1,4725 @@
-(40.15,10.0)
-(40.300003,10.0)
-(40.450005,10.0)
-(40.600006,10.0)
-(40.750008,10.0)
-(40.90001,10.0)
-(41.05001,10.0)
-(41.200012,10.0)
-(41.350014,10.0)
-(41.500015,10.0)
-(41.650017,10.0)
-(41.80002,10.0)
-(41.95002,10.0)
-(42.10002,10.0)
-(42.250023,10.0)
-(42.400024,10.0)
-(42.550026,10.0)
-(42.700027,10.0)
-(42.85003,10.0)
-(43.00003,10.0)
-(43.150032,10.0)
-(43.300034,10.0)
-(43.450035,10.0)
-(43.600037,10.0)
-(43.75004,10.0)
-(43.90004,10.0)
-(44.05004,10.0)
-(44.200043,10.0)
-(44.350044,10.0)
-(44.500046,10.0)
-(44.650047,10.0)
-(44.80005,10.0)
-(44.95005,10.0)
-(45.10005,10.0)
-(45.250053,10.0)
-(45.400055,10.0)
-(45.550056,10.0)
-(45.700058,10.0)
-(45.85006,10.0)
-(46.00006,10.0)
-(46.150063,10.0)
-(46.300064,10.0)
-(46.450066,10.0)
-(46.600067,10.0)
-(46.75007,10.0)
-(46.90007,10.0)
-(47.05007,10.0)
-(47.200073,10.0)
-(47.350075,10.0)
-(47.500076,10.0)
-(47.650078,10.0)
-(47.80008,10.0)
-(47.95008,10.0)
-(48.100082,10.0)
-(48.250084,10.0)
-(48.400085,10.0)
-(48.550087,10.0)
-(48.70009,10.0)
-(48.85009,10.0)
-(49.00009,10.0)
-(49.150093,10.0)
-(49.300095,10.0)
-(49.450096,10.0)
-(49.600098,10.0)
-(49.7501,10.0)
-(49.9001,10.0)
-(50.050102,10.0)
-(50.200104,10.0)
-(50.350105,10.0)
-(50.500107,10.0)
-(50.65011,10.0)
-(50.80011,10.0)
-(50.95011,10.0)
-(51.100113,10.0)
-(51.250114,10.0)
-(51.400116,10.0)
-(51.550117,10.0)
-(51.70012,10.0)
-(51.85012,10.0)
-(52.000122,10.0)
-(52.150124,10.0)
-(52.300125,10.0)
-(52.450127,10.0)
-(52.60013,10.0)
-(52.75013,10.0)
-(52.90013,10.0)
-(53.050133,10.0)
-(53.200134,10.0)
-(53.350136,10.0)
-(53.500137,10.0)
-(53.65014,10.0)
-(53.80014,10.0)
-(53.95014,10.0)
-(54.100143,10.0)
-(54.250145,10.0)
-(54.400146,10.0)
-(54.550148,10.0)
-(54.70015,10.0)
-(54.85015,10.0)
-(55.000134,10.0)
-(55.148632,10.0)
-(55.295662,10.0)
-(55.441235,10.0)
-(55.585365,10.0)
-(55.72807,10.0)
-(55.86936,10.0)
-(56.009254,10.0)
-(56.147762,10.0)
-(56.2849,10.0)
-(56.42068,10.0)
-(56.555115,10.0)
-(56.688217,10.0)
-(56.820004,10.0)
-(56.950485,10.0)
-(57.079674,10.0)
-(57.207584,10.0)
-(57.33423,10.0)
-(57.459618,10.0)
-(57.583767,10.0)
-(57.706688,10.0)
-(57.828392,10.0)
-(57.94889,10.0)
-(58.068195,10.0)
-(58.18632,10.0)
-(58.303276,10.0)
-(58.41907,10.0)
-(58.533722,10.0)
-(58.647236,10.0)
-(58.75963,10.0)
-(58.870907,10.0)
-(58.981083,10.0)
-(59.090168,10.0)
-(59.198174,10.0)
-(59.30511,10.0)
-(59.410988,10.0)
-(59.51582,10.0)
-(59.61961,10.0)
-(59.722374,10.0)
-(59.82412,10.0)
-(59.92486,10.0)
-(60.0246,10.0)
-(60.123356,10.0)
-(60.221134,10.0)
-(60.317944,10.0)
-(60.413795,10.0)
-(60.508698,10.0)
-(60.60266,10.0)
-(60.695694,10.0)
-(60.787804,10.0)
-(60.879,10.0)
-(60.9693,10.0)
-(61.0587,10.0)
-(61.147217,10.0)
-(61.234856,10.0)
-(61.32163,10.0)
-(61.407543,10.0)
-(61.492607,10.0)
-(61.576828,10.0)
-(61.660213,10.0)
-(61.742775,10.0)
-(61.82452,10.0)
-(61.905457,10.0)
-(61.985588,10.0)
-(62.064926,10.0)
-(62.143482,10.0)
-(62.22126,10.0)
-(62.298267,10.0)
-(62.37451,10.0)
-(62.45,10.0)
-(62.524742,10.0)
-(62.598743,10.0)
-(62.672012,10.0)
-(62.744556,10.0)
-(62.816383,10.0)
-(62.887497,10.0)
-(62.95791,10.0)
-(63.027622,10.0)
-(63.096645,10.0)
-(63.164986,10.0)
-(63.232647,10.0)
-(63.29964,10.0)
-(63.36597,10.0)
-(63.431644,10.0)
-(63.496666,10.0)
-(63.561047,10.0)
-(63.62479,10.0)
-(63.6879,10.0)
-(63.750385,10.0)
-(63.812252,10.0)
-(63.87351,10.0)
-(63.93416,10.0)
-(63.994205,10.0)
-(64.05366,10.0)
-(64.11252,10.0)
-(64.1708,10.0)
-(64.2285,10.0)
-(64.28564,10.0)
-(64.3422,10.0)
-(64.39821,10.0)
-(64.45366,10.0)
-(64.50856,10.0)
-(64.56292,10.0)
-(64.616745,10.0)
-(64.67004,10.0)
-(64.7228,10.0)
-(64.77504,10.0)
-(64.82676,10.0)
-(64.87797,10.0)
-(64.92867,10.0)
-(64.978874,10.0)
-(65.02858,10.0)
-(65.07779,10.0)
-(65.12651,10.0)
-(65.17475,10.0)
-(65.22252,10.0)
-(65.26981,10.0)
-(65.316635,10.0)
-(65.36299,10.0)
-(65.40889,10.0)
-(65.45434,10.0)
-(65.49934,10.0)
-(65.543884,10.0)
-(65.588,10.0)
-(65.63167,10.0)
-(65.67491,10.0)
-(65.71773,10.0)
-(65.76012,10.0)
-(65.802086,10.0)
-(65.843636,10.0)
-(65.88478,10.0)
-(65.925514,10.0)
-(65.96584,10.0)
-(66.005775,10.0)
-(66.04531,10.0)
-(66.08446,10.0)
-(66.123215,10.0)
-(66.16159,10.0)
-(66.199585,10.0)
-(66.237206,10.0)
-(66.27445,10.0)
-(66.311325,10.0)
-(66.34784,10.0)
-(66.38399,10.0)
-(66.41978,10.0)
-(66.455215,10.0)
-(66.4903,10.0)
-(66.52504,10.0)
-(66.55943,10.0)
-(66.59349,10.0)
-(66.627205,10.0)
-(66.66059,10.0)
-(66.69364,10.0)
-(66.726364,10.0)
-(66.758766,10.0)
-(66.79085,10.0)
-(66.82261,10.0)
-(66.85406,10.0)
-(66.88519,10.0)
-(66.91602,10.0)
-(66.94655,10.0)
-(66.97677,10.0)
-(67.00669,10.0)
-(67.036316,10.0)
-(67.06565,10.0)
-(67.094696,10.0)
-(67.12345,10.0)
-(67.151924,10.0)
-(67.180115,10.0)
-(67.20802,10.0)
-(67.23566,10.0)
-(67.263016,10.0)
-(67.29011,10.0)
-(67.316925,10.0)
-(67.34348,10.0)
-(67.369774,10.0)
-(67.395805,10.0)
-(67.42158,10.0)
-(67.4471,10.0)
-(67.47237,10.0)
-(67.49738,10.0)
-(67.52215,10.0)
-(67.54667,10.0)
-(67.570946,10.0)
-(67.594986,10.0)
-(67.61879,10.0)
-(67.64236,10.0)
-(67.66569,10.0)
-(67.68879,10.0)
-(67.71166,10.0)
-(67.73431,10.0)
-(67.75673,10.0)
-(67.77893,10.0)
-(67.80091,10.0)
-(67.82268,10.0)
-(67.84422,10.0)
-(67.865555,10.0)
-(67.88668,10.0)
-(67.90759,10.0)
-(67.9283,10.0)
-(67.9488,10.0)
-(67.9691,10.0)
-(67.9892,10.0)
-(68.009094,10.0)
-(68.02879,10.0)
-(68.0483,10.0)
-(68.06761,10.0)
-(68.08673,10.0)
-(68.10567,10.0)
-(68.12441,10.0)
-(68.142975,10.0)
-(68.161354,10.0)
-(68.17955,10.0)
-(68.19756,10.0)
-(68.2154,10.0)
-(68.23306,10.0)
-(68.25055,10.0)
-(68.26786,10.0)
-(68.285,10.0)
-(68.30197,10.0)
-(68.31877,10.0)
-(68.3354,10.0)
-(68.351875,10.0)
-(68.36819,10.0)
-(68.38433,10.0)
-(68.400314,10.0)
-(68.416145,10.0)
-(68.431816,10.0)
-(68.447334,10.0)
-(68.4627,10.0)
-(68.47791,10.0)
-(68.49297,10.0)
-(68.50788,10.0)
-(68.522644,10.0)
-(68.53726,10.0)
-(68.551735,10.0)
-(68.56606,10.0)
-(68.58025,10.0)
-(68.5943,10.0)
-(68.60821,10.0)
-(68.62198,10.0)
-(68.63561,10.0)
-(68.64911,10.0)
-(68.662476,10.0)
-(68.675705,10.0)
-(68.688805,10.0)
-(68.701775,10.0)
-(68.714615,10.0)
-(68.72733,10.0)
-(68.73992,10.0)
-(68.75239,10.0)
-(68.76473,10.0)
-(68.776955,10.0)
-(68.789055,10.0)
-(68.80103,10.0)
-(68.8129,10.0)
-(68.82464,10.0)
-(68.836266,10.0)
-(68.84778,10.0)
-(68.85918,10.0)
-(68.87046,10.0)
-(68.88164,10.0)
-(68.8927,10.0)
-(68.903656,10.0)
-(68.9145,10.0)
-(68.92523,10.0)
-(68.93586,10.0)
-(68.94639,10.0)
-(68.95681,10.0)
-(68.967125,10.0)
-(68.97734,10.0)
-(68.98746,10.0)
-(68.997475,10.0)
-(69.00739,10.0)
-(69.01721,10.0)
-(69.02693,10.0)
-(69.03655,10.0)
-(69.04608,10.0)
-(69.05552,10.0)
-(69.06486,10.0)
-(69.074104,10.0)
-(69.08326,10.0)
-(69.09232,10.0)
-(69.1013,10.0)
-(69.11019,10.0)
-(69.11899,10.0)
-(69.1277,10.0)
-(69.13633,10.0)
-(69.14487,10.0)
-(69.15332,10.0)
-(69.16169,10.0)
-(69.16998,10.0)
-(69.17819,10.0)
-(69.18632,10.0)
-(69.19437,10.0)
-(69.20233,10.0)
-(69.21022,10.0)
-(69.21803,10.0)
-(69.22576,10.0)
-(69.23341,10.0)
-(69.24099,10.0)
-(69.2485,10.0)
-(69.25593,10.0)
-(69.26328,10.0)
-(69.27057,10.0)
-(69.27778,10.0)
-(69.28492,10.0)
-(69.29199,10.0)
-(69.29899,10.0)
-(69.305916,10.0)
-(69.312775,10.0)
-(69.319565,10.0)
-(69.326294,10.0)
-(69.332954,10.0)
-(69.33955,10.0)
-(69.34608,10.0)
-(69.35254,10.0)
-(69.35894,10.0)
-(69.36528,10.0)
-(69.37155,10.0)
-(69.37776,10.0)
-(69.38391,10.0)
-(69.39,10.0)
-(69.39603,10.0)
-(69.40199,10.0)
-(69.407906,10.0)
-(69.41376,10.0)
-(69.41955,10.0)
-(69.425285,10.0)
-(69.43096,10.0)
-(69.436584,10.0)
-(69.442154,10.0)
-(69.44767,10.0)
-(69.453125,10.0)
-(69.45853,10.0)
-(69.463875,10.0)
-(69.46917,10.0)
-(69.47442,10.0)
-(69.479614,10.0)
-(69.48476,10.0)
-(69.489845,10.0)
-(69.49489,10.0)
-(69.49988,10.0)
-(69.50482,10.0)
-(69.50971,10.0)
-(69.51456,10.0)
-(69.519356,10.0)
-(69.5241,10.0)
-(69.5288,10.0)
-(69.533455,10.0)
-(69.53806,10.0)
-(69.542625,10.0)
-(69.54714,10.0)
-(69.55161,10.0)
-(69.556046,10.0)
-(69.56043,10.0)
-(69.56477,10.0)
-(69.56907,10.0)
-(69.573326,10.0)
-(69.57754,10.0)
-(69.58171,10.0)
-(69.58584,10.0)
-(69.58993,10.0)
-(69.59398,10.0)
-(69.59799,10.0)
-(69.60196,10.0)
-(69.60589,10.0)
-(69.60978,10.0)
-(69.61363,10.0)
-(69.61745,10.0)
-(69.62122,10.0)
-(69.62496,10.0)
-(69.62866,10.0)
-(69.63233,10.0)
-(69.63596,10.0)
-(69.63956,10.0)
-(69.64311,10.0)
-(69.64664,10.0)
-(69.65012,10.0)
-(69.65358,10.0)
-(69.657,10.0)
-(69.660385,10.0)
-(69.663734,10.0)
-(69.66705,10.0)
-(69.67034,10.0)
-(69.67359,10.0)
-(69.67681,10.0)
-(69.68,10.0)
-(69.68316,10.0)
-(69.68629,10.0)
-(69.689384,10.0)
-(69.69245,10.0)
-(69.69549,10.0)
-(69.698494,10.0)
-(69.70147,10.0)
-(69.704414,10.0)
-(69.70733,10.0)
-(69.71021,10.0)
-(69.71307,10.0)
-(69.715904,10.0)
-(69.718704,10.0)
-(69.5687,10.0)
-(69.4187,10.0)
-(69.2687,10.0)
-(69.1187,10.0)
-(68.9687,10.0)
-(68.818695,10.0)
-(68.66869,10.0)
-(68.51869,10.0)
-(68.36869,10.0)
-(68.21869,10.0)
-(68.06869,10.0)
-(67.918686,10.0)
-(67.768684,10.0)
-(67.61868,10.0)
-(67.46868,10.0)
-(67.31868,10.0)
-(67.16868,10.0)
-(67.01868,10.0)
-(66.868675,10.0)
-(66.71867,10.0)
-(66.56867,10.0)
-(66.41867,10.0)
-(66.26867,10.0)
-(66.11867,10.0)
-(65.968666,10.0)
-(65.818665,10.0)
-(65.66866,10.0)
-(65.51866,10.0)
-(65.36866,10.0)
-(65.21866,10.0)
-(65.06866,10.0)
-(64.918655,10.0)
-(64.768654,10.0)
-(64.61865,10.0)
-(64.46865,10.0)
-(64.31865,10.0)
-(64.16865,10.0)
-(64.01865,10.0)
-(63.868645,10.0)
-(63.718643,10.0)
-(63.56864,10.0)
-(63.41864,10.0)
-(63.26864,10.0)
-(63.118637,10.0)
-(62.968636,10.0)
-(62.818634,10.0)
-(62.668633,10.0)
-(62.51863,10.0)
-(62.36863,10.0)
-(62.218628,10.0)
-(62.068626,10.0)
-(61.918625,10.0)
-(61.768623,10.0)
-(61.61862,10.0)
-(61.46862,10.0)
-(61.31862,10.0)
-(61.168617,10.0)
-(61.018616,10.0)
-(60.868614,10.0)
-(60.718613,10.0)
-(60.56861,10.0)
-(60.41861,10.0)
-(60.26861,10.0)
-(60.118607,10.0)
-(59.968605,10.0)
-(59.818604,10.0)
-(59.668602,10.0)
-(59.5186,10.0)
-(59.3686,10.0)
-(59.218597,10.0)
-(59.068596,10.0)
-(58.918594,10.0)
-(58.768593,10.0)
-(58.61859,10.0)
-(58.46859,10.0)
-(58.31859,10.0)
-(58.168587,10.0)
-(58.018585,10.0)
-(57.868584,10.0)
-(57.718582,10.0)
-(57.56858,10.0)
-(57.41858,10.0)
-(57.268578,10.0)
-(57.118576,10.0)
-(56.968575,10.0)
-(56.818573,10.0)
-(56.66857,10.0)
-(56.51857,10.0)
-(56.36857,10.0)
-(56.218567,10.0)
-(56.068565,10.0)
-(55.918564,10.0)
-(55.768562,10.0)
-(55.61856,10.0)
-(55.46856,10.0)
-(55.318558,10.0)
-(55.168556,10.0)
-(55.018555,10.0)
-(54.868553,10.0)
-(54.71857,10.0)
-(54.570072,10.0)
-(54.423042,10.0)
-(54.27747,10.0)
-(54.13334,10.0)
-(53.990635,10.0)
-(53.849342,10.0)
-(53.70945,10.0)
-(53.570942,10.0)
-(53.433804,10.0)
-(53.298023,10.0)
-(53.16359,10.0)
-(53.030487,10.0)
-(52.8987,10.0)
-(52.76822,10.0)
-(52.63903,10.0)
-(52.51112,10.0)
-(52.384476,10.0)
-(52.259087,10.0)
-(52.134937,10.0)
-(52.012016,10.0)
-(51.890312,10.0)
-(51.769814,10.0)
-(51.65051,10.0)
-(51.532383,10.0)
-(51.41543,10.0)
-(51.299633,10.0)
-(51.184982,10.0)
-(51.07147,10.0)
-(50.959076,10.0)
-(50.847797,10.0)
-(50.73762,10.0)
-(50.628536,10.0)
-(50.52053,10.0)
-(50.413593,10.0)
-(50.307716,10.0)
-(50.202885,10.0)
-(50.099094,10.0)
-(49.99633,10.0)
-(49.894585,10.0)
-(49.793846,10.0)
-(49.694103,10.0)
-(49.59535,10.0)
-(49.49757,10.0)
-(49.40076,10.0)
-(49.30491,10.0)
-(49.210007,10.0)
-(49.116043,10.0)
-(49.02301,10.0)
-(48.9309,10.0)
-(48.839703,10.0)
-(48.749405,10.0)
-(48.660004,10.0)
-(48.571487,10.0)
-(48.48385,10.0)
-(48.397076,10.0)
-(48.31116,10.0)
-(48.226097,10.0)
-(48.141876,10.0)
-(48.05849,10.0)
-(47.97593,10.0)
-(47.894184,10.0)
-(47.813248,10.0)
-(47.733116,10.0)
-(47.653778,10.0)
-(47.575222,10.0)
-(47.497444,10.0)
-(47.420437,10.0)
-(47.344193,10.0)
-(47.268703,10.0)
-(47.193962,10.0)
-(47.11996,10.0)
-(47.04669,10.0)
-(46.974148,10.0)
-(46.90232,10.0)
-(46.831207,10.0)
-(46.760796,10.0)
-(46.691082,10.0)
-(46.62206,10.0)
-(46.55372,10.0)
-(46.486057,10.0)
-(46.419064,10.0)
-(46.352734,10.0)
-(46.28706,10.0)
-(46.22204,10.0)
-(46.157658,10.0)
-(46.093914,10.0)
-(46.030804,10.0)
-(45.96832,10.0)
-(45.906452,10.0)
-(45.845196,10.0)
-(45.784546,10.0)
-(45.7245,10.0)
-(45.665047,10.0)
-(45.606182,10.0)
-(45.5479,10.0)
-(45.490196,10.0)
-(45.433064,10.0)
-(45.376495,10.0)
-(45.320488,10.0)
-(45.265034,10.0)
-(45.21013,10.0)
-(45.15577,10.0)
-(45.101948,10.0)
-(45.04866,10.0)
-(44.9959,10.0)
-(44.94366,10.0)
-(44.891937,10.0)
-(44.84073,10.0)
-(44.790024,10.0)
-(44.739822,10.0)
-(44.690117,10.0)
-(44.640903,10.0)
-(44.59218,10.0)
-(44.543938,10.0)
-(44.496174,10.0)
-(44.448883,10.0)
-(44.40206,10.0)
-(44.3557,10.0)
-(44.3098,10.0)
-(44.26435,10.0)
-(44.219353,10.0)
-(44.1748,10.0)
-(44.13069,10.0)
-(44.087017,10.0)
-(44.043777,10.0)
-(44.000965,10.0)
-(43.958576,10.0)
-(43.916607,10.0)
-(43.875053,10.0)
-(43.83391,10.0)
-(43.79318,10.0)
-(43.752846,10.0)
-(43.712914,10.0)
-(43.673378,10.0)
-(43.63423,10.0)
-(43.595474,10.0)
-(43.5571,10.0)
-(43.519104,10.0)
-(43.481487,10.0)
-(43.44424,10.0)
-(43.407364,10.0)
-(43.370853,10.0)
-(43.3347,10.0)
-(43.29891,10.0)
-(43.26347,10.0)
-(43.228382,10.0)
-(43.19364,10.0)
-(43.159245,10.0)
-(43.12519,10.0)
-(43.091473,10.0)
-(43.05809,10.0)
-(43.025036,10.0)
-(42.99231,10.0)
-(42.959908,10.0)
-(42.927826,10.0)
-(42.89606,10.0)
-(42.864613,10.0)
-(42.833473,10.0)
-(42.802643,10.0)
-(42.772118,10.0)
-(42.741894,10.0)
-(42.71197,10.0)
-(42.682346,10.0)
-(42.65301,10.0)
-(42.62397,10.0)
-(42.595215,10.0)
-(42.566746,10.0)
-(42.53856,10.0)
-(42.51065,10.0)
-(42.483017,10.0)
-(42.455658,10.0)
-(42.42857,10.0)
-(42.40175,10.0)
-(42.375195,10.0)
-(42.348904,10.0)
-(42.322872,10.0)
-(42.297096,10.0)
-(42.271576,10.0)
-(42.24631,10.0)
-(42.221294,10.0)
-(42.196526,10.0)
-(42.172,10.0)
-(42.14772,10.0)
-(42.12368,10.0)
-(42.099876,10.0)
-(42.07631,10.0)
-(42.052975,10.0)
-(42.029873,10.0)
-(42.007,10.0)
-(41.984352,10.0)
-(41.96193,10.0)
-(41.939728,10.0)
-(41.917747,10.0)
-(41.895985,10.0)
-(41.874435,10.0)
-(41.8531,10.0)
-(41.831978,10.0)
-(41.811066,10.0)
-(41.79036,10.0)
-(41.76986,10.0)
-(41.74956,10.0)
-(41.72946,10.0)
-(41.709564,10.0)
-(41.68986,10.0)
-(41.670353,10.0)
-(41.65104,10.0)
-(41.631916,10.0)
-(41.612984,10.0)
-(41.59424,10.0)
-(41.57568,10.0)
-(41.557304,10.0)
-(41.53911,10.0)
-(41.521095,10.0)
-(41.503258,10.0)
-(41.4856,10.0)
-(41.468117,10.0)
-(41.450806,10.0)
-(41.433666,10.0)
-(41.416695,10.0)
-(41.39989,10.0)
-(41.383255,10.0)
-(41.366783,10.0)
-(41.350475,10.0)
-(41.334328,10.0)
-(41.31834,10.0)
-(41.302513,10.0)
-(41.286842,10.0)
-(41.271324,10.0)
-(41.255962,10.0)
-(41.240753,10.0)
-(41.225693,10.0)
-(41.21078,10.0)
-(41.19602,10.0)
-(41.1814,10.0)
-(41.166927,10.0)
-(41.1526,10.0)
-(41.138412,10.0)
-(41.124367,10.0)
-(41.11046,10.0)
-(41.096687,10.0)
-(41.083054,10.0)
-(41.069553,10.0)
-(41.056187,10.0)
-(41.042953,10.0)
-(41.02985,10.0)
-(41.016876,10.0)
-(41.004032,10.0)
-(40.991314,10.0)
-(40.97872,10.0)
-(40.966255,10.0)
-(40.95391,10.0)
-(40.941692,10.0)
-(40.929592,10.0)
-(40.917614,10.0)
-(40.905754,10.0)
-(40.894012,10.0)
-(40.882385,10.0)
-(40.870872,10.0)
-(40.859474,10.0)
-(40.84819,10.0)
-(40.837017,10.0)
-(40.825954,10.0)
-(40.815002,10.0)
-(40.804157,10.0)
-(40.79342,10.0)
-(40.782787,10.0)
-(40.772263,10.0)
-(40.76184,10.0)
-(40.751522,10.0)
-(40.741306,10.0)
-(40.73119,10.0)
-(40.721176,10.0)
-(40.71126,10.0)
-(40.701443,10.0)
-(40.691723,10.0)
-(40.6821,10.0)
-(40.67257,10.0)
-(40.663136,10.0)
-(40.653793,10.0)
-(40.644547,10.0)
-(40.63539,10.0)
-(40.626324,10.0)
-(40.617348,10.0)
-(40.60846,10.0)
-(40.59966,10.0)
-(40.590946,10.0)
-(40.58232,10.0)
-(40.57378,10.0)
-(40.565323,10.0)
-(40.55695,10.0)
-(40.54866,10.0)
-(40.54045,10.0)
-(40.532326,10.0)
-(40.52428,10.0)
-(40.516315,10.0)
-(40.508427,10.0)
-(40.500618,10.0)
-(40.492886,10.0)
-(40.48523,10.0)
-(40.47765,10.0)
-(40.470146,10.0)
-(40.462715,10.0)
-(40.455357,10.0)
-(40.448074,10.0)
-(40.44086,10.0)
-(40.43372,10.0)
-(40.42665,10.0)
-(40.41965,10.0)
-(40.41272,10.0)
-(40.405857,10.0)
-(40.399063,10.0)
-(40.392338,10.0)
-(40.385677,10.0)
-(40.37908,10.0)
-(40.372555,10.0)
-(40.36609,10.0)
-(40.359688,10.0)
-(40.35335,10.0)
-(40.347076,10.0)
-(40.340866,10.0)
-(40.334717,10.0)
-(40.32863,10.0)
-(40.322598,10.0)
-(40.316628,10.0)
-(40.31072,10.0)
-(40.304867,10.0)
-(40.299072,10.0)
-(40.293335,10.0)
-(40.287655,10.0)
-(40.282032,10.0)
-(40.276463,10.0)
-(40.27095,10.0)
-(40.26549,10.0)
-(40.260086,10.0)
-(40.254734,10.0)
-(40.249435,10.0)
-(40.24419,10.0)
-(40.239,10.0)
-(40.233856,10.0)
-(40.228764,10.0)
-(40.223724,10.0)
-(40.218735,10.0)
-(40.213795,10.0)
-(40.208904,10.0)
-(40.20406,10.0)
-(40.199265,10.0)
-(40.194515,10.0)
-(40.189816,10.0)
-(40.18516,10.0)
-(40.180553,10.0)
-(40.17599,10.0)
-(40.171474,10.0)
-(40.167,10.0)
-(40.16257,10.0)
-(40.158184,10.0)
-(40.153843,10.0)
-(40.149544,10.0)
-(40.145287,10.0)
-(40.14107,10.0)
-(40.136898,10.0)
-(40.132767,10.0)
-(40.128677,10.0)
-(40.124626,10.0)
-(40.120617,10.0)
-(40.116646,10.0)
-(40.112717,10.0)
-(40.108826,10.0)
-(40.104973,10.0)
-(40.10116,10.0)
-(40.09738,10.0)
-(40.093643,10.0)
-(40.08994,10.0)
-(40.086273,10.0)
-(40.08264,10.0)
-(40.07905,10.0)
-(40.07549,10.0)
-(40.071964,10.0)
-(40.068478,10.0)
-(40.065025,10.0)
-(40.061607,10.0)
-(40.058224,10.0)
-(40.05487,10.0)
-(40.05155,10.0)
-(40.048267,10.0)
-(40.045013,10.0)
-(40.041794,10.0)
-(40.038605,10.0)
-(40.035446,10.0)
-(40.03232,10.0)
-(40.029224,10.0)
-(40.02616,10.0)
-(40.02313,10.0)
-(40.020123,10.0)
-(40.017147,10.0)
-(40.014202,10.0)
-(40.011288,10.0)
-(40.0084,10.0)
-(40.005543,10.0)
-(40.002712,10.0)
-(39.99991,10.0)
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_RIGHT
+collidable 2 : CHARACTER
+
+collidable 1 : STATIC_BOT
+collidable 2 : CHARACTER
+

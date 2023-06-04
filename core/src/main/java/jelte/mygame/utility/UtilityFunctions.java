@@ -7,9 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+
+import jelte.mygame.logic.collisions.CollisionPair;
 
 public class UtilityFunctions {
 	private static final Random random = new Random();
@@ -22,6 +26,32 @@ public class UtilityFunctions {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public static void writeSetsToFile(Set<CollisionPair>[] array, String filePath) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+			// Clear the file
+			writer.write("");
+
+			for (int i = 0; i < array.length; i++) {
+				writeSetToFile(array[i], writer);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void writeSetToFile(Set<CollisionPair> set, BufferedWriter writer) {
+		TreeSet<CollisionPair> sortedSet = new TreeSet<>(set);
+
+		try {
+			for (CollisionPair pair : sortedSet) {
+				writer.write(pair.toString());
+				writer.newLine();
+			}
+		} catch (IOException e) {
+			// Handle file writing exception
 		}
 	}
 
@@ -67,4 +97,5 @@ public class UtilityFunctions {
 	public static int randomNumberFromTo(int from, int to) {
 		return random.nextInt(from, to);
 	}
+
 }

@@ -44,6 +44,7 @@ public class Constants {
 	public static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";
 
 	// TEST
+	public static final Vector2 PLAYER_TEST_START = new Vector2(20, 20);
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
 	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";
 	public static final String TEST_FILE_POSITIONS_EXPECTED = "tests/TestCollisionSystem/expected/positions.txt";

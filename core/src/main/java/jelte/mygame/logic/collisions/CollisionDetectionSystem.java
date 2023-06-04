@@ -18,7 +18,7 @@ public interface CollisionDetectionSystem {
 
 	public void updateSpatialMesh(Collidable collidables);
 
-	public Set<CollisionPair> executeCollisions();
+	public Set<CollisionPair> getCollidingpairs();
 
 	public void reset();
 

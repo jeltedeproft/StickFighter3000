@@ -35,7 +35,7 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 	}
 
 	@Override
-	public Set<CollisionPair> executeCollisions() {
+	public Set<CollisionPair> getCollidingpairs() {
 		Set<CollisionPair> processedCollisions = new HashSet<>();
 		Set<CollisionPair> collidedPairs = new HashSet<>();
 

@@ -58,15 +58,15 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	}
 
 	protected float clampXCoordinate(float x) {
-		if (x < rectangle.width) {
-			return rectangle.width;
+		if (x < 0) {
+			return 0;
 		}
 		return x;
 	}
 
 	protected float clampYCoordinate(float y) {
-		if (y < rectangle.height) {
-			return rectangle.height;
+		if (y < 0) {
+			return 0;
 		}
 		return y;
 	}

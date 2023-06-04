@@ -38,4 +38,7 @@ public interface Collidable {
 	public boolean goesTroughObjects();
 
 	public COLLIDABLE_TYPE getType();
+
+	@Override
+	public boolean equals(Object obj);
 }
