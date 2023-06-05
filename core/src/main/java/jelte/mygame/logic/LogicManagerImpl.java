@@ -13,6 +13,7 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
+import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.CollisionDetectionSystem;
 import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
@@ -38,7 +39,7 @@ public class LogicManagerImpl implements LogicManager {
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
 		characterManager = new CharacterManager(new PlayerCharacter(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
-		// characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
+		characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
 	}
 
 	@Override
@@ -60,41 +61,19 @@ public class LogicManagerImpl implements LogicManager {
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
-		case DOWN_PRESSED:
-		case DOWN_UNPRESSED:
-		case LEFT_PRESSED:
-		case LEFT_UNPRESSED:
-		case RIGHT_PRESSED:
-		case RIGHT_UNPRESSED:
-		case UP_PRESSED:
-		case ATTACK_PRESSED:
-		case DASH_PRESSED:
-		case ROLL_PRESSED:
-		case TELEPORT_PRESSED:
-		case SPRINT_PRESSED:
-		case SPRINT_UNPRESSED:
-		case BLOCK_PRESSED:
-		case BLOCK_UNPRESSED:
-			characterManager.getPlayer().receiveMessage(message);
-			break;
-		case SEND_MOUSE_COORDINATES:
+		case DOWN_PRESSED, DOWN_UNPRESSED, LEFT_PRESSED, LEFT_UNPRESSED, RIGHT_PRESSED, RIGHT_UNPRESSED, UP_PRESSED, ATTACK_PRESSED, DASH_PRESSED, ROLL_PRESSED, TELEPORT_PRESSED, SPRINT_PRESSED, SPRINT_UNPRESSED, BLOCK_PRESSED, BLOCK_UNPRESSED, CAST_PRESSED -> characterManager.getPlayer().receiveMessage(message);
+		case SEND_MOUSE_COORDINATES -> {
 			Vector3 mouseVector = (Vector3) message.getValue();
 			mousePosition.x = mouseVector.x;
 			mousePosition.y = mouseVector.y;
-			break;
-		case CAST_PRESSED:
-			characterManager.getPlayer().receiveMessage(message);
-			break;
-		case SEND_BLOCKING_OBJECTS:
-			blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());
-			break;
-		case SEND_MAP_DIMENSIONS:
+		}
+		case SEND_BLOCKING_OBJECTS -> blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());
+		case SEND_MAP_DIMENSIONS -> {
 			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
 			collisionDetectionSystem.addToSpatialMesh(characterManager.getAllCharacterbodies());
 			collisionDetectionSystem.addToSpatialMesh(blockingObjects);
-			break;
-		default:
-			break;
+		}
+		default -> {}
 
 		}
 	}

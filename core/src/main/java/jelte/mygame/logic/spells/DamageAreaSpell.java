@@ -7,9 +7,9 @@ import com.badlogic.gdx.math.Vector2;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
-public class BuffSpell extends AbstractSpell {
+public class DamageAreaSpell extends AbstractSpell {
 
-	public BuffSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
+	public DamageAreaSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
 		super(spellData, casterPosition, mousePosition);
 	}
 

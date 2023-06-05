@@ -98,7 +98,7 @@ public class AnimationTextureManager {
 
 	public void update(final float delta) {
 		timers.replaceAll((k, v) -> v = v + delta);
-		clean();
+		// clean();//TODO check if this is ok
 	}
 
 	public void clean() {

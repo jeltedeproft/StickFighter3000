@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.badlogic.gdx.math.Vector2;
 
+import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class ProjectileSpell extends AbstractSpell {
@@ -20,6 +21,12 @@ public class ProjectileSpell extends AbstractSpell {
 		physicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition.cpy(), data.isGoesTroughObstacles());
 		physicsComponent.setVelocity(velocity);
 		return physicsComponent;
+	}
+
+	@Override
+	public void applyCollisionEffect(Character character) {
+		System.out.println("spelldamage!");
+		character.damage(1f);
 	}
 
 }

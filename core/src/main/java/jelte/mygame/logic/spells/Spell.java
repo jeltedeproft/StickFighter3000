@@ -2,6 +2,7 @@ package jelte.mygame.logic.spells;
 
 import java.util.UUID;
 
+import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.PhysicsComponent;
 
 public interface Spell {
@@ -25,5 +26,7 @@ public interface Spell {
 	public PhysicsComponent getPhysicsComponent();
 
 	public boolean isComplete();
+
+	public void applyCollisionEffect(Character character);
 
 }

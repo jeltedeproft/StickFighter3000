@@ -7,7 +7,8 @@ import java.util.Random;
 
 //keep this in sync with JSON files. ORDER IS IMPORTANT
 public enum SpellsEnum {
-	FIREBALL("fireball"); // 0
+	ATTACK("attack"), // 0
+	FIREBALL("fireball"); // 1
 
 	private static final List<SpellsEnum> TYPES = Collections.unmodifiableList(Arrays.asList(SpellsEnum.values()));
 	private static final int SIZE = TYPES.size();

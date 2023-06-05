@@ -12,12 +12,12 @@ import lombok.Setter;
 public class CharacterAnimation implements AnimationName {
 	private String characterName;
 	private CHARACTER_STATE state;
-	private int animationIndex;
+	private String animationIndex;
 	private Direction direction;
 	private Float timeRunning = 0f;
 	private String fullName;
 
-	public CharacterAnimation(String characterName, CHARACTER_STATE state, int animationIndex, Direction direction) {
+	public CharacterAnimation(String characterName, CHARACTER_STATE state, String animationIndex, Direction direction) {
 		this.characterName = characterName;
 		this.state = state;
 		this.animationIndex = animationIndex;
@@ -37,7 +37,7 @@ public class CharacterAnimation implements AnimationName {
 		resetTimer();
 	}
 
-	public void changeAnimationIndex(int newAnimationIndex) {
+	public void changeAnimationIndex(String newAnimationIndex) {
 		animationIndex = newAnimationIndex;
 		rebuildName();
 		resetTimer();
@@ -76,7 +76,7 @@ public class CharacterAnimation implements AnimationName {
 		timeRunning += delta;
 	}
 
-	public boolean updateData(String characterName, int animationIndex, Direction direction, CHARACTER_STATE state) {
+	public boolean updateData(String characterName, String animationIndex, Direction direction, CHARACTER_STATE state) {
 		boolean changed = false;
 		if (!characterName.equals(this.characterName)) {
 			changed = true;

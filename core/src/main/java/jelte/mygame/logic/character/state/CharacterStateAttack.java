@@ -42,8 +42,7 @@ public class CharacterStateAttack implements CharacterState {
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
+		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;

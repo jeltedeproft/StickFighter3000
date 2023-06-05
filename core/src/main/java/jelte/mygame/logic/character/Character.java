@@ -101,9 +101,6 @@ public class Character {
 		case UP_PRESSED:
 			characterStateManager.handleEvent(EVENT.JUMP_PRESSED);
 			break;
-		case ATTACK_PRESSED:
-			characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
-			break;
 		case BLOCK_PRESSED:
 			characterStateManager.handleEvent(EVENT.BLOCK_PRESSED);
 			break;
@@ -124,6 +121,10 @@ public class Character {
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
+			break;
+		case ATTACK_PRESSED:
+			characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));// ;TODO : also have windup phase for attacks??
+			characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
 			break;
 		case CAST_PRESSED:
 			spellsPreparedToCast.addLast(SpellFileReader.getSpellData().get((int) message.getValue()));

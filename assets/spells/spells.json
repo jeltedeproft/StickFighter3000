@@ -1,6 +1,31 @@
 [
 	{
 		"id": 0,
+		"name": "attack",
+		"spriteName": "attack",
+		"iconSpriteName": "attackIcon",
+		"coolDown": 10,
+		"type": "DAMAGE_AREA",
+		"duration": 2,
+		"speed": 0,
+		"spellSound": "ATTACK",
+		"goesTroughObstacles": false,
+		"affects": ENEMY,
+		"damage": 15,
+		"range": 5,
+		"areaOfEffectRange": 2,
+		"polygonPoints": "0,0 60,0 60,35 0,35"
+		"infoText": "attack!.",
+		"windupFullTime": 1f,
+		"windupFrameDuration": 1f,
+		"loopFullTime": 0.2f,
+		"loopFrameDuration": 0.2f,
+		"endFullTime": 0.2f,
+		"endFrameDuration": 0.2f,
+		"animationSpeed": 0.1f
+	},
+	{
+		"id": 1,
 		"name": "fireball",
 		"spriteName": "fireball",
 		"iconSpriteName": "fireballIcon",

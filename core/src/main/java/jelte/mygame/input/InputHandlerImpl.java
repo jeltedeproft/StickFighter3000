@@ -91,7 +91,7 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.TELEPORT_PRESSED));
 		}
 		if (keycode == KeyBindings.getBinding(Constants.KEY_SPELL0)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 0));
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 1));// TODO configure thi snumber somehow
 		}
 		return true;
 	}
@@ -114,7 +114,7 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_UNPRESSED));
 		}
 		if (keycode == KeyBindings.getBinding(Constants.KEY_SPELL0)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_RELEASED, 0));
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_RELEASED, 1));// TODO configure thi snumber somehow
 		}
 		return true;
 	}

@@ -98,4 +98,22 @@ public class UtilityFunctions {
 		return random.nextInt(from, to);
 	}
 
+	public static <T> T getRandomValueFromSet(Set<T> set) {
+		if (set.isEmpty()) {
+			throw new IllegalArgumentException("Set cannot be empty.");
+		}
+
+		int randomIndex = random.nextInt(set.size());
+		int currentIndex = 0;
+		for (T value : set) {
+			if (currentIndex == randomIndex) {
+				return value;
+			}
+			currentIndex++;
+		}
+
+		// This line will never be reached, but required to satisfy Java's compiler
+		return null;
+	}
+
 }
