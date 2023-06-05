@@ -16,9 +16,12 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 			statick.calculateOverlapPlayer(character.getRectangle());
 			character.setCollided(true);
 			character.move(0, statick.getOverlapY());
-			character.getVelocity().y = 0;
-			character.getAcceleration().y = 0;
-
+			if (character.getVelocity().y < 0) {
+				character.getVelocity().y = 0;
+			}
+			if (character.getAcceleration().y < 0) {
+				character.getAcceleration().y = 0;
+			}
 		}
 
 		// spell
@@ -26,8 +29,12 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 			statick.calculateOverlapPlayer(spell.getRectangle());
 			spell.setCollided(true);
 			spell.move(0, statick.getOverlapY());
-			spell.getVelocity().y = 0;
-			spell.getAcceleration().y = 0;
+			if (spell.getVelocity().y < 0) {
+				spell.getVelocity().y = 0;
+			}
+			if (spell.getAcceleration().y < 0) {
+				spell.getAcceleration().y = 0;
+			}
 
 		}
 	}

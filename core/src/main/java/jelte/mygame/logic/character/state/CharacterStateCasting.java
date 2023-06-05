@@ -24,7 +24,7 @@ public class CharacterStateCasting implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_CAST_%s", characterStateManager.getCharacter().getName().toUpperCase())));
-		// TODO create spell
+		characterStateManager.getCharacter().getSpellsreadyToCast().addLast(characterStateManager.getCharacter().getSpellsPreparedToCast().removeFirst());
 	}
 
 	@Override
@@ -42,8 +42,7 @@ public class CharacterStateCasting implements CharacterState {
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
+		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;

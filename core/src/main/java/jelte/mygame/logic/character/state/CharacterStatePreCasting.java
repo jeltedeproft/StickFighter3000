@@ -39,10 +39,11 @@ public class CharacterStatePreCasting implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
+			characterStateManager.getCharacter().getSpellsPreparedToCast().clear();
+			characterStateManager.getCharacter().getSpellsreadyToCast().clear();
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
+		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;

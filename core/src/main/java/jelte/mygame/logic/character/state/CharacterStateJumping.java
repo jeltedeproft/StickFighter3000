@@ -1,4 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
+
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -40,8 +42,7 @@ public class CharacterStateJumping implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			break;
-		case LEFT_UNPRESSED:
-		case RIGHT_UNPRESSED:
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
 			break;

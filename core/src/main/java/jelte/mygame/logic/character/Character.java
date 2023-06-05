@@ -3,6 +3,7 @@ package jelte.mygame.logic.character;
 import java.util.Objects;
 import java.util.UUID;
 
+import com.badlogic.gdx.utils.Queue;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.Message;
@@ -10,6 +11,8 @@ import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.physics.CharacterPhysicsComponent;
+import jelte.mygame.logic.spells.SpellData;
+import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,10 +28,14 @@ public class Character {
 	protected boolean dead;
 	protected CharacterStateManager characterStateManager;
 	protected CharacterPhysicsComponent physicsComponent;
+	protected Queue<SpellData> spellsPreparedToCast;
+	protected Queue<SpellData> spellsreadyToCast;
 
 	public Character(CharacterData data, UUID id) {
 		this.id = id;
 		this.data = data;
+		spellsPreparedToCast = new Queue<>();
+		spellsreadyToCast = new Queue<>();
 		characterStateManager = new CharacterStateManager(this);
 		physicsComponent = new CharacterPhysicsComponent(id, Constants.PLAYER_START.cpy());
 		currentHp = data.getMaxHP();
@@ -119,6 +126,7 @@ public class Character {
 			characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 			break;
 		case CAST_PRESSED:
+			spellsPreparedToCast.addLast(SpellFileReader.getSpellData().get((int) message.getValue()));
 			characterStateManager.handleEvent(EVENT.CAST_PRESSED);
 			break;
 		default:

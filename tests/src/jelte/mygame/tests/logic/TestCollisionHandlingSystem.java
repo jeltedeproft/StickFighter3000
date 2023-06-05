@@ -20,13 +20,13 @@ import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)
 public class TestCollisionHandlingSystem {
-	private CollisionHandlingSystem collisionhandlingSystem;
-	private Array<Character> bodies;
-	private Array<Spell> spells;
-	private Set<CollisionPair> pairs;
+	private static CollisionHandlingSystem collisionhandlingSystem;
+	private static Array<Character> bodies;
+	private static Array<Spell> spells;
+	private static Set<CollisionPair> pairs;
 
 	@BeforeClass
-	public void beforeAllTests() {
+	public static void beforeAllTests() {
 		CharacterFileReader.loadUnitStatsInMemory();
 		bodies = new Array<>();
 		spells = new Array<>();

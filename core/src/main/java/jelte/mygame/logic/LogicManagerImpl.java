@@ -20,7 +20,6 @@ import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
-import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.logic.spells.SpellManager;
 
 public class LogicManagerImpl implements LogicManager {
@@ -47,7 +46,7 @@ public class LogicManagerImpl implements LogicManager {
 		Set<CollisionPair> collisionPairs = collisionDetectionSystem.getCollidingpairs();
 		collisionhandlingSystem.handleCollisions(collisionPairs, characterManager.getAllCharacters(), spellManager.getAllSpells());
 		characterManager.update(delta);
-		spellManager.update(delta);
+		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());
 
 		collisionDetectionSystem.updateSpatialMesh(characterManager.getAllCharacterbodies());
 		collisionDetectionSystem.updateSpatialMesh(spellManager.getAllSpellBodies());
@@ -85,7 +84,6 @@ public class LogicManagerImpl implements LogicManager {
 			break;
 		case CAST_PRESSED:
 			characterManager.getPlayer().receiveMessage(message);
-			spellManager.createSpell(SpellFileReader.getSpellData().get((int) message.getValue()), characterManager.getPlayer(), mousePosition);
 			break;
 		case SEND_BLOCKING_OBJECTS:
 			blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());

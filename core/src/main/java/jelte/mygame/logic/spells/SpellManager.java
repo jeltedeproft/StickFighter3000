@@ -16,6 +16,7 @@ public class SpellManager {
 	private Array<Collidable> bodies;
 	private SpellFactoryRegistry registry;
 	private SpellFactorySelector selector;
+	private Vector2 mousePosition = new Vector2(0, 0);
 
 	public SpellManager() {
 		spells = new Array<>();
@@ -28,12 +29,32 @@ public class SpellManager {
 
 	}
 
-	public void createSpell(SpellData spellData, Character player, Vector2 mousePosition) {
+	public void update(float delta, Vector2 mousePosition, Array<Character> characters) {
+		characters.forEach(this::updateCharacter);
+		this.mousePosition.x = mousePosition.x;
+		this.mousePosition.y = mousePosition.y;
+		spells.forEach(spell -> spell.update(delta));
+		final Iterator<Spell> iterator = spells.iterator();
+		while (iterator.hasNext()) {
+			final Spell spell = iterator.next();
+			if (spell.isComplete()) {
+				bodies.removeValue(spell.getPhysicsComponent(), false);
+				iterator.remove();
+			}
+		}
+	}
+
+	private void updateCharacter(Character character) {
+		if (!character.getSpellsreadyToCast().isEmpty()) {
+			createSpell(character.getSpellsreadyToCast().removeFirst(), character, mousePosition);
+		}
+	}
+
+	public void createSpell(SpellData spellData, Character character, Vector2 mousePosition) {
 		SpellFactory factory = selector.selectFactory(spellData);
-		Spell spell = factory.createSpell(spellData, player, mousePosition);
+		Spell spell = factory.createSpell(spellData, character, mousePosition);
 		spells.add(spell);
 		bodies.add(spell.getPhysicsComponent());
-
 	}
 
 	public void removeSpell(Spell spell) {
@@ -56,18 +77,6 @@ public class SpellManager {
 
 	public Array<Collidable> getAllSpellBodies() {
 		return bodies;
-	}
-
-	public void update(float delta) {
-		spells.forEach(spell -> spell.update(delta));
-		final Iterator<Spell> iterator = spells.iterator();
-		while (iterator.hasNext()) {
-			final Spell spell = iterator.next();
-			if (spell.isComplete()) {
-				bodies.removeValue(spell.getPhysicsComponent(), false);
-				iterator.remove();
-			}
-		}
 	}
 
 	@Override
