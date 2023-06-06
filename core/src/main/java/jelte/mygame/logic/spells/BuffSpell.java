@@ -9,8 +9,8 @@ import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class BuffSpell extends AbstractSpell {
 
-	public BuffSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
-		super(spellData, casterPosition, mousePosition);
+	public BuffSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition, UUID casterId) {
+		super(spellData, casterPosition, mousePosition, casterId);
 	}
 
 	@Override

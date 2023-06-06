@@ -232,31 +232,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		}
 	}
 
-	private void playMusic(boolean isLooping, String fullFilePath, float volume, Vector2 pos) {
-		StreamedSoundSource music = createMusic(isLooping, fullFilePath, volume);
-		music.setPosition(new Vector3(pos.x, pos.y, 0));
-		music.play();
-	}
-
-	private void playMusic(boolean isLooping, String fullFilePath, float volume) {
-		StreamedSoundSource music = createMusic(isLooping, fullFilePath, volume);
-		music.play();
-	}
-
-	private StreamedSoundSource createMusic(boolean isLooping, String fullFilePath, float volume) {
-		StreamedSoundSource music = songs.get(fullFilePath);
-		if (music != null) {
-			music.setLooping(isLooping);
-			music.setVolume(volume);
-		} else {
-			music = new StreamedSoundSource(Gdx.files.internal(fullFilePath));
-			music.setLooping(isLooping);
-			music.setVolume(volume);
-			songs.put(fullFilePath, music);
-		}
-		return music;
-	}
-
 	private void playLoopedSound(String fullFilePath, float volume) {
 		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
 		if (sound != null) {

@@ -1,5 +1,7 @@
 package jelte.mygame.logic.character;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import com.badlogic.gdx.utils.Array;
@@ -49,8 +51,8 @@ public class CharacterManager {
 		return allCharacters;
 	}
 
-	public Array<Collidable> getAllCharacterbodies() {
-		Array<Collidable> characterbodies = new Array<>();
+	public Set<Collidable> getAllCharacterbodies() {
+		Set<Collidable> characterbodies = new HashSet<>();
 		characterbodies.add(player.getPhysicsComponent());
 		for (Character enemy : enemies) {
 			characterbodies.add(enemy.getPhysicsComponent());

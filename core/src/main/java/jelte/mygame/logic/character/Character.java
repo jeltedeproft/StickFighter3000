@@ -123,7 +123,7 @@ public class Character {
 			characterStateManager.handleEvent(EVENT.TELEPORT_PRESSED);
 			break;
 		case ATTACK_PRESSED:
-			characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));// ;TODO : also have windup phase for attacks??
+			characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
 			characterStateManager.handleEvent(EVENT.ATTACK_PRESSED);
 			break;
 		case CAST_PRESSED:

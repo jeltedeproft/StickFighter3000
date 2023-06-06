@@ -137,6 +137,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 //		debugRectangles();
 //		debugStaticObjects();
+		debugSpells();
 
 		// debug info player
 		batch.begin();
@@ -235,10 +236,18 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.dispose();
 	}
 
-	private void debugRectangles() {
+	private void debugPlayer() {
 		batch.begin();
 		GraphicalUtility.drawDebugRectangle(player.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
-		// GraphicalUtility.drawDebugRectangle(enemy.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
+		batch.end();
+	}
+
+	private void debugSpells() {
+		batch.begin();
+		for (AbstractSpell spell : spellsToRender) {
+			GraphicalUtility.drawDebugRectangle(spell.getPhysicsComponent().getRectangle(), 3, Color.YELLOW, gameViewport.getCamera().combined);
+		}
+
 		batch.end();
 	}
 

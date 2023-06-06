@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
@@ -15,22 +14,7 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 	private SpatialMesh spatialMesh;
 
 	@Override
-	public void addToSpatialMesh(Collidable collidable) {// TODO shouldnt know about spatialMesh, just executreCollisions and check inside spatialmesh if new characters needto be added or updated
-		spatialMesh.addCollidable(collidable);
-	}
-
-	@Override
-	public void updateSpatialMesh(Collidable collidable) {
-		spatialMesh.updateCollidable(collidable);
-	}
-
-	@Override
-	public void addToSpatialMesh(Array<Collidable> collidables) {
-		spatialMesh.addCollidables(collidables);
-	}
-
-	@Override
-	public void updateSpatialMesh(Array<Collidable> collidables) {
+	public void updateSpatialMesh(Set<Collidable> collidables) {
 		spatialMesh.updateCollidables(collidables);
 	}
 
@@ -79,6 +63,11 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 	@Override
 	public void reset() {
 		spatialMesh.removeAllCollidables();
+	}
+
+	@Override
+	public void initializeStatickCollidables(Set<Collidable> blockingObjects) {
+		spatialMesh.initializeStatickCollidables(blockingObjects);
 	}
 
 }

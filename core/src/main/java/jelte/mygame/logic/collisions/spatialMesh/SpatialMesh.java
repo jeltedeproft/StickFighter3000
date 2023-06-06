@@ -2,7 +2,6 @@ package jelte.mygame.logic.collisions.spatialMesh;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -26,12 +25,12 @@ public class SpatialMesh {
 	private float mapHeight;
 	private SpatialMeshCell[][] spatialMesh;
 	private Set<CellPoint> cellsWithDynamicCollidables;
-	private Set<UUID> idsInPlay;
+	private Set<Collidable> collidablesInPlay;
 
 	public SpatialMesh(Vector2 mapBoundaries) {
 		mapWidth = mapBoundaries.x;
 		mapHeight = mapBoundaries.y;
-		idsInPlay = new HashSet<>();
+		collidablesInPlay = new HashSet<>();
 		cellsWithDynamicCollidables = new HashSet<>();
 		numberofCellsX = (int) Math.ceil(mapBoundaries.x / Constants.SPATIAL_MESH_CELL_SIZE);
 		numberofCellsY = (int) Math.ceil(mapBoundaries.y / Constants.SPATIAL_MESH_CELL_SIZE);
@@ -43,21 +42,9 @@ public class SpatialMesh {
 		}
 	}
 
-	public void addCollidables(Array<Collidable> collidables) {
+	public void initializeStatickCollidables(Set<Collidable> collidables) {
 		for (Collidable collidable : collidables) {
 			addCollidable(collidable);
-		}
-	}
-
-	public void addCollidable(Collidable collidable) {
-		Rectangle rect = collidable.getRectangle();
-		Set<CellPoint> collidedPoints = getCollidingCells(rect);
-		for (CellPoint point : collidedPoints) {
-			spatialMesh[point.x][point.y].addCollidable(collidable);
-			if (collidable.isDynamic()) {
-				idsInPlay.add(collidable.getId());
-				cellsWithDynamicCollidables.add(point);
-			}
 		}
 	}
 
@@ -81,7 +68,7 @@ public class SpatialMesh {
 	}
 
 	public void removeAllCollidables() {
-		idsInPlay.clear();
+		collidablesInPlay.clear();
 		for (int x = 0; x < numberofCellsX; x++) {
 			for (int y = 0; y < numberofCellsY; y++) {
 				spatialMesh[x][y].removeAll();
@@ -89,8 +76,8 @@ public class SpatialMesh {
 		}
 	}
 
-	public void removeDynamicCollidable(Collidable collidable) {
-		idsInPlay.remove(collidable.getId());
+	private void removeCollidable(Collidable collidable) {
+		collidablesInPlay.remove(collidable);
 		Rectangle rect = collidable.getRectangle();
 		Set<CellPoint> collidedPoints = getCollidingCells(rect);
 		removeCollidableFrom(collidable, collidedPoints);
@@ -113,18 +100,9 @@ public class SpatialMesh {
 		return spatialMesh[getCellX(x)][getCellY(y)].getStaticCollidables();
 	}
 
-	public void updateCollidables(Array<Collidable> collidables) {
-		// Find removed objects
-		Set<UUID> removed = new HashSet<>(idsInPlay);
-		Set<UUID> updatedSet = new HashSet<>();
-		collidables.forEach(c -> updatedSet.add(c.getId()));
-		removed.removeAll(updatedSet);
-		removed.forEach(id -> idsInPlay.remove(id));
-
-		// Find added objects
-		Set<UUID> added = new HashSet<>(updatedSet);
-		added.removeAll(idsInPlay);
-		added.forEach(id -> idsInPlay.add(id));
+	public void updateCollidables(Set<Collidable> collidables) {
+		removeOldCollidables(collidables);
+		addNewCollidables(collidables);
 
 		for (Collidable collidable : collidables) {
 			if (collidable.hasMoved()) {
@@ -133,7 +111,35 @@ public class SpatialMesh {
 		}
 	}
 
-	public void updateCollidable(Collidable collidable) {
+	private void removeOldCollidables(Set<Collidable> collidables) {
+		Set<Collidable> removed = new HashSet<>(collidablesInPlay);
+		Set<Collidable> updatedSet = new HashSet<>();
+		collidables.forEach(c -> updatedSet.add(c));
+		removed.removeAll(updatedSet);
+		removed.forEach(this::removeCollidable);
+	}
+
+	private void addNewCollidables(Set<Collidable> collidables) {
+		for (Collidable c : collidables) {
+			if (!collidablesInPlay.contains(c)) {
+				addCollidable(c);
+			}
+		}
+	}
+
+	private void addCollidable(Collidable collidable) {
+		Rectangle rect = collidable.getRectangle();
+		Set<CellPoint> collidedPoints = getCollidingCells(rect);
+		for (CellPoint point : collidedPoints) {
+			spatialMesh[point.x][point.y].addCollidable(collidable);
+			if (collidable.isDynamic()) {
+				collidablesInPlay.add(collidable);
+				cellsWithDynamicCollidables.add(point);
+			}
+		}
+	}
+
+	private void updateCollidable(Collidable collidable) {
 		// old cells
 		Vector2 oldPosition = collidable.getOldPosition();
 		Rectangle oldRect = new Rectangle(collidable.getRectangle());

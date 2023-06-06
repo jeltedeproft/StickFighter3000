@@ -9,8 +9,8 @@ import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class DamageAreaSpell extends AbstractSpell {
 
-	public DamageAreaSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
-		super(spellData, casterPosition, mousePosition);
+	public DamageAreaSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition, UUID casterId) {
+		super(spellData, casterPosition, mousePosition, casterId);
 	}
 
 	@Override
@@ -25,8 +25,8 @@ public class DamageAreaSpell extends AbstractSpell {
 
 	@Override
 	public void applyCollisionEffect(Character character) {
-		// TODO Auto-generated method stub
-
+		if (character.getId() != casterId) {
+			character.damage(1f);
+		}
 	}
-
 }

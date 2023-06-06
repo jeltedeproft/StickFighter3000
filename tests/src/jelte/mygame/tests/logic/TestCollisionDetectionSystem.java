@@ -34,19 +34,22 @@ public class TestCollisionDetectionSystem {
 	private CollisionDetectionSystemImpl collisionSystem;
 	private CharacterPhysicsComponent characterBody;
 	private StaticBlockBot bottomBlock;
+	private Set<Collidable> collidables;
 
 	@Before
 	public void beforeEverytest() {
+		collidables = new HashSet<>();
 		collisionSystem = new CollisionDetectionSystemImpl();
 		collisionSystem.initSpatialMesh(new Vector2(100, 100));
 		bottomBlock = new StaticBlockBot(0, 0, 100, 10);
-		collisionSystem.addToSpatialMesh(bottomBlock);
+		collidables.add(bottomBlock);
 	}
 
 	private void addPlayer(Vector2 startPos) {
 		characterBody = new CharacterPhysicsComponent(UUID.randomUUID(), startPos);
 		characterBody.setDimensions(10, 10);
-		collisionSystem.addToSpatialMesh(characterBody);
+		collidables.add(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 	}
 
 	@Test
@@ -95,28 +98,27 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyMoveLeftIntoWall() {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setVelocity(new Vector2(-10, 0));
-		Array<Collidable> blockingObjects = new Array<>();
 		StaticBlockLeft blockLeft = new StaticBlockLeft(0, 0, 10, 100);
-		blockingObjects.add(blockLeft);
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(blockLeft);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		expectedcollidedPairs.add(new CollisionPair(characterBody, blockLeft));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
@@ -128,31 +130,30 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyStartInWall() {
 		addPlayer(new Vector2(0, 0));
 		characterBody.setVelocity(new Vector2(15, 0));
-		Array<Collidable> blockingObjects = new Array<>();
 		StaticBlockLeft blockLeft = new StaticBlockLeft(0, 0, 50, 100);
-		blockingObjects.add(blockLeft);
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(blockLeft);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		expectedcollidedPairs.add(new CollisionPair(characterBody, blockLeft));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		expectedcollidedPairs.add(new CollisionPair(characterBody, blockLeft));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		expectedcollidedPairs.add(new CollisionPair(characterBody, blockLeft));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
@@ -164,28 +165,27 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyMoveRightIntoWall() {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setVelocity(new Vector2(15, 0));
-		Array<Collidable> blockingObjects = new Array<>();
 		StaticBlockRight blockRight = new StaticBlockRight(50, 0, 50, 100);
-		blockingObjects.add(blockRight);
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(blockRight);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		expectedcollidedPairs.add(new CollisionPair(characterBody, blockRight));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
@@ -197,13 +197,12 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyMoveRightIntoWallRealisticTimestep() {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setVelocity(new Vector2(15, 0));
-		Array<Collidable> blockingObjects = new Array<>();
-		blockingObjects.add(new StaticBlockRight(50, 0, 50, 100));
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(new StaticBlockRight(50, 0, 50, 100));
+		collisionSystem.updateSpatialMesh(collidables);
 		Array<Set<CollisionPair>> positions = new Array<>();
 		for (int i = 0; i < 1000; i++) {
 			characterBody.update(0.01f);
-			collisionSystem.updateSpatialMesh(characterBody);
+			collisionSystem.updateSpatialMesh(collidables);
 			Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 			positions.add(collidedPairs);
 		}
@@ -229,20 +228,19 @@ public class TestCollisionDetectionSystem {
 	public void mainStuckInWall() {
 		addPlayer(new Vector2(40, 10));
 		characterBody.setVelocity(new Vector2(15, 0));
-		Array<Collidable> blockingObjects = new Array<>();
-		blockingObjects.add(new StaticBlockRight(50, 0, 10, 100));
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(new StaticBlockRight(50, 0, 10, 100));
+		collisionSystem.updateSpatialMesh(collidables);
 		Array<Set<CollisionPair>> positions = new Array<>();
 		for (int i = 0; i < 500; i++) {
 			characterBody.update(0.01f);
-			collisionSystem.updateSpatialMesh(characterBody);
+			collisionSystem.updateSpatialMesh(collidables);
 			Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 			positions.add(collidedPairs);
 		}
 		characterBody.setVelocity(new Vector2(-15, 0));
 		for (int i = 0; i < 500; i++) {
 			characterBody.update(0.01f);
-			collisionSystem.updateSpatialMesh(characterBody);
+			collisionSystem.updateSpatialMesh(collidables);
 			Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 			positions.add(collidedPairs);
 		}
@@ -268,13 +266,12 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyAccelerateRightIntoWallRealisticTimestep() {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setAcceleration(new Vector2(Constants.MOVEMENT_SPEED, 0));
-		Array<Collidable> blockingObjects = new Array<>();
-		blockingObjects.add(new StaticBlockRight(50, 0, 10, 100));
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(new StaticBlockRight(50, 0, 10, 100));
+		collisionSystem.updateSpatialMesh(collidables);
 		Array<Set<CollisionPair>> positions = new Array<>();
 		for (int i = 0; i < 1000; i++) {
 			characterBody.update(0.01f);
-			collisionSystem.updateSpatialMesh(characterBody);
+			collisionSystem.updateSpatialMesh(collidables);
 			Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 			positions.add(collidedPairs);
 		}
@@ -302,13 +299,12 @@ public class TestCollisionDetectionSystem {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setAcceleration(new Vector2(0, 11));
 		characterBody.setVelocity(new Vector2(0, 20));
-		Array<Collidable> blockingObjects = new Array<>();
-		blockingObjects.add(new StaticBlockTop(0, 50, 100, 50));
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(new StaticBlockTop(0, 50, 100, 50));
+		collisionSystem.updateSpatialMesh(collidables);
 		Array<Set<CollisionPair>> positions = new Array<>();
 		for (int i = 0; i < 1000; i++) {
 			characterBody.update(0.05f);
-			collisionSystem.updateSpatialMesh(characterBody);
+			collisionSystem.updateSpatialMesh(collidables);
 			Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 			positions.add(collidedPairs);
 		}
@@ -334,26 +330,25 @@ public class TestCollisionDetectionSystem {
 	@Test
 	public void mainBodyStandStillOnPlatform() {
 		addPlayer(new Vector2(15, 60));
-		Array<Collidable> blockingObjects = new Array<>();
 		StaticBlockPlatform platform = new StaticBlockPlatform(10, 50, 30, 10);
-		blockingObjects.add(platform);
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(platform);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, platform));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
@@ -364,25 +359,25 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyMoveRightOnPlatform() {
 		addPlayer(new Vector2(15, 60));
 		characterBody.setVelocity(new Vector2(15, 0));
-		collisionSystem.updateSpatialMesh(characterBody);
 		StaticBlockPlatform platform = new StaticBlockPlatform(10, 50, 30, 10);
-		collisionSystem.addToSpatialMesh(platform);
+		collidables.add(platform);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, platform));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
@@ -393,15 +388,14 @@ public class TestCollisionDetectionSystem {
 	public void mainBodyJumpIntoCeiling() {
 		addPlayer(new Vector2(25, 10));
 		characterBody.setVelocity(new Vector2(0, 40));
-		Array<Collidable> blockingObjects = new Array<>();
 		StaticBlockTop blockTop = new StaticBlockTop(0, 50, 100, 50);
-		blockingObjects.add(blockTop);
-		collisionSystem.addToSpatialMesh(blockingObjects);
+		collidables.add(blockTop);
+		collisionSystem.updateSpatialMesh(collidables);
 		Set<CollisionPair> collidedPairs = collisionSystem.getCollidingpairs();
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
@@ -414,19 +408,19 @@ public class TestCollisionDetectionSystem {
 		Set<CollisionPair> expectedcollidedPairs = new HashSet<>();
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 		characterBody.update(1f);
-		collisionSystem.updateSpatialMesh(characterBody);
+		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
 		expectedcollidedPairs.add(new CollisionPair(characterBody, bottomBlock));

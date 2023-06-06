@@ -1,5 +1,8 @@
 package jelte.mygame.graphical;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,7 +12,6 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.StringBuilder;
 
@@ -33,7 +35,7 @@ public class MapManager implements Disposable {
 	private MapProperties mapProperties;
 	private float currentMapWidth;
 	private float currentMapHeight;
-	private Array<StaticBlock> blockingRectangles;
+	private Set<StaticBlock> blockingRectangles;
 
 	public MapManager(SpriteBatch batch) {
 		AssetManagerUtility.loadMapAsset(Constants.DEFAULT_MAP_PATH);
@@ -62,8 +64,8 @@ public class MapManager implements Disposable {
 		renderer.dispose();
 	}
 
-	public Array<StaticBlock> getRectanglesFromObjectLayer(MapLayer objectLayer) {
-		Array<StaticBlock> rectangles = new Array<>();
+	public Set<StaticBlock> getRectanglesFromObjectLayer(MapLayer objectLayer) {
+		Set<StaticBlock> rectangles = new HashSet<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
 			if (object instanceof RectangleMapObject rectangleObject) {

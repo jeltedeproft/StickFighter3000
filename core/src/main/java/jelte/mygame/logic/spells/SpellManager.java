@@ -1,6 +1,8 @@
 package jelte.mygame.logic.spells;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Vector2;
@@ -13,14 +15,14 @@ import jelte.mygame.utility.Constants;
 
 public class SpellManager {
 	private Array<Spell> spells;
-	private Array<Collidable> bodies;
+	private Set<Collidable> bodies;
 	private SpellFactoryRegistry registry;
 	private SpellFactorySelector selector;
 	private Vector2 mousePosition = new Vector2(0, 0);
 
 	public SpellManager() {
 		spells = new Array<>();
-		bodies = new Array<>();
+		bodies = new HashSet<>();
 		registry = new SpellFactoryRegistry();
 		selector = new SpellFactorySelector();
 		registry.registerFactory(Constants.SPELL_CATEGORY_PROJECTILE, new ProjectileSpellFactory());
@@ -38,7 +40,7 @@ public class SpellManager {
 		while (iterator.hasNext()) {
 			final Spell spell = iterator.next();
 			if (spell.isComplete()) {
-				bodies.removeValue(spell.getPhysicsComponent(), false);
+				bodies.remove(spell.getPhysicsComponent());
 				iterator.remove();
 			}
 		}
@@ -46,20 +48,20 @@ public class SpellManager {
 
 	private void updateCharacter(Character character) {
 		if (!character.getSpellsreadyToCast().isEmpty()) {
-			createSpell(character.getSpellsreadyToCast().removeFirst(), character, mousePosition);
+			createSpell(character.getSpellsreadyToCast().removeFirst(), character, mousePosition, character.getId());
 		}
 	}
 
-	public void createSpell(SpellData spellData, Character character, Vector2 mousePosition) {
+	public void createSpell(SpellData spellData, Character character, Vector2 mousePosition, UUID casterId) {
 		SpellFactory factory = selector.selectFactory(spellData);
-		Spell spell = factory.createSpell(spellData, character, mousePosition);
+		Spell spell = factory.createSpell(spellData, character, mousePosition, casterId);
 		spells.add(spell);
 		bodies.add(spell.getPhysicsComponent());
 	}
 
 	public void removeSpell(Spell spell) {
 		spells.removeValue(spell, false);
-		bodies.removeValue(spell.getPhysicsComponent(), false);
+		bodies.remove(spell.getPhysicsComponent());
 	}
 
 	public Spell getSpellById(UUID id) {
@@ -75,7 +77,7 @@ public class SpellManager {
 		return spells;
 	}
 
-	public Array<Collidable> getAllSpellBodies() {
+	public Set<Collidable> getAllSpellBodies() {
 		return bodies;
 	}
 

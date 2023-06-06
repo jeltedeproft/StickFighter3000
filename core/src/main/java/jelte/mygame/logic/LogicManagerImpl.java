@@ -1,11 +1,11 @@
 package jelte.mygame.logic;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
@@ -30,11 +30,13 @@ public class LogicManagerImpl implements LogicManager {
 	private CollisionHandlingSystem collisionhandlingSystem;
 	private CharacterManager characterManager;
 	private SpellManager spellManager;
-	private Array<Collidable> blockingObjects;
+	private Set<Collidable> blockingObjects;
+	private Set<Collidable> allCollidables;
 	private Vector2 mousePosition = new Vector2();
 
 	public LogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
+		allCollidables = new HashSet<>();
 		collisionDetectionSystem = new CollisionDetectionSystemImpl();
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
@@ -49,8 +51,10 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.update(delta);
 		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());
 
-		collisionDetectionSystem.updateSpatialMesh(characterManager.getAllCharacterbodies());
-		collisionDetectionSystem.updateSpatialMesh(spellManager.getAllSpellBodies());
+		allCollidables.clear();
+		allCollidables.addAll(characterManager.getAllCharacterbodies());
+		allCollidables.addAll(spellManager.getAllSpellBodies());
+		collisionDetectionSystem.updateSpatialMesh(allCollidables);
 
 		characterManager.getEnemies().forEach(enemy -> listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_ENEMY, enemy)));
 		listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.RENDER_PLAYER, characterManager.getPlayer()));
@@ -67,11 +71,10 @@ public class LogicManagerImpl implements LogicManager {
 			mousePosition.x = mouseVector.x;
 			mousePosition.y = mouseVector.y;
 		}
-		case SEND_BLOCKING_OBJECTS -> blockingObjects = new Array<>((Array<StaticBlock>) message.getValue());
+		case SEND_BLOCKING_OBJECTS -> blockingObjects = new HashSet<>((Set<StaticBlock>) message.getValue());
 		case SEND_MAP_DIMENSIONS -> {
 			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
-			collisionDetectionSystem.addToSpatialMesh(characterManager.getAllCharacterbodies());
-			collisionDetectionSystem.addToSpatialMesh(blockingObjects);
+			collisionDetectionSystem.initializeStatickCollidables(blockingObjects);
 		}
 		default -> {}
 

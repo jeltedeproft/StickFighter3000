@@ -331,7 +331,7 @@ public class TestCharacterStates {
 	@Test
 	public void testPreCastUpdate() {
 		switchToPreCastingState();
-		characterStateManager.update(1000);
+		characterStateManager.update(0.3f);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.CAST);
 	}
 

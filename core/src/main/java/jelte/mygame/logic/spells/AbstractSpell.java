@@ -17,6 +17,7 @@ import lombok.Setter;
 public abstract class AbstractSpell implements Spell {
 	protected SpellData data;
 	protected UUID id;
+	protected UUID casterId;
 	protected float timeAlive = 0f;
 	protected boolean complete = false;
 	protected SpellStateManager spellStateManager;
@@ -24,8 +25,9 @@ public abstract class AbstractSpell implements Spell {
 
 	// TODO use a pool, bc we have many objects here.
 
-	protected AbstractSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
+	protected AbstractSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition, UUID casterId) {
 		id = UUID.randomUUID();
+		this.casterId = casterId;
 		this.data = spellData;
 		spellStateManager = new SpellStateManager(this);
 		physicsComponent = createSpellPhysicsComponent(id, casterPosition.cpy(), mousePosition, spellData.getSpeed(), data.isGoesTroughObstacles());

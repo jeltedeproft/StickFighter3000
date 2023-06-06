@@ -9,8 +9,8 @@ import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class DefaultSpell extends AbstractSpell {
 
-	public DefaultSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition) {
-		super(spellData, casterPosition, mousePosition);
+	public DefaultSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition, UUID casterId) {
+		super(spellData, casterPosition, mousePosition, casterId);
 	}
 
 	@Override
