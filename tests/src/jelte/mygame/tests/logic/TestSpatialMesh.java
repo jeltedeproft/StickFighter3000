@@ -52,16 +52,19 @@ public class TestSpatialMesh {
 	private StaticBlock testBlockPlatform50Width;
 
 	private Set<Collidable> collidables;
+	private Set<Collidable> staticCollidables;
 
 	@Before
 	public void beforeEveryTest() {
 		collidables = new HashSet<>();
+		staticCollidables = new HashSet<>();
 		spatialMesh = new SpatialMesh(new Vector2(WIDTH, HEIGHT));
 		testPhysicsComponent1 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent2 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent3 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent4 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testSpellPhysicsComponent1 = new SpellPhysicsComponent(testPhysicsComponent1.getId(), SpellsEnum.ATTACK, new Vector2(0, 0), true);
+		testSpellPhysicsComponent1.setDimensions(10, 10);
 		testPhysicsComponent1.setDimensions(10, 10);
 		testPhysicsComponent2.setDimensions(10, 10);
 		testPhysicsComponent3.setDimensions(10, 10);
@@ -118,8 +121,9 @@ public class TestSpatialMesh {
 	public void test2Characters1Spell1Static() {
 		collidables.add(testPhysicsComponent1);
 		collidables.add(testPhysicsComponent2);
-		collidables.add(testBlockBottom10High);
 		collidables.add(testSpellPhysicsComponent1);
+		staticCollidables.add(testBlockBottom10High);
+		spatialMesh.initializeStatickCollidables(staticCollidables);
 		spatialMesh.updateCollidables(collidables);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
@@ -379,13 +383,14 @@ public class TestSpatialMesh {
 
 	@Test
 	public void testAddStaticBlockMultipleTimes() {
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
-		collidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		spatialMesh.initializeStatickCollidables(staticCollidables);
 		spatialMesh.updateCollidables(collidables);
 		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
 		expectedStaticArraySizes.put(new CellPoint(5, 5), 1);
@@ -406,7 +411,8 @@ public class TestSpatialMesh {
 
 	@Test
 	public void testStaticArraysFilledBlock() {
-		collidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockPlatform50Width);
+		spatialMesh.initializeStatickCollidables(staticCollidables);
 		spatialMesh.updateCollidables(collidables);
 		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
 		expectedStaticArraySizes.put(new CellPoint(5, 5), 1);
@@ -426,11 +432,12 @@ public class TestSpatialMesh {
 
 	@Test
 	public void testStaticArraysFilled5BlocksDifferentPlaces() {
-		collidables.add(testBlockBottom10High);
-		collidables.add(testBlockLeft10Width);
-		collidables.add(testBlockRight10Width);
-		collidables.add(testBlockTop10High);
-		collidables.add(testBlockPlatform50Width);
+		staticCollidables.add(testBlockBottom10High);
+		staticCollidables.add(testBlockLeft10Width);
+		staticCollidables.add(testBlockRight10Width);
+		staticCollidables.add(testBlockTop10High);
+		staticCollidables.add(testBlockPlatform50Width);
+		spatialMesh.initializeStatickCollidables(staticCollidables);
 		spatialMesh.updateCollidables(collidables);
 		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
 		expectedStaticArraySizes.put(new CellPoint(0, 0), 2);
