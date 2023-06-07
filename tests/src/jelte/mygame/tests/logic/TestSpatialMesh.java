@@ -189,7 +189,6 @@ public class TestSpatialMesh {
 				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 			}
 		}
-
 	}
 
 	@Test
