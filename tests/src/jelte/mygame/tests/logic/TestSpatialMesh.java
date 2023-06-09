@@ -125,14 +125,33 @@ public class TestSpatialMesh {
 		staticCollidables.add(testBlockBottom10High);
 		spatialMesh.initializeStatickCollidables(staticCollidables);
 		spatialMesh.updateCollidables(collidables);
+		Map<CellPoint, Integer> expectedStaticArraySizes = new HashMap<>();
+		expectedStaticArraySizes.put(new CellPoint(0, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(1, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(2, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(3, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(4, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(5, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(6, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(7, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(8, 0), 1);
+		expectedStaticArraySizes.put(new CellPoint(9, 0), 1);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
+				CellPoint testPoint = new CellPoint(i, j);
 				if (i == 0 && j == 0) {
-					Assert.assertEquals(4, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 3, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 1, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
 				} else {
-					Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+					if (expectedStaticArraySizes.containsKey(testPoint)) {
+						Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+						Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					} else {
+						Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
+						Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+					}
 				}
-				Assert.assertEquals(0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+
 			}
 		}
 
@@ -140,6 +159,7 @@ public class TestSpatialMesh {
 		testPhysicsComponent2.setPosition(new Vector2(160, 160));
 		spatialMesh.updateCollidables(collidables);
 		Map<CellPoint, Integer> expectedDynamicArraySizes = new HashMap<>();
+		expectedDynamicArraySizes.put(new CellPoint(0, 0), 1);
 		expectedDynamicArraySizes.put(new CellPoint(5, 5), 2);
 		for (int i = 0; i < spatialMesh.getNumberofCellsX(); i++) {
 			for (int j = 0; j < spatialMesh.getNumberofCellsY(); j++) {
@@ -149,10 +169,13 @@ public class TestSpatialMesh {
 				} else {
 					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getDynamicCollidables().size());
 				}
-				Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				if (expectedStaticArraySizes.containsKey(testPoint)) {
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), (int) expectedStaticArraySizes.get(testPoint), spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				} else {
+					Assert.assertEquals(String.format("for (%d,%d)", i, j), 0, spatialMesh.getSpatialMesh()[i][j].getStaticCollidables().size());
+				}
 			}
 		}
-
 	}
 
 	@Test
