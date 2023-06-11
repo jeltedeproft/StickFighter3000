@@ -32,9 +32,8 @@ public class ProjectileSpell extends AbstractSpell {
 	}
 
 	@Override
-	protected void updateSpell(Vector2 casterPosition, Vector2 mousePosition) {
-		// TODO Auto-generated method stub
-
+	protected void updateSpell(float delta, Vector2 casterPosition, Vector2 mousePosition) {
+		physicsComponent.update(delta);
 	}
 
 }

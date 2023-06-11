@@ -25,6 +25,8 @@ public abstract class AbstractSpell implements Spell {
 	protected SpellStateManager spellStateManager;
 	protected SpellPhysicsComponent physicsComponent;
 
+	protected abstract void updateSpell(float delta, Vector2 casterPosition, Vector2 mousePosition);
+
 	// TODO use a pool, bc we have many objects here.
 
 	protected AbstractSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
@@ -32,21 +34,16 @@ public abstract class AbstractSpell implements Spell {
 		this.casterId = caster.getId();
 		this.data = spellData;
 		spellStateManager = new SpellStateManager(this);
-		physicsComponent = createSpellPhysicsComponent(id, caster.getPhysicsComponent().getPosition().cpy(), mousePosition, spellData.getSpeed(), data.isGoesTroughObstacles());
 	}
-
-	protected abstract SpellPhysicsComponent createSpellPhysicsComponent(UUID spellId, Vector2 casterPosition, Vector2 mousePosition, float speed, boolean goesTroughObstacles);
-
-	protected abstract void updateSpell(Vector2 casterPosition, Vector2 mousePosition);
 
 	@Override
 	public void update(float delta, Character caster, Vector2 mousePosition) {
-		updateSpell(caster.getPhysicsComponent().getPosition(), mousePosition);
-		physicsComponent.update(delta);
 		timeAlive += delta;
 		if (timeAlive > data.getDuration()) {
 			complete = true;
 		}
+		updateSpell(delta, caster.getPhysicsComponent().getPosition(), mousePosition);
+
 	}
 
 	@Override
