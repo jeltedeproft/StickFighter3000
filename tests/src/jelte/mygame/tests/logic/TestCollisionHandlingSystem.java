@@ -15,7 +15,7 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.spells.Spell;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)

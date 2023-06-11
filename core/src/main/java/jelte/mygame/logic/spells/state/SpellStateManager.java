@@ -3,8 +3,8 @@ package jelte.mygame.logic.spells.state;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.spells.AbstractSpell;
 import jelte.mygame.logic.spells.SpellData;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 
 public class SpellStateManager {
 	private SpellState currentSpellState;

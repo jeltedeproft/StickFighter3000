@@ -42,7 +42,7 @@ public interface PhysicsComponent extends Collidable {
 
 	public float getHeight();
 
-	public UUID getPlayerReference();
+	public UUID getOwnerReference();
 
 	@Override
 	public boolean equals(Object obj);

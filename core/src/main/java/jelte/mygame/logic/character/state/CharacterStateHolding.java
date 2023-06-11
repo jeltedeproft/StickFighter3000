@@ -1,7 +1,10 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.utility.Constants;
 
 public class CharacterStateHolding implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -13,14 +16,16 @@ public class CharacterStateHolding implements CharacterState {
 
 	@Override
 	public void entry() {
-		// TODO Auto-generated method stub
+		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y = -Constants.GRAVITY.y;
+		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = 0;
+		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x = 0;
 
 	}
 
 	@Override
 	public void update(float delta) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -37,7 +42,6 @@ public class CharacterStateHolding implements CharacterState {
 			break;
 		default:
 			break;
-
 		}
 	}
 

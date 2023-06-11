@@ -1,4 +1,7 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
+
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -6,6 +9,7 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateFalling implements CharacterState {
@@ -23,9 +27,26 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0) {
+		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
+		for (COLLIDABLE_TYPE type : collidedWith) {
+			System.out.println("collided with : " + type + " during falling");
+		}
+		if (collidedWithCorner(collidedWith)) {
+			characterStateManager.transition(CHARACTER_STATE.GRABBING);
+		} else if (collidedWithWall(collidedWith)) {
+			characterStateManager.transition(CHARACTER_STATE.HOLDING);
+		} else if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false)) {
 			characterStateManager.transition(CHARACTER_STATE.LANDING);
 		}
+
+	}
+
+	private boolean collidedWithWall(Array<COLLIDABLE_TYPE> collidedWith) {
+		return collidedWith.contains(COLLIDABLE_TYPE.STATIC_LEFT, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_RIGHT, false);
+	}
+
+	private boolean collidedWithCorner(Array<COLLIDABLE_TYPE> collidedWith) {
+		return collidedWith.contains(COLLIDABLE_TYPE.STATIC_LEFT, false) && collidedWith.contains(COLLIDABLE_TYPE.STATIC_TOP, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_RIGHT, false) && collidedWith.contains(COLLIDABLE_TYPE.STATIC_TOP, false);
 	}
 
 	@Override
@@ -38,8 +59,7 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			break;
-		case LEFT_UNPRESSED:
-		case RIGHT_UNPRESSED:
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
 			break;

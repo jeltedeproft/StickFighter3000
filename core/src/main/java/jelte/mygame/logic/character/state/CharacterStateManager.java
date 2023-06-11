@@ -143,6 +143,7 @@ public class CharacterStateManager {
 	public void update(float delta) {
 		currentCharacterState.update(delta);
 		updateStateChange();
+		character.getPhysicsComponent().getCollidedWith().clear();
 	}
 
 	private void updateStateChange() {

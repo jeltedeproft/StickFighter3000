@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.spells.AbstractSpell;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.UtilityFunctions;
 

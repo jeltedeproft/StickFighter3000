@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
@@ -15,7 +16,7 @@ import lombok.Setter;
 @Setter
 public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidable {
 	private static final String TAG = PhysicsComponentImpl.class.getSimpleName();
-	protected UUID playerReference;
+	protected UUID ownerReference;
 	protected Vector2 oldPosition;
 	protected Vector2 position;
 	protected Vector2 newPosition;
@@ -23,12 +24,14 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	protected Vector2 acceleration;
 	protected Rectangle rectangle;
 	protected boolean collided;
+	protected Array<COLLIDABLE_TYPE> collidedWith;
 	protected boolean hasMoved;
 	protected float width;
 	protected float height;
 
 	protected PhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
-		this.playerReference = playerReference;
+		collidedWith = new Array<>();
+		this.ownerReference = playerReference;
 		this.position = startPosition.cpy();
 		this.oldPosition = startPosition.cpy();
 		this.newPosition = new Vector2();
@@ -40,6 +43,11 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	@Override
 	public void setVelocityY(float y) {
 		velocity.y = y;
+	}
+
+	public void setCollided(boolean collided, COLLIDABLE_TYPE type) {
+		this.collided = collided;
+		collidedWith.add(type);
 	}
 
 	@Override
@@ -86,7 +94,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(playerReference);
+		return Objects.hash(ownerReference);
 	}
 
 	@Override
@@ -98,12 +106,16 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 			return false;
 		}
 		PhysicsComponentImpl other = (PhysicsComponentImpl) obj;
-		return Objects.equals(playerReference, other.playerReference);
+		return Objects.equals(ownerReference, other.ownerReference);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+
+		sb.append("id : ");
+		sb.append(ownerReference);
+		sb.append("\n");
 
 		sb.append("position : ");
 		sb.append(position);
@@ -134,7 +146,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 
 	@Override
 	public UUID getId() {
-		return playerReference;
+		return ownerReference;
 	}
 
 	@Override

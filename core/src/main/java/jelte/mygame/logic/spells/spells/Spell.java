@@ -1,6 +1,8 @@
-package jelte.mygame.logic.spells;
+package jelte.mygame.logic.spells.spells;
 
 import java.util.UUID;
+
+import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.PhysicsComponent;
@@ -15,7 +17,7 @@ public interface Spell {
 		FRIENDLY, ENEMY, BOTH, NONE
 	}
 
-	public void update(float delta);
+	public void update(float delta, Character caster, Vector2 mousePosition);
 
 	public UUID getId();
 

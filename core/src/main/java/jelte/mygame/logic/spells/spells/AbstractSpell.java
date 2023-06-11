@@ -1,4 +1,4 @@
-package jelte.mygame.logic.spells;
+package jelte.mygame.logic.spells.spells;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -6,8 +6,10 @@ import java.util.UUID;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.PhysicsComponent;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
+import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,18 +27,21 @@ public abstract class AbstractSpell implements Spell {
 
 	// TODO use a pool, bc we have many objects here.
 
-	protected AbstractSpell(SpellData spellData, Vector2 casterPosition, Vector2 mousePosition, UUID casterId) {
+	protected AbstractSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
 		id = UUID.randomUUID();
-		this.casterId = casterId;
+		this.casterId = caster.getId();
 		this.data = spellData;
 		spellStateManager = new SpellStateManager(this);
-		physicsComponent = createSpellPhysicsComponent(id, casterPosition.cpy(), mousePosition, spellData.getSpeed(), data.isGoesTroughObstacles());
+		physicsComponent = createSpellPhysicsComponent(id, caster.getPhysicsComponent().getPosition().cpy(), mousePosition, spellData.getSpeed(), data.isGoesTroughObstacles());
 	}
 
 	protected abstract SpellPhysicsComponent createSpellPhysicsComponent(UUID spellId, Vector2 casterPosition, Vector2 mousePosition, float speed, boolean goesTroughObstacles);
 
+	protected abstract void updateSpell(Vector2 casterPosition, Vector2 mousePosition);
+
 	@Override
-	public void update(float delta) {
+	public void update(float delta, Character caster, Vector2 mousePosition) {
+		updateSpell(caster.getPhysicsComponent().getPosition(), mousePosition);
 		physicsComponent.update(delta);
 		timeAlive += delta;
 		if (timeAlive > data.getDuration()) {
@@ -91,8 +96,9 @@ public abstract class AbstractSpell implements Spell {
 		StringBuilder sb = new StringBuilder();
 		sb.append("name: ");
 		sb.append(data.getName());
-		sb.append("id: ");
+		sb.append(", id: ");
 		sb.append(id);
+		sb.append("\n");
 		return sb.toString();
 	}
 

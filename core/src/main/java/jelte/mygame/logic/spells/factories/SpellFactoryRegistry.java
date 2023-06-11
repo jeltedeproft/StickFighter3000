@@ -1,4 +1,4 @@
-package jelte.mygame.logic.spells;
+package jelte.mygame.logic.spells.factories;
 
 import java.util.HashMap;
 import java.util.Map;

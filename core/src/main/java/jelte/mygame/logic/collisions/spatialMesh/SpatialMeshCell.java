@@ -40,6 +40,8 @@ public class SpatialMeshCell {
 	public void removeAll() {
 		staticCollidables.clear();
 		dynamicCollidables.clear();
+		containsStatic = false;
+		containsDynamic = false;
 	}
 
 	public void removeCollidable(Collidable collidable) {

@@ -69,6 +69,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 
+		System.out.println("direction in update = " + direction);
 		if (direction.x < 0) {
 			rectangle.x -= rectangle.width;
 		}

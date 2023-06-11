@@ -15,13 +15,13 @@ public class StaticPlatformCollisionStrategy implements CollisionStrategy {
 		if (object2 instanceof CharacterPhysicsComponent character) {
 			statick.calculateOverlapPlayer(character.getRectangle());
 			if (!character.isFallTrough() && character.getVelocity().y < 0) {
-				character.setCollided(true);
+				character.setCollided(true, statick.getType());
 				character.move(0, statick.getOverlapY());
 				character.getVelocity().y = 0;
 				character.getAcceleration().y = 0;
 			}
 			if (character.isFallTrough()) {
-				character.setCollided(true);
+				character.setCollided(true, statick.getType());
 				character.move(0, -statick.getOverlapY() * 3);
 			}
 

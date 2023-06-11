@@ -81,7 +81,7 @@ public class CharacterManager {
 		if (body.isCollided()) {
 			body.setCollided(false);
 		} else {
-			getCharacterById(body.getPlayerReference()).getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
+			getCharacterById(body.getOwnerReference()).getCurrentCharacterState().handleEvent(EVENT.NO_COLLISION);
 		}
 	}
 

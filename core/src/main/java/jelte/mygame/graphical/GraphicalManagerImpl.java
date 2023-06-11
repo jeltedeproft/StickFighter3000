@@ -30,7 +30,7 @@ import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
-import jelte.mygame.logic.spells.AbstractSpell;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.GraphicalUtility;
@@ -135,7 +135,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		renderUI();
 
-//		debugRectangles();
+//		debugPlayer();
 //		debugStaticObjects();
 		debugSpells();
 

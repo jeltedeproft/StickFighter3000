@@ -1,6 +1,8 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -8,6 +10,7 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateWallSliding implements CharacterState {
@@ -21,11 +24,18 @@ public class CharacterStateWallSliding implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SLIDE);
+		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y = -10;
+		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = -5;
+		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x = 0;
 	}
 
 	@Override
 	public void update(float delta) {
-
+		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
+		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false)) {
+			characterStateManager.transition(CHARACTER_STATE.LANDING);
+		}
 	}
 
 	@Override
@@ -44,8 +54,7 @@ public class CharacterStateWallSliding implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
+		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
 			break;
@@ -55,9 +64,6 @@ public class CharacterStateWallSliding implements CharacterState {
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
-			break;
-		case NO_COLLISION:
-			characterStateManager.transition(CHARACTER_STATE.FALLING);
 			break;
 		default:
 			break;

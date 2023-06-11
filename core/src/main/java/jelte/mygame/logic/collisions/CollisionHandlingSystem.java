@@ -18,7 +18,7 @@ import jelte.mygame.logic.collisions.strategy.StaticLeftCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticPlatformCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticRightCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticTopCollisionStrategy;
-import jelte.mygame.logic.spells.Spell;
+import jelte.mygame.logic.spells.spells.Spell;
 
 public class CollisionHandlingSystem {
 	private Map<COLLIDABLE_TYPE, CollisionStrategy> collisionStrategies;
@@ -46,11 +46,17 @@ public class CollisionHandlingSystem {
 			} else if (COLLIDABLE_TYPE.isStatic(type2)) {
 				CollisionStrategy collisionStrategy = collisionStrategies.get(type2);
 				collisionStrategy.resolvePossibleCollision(collidable2, collidable1);
-			} else if (isCollisionWithSpell(type1)) {
+			} else if (isCollisionWithSpell(type1, type2)) {
 				Spell spell = getSpellById(allSpells, collidable1.getId());
+				if (spell == null) {
+					int j = 5;
+				}
 				Character character = getCharacterById(allCharacters, collidable2.getId());
+				if (character == null) {
+					int j = 5;
+				}
 				spell.applyCollisionEffect(character);
-			} else if (isCollisionWithSpell(type2)) {
+			} else if (isCollisionWithSpell(type2, type1)) {
 				Spell spell = getSpellById(allSpells, collidable2.getId());
 				Character character = getCharacterById(allCharacters, collidable1.getId());
 				spell.applyCollisionEffect(character);
@@ -58,8 +64,8 @@ public class CollisionHandlingSystem {
 		}
 	}
 
-	private boolean isCollisionWithSpell(COLLIDABLE_TYPE type) {
-		return COLLIDABLE_TYPE.isSpell(type);
+	private boolean isCollisionWithSpell(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
+		return COLLIDABLE_TYPE.isSpell(type1) && COLLIDABLE_TYPE.isCharacter(type2);
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {
@@ -72,10 +78,14 @@ public class CollisionHandlingSystem {
 
 	private Spell getSpellById(Array<Spell> spells, UUID id) {
 		Stream<Spell> stream = StreamSupport.stream(spells.spliterator(), false);
-		return stream
+		Spell spellToReturn = stream
 				.filter(spell -> spell.getId().equals(id))
 				.findFirst()
 				.orElse(null);
+		if (spellToReturn == null) {
+			int j = 5;
+		}
+		return spellToReturn;
 	}
 
 }

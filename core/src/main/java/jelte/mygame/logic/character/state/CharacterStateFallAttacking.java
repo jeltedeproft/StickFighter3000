@@ -1,4 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
+
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -6,6 +8,7 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.utility.Constants;
 
 public class CharacterStateFallAttacking implements CharacterState {
@@ -21,6 +24,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_FALLSTRIKE);
 		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y -= Constants.FALL_ATTACK_SPEED_BOOST;
 		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y -= Constants.FALL_ATTACK_SPEED_BOOST;
+		characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(1));// ;TODO make bounding box size of spell same as chosen attack animation
 	}
 
 	@Override
@@ -40,8 +44,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
 			break;
-		case LEFT_UNPRESSED:
-		case RIGHT_UNPRESSED:
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
 			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
 			break;

@@ -14,8 +14,8 @@ public class StaticLeftCollisionStrategy implements CollisionStrategy {
 		// character
 		if (object2 instanceof CharacterPhysicsComponent character) {
 
-			character.setCollided(true);
 			statick.calculateOverlapPlayer(character.getRectangle());
+			character.setCollided(true, statick.getType());
 			character.move(statick.getOverlapX(), 0);
 			character.getVelocity().x = 0;
 			character.getAcceleration().x = 0;

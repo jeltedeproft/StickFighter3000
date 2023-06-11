@@ -8,6 +8,7 @@ import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.spells.SpellFileReader;
 
 public class CharacterStateAttack implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -24,6 +25,7 @@ public class CharacterStateAttack implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
+		characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
 	}
 
 	@Override
