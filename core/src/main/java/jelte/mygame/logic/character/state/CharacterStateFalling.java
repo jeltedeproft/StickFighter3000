@@ -28,9 +28,6 @@ public class CharacterStateFalling implements CharacterState {
 	@Override
 	public void update(float delta) {
 		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
-		for (COLLIDABLE_TYPE type : collidedWith) {
-			System.out.println("collided with : " + type + " during falling");
-		}
 		if (collidedWithCorner(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.GRABBING);
 		} else if (collidedWithWall(collidedWith)) {

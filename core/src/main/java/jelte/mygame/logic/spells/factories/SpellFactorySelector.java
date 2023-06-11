@@ -8,7 +8,7 @@ public class SpellFactorySelector {
 		return switch (SpellsEnum.values()[spellData.getId()]) {
 		case ATTACK -> new AoeSpellFactory();
 		case FALLATTACK -> new AoeSpellFactory();
-		case FIREBALL -> new ProjectileSpellFactory();
+		case FIREBALL -> new ProjectileSpellFactory();// TODO dont create a new factory every time
 		default -> new DefaultSpellFactory();
 		};
 	}

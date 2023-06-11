@@ -18,12 +18,15 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	private boolean goesTroughObjects;
 	private SpellsEnum spellsEnum;
 
-	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition, boolean goesTroughObjects) {
+	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition, boolean goesTroughObjects, Vector2 direction) {
 		super(playerReference, startPosition);
 		this.goesTroughObjects = goesTroughObjects;
 		this.spellsEnum = spellsEnum;
-		direction = new Vector2(1, 0);
+		this.direction = direction;
 		rectangle = new Rectangle(position.x, position.y, width, height);
+		if (direction.x < 0) {
+			rectangle.x -= rectangle.width;
+		}
 	}
 
 	@Override
@@ -69,7 +72,6 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 
-		System.out.println("direction in update = " + direction);
 		if (direction.x < 0) {
 			rectangle.x -= rectangle.width;
 		}

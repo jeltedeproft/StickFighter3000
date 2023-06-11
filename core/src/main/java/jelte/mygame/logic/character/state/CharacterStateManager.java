@@ -2,7 +2,6 @@ package jelte.mygame.logic.character.state;
 
 import java.util.Stack;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
@@ -162,7 +161,6 @@ public class CharacterStateManager {
 	public void transition(CHARACTER_STATE state) {
 		stateChanged = true;
 		previousCharacterState = currentCharacterState.getState();
-		Gdx.app.debug(TAG, String.format("transitioning from %s to %s", previousCharacterState, state));
 		currentCharacterState.exit();
 		switch (state) {
 		case APPEARING:

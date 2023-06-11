@@ -60,11 +60,6 @@ public class SpellManager {
 		bodies.add(spell.getPhysicsComponent());
 	}
 
-	public void removeSpell(Character character, Spell spell) {
-		charactersWithSpells.get(character).removeValue(spell, false);
-		bodies.remove(spell.getPhysicsComponent());
-	}
-
 	public Array<Spell> getAllSpells() {
 		Array<Spell> spells = new Array<>();
 		charactersWithSpells.forEach((k, v) -> spells.addAll(v));

@@ -9,15 +9,9 @@ import jelte.mygame.logic.physics.PhysicsComponent;
 
 public interface Spell {
 
-	public enum SPELL_TYPE {
-		LASER, ON_MOUSE, PROJECTILE, OBJECT, SHIELD, EFFECT, SUMMON
-	}
-
-	public enum AFFECTS {
-		FRIENDLY, ENEMY, BOTH, NONE
-	}
-
 	public void update(float delta, Character caster, Vector2 mousePosition);
+
+	public void applyEffect(Character character);
 
 	public UUID getId();
 
@@ -29,6 +23,12 @@ public interface Spell {
 
 	public boolean isComplete();
 
-	public void applyCollisionEffect(Character character);
+	public enum SPELL_TYPE {
+		PROJECTILE, BUFF, AOE, SUMMON
+	}
+
+	public enum AFFECTS {
+		FRIENDLY, ENEMY, BOTH, NONE
+	}
 
 }

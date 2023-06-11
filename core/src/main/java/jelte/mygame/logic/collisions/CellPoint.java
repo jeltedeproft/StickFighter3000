@@ -63,7 +63,7 @@ public class CellPoint implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("%s[x=%d,y=%d]", getClass().getName(), x, y);
+		return String.format("[x=%d,y=%d]", x, y);
 	}
 
 }

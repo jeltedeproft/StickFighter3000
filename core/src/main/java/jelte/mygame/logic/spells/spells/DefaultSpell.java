@@ -20,14 +20,14 @@ public class DefaultSpell extends AbstractSpell {
 		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
 		Vector2 velocity = direction.scl(speed);
 
-		physicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition.cpy(), data.isGoesTroughObstacles());
+		physicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition.cpy(), data.isGoesTroughObstacles(), direction);
 		physicsComponent.setVelocity(velocity);
 		physicsComponent.setDirection(direction);
 		return physicsComponent;
 	}
 
 	@Override
-	public void applyCollisionEffect(Character character) {
+	public void applyEffect(Character character) {
 		// TODO Auto-generated method stub
 
 	}

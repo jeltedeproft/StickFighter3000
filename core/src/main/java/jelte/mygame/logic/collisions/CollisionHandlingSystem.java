@@ -49,17 +49,27 @@ public class CollisionHandlingSystem {
 			} else if (isCollisionWithSpell(type1, type2)) {
 				Spell spell = getSpellById(allSpells, collidable1.getId());
 				if (spell == null) {
+					System.out.println("null spell id = " + collidable1.getId());
 					int j = 5;
 				}
 				Character character = getCharacterById(allCharacters, collidable2.getId());
 				if (character == null) {
+					System.out.println("null chaarcter id = " + collidable2.getId());
 					int j = 5;
 				}
-				spell.applyCollisionEffect(character);
+				spell.applyEffect(character);
 			} else if (isCollisionWithSpell(type2, type1)) {
 				Spell spell = getSpellById(allSpells, collidable2.getId());
+				if (spell == null) {
+					System.out.println("null spell id = " + collidable2.getId());
+					int j = 5;
+				}
 				Character character = getCharacterById(allCharacters, collidable1.getId());
-				spell.applyCollisionEffect(character);
+				if (character == null) {
+					System.out.println("null chaarcter id = " + collidable1.getId());
+					int j = 5;
+				}
+				spell.applyEffect(character);
 			}
 		}
 	}
@@ -70,10 +80,14 @@ public class CollisionHandlingSystem {
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {
 		Stream<Character> stream = StreamSupport.stream(characters.spliterator(), false);
-		return stream
+		Character characterToReturn = stream
 				.filter(character -> character.getId().equals(id))
 				.findFirst()
 				.orElse(null);
+		if (characterToReturn == null) {
+			int j = 5;
+		}
+		return characterToReturn;
 	}
 
 	private Spell getSpellById(Array<Spell> spells, UUID id) {
