@@ -1,7 +1,5 @@
 package jelte.mygame.logic.spells.spells;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.Character;
@@ -12,19 +10,17 @@ import jelte.mygame.logic.spells.SpellsEnum;
 
 public class AoeSpell extends AbstractSpell {
 	private Vector2 direction;
+	private Vector2 startPosition;
+	private boolean followsCaster;
 
-	public AoeSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
-		super(spellData, caster, mousePosition);
-		physicsComponent.setDirection(direction);
-	}
-
-	@Override
-	protected SpellPhysicsComponent createSpellPhysicsComponent(UUID spellId, Vector2 casterPosition, Vector2 mousePosition, float speed, boolean goesTroughObstacles) {
-		Vector2 velocity = new Vector2(0, 0);
+	public AoeSpell(SpellData spellData, Character caster, Vector2 startPosition, boolean followsCaster) {
+		super(spellData, caster);
+		this.startPosition = startPosition;
+		this.followsCaster = followsCaster;
+		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], startPosition);
 		direction = caster.getPhysicsComponent().getDirection().equals(Direction.left) ? new Vector2(-1, 0) : new Vector2(1, 0);
-		physicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition.cpy(), data.isGoesTroughObstacles(), direction);
-		physicsComponent.setVelocity(velocity);
-		return physicsComponent;
+		newPhysicsComponent.setDirection(direction);
+		physicsComponent = newPhysicsComponent;
 	}
 
 	@Override
@@ -35,7 +31,9 @@ public class AoeSpell extends AbstractSpell {
 	}
 
 	@Override
-	protected void updateSpell(Vector2 casterPosition, Vector2 mousePosition) {
-		//
+	protected void updateSpell(float delta, Character character, Vector2 mousePosition) {
+		if (followsCaster) {
+			physicsComponent.setPosition(character.getPhysicsComponent().getPosition().cpy());
+		}
 	}
 }

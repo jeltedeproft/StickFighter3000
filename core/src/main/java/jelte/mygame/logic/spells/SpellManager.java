@@ -14,19 +14,19 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.spells.factories.SpellFactory;
-import jelte.mygame.logic.spells.factories.SpellFactorySelector;
+import jelte.mygame.logic.spells.factories.SpellFactoryRegistry;
 import jelte.mygame.logic.spells.spells.Spell;
 
 public class SpellManager {
 	private Map<Character, Array<Spell>> charactersWithSpells;
 	private Set<Collidable> bodies;
-	private SpellFactorySelector selector;
+	private SpellFactoryRegistry registry;
 	private Vector2 mousePosition = new Vector2(0, 0);
 
 	public SpellManager() {
 		charactersWithSpells = new HashMap<>();
 		bodies = new HashSet<>();
-		selector = new SpellFactorySelector();
+		registry = new SpellFactoryRegistry();
 	}
 
 	public void update(float delta, Vector2 mousePosition, Array<Character> characters) {
@@ -53,7 +53,7 @@ public class SpellManager {
 	}
 
 	public void createSpell(SpellData spellData, Character character) {
-		SpellFactory factory = selector.selectFactory(spellData);
+		SpellFactory factory = registry.getFactory(spellData);
 		Spell spell = factory.createSpell(spellData, character, mousePosition);
 		charactersWithSpells.computeIfAbsent(character, value -> new Array<Spell>());
 		charactersWithSpells.get(character).add(spell);

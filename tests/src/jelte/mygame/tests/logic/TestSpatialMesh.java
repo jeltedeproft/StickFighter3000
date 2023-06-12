@@ -63,7 +63,7 @@ public class TestSpatialMesh {
 		testPhysicsComponent2 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent3 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent4 = new CharacterPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
-		testSpellPhysicsComponent1 = new SpellPhysicsComponent(testPhysicsComponent1.getId(), SpellsEnum.ATTACK, new Vector2(0, 0), true);
+		testSpellPhysicsComponent1 = new SpellPhysicsComponent(testPhysicsComponent1.getId(), SpellsEnum.ATTACK, new Vector2(0, 0));
 		testSpellPhysicsComponent1.setDimensions(10, 10);
 		testPhysicsComponent1.setDimensions(10, 10);
 		testPhysicsComponent2.setDimensions(10, 10);

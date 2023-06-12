@@ -32,7 +32,7 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.GRABBING);
 		} else if (collidedWithWall(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.HOLDING);
-		} else if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false)) {
+		} else if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_PLATFORM, false) && !characterStateManager.getCharacter().getPhysicsComponent().isFallTrough()) {
 			characterStateManager.transition(CHARACTER_STATE.LANDING);
 		}
 

@@ -5,7 +5,7 @@
 		"spriteName": "attack",
 		"iconSpriteName": "attackIcon",
 		"coolDown": 10,
-		"type": "DAMAGE_AREA",
+		"type": "AOE",
 		"duration": 0.2f,
 		"speed": 0,
 		"spellSound": "ATTACK",
@@ -22,7 +22,9 @@
 		"loopFrameDuration": 0.2f,
 		"endFullTime": 0.2f,
 		"endFrameDuration": 0.2f,
-		"animationSpeed": 0.1f
+		"animationSpeed": 0.1f,
+		"initialWidth": 32,
+		"initialHeight": 32
 	},
 	{
 		"id": 1,
@@ -30,7 +32,7 @@
 		"spriteName": "fallattack",
 		"iconSpriteName": "fallattackIcon",
 		"coolDown": 10,
-		"type": "DAMAGE_AREA",
+		"type": "AOE",
 		"duration": 0.5f,
 		"speed": 0,
 		"spellSound": "ATTACK",
@@ -47,7 +49,9 @@
 		"loopFrameDuration": 0.2f,
 		"endFullTime": 0.2f,
 		"endFrameDuration": 0.2f,
-		"animationSpeed": 0.1f
+		"animationSpeed": 0.1f,
+		"initialWidth": 32,
+		"initialHeight": 32
 	},
 	{
 		"id": 2,
@@ -72,6 +76,8 @@
 		"loopFrameDuration": 0.2f,
 		"endFullTime": 0.2f,
 		"endFrameDuration": 0.2f,
-		"animationSpeed": 0.1f
+		"animationSpeed": 0.1f,
+		"initialWidth": 32,
+		"initialHeight": 32
 	}
 ]

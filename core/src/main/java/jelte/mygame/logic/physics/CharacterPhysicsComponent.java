@@ -82,4 +82,10 @@ public class CharacterPhysicsComponent extends PhysicsComponentImpl {
 		return false;
 	}
 
+	@Override
+	protected void onDimensionsUpdated() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

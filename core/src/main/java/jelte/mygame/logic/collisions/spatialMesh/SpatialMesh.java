@@ -78,7 +78,7 @@ public class SpatialMesh {
 
 	private void removeCollidable(Collidable collidable) {
 		collidablesInPlay.remove(collidable);
-		System.out.println("removing collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old pos : " + collidable.getOldPosition());
+		System.out.println("removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold pos : " + collidable.getOldPosition());
 		Set<CellPoint> collidedPoints = getCollidingCells(collidable.getRectangle());
 		removeCollidableFrom(collidable, collidedPoints);
 	}
@@ -87,7 +87,9 @@ public class SpatialMesh {
 		for (CellPoint point : collidedPoints) {
 			System.out.println("[" + collidable.getType() + "] removing collidable : " + collidable.getId() + "from : " + point);
 			spatialMesh[point.x][point.y].removeCollidable(collidable);
-			cellsWithDynamicCollidables.remove(new CellPoint(point.x, point.y));
+			if (spatialMesh[point.x][point.y].getDynamicCollidables().size() == 0) {
+				cellsWithDynamicCollidables.remove(new CellPoint(point.x, point.y));
+			}
 		}
 	}
 

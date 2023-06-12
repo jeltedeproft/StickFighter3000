@@ -7,8 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.physics.NullPhysicsComponent;
 import jelte.mygame.logic.physics.PhysicsComponent;
-import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.state.SpellStateManager;
 import lombok.Getter;
@@ -23,16 +23,15 @@ public abstract class AbstractSpell implements Spell {
 	protected float timeAlive = 0f;
 	protected boolean complete = false;
 	protected SpellStateManager spellStateManager;
-	protected SpellPhysicsComponent physicsComponent;
+	protected PhysicsComponent physicsComponent = NullPhysicsComponent.getInstance();
 
-	protected abstract void updateSpell(float delta, Vector2 casterPosition, Vector2 mousePosition);
+	protected abstract void updateSpell(float delta, Character caster, Vector2 mousePosition);
 
-	// TODO use a pool, bc we have many objects here.
-
-	protected AbstractSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
+	// TODO use a pool, because we have many objects here.
+	protected AbstractSpell(SpellData spellData, Character caster) {
 		id = UUID.randomUUID();
-		this.casterId = caster.getId();
-		this.data = spellData;
+		casterId = caster.getId();
+		data = spellData;
 		spellStateManager = new SpellStateManager(this);
 	}
 
@@ -42,8 +41,7 @@ public abstract class AbstractSpell implements Spell {
 		if (timeAlive > data.getDuration()) {
 			complete = true;
 		}
-		updateSpell(delta, caster.getPhysicsComponent().getPosition(), mousePosition);
-
+		updateSpell(delta, caster, mousePosition);
 	}
 
 	@Override
@@ -91,12 +89,11 @@ public abstract class AbstractSpell implements Spell {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("name: ");
-		sb.append(data.getName());
-		sb.append(", id: ");
-		sb.append(id);
-		sb.append("\n");
+		sb.append("name: ")
+				.append(data.getName())
+				.append(", id: ")
+				.append(id)
+				.append("\n");
 		return sb.toString();
 	}
-
 }

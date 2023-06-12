@@ -40,6 +40,8 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 		rectangle = new Rectangle(position.x, position.y, width, height);
 	}
 
+	protected abstract void onDimensionsUpdated();
+
 	@Override
 	public void setVelocityY(float y) {
 		velocity.y = y;
@@ -181,6 +183,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 			this.height = height;
 			rectangle.setWidth(width);
 			rectangle.setHeight(height);
+			onDimensionsUpdated();
 		}
 	}
 }

@@ -30,6 +30,8 @@ public class SpellData {
 	private float loopFrameDuration;
 	private float endFrameDuration;
 	private float animationSpeed;
+	private int initialWidth;
+	private int initialHeight;
 
 	@Override
 	public String toString() {
