@@ -25,7 +25,8 @@ public enum AudioEnum {
 	SOUND_FLYBY,
 	SOUND_FALLSTRIKE,
 	SOUND_PRECAST_SWORDMASTER,
-	SOUND_CAST_SWORDMASTER;
+	SOUND_CAST_SWORDMASTER,
+	SOUND_AMBIENCE_CAVE;
 
 	private static final AudioEnum[] copyOfValues = AudioEnum.values();
 

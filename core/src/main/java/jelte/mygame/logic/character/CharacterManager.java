@@ -12,23 +12,23 @@ import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.physics.PhysicsComponent;
 
 public class CharacterManager {
-	private Character player;
-	private Array<Character> enemies;
+	private PlayerCharacter player;
+	private Array<NpcCharacter> enemies;
 	private Array<PhysicsComponent> bodies;
 
-	public CharacterManager(Character player) {
+	public CharacterManager(PlayerCharacter player) {
 		this.player = player;
 		enemies = new Array<>();
 		bodies = new Array<>();
 		bodies.add(player.getPhysicsComponent());
 	}
 
-	public void addEnemy(Character enemy) {
+	public void addEnemy(NpcCharacter enemy) {
 		enemies.add(enemy);
 		bodies.add(enemy.getPhysicsComponent());
 	}
 
-	public void removeEnemy(Character enemy) {
+	public void removeEnemy(NpcCharacter enemy) {
 		enemies.removeValue(enemy, false);
 		bodies.removeValue(enemy.getPhysicsComponent(), false);
 	}
@@ -60,7 +60,7 @@ public class CharacterManager {
 		return characterbodies;
 	}
 
-	public Array<Character> getEnemies() {
+	public Array<NpcCharacter> getEnemies() {
 		return enemies;
 	}
 
@@ -73,7 +73,8 @@ public class CharacterManager {
 	}
 
 	public void update(float delta) {
-		getAllCharacters().forEach(character -> character.update(delta));
+		player.update(delta);
+		enemies.forEach(enemy -> enemy.update(delta, player));
 		bodies.forEach(this::checkCollision);
 	}
 

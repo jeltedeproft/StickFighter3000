@@ -33,6 +33,9 @@ public class CharacterStateCrouched implements CharacterState {
 		case DOWN_UNPRESSED:
 			characterStateManager.transition(CHARACTER_STATE.IDLE);
 			break;
+		case JUMP_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.JUMPING);
+			break;
 		case LEFT_PRESSED:
 			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED_CROUCHED;
 			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);

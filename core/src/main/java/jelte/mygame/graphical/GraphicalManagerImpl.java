@@ -1,5 +1,8 @@
 package jelte.mygame.graphical;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -52,14 +55,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private SpecialEffectsManager specialEffectsManager;
 	private PlayerCharacter player;
 	private NpcCharacter enemy;
-	private ProgressBar hp;
-	private BitmapFont font;
+	private ProgressBar playerHpBar;
 	private Array<AbstractSpell> spellsToRender;
+	private Map<NpcCharacter, HealthBar> enemyHealthBars;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
 	private Table middleBar = new Table();
 	private Table bottomBar = new Table();
+
+	private BitmapFont font = new BitmapFont();
 
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;
@@ -72,6 +77,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		animationManager = new AnimationManager();
 		font = new BitmapFont();
 		spellsToRender = new Array<>();
+		enemyHealthBars = new HashMap<>();
 		specialEffectsManager = new SpecialEffectsManagerImpl();
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
@@ -91,7 +97,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
 		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
-		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN);
+		// MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_AMBIENCE_CAVE);
 
 		createHud();
 	}
@@ -101,8 +108,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		table.setFillParent(true); // Makes the table fill the entire screen
 		table.setPosition(0, 0);
 
-		hp = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
-		table.add(hp).expand().left().top(); // Positions the button in the center of the table
+		playerHpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
+		table.add(playerHpBar).expand().left().top(); // Positions the button in the center of the table
 
 		uiStage.addActor(table); // Adds the table to the stage
 
@@ -137,7 +144,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 //		debugPlayer();
 //		debugStaticObjects();
-		debugSpells();
+		// debugSpells();
 
 		// debug info player
 		batch.begin();
@@ -169,6 +176,9 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
+			enemyHealthBars.putIfAbsent(enemy, new HealthBar(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getData().getMaxHP(), font));
+			enemyHealthBars.get(enemy).update(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getCurrentHp());
+			enemyHealthBars.get(enemy).draw(batch);
 			NamedSprite sprite = animationManager.getSprite(enemy);
 			enemy.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
@@ -200,7 +210,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_PLAYER:
 			player = (PlayerCharacter) message.getValue();
-			hp.setValue(player.getCurrentHp());
+			playerHpBar.setValue(player.getCurrentHp());
 			break;
 		case RENDER_ENEMY:
 			enemy = (NpcCharacter) message.getValue();

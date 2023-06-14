@@ -107,6 +107,16 @@ public class Constants {
 	public static final float DEFAULT_TEXT_BUTTON_WIDTH = 400.0f;
 	public static final float DEFAULT_TEXT_BUTTON_HEIGHT = 80.0f;
 	public static final float PIXEL_SIZE = 1.0f;
+	public static final String RED_HEALTHBAR_SPRITE_NAME = "redpixel";
+	public static final String BLUE_HEALTHBAR_SPRITE_NAME = "bluepixel";
+	public static final String GREEN_HEALTHBAR_SPRITE_NAME = "greenpixel";
+	public static final String YELLOW_HEALTHBAR_SPRITE_NAME = "yellowpixel";
+	public static final String PURPLE_HEALTHBAR_SPRITE_NAME = "purplepixel";
+	public static final String HEALTHBAR_BORDER_SPRITE_NAME = "graypixel";
+	public static final float MAX_WIDTH_HP_BAR = 100;
+	public static final float BORDER_WIDTH_HP_BAR = 1;
+	public static final float OFFSET_Y_HP_BAR = 70;
+	public static final float MAX_HEIGHT_HP_BAR = 4;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;

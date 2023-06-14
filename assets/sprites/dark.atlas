@@ -2013,6 +2013,13 @@ swordmaster-ATTACKING1-right-effect
   orig: 133, 26
   offset: 0, 0
   index: 1
+bluepixel
+  rotate: false
+  xy: 2154, 316
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
 fallattack-END
   rotate: false
   xy: 1186, 173
@@ -2174,6 +2181,20 @@ fireball-WINDUP
   orig: 16, 16
   offset: 0, 0
   index: 1
+graypixel
+  rotate: false
+  xy: 3357, 396
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+greenpixel
+  rotate: false
+  xy: 137, 19
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
 orby-ATTACKING1-left
   rotate: false
   xy: 2466, 424
@@ -3070,6 +3091,20 @@ orby-RUNNING1-right
   orig: 15, 27
   offset: 0, 0
   index: 1
+purplepixel
+  rotate: false
+  xy: 4093, 509
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+redpixel
+  rotate: false
+  xy: 493, 64
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
 shocker-ATTACKING1-left
   rotate: false
   xy: 3998, 473
@@ -3566,13 +3601,6 @@ shocker-IDLE1-left
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 24
-shocker-IDLE1-left
-  rotate: false
-  xy: 2058, 253
-  size: 37, 42
-  orig: 37, 42
-  offset: 0, 0
   index: 3
 shocker-IDLE1-left
   rotate: false
@@ -3588,6 +3616,13 @@ shocker-IDLE1-left
   orig: 37, 42
   offset: 0, 0
   index: 1
+shocker-IDLE1-left
+  rotate: false
+  xy: 2058, 253
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: 24
 shocker-IDLE1-left
   rotate: false
   xy: 1784, 227
@@ -3706,14 +3741,7 @@ shocker-IDLE1-right
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 3
-shocker-IDLE1-right
-  rotate: false
-  xy: 727, 31
-  size: 37, 42
-  orig: 37, 42
-  offset: 0, 0
-  index: 15
+  index: 2
 shocker-IDLE1-right
   rotate: false
   xy: 727, 31
@@ -3727,7 +3755,14 @@ shocker-IDLE1-right
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 2
+  index: 15
+shocker-IDLE1-right
+  rotate: false
+  xy: 727, 31
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: 3
 shocker-IDLE1-right
   rotate: false
   xy: 1609, 243
@@ -4378,14 +4413,14 @@ swordmaster-ATTACKING2-left-effect
   size: 136, 27
   orig: 136, 27
   offset: 0, 0
-  index: 5
+  index: 1
 swordmaster-ATTACKING2-left-effect
   rotate: false
   xy: 2466, 456
   size: 136, 27
   orig: 136, 27
   offset: 0, 0
-  index: 1
+  index: 5
 swordmaster-ATTACKING2-right-effect
   rotate: false
   xy: 2466, 456
@@ -4658,14 +4693,14 @@ swordmaster-ATTACKING4-left-effect
   size: 108, 24
   orig: 108, 24
   offset: 0, 0
-  index: 6
+  index: 2
 swordmaster-ATTACKING4-left-effect
   rotate: false
   xy: 3588, 418
   size: 108, 24
   orig: 108, 24
   offset: 0, 0
-  index: 2
+  index: 6
 swordmaster-ATTACKING4-right-effect
   rotate: false
   xy: 3588, 418
@@ -5155,7 +5190,14 @@ swordmaster-FALLATTACKING1-lef-effectt
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
-  index: 3
+  index: 7
+swordmaster-FALLATTACKING1-lef-effectt
+  rotate: false
+  xy: 469, 2
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 9
 swordmaster-FALLATTACKING1-lef-effectt
   rotate: false
   xy: 469, 2
@@ -5169,21 +5211,21 @@ swordmaster-FALLATTACKING1-lef-effectt
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
+  index: 3
+swordmaster-FALLATTACKING1-lef-effectt
+  rotate: false
+  xy: 469, 2
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 6
+swordmaster-FALLATTACKING1-right-effect
+  rotate: false
+  xy: 469, 2
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
   index: 7
-swordmaster-FALLATTACKING1-lef-effectt
-  rotate: false
-  xy: 469, 2
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 6
-swordmaster-FALLATTACKING1-lef-effectt
-  rotate: false
-  xy: 469, 2
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 9
 swordmaster-FALLATTACKING1-right-effect
   rotate: false
   xy: 469, 2
@@ -5191,13 +5233,6 @@ swordmaster-FALLATTACKING1-right-effect
   orig: 31, 27
   offset: 0, 0
   index: 9
-swordmaster-FALLATTACKING1-right-effect
-  rotate: false
-  xy: 469, 2
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 6
 swordmaster-FALLATTACKING1-right-effect
   rotate: false
   xy: 469, 2
@@ -5211,7 +5246,7 @@ swordmaster-FALLATTACKING1-right-effect
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
-  index: 7
+  index: 6
 swordmaster-FALLATTACKING1-right-effect
   rotate: false
   xy: 580, 2
@@ -5988,6 +6023,13 @@ swordmaster-ROLLATTACK1-left-effect
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
+  index: 4
+swordmaster-ROLLATTACK1-left-effect
+  rotate: false
+  xy: 4012, 424
+  size: 80, 29
+  orig: 80, 29
+  offset: 0, 0
   index: 5
 swordmaster-ROLLATTACK1-left-effect
   rotate: false
@@ -5995,20 +6037,6 @@ swordmaster-ROLLATTACK1-left-effect
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 4
-swordmaster-ROLLATTACK1-left-effect
-  rotate: false
-  xy: 4012, 424
-  size: 80, 29
-  orig: 80, 29
-  offset: 0, 0
-  index: 3
-swordmaster-ROLLATTACK1-left-effect
-  rotate: false
-  xy: 4012, 424
-  size: 80, 29
-  orig: 80, 29
-  offset: 0, 0
   index: 2
 swordmaster-ROLLATTACK1-left-effect
   rotate: false
@@ -6017,13 +6045,13 @@ swordmaster-ROLLATTACK1-left-effect
   orig: 80, 29
   offset: 0, 0
   index: 1
-swordmaster-ROLLATTACK1-right-effect
+swordmaster-ROLLATTACK1-left-effect
   rotate: false
   xy: 4012, 424
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 1
+  index: 3
 swordmaster-ROLLATTACK1-right-effect
   rotate: false
   xy: 4012, 424
@@ -6045,6 +6073,13 @@ swordmaster-ROLLATTACK1-right-effect
   orig: 80, 29
   offset: 0, 0
   index: 3
+swordmaster-ROLLATTACK1-right-effect
+  rotate: false
+  xy: 4012, 424
+  size: 80, 29
+  orig: 80, 29
+  offset: 0, 0
+  index: 1
 swordmaster-ROLLATTACK1-right-effect
   rotate: false
   xy: 4013, 362
@@ -6612,3 +6647,10 @@ swordmaster-WALLSLIDINGSTOP1-right
   orig: 10, 22
   offset: 0, 0
   index: 3
+yellowpixel
+  rotate: false
+  xy: 3110, 411
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1

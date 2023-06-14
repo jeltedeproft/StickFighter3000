@@ -12,6 +12,8 @@ public class CameraManager {
 	public CameraManager(Camera camera) {
 		this.camera = (OrthographicCamera) camera;
 		cameraPosition = new Vector2(0, 0);
+		this.camera.zoom += 0.4f;
+		this.camera.update();
 	}
 
 	public void update(float mapWidth, float mapHeight, float viewportWidth, float viewportHeight) {
