@@ -63,7 +63,7 @@ public class CharacterPhysicsComponent extends PhysicsComponentImpl {
 	@Override
 	protected void updatePosition(float newX, float newY) {
 		hasMoved = true;
-		oldPosition.set(position);
+		oldRectangle.set(rectangle);
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 

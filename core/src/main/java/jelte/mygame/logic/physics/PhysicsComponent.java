@@ -51,7 +51,7 @@ public interface PhysicsComponent extends Collidable {
 	public int hashCode();
 
 	@Override
-	public Vector2 getOldPosition();
+	public Rectangle getOldRectangle();
 
 	public void move(float x, float y);
 

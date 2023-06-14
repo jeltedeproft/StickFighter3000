@@ -21,7 +21,6 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition) {
 		super(playerReference, startPosition);
 		this.spellsEnum = spellsEnum;
-		rectangle = new Rectangle(position.x, position.y, width, height);
 	}
 
 	@Override
@@ -63,7 +62,8 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	@Override
 	protected void updatePosition(float newX, float newY) {
 		hasMoved = true;
-		oldPosition.set(position);
+		oldRectangle.set(rectangle);
+		System.out.println("setting position to : (" + newX + "," + newY + ")");
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 
@@ -103,8 +103,8 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	}
 
 	@Override
-	public Vector2 getOldPosition() {
-		return oldPosition;
+	public Rectangle getOldRectangle() {
+		return oldRectangle;
 	}
 
 	@Override

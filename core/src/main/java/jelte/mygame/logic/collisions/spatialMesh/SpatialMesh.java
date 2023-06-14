@@ -78,7 +78,7 @@ public class SpatialMesh {
 
 	private void removeCollidable(Collidable collidable) {
 		collidablesInPlay.remove(collidable);
-		System.out.println("removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold pos : " + collidable.getOldPosition());
+		System.out.println("removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold rec : " + collidable.getOldRectangle());
 		Set<CellPoint> collidedPoints = getCollidingCells(collidable.getRectangle());
 		removeCollidableFrom(collidable, collidedPoints);
 	}
@@ -129,7 +129,7 @@ public class SpatialMesh {
 	}
 
 	private void addCollidable(Collidable collidable) {
-		System.out.println("adding collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old pos : " + collidable.getOldPosition());
+		System.out.println("adding collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old rec : " + collidable.getOldRectangle());
 		Rectangle rect = collidable.getRectangle();
 		Set<CellPoint> collidedPoints = getCollidingCells(rect);
 		for (CellPoint point : collidedPoints) {
@@ -144,9 +144,7 @@ public class SpatialMesh {
 
 	private void updateCollidable(Collidable collidable) {
 		// old cells
-		Vector2 oldPosition = collidable.getOldPosition();
-		Rectangle oldRect = new Rectangle(collidable.getRectangle());
-		oldRect.setPosition(oldPosition);
+		Rectangle oldRect = collidable.getOldRectangle();
 		Set<CellPoint> oldCollidedPoints = getCollidingCells(oldRect);
 		// new cells
 		Set<CellPoint> newCollidedPoints = getCollidingCells(collidable.getRectangle());

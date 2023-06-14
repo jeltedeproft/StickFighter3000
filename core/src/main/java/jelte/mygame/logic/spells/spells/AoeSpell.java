@@ -11,12 +11,14 @@ import jelte.mygame.logic.spells.SpellsEnum;
 public class AoeSpell extends AbstractSpell {
 	private Vector2 direction;
 	private Vector2 startPosition;
+	private Vector2 mousePosition;
 	private boolean followsCaster;
 
-	public AoeSpell(SpellData spellData, Character caster, Vector2 startPosition, boolean followsCaster) {
+	public AoeSpell(SpellData spellData, Character caster, Vector2 mousePosition, boolean followsCaster) {
 		super(spellData, caster);
-		this.startPosition = startPosition;
+		this.mousePosition = mousePosition;
 		this.followsCaster = followsCaster;
+		this.startPosition = caster.getPhysicsComponent().getPosition();
 		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], startPosition);
 		direction = caster.getPhysicsComponent().getDirection().equals(Direction.left) ? new Vector2(-1, 0) : new Vector2(1, 0);
 		newPhysicsComponent.setDirection(direction);

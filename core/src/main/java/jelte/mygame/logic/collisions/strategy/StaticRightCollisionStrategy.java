@@ -23,11 +23,6 @@ public class StaticRightCollisionStrategy implements CollisionStrategy {
 
 		// spell
 		if (object2 instanceof SpellPhysicsComponent spell) {
-			statick.calculateOverlapPlayer(spell.getRectangle());
-			spell.setCollided(true);
-			spell.move(-statick.getOverlapX(), 0);
-			spell.getVelocity().x = 0;
-			spell.getAcceleration().x = 0;
 
 		}
 	}

@@ -17,7 +17,7 @@ import lombok.Setter;
 public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidable {
 	private static final String TAG = PhysicsComponentImpl.class.getSimpleName();
 	protected UUID ownerReference;
-	protected Vector2 oldPosition;
+	protected Rectangle oldRectangle;
 	protected Vector2 position;
 	protected Vector2 newPosition;
 	protected Vector2 velocity;
@@ -33,11 +33,11 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 		collidedWith = new Array<>();
 		this.ownerReference = playerReference;
 		this.position = startPosition.cpy();
-		this.oldPosition = startPosition.cpy();
 		this.newPosition = new Vector2();
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		rectangle = new Rectangle(position.x, position.y, width, height);
+		this.oldRectangle = new Rectangle(rectangle);
 	}
 
 	protected abstract void onDimensionsUpdated();
@@ -123,8 +123,8 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 		sb.append(position);
 		sb.append("\n");
 
-		sb.append("oldPosition : ");
-		sb.append(oldPosition);
+		sb.append("oldrectangle : ");
+		sb.append(oldRectangle);
 		sb.append("\n");
 
 		sb.append("velocity : ");
@@ -157,8 +157,8 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	}
 
 	@Override
-	public Vector2 getOldPosition() {
-		return oldPosition;
+	public Rectangle getOldRectangle() {
+		return oldRectangle;
 	}
 
 	@Override

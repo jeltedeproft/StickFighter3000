@@ -46,14 +46,13 @@ public class LogicManagerImpl implements LogicManager {
 
 	@Override
 	public void update(float delta) {
+		characterManager.update(delta);
+		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());// TODO this order is important because graphicalImpl sets the dimensions of the sprites needed for adding them to the spatial mesh
+
 		allCollidables.clear();
 		allCollidables.addAll(characterManager.getAllCharacterbodies());
 		allCollidables.addAll(spellManager.getAllSpellBodies());
 		collisionDetectionSystem.updateSpatialMesh(allCollidables);
-
-		characterManager.update(delta);
-		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());// TODO this order is important because graphicalImpl sets the dimensions of the sprites needed for adding them to the spatial mesh
-
 		Set<CollisionPair> collisionPairs = collisionDetectionSystem.getCollidingpairs();
 		collisionhandlingSystem.handleCollisions(collisionPairs, characterManager.getAllCharacters(), spellManager.getAllSpells());
 

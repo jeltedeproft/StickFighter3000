@@ -81,8 +81,8 @@ public class NullPhysicsComponent implements PhysicsComponent {
 	}
 
 	@Override
-	public Vector2 getOldPosition() {
-		return Vector2.Zero;
+	public Rectangle getOldRectangle() {
+		return Rectangle.tmp;
 	}
 
 	@Override

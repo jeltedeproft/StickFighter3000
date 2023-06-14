@@ -3,7 +3,6 @@ package jelte.mygame.logic.collisions.collidable;
 import java.util.UUID;
 
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 
 public interface Collidable {
 
@@ -27,7 +26,7 @@ public interface Collidable {
 
 	public Rectangle getRectangle();
 
-	public Vector2 getOldPosition();
+	public Rectangle getOldRectangle();
 
 	public boolean hasMoved();
 
