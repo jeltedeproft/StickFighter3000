@@ -11,21 +11,17 @@ import com.badlogic.gdx.math.Vector2;
 import jelte.mygame.utility.AssetManagerUtility;
 
 public class ParticleMaker {
-	private static EnumMap<ParticleType, ParticlePool> particlePools;
-	private static EnumMap<ParticleType, ArrayList<Particle>> allParticles;
-	private static boolean particlesChanged;
+	private EnumMap<ParticleType, ParticlePool> particlePools;
+	private EnumMap<ParticleType, ArrayList<Particle>> allParticles;
+	private boolean particlesChanged;
 
-	static {
+	public ParticleMaker() {
 		particlesChanged = false;
 		particlePools = new EnumMap<>(ParticleType.class);
 		allParticles = new EnumMap<>(ParticleType.class);
 	}
 
-	private ParticleMaker() {
-
-	}
-
-	public static void drawAllActiveParticles(final SpriteBatch spriteBatch, final float delta) {
+	public void drawAllActiveParticles(final SpriteBatch spriteBatch, final float delta) {
 		// spriteBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE); // performance-optim.: manually set blend function to additive!, cant use thise wit
 		// hframeBuffer
 		for (final ArrayList<Particle> particleTypeList : allParticles.values()) {
@@ -44,7 +40,7 @@ public class ParticleMaker {
 		// spriteBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA); // performance-optim.: manually reset blend function!
 	}
 
-	public static void deactivateAllParticlesOfType(final ParticleType particletype) {
+	public void deactivateAllParticlesOfType(final ParticleType particletype) {
 		if (allParticles.get(particletype) != null) {
 			for (final Particle particle : allParticles.get(particletype)) {
 				particle.deactivate();
@@ -54,7 +50,7 @@ public class ParticleMaker {
 		}
 	}
 
-	public static void deactivateAllParticles() {
+	public void deactivateAllParticles() {
 		for (ArrayList<Particle> particles : allParticles.values()) {
 			for (final Particle particle : particles) {
 				particle.deactivate();
@@ -63,7 +59,7 @@ public class ParticleMaker {
 		}
 	}
 
-	public static void deactivateParticle(final ParticleType particletype, final Vector2 pos, final UUID id) {
+	public void deactivateParticle(final ParticleType particletype, final Vector2 pos, final UUID id) {
 		if (allParticles.get(particletype) != null) {
 			for (final Particle particle : allParticles.get(particletype)) {
 				if (particle.getPosition().equals(pos) && particle.getId().equals(id)) {
@@ -74,13 +70,13 @@ public class ParticleMaker {
 		}
 	}
 
-	public static void addParticle(final ParticleType particletype, final Vector2 pos, final UUID id) {
+	public void addParticle(final ParticleType particletype, final Vector2 pos) {
 		final ParticlePool particlePool = initiatePool(particletype);
-		final Particle newParticle = createPooledParticle(particletype, pos, particlePool, id);
+		final Particle newParticle = createPooledParticle(particletype, pos, particlePool, UUID.randomUUID());
 		addParticleToTypedParticles(particletype, newParticle);
 	}
 
-	private static ParticlePool initiatePool(final ParticleType particletype) {
+	private ParticlePool initiatePool(final ParticleType particletype) {
 		ParticlePool particlePool;
 
 		if (particlePools.containsKey(particletype)) {
@@ -91,19 +87,19 @@ public class ParticleMaker {
 		return particlePool;
 	}
 
-	private static Particle createPooledParticle(final ParticleType particletype, final Vector2 pos, final ParticlePool particlePool, final UUID id) {
+	private Particle createPooledParticle(final ParticleType particletype, final Vector2 pos, final ParticlePool particlePool, final UUID id) {
 		final PooledEffect particle = particlePool.getParticleEffect();
 		particle.setPosition(pos.x, pos.y);
 		return new Particle(pos, particle, particletype, id);
 	}
 
-	private static void addParticleToTypedParticles(final ParticleType particletype, final Particle newParticle) {
+	private void addParticleToTypedParticles(final ParticleType particletype, final Particle newParticle) {
 		allParticles.computeIfAbsent(particletype, k -> new ArrayList<>());
 		allParticles.get(particletype).add(newParticle);
 		newParticle.start();
 	}
 
-	public static Particle getParticle(final ParticleType particletype, final Vector2 pos) {
+	public Particle getParticle(final ParticleType particletype, final Vector2 pos) {
 		for (final Particle particle : allParticles.get(particletype)) {
 			if (particle.getPosition().equals(pos)) {
 				return particle;
@@ -112,7 +108,7 @@ public class ParticleMaker {
 		return null;
 	}
 
-	public static Particle getParticle(final ParticleType particletype, final Vector2 pos, final int id) {
+	public Particle getParticle(final ParticleType particletype, final Vector2 pos, final int id) {
 		for (final Particle particle : allParticles.get(particletype)) {
 			if (particle.getPosition().equals(pos) && particle.getId().equals(id)) {
 				return particle;
@@ -121,22 +117,22 @@ public class ParticleMaker {
 		return null;
 	}
 
-	public static Particle getParticle(final ParticleType particletype) {
+	public Particle getParticle(final ParticleType particletype) {
 		return allParticles.get(particletype).get(0);
 	}
 
-	public static boolean isParticleTypeEmpty(final ParticleType particletype) {
+	public boolean isParticleTypeEmpty(final ParticleType particletype) {
 		return particlePools.get(particletype) != null;
 	}
 
-	public static void deactivateParticle(final Particle particle) {
+	public void deactivateParticle(final Particle particle) {
 		if (particle != null) {
 			particlesChanged = true;
 			particle.deactivate();
 		}
 	}
 
-	public static void cleanUpUnactiveParticles() {
+	public void cleanUpUnactiveParticles() {
 		if (particlesChanged) {
 			for (final ArrayList<Particle> particleTypeList : allParticles.values()) {
 				for (final Particle particle : particleTypeList) {

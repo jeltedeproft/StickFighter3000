@@ -5,8 +5,8 @@ active: false
 lowMin: 1000.0
 lowMax: 10000.0
 - Count - 
-min: 10
-max: 80
+min: 100
+max: 500
 - Emission - 
 lowMin: 0.0
 lowMax: 0.0
@@ -42,20 +42,20 @@ active: false
 - Spawn Shape - 
 shape: square
 - Spawn Width - 
-lowMin: 400.0
-lowMax: 400.0
-highMin: 400.0
-highMax: 400.0
+lowMin: 3000.0
+lowMax: 3000.0
+highMin: 3000.0
+highMax: 3000.0
 relative: false
 scalingCount: 1
 scaling0: 1.0
 timelineCount: 1
 timeline0: 0.0
 - Spawn Height - 
-lowMin: 400.0
-lowMax: 400.0
-highMin: 400.0
-highMax: 400.0
+lowMin: 3000.0
+lowMax: 3000.0
+highMin: 3000.0
+highMax: 3000.0
 relative: false
 scalingCount: 1
 scaling0: 1.0
@@ -64,8 +64,8 @@ timeline0: 0.0
 - X Scale - 
 lowMin: 0.0
 lowMax: 0.0
-highMin: 10.0
-highMax: 10.0
+highMin: 5.0
+highMax: 5.0
 relative: false
 scalingCount: 1
 scaling0: 1.0
@@ -122,9 +122,9 @@ timeline3: 0.8630137
 active: false
 - Tint - 
 colorsCount: 3
-colors0: 0.58431375
-colors1: 0.44705883
-colors2: 0.30588236
+colors0: 0.44313726
+colors1: 0.44313726
+colors2: 0.44313726
 timelineCount: 1
 timeline0: 0.0
 - Transparency - 

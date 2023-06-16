@@ -12,7 +12,7 @@ public class CameraManager {
 	public CameraManager(Camera camera) {
 		this.camera = (OrthographicCamera) camera;
 		cameraPosition = new Vector2(0, 0);
-		this.camera.zoom += 0.4f;
+		this.camera.zoom += 0.5f;
 		this.camera.update();
 	}
 

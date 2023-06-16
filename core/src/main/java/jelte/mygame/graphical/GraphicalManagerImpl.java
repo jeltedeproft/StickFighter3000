@@ -27,6 +27,8 @@ import jelte.mygame.graphical.animations.NamedSprite;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.particles.ParticleMaker;
+import jelte.mygame.graphical.particles.ParticleType;
 import jelte.mygame.graphical.specialEffects.SpecialEffect;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManager;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
@@ -58,6 +60,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private ProgressBar playerHpBar;
 	private Array<AbstractSpell> spellsToRender;
 	private Map<NpcCharacter, HealthBar> enemyHealthBars;
+	private ParticleMaker particleMaker;
 
 	private Table root = new Table();
 	private Table topBar = new Table();
@@ -79,6 +82,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		spellsToRender = new Array<>();
 		enemyHealthBars = new HashMap<>();
 		specialEffectsManager = new SpecialEffectsManagerImpl();
+		particleMaker = new ParticleMaker();
+		particleMaker.addParticle(ParticleType.DUST, new Vector2(Gdx.graphics.getWidth() / 2.0f, Gdx.graphics.getHeight() / 2.0f));
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
@@ -138,6 +143,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderCharacters();
 		renderSpells();
 		renderSpecialEffects();
+		particleMaker.drawAllActiveParticles(batch, delta);
 		batch.end();
 
 		renderUI();
@@ -149,14 +155,15 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		// debug info player
 		batch.begin();
 		font.draw(batch, String.format("player position: %s", player.getPhysicsComponent().getPosition()), 0, Gdx.graphics.getHeight() - 10);
-		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 0, Gdx.graphics.getHeight() - 25);
-		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 0, Gdx.graphics.getHeight() - 40);
-		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 70);
-		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 0, Gdx.graphics.getHeight() - 100);
-		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 0, Gdx.graphics.getHeight() - 130);
-		font.draw(batch, String.format("state: %s", player.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 160);
-		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 190);
-		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 220);
+		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 0, Gdx.graphics.getHeight() - 40);
+		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 0, Gdx.graphics.getHeight() - 70);
+		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 100);
+		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 0, Gdx.graphics.getHeight() - 130);
+		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 0, Gdx.graphics.getHeight() - 160);
+		font.draw(batch, String.format("state: %s", player.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 190);
+		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 220);
+		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 250);
+		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 0, Gdx.graphics.getHeight() - 280);
 		batch.end();
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
