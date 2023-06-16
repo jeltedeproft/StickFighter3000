@@ -9,11 +9,11 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.NpcCharacter;
 
-public class PassiveAiStrategy implements AiStrategy {
+public class BasicEnemyAiStrategy implements AiStrategy {
 	private NpcCharacter self;
 	private float timeSinceLastCommand = 0f;
 
-	public PassiveAiStrategy(NpcCharacter self) {
+	public BasicEnemyAiStrategy(NpcCharacter self) {
 		this.self = self;
 	}
 
@@ -41,7 +41,7 @@ public class PassiveAiStrategy implements AiStrategy {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("passive strategy");
+		sb.append("basic enemy ai strategy");
 		return sb.toString();
 	}
 
