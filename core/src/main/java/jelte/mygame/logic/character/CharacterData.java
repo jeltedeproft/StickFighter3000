@@ -1,61 +1,57 @@
 package jelte.mygame.logic.character;
 
-import java.util.ArrayList;
+public interface CharacterData {
 
-import com.badlogic.gdx.utils.StringBuilder;
+	float getMaxHP();
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+	String getEntitySpriteName();
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
-public class CharacterData {
+	String getName();
 
-	private int id;
-	private String name;
-	private ArrayList<Integer> spells;
-	private String entitySpriteName;
-	private boolean melee;
-	private float maxHP;
-	private float movementSpeed;
-	private int attackPower;
-	private int defense;
-	private String unitExplanation;
-	private float jumpFrameDuration;
-	private float hurtFrameDuration;
-	private float attackFrameDuration;
-	private float dieFrameDuration;
-	private float appearFrameDuration;
-	private float idleFrameDuration;
-	private float runningFrameDuration;
-	private float attackFullTime;
-	private float hurtFullTime;
-	private float appearFullTime;
-	private float landingFullTime;
-	private float stopRunningFullTime;
-	private float dashingFullTime;
-	private float defaultCastFullTime;
-	private float defaultPreCastFullTime;
-	private float teleportFullTime;
-	private float rollAttackFullTime;
-	private float rollFullTime;
-	private float wallSlidingStopFullTime;
-	private float holdToSlideFullTime;
-	private float fallAttackingFrameDuration;
-	private float landAttackingFullTime;
-	private float blockingFullTime;
+	float getAttackFullTime();
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("name: ");
-		sb.append(name);
-		sb.append("id: ");
-		sb.append(id);
-		return sb.toString();
-	}
+	float getHurtFullTime();
+
+	float getStopRunningFullTime();
+
+	float getDashingFullTime();
+
+	float getLandingFullTime();
+
+	float getAppearFullTime();
+
+	float getDefaultPreCastFullTime();
+
+	float getDefaultCastFullTime();
+
+	float getBlockingFullTime();
+
+	float getTeleportFullTime();
+
+	float getRollAttackFullTime();
+
+	float getRollFullTime();
+
+	float getWallSlidingStopFullTime();
+
+	float getLandAttackingFullTime();
+
+	float getHoldToSlideFullTime();
+
+	float getAppearFrameDuration();
+
+	float getAttackFrameDuration();
+
+	float getDieFrameDuration();
+
+	float getHurtFrameDuration();
+
+	float getIdleFrameDuration();
+
+	float getJumpFrameDuration();
+
+	float getRunningFrameDuration();
+
+	float getFallAttackingFrameDuration();
+
 }

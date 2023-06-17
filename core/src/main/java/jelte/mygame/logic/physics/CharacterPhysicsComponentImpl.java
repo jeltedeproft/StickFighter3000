@@ -12,12 +12,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CharacterPhysicsComponent extends PhysicsComponentImpl {
-	private static final String TAG = CharacterPhysicsComponent.class.getSimpleName();
-	private Direction direction;
-	private boolean fallTrough;
+public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl {
 
-	public CharacterPhysicsComponent(UUID playerReference, Vector2 startPosition) {
+	private static final String TAG = PlayerPhysicsComponent.class.getSimpleName();
+	protected Direction direction;
+
+	public CharacterPhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
 		super(playerReference, startPosition);
 		direction = Direction.right;
 		rectangle = new Rectangle(position.x, position.y, width, height);
@@ -70,11 +70,6 @@ public class CharacterPhysicsComponent extends PhysicsComponentImpl {
 		if (direction == Direction.left) {
 			rectangle.x -= rectangle.width;
 		}
-	}
-
-	@Override
-	public COLLIDABLE_TYPE getType() {
-		return COLLIDABLE_TYPE.CHARACTER;
 	}
 
 	@Override

@@ -7,14 +7,14 @@ import com.badlogic.gdx.math.Rectangle;
 public interface Collidable {
 
 	public enum COLLIDABLE_TYPE {
-		STATIC_TOP, STATIC_BOT, STATIC_LEFT, STATIC_RIGHT, STATIC_PLATFORM, CHARACTER, SPELL;
+		STATIC_TOP, STATIC_BOT, STATIC_LEFT, STATIC_RIGHT, STATIC_PLATFORM, PLAYER, ENEMY, SPELL;
 
 		public static boolean isStatic(COLLIDABLE_TYPE type) {
 			return type == STATIC_TOP || type == STATIC_BOT || type == STATIC_LEFT || type == STATIC_RIGHT || type == STATIC_PLATFORM;
 		}
 
 		public static boolean isCharacter(COLLIDABLE_TYPE type) {
-			return type == CHARACTER;
+			return type == PLAYER || type == ENEMY;
 		}
 
 		public static boolean isSpell(COLLIDABLE_TYPE type) {

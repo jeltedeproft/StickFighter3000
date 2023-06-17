@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.character.Character;
-import jelte.mygame.logic.character.CharacterFileReader;
+import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.spells.spells.Spell;
@@ -27,16 +28,16 @@ public class TestCollisionHandlingSystem {
 
 	@BeforeClass
 	public static void beforeAllTests() {
-		CharacterFileReader.loadUnitStatsInMemory();
+		PlayerFileReader.loadUnitStatsInMemory();
 		bodies = new Array<>();
 		spells = new Array<>();
 		pairs = new HashSet<>();
 		collisionhandlingSystem = new CollisionHandlingSystem();
 	}
 
-	private void addCharacter() {
-		Character character = new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID());
-		bodies.add(character);
+	private void addPlayer() {
+		PlayerCharacter player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
+		bodies.add(player);
 	}
 
 	private void addSpell() {

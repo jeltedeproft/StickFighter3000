@@ -71,6 +71,7 @@ public class CollisionHandlingSystem {
 				}
 				spell.applyEffect(character);
 			}
+
 		}
 	}
 

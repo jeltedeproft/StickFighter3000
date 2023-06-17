@@ -5,9 +5,9 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.PlayerCharacter;
 
 public class PassiveAiStrategy implements AiStrategy {
 	private NpcCharacter self;
@@ -19,7 +19,7 @@ public class PassiveAiStrategy implements AiStrategy {
 
 	@Override
 	// go left and right
-	public void update(float delta, Character player, AiState state) {
+	public void update(float delta, PlayerCharacter player, AiState state) {
 		timeSinceLastCommand += delta;
 		if (timeSinceLastCommand >= 2.0f) {
 			if (self.getPhysicsComponent().getDirection() == Direction.left) {

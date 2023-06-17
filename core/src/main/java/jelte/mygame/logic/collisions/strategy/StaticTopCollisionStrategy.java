@@ -2,7 +2,7 @@ package jelte.mygame.logic.collisions.strategy;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlockTop;
-import jelte.mygame.logic.physics.CharacterPhysicsComponent;
+import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class StaticTopCollisionStrategy implements CollisionStrategy {
@@ -12,7 +12,7 @@ public class StaticTopCollisionStrategy implements CollisionStrategy {
 		StaticBlockTop statick = (StaticBlockTop) object1;
 
 		// character
-		if (object2 instanceof CharacterPhysicsComponent character) {
+		if (object2 instanceof PlayerPhysicsComponent character) {
 			character.setCollided(true, statick.getType());
 			statick.calculateOverlapPlayer(character.getRectangle());
 			character.move(0, -statick.getOverlapY());

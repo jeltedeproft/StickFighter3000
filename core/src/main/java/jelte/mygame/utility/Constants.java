@@ -38,7 +38,8 @@ public class Constants {
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
-	public static final String UNIT_STATS_FILE_LOCATION = "units/characters.json";
+	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
+	public static final String ENEMY_STATS_FILE_LOCATION = "units/enemies.json";
 	public static final String SPELL_STATS_FILE_LOCATION = "spells/spells.json";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";

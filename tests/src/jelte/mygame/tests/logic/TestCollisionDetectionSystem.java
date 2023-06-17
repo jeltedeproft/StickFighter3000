@@ -24,7 +24,7 @@ import jelte.mygame.logic.collisions.collidable.StaticBlockLeft;
 import jelte.mygame.logic.collisions.collidable.StaticBlockPlatform;
 import jelte.mygame.logic.collisions.collidable.StaticBlockRight;
 import jelte.mygame.logic.collisions.collidable.StaticBlockTop;
-import jelte.mygame.logic.physics.CharacterPhysicsComponent;
+import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.UtilityFunctions;
@@ -32,7 +32,7 @@ import jelte.mygame.utility.UtilityFunctions;
 @RunWith(GdxTestRunner.class)
 public class TestCollisionDetectionSystem {
 	private CollisionDetectionSystemImpl collisionSystem;
-	private CharacterPhysicsComponent characterBody;
+	private PlayerPhysicsComponent characterBody;
 	private StaticBlockBot bottomBlock;
 	private Set<Collidable> collidables;
 
@@ -46,7 +46,7 @@ public class TestCollisionDetectionSystem {
 	}
 
 	private void addPlayer(Vector2 startPos) {
-		characterBody = new CharacterPhysicsComponent(UUID.randomUUID(), startPos);
+		characterBody = new PlayerPhysicsComponent(UUID.randomUUID(), startPos);
 		characterBody.setDimensions(10, 10);
 		collidables.add(characterBody);
 		collisionSystem.updateSpatialMesh(collidables);

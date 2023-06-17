@@ -12,13 +12,13 @@ import com.badlogic.gdx.utils.reflect.ReflectionException;
 
 import jelte.mygame.utility.Constants;
 
-public class CharacterFileReader {
-	private static final String TAG = CharacterFileReader.class.getSimpleName();
+public class PlayerFileReader {
+	private static final String TAG = PlayerFileReader.class.getSimpleName();
 	private static boolean statsLoaded = false;
-	private static ObjectMap<Integer, CharacterData> unitData = new ObjectMap<>();
+	private static ObjectMap<Integer, PlayerData> unitData = new ObjectMap<>();
 	private static final Array<String> allCharacterNames = new Array<>();
 
-	private CharacterFileReader() {
+	private PlayerFileReader() {
 
 	}
 
@@ -26,11 +26,11 @@ public class CharacterFileReader {
 	public static void loadUnitStatsInMemory() {
 		if (!statsLoaded) {
 			final Json json = new Json();
-			ArrayList<CharacterData> unitStats;
+			ArrayList<PlayerData> unitStats;
 			try {
-				unitStats = (ArrayList<CharacterData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.character.CharacterData"), Gdx.files.internal(Constants.UNIT_STATS_FILE_LOCATION));
+				unitStats = (ArrayList<PlayerData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.character.PlayerData"), Gdx.files.internal(Constants.PLAYER_STATS_FILE_LOCATION));
 				for (int i = 0; i < unitStats.size(); i++) {
-					final CharacterData data = unitStats.get(i);
+					final PlayerData data = unitStats.get(i);
 					unitData.put(data.getId(), data);
 					allCharacterNames.add(data.getEntitySpriteName());
 				}
@@ -40,12 +40,12 @@ public class CharacterFileReader {
 		}
 	}
 
-	public static ObjectMap<Integer, CharacterData> getUnitData() {
+	public static ObjectMap<Integer, PlayerData> getUnitData() {
 		return unitData;
 	}
 
 	public static int getIdByName(String name) {
-		for (Entry<Integer, CharacterData> entry : unitData.entries()) {
+		for (Entry<Integer, PlayerData> entry : unitData.entries()) {
 			if (entry.value.getEntitySpriteName().equals(name)) {
 				return entry.key;
 			}

@@ -23,21 +23,24 @@ public class AiStateManager {
 		PATROL,
 		CHASE,
 		ATTACK,
-		CAST_SPELL;
+		CAST;
 	}
 
 	public enum AI_EVENT {
 		PLAYER_SEEN,
 		PLAYER_IN_ATTACK_RANGE,
+		PLAYER_OUT_ATTACK_RANGE,
+		PLAYER_IN_CAST_RANGE,
+		PLAYER_OUT_CAST_RANGE,
 		PLAYER_LOST,
-		PATH_BLOCKED;
+		START_PATROLLING;
+
 	}
 
 	public AiStateManager(NpcCharacter enemy) {
 		this.enemy = enemy;
-		jelte.mygame.logic.character.CharacterData data = enemy.getData();
 		aiStateAttack = new AiStateAttack(this);
-		aiStatepatrol = new AiStatepatrol(this);
+		aiStatepatrol = new AiStatePatrol(this);
 		aiStateIdle = new AiStateIdle(this);
 		aiStateChase = new AiStateChase(this);
 		aiStateCast = new AiStateCast(this);
@@ -72,7 +75,7 @@ public class AiStateManager {
 		case ATTACK:
 			currentAiState = aiStateAttack;
 			break;
-		case CAST_SPELL:
+		case CAST:
 			currentAiState = aiStateCast;
 			break;
 		case CHASE:

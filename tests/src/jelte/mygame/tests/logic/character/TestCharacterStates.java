@@ -19,9 +19,9 @@ import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
-import jelte.mygame.logic.character.Character;
-import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.Direction;
+import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -30,7 +30,7 @@ import jelte.mygame.utility.Constants;
 
 @RunWith(GdxTestRunner.class)
 public class TestCharacterStates {
-	private Character testCharacter;
+	private PlayerCharacter testPlayer;
 
 	@Mock
 	private MusicManagerInterface mockMusicManager;
@@ -40,13 +40,13 @@ public class TestCharacterStates {
 
 	@BeforeClass
 	public static void beforeAllTests() {
-		CharacterFileReader.loadUnitStatsInMemory();
+		PlayerFileReader.loadUnitStatsInMemory();
 	}
 
 	@Before
 	public void beforeEverytest() {
-		testCharacter = new Character(CharacterFileReader.getUnitData().get(4), UUID.randomUUID());
-		characterStateManager = new CharacterStateManager(testCharacter);
+		testPlayer = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
+		characterStateManager = new CharacterStateManager(testPlayer);
 		MockitoAnnotations.openMocks(this);
 		MusicManager.setInstance(mockMusicManager);
 	}

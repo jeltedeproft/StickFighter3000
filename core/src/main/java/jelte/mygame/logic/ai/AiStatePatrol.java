@@ -7,20 +7,18 @@ import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.ai.AiStateManager.AI_EVENT;
 import jelte.mygame.logic.ai.AiStateManager.AI_STATE;
-import jelte.mygame.logic.spells.SpellFileReader;
 
-public class AiStateAttack implements AiState {
+public class AiStatePatrol implements AiState {
 	private AiStateManager aiStateManager;
-	private AI_STATE state = AI_STATE.ATTACK;
+	private AI_STATE state = AI_STATE.PATROL;
 
-	public AiStateAttack(AiStateManager aiStateManager) {
+	public AiStatePatrol(AiStateManager aiStateManager) {
 		this.aiStateManager = aiStateManager;
 	}
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_ATTACK_STATE_%s", aiStateManager.getEnemy().getName().toUpperCase())));
-		aiStateManager.getEnemy().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_PATROL_STATE_%s", aiStateManager.getEnemy().getName().toUpperCase())));
 	}
 
 	@Override
@@ -31,13 +29,13 @@ public class AiStateAttack implements AiState {
 	@Override
 	public void handleEvent(AI_EVENT event) {
 		switch (event) {
-		case PLAYER_LOST, START_PATROLLING:
-			aiStateManager.transition(AI_STATE.PATROL);
-			break;
-		case PLAYER_OUT_ATTACK_RANGE:
+		case PLAYER_SEEN:
 			aiStateManager.transition(AI_STATE.CHASE);
 			break;
-		case PLAYER_IN_ATTACK_RANGE, PLAYER_SEEN:
+		case PLAYER_IN_ATTACK_RANGE:
+			aiStateManager.transition(AI_STATE.ATTACK);
+			break;
+		case PLAYER_OUT_ATTACK_RANGE, PLAYER_LOST, START_PATROLLING:
 			break;
 		default:
 			break;

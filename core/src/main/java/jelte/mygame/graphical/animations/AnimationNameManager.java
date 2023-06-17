@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
-import jelte.mygame.logic.character.CharacterFileReader;
+import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
@@ -90,7 +90,7 @@ public class AnimationNameManager {
 	}
 
 	public void initializeAvailableStates() {
-		for (String characterName : CharacterFileReader.getAllCharacterNames()) {
+		for (String characterName : PlayerFileReader.getAllCharacterNames()) {
 			Map<CHARACTER_STATE, Set<String>> availableStates = new HashMap<>();
 			final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
 			for (final AtlasRegion region : regions) {

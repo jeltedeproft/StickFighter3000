@@ -10,10 +10,9 @@ import jelte.mygame.Message;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.logic.physics.CharacterPhysicsComponent;
+import jelte.mygame.logic.physics.CharacterPhysicsComponentImpl;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellFileReader;
-import jelte.mygame.utility.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,17 +26,15 @@ public class Character {
 	protected UUID id;
 	protected boolean dead;
 	protected CharacterStateManager characterStateManager;
-	protected CharacterPhysicsComponent physicsComponent;
+	protected CharacterPhysicsComponentImpl physicsComponent;
 	protected Queue<SpellData> spellsPreparedToCast;
 	protected Queue<SpellData> spellsreadyToCast;
 
-	public Character(CharacterData data, UUID id) {
+	public Character(UUID id) {
 		this.id = id;
-		this.data = data;
 		spellsPreparedToCast = new Queue<>();
 		spellsreadyToCast = new Queue<>();
 		characterStateManager = new CharacterStateManager(this);
-		physicsComponent = new CharacterPhysicsComponent(id, Constants.PLAYER_START.cpy());
 		currentHp = data.getMaxHP();
 	}
 

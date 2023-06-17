@@ -11,10 +11,11 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
-import jelte.mygame.logic.character.CharacterFileReader;
 import jelte.mygame.logic.character.CharacterManager;
+import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.collisions.CollisionDetectionSystem;
 import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
 import jelte.mygame.logic.collisions.CollisionHandlingSystem;
@@ -40,8 +41,8 @@ public class LogicManagerImpl implements LogicManager {
 		collisionDetectionSystem = new CollisionDetectionSystemImpl();
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
-		characterManager = new CharacterManager(new PlayerCharacter(CharacterFileReader.getUnitData().get(4), UUID.randomUUID()));
-		characterManager.addEnemy(new NpcCharacter(CharacterFileReader.getUnitData().get(3), UUID.randomUUID()));
+		characterManager = new CharacterManager(new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID()));
+		characterManager.addEnemy(new NpcCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID()));
 	}
 
 	@Override

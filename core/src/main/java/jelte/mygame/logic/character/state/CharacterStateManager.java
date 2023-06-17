@@ -5,6 +5,7 @@ import java.util.Stack;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.CharacterData;
 
 public class CharacterStateManager {
 	private static final String TAG = CharacterStateManager.class.getSimpleName();
@@ -104,7 +105,7 @@ public class CharacterStateManager {
 
 	public CharacterStateManager(Character character) {
 		this.character = character;
-		jelte.mygame.logic.character.CharacterData data = character.getData();
+		CharacterData data = character.getData();
 		characterStateAttack = new CharacterStateAttack(this, data.getAttackFullTime());
 		characterStateDie = new CharacterStateDie(this);
 		characterStateHurt = new CharacterStateHurt(this, data.getHurtFullTime());

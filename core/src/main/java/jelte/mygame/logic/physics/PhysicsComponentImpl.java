@@ -26,6 +26,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	protected boolean collided;
 	protected Array<COLLIDABLE_TYPE> collidedWith;
 	protected boolean hasMoved;
+	protected boolean fallTrough;
 	protected float width;
 	protected float height;
 
