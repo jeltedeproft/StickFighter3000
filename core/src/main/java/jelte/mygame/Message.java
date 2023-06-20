@@ -52,7 +52,8 @@ public class Message {
 		LOST_PLAYER,
 		START_PATROLLING,
 		IN_CAST_RANGE,
-		OUT_CAST_RANGE;
+		OUT_CAST_RANGE,
+		SPAWN_ENEMIES;
 	}
 
 	public enum RECIPIENT {

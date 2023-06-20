@@ -206,5 +206,13 @@
 		"volume": 0.8f,
 		"duration": 1.0f
 		"theme": 0,
+	},
+	{
+		"id": 26,
+		"name": "archerChase",
+		"audioFileName": ["audio/archerChase.wav"],
+		"volume": 0.8f,
+		"duration": 1.0f
+		"theme": 0,
 	}
 ]

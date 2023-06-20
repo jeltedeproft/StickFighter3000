@@ -28,6 +28,9 @@ public class Constants {
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
 
+	// AI
+	public static final float CONTROL_POINT_REACHED_BUFFER_DISTANCE = 5;
+
 	// COLLISION
 	public static final int SPATIAL_MESH_CELL_SIZE = 32;
 
@@ -75,6 +78,12 @@ public class Constants {
 	public static final String BLOCK_TYPE_LEFT = "LEFT";
 	public static final String BLOCK_TYPE_RIGHT = "RIGHT";
 	public static final String BLOCK_TYPE_PLATFORM = "PLATFORM";
+	public static final String LAYER_NAME_BLOCK = "blocks";
+	public static final String LAYER_NAME_SPAWN = "spawns";
+	public static final String LAYER_NAME_PATROL = "patrols";
+	public static final String PROPERTY_DUPLICATE_INDEX = "duplicateIndex";
+	public static final String PROPERTY_ENTITY_TYPE_INDEX = "entityTypeIndex";
+	public static final String PROPERTY_PATH_INDEX = "pathIndex";
 
 	// HOTKEYS
 	public static final String RIGHT = "right";

@@ -1,5 +1,6 @@
 package jelte.mygame.logic.character;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -7,6 +8,7 @@ import java.util.UUID;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.physics.PhysicsComponent;
@@ -21,6 +23,16 @@ public class CharacterManager {
 		enemies = new Array<>();
 		bodies = new Array<>();
 		bodies.add(player.getPhysicsComponent());
+	}
+
+	public void spawnEnemies(Collection<EnemySpawnData> spawndatas) {
+		for (EnemySpawnData enemySpawnData : spawndatas) {
+			int type = Integer.parseInt(enemySpawnData.getType());
+			NpcCharacter enemy = new NpcCharacter(EnemyFileReader.getUnitData().get(type), UUID.randomUUID());
+			enemy.getPhysicsComponent().setPosition(enemySpawnData.getSpawnPoint());
+			enemy.addPatrolPoints(enemySpawnData.getPatrolPoints());
+			addEnemy(enemy);
+		}
 	}
 
 	public void addEnemy(NpcCharacter enemy) {
@@ -101,5 +113,4 @@ public class CharacterManager {
 		}
 		return sb.toString();
 	}
-
 }

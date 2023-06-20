@@ -25,7 +25,7 @@ public class EnemyData implements CharacterData {
 	private int attackrange;
 	private int castrange;
 	private int visionShapeWidth;
-	private int visionShapeheigt;
+	private int visionShapeHeight;
 	private float jumpFrameDuration;
 	private float hurtFrameDuration;
 	private float attackFrameDuration;

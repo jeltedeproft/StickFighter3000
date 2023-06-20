@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
@@ -91,23 +92,29 @@ public class AnimationNameManager {
 
 	public void initializeAvailableStates() {
 		for (String characterName : PlayerFileReader.getAllCharacterNames()) {
-			Map<CHARACTER_STATE, Set<String>> availableStates = new HashMap<>();
-			final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
-			for (final AtlasRegion region : regions) {
-				final String[] parts = region.name.split("-");
-				if (parts.length >= 3 && parts[0].equalsIgnoreCase(characterName)) {
-					int length = parts[1].length();
-					final String statePart = parts[1].substring(0, length - 1).toUpperCase();
-					final String indexPart = parts[1].substring(length - 1);
-
-					final CHARACTER_STATE state = CHARACTER_STATE.valueOf(statePart);
-					availableStates.computeIfAbsent(state, key -> new HashSet<>());
-					availableStates.get(state).add(indexPart);
-				}
-			}
-			possibleAnimationsCharacter.put(characterName, availableStates);
-
+			initializeCharacterStatesFor(characterName);
 		}
+		for (String enemyName : EnemyFileReader.getAllEnemyNames()) {
+			initializeCharacterStatesFor(enemyName);
+		}
+	}
+
+	private void initializeCharacterStatesFor(String characterName) {
+		Map<CHARACTER_STATE, Set<String>> availableStates = new HashMap<>();
+		final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
+		for (final AtlasRegion region : regions) {
+			final String[] parts = region.name.split("-");
+			if (parts.length >= 3 && parts[0].equalsIgnoreCase(characterName)) {
+				int length = parts[1].length();
+				final String statePart = parts[1].substring(0, length - 1).toUpperCase();
+				final String indexPart = parts[1].substring(length - 1);
+
+				final CHARACTER_STATE state = CHARACTER_STATE.valueOf(statePart);
+				availableStates.computeIfAbsent(state, key -> new HashSet<>());
+				availableStates.get(state).add(indexPart);
+			}
+		}
+		possibleAnimationsCharacter.put(characterName, availableStates);
 	}
 
 	@Override

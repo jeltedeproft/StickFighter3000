@@ -34,8 +34,6 @@ public class Character {
 		this.id = id;
 		spellsPreparedToCast = new Queue<>();
 		spellsreadyToCast = new Queue<>();
-		characterStateManager = new CharacterStateManager(this);
-		currentHp = data.getMaxHP();
 	}
 
 	public void update(float delta) {

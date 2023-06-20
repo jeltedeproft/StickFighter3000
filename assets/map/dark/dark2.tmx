@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="31">
+<map version="1.10" tiledversion="1.10.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="35">
  <tileset firstgid="1" name="dark" tilewidth="16" tileheight="16" tilecount="288" columns="18">
   <image source="DARK Edition Tileset No background.png" width="288" height="256"/>
  </tileset>
@@ -55,5 +55,29 @@
   <object id="28" name="RIGHT" x="609.807" y="656.125" width="79.887" height="48.25"/>
   <object id="29" name="BOT" x="80.3855" y="658.618" width="350.229" height="46.264"/>
   <object id="30" name="BOT" x="81.3855" y="640.868" width="225.729" height="17.264"/>
+ </objectgroup>
+ <objectgroup id="9" name="spawns">
+  <object id="31" name="SPAWN" x="423" y="501.25">
+   <properties>
+    <property name="duplicateIndex" value="0"/>
+    <property name="entityTypeIndex" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="10" name="patrols">
+  <object id="32" name="PATROL" x="378.25" y="501">
+   <properties>
+    <property name="duplicateIndex" value="0"/>
+    <property name="entityTypeIndex" value="0"/>
+    <property name="pathIndex" value="0"/>
+   </properties>
+  </object>
+  <object id="34" name="PATROL" x="518" y="502.75">
+   <properties>
+    <property name="duplicateIndex" value="0"/>
+    <property name="entityTypeIndex" value="0"/>
+    <property name="pathIndex" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -1,5 +1,6 @@
 package jelte.mygame.logic;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -11,9 +12,8 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.logic.character.CharacterManager;
-import jelte.mygame.logic.character.EnemyFileReader;
-import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.collisions.CollisionDetectionSystem;
@@ -42,7 +42,6 @@ public class LogicManagerImpl implements LogicManager {
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
 		characterManager = new CharacterManager(new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID()));
-		characterManager.addEnemy(new NpcCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID()));
 	}
 
 	@Override
@@ -73,6 +72,7 @@ public class LogicManagerImpl implements LogicManager {
 			mousePosition.y = mouseVector.y;
 		}
 		case SEND_BLOCKING_OBJECTS -> blockingObjects = new HashSet<>((Set<StaticBlock>) message.getValue());
+		case SPAWN_ENEMIES -> characterManager.spawnEnemies((Collection<EnemySpawnData>) message.getValue());
 		case SEND_MAP_DIMENSIONS -> {
 			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
 			collisionDetectionSystem.initializeStatickCollidables(blockingObjects);
