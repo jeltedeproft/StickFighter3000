@@ -209,8 +209,8 @@
 	},
 	{
 		"id": 26,
-		"name": "archerChase",
-		"audioFileName": ["audio/archerChase.wav"],
+		"name": "alchemistChase",
+		"audioFileName": ["audio/alchemistChase.wav"],
 		"volume": 0.8f,
 		"duration": 1.0f
 		"theme": 0,

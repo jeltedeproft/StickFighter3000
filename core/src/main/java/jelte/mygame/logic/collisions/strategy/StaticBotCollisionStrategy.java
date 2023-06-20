@@ -2,7 +2,7 @@ package jelte.mygame.logic.collisions.strategy;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
-import jelte.mygame.logic.physics.PlayerPhysicsComponent;
+import jelte.mygame.logic.physics.CharacterPhysicsComponentImpl;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 
 public class StaticBotCollisionStrategy implements CollisionStrategy {
@@ -12,7 +12,7 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 		StaticBlockBot statick = (StaticBlockBot) object1;
 
 		// character
-		if (object2 instanceof PlayerPhysicsComponent character) {
+		if (object2 instanceof CharacterPhysicsComponentImpl character) {
 			statick.calculateOverlapPlayer(character.getRectangle());
 			character.setCollided(true, statick.getType());
 			character.move(0, statick.getOverlapY());

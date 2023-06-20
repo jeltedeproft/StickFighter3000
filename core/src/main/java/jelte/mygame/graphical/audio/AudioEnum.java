@@ -27,7 +27,7 @@ public enum AudioEnum {
 	SOUND_PRECAST_SWORDMASTER,
 	SOUND_CAST_SWORDMASTER,
 	SOUND_AMBIENCE_CAVE,
-	SOUND_CHASE_STATE_ARCHER;
+	SOUND_CHASE_STATE_ALCHEMIST;
 
 	private static final AudioEnum[] copyOfValues = AudioEnum.values();
 
