@@ -130,7 +130,7 @@ public class MapManager implements Disposable {
 		case Constants.BLOCK_TYPE_PLATFORM:
 			return new StaticBlockPlatform(rectangleObject.getRectangle());
 		default:
-			Gdx.app.log(TAG, String.format("error: unknown type of static block: %s", rectangleObject.getName()));
+			Gdx.app.debug(TAG, String.format("error: unknown type of static block: %s", rectangleObject.getName()));
 			break;
 		}
 

@@ -2,6 +2,7 @@ package jelte.mygame;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
 
 import jelte.mygame.graphical.GraphicalManager;
@@ -15,6 +16,7 @@ import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.logic.spells.modifier.ModifierFileReader;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class StickFighter implements ApplicationListener, MessageListener {
 	private InputHandler inputHandler;
@@ -23,6 +25,8 @@ public class StickFighter implements ApplicationListener, MessageListener {
 
 	@Override
 	public void create() {
+		ApplicationLogger logger = new MultiFileLogger();
+		Gdx.app.setApplicationLogger(logger);
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		PlayerFileReader.loadUnitStatsInMemory();
 		EnemyFileReader.loadUnitStatsInMemory();

@@ -1,0 +1,98 @@
+AssetManagerUtility: TextureAtlas loaded: sprites/dark.atlas
+null
+AssetManagerUtility: can't preload spritenames, texture atlas is null: sprites/dark.atlas
+null
+AssetManagerUtility: Skin loaded: skin/dark.json
+null
+AssetManagerUtility: TiledMap loaded: map/dark/dark2.tmx
+null
+AssetManagerUtility: SoundBuffer loaded: audio/walk_cave.ogg
+null
+AssetManagerUtility: SoundBuffer loaded: audio/walk_2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/walk_3.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/walk_4.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump3.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump6.mp3
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump7.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump8.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump9.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump10.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/jump11.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/landing2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/fall3.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/appear1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/attack1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/shield1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/climb1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/dash1.wav
+null
+AssetManagerUtility: SoundBuffer doesn't exist: audio/death1.mp3
+null
+AssetManagerUtility: SoundBuffer loaded: audio/grab1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/hurt1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/hurt2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/roll1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/sprinting1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/teleport1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/slide1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/fireball1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/fireEnd.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/fireWindup.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/boom.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/flyby.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/fallstrike.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster3.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster4.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster5.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/preCastSwordmaster6.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/castSwordmaster1.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/castSwordmaster2.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/castSwordmaster3.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/ambienceCave.wav
+null
+AssetManagerUtility: SoundBuffer loaded: audio/alchemistChase.wav
+null

@@ -50,7 +50,7 @@ public class EnemyFileReader {
 				return entry.key;
 			}
 		}
-		Gdx.app.debug(TAG, String.format("enemy id not found for: %s", name));
+		Gdx.app.debug(TAG, String.format("enemy id not found for: %s", name), null);
 		return -1;
 	}
 

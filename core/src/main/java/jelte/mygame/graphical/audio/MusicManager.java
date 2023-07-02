@@ -272,7 +272,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 			loadedSounds.get(fullFilePath).add(bufferedSound);
 			return bufferedSound;
 		}
-		Gdx.app.debug(TAG, "Sound not loaded");
+		Gdx.app.error(TAG, "Sound not loaded", null);
 		return null;
 	}
 

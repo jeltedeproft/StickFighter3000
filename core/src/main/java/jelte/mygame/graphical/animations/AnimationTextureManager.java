@@ -19,9 +19,11 @@ import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class AnimationTextureManager {
 	private static final String TAG = AnimationTextureManager.class.getSimpleName();
+	private MultiFileLogger logger;
 	private final Map<String, Animation<NamedSprite>> cache;// TODO make class and optimize, remove all animations of character that is dead for example
 	private final Map<UUID, String> previous;
 	private final Map<UUID, Float> timers;
@@ -30,6 +32,7 @@ public class AnimationTextureManager {
 	private final ConcurrentLinkedQueue<UUID> usedIds;
 
 	public AnimationTextureManager() {
+		logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
 		cache = new HashMap<>();
 		previous = new HashMap<>();
 		timers = new HashMap<>();
@@ -141,7 +144,7 @@ public class AnimationTextureManager {
 		if (animation == null) {
 			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
 			if (animation == null) {
-				Gdx.app.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
+				logger.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
 				return null;
 			}
 			cache(animationName, animation);
@@ -168,7 +171,7 @@ public class AnimationTextureManager {
 		if (animation == null) {
 			animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(spell), getPlayMode(spell.getSpellStateManager().getCurrentSpellState().getState()));// TODO get state from name here because state of character might be different
 			if (animation == null) {
-				Gdx.app.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
+				logger.debug(TAG, String.format("Cannot find animation of this type: %s", animationName));
 				return null;
 			}
 			cache(animationName, animation);

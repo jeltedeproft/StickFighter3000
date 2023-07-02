@@ -38,9 +38,11 @@ import com.ray3k.stripe.FreeTypeSkinLoader;
 import de.pottgames.tuningfork.SoundBuffer;
 import de.pottgames.tuningfork.SoundBufferLoader;
 import jelte.mygame.graphical.animations.NamedSprite;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class AssetManagerUtility implements Disposable {
 	private static final String TAG = AssetManagerUtility.class.getSimpleName();
+	private static final MultiFileLogger logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
 
 	private static boolean loadersSet = false;
 
@@ -117,7 +119,7 @@ public class AssetManagerUtility implements Disposable {
 				spriteNames.add(region.name);
 			}
 		}
-		Gdx.app.debug(TAG, String.format("can't preload spritenames, texture atlas is null: %s", textureAtlasFilenamePath));
+		logger.error(TAG, String.format("can't preload spritenames, texture atlas is null: %s", textureAtlasFilenamePath), null);
 	}
 
 	public static TextureAtlas getTextureAtlas(final String textureAtlasFilenamePath) {
@@ -142,9 +144,9 @@ public class AssetManagerUtility implements Disposable {
 			if (filePathResolver.resolve(assetName).exists()) {
 				assetManager.load(assetName, className);
 				assetManager.finishLoadingAsset(assetName); // block
-				Gdx.app.debug(TAG, String.format("%s loaded: %s", className.getSimpleName(), assetName));
+				logger.error(TAG, String.format("%s loaded: %s", className.getSimpleName(), assetName), null);
 			} else {
-				Gdx.app.debug(TAG, String.format("%s doesn't exist: %s", className.getSimpleName(), assetName));
+				logger.error(TAG, String.format("%s doesn't exist: %s", className.getSimpleName(), assetName), null);
 			}
 		}
 	}
@@ -156,7 +158,7 @@ public class AssetManagerUtility implements Disposable {
 		if (assetManager.isLoaded(filenamePath)) {
 			object = assetManager.get(filenamePath, className);
 		} else {
-			Gdx.app.debug(TAG, String.format("%s is not loaded: %s", className.getSimpleName(), filenamePath));
+			logger.error(TAG, String.format("%s is not loaded: %s", className.getSimpleName(), filenamePath), null);
 		}
 
 		return object;
@@ -166,7 +168,7 @@ public class AssetManagerUtility implements Disposable {
 		if (assetManager.isLoaded(assetFilenamePath)) {
 			assetManager.unload(assetFilenamePath);
 		} else {
-			Gdx.app.debug(TAG, String.format("Asset is not loaded; Nothing to unload: %s", assetFilenamePath));
+			logger.error(TAG, String.format("Asset is not loaded; Nothing to unload: %s", assetFilenamePath), null);
 		}
 	}
 
@@ -175,7 +177,7 @@ public class AssetManagerUtility implements Disposable {
 		if (atlas != null) {
 			return atlas.createSprite(spriteName);
 		}
-		Gdx.app.debug(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
+		logger.error(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH), null);
 		return null;
 	}
 
@@ -184,14 +186,14 @@ public class AssetManagerUtility implements Disposable {
 		if (atlas != null) {
 			return atlas.findRegion(regionName);
 		}
-		Gdx.app.debug(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
+		logger.error(TAG, String.format("can't create sprite, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH), null);
 		return null;
 	}
 
 	public static Array<TextureAtlas.AtlasRegion> getAllRegionsWhichContainName(String spriteName) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
+			logger.error(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH), null);
 			return null;
 		}
 		final Array<AtlasRegion> allRegions = atlas.getRegions();
@@ -214,7 +216,7 @@ public class AssetManagerUtility implements Disposable {
 	public static Animation<NamedSprite> getAnimation(String animationName, float frameDuration, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
+			logger.error(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH), null);
 			return null;
 		}
 
@@ -229,7 +231,7 @@ public class AssetManagerUtility implements Disposable {
 		}
 
 		if (cachedAnimation.size == 0) {
-			Gdx.app.debug(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH));
+			logger.error(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH), null);
 			return null;
 		}
 
@@ -239,7 +241,7 @@ public class AssetManagerUtility implements Disposable {
 	public static Animation<NamedSprite> getBackgroundAnimation(String animationName, float animationSpeed, PlayMode playMode) {
 		final TextureAtlas atlas = getTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		if (atlas == null) {
-			Gdx.app.debug(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH));
+			logger.error(TAG, String.format("can't get animation, texture atlas is null: %s", Constants.SPRITES_ATLAS_PATH), null);
 			return null;
 		}
 
@@ -254,7 +256,7 @@ public class AssetManagerUtility implements Disposable {
 		}
 
 		if (cachedAnimation.size == 0) {
-			Gdx.app.debug(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH));
+			logger.error(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH), null);
 			return null;
 		}
 

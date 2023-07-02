@@ -1,8 +1,10 @@
 package jelte.mygame.logic.ai;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class AiStateManager {
 	private static final String TAG = AiStateManager.class.getSimpleName();
@@ -68,6 +70,8 @@ public class AiStateManager {
 	}
 
 	public void transition(AI_STATE state) {
+		MultiFileLogger logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
+		logger.log(TAG, "TRANSITION FROM " + currentAiState.getState() + " TO " + state);
 		stateChanged = true;
 		previousAiState = currentAiState.getState();
 		currentAiState.exit();

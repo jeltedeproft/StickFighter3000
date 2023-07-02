@@ -1,0 +1,1799 @@
+SpatialMesh: adding collidable :pos = (80.3065,384.06012)
+width = 359.909
+height = 62.4239
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (80.3065,384.06012)
+width = 359.909
+height = 62.4239
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (80.3065,384.06012)
+width = 359.909
+height = 62.4239
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=6,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=5,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=7,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=4,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=4,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=7,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=5,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=6,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=3,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=12,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=11,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=13,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=10,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=9,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=2,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=8,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=2,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=8,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=9,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=10,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=13,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=11,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=3,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 6573db91-84f2-4c66-a588-d6179dc30436 from : [x=12,y=13]
+SpatialMesh: adding collidable :pos = (496.326,492.16223)
+width = 6.31771
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (496.326,492.16223)
+width = 6.31771
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (496.326,492.16223)
+width = 6.31771
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 4318bf52-a974-449c-8b7d-adaa8978f69b from : [x=15,y=15]
+SpatialMesh: adding collidable :pos = (79.4321,495.761)
+width = 223.319
+height = 82.375
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (79.4321,495.761)
+width = 223.319
+height = 82.375
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (79.4321,495.761)
+width = 223.319
+height = 82.375
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=4,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=4,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=5,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=5,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=3,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=6,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=6,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=7,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=9,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=7,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=2,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=8,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=2,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=2,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=7,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=6,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=3,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=3,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=5,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=4,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=3,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=9,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=8,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=2,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=9,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=8,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=8,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=9,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=7,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=6,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=5,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : b8740658-5d0c-4946-a93b-d1950ad909bf from : [x=4,y=17]
+SpatialMesh: adding collidable :pos = (80.1591,577.3067)
+width = 384.545
+height = 32.7503
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (80.1591,577.3067)
+width = 384.545
+height = 32.7503
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (80.1591,577.3067)
+width = 384.545
+height = 32.7503
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=14,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=12,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=3,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=13,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=10,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=11,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=8,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=2,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=9,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=7,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=6,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=5,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=4,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=14,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=13,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=3,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=12,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=11,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=10,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=9,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=2,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=8,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=7,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=6,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=5,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 23764aef-03e6-4674-afbb-de17249bc4a6 from : [x=4,y=19]
+SpatialMesh: adding collidable :pos = (80.138,446.5212)
+width = 360.474
+height = 49.2608
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (80.138,446.5212)
+width = 360.474
+height = 49.2608
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (80.138,446.5212)
+width = 360.474
+height = 49.2608
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=5,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=5,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=4,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=4,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=4,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=5,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=7,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=7,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=6,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=6,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=6,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=7,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=2,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=2,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=2,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=3,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=3,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=3,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=11,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=10,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=9,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=10,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=11,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=8,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=9,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=8,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=11,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=8,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=9,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=10,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=13,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=12,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=13,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=12,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=12,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 0c2d3e57-0f2d-4ec2-be70-a3c31b1fc47e from : [x=13,y=14]
+SpatialMesh: adding collidable :pos = (81.3855,141.86801)
+width = 225.729
+height = 17.264
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (81.3855,141.86801)
+width = 225.729
+height = 17.264
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (81.3855,141.86801)
+width = 225.729
+height = 17.264
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=2,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=4,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=8,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=9,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=5,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=3,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=6,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : 2dd9218b-ea9e-4d66-b51e-fff1db491929 from : [x=7,y=4]
+SpatialMesh: adding collidable :pos = (502.932,384.3478)
+width = 89.028
+height = 59.9022
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (502.932,384.3478)
+width = 89.028
+height = 59.9022
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (502.932,384.3478)
+width = 89.028
+height = 59.9022
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=18,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=15,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=16,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=17,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=16,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=15,y=13]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=17,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 663a7bf9-d16f-4c00-a51b-392aa6c4dd14 from : [x=18,y=12]
+SpatialMesh: adding collidable :pos = (80.3855,95.11802)
+width = 350.229
+height = 46.264
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (80.3855,95.11802)
+width = 350.229
+height = 46.264
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (80.3855,95.11802)
+width = 350.229
+height = 46.264
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=2,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=3,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=4,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=12,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=8,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=13,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=9,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=5,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=10,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=11,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=6,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=8,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=12,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=9,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=13,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=7,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=10,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=11,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=8,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=6,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=4,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=9,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=10,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=7,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=5,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=11,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=12,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=4,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=6,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=13,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=5,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=7,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=3,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=2,y=4]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=2,y=3]
+SpatialMesh: [STATIC_BOT] adding collidable : dcc7eeed-ab9b-4950-8f90-53e2645f3022 from : [x=3,y=4]
+SpatialMesh: adding collidable :pos = (592.113,368.29297)
+width = 15.8867
+height = 241.75
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (592.113,368.29297)
+width = 15.8867
+height = 241.75
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (592.113,368.29297)
+width = 15.8867
+height = 241.75
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : bb3e431a-1e05-472e-9ce7-ef5d4534a607 from : [x=18,y=19]
+SpatialMesh: adding collidable :pos = (79.0103,0.6680069)
+width = 719.229
+height = 92.764
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (79.0103,0.6680069)
+width = 719.229
+height = 92.764
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (79.0103,0.6680069)
+width = 719.229
+height = 92.764
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=2,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=4,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=2,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=5,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=3,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=6,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=3,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=7,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=4,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=2,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=4,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=5,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=5,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=6,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=3,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=6,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=7,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=7,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=8,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=16,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=8,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=17,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=9,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=18,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=9,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=19,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=10,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=20,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=10,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=21,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=11,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=22,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=11,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=23,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=12,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=24,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=12,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=13,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=13,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=14,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=14,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=15,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=15,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=16,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=8,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=16,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=17,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=17,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=18,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=9,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=18,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=19,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=19,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=20,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=10,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=20,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=21,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=21,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=22,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=11,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=22,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=23,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=23,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=24,y=0]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=12,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=24,y=2]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=13,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=14,y=1]
+SpatialMesh: [STATIC_BOT] adding collidable : 99aaa746-42ee-4070-bae9-8c7480094892 from : [x=15,y=1]
+SpatialMesh: adding collidable :pos = (448.079,493.309)
+width = 48.2056
+height = 2.5
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (448.079,493.309)
+width = 48.2056
+height = 2.5
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (448.079,493.309)
+width = 48.2056
+height = 2.5
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_PLATFORM] adding collidable : ce9791ff-4e37-44f1-a700-d96ce6c6cda0 from : [x=15,y=15]
+SpatialMesh: [STATIC_PLATFORM] adding collidable : ce9791ff-4e37-44f1-a700-d96ce6c6cda0 from : [x=14,y=15]
+SpatialMesh: adding collidable :pos = (368.473,285.13657)
+width = 158.956
+height = 2.64543
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (368.473,285.13657)
+width = 158.956
+height = 2.64543
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (368.473,285.13657)
+width = 158.956
+height = 2.64543
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=16,y=8]
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=11,y=8]
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=12,y=8]
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=13,y=8]
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=14,y=8]
+SpatialMesh: [STATIC_BOT] adding collidable : d3fe2283-66e2-4bd9-9363-5d239ad36fc5 from : [x=15,y=8]
+SpatialMesh: adding collidable :pos = (560.111,576.2553)
+width = 31.8541
+height = 33.7787
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (560.111,576.2553)
+width = 31.8541
+height = 33.7787
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (560.111,576.2553)
+width = 31.8541
+height = 33.7787
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : ba9cc0a6-3217-4cca-9ce9-a52f97eb7bd5 from : [x=18,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : ba9cc0a6-3217-4cca-9ce9-a52f97eb7bd5 from : [x=17,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : ba9cc0a6-3217-4cca-9ce9-a52f97eb7bd5 from : [x=17,y=18]
+SpatialMesh: [STATIC_TOP] adding collidable : ba9cc0a6-3217-4cca-9ce9-a52f97eb7bd5 from : [x=18,y=19]
+SpatialMesh: adding collidable :pos = (609.807,95.625)
+width = 79.887
+height = 48.25
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (609.807,95.625)
+width = 79.887
+height = 48.25
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (609.807,95.625)
+width = 79.887
+height = 48.25
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=19,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=19,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=20,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=20,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=21,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=21,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=19,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=20,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : a8c1bf10-f16d-4098-8ff0-0a07150bbd9c from : [x=21,y=3]
+SpatialMesh: adding collidable :pos = (560.187,357.4241)
+width = 31.7345
+height = 26.6739
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (560.187,357.4241)
+width = 31.7345
+height = 26.6739
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (560.187,357.4241)
+width = 31.7345
+height = 26.6739
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 9f8ee5e5-6034-4e62-be71-ed1da907e5e2 from : [x=18,y=11]
+SpatialMesh: [STATIC_TOP] adding collidable : 9f8ee5e5-6034-4e62-be71-ed1da907e5e2 from : [x=17,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 9f8ee5e5-6034-4e62-be71-ed1da907e5e2 from : [x=18,y=12]
+SpatialMesh: [STATIC_TOP] adding collidable : 9f8ee5e5-6034-4e62-be71-ed1da907e5e2 from : [x=17,y=11]
+SpatialMesh: adding collidable :pos = (440.619,491.96924)
+width = 7.34896
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (440.619,491.96924)
+width = 7.34896
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (440.619,491.96924)
+width = 7.34896
+height = 3.73777
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 8e258c1e-1e14-4baa-a0ec-11d6f321c247 from : [x=13,y=15]
+SpatialMesh: adding collidable :pos = (368.513,244.49953)
+width = 12.8686
+height = 40.4735
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (368.513,244.49953)
+width = 12.8686
+height = 40.4735
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (368.513,244.49953)
+width = 12.8686
+height = 40.4735
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : 7a6bf644-16fe-469f-a012-923b7201eeb0 from : [x=11,y=7]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 7a6bf644-16fe-469f-a012-923b7201eeb0 from : [x=11,y=8]
+SpatialMesh: adding collidable :pos = (502.725,444.489)
+width = 88.9519
+height = 51.5
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (502.725,444.489)
+width = 88.9519
+height = 51.5
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (502.725,444.489)
+width = 88.9519
+height = 51.5
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=18,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=16,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=17,y=15]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=18,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=16,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=17,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=16,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=18,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=17,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=15,y=13]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=15,y=14]
+SpatialMesh: [STATIC_BOT] adding collidable : 23624894-3b88-4c27-8ebf-e7b68c437c22 from : [x=15,y=15]
+SpatialMesh: adding collidable :pos = (0.0,1.0)
+width = 78.3162
+height = 609.0
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (0.0,1.0)
+width = 78.3162
+height = 609.0
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (0.0,1.0)
+width = 78.3162
+height = 609.0
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=0]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=0]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=2]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=2]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=4]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=3]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=18]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=1]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=1]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=8]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=7]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=13]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=13]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=6]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=11]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=11]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=5]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=9]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=9]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=14]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=12]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=10]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=19]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=19]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=16]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=14]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=14]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=12]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=12]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=10]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=10]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=19]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=1]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=8]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=8]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=7]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=7]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=13]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=6]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=6]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=11]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=5]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=5]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=9]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=17]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=0]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=2]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=4]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=4]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=0,y=3]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=2,y=3]
+SpatialMesh: [STATIC_LEFT] adding collidable : 0ce928b4-2aaa-4967-b2b4-79a727a6602f from : [x=1,y=18]
+SpatialMesh: adding collidable :pos = (0.956522,610.19995)
+width = 607.333
+height = 188.887
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (0.956522,610.19995)
+width = 607.333
+height = 188.887
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (0.956522,610.19995)
+width = 607.333
+height = 188.887
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=21]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=22]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=20]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=23]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=3,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=0,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=2,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=6,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=7,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=4,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=5,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=1,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=12,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=13,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=14,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=15,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=8,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=9,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=10,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=11,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=16,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=17,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=18,y=24]
+SpatialMesh: [STATIC_TOP] adding collidable : 9591ccf4-1dc6-4575-b7ee-5049214e3925 from : [x=19,y=24]
+SpatialMesh: adding collidable :pos = (448.158,445.52032)
+width = 47.9447
+height = 2.33868
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (448.158,445.52032)
+width = 47.9447
+height = 2.33868
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (448.158,445.52032)
+width = 47.9447
+height = 2.33868
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_PLATFORM] adding collidable : dfbc4975-ca3a-4007-8026-35cbea1b8f9a from : [x=15,y=13]
+SpatialMesh: [STATIC_PLATFORM] adding collidable : dfbc4975-ca3a-4007-8026-35cbea1b8f9a from : [x=14,y=13]
+SpatialMesh: adding collidable :pos = (518.426,244.2137)
+width = 8.9773
+height = 40.5753
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (518.426,244.2137)
+width = 8.9773
+height = 40.5753
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (518.426,244.2137)
+width = 8.9773
+height = 40.5753
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_LEFT] adding collidable : 27cebfe6-e056-49f4-880b-cd1ae9c4a3d8 from : [x=16,y=8]
+SpatialMesh: [STATIC_LEFT] adding collidable : 27cebfe6-e056-49f4-880b-cd1ae9c4a3d8 from : [x=16,y=7]
+SpatialMesh: adding collidable :pos = (368.306,240.86073)
+width = 159.323
+height = 2.9063
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (368.306,240.86073)
+width = 159.323
+height = 2.9063
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (368.306,240.86073)
+width = 159.323
+height = 2.9063
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=11,y=7]
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=16,y=7]
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=14,y=7]
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=15,y=7]
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=12,y=7]
+SpatialMesh: [STATIC_TOP] adding collidable : 57bcbbab-d492-447f-98a7-cdf66e621210 from : [x=13,y=7]
+SpatialMesh: adding collidable :pos = (440.459,384.222)
+width = 7.51713
+height = 107.699
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (440.459,384.222)
+width = 7.51713
+height = 107.699
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (440.459,384.222)
+width = 7.51713
+height = 107.699
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_LEFT] adding collidable : dca56314-af4c-4a17-aa4d-0b8de710214b from : [x=13,y=12]
+SpatialMesh: [STATIC_LEFT] adding collidable : dca56314-af4c-4a17-aa4d-0b8de710214b from : [x=13,y=15]
+SpatialMesh: [STATIC_LEFT] adding collidable : dca56314-af4c-4a17-aa4d-0b8de710214b from : [x=13,y=13]
+SpatialMesh: [STATIC_LEFT] adding collidable : dca56314-af4c-4a17-aa4d-0b8de710214b from : [x=13,y=14]
+SpatialMesh: adding collidable :pos = (496.128,384.157)
+width = 6.69105
+height = 107.878
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (496.128,384.157)
+width = 6.69105
+height = 107.878
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (496.128,384.157)
+width = 6.69105
+height = 107.878
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : ce7a11f0-b085-4299-b5e9-e114f708be39 from : [x=15,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : ce7a11f0-b085-4299-b5e9-e114f708be39 from : [x=15,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : ce7a11f0-b085-4299-b5e9-e114f708be39 from : [x=15,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : ce7a11f0-b085-4299-b5e9-e114f708be39 from : [x=15,y=15]
+SpatialMesh: adding collidable :pos = (610.117,291.7497)
+width = 189.637
+height = 507.667
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (610.117,291.7497)
+width = 189.637
+height = 507.667
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (610.117,291.7497)
+width = 189.637
+height = 507.667
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=19]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=23]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=15]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=13]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=11]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=18]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=22]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=17]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=21]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=16]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=14]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=10]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=12]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=24]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=24,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=24]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=20,y=24]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=21,y=24]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=22,y=24]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=19,y=20]
+SpatialMesh: [STATIC_RIGHT] adding collidable : dcf123bd-d3d3-4964-9de2-6c089442318c from : [x=23,y=24]
+SpatialMesh: adding collidable :pos = (464.974,592.7178)
+width = 14.9409
+height = 17.4292
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (464.974,592.7178)
+width = 14.9409
+height = 17.4292
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (464.974,592.7178)
+width = 14.9409
+height = 17.4292
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_TOP] adding collidable : 105fa37b-e823-45ad-a24d-9ecc96314877 from : [x=14,y=19]
+SpatialMesh: [STATIC_TOP] adding collidable : 105fa37b-e823-45ad-a24d-9ecc96314877 from : [x=14,y=18]
+SpatialMesh: adding collidable :pos = (690.057,94.625)
+width = 109.387
+height = 196.75
+overlapX = 0.0
+overlapY = 0.0
+ with rectangle : pos = (690.057,94.625)
+width = 109.387
+height = 196.75
+overlapX = 0.0
+overlapY = 0.0
+ and old rec : pos = (690.057,94.625)
+width = 109.387
+height = 196.75
+overlapX = 0.0
+overlapY = 0.0
+
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=4]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=3]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=6]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=7]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=7]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=7]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=5]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=8]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=8]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=8]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=8]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=5]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=5]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=5]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=7]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=6]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=6]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=6]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=9]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=21,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=22,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=23,y=2]
+SpatialMesh: [STATIC_RIGHT] adding collidable : 9a96844b-3667-4fc9-b5b1-71f00c0a25f2 from : [x=24,y=2]
+TuningFork: Can't measure the duration of: audio/walk_cave.ogg - solution: use Gdx.files.absolute() and exclude it from being packed in the jar on distribution
+SpatialMesh: adding collidable :id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (400.0,300.0)
+oldrectangle : [400.0,300.0,0.0,0.0]
+velocity : (0.0,-10.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+ with rectangle : [400.0,300.0,0.0,0.0] and old rec : [400.0,300.0,0.0,0.0]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=9]
+SpatialMesh: adding collidable :id : 24da143c-10af-4f4e-9ca1-f896941bb3a7
+position : (423.0,298.75)
+oldrectangle : [500.0,300.0,0.0,0.0]
+velocity : (0.0,-10.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+ with rectangle : [423.0,298.75,0.0,0.0] and old rec : [500.0,300.0,0.0,0.0]
+SpatialMesh: [ENEMY] adding collidable : 24da143c-10af-4f4e-9ca1-f896941bb3a7 from : [x=13,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: collidable moved : id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (400.0,298.47577)
+oldrectangle : [400.0,299.14145,30.0,21.0]
+velocity : (0.0,-40.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=13,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=10]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=13,y=10]
+SpatialMesh: adding collidable :id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (400.0,298.47577)
+oldrectangle : [400.0,299.14145,30.0,21.0]
+velocity : (0.0,-40.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+ with rectangle : [400.0,298.47577,30.0,21.0] and old rec : [400.0,299.14145,30.0,21.0]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=13,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9]]
+SpatialMesh: collidable moved : id : 24da143c-10af-4f4e-9ca1-f896941bb3a7
+position : (423.0,287.89493)
+oldrectangle : [423.0,289.73145,13.0,16.0]
+velocity : (0.0,-110.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+
+SpatialMesh: [ENEMY] removing collidable : 24da143c-10af-4f4e-9ca1-f896941bb3a7from : [x=13,y=9]
+SpatialMesh: adding collidable :id : 24da143c-10af-4f4e-9ca1-f896941bb3a7
+position : (423.0,287.89493)
+oldrectangle : [423.0,289.73145,13.0,16.0]
+velocity : (0.0,-110.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+ with rectangle : [423.0,287.89493,13.0,16.0] and old rec : [423.0,289.73145,13.0,16.0]
+SpatialMesh: [ENEMY] adding collidable : 24da143c-10af-4f4e-9ca1-f896941bb3a7 from : [x=13,y=9]
+SpatialMesh: [ENEMY] adding collidable : 24da143c-10af-4f4e-9ca1-f896941bb3a7 from : [x=13,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=13,y=8]]
+SpatialMesh: collidable moved : id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (400.0,287.14877)
+oldrectangle : [400.0,289.14493,30.0,21.0]
+velocity : (0.0,-120.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=13,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=9]
+SpatialMesh: adding collidable :id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (400.0,287.14877)
+oldrectangle : [400.0,289.14493,30.0,21.0]
+velocity : (0.0,-120.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : true
+ with rectangle : [400.0,287.14877,30.0,21.0] and old rec : [400.0,289.14493,30.0,21.0]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=13,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=8]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=13,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: adding collidable :id : 33613f7a-a16e-4228-8529-43a9799fe2b3
+position : (400.0,287.60336)
+oldrectangle : [400.0,287.60336,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+ with rectangle : [400.0,287.60336,0.0,0.0] and old rec : [400.0,287.60336,0.0,0.0]
+SpatialMesh: [SPELL] adding collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3 from : [x=12,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: removing collidable :id : 33613f7a-a16e-4228-8529-43a9799fe2b3
+position : (400.0,287.60336)
+oldrectangle : [400.0,287.60336,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+
+rectangle : [400.0,287.60336,133.0,26.0]
+old rec : [400.0,287.60336,0.0,0.0]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=16,y=8]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=15,y=9]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=14,y=9]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=13,y=9]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=12,y=9]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=12,y=8]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=13,y=8]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=14,y=8]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=15,y=8]
+SpatialMesh: [SPELL] removing collidable : 33613f7a-a16e-4228-8529-43a9799fe2b3from : [x=16,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: collidable moved : id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (399.94962,287.61398)
+oldrectangle : [400.0,287.78198,23.0,24.0]
+velocity : (-3.0,-10.0)
+acceleration : (-3.0,0.0)
+collided : false
+hasMoved : true
+
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=13,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=8]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=13,y=8]
+SpatialMesh: adding collidable :id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (399.94962,287.61398)
+oldrectangle : [400.0,287.78198,23.0,24.0]
+velocity : (-3.0,-10.0)
+acceleration : (-3.0,0.0)
+collided : false
+hasMoved : true
+ with rectangle : [376.94962,287.61398,23.0,24.0] and old rec : [400.0,287.78198,23.0,24.0]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=11,y=8]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=8]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=11,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=11,y=8], [x=12,y=9], [x=12,y=8], [x=11,y=9], [x=13,y=8]]
+SpatialMesh: collidable moved : id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (394.8069,287.61423)
+oldrectangle : [371.75656,287.78198,23.0,24.0]
+velocity : (3.0,-10.0)
+acceleration : (3.0,0.0)
+collided : false
+hasMoved : true
+
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=11,y=8]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=9]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=12,y=8]
+SpatialMesh: [PLAYER] removing collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0from : [x=11,y=9]
+SpatialMesh: adding collidable :id : dfabf154-7da7-4a46-8bfc-cef381d00bd0
+position : (394.8069,287.61423)
+oldrectangle : [371.75656,287.78198,23.0,24.0]
+velocity : (3.0,-10.0)
+acceleration : (3.0,0.0)
+collided : false
+hasMoved : true
+ with rectangle : [394.8069,287.61423,23.0,24.0] and old rec : [371.75656,287.78198,23.0,24.0]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=13,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=9]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=12,y=8]
+SpatialMesh: [PLAYER] adding collidable : dfabf154-7da7-4a46-8bfc-cef381d00bd0 from : [x=13,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: adding collidable :id : fd2b0384-d63a-47ee-b243-3fa979275b06
+position : (396.15607,287.61386)
+oldrectangle : [396.15607,287.61386,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+ with rectangle : [396.15607,287.61386,0.0,0.0] and old rec : [396.15607,287.61386,0.0,0.0]
+SpatialMesh: [SPELL] adding collidable : fd2b0384-d63a-47ee-b243-3fa979275b06 from : [x=12,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: removing collidable :id : fd2b0384-d63a-47ee-b243-3fa979275b06
+position : (396.15607,287.61386)
+oldrectangle : [396.15607,287.61386,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+
+rectangle : [396.15607,287.61386,133.0,26.0]
+old rec : [396.15607,287.61386,0.0,0.0]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=16,y=8]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=15,y=9]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=14,y=9]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=13,y=9]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=12,y=9]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=12,y=8]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=13,y=8]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=14,y=8]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=15,y=8]
+SpatialMesh: [SPELL] removing collidable : fd2b0384-d63a-47ee-b243-3fa979275b06from : [x=16,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: adding collidable :id : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4f
+position : (396.15607,287.61243)
+oldrectangle : [396.15607,287.61243,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+ with rectangle : [396.15607,287.61243,0.0,0.0] and old rec : [396.15607,287.61243,0.0,0.0]
+SpatialMesh: [SPELL] adding collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4f from : [x=12,y=8]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: removing collidable :id : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4f
+position : (396.15607,287.61243)
+oldrectangle : [396.15607,287.61243,0.0,0.0]
+velocity : (0.0,0.0)
+acceleration : (0.0,0.0)
+collided : false
+hasMoved : false
+
+rectangle : [396.15607,287.61243,133.0,26.0]
+old rec : [396.15607,287.61243,0.0,0.0]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=16,y=8]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=15,y=9]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=14,y=9]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=13,y=9]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=12,y=9]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=12,y=8]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=13,y=8]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=14,y=8]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=15,y=8]
+SpatialMesh: [SPELL] removing collidable : 9bbef7e8-0ab3-4b33-8ca1-23894bec2b4ffrom : [x=16,y=9]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]
+SpatialMesh: cells with dynamic : [[x=13,y=9], [x=12,y=9], [x=12,y=8], [x=13,y=8]]

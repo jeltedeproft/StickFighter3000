@@ -2,11 +2,13 @@ package jelte.mygame.logic.physics;
 
 import java.util.UUID;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.logging.MultiFileLogger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +16,8 @@ import lombok.Setter;
 @Setter
 public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	private static final String TAG = SpellPhysicsComponent.class.getSimpleName();
+	private MultiFileLogger logger;
+
 	private Vector2 direction;
 	private boolean goesTroughObjects;
 	private SpellsEnum spellsEnum;
@@ -21,6 +25,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition) {
 		super(playerReference, startPosition);
 		this.spellsEnum = spellsEnum;
+		logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
 	}
 
 	@Override
@@ -63,7 +68,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	protected void updatePosition(float newX, float newY) {
 		hasMoved = true;
 		oldRectangle.set(rectangle);
-		System.out.println("setting position to : (" + newX + "," + newY + ")");
+		logger.error(TAG, "setting position to : (" + newX + "," + newY + ")");
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 
