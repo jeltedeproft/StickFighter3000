@@ -1,5703 +1,5703 @@
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : CHARACTER
+collidable 2 : PLAYER
 

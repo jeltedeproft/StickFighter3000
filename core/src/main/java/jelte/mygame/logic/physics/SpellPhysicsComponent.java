@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.Constants;
-import jelte.mygame.utility.logging.MultiFileLogger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,16 +15,14 @@ import lombok.Setter;
 @Setter
 public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	private static final String TAG = SpellPhysicsComponent.class.getSimpleName();
-	private MultiFileLogger logger;
 
-	private Vector2 direction;
+	private Vector2 direction = new Vector2(0, 0);
 	private boolean goesTroughObjects;
 	private SpellsEnum spellsEnum;
 
 	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition) {
 		super(playerReference, startPosition);
 		this.spellsEnum = spellsEnum;
-		logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
 	}
 
 	@Override
@@ -68,7 +65,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	protected void updatePosition(float newX, float newY) {
 		hasMoved = true;
 		oldRectangle.set(rectangle);
-		logger.error(TAG, "setting position to : (" + newX + "," + newY + ")");
+		Gdx.app.error(TAG, "setting position to : (" + newX + "," + newY + ")");
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 

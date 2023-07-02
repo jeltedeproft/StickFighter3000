@@ -95,6 +95,8 @@ public abstract class AbstractAiStrategy implements AiStrategy {
 	protected void changeState(AI_STATE state) {
 		switch (state) {
 		case ATTACK:
+			Gdx.app.log(TAG, "time since last attack : " + timeSinceLastAttack);
+			Gdx.app.log(TAG, "attack cooldown : " + self.getData().getAttackCooldown());
 			if (timeSinceLastAttack >= self.getData().getAttackCooldown()) {
 				MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_ATTACK_STATE_%s", self.getName().toUpperCase())));
 				self.getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));

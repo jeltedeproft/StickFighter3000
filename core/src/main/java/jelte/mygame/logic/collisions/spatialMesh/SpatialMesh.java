@@ -14,14 +14,12 @@ import jelte.mygame.logic.collisions.CollisionData;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.exceptions.OutOfBoundsException;
-import jelte.mygame.utility.logging.MultiFileLogger;
 import lombok.Getter;
 
 //creates squares inside the map, goal is to make collision detection more efficient
 @Getter
 public class SpatialMesh {
 	private static final String TAG = SpatialMesh.class.getSimpleName();
-	private MultiFileLogger logger;
 	private int numberofCellsX;
 	private int numberofCellsY;
 	private float mapWidth;
@@ -31,7 +29,6 @@ public class SpatialMesh {
 	private Set<Collidable> collidablesInPlay;
 
 	public SpatialMesh(Vector2 mapBoundaries) {
-		logger = (MultiFileLogger) Gdx.app.getApplicationLogger();
 		mapWidth = mapBoundaries.x;
 		mapHeight = mapBoundaries.y;
 		collidablesInPlay = new HashSet<>();
@@ -82,14 +79,14 @@ public class SpatialMesh {
 
 	private void removeCollidable(Collidable collidable) {
 		collidablesInPlay.remove(collidable);
-		logger.error(TAG, "removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold rec : " + collidable.getOldRectangle());
+		Gdx.app.error(TAG, "removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold rec : " + collidable.getOldRectangle());
 		Set<CellPoint> collidedPoints = getCollidingCells(collidable.getRectangle());
 		removeCollidableFrom(collidable, collidedPoints);
 	}
 
 	private void removeCollidableFrom(Collidable collidable, Set<CellPoint> collidedPoints) {
 		for (CellPoint point : collidedPoints) {
-			logger.error(TAG, "[" + collidable.getType() + "] removing collidable : " + collidable.getId() + "from : " + point);
+			Gdx.app.error(TAG, "[" + collidable.getType() + "] removing collidable : " + collidable.getId() + "from : " + point);
 			spatialMesh[point.x][point.y].removeCollidable(collidable);
 			if (spatialMesh[point.x][point.y].getDynamicCollidables().size() == 0) {
 				cellsWithDynamicCollidables.remove(new CellPoint(point.x, point.y));
@@ -133,11 +130,11 @@ public class SpatialMesh {
 	}
 
 	private void addCollidable(Collidable collidable) {
-		logger.error(TAG, "adding collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old rec : " + collidable.getOldRectangle());
+		Gdx.app.error(TAG, "adding collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old rec : " + collidable.getOldRectangle());
 		Rectangle rect = collidable.getRectangle();
 		Set<CellPoint> collidedPoints = getCollidingCells(rect);
 		for (CellPoint point : collidedPoints) {
-			logger.error(TAG, "[" + collidable.getType() + "] adding collidable : " + collidable.getId() + " from : " + point);
+			Gdx.app.error(TAG, "[" + collidable.getType() + "] adding collidable : " + collidable.getId() + " from : " + point);
 			spatialMesh[point.x][point.y].addCollidable(collidable);
 			if (collidable.isDynamic()) {
 				collidablesInPlay.add(collidable);
@@ -153,7 +150,7 @@ public class SpatialMesh {
 		// new cells
 		Set<CellPoint> newCollidedPoints = getCollidingCells(collidable.getRectangle());
 		if (!oldCollidedPoints.equals(newCollidedPoints)) {
-			logger.error(TAG, "collidable moved : " + collidable);
+			Gdx.app.error(TAG, "collidable moved : " + collidable);
 			removeCollidableFrom(collidable, oldCollidedPoints);
 			addCollidable(collidable);
 		}
