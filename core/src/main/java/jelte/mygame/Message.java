@@ -53,7 +53,8 @@ public class Message {
 		START_PATROLLING,
 		IN_CAST_RANGE,
 		OUT_CAST_RANGE,
-		SPAWN_ENEMIES;
+		SPAWN_ENEMIES,
+		ATTACKED_PLAYER;
 	}
 
 	public enum RECIPIENT {

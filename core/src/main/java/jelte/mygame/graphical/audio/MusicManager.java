@@ -27,6 +27,7 @@ import de.pottgames.tuningfork.jukebox.song.SongMeta;
 import de.pottgames.tuningfork.jukebox.song.SongSettings;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
 //TODO add link between entity and sond so that we can update pos sound
 //TODO start usins positions and maybe reverb in cave
@@ -53,6 +54,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 		AudioConfig config = new AudioConfig();
 		config.setDistanceAttenuationModel(DistanceAttenuationModel.LINEAR_DISTANCE);
+		config.setLogger((MultiFileLogger) Gdx.app.getApplicationLogger());
 		audio = Audio.init(config);
 		audio.setDefaultAttenuationMaxDistance(5f);
 		listener = audio.getListener();

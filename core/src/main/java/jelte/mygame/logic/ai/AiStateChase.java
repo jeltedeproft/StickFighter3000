@@ -7,6 +7,8 @@ import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.ai.AiStateManager.AI_EVENT;
 import jelte.mygame.logic.ai.AiStateManager.AI_STATE;
+import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.PlayerCharacter;
 
 public class AiStateChase implements AiState {
 	private AiStateManager aiStateManager;
@@ -22,14 +24,14 @@ public class AiStateChase implements AiState {
 	}
 
 	@Override
-	public void update(float delta) {
+	public void update(NpcCharacter self, PlayerCharacter player, float delta) {
 
 	}
 
 	@Override
 	public void handleEvent(AI_EVENT event) {
 		switch (event) {
-		case PLAYER_SEEN, PLAYER_OUT_ATTACK_RANGE:
+		case PLAYER_SEEN, PLAYER_OUT_ATTACK_RANGE, ATTACKED_PLAYER:
 			break;
 		case PLAYER_IN_ATTACK_RANGE:
 			aiStateManager.transition(AI_STATE.ATTACK);

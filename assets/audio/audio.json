@@ -214,5 +214,13 @@
 		"volume": 0.8f,
 		"duration": 1.0f
 		"theme": 0,
+	},
+	{
+		"id": 27,
+		"name": "alchemistAttack",
+		"audioFileName": ["audio/alchemistAttack.wav"],
+		"volume": 0.8f,
+		"duration": 1.0f
+		"theme": 0,
 	}
 ]

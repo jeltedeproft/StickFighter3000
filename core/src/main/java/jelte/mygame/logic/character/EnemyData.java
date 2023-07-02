@@ -21,6 +21,7 @@ public class EnemyData implements CharacterData {
 	private float maxHP;
 	private float movementSpeed;
 	private int attackPower;
+	private float attackCooldown;
 	private int defense;
 	private int attackrange;
 	private int castrange;

@@ -7,6 +7,8 @@ import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.ai.AiStateManager.AI_EVENT;
 import jelte.mygame.logic.ai.AiStateManager.AI_STATE;
+import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.PlayerCharacter;
 
 public class AiStatePatrol implements AiState {
 	private AiStateManager aiStateManager;
@@ -22,7 +24,7 @@ public class AiStatePatrol implements AiState {
 	}
 
 	@Override
-	public void update(float delta) {
+	public void update(NpcCharacter self, PlayerCharacter player, float delta) {
 
 	}
 
@@ -35,7 +37,7 @@ public class AiStatePatrol implements AiState {
 		case PLAYER_IN_ATTACK_RANGE:
 			aiStateManager.transition(AI_STATE.ATTACK);
 			break;
-		case PLAYER_OUT_ATTACK_RANGE, PLAYER_LOST, START_PATROLLING:
+		case PLAYER_OUT_ATTACK_RANGE, PLAYER_LOST, START_PATROLLING, ATTACKED_PLAYER:
 			break;
 		default:
 			break;

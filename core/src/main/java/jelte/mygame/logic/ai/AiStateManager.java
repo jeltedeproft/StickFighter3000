@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class AiStateManager {
@@ -35,7 +36,8 @@ public class AiStateManager {
 		PLAYER_IN_CAST_RANGE,
 		PLAYER_OUT_CAST_RANGE,
 		PLAYER_LOST,
-		START_PATROLLING;
+		START_PATROLLING,
+		ATTACKED_PLAYER;
 
 	}
 
@@ -50,8 +52,8 @@ public class AiStateManager {
 		previousAiState = AI_STATE.IDLE;
 	}
 
-	public void update(float delta) {
-		currentAiState.update(delta);
+	public void update(NpcCharacter self, PlayerCharacter player, float delta) {
+		currentAiState.update(self, player, delta);
 		updateStateChange();
 		enemy.getPhysicsComponent().getCollidedWith().clear();
 	}

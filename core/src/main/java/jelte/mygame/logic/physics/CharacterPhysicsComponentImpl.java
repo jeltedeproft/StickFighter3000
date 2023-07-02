@@ -17,7 +17,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 	private static final String TAG = PlayerPhysicsComponent.class.getSimpleName();
 	protected Direction direction;
 
-	public CharacterPhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
+	protected CharacterPhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
 		super(playerReference, startPosition);
 		direction = Direction.right;
 		rectangle = new Rectangle(position.x, position.y, width, height);

@@ -2,6 +2,7 @@ package jelte.mygame.logic.character;
 
 import java.util.UUID;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
@@ -19,6 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NpcCharacter extends Character {
+	private static final String TAG = NpcCharacter.class.getSimpleName();
 	private Array<Vector2> patrolPositions;
 	private BasicEnemyAiStrategy aiStrategy;
 	private AiStateManager aiStateManager;
@@ -37,7 +39,8 @@ public class NpcCharacter extends Character {
 
 	public void update(float delta, PlayerCharacter player) {
 		super.update(delta);
-		aiStateManager.update(delta);
+		Gdx.app.log(TAG, "ai physsics component : " + this.getPhysicsComponent());
+		aiStateManager.update(this, player, delta);
 		aiStrategy.update(delta, player, aiStateManager.getCurrentAiState());
 	}
 
@@ -76,6 +79,9 @@ public class NpcCharacter extends Character {
 			break;
 		case START_PATROLLING:
 			aiStateManager.handleEvent(AI_EVENT.START_PATROLLING);
+			break;
+		case ATTACKED_PLAYER:
+			aiStateManager.handleEvent(AI_EVENT.ATTACKED_PLAYER);
 			break;
 
 		default:
