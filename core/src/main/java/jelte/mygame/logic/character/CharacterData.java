@@ -10,6 +10,8 @@ public interface CharacterData {
 
 	float getAttackFullTime();
 
+	float getAttackCooldown();
+
 	float getHurtFullTime();
 
 	float getStopRunningFullTime();

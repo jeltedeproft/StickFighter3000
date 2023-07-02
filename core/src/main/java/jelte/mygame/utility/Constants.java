@@ -29,7 +29,7 @@ public class Constants {
 	public static final float CAMERA_MOVE_SPEED = 5;
 
 	// AI
-	public static final float CONTROL_POINT_REACHED_BUFFER_DISTANCE = 5;
+	public static final float CONTROL_POINT_REACHED_BUFFER_DISTANCE = 15;
 
 	// COLLISION
 	public static final int SPATIAL_MESH_CELL_SIZE = 32;

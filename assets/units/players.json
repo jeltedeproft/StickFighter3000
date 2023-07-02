@@ -4,6 +4,7 @@
 		"name": "swordmaster",
 		"entitySpriteName": "swordmaster",
 		"maxHP": 100.0f,
+		"attackCooldown": 3.0f,
 		"jumpFrameDuration":0.05f,
 		"hurtFrameDuration":0.05f,
 		"attackFrameDuration":0.1f,

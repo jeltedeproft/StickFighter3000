@@ -2,14 +2,10 @@ package jelte.mygame.logic.character;
 
 import java.util.UUID;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
-import jelte.mygame.Message;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.AiStateManager;
-import jelte.mygame.logic.ai.AiStateManager.AI_EVENT;
 import jelte.mygame.logic.ai.BasicEnemyAiStrategy;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.physics.EnemyPhysicsComponent;
@@ -23,7 +19,15 @@ public class NpcCharacter extends Character {
 	private static final String TAG = NpcCharacter.class.getSimpleName();
 	private Array<Vector2> patrolPositions;
 	private BasicEnemyAiStrategy aiStrategy;
-	private AiStateManager aiStateManager;
+	private AI_STATE state = AI_STATE.PATROL;
+
+	public enum AI_STATE {
+		IDLE,
+		PATROL,
+		CHASE,
+		ATTACK,
+		CAST;
+	}
 
 	public NpcCharacter(EnemyData data, UUID id) {
 		super(id);
@@ -34,14 +38,11 @@ public class NpcCharacter extends Character {
 		physicsComponent = new EnemyPhysicsComponent(id, Constants.PLAYER_START.cpy(), data.getVisionShapeWidth(), data.getVisionShapeHeight());
 		physicsComponent.setPosition(Constants.ENEMY_START.cpy());
 		aiStrategy = new BasicEnemyAiStrategy(this);
-		aiStateManager = new AiStateManager(this);
 	}
 
 	public void update(float delta, PlayerCharacter player) {
 		super.update(delta);
-		Gdx.app.log(TAG, "ai physsics component : " + this.getPhysicsComponent());
-		aiStateManager.update(this, player, delta);
-		aiStrategy.update(delta, player, aiStateManager.getCurrentAiState());
+		aiStrategy.update(delta, player, state);
 	}
 
 	public void addPatrolPoints(Array<PatrolPoint> patrolPoints) {
@@ -54,40 +55,6 @@ public class NpcCharacter extends Character {
 	public boolean checkPlayerVisibility(PlayerCharacter player) {
 		EnemyPhysicsComponent physics = (EnemyPhysicsComponent) physicsComponent;
 		return physics.getVisionRectangle().overlaps(player.getPhysicsComponent().getRectangle());
-	}
-
-	@Override
-	public void receiveMessage(Message message) {
-		switch (message.getAction()) {
-		case PLAYER_SEEN:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_SEEN);
-			break;
-		case IN_ATTACK_RANGE:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_IN_ATTACK_RANGE);
-			break;
-		case OUT_ATTACK_RANGE:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_OUT_ATTACK_RANGE);
-			break;
-		case IN_CAST_RANGE:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_IN_CAST_RANGE);
-			break;
-		case OUT_CAST_RANGE:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_OUT_CAST_RANGE);
-			break;
-		case LOST_PLAYER:
-			aiStateManager.handleEvent(AI_EVENT.PLAYER_LOST);
-			break;
-		case START_PATROLLING:
-			aiStateManager.handleEvent(AI_EVENT.START_PATROLLING);
-			break;
-		case ATTACKED_PLAYER:
-			aiStateManager.handleEvent(AI_EVENT.ATTACKED_PLAYER);
-			break;
-
-		default:
-			break;
-		}
-		super.receiveMessage(message);
 	}
 
 }

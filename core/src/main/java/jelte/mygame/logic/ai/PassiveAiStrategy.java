@@ -9,17 +9,15 @@ import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.NpcCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 
-public class PassiveAiStrategy implements AiStrategy {
-	private NpcCharacter self;
+public class PassiveAiStrategy extends AbstractAiStrategy {
 	private float timeSinceLastCommand = 0f;
 
 	public PassiveAiStrategy(NpcCharacter self) {
-		this.self = self;
+		super(self);
 	}
 
 	@Override
-	// go left and right
-	public void update(float delta, PlayerCharacter player, AiState state) {
+	protected void updateIdleState(float delta, PlayerCharacter player) {
 		timeSinceLastCommand += delta;
 		if (timeSinceLastCommand >= 2.0f) {
 			if (self.getPhysicsComponent().getDirection() == Direction.left) {
@@ -34,8 +32,23 @@ public class PassiveAiStrategy implements AiStrategy {
 	}
 
 	@Override
-	public void sendMessage(Message message) {
-		self.receiveMessage(message);
+	protected void updatePatrolState(float delta, PlayerCharacter player) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void updateChaseState(float delta, PlayerCharacter player) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void updateCastState(float delta, PlayerCharacter player) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void updateAttackState(float delta, PlayerCharacter player) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
