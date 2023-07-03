@@ -1,13 +1,27 @@
 package jelte.mygame.logic.ai;
 
-import jelte.mygame.Message;
-import jelte.mygame.logic.character.NpcCharacter.AI_STATE;
+import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 
 public interface AiStrategy {
 
-	public void update(float delta, PlayerCharacter player, AI_STATE state);
+	public enum AI_STATE {
+		IDLE,
+		PATROL,
+		CHASE,
+		ATTACK,
+		CAST;
+	}
 
-	public void sendMessage(Message message);
+	public enum AI_COMMAND {
+		MOVE_RIGHT,
+		MOVE_LEFT,
+		ATTACK,
+		CAST,
+		JUMP,
+		STOP_MOVE;
+	}
+
+	public AI_COMMAND decideNextMove(float delta, AiCharacter self, PlayerCharacter player);
 
 }

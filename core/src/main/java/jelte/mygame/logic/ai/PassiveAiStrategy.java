@@ -6,13 +6,13 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.logic.character.Direction;
-import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 
 public class PassiveAiStrategy extends AbstractAiStrategy {
 	private float timeSinceLastCommand = 0f;
 
-	public PassiveAiStrategy(NpcCharacter self) {
+	public PassiveAiStrategy(AiCharacter self) {
 		super(self);
 	}
 

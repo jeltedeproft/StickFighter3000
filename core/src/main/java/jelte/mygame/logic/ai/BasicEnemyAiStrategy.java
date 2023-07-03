@@ -2,23 +2,26 @@ package jelte.mygame.logic.ai;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.NpcCharacter;
-import jelte.mygame.logic.character.NpcCharacter.AI_STATE;
+import jelte.mygame.graphical.map.PatrolPoint;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class BasicEnemyAiStrategy extends AbstractAiStrategy {
 	private static final String TAG = BasicEnemyAiStrategy.class.getSimpleName();
 
-	public BasicEnemyAiStrategy(NpcCharacter self) {
-		super(self);
+	public BasicEnemyAiStrategy(Array<PatrolPoint> patrolPoints) {
+		patrolPositions.ensureCapacity(patrolPoints.size);
+		for (PatrolPoint patrolPoint : patrolPoints) {
+			patrolPositions.insert(Integer.parseInt(patrolPoint.getPathIndex()), patrolPoint.getPosition());
+		}
 	}
 
 	@Override
 	protected void updatePatrolState(float delta, PlayerCharacter player) {
-		Vector2 goal = self.getPatrolPositions().get(currentPatrolPointIndex);
+		Vector2 goal = patrolPositions.get(currentPatrolPointIndex);
 		if (isPointReached(self, goal)) {
 			Gdx.app.log(TAG, "shifting patrol points");
 			shiftPatrolPoint();

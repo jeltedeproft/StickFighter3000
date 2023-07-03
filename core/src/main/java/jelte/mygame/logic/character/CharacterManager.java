@@ -15,7 +15,7 @@ import jelte.mygame.logic.physics.PhysicsComponent;
 
 public class CharacterManager {
 	private PlayerCharacter player;
-	private Array<NpcCharacter> enemies;
+	private Array<AiCharacter> enemies;
 	private Array<PhysicsComponent> bodies;
 
 	public CharacterManager(PlayerCharacter player) {
@@ -28,19 +28,17 @@ public class CharacterManager {
 	public void spawnEnemies(Collection<EnemySpawnData> spawndatas) {
 		for (EnemySpawnData enemySpawnData : spawndatas) {
 			int type = Integer.parseInt(enemySpawnData.getType());
-			NpcCharacter enemy = new NpcCharacter(EnemyFileReader.getUnitData().get(type), UUID.randomUUID());
-			enemy.getPhysicsComponent().setPosition(enemySpawnData.getSpawnPoint());
-			enemy.addPatrolPoints(enemySpawnData.getPatrolPoints());
+			AiCharacter enemy = new AiCharacter(EnemyFileReader.getUnitData().get(type), UUID.randomUUID(), enemySpawnData.getSpawnPoint(), enemySpawnData.getPatrolPoints());
 			addEnemy(enemy);
 		}
 	}
 
-	public void addEnemy(NpcCharacter enemy) {
+	public void addEnemy(AiCharacter enemy) {
 		enemies.add(enemy);
 		bodies.add(enemy.getPhysicsComponent());
 	}
 
-	public void removeEnemy(NpcCharacter enemy) {
+	public void removeEnemy(AiCharacter enemy) {
 		enemies.removeValue(enemy, false);
 		bodies.removeValue(enemy.getPhysicsComponent(), false);
 	}
@@ -72,7 +70,7 @@ public class CharacterManager {
 		return characterbodies;
 	}
 
-	public Array<NpcCharacter> getEnemies() {
+	public Array<AiCharacter> getEnemies() {
 		return enemies;
 	}
 

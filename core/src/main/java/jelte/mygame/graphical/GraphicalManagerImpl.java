@@ -32,7 +32,7 @@ import jelte.mygame.graphical.particles.ParticleType;
 import jelte.mygame.graphical.specialEffects.SpecialEffect;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManager;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
-import jelte.mygame.logic.character.NpcCharacter;
+import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
@@ -56,10 +56,10 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private AnimationManager animationManager;
 	private SpecialEffectsManager specialEffectsManager;
 	private PlayerCharacter player;
-	private NpcCharacter enemy;
+	private AiCharacter enemy;
 	private ProgressBar playerHpBar;
 	private Array<AbstractSpell> spellsToRender;
-	private Map<NpcCharacter, HealthBar> enemyHealthBars;
+	private Map<AiCharacter, HealthBar> enemyHealthBars;
 	private ParticleMaker particleMaker;
 
 	private Table root = new Table();
@@ -221,7 +221,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			playerHpBar.setValue(player.getCurrentHp());
 			break;
 		case RENDER_ENEMY:
-			enemy = (NpcCharacter) message.getValue();
+			enemy = (AiCharacter) message.getValue();
 			break;
 		case RENDER_SPELLS:
 			spellsToRender = (Array<AbstractSpell>) message.getValue();
