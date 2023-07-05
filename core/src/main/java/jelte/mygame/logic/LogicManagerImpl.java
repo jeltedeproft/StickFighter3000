@@ -13,6 +13,7 @@ import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.graphical.map.EnemySpawnData;
+import jelte.mygame.logic.ai.AiManager;
 import jelte.mygame.logic.character.CharacterManager;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.PlayerFileReader;
@@ -30,6 +31,7 @@ public class LogicManagerImpl implements LogicManager {
 	private CollisionDetectionSystem collisionDetectionSystem;
 	private CollisionHandlingSystem collisionhandlingSystem;
 	private CharacterManager characterManager;
+	private AiManager aiManager;
 	private SpellManager spellManager;
 	private Set<Collidable> blockingObjects;
 	private Set<Collidable> allCollidables;
@@ -42,11 +44,13 @@ public class LogicManagerImpl implements LogicManager {
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
 		characterManager = new CharacterManager(new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID()));
+		aiManager = new AiManager();
 	}
 
 	@Override
 	public void update(float delta) {
 		characterManager.update(delta);
+		aiManager.update(delta, characterManager.getPlayer(), collisionDetectionSystem.getCollidables());
 		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());// TODO this order is important because graphicalImpl sets the dimensions of the sprites needed for adding them to the spatial mesh
 
 		allCollidables.clear();
@@ -72,7 +76,10 @@ public class LogicManagerImpl implements LogicManager {
 			mousePosition.y = mouseVector.y;
 		}
 		case SEND_BLOCKING_OBJECTS -> blockingObjects = new HashSet<>((Set<StaticBlock>) message.getValue());
-		case SPAWN_ENEMIES -> characterManager.spawnEnemies((Collection<EnemySpawnData>) message.getValue());
+		case SPAWN_ENEMIES -> {
+			characterManager.spawnEnemies((Collection<EnemySpawnData>) message.getValue());
+			aiManager.addEnemies(characterManager.getEnemies());
+		}
 		case SEND_MAP_DIMENSIONS -> {
 			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
 			collisionDetectionSystem.initializeStatickCollidables(blockingObjects);

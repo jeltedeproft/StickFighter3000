@@ -16,4 +16,9 @@ public class PlayerCharacter extends Character {
 		physicsComponent.setPosition(Constants.PLAYER_START.cpy());
 	}
 
+	@Override
+	public PlayerData getData() {
+		return (PlayerData) data;
+	}
+
 }

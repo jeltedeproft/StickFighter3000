@@ -1,5 +1,8 @@
 package jelte.mygame.logic.ai;
 
+import com.badlogic.gdx.utils.Array;
+
+import jelte.mygame.Message;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 
@@ -13,15 +16,6 @@ public interface AiStrategy {
 		CAST;
 	}
 
-	public enum AI_COMMAND {
-		MOVE_RIGHT,
-		MOVE_LEFT,
-		ATTACK,
-		CAST,
-		JUMP,
-		STOP_MOVE;
-	}
-
-	public AI_COMMAND decideNextMove(float delta, AiCharacter self, PlayerCharacter player);
+	public Array<Message> generateCommands(float delta, AiCharacter self, PlayerCharacter player);
 
 }

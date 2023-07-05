@@ -17,4 +17,6 @@ public interface CollisionDetectionSystem {
 
 	public void initializeStatickCollidables(Set<Collidable> blockingObjects);
 
+	public Set<Collidable> getCollidables();
+
 }

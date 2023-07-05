@@ -17,6 +17,7 @@ public class EnemyData implements CharacterData {
 	private String name;
 	private ArrayList<Integer> spells;
 	private String entitySpriteName;
+	private String aiStrategyName;
 	private boolean melee;
 	private float maxHP;
 	private float movementSpeed;

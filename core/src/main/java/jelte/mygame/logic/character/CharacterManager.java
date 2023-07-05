@@ -74,7 +74,7 @@ public class CharacterManager {
 		return enemies;
 	}
 
-	public Character getPlayer() {
+	public PlayerCharacter getPlayer() {
 		return player;
 	}
 
