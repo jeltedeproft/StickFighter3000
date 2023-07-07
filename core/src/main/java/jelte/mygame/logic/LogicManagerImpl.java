@@ -55,6 +55,7 @@ public class LogicManagerImpl implements LogicManager {
 
 		allCollidables.clear();
 		allCollidables.addAll(characterManager.getAllCharacterbodies());
+		allCollidables.addAll(characterManager.getVisions());
 		allCollidables.addAll(spellManager.getAllSpellBodies());
 		collisionDetectionSystem.updateSpatialMesh(allCollidables);
 		Set<CollisionPair> collisionPairs = collisionDetectionSystem.getCollidingpairs();

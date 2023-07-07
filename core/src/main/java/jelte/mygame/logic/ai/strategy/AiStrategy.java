@@ -1,4 +1,4 @@
-package jelte.mygame.logic.ai;
+package jelte.mygame.logic.ai.strategy;
 
 import com.badlogic.gdx.utils.Array;
 
@@ -13,9 +13,12 @@ public interface AiStrategy {
 		PATROL,
 		CHASE,
 		ATTACK,
-		CAST;
+		CAST,
+		FLEE;
 	}
 
 	public Array<Message> generateCommands(float delta, AiCharacter self, PlayerCharacter player);
+
+	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player);
 
 }

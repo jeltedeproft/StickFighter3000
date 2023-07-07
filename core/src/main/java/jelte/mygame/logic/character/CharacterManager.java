@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
+import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.physics.PhysicsComponent;
@@ -17,11 +18,13 @@ public class CharacterManager {
 	private PlayerCharacter player;
 	private Array<AiCharacter> enemies;
 	private Array<PhysicsComponent> bodies;
+	private Array<VisionCollidable> aiVisions;
 
 	public CharacterManager(PlayerCharacter player) {
 		this.player = player;
 		enemies = new Array<>();
 		bodies = new Array<>();
+		aiVisions = new Array<>();
 		bodies.add(player.getPhysicsComponent());
 	}
 
@@ -36,6 +39,7 @@ public class CharacterManager {
 	public void addEnemy(AiCharacter enemy) {
 		enemies.add(enemy);
 		bodies.add(enemy.getPhysicsComponent());
+		aiVisions.add(new VisionCollidable(enemy));
 	}
 
 	public void removeEnemy(AiCharacter enemy) {
@@ -70,6 +74,14 @@ public class CharacterManager {
 		return characterbodies;
 	}
 
+	public Set<Collidable> getVisions() {
+		Set<Collidable> visions = new HashSet<>();
+		for (Collidable vision : aiVisions) {
+			visions.add(vision);
+		}
+		return visions;
+	}
+
 	public Array<AiCharacter> getEnemies() {
 		return enemies;
 	}
@@ -84,7 +96,7 @@ public class CharacterManager {
 
 	public void update(float delta) {
 		player.update(delta);
-		enemies.forEach(enemy -> enemy.update(delta, player));
+		enemies.forEach(enemy -> enemy.update(delta));
 		bodies.forEach(this::checkCollision);
 	}
 

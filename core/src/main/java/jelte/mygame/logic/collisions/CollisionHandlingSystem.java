@@ -10,6 +10,7 @@ import java.util.stream.StreamSupport;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 
+import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
@@ -49,7 +50,7 @@ public class CollisionHandlingSystem {
 			} else if (COLLIDABLE_TYPE.isStatic(type2)) {
 				CollisionStrategy collisionStrategy = collisionStrategies.get(type2);
 				collisionStrategy.resolvePossibleCollision(collidable2, collidable1);
-			} else if (isCollisionWithSpell(type1, type2)) {
+			} else if (isSpellAndCharacter(type1, type2)) {
 				Spell spell = getSpellById(allSpells, collidable1.getId());
 				if (spell == null) {
 					Gdx.app.error(TAG, "null spell id = " + collidable1.getId());
@@ -61,7 +62,7 @@ public class CollisionHandlingSystem {
 					int j = 5;
 				}
 				spell.applyEffect(character);
-			} else if (isCollisionWithSpell(type2, type1)) {
+			} else if (isSpellAndCharacter(type2, type1)) {
 				Spell spell = getSpellById(allSpells, collidable2.getId());
 				if (spell == null) {
 					Gdx.app.error(TAG, "null spell id = " + collidable2.getId());
@@ -73,13 +74,23 @@ public class CollisionHandlingSystem {
 					int j = 5;
 				}
 				spell.applyEffect(character);
+			} else if (isVisionAndPlayer(type2, type1)) {
+				VisionCollidable vision = (VisionCollidable) collidable2;
+				vision.getAiCharacter().playerSeen();
+			} else if (isVisionAndPlayer(type1, type2)) {
+				VisionCollidable vision = (VisionCollidable) collidable1;
+				vision.getAiCharacter().playerSeen();
 			}
 
 		}
 	}
 
-	private boolean isCollisionWithSpell(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
+	private boolean isSpellAndCharacter(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
 		return COLLIDABLE_TYPE.isSpell(type1) && COLLIDABLE_TYPE.isCharacter(type2);
+	}
+
+	private boolean isVisionAndPlayer(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
+		return COLLIDABLE_TYPE.isVision(type1) && COLLIDABLE_TYPE.isCharacter(type2);
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {
