@@ -1,4 +1,4 @@
-package jelte.mygame.graphical.audio;
+package jelte.mygame.tests.graphical.audio;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -13,9 +13,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
 import de.pottgames.tuningfork.Audio;
-import de.pottgames.tuningfork.AudioConfig;
 import de.pottgames.tuningfork.BufferedSoundSource;
-import de.pottgames.tuningfork.DistanceAttenuationModel;
 import de.pottgames.tuningfork.SoundBuffer;
 import de.pottgames.tuningfork.SoundListener;
 import de.pottgames.tuningfork.StreamedSoundSource;
@@ -25,17 +23,20 @@ import de.pottgames.tuningfork.jukebox.playlist.ThemePlayListProvider;
 import de.pottgames.tuningfork.jukebox.song.Song;
 import de.pottgames.tuningfork.jukebox.song.SongMeta;
 import de.pottgames.tuningfork.jukebox.song.SongSettings;
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioData;
+import jelte.mygame.graphical.audio.AudioEnum;
+import jelte.mygame.graphical.audio.AudioFileReader;
+import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.graphical.audio.MusicTheme;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
-import jelte.mygame.utility.logging.MultiFileLogger;
 
-//TODO add link between entity and sound so that we can update pos sound
-//TODO start using positions and maybe reverb in cave
-//TODO refactor
-public class MusicManager implements Disposable, MusicManagerInterface {
+public class TestMusicManagerImpl implements Disposable, MusicManagerInterface {
+
 	private static final String TAG = MusicManager.class.getSimpleName();
 
-	private static MusicManagerInterface instance = null;
 	private static final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
 	private static final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
 	private static final Map<Integer, AudioData> audioDataForIds = new HashMap<>();
@@ -48,12 +49,12 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	private ThemePlayListProvider provider;
 	private JukeBox jukeBox;
 
-	private MusicManager() {
+	public TestMusicManagerImpl(Audio audio, JukeBox jukeBox) {
 		songs = new HashMap<>();
 		loadedSounds = new HashMap<>();
 
-		initAudio();
-		initJukeBox();
+		this.audio = audio;
+		this.jukeBox = jukeBox;
 
 		audio.setDefaultAttenuationMaxDistance(5f);
 		listener = audio.getListener();
@@ -62,25 +63,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		autoloadMusic();
 
 		jukeBox.play();
-	}
-
-	private void initJukeBox() {
-		provider = new ThemePlayListProvider();
-		provider.setTheme(MusicTheme.PLAYING.ordinal());// TODO starting theme is main menu?
-		for (Entry<MusicTheme, PlayList> entry : playlistsPerTheme.entrySet()) {
-			entry.getValue().setLooping(true);
-			entry.getValue().setShuffleAfterPlaytrough(true);
-			entry.getValue().shuffle();
-			provider.add(entry.getValue(), entry.getKey().ordinal());
-		}
-		jukeBox = new JukeBox(provider);
-	}
-
-	private void initAudio() {
-		AudioConfig config = new AudioConfig();
-		config.setDistanceAttenuationModel(DistanceAttenuationModel.LINEAR_DISTANCE);
-		config.setLogger((MultiFileLogger) Gdx.app.getApplicationLogger());
-		audio = Audio.init(config);
 	}
 
 	private void autoloadSounds() {
@@ -294,17 +276,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	private boolean offCooldown(AudioEnum event) {
 		return cooldowns.get(event) == null || cooldowns.get(event) <= 0;
-	}
-
-	public static MusicManagerInterface getInstance() {
-		if (instance == null) {
-			instance = new MusicManager();
-		}
-		return instance;
-	}
-
-	public static void setInstance(MusicManagerInterface newInstance) {
-		instance = newInstance;
 	}
 
 	@Override

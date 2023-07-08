@@ -15,7 +15,7 @@ public class Particle extends Actor {
 	private final ParticleType type;
 	private final PooledEffect particleEffect;
 
-	Particle(final Vector2 pos, final PooledEffect pe, final ParticleType type, final UUID id) {
+	public Particle(final Vector2 pos, final PooledEffect pe, final ParticleType type, final UUID id) {
 		super();
 		this.pos = pos;
 		shown = true;

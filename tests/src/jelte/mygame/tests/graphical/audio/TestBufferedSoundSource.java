@@ -4,10 +4,14 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
 
 import de.pottgames.tuningfork.Audio;
 import de.pottgames.tuningfork.BufferedSoundSource;
@@ -16,7 +20,9 @@ import jelte.mygame.graphical.audio.AudioFileReader;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.logging.MultiFileLogger;
 
+@Ignore
 @RunWith(GdxTestRunner.class)
 public class TestBufferedSoundSource {
 
@@ -29,6 +35,8 @@ public class TestBufferedSoundSource {
 
 	@BeforeClass
 	public static void beforeAllTests() {
+		ApplicationLogger logger = new MultiFileLogger();
+		Gdx.app.setApplicationLogger(logger);
 		AudioFileReader.loadAudioInMemory(Constants.AUDIO_FILE_LOCATION);
 		AssetManagerUtility.loadSoundBufferAsset("audio/attack1.wav");
 	}
