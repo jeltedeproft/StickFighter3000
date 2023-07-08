@@ -10,8 +10,6 @@ import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.badlogic.gdx.utils.reflect.ReflectionException;
 
-import jelte.mygame.utility.Constants;
-
 public class EnemyFileReader {
 	private static final String TAG = EnemyFileReader.class.getSimpleName();
 	private static boolean statsLoaded = false;
@@ -23,12 +21,12 @@ public class EnemyFileReader {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void loadUnitStatsInMemory() {
+	public static void loadUnitStatsInMemory(final String fileLocation) {
 		if (!statsLoaded) {
 			final Json json = new Json();
 			ArrayList<EnemyData> unitStats;
 			try {
-				unitStats = (ArrayList<EnemyData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.character.EnemyData"), Gdx.files.internal(Constants.ENEMY_STATS_FILE_LOCATION));
+				unitStats = (ArrayList<EnemyData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.logic.character.EnemyData"), Gdx.files.internal(fileLocation));
 				for (int i = 0; i < unitStats.size(); i++) {
 					final EnemyData data = unitStats.get(i);
 					unitData.put(data.getId(), data);

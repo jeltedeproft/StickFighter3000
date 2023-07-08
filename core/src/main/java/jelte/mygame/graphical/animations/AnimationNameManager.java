@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
@@ -21,7 +22,7 @@ import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.UtilityFunctions;
 
 public class AnimationNameManager {
-
+	private static final String TAG = AnimationNameManager.class.getSimpleName();
 	private final Map<UUID, AnimationName> animationNames;
 	private final Map<String, Map<CHARACTER_STATE, Set<String>>> possibleAnimationsCharacter;
 	private final ConcurrentLinkedQueue<UUID> usedIds;
@@ -31,6 +32,34 @@ public class AnimationNameManager {
 		possibleAnimationsCharacter = new HashMap<>();
 		usedIds = new ConcurrentLinkedQueue<>();
 		initializeAvailableStates();
+	}
+
+	public void initializeAvailableStates() {
+		for (String characterName : PlayerFileReader.getAllCharacterNames()) {
+			initializeCharacterStatesFor(characterName);
+		}
+		for (String enemyName : EnemyFileReader.getAllEnemyNames()) {
+			initializeCharacterStatesFor(enemyName);
+		}
+	}
+
+	private void initializeCharacterStatesFor(String characterName) {
+		Map<CHARACTER_STATE, Set<String>> availableStates = new HashMap<>();
+		final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
+		for (final AtlasRegion region : regions) {
+			final String[] parts = region.name.split("-");
+			if (parts.length >= 3 && parts[0].equalsIgnoreCase(characterName)) {
+				int length = parts[1].length();
+				final String statePart = parts[1].substring(0, length - 1).toUpperCase();
+				final String indexPart = parts[1].substring(length - 1);
+
+				final CHARACTER_STATE state = CHARACTER_STATE.valueOf(statePart);
+				availableStates.computeIfAbsent(state, key -> new HashSet<>());
+				availableStates.get(state).add(indexPart);
+				Gdx.app.error(TAG, characterName + " : " + state + " , " + indexPart, null);
+			}
+		}
+		possibleAnimationsCharacter.put(characterName, availableStates);
 	}
 
 	public boolean animationsExists(String spriteName, CHARACTER_STATE state) {
@@ -69,7 +98,7 @@ public class AnimationNameManager {
 	public AnimationName getCharacterAnimation(Character character, CHARACTER_STATE state) {
 		AnimationName animation = animationNames.get(character.getId());
 		if (animation == null) {
-			animationNames.put(character.getId(), new CharacterAnimation(character.getName(), character.getCurrentCharacterState().getState(), getRandomAnimationIndex(character.getData().getEntitySpriteName(), state), character.getPhysicsComponent().getDirection()));
+			animationNames.put(character.getId(), new CharacterAnimation(character.getName(), state, getRandomAnimationIndex(character.getData().getEntitySpriteName(), state), character.getPhysicsComponent().getDirection()));
 			return animationNames.get(character.getId());
 		}
 		return animation;
@@ -88,33 +117,6 @@ public class AnimationNameManager {
 			return animationNames.get(spell.getId());
 		}
 		return animation;
-	}
-
-	public void initializeAvailableStates() {
-		for (String characterName : PlayerFileReader.getAllCharacterNames()) {
-			initializeCharacterStatesFor(characterName);
-		}
-		for (String enemyName : EnemyFileReader.getAllEnemyNames()) {
-			initializeCharacterStatesFor(enemyName);
-		}
-	}
-
-	private void initializeCharacterStatesFor(String characterName) {
-		Map<CHARACTER_STATE, Set<String>> availableStates = new HashMap<>();
-		final Array<AtlasRegion> regions = AssetManagerUtility.getAllRegionsWhichContainName(characterName);
-		for (final AtlasRegion region : regions) {
-			final String[] parts = region.name.split("-");
-			if (parts.length >= 3 && parts[0].equalsIgnoreCase(characterName)) {
-				int length = parts[1].length();
-				final String statePart = parts[1].substring(0, length - 1).toUpperCase();
-				final String indexPart = parts[1].substring(length - 1);
-
-				final CHARACTER_STATE state = CHARACTER_STATE.valueOf(statePart);
-				availableStates.computeIfAbsent(state, key -> new HashSet<>());
-				availableStates.get(state).add(indexPart);
-			}
-		}
-		possibleAnimationsCharacter.put(characterName, availableStates);
 	}
 
 	@Override

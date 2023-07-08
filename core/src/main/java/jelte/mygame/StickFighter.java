@@ -16,6 +16,7 @@ import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.logic.spells.modifier.ModifierFileReader;
+import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.logging.MultiFileLogger;
 
 public class StickFighter implements ApplicationListener, MessageListener {
@@ -28,11 +29,11 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		ApplicationLogger logger = new MultiFileLogger();
 		Gdx.app.setApplicationLogger(logger);
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		PlayerFileReader.loadUnitStatsInMemory();
-		EnemyFileReader.loadUnitStatsInMemory();
-		AudioFileReader.loadAudioInMemory();
-		SpellFileReader.loadSpellsInMemory();
-		ModifierFileReader.loadModifiersInMemory();
+		PlayerFileReader.loadUnitStatsInMemory(Constants.PLAYER_STATS_FILE_LOCATION);
+		EnemyFileReader.loadUnitStatsInMemory(Constants.ENEMY_STATS_FILE_LOCATION);
+		AudioFileReader.loadAudioInMemory(Constants.AUDIO_FILE_LOCATION);
+		SpellFileReader.loadSpellsInMemory(Constants.SPELL_STATS_FILE_LOCATION);
+		ModifierFileReader.loadModifiersInMemory(Constants.MODIFIER_STATS_FILE_LOCATION);
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
 		graphicalManager = new GraphicalManagerImpl(this);

@@ -1,5 +1,6 @@
 package jelte.mygame.logic.ai;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -28,6 +29,10 @@ public class AiManager {
 		PASSIVE,
 		KEEP_DISTANCE,
 		PEACEFULL;
+	}
+
+	public AiManager() {
+		charactersWithStrategies = new HashMap<>();
 	}
 
 	// INITIALIZATION

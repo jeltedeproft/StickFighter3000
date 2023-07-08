@@ -41,14 +41,18 @@ public class Constants {
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
+	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
 	public static final String ENEMY_STATS_FILE_LOCATION = "units/enemies.json";
 	public static final String SPELL_STATS_FILE_LOCATION = "spells/spells.json";
-	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
+	public static final String AUDIO_FILE_LOCATION = "audio/audio.json";
 	public static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";
 
 	// TEST
 	public static final Vector2 PLAYER_TEST_START = new Vector2(20, 20);
+	public static final String PLAYER_STATS_TEST_FILE_LOCATION = "tests/testData/players.json";
+	public static final String ENEMY_STATS_TEST_FILE_LOCATION = "tests/testData/enemies.json";
+	public static final String SPELL_STATS_TEST_FILE_LOCATION = "tests/testData/spells.json";
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
 	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";
 	public static final String TEST_FILE_POSITIONS_EXPECTED = "tests/TestCollisionSystem/expected/positions.txt";
@@ -86,6 +90,7 @@ public class Constants {
 	public static final String PROPERTY_PATH_INDEX = "pathIndex";
 
 	// HOTKEYS
+	public static final String EXIT = "exit";
 	public static final String RIGHT = "right";
 	public static final String LEFT = "left";
 	public static final String DOWN = "down";

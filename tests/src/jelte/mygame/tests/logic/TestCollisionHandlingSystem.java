@@ -18,6 +18,7 @@ import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.spells.spells.Spell;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
+import jelte.mygame.utility.Constants;
 
 @RunWith(GdxTestRunner.class)
 public class TestCollisionHandlingSystem {
@@ -28,7 +29,7 @@ public class TestCollisionHandlingSystem {
 
 	@BeforeClass
 	public static void beforeAllTests() {
-		PlayerFileReader.loadUnitStatsInMemory();
+		PlayerFileReader.loadUnitStatsInMemory(Constants.PLAYER_STATS_TEST_FILE_LOCATION);
 		bodies = new Array<>();
 		spells = new Array<>();
 		pairs = new HashSet<>();

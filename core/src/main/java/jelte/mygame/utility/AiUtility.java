@@ -22,13 +22,13 @@ public class AiUtility {
 
 		if (aiPosition.x < goal.x) {
 			if (currentDirection != Direction.right) {
-				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
-				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
 			}
 		} else {
 			if (currentDirection != Direction.left) {
-				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
-				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
 			}
 		}
 		return input;

@@ -90,7 +90,7 @@ public class CollisionHandlingSystem {
 	}
 
 	private boolean isVisionAndPlayer(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
-		return COLLIDABLE_TYPE.isVision(type1) && COLLIDABLE_TYPE.isCharacter(type2);
+		return COLLIDABLE_TYPE.isVision(type1) && COLLIDABLE_TYPE.isPlayer(type2);
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {

@@ -1,5 +1,6 @@
 package jelte.mygame.logic.ai.stateControllers;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
@@ -21,7 +22,7 @@ public class FleeStateController implements StateControllerInterface {
 
 	@Override
 	public Array<Message> getNextCommandsFromThisState(float delta, AiCharacter self, PlayerCharacter player) {
-		return AiUtility.generateMoveInputToGoal(self, new Position(-player.getPhysicsComponent().getPosition().x);
+		return AiUtility.generateMoveInputToGoal(self, new Vector2(-player.getPhysicsComponent().getPosition().x, -player.getPhysicsComponent().getPosition().y));
 	}
 
 }

@@ -30,6 +30,11 @@ public class KeyBindings {
 	public static void loadBindings() {
 		@SuppressWarnings("unchecked")
 		Map<String, Integer> map = (Map<String, Integer>) bindingsPreferences.get();
+		if (map.containsKey(Constants.EXIT)) {
+			keyBindings.put(Constants.EXIT, bindingsPreferences.getInteger(Constants.EXIT));
+		} else {
+			keyBindings.put(Constants.EXIT, MyKeys.ESCAPE);
+		}
 		if (map.containsKey(Constants.RIGHT)) {
 			keyBindings.put(Constants.RIGHT, bindingsPreferences.getInteger(Constants.RIGHT));
 		} else {

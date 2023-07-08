@@ -60,6 +60,9 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
+		if (keycode == KeyBindings.getBinding(Constants.EXIT)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.EXIT_GAME));
+		}
 		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
 		}

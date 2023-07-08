@@ -11,19 +11,18 @@ import com.badlogic.gdx.utils.reflect.ReflectionException;
 public class AudioFileReader {
 	private static boolean audioLoaded = false;
 	private static ObjectMap<Integer, AudioData> audioData = new ObjectMap<>();
-	private static final String AUDIO_FILE_LOCATION = "audio/audio.json";
 
 	private AudioFileReader() {
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void loadAudioInMemory() {
+	public static void loadAudioInMemory(final String fileLocation) {
 		if (!audioLoaded) {
 			final Json json = new Json();
 			ArrayList<AudioData> audioFiles;
 			try {
-				audioFiles = (ArrayList<AudioData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.graphical.audio.AudioData"), Gdx.files.internal(AUDIO_FILE_LOCATION));
+				audioFiles = (ArrayList<AudioData>) json.fromJson(ClassReflection.forName("java.util.ArrayList"), ClassReflection.forName("jelte.mygame.graphical.audio.AudioData"), Gdx.files.internal(fileLocation));
 				for (int i = 0; i < audioFiles.size(); i++) {
 					final AudioData data = audioFiles.get(i);
 					audioData.put(data.getId(), data);

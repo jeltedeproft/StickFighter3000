@@ -40,7 +40,7 @@ public class TestCharacterStates {
 
 	@BeforeClass
 	public static void beforeAllTests() {
-		PlayerFileReader.loadUnitStatsInMemory();
+		PlayerFileReader.loadUnitStatsInMemory(Constants.PLAYER_STATS_TEST_FILE_LOCATION);
 	}
 
 	@Before
