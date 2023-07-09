@@ -33,4 +33,23 @@ public class AiUtility {
 		}
 		return input;
 	}
+
+	public static Array<Message> generateMoveInputAwayFromGoal(AiCharacter self, Vector2 goal) {
+		Array<Message> input = new Array<>();
+		Vector2 aiPosition = self.getPhysicsComponent().getPosition();
+		Direction currentDirection = self.getPhysicsComponent().getDirection();
+
+		if (aiPosition.x < goal.x) {
+			if (currentDirection != Direction.left) {
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
+			}
+		} else {
+			if (currentDirection != Direction.right) {
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
+				input.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
+			}
+		}
+		return input;
+	}
 }

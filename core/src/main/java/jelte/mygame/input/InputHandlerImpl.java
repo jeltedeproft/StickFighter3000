@@ -135,6 +135,12 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 	}
 
 	@Override
+	public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
 		// TODO Auto-generated method stub
 		return false;

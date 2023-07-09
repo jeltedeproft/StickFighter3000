@@ -39,7 +39,9 @@ import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.GraphicalUtility;
+import lombok.Getter;
 
+@Getter
 public class GraphicalManagerImpl implements GraphicalManager {
 
 	private static final String TAG = GraphicalManagerImpl.class.getSimpleName();
@@ -173,7 +175,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, String.format("enemy acceleration: %s", enemy.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 100);
 		font.draw(batch, String.format("ai state: %s", enemy.getState()), 0, Gdx.graphics.getHeight() - 130);
 		font.draw(batch, String.format("active patrol point index: %s", enemy.getActivePatrolPointIndex()), 0, Gdx.graphics.getHeight() - 160);
-		font.draw(batch, String.format("player seen: %s", enemy.isPlayerSeen()), 0, Gdx.graphics.getHeight() - 190);
+		font.draw(batch, String.format("player seen: %s", enemy.getVisionCollidable().isPlayerSeen()), 0, Gdx.graphics.getHeight() - 190);
 		font.draw(batch, String.format("character state enemy ai : %s", enemy.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 220);
 		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 0, Gdx.graphics.getHeight() - 250);
 		font.draw(batch, String.format("enemy direction: %s", enemy.getPhysicsComponent().getDirection()), 0, Gdx.graphics.getHeight() - 280);

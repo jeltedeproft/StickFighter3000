@@ -22,7 +22,7 @@ public class FileLogger implements ApplicationLogger {
 	@Override
 	public void log(String tag, String message) {
 		try {
-			writer.write(tag + ": " + message + "\n");
+			writer.write(tag + ": " + message + System.lineSeparator());
 			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class FileLogger implements ApplicationLogger {
 	@Override
 	public void log(String tag, String message, Throwable exception) {
 		try {
-			writer.write(tag + ": " + message + "\n" + exception + "\n");
+			writer.write(tag + ": " + message + System.lineSeparator() + exception + System.lineSeparator());
 			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

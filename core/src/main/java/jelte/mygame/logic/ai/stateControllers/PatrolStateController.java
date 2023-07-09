@@ -13,7 +13,7 @@ public class PatrolStateController implements StateControllerInterface {
 
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {
-		if (self.isPlayerSeen()) {
+		if (self.getVisionCollidable().isPlayerSeen()) {
 			return AI_STATE.CHASE;
 		}
 		return AI_STATE.PATROL;

@@ -10,7 +10,7 @@ import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.utility.AiUtility;
 
 public class FleeStateController implements StateControllerInterface {
-	private static final float FLEE_SAFETY_DISTANCE = 200f;
+	public static final float FLEE_SAFETY_DISTANCE = 200f;
 
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {
@@ -22,7 +22,7 @@ public class FleeStateController implements StateControllerInterface {
 
 	@Override
 	public Array<Message> getNextCommandsFromThisState(float delta, AiCharacter self, PlayerCharacter player) {
-		return AiUtility.generateMoveInputToGoal(self, new Vector2(-player.getPhysicsComponent().getPosition().x, -player.getPhysicsComponent().getPosition().y));
+		return AiUtility.generateMoveInputAwayFromGoal(self, new Vector2(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y));
 	}
 
 }

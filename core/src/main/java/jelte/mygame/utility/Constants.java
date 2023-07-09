@@ -41,6 +41,7 @@ public class Constants {
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
+	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
 	public static final String ENEMY_STATS_FILE_LOCATION = "units/enemies.json";
@@ -53,6 +54,7 @@ public class Constants {
 	public static final String PLAYER_STATS_TEST_FILE_LOCATION = "tests/testData/players.json";
 	public static final String ENEMY_STATS_TEST_FILE_LOCATION = "tests/testData/enemies.json";
 	public static final String SPELL_STATS_TEST_FILE_LOCATION = "tests/testData/spells.json";
+	public static final String MAP_TEST_FILE_LOCATION = "tests/testMap/testMap.tmx";
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
 	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";
 	public static final String TEST_FILE_POSITIONS_EXPECTED = "tests/TestCollisionSystem/expected/positions.txt";

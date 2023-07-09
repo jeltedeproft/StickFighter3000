@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
-import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.physics.PhysicsComponent;
@@ -18,13 +17,11 @@ public class CharacterManager {
 	private PlayerCharacter player;
 	private Array<AiCharacter> enemies;
 	private Array<PhysicsComponent> bodies;
-	private Array<VisionCollidable> aiVisions;
 
 	public CharacterManager(PlayerCharacter player) {
 		this.player = player;
 		enemies = new Array<>();
 		bodies = new Array<>();
-		aiVisions = new Array<>();
 		bodies.add(player.getPhysicsComponent());
 	}
 
@@ -39,7 +36,6 @@ public class CharacterManager {
 	public void addEnemy(AiCharacter enemy) {
 		enemies.add(enemy);
 		bodies.add(enemy.getPhysicsComponent());
-		aiVisions.add(new VisionCollidable(enemy));
 	}
 
 	public void removeEnemy(AiCharacter enemy) {
@@ -76,8 +72,8 @@ public class CharacterManager {
 
 	public Set<Collidable> getVisions() {
 		Set<Collidable> visions = new HashSet<>();
-		for (Collidable vision : aiVisions) {
-			visions.add(vision);
+		for (AiCharacter aiCharacter : enemies) {
+			visions.add(aiCharacter.getVisionCollidable());
 		}
 		return visions;
 	}

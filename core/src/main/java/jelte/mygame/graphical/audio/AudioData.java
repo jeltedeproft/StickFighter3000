@@ -26,7 +26,8 @@ public class AudioData {
 		StringBuilder sb = new StringBuilder();
 		sb.append("name: ");
 		sb.append(name);
-		sb.append("\ntheme: ");
+		sb.append(System.lineSeparator());
+		sb.append("theme: ");
 		sb.append(theme);
 		return sb.toString();
 	}

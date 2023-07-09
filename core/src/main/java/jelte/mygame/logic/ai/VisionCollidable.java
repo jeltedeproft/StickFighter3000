@@ -16,24 +16,46 @@ public class VisionCollidable implements Collidable {
 	private Rectangle oldRectangle;
 	private Rectangle rectangle;
 	private boolean hasMoved = false;
-	private AiCharacter aiCharacter;
+	private float visionWidth;
+	private float visionHeight;
+	private boolean playerSeen = false;
 
 	public VisionCollidable(final AiCharacter aiCharacter) {
 		this.id = UUID.randomUUID();
-		this.aiCharacter = aiCharacter;
 		this.rectangle = createVisionRectangleForCharacter(aiCharacter);
 		oldRectangle = new Rectangle(rectangle);
 	}
 
 	private Rectangle createVisionRectangleForCharacter(AiCharacter aiCharacter) {
-		float visionWidth = aiCharacter.getData().getVisionShapeWidth();
-		float visionheight = aiCharacter.getData().getVisionShapeHeight();
+		visionWidth = aiCharacter.getData().getVisionShapeWidth();
+		visionHeight = aiCharacter.getData().getVisionShapeHeight();
 		Vector2 pos = aiCharacter.getPhysicsComponent().getPosition();
 		if (aiCharacter.getPhysicsComponent().getDirection() == Direction.left) {
 			float posX = pos.x - visionWidth < 0 ? 0 : pos.x - visionWidth;
-			return new Rectangle(posX, pos.y, visionWidth, visionheight);
+			return new Rectangle(posX, pos.y, visionWidth, visionHeight);
 		}
-		return new Rectangle(pos.x, pos.y, visionWidth, visionheight);
+		return new Rectangle(pos.x, pos.y, visionWidth, visionHeight);
+	}
+
+	public void update(AiCharacter aiCharacter) {
+		hasMoved = false;
+		if (rectangle.x != aiCharacter.getPhysicsComponent().getPosition().x || rectangle.y != aiCharacter.getPhysicsComponent().getPosition().y) {
+			hasMoved = true;
+			if (aiCharacter.getPhysicsComponent().getDirection() == Direction.left) {
+				rectangle.x = aiCharacter.getPhysicsComponent().getPosition().x - visionWidth < 0 ? 0 : aiCharacter.getPhysicsComponent().getPosition().x - visionWidth;
+			} else {
+				rectangle.x = aiCharacter.getPhysicsComponent().getPosition().x;
+			}
+			rectangle.y = aiCharacter.getPhysicsComponent().getPosition().y;
+		}
+	}
+
+	public void playerSeen() {
+		playerSeen = true;
+	}
+
+	public void setPlayerSeen(boolean playerSeen) {
+		this.playerSeen = playerSeen;
 	}
 
 	@Override

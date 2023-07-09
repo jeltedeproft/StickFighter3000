@@ -12,7 +12,7 @@ public class CameraManager {
 	public CameraManager(Camera camera) {
 		this.camera = (OrthographicCamera) camera;
 		cameraPosition = new Vector2(0, 0);
-		this.camera.zoom += 0.5f;
+		this.camera.zoom += 0.5f;// TODO, move this out constructor, or not?
 		this.camera.update();
 	}
 
@@ -38,6 +38,10 @@ public class CameraManager {
 
 	public void updateCameraPos(Vector2 value) {
 		cameraPosition = value;
+	}
+
+	public Vector2 getCameraPosition() {
+		return cameraPosition;
 	}
 
 	@Override

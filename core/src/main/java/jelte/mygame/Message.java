@@ -1,5 +1,7 @@
 package jelte.mygame;
 
+import java.util.Objects;
+
 import com.badlogic.gdx.utils.StringBuilder;
 
 import lombok.AllArgsConstructor;
@@ -66,8 +68,26 @@ public class Message {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.action.name());
-		sb.append("for : ");
+		sb.append(" for : ");
 		sb.append(this.recipient);
 		return sb.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(action, recipient);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if ((obj == null) || (getClass() != obj.getClass())) {
+			return false;
+		}
+		Message other = (Message) obj;
+		return action == other.action && recipient == other.recipient;
+	}
+
 }

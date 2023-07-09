@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.NinePatch;
 
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import lombok.Getter;
 
+@Getter
 public class HealthBar {
 	private NinePatch healthBar;
 	private NinePatch border;

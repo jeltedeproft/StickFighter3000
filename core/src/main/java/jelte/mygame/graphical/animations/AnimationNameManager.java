@@ -124,7 +124,7 @@ public class AnimationNameManager {
 		StringBuilder sb = new StringBuilder();
 		for (AnimationName anim : animationNames.values()) {
 			sb.append(anim);
-			sb.append("\n");
+			sb.append(System.lineSeparator());
 		}
 		return sb.toString();
 	}

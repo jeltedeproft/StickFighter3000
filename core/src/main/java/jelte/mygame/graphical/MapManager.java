@@ -47,8 +47,12 @@ public class MapManager implements Disposable {
 	private Collection<EnemySpawnData> enemySpawnData;
 
 	public MapManager(SpriteBatch batch) {
-		AssetManagerUtility.loadMapAsset(Constants.DEFAULT_MAP_PATH);
-		currentMap = AssetManagerUtility.getMapAsset(Constants.DEFAULT_MAP_PATH);
+		this(batch, Constants.DEFAULT_MAP_PATH);
+	}
+
+	public MapManager(SpriteBatch batch, final String mapPath) {
+		AssetManagerUtility.loadMapAsset(mapPath);
+		currentMap = AssetManagerUtility.getMapAsset(mapPath);
 		renderer = new OrthogonalTiledMapRenderer(currentMap, Constants.MAP_UNIT_SCALE, batch);
 		mapProperties = currentMap.getProperties();
 		currentMapWidth = mapProperties.get("width", Integer.class) * mapProperties.get("tilewidth", Integer.class);

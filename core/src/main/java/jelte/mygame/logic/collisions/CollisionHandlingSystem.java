@@ -76,10 +76,10 @@ public class CollisionHandlingSystem {
 				spell.applyEffect(character);
 			} else if (isVisionAndPlayer(type2, type1)) {
 				VisionCollidable vision = (VisionCollidable) collidable2;
-				vision.getAiCharacter().playerSeen();
+				vision.playerSeen();
 			} else if (isVisionAndPlayer(type1, type2)) {
 				VisionCollidable vision = (VisionCollidable) collidable1;
-				vision.getAiCharacter().playerSeen();
+				vision.playerSeen();
 			}
 
 		}

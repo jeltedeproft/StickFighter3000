@@ -14,7 +14,7 @@ public class IdleStateController implements StateControllerInterface {
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {
 		timer += delta;
-		if (self.isPlayerSeen()) {
+		if (self.getVisionCollidable().isPlayerSeen()) {
 			return AI_STATE.CHASE;
 		}
 		if (timer >= maxIdleTime) {

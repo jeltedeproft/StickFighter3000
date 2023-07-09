@@ -21,12 +21,12 @@ public class SpecialEffect {
 	public SpecialEffect(Animation<NamedSprite> animation, Character character) {
 		this.animation = animation;
 		position = character.getPhysicsComponent().getPosition().cpy();
-		adustPosition(character);
+		adjustPosition(character);
 		timeAlive = 0f;
 		dead = false;
 	}
 
-	private void adustPosition(Character character) {
+	private void adjustPosition(Character character) {
 		if (character.getPhysicsComponent().getDirection() == Direction.left) {
 			position.add(-animation.getKeyFrame(timeAlive).getWidth(), 0);
 		}

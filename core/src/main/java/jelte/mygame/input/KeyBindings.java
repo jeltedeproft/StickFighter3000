@@ -537,7 +537,7 @@ public class KeyBindings {
 			sb.append(anim.getKey());
 			sb.append(" --> ");
 			sb.append(anim.getValue());
-			sb.append("\n");
+			sb.append(System.lineSeparator());
 		}
 		return sb.toString();
 	}
