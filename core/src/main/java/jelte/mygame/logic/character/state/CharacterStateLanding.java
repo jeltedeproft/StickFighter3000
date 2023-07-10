@@ -1,6 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -49,19 +49,15 @@ public class CharacterStateLanding implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
-			characterStateManager.transition(CHARACTER_STATE.RUNNING);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
+			characterStateManager.transition(CHARACTER_STATE.WALKING);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
-			characterStateManager.transition(CHARACTER_STATE.RUNNING);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
+			characterStateManager.transition(CHARACTER_STATE.WALKING);
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.CROUCHED);

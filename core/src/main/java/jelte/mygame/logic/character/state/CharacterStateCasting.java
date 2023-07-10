@@ -1,6 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
@@ -24,9 +23,7 @@ public class CharacterStateCasting implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_CAST_%s", characterStateManager.getCharacter().getName().toUpperCase())));
-		if (!characterStateManager.getCharacter().getSpellsreadyToCast().isEmpty()) {
-			characterStateManager.getCharacter().getSpellsreadyToCast().addLast(characterStateManager.getCharacter().getSpellsPreparedToCast().removeFirst());
-		}
+		characterStateManager.addNextSpell();
 	}
 
 	@Override
@@ -45,8 +42,7 @@ public class CharacterStateCasting implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+			characterStateManager.stopCharacter();
 			break;
 		default:
 			break;

@@ -1,6 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -19,8 +19,7 @@ public class CharacterStateDie implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH);
-		characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
-		characterStateManager.getCharacter().getPhysicsComponent().setAcceleration(new Vector2(0, 0));
+		characterStateManager.stopCharacter();// TODO used to also set acceleration y to 0, now not anymore? readd?
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -23,8 +23,7 @@ public class CharacterStateBlocking implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-		characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		characterStateManager.stopCharacter();
 	}
 
 	@Override
@@ -39,10 +38,8 @@ public class CharacterStateBlocking implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
+			characterStateManager.stopCharacter();
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

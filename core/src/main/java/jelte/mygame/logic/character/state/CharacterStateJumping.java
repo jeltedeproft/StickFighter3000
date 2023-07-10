@@ -22,18 +22,18 @@ public class CharacterStateJumping implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
+		characterStateManager.pullUp(Constants.JUMP_SPEED.y);// TODO also adds acceleration now, is it bigger?
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 	}
 
 	@Override
 	public void update(float delta) {
-		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
+		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
 		if (collidedWithCorner(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.GRABBING);
 		} else if (collidedWithWall(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.HOLDING);
-		} else if (characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y < 0.1) {
+		} else if (characterStateManager.characterIsAtHighestPoint()) {
 			characterStateManager.transition(CHARACTER_STATE.JUMPTOFALL);
 		}
 	}
@@ -53,16 +53,13 @@ public class CharacterStateJumping implements CharacterState {
 			entry();
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
 			break;
 		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

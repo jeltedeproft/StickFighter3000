@@ -1,11 +1,17 @@
 package jelte.mygame.logic.character.state;
 
-import java.util.Stack;
-
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Stack;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterData;
+import jelte.mygame.logic.character.Direction;
+import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
+import jelte.mygame.logic.spells.SpellData;
+import jelte.mygame.utility.Constants;
 
 public class CharacterStateManager {
 	private static final String TAG = CharacterStateManager.class.getSimpleName();
@@ -284,6 +290,93 @@ public class CharacterStateManager {
 			break;
 
 		}
+	}
+
+	public void moveCharacterX(float distance) {
+		if (character.getPhysicsComponent().getDirection().equals(Direction.right)) {
+			character.getPhysicsComponent().move(distance, 0);
+		} else {
+			character.getPhysicsComponent().move(-distance, 0);
+		}
+	}
+
+	public void accelerateCharacterX(Direction direction, float movementSpeed) {
+		character.getPhysicsComponent().setDirection(direction);
+		character.getPhysicsComponent().getAcceleration().x = direction == Direction.left ? -movementSpeed : movementSpeed;
+	}
+
+	public void pullDown(float speed) {
+		character.getPhysicsComponent().getVelocity().y -= speed;
+		character.getPhysicsComponent().getAcceleration().y -= speed;
+	}
+
+	public void pullUp(float speed) {
+		character.getPhysicsComponent().getVelocity().y += speed;
+		character.getPhysicsComponent().getAcceleration().y += speed;
+	}
+
+	public void stopCharacter() {
+		character.getPhysicsComponent().getAcceleration().x = 0;
+		character.getPhysicsComponent().setVelocity(new Vector2(0, 0));
+	}
+
+	public void fallCharacter() {
+		character.getPhysicsComponent().setFallTrough(true);
+		character.getPhysicsComponent().getVelocity().y -= 50;
+	}
+
+	public void unfallCharacter() {
+		character.getPhysicsComponent().setFallTrough(false);
+	}
+
+	public void hangCharacterInTheAirAgainstGravity() {
+		character.getPhysicsComponent().getAcceleration().y = -Constants.GRAVITY.y;
+		character.getPhysicsComponent().getAcceleration().x = 0;
+		character.getPhysicsComponent().getVelocity().y = 0;
+		character.getPhysicsComponent().getVelocity().x = 0;
+	}
+
+	public boolean characterIsFalltrough() {
+		return character.getPhysicsComponent().isFallTrough();
+	}
+
+	public boolean characterHaslanded() {
+		return Math.abs(character.getPhysicsComponent().getVelocity().y) == 0;
+	}
+
+	public boolean characterisFalling() {
+		return character.getPhysicsComponent().getVelocity().y <= 0;
+	}
+
+	public boolean characterIsAtHighestPoint() {
+		return character.getPhysicsComponent().getVelocity().y < 0.1f;
+	}
+
+	public boolean characterisStandingStill() {
+		return character.getPhysicsComponent().getVelocity().epsilonEquals(0, 0);
+	}
+
+	public boolean characterisRunning() {
+		return Math.abs(character.getPhysicsComponent().getVelocity().x) > 0;
+	}
+
+	public Array<COLLIDABLE_TYPE> getCharacterCollisions() {
+		return character.getPhysicsComponent().getCollidedWith();
+	}
+
+	public void makeSpellReady(SpellData spellData) {
+		character.getSpellsreadyToCast().addLast(spellData);// ;TODO make bounding box size of spell same as chosen attack animation
+	}
+
+	public void addNextSpell() {
+		if (!character.getSpellsreadyToCast().isEmpty()) {
+			character.getSpellsreadyToCast().addLast(character.getSpellsPreparedToCast().removeFirst());
+		}
+	}
+
+	public void clearSpells() {
+		character.getSpellsPreparedToCast().clear();
+		character.getSpellsreadyToCast().clear();
 	}
 
 	public Character getCharacter() {

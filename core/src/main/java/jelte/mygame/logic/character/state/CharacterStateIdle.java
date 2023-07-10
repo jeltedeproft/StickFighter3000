@@ -1,6 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Direction;
@@ -41,18 +40,15 @@ public class CharacterStateIdle implements CharacterState {
 		case JUMP_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
-		case LEFT_PRESSED:// TODO refactor this, put the walking speed in the walking state, only direction here
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+		case LEFT_PRESSED:
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
 			characterStateManager.transition(CHARACTER_STATE.WALKING);
 			break;
 		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
 			characterStateManager.transition(CHARACTER_STATE.WALKING);
 			break;
 		case DOWN_PRESSED:

@@ -1,6 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
@@ -25,7 +24,7 @@ public class CharacterStateAttack implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
-		characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
+		characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
 	}
 
 	@Override
@@ -45,8 +44,7 @@ public class CharacterStateAttack implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
 		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+			characterStateManager.stopCharacter();
 			break;
 		default:
 			break;

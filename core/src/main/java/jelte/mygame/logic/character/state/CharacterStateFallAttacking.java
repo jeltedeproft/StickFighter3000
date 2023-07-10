@@ -22,14 +22,13 @@ public class CharacterStateFallAttacking implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_FALLSTRIKE);
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y -= Constants.FALL_ATTACK_SPEED_BOOST;
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y -= Constants.FALL_ATTACK_SPEED_BOOST;
-		characterStateManager.getCharacter().getSpellsreadyToCast().addLast(SpellFileReader.getSpellData().get(1));// ;TODO make bounding box size of spell same as chosen attack animation
+		characterStateManager.pullDown(Constants.FALL_ATTACK_SPEED_BOOST);
+		characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(1));
 	}
 
 	@Override
 	public void update(float delta) {
-		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0) {
+		if (characterStateManager.characterHaslanded()) {
 			characterStateManager.transition(CHARACTER_STATE.LANDATTACKING);
 		}
 	}
@@ -41,16 +40,13 @@ public class CharacterStateFallAttacking implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
 			break;
 		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

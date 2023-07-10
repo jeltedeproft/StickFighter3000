@@ -17,8 +17,7 @@ public class CharacterStateCrouched implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.getCharacter().getPhysicsComponent().setFallTrough(true);
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y -= 50;
+		characterStateManager.fallCharacter();
 	}
 
 	@Override
@@ -37,18 +36,13 @@ public class CharacterStateCrouched implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED_CROUCHED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED_CROUCHED);
 			break;
-		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED_CROUCHED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
-			break;
-		case RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED_CROUCHED);
 			break;
 		case NO_COLLISION:
 			characterStateManager.transition(CHARACTER_STATE.FALLING);
@@ -64,7 +58,7 @@ public class CharacterStateCrouched implements CharacterState {
 
 	@Override
 	public void exit() {
-		characterStateManager.getCharacter().getPhysicsComponent().setFallTrough(false);
+		characterStateManager.unfallCharacter();
 	}
 
 	@Override

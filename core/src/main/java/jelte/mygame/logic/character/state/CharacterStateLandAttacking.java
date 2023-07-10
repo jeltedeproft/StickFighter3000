@@ -1,6 +1,6 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
@@ -41,10 +41,8 @@ public class CharacterStateLandAttacking implements CharacterState {
 		case DAMAGE_TAKEN:
 			characterStateManager.transition(CHARACTER_STATE.HURT);
 			break;
-		case RIGHT_UNPRESSED:
-		case LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
+			characterStateManager.stopCharacter();
 			break;
 		default:
 			break;

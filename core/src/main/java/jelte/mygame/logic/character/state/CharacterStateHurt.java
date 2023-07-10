@@ -1,9 +1,9 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
 public class CharacterStateHurt implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -19,8 +19,7 @@ public class CharacterStateHurt implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
-		characterStateManager.getCharacter().getPhysicsComponent().setAcceleration(new Vector2(0, 0));
+		characterStateManager.hangCharacterInTheAirAgainstGravity();
 	}
 
 	@Override

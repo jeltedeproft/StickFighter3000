@@ -1,6 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
@@ -24,16 +23,13 @@ public class CharacterStateWallSliding implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SLIDE);
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y = -10;
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = -5;
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x = 0;
+		characterStateManager.pullDown(10);// TODO change in speed here, used to be 5 velocity and 10 acceleration
 	}
 
 	@Override
 	public void update(float delta) {
-		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
-		if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false)) {
+		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
+		if (characterStateManager.characterHaslanded() && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false)) {
 			characterStateManager.transition(CHARACTER_STATE.LANDING);
 		}
 	}
@@ -51,16 +47,13 @@ public class CharacterStateWallSliding implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
 			break;
 		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocity(new Vector2(0, 0));
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.CROUCHED);

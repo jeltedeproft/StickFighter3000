@@ -27,15 +27,14 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacter().getPhysicsComponent().getCollidedWith();
+		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
 		if (collidedWithCorner(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.GRABBING);
 		} else if (collidedWithWall(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.HOLDING);
-		} else if (Math.abs(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y) == 0 && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_PLATFORM, false) && !characterStateManager.getCharacter().getPhysicsComponent().isFallTrough()) {
+		} else if (characterStateManager.characterHaslanded() && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_PLATFORM, false) && !characterStateManager.characterIsFalltrough()) {
 			characterStateManager.transition(CHARACTER_STATE.LANDING);
 		}
-
 	}
 
 	private boolean collidedWithWall(Array<COLLIDABLE_TYPE> collidedWith) {
@@ -53,16 +52,13 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = -Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.left);
+			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
 			break;
 		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-			characterStateManager.getCharacter().getPhysicsComponent().setVelocityX(0);
+			characterStateManager.stopCharacter();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = Constants.MOVEMENT_SPEED;
-			characterStateManager.getCharacter().getPhysicsComponent().setDirection(Direction.right);
+			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

@@ -4,7 +4,6 @@ import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
-import jelte.mygame.utility.Constants;
 
 public class CharacterStateHolding implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -16,10 +15,7 @@ public class CharacterStateHolding implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y = -Constants.GRAVITY.y;
-		characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x = 0;
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y = 0;
-		characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x = 0;
+		characterStateManager.hangCharacterInTheAirAgainstGravity();
 
 	}
 

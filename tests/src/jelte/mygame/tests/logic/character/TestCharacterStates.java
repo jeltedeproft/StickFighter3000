@@ -2,6 +2,8 @@ package jelte.mygame.tests.logic.character;
 
 import static org.mockito.Mockito.doNothing;
 
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.UUID;
 
 import org.junit.Assert;
@@ -12,8 +14,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
