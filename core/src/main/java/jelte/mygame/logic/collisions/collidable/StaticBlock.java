@@ -1,11 +1,11 @@
 package jelte.mygame.logic.collisions.collidable;
 
-import java.util.Objects;
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Objects;
+import java.util.UUID;
 
 import lombok.Getter;
 

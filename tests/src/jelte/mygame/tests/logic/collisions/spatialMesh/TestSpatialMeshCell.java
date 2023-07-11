@@ -4,15 +4,19 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
-import jelte.mygame.logic.collisions.collidable.StaticBlockTop;
+import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMeshCell;
+import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)
@@ -21,8 +25,13 @@ public class TestSpatialMeshCell {
 	@Test
 	public void testAddCollidable() {
 		SpatialMeshCell cell = new SpatialMeshCell();
-		Collidable staticCollidable = new StaticBlockTop();
-		Collidable dynamicCollidable = new StaticBlockTop();
+		int x = 10;
+		int y = 20;
+		int width = 30;
+		int height = 40;
+
+		Collidable staticCollidable = new StaticBlockBot(x, y, width, height);
+		Collidable dynamicCollidable = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 
 		cell.addCollidable(staticCollidable);
 		cell.addCollidable(dynamicCollidable);
@@ -36,8 +45,13 @@ public class TestSpatialMeshCell {
 	@Test
 	public void testRemoveCollidable() {
 		SpatialMeshCell cell = new SpatialMeshCell();
-		Collidable staticCollidable = new Collidable(true, false);
-		Collidable dynamicCollidable = new Collidable(false, true);
+		int x = 10;
+		int y = 20;
+		int width = 30;
+		int height = 40;
+
+		Collidable staticCollidable = new StaticBlockBot(x, y, width, height);
+		Collidable dynamicCollidable = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 
 		cell.addCollidable(staticCollidable);
 		cell.addCollidable(dynamicCollidable);
@@ -53,8 +67,13 @@ public class TestSpatialMeshCell {
 	@Test
 	public void testRemoveAll() {
 		SpatialMeshCell cell = new SpatialMeshCell();
-		Collidable staticCollidable = new Collidable(true, false);
-		Collidable dynamicCollidable = new Collidable(false, true);
+		int x = 10;
+		int y = 20;
+		int width = 30;
+		int height = 40;
+
+		Collidable staticCollidable = new StaticBlockBot(x, y, width, height);
+		Collidable dynamicCollidable = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 
 		cell.addCollidable(staticCollidable);
 		cell.addCollidable(dynamicCollidable);
@@ -70,8 +89,13 @@ public class TestSpatialMeshCell {
 	@Test
 	public void testToString() {
 		SpatialMeshCell cell = new SpatialMeshCell();
-		Collidable staticCollidable = new Collidable(true, false);
-		Collidable dynamicCollidable = new Collidable(false, true);
+		int x = 10;
+		int y = 20;
+		int width = 30;
+		int height = 40;
+
+		Collidable staticCollidable = new StaticBlockBot(x, y, width, height);
+		Collidable dynamicCollidable = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 
 		Set<Collidable> staticCollidables = new HashSet<>();
 		staticCollidables.add(staticCollidable);
@@ -90,7 +114,6 @@ public class TestSpatialMeshCell {
 				"static : \n"
 				+
 				staticCollidable.toString()
-				+ "\n"
 				+
 				"dynamic : \n"
 				+

@@ -1,4 +1,4 @@
-package jelte.mygame.tests.logic;
+package jelte.mygame.tests.logic.collisions.spatialMesh;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

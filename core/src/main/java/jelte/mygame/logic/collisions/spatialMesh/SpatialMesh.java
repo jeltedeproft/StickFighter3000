@@ -1,13 +1,13 @@
 package jelte.mygame.logic.collisions.spatialMesh;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import jelte.mygame.logic.collisions.CellPoint;
 import jelte.mygame.logic.collisions.CollisionData;
