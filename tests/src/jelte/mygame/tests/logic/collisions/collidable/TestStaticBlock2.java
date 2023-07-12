@@ -1,4 +1,4 @@
-package jelte.mygame.tests.logic;
+package jelte.mygame.tests.logic.collisions.collidable;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,7 +12,7 @@ import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 
 @RunWith(GdxTestRunner.class)
-public class TestStaticBlock {
+public class TestStaticBlock2 {
 	private StaticBlock staticBlock;
 	private Rectangle playerRect;
 

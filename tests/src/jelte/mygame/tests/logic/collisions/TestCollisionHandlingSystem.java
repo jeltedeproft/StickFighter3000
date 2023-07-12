@@ -1,4 +1,4 @@
-package jelte.mygame.tests.logic;
+package jelte.mygame.tests.logic.collisions;
 
 import java.util.HashSet;
 import java.util.Set;

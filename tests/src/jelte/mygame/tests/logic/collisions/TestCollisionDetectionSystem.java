@@ -1,4 +1,4 @@
-package jelte.mygame.tests.logic;
+package jelte.mygame.tests.logic.collisions;
 
 import java.io.IOException;
 import java.nio.file.Files;
