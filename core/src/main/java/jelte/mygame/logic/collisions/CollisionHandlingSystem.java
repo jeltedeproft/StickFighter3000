@@ -1,14 +1,14 @@
 package jelte.mygame.logic.collisions;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.Array;
+
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.Character;
@@ -21,7 +21,7 @@ import jelte.mygame.logic.collisions.strategy.StaticLeftCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticPlatformCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticRightCollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticTopCollisionStrategy;
-import jelte.mygame.logic.spells.spells.Spell;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 
 public class CollisionHandlingSystem {
 	private static final String TAG = SpatialMesh.class.getSimpleName();
@@ -36,7 +36,7 @@ public class CollisionHandlingSystem {
 		collisionStrategies.put(COLLIDABLE_TYPE.STATIC_PLATFORM, new StaticPlatformCollisionStrategy());
 	}
 
-	public void handleCollisions(Set<CollisionPair> pairs, Array<Character> allCharacters, Array<Spell> allSpells) {
+	public void handleCollisions(Set<CollisionPair> pairs, Array<Character> allCharacters, Array<AbstractSpell> allSpells) {
 		for (CollisionPair pair : pairs) {
 			Collidable collidable1 = pair.getCollidable1();
 			Collidable collidable2 = pair.getCollidable2();
@@ -51,7 +51,7 @@ public class CollisionHandlingSystem {
 				CollisionStrategy collisionStrategy = collisionStrategies.get(type2);
 				collisionStrategy.resolvePossibleCollision(collidable2, collidable1);
 			} else if (isSpellAndCharacter(type1, type2)) {
-				Spell spell = getSpellById(allSpells, collidable1.getId());
+				AbstractSpell spell = getSpellById(allSpells, collidable1.getId());
 				if (spell == null) {
 					Gdx.app.error(TAG, "null spell id = " + collidable1.getId());
 					int j = 5;
@@ -63,7 +63,7 @@ public class CollisionHandlingSystem {
 				}
 				spell.applyEffect(character);
 			} else if (isSpellAndCharacter(type2, type1)) {
-				Spell spell = getSpellById(allSpells, collidable2.getId());
+				AbstractSpell spell = getSpellById(allSpells, collidable2.getId());
 				if (spell == null) {
 					Gdx.app.error(TAG, "null spell id = " + collidable2.getId());
 					int j = 5;
@@ -105,9 +105,9 @@ public class CollisionHandlingSystem {
 		return characterToReturn;
 	}
 
-	private Spell getSpellById(Array<Spell> spells, UUID id) {
-		Stream<Spell> stream = StreamSupport.stream(spells.spliterator(), false);
-		Spell spellToReturn = stream
+	private AbstractSpell getSpellById(Array<AbstractSpell> spells, UUID id) {
+		Stream<AbstractSpell> stream = StreamSupport.stream(spells.spliterator(), false);
+		AbstractSpell spellToReturn = stream
 				.filter(spell -> spell.getId().equals(id))
 				.findFirst()
 				.orElse(null);

@@ -4,8 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.spells.SpellData;
-import jelte.mygame.logic.spells.spells.Spell;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 
 public interface SpellFactory {
-	Spell createSpell(SpellData spellData, Character character, Vector2 mousePosition);
+	AbstractSpell createSpell(SpellData spellData, Character character, Vector2 mousePosition);
 }

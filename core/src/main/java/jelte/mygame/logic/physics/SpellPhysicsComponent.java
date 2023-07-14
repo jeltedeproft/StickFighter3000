@@ -1,10 +1,10 @@
 package jelte.mygame.logic.physics;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.UUID;
 
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.Constants;
@@ -20,8 +20,8 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	private boolean goesTroughObjects;
 	private SpellsEnum spellsEnum;
 
-	public SpellPhysicsComponent(UUID playerReference, SpellsEnum spellsEnum, Vector2 startPosition) {
-		super(playerReference, startPosition);
+	public SpellPhysicsComponent(UUID spellReference, SpellsEnum spellsEnum, Vector2 startPosition) {
+		super(spellReference, startPosition);
 		this.spellsEnum = spellsEnum;
 	}
 

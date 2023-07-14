@@ -1,12 +1,12 @@
 package jelte.mygame.logic.physics;
 
-import java.util.Objects;
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Objects;
+import java.util.UUID;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import lombok.Getter;
@@ -30,9 +30,9 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	protected float width;
 	protected float height;
 
-	protected PhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
+	protected PhysicsComponentImpl(UUID ownerReference, Vector2 startPosition) {
 		collidedWith = new Array<>();
-		this.ownerReference = playerReference;
+		this.ownerReference = ownerReference;
 		this.position = startPosition.cpy();
 		this.newPosition = new Vector2();
 		this.velocity = new Vector2(0, 0);

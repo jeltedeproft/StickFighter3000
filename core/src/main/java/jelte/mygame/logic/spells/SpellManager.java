@@ -1,5 +1,9 @@
 package jelte.mygame.logic.spells;
 
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.StringBuilder;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -7,18 +11,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.StringBuilder;
-
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.spells.factories.SpellFactory;
 import jelte.mygame.logic.spells.factories.SpellFactoryRegistry;
+import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.logic.spells.spells.Spell;
 
 public class SpellManager {
-	private Map<Character, Array<Spell>> charactersWithSpells;
+	private Map<Character, Array<AbstractSpell>> charactersWithSpells;
 	private Set<Collidable> bodies;
 	private SpellFactoryRegistry registry;
 	private Vector2 mousePosition = new Vector2(0, 0);
@@ -34,8 +35,8 @@ public class SpellManager {
 		this.mousePosition.x = mousePosition.x;
 		this.mousePosition.y = mousePosition.y;
 		charactersWithSpells.forEach((k, v) -> v.forEach(spell -> spell.update(delta, k, mousePosition)));
-		for (Entry<Character, Array<Spell>> entry : charactersWithSpells.entrySet()) {
-			final Iterator<Spell> iterator = entry.getValue().iterator();
+		for (Entry<Character, Array<AbstractSpell>> entry : charactersWithSpells.entrySet()) {
+			final Iterator<AbstractSpell> iterator = entry.getValue().iterator();
 			while (iterator.hasNext()) {
 				final Spell spell = iterator.next();
 				if (spell.isComplete()) {
@@ -54,14 +55,14 @@ public class SpellManager {
 
 	public void createSpell(SpellData spellData, Character character) {
 		SpellFactory factory = registry.getFactory(spellData);
-		Spell spell = factory.createSpell(spellData, character, mousePosition);
-		charactersWithSpells.computeIfAbsent(character, value -> new Array<Spell>());
+		AbstractSpell spell = factory.createSpell(spellData, character, mousePosition);
+		charactersWithSpells.computeIfAbsent(character, value -> new Array<AbstractSpell>());
 		charactersWithSpells.get(character).add(spell);
 		bodies.add(spell.getPhysicsComponent());
 	}
 
-	public Array<Spell> getAllSpells() {
-		Array<Spell> spells = new Array<>();
+	public Array<AbstractSpell> getAllSpells() {
+		Array<AbstractSpell> spells = new Array<>();
 		charactersWithSpells.forEach((k, v) -> spells.addAll(v));
 		return spells;
 	}
@@ -74,7 +75,7 @@ public class SpellManager {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
-		for (Entry<Character, Array<Spell>> entry : charactersWithSpells.entrySet()) {
+		for (Entry<Character, Array<AbstractSpell>> entry : charactersWithSpells.entrySet()) {
 			sb.append("character : ");
 			sb.append(entry.getKey().toString());
 			sb.append("\n");
