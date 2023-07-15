@@ -1,10 +1,10 @@
 package jelte.mygame.logic.spells.spells;
 
-import java.util.Objects;
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Objects;
+import java.util.UUID;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.NullPhysicsComponent;

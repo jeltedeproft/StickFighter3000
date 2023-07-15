@@ -54,8 +54,12 @@ public class SpellManager {
 	}
 
 	public void createSpell(SpellData spellData, Character character) {
+		createSpell(spellData, character, null);
+	}
+
+	public void createSpell(SpellData spellData, Character character, Character target) {
 		SpellFactory factory = registry.getFactory(spellData);
-		AbstractSpell spell = factory.createSpell(spellData, character, mousePosition);
+		AbstractSpell spell = factory.createSpell(spellData, character, target, mousePosition);
 		charactersWithSpells.computeIfAbsent(character, value -> new Array<AbstractSpell>());
 		charactersWithSpells.get(character).add(spell);
 		bodies.add(spell.getPhysicsComponent());

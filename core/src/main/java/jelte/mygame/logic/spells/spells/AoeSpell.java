@@ -10,25 +10,23 @@ import jelte.mygame.logic.spells.SpellsEnum;
 
 public class AoeSpell extends AbstractSpell {
 	private Vector2 direction;
-	private Vector2 startPosition;
-	private Vector2 mousePosition;
+	private Vector2 startingPosition;
 	private boolean followsCaster;
 
-	public AoeSpell(SpellData spellData, Character caster, Vector2 mousePosition, boolean followsCaster) {
+	public AoeSpell(SpellData spellData, Character caster, Vector2 startingPosition, boolean followsCaster) {
 		super(spellData, caster);
-		this.mousePosition = mousePosition;
+		this.startingPosition = startingPosition.cpy();
 		this.followsCaster = followsCaster;
-		this.startPosition = caster.getPhysicsComponent().getPosition();
-		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], startPosition);
+		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], startingPosition);
 		direction = caster.getPhysicsComponent().getDirection().equals(Direction.left) ? new Vector2(-1, 0) : new Vector2(1, 0);
 		newPhysicsComponent.setDirection(direction);
 		physicsComponent = newPhysicsComponent;
 	}
 
 	@Override
-	public void applyEffect(Character character) {
+	public void applyCollisionEffect(Character character) {
 		if (character.getId() != casterId) {
-			character.damage(1f);// TODO add specific behaviour for different aoe spells
+			character.damage(data.getDamage());// TODO add specific behaviour for different aoe spells
 		}
 	}
 

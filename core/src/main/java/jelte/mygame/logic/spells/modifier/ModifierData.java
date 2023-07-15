@@ -12,6 +12,7 @@ public class ModifierData {
 	private String modifierSpriteName;
 	private String modifierType;
 	private float tickInterval;
+	private float duration;
 	private int amount;
 	private String polygonPoints;
 	private String infoText;

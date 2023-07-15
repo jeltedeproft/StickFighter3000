@@ -22,8 +22,10 @@ public class DefaultSpell extends AbstractSpell {
 	}
 
 	@Override
-	public void applyEffect(Character character) {
-		character.damage(1f);
+	public void applyCollisionEffect(Character character) {
+		if (character.getId() != casterId) {
+			character.damage(data.getDamage());
+		}
 	}
 
 	@Override

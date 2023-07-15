@@ -1,12 +1,12 @@
 package jelte.mygame.logic;
 
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
@@ -24,6 +24,7 @@ import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.SpellManager;
+import jelte.mygame.logic.spells.modifier.ModifierManager;
 
 public class LogicManagerImpl implements LogicManager {
 	private static final String TAG = LogicManagerImpl.class.getSimpleName();
@@ -33,6 +34,7 @@ public class LogicManagerImpl implements LogicManager {
 	private CharacterManager characterManager;
 	private AiManager aiManager;
 	private SpellManager spellManager;
+	private ModifierManager modifierManager;
 	private Set<Collidable> blockingObjects;
 	private Set<Collidable> allCollidables;
 	private Vector2 mousePosition = new Vector2();
@@ -43,6 +45,7 @@ public class LogicManagerImpl implements LogicManager {
 		collisionDetectionSystem = new CollisionDetectionSystemImpl();
 		collisionhandlingSystem = new CollisionHandlingSystem();
 		spellManager = new SpellManager();
+		modifierManager = new ModifierManager();
 		characterManager = new CharacterManager(new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID()));
 		aiManager = new AiManager();
 	}
@@ -52,6 +55,7 @@ public class LogicManagerImpl implements LogicManager {
 		characterManager.update(delta);
 		aiManager.update(delta, characterManager.getPlayer(), collisionDetectionSystem.getCollidables());
 		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());// TODO this order is important because graphicalImpl sets the dimensions of the sprites needed for adding them to the spatial mesh
+		modifierManager.update(delta, characterManager.getAllCharacters());
 
 		allCollidables.clear();
 		allCollidables.addAll(characterManager.getAllCharacterbodies());

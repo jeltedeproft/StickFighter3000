@@ -10,7 +10,7 @@ import jelte.mygame.logic.spells.spells.ProjectileSpell;
 public class ProjectileSpellFactory implements SpellFactory {
 
 	@Override
-	public AbstractSpell createSpell(SpellData spellData, Character character, Vector2 mousePosition) {
+	public AbstractSpell createSpell(SpellData spellData, Character character, Character target, Vector2 mousePosition) {
 		return new ProjectileSpell(spellData, character, mousePosition);
 	}
 

@@ -11,7 +11,7 @@ import jelte.mygame.logic.spells.spells.AoeSpell;
 public class AoeSpellFactory implements SpellFactory {
 
 	@Override
-	public AbstractSpell createSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
+	public AbstractSpell createSpell(SpellData spellData, Character caster, Character target, Vector2 mousePosition) {
 		return switch (SpellsEnum.values()[spellData.getId()]) {
 		case ATTACK -> new AoeSpell(spellData, caster, caster.getPhysicsComponent().getPosition(), false);
 		case FALLATTACK -> new AoeSpell(spellData, caster, mousePosition, true);

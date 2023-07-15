@@ -61,7 +61,7 @@ public class CollisionHandlingSystem {
 					Gdx.app.error(TAG, "null character id = " + collidable2.getId());
 					int j = 5;
 				}
-				spell.applyEffect(character);
+				spell.applyCollisionEffect(character);
 			} else if (isSpellAndCharacter(type2, type1)) {
 				AbstractSpell spell = getSpellById(allSpells, collidable2.getId());
 				if (spell == null) {
@@ -73,7 +73,7 @@ public class CollisionHandlingSystem {
 					Gdx.app.error(TAG, "null character id = " + collidable1.getId());
 					int j = 5;
 				}
-				spell.applyEffect(character);
+				spell.applyCollisionEffect(character);
 			} else if (isVisionAndPlayer(type2, type1)) {
 				VisionCollidable vision = (VisionCollidable) collidable2;
 				vision.playerSeen();

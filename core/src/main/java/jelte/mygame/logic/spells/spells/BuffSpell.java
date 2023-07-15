@@ -8,26 +8,31 @@ import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
 
 public class BuffSpell extends AbstractSpell {
+	private Character target;
 
-	public BuffSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
+	public BuffSpell(SpellData spellData, Character caster, Character target) {
 		super(spellData, caster);
-		Vector2 casterPosition = caster.getPhysicsComponent().getPosition().cpy();
-		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
-		Vector2 velocity = direction.scl(spellData.getSpeed());
+		this.target = target;
 
-		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition);
-		newPhysicsComponent.setDirection(direction);
-		newPhysicsComponent.setVelocity(velocity);
+		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], target.getPhysicsComponent().getPosition());
+		newPhysicsComponent.setDirection(new Vector2(0, 0));
+		newPhysicsComponent.setVelocity(new Vector2(0, 0));
 		physicsComponent = newPhysicsComponent;
+
+		for (String modifierName : spellData.getModifiers()) {
+			target.getModifiersreadyToApply().addLast(modifierName);
+		}
 	}
 
 	@Override
-	public void applyEffect(Character character) {
-		character.damage(1f);
+	public void applyCollisionEffect(Character target) {
+		//
 	}
 
 	@Override
 	protected void updateSpell(float delta, Character caster, Vector2 mousePosition) {
+		physicsComponent.getPosition().x = target.getPhysicsComponent().getPosition().x;
+		physicsComponent.getPosition().y = target.getPhysicsComponent().getPosition().y;
 		physicsComponent.update(delta);
 	}
 

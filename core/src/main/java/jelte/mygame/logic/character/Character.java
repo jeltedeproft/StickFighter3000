@@ -1,10 +1,10 @@
 package jelte.mygame.logic.character;
 
-import java.util.Objects;
-import java.util.UUID;
-
 import com.badlogic.gdx.utils.Queue;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Objects;
+import java.util.UUID;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.character.state.CharacterState;
@@ -29,11 +29,13 @@ public class Character {
 	protected CharacterPhysicsComponentImpl physicsComponent;
 	protected Queue<SpellData> spellsPreparedToCast;
 	protected Queue<SpellData> spellsreadyToCast;
+	protected Queue<String> modifiersreadyToApply;
 
 	public Character(UUID id) {
 		this.id = id;
 		spellsPreparedToCast = new Queue<>();
 		spellsreadyToCast = new Queue<>();
+		modifiersreadyToApply = new Queue<>();
 	}
 
 	public void update(float delta) {

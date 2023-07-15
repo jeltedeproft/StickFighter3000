@@ -2,6 +2,8 @@ package jelte.mygame.logic.spells;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
+import java.util.ArrayList;
+
 import lombok.Data;
 
 @Data
@@ -11,6 +13,7 @@ public class SpellData {
 	private String name;
 	private String spriteName;
 	private String iconSpriteName;
+	private ArrayList<String> modifiers;
 	private int coolDown;
 	private String type;
 	private boolean goesTroughObstacles;

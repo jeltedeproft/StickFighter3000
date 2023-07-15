@@ -7,5 +7,5 @@ import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
 
 public interface SpellFactory {
-	AbstractSpell createSpell(SpellData spellData, Character character, Vector2 mousePosition);
+	AbstractSpell createSpell(SpellData spellData, Character character, Character target, Vector2 mousePosition);
 }

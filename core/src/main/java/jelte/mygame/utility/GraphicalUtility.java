@@ -63,6 +63,10 @@ public class GraphicalUtility {
 		Gdx.gl.glLineWidth(1);
 	}
 
+	public static void setShapeRenderer(ShapeRenderer renderer) {
+		debugRenderer = renderer;
+	}
+
 	private GraphicalUtility() {
 		// static class
 	}

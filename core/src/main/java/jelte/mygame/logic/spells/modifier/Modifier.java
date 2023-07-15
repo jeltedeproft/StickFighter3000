@@ -38,6 +38,14 @@ public class Modifier {
 		this.data = ModifierFileReader.getModifierData().get(type.ordinal());
 	}
 
+	public Modifier(ModifiersEnum type, UUID uuid) {
+		this.type = type;
+		this.timeLeft = maxTime;
+		this.id = uuid;
+		this.data = ModifierFileReader.getModifierData().get(type.ordinal());
+		this.maxTime = data.getDuration();
+	}
+
 	public void update(float delta) {
 		if (timeLeft > 0) {
 			timeLeft -= delta;

@@ -10,7 +10,7 @@ import jelte.mygame.logic.spells.spells.DefaultSpell;
 public class SummonSpellFactory implements SpellFactory {
 
 	@Override
-	public AbstractSpell createSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
+	public AbstractSpell createSpell(SpellData spellData, Character caster, Character target, Vector2 mousePosition) {
 		return new DefaultSpell(spellData, caster, mousePosition);
 	}
 

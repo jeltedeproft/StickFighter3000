@@ -1,9 +1,9 @@
 package jelte.mygame.utility;
 
-import java.text.DecimalFormat;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
+
+import java.text.DecimalFormat;
 
 public class Constants {
 
@@ -51,9 +51,9 @@ public class Constants {
 
 	// TEST
 	public static final Vector2 PLAYER_TEST_START = new Vector2(20, 20);
-	public static final String PLAYER_STATS_TEST_FILE_LOCATION = "tests/testData/players.json";
-	public static final String ENEMY_STATS_TEST_FILE_LOCATION = "tests/testData/enemies.json";
-	public static final String SPELL_STATS_TEST_FILE_LOCATION = "tests/testData/spells.json";
+	public static final String PLAYER_STATS_TEST_FILE_LOCATION = "units/players.json";
+	public static final String ENEMY_STATS_TEST_FILE_LOCATION = "units/enemies.json";
+	public static final String SPELL_STATS_TEST_FILE_LOCATION = "spells/spells.json";
 	public static final String MAP_TEST_FILE_LOCATION = "tests/testMap/testMap.tmx";
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
 	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";

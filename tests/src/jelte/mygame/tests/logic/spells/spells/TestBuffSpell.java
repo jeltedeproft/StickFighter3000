@@ -1,6 +1,7 @@
 package jelte.mygame.tests.logic.spells.spells;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
@@ -23,13 +24,13 @@ import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.spells.SpellFileReader;
-import jelte.mygame.logic.spells.spells.AoeSpell;
+import jelte.mygame.logic.spells.spells.BuffSpell;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.logging.MultiFileLogger;
 
 @RunWith(GdxTestRunner.class)
-public class TestAoeSpell {
+public class TestBuffSpell {
 
 	private Character caster;
 	private Character target;
@@ -66,45 +67,32 @@ public class TestAoeSpell {
 	}
 
 	@Test
-	public void testCastAoe() {
-		AoeSpell aoeSpell = new AoeSpell(SpellFileReader.getSpellData().get(0), caster, targetPosition, false);
+	public void testCastBuff() {
+		BuffSpell buffSpell = new BuffSpell(SpellFileReader.getSpellData().get(0), caster, target);
 
-		aoeSpell.getData().setDamage(100.0f);
-		aoeSpell.applyCollisionEffect(target);
-
-		assertEquals(0.0f, target.getCurrentHp(), 0.001f);
+		assertTrue(target.getModifiersreadyToApply().size == 1);
+		assertEquals("FIRE", target.getModifiersreadyToApply().first());
 	}
 
 	@Test
 	public void testCastAoeCasterEqualsTarget() {
-		AoeSpell aoeSpell = new AoeSpell(SpellFileReader.getSpellData().get(0), caster, targetPosition, false);
+		BuffSpell buffSpell = new BuffSpell(SpellFileReader.getSpellData().get(0), caster, target);
 
-		aoeSpell.getData().setDamage(100.0f);
+		buffSpell.getData().setDamage(100.0f);
 		target.setId(casterId);
-		aoeSpell.applyCollisionEffect(target);
+		buffSpell.applyCollisionEffect(target);
 
 		assertEquals(100.0f, target.getCurrentHp(), 0.001f);
 	}
 
 	@Test
 	public void testUpdateAoe() {
-		AoeSpell aoeSpell = new AoeSpell(SpellFileReader.getSpellData().get(1), caster, targetPosition, false);
+		BuffSpell buffSpell = new BuffSpell(SpellFileReader.getSpellData().get(1), caster, target);
 
 		Vector2 updatedMousePosition = new Vector2(10.0f, 10.0f);
-		aoeSpell.update(0.5f, caster, updatedMousePosition);
+		buffSpell.update(0.5f, caster, updatedMousePosition);
 
-		assertEquals(target.getPhysicsComponent().getPosition(), aoeSpell.getPhysicsComponent().getPosition());
-	}
-
-	@Test
-	public void testUpdateAoeFollowCaster() {
-		AoeSpell aoeSpell = new AoeSpell(SpellFileReader.getSpellData().get(1), caster, targetPosition, true);
-
-		Vector2 updatedMousePosition = new Vector2(10.0f, 10.0f);
-		caster.getPhysicsComponent().move(50, 50);
-		aoeSpell.update(0.5f, caster, updatedMousePosition);
-
-		assertEquals(caster.getPhysicsComponent().getPosition(), aoeSpell.getPhysicsComponent().getPosition());
+		assertEquals(target.getPhysicsComponent().getPosition(), buffSpell.getPhysicsComponent().getPosition());
 	}
 
 }
