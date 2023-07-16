@@ -3,12 +3,11 @@ package jelte.mygame.logic.collisions;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.Character;
@@ -41,47 +40,26 @@ public class CollisionHandlingSystem {
 			Collidable collidable1 = pair.getCollidable1();
 			Collidable collidable2 = pair.getCollidable2();
 
-			COLLIDABLE_TYPE type1 = collidable1.getType();
-			COLLIDABLE_TYPE type2 = collidable2.getType();
+			handleCollisionBetweenTypes(collidable1.getType(), collidable2.getType(), collidable1, collidable2, allCharacters, allSpells);
+			handleCollisionBetweenTypes(collidable2.getType(), collidable1.getType(), collidable2, collidable1, allCharacters, allSpells);
+		}
+	}
 
-			if (COLLIDABLE_TYPE.isStatic(type1)) {
-				CollisionStrategy collisionStrategy = collisionStrategies.get(type1);
-				collisionStrategy.resolvePossibleCollision(collidable1, collidable2);
-			} else if (COLLIDABLE_TYPE.isStatic(type2)) {
-				CollisionStrategy collisionStrategy = collisionStrategies.get(type2);
-				collisionStrategy.resolvePossibleCollision(collidable2, collidable1);
-			} else if (isSpellAndCharacter(type1, type2)) {
-				AbstractSpell spell = getSpellById(allSpells, collidable1.getId());
-				if (spell == null) {
-					Gdx.app.error(TAG, "null spell id = " + collidable1.getId());
-					int j = 5;
-				}
-				Character character = getCharacterById(allCharacters, collidable2.getId());
-				if (character == null) {
-					Gdx.app.error(TAG, "null character id = " + collidable2.getId());
-					int j = 5;
-				}
+	private void handleCollisionBetweenTypes(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2, Collidable collidable1, Collidable collidable2, Array<Character> allCharacters, Array<AbstractSpell> allSpells) {
+		if (COLLIDABLE_TYPE.isStatic(type1)) {
+			CollisionStrategy collisionStrategy = collisionStrategies.get(type1);
+			collisionStrategy.resolvePossibleCollision(collidable1, collidable2);
+		} else if (isSpellAndCharacter(type1, type2)) {
+			AbstractSpell spell = getSpellById(allSpells, collidable1.getId());
+			Character character = getCharacterById(allCharacters, collidable2.getId());
+			if (spell != null && character != null) {
 				spell.applyCollisionEffect(character);
-			} else if (isSpellAndCharacter(type2, type1)) {
-				AbstractSpell spell = getSpellById(allSpells, collidable2.getId());
-				if (spell == null) {
-					Gdx.app.error(TAG, "null spell id = " + collidable2.getId());
-					int j = 5;
-				}
-				Character character = getCharacterById(allCharacters, collidable1.getId());
-				if (character == null) {
-					Gdx.app.error(TAG, "null character id = " + collidable1.getId());
-					int j = 5;
-				}
-				spell.applyCollisionEffect(character);
-			} else if (isVisionAndPlayer(type2, type1)) {
-				VisionCollidable vision = (VisionCollidable) collidable2;
-				vision.playerSeen();
-			} else if (isVisionAndPlayer(type1, type2)) {
-				VisionCollidable vision = (VisionCollidable) collidable1;
-				vision.playerSeen();
+			} else {
+				Gdx.app.error(TAG, "Null spell or character id = " + collidable1.getId() + ", " + collidable2.getId());
 			}
-
+		} else if (isVisionAndPlayer(type1, type2)) {
+			VisionCollidable vision = (VisionCollidable) collidable1;
+			vision.playerSeen();
 		}
 	}
 
@@ -94,27 +72,16 @@ public class CollisionHandlingSystem {
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {
-		Stream<Character> stream = StreamSupport.stream(characters.spliterator(), false);
-		Character characterToReturn = stream
+		return Arrays.stream(characters.items)
 				.filter(character -> character.getId().equals(id))
 				.findFirst()
 				.orElse(null);
-		if (characterToReturn == null) {
-			int j = 5;
-		}
-		return characterToReturn;
 	}
 
 	private AbstractSpell getSpellById(Array<AbstractSpell> spells, UUID id) {
-		Stream<AbstractSpell> stream = StreamSupport.stream(spells.spliterator(), false);
-		AbstractSpell spellToReturn = stream
+		return Arrays.stream(spells.items)
 				.filter(spell -> spell.getId().equals(id))
 				.findFirst()
 				.orElse(null);
-		if (spellToReturn == null) {
-			int j = 5;
-		}
-		return spellToReturn;
 	}
-
 }

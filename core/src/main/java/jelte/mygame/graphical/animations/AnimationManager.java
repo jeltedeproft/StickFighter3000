@@ -8,6 +8,7 @@ import jelte.mygame.logic.spells.spells.AbstractSpell;
 
 public class AnimationManager {
 	private static final String TAG = AnimationManager.class.getSimpleName();
+
 	private final AnimationNameManager animationNameManager;
 	private final AnimationTextureManager animationTextureManager;
 

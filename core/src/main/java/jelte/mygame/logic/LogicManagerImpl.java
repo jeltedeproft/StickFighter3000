@@ -94,6 +94,10 @@ public class LogicManagerImpl implements LogicManager {
 		}
 	}
 
+	public Vector2 getMousePosition() {
+		return mousePosition;
+	}
+
 	@Override
 	public void dispose() {
 

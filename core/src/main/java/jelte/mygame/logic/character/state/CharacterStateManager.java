@@ -310,9 +310,13 @@ public class CharacterStateManager {
 		character.getPhysicsComponent().getAcceleration().y -= speed;
 	}
 
-	public void pullUp(float speed) {
+	public void speedUpwards(float speed) {
 		character.getPhysicsComponent().getVelocity().y += speed;
 		character.getPhysicsComponent().getAcceleration().y += speed;
+	}
+
+	public void forceUp(float speed) {
+		character.getPhysicsComponent().getVelocity().y += speed;
 	}
 
 	public void stopCharacter() {

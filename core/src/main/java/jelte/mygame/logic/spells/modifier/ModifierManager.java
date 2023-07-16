@@ -110,22 +110,25 @@ public class ModifierManager {
 		updateDelayedModifiers(delta);
 		characters.forEach(this::updateCharacter);
 		for (Character character : characters) {
-			for (Modifier modifier : charactersWithModifiers.get(character)) {
-				modifier.update(delta);
+			if (charactersWithModifiers.containsKey(character)) {
+				for (Modifier modifier : charactersWithModifiers.get(character)) {
+					modifier.update(delta);
 
-				updateModifierByType(delta, character, modifier);
-			}
+					updateModifierByType(delta, character, modifier);
+				}
 
-			// cleanup
-			ConcurrentLinkedQueue<Modifier> currentModifiers = charactersWithModifiers.get(character);
-			final Iterator<Modifier> iterator = currentModifiers.iterator();
-			while (iterator.hasNext()) {
-				final Modifier currentModifier = iterator.next();
-				if (currentModifier.isCompleted()) {
-					applyEndEffect(currentModifier, character);
-					iterator.remove();
+				// cleanup
+				ConcurrentLinkedQueue<Modifier> currentModifiers = charactersWithModifiers.get(character);
+				final Iterator<Modifier> iterator = currentModifiers.iterator();
+				while (iterator.hasNext()) {
+					final Modifier currentModifier = iterator.next();
+					if (currentModifier.isCompleted()) {
+						applyEndEffect(currentModifier, character);
+						iterator.remove();
+					}
 				}
 			}
+
 		}
 	}
 

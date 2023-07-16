@@ -48,7 +48,7 @@ public class TestAssetManagerUtility {
 
 	@Test
 	public void testLoadAndRetrieveTextureAsset() {
-		String textureFilenamePath = "swordmaster-APPEARING1-left";
+		String textureFilenamePath = "sprites/characters/swordmaster/swordmaster-APPEARING1-left_1.png";
 
 		// Set up necessary assets and load a texture atlas
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
@@ -74,7 +74,7 @@ public class TestAssetManagerUtility {
 
 	@Test
 	public void testUnloadAsset() {
-		String textureFilenamePath = "swordmaster-APPEARING1-left";
+		String textureFilenamePath = "sprites/characters/swordmaster/swordmaster-APPEARING1-left_1.png";
 
 		// Set up necessary assets and load a texture atlas
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);

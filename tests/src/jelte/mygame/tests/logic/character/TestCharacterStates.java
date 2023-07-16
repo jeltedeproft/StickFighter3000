@@ -76,7 +76,7 @@ public class TestCharacterStates {
 		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 10);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
 	}
@@ -201,7 +201,7 @@ public class TestCharacterStates {
 		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 10);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
 	}
@@ -341,7 +341,7 @@ public class TestCharacterStates {
 		characterStateManager.handleEvent(EVENT.DAMAGE_TAKEN);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.HURT);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == 0);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 10);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
 	}

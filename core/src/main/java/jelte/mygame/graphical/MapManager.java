@@ -1,11 +1,5 @@
 package jelte.mygame.graphical;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -20,6 +14,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.graphical.map.PatrolPoint;
@@ -38,6 +38,7 @@ import lombok.Setter;
 @Setter
 public class MapManager implements Disposable {
 	private static final String TAG = MapManager.class.getSimpleName();
+
 	private TiledMap currentMap;
 	private OrthogonalTiledMapRenderer renderer;
 	private MapProperties mapProperties;
@@ -51,20 +52,22 @@ public class MapManager implements Disposable {
 	}
 
 	public MapManager(SpriteBatch batch, final String mapPath) {
+		loadMapData(mapPath, batch);
+	}
+
+	public void changeMap(String mapPath) {
+		loadMapData(mapPath, (SpriteBatch) renderer.getBatch());
+	}
+
+	private void loadMapData(String mapPath, SpriteBatch batch) {
 		AssetManagerUtility.loadMapAsset(mapPath);
 		currentMap = AssetManagerUtility.getMapAsset(mapPath);
 		renderer = new OrthogonalTiledMapRenderer(currentMap, Constants.MAP_UNIT_SCALE, batch);
 		mapProperties = currentMap.getProperties();
 		currentMapWidth = mapProperties.get("width", Integer.class) * mapProperties.get("tilewidth", Integer.class);
 		currentMapHeight = mapProperties.get("height", Integer.class) * mapProperties.get("tileheight", Integer.class);
-		blockingRectangles = getStatickBlocksFromObjectLayer(currentMap.getLayers().get(Constants.LAYER_NAME_BLOCK));
-		enemySpawnData = initEnemySpawnData();
-	}
-
-	public void changemap(String mapPath) {
-		AssetManagerUtility.loadMapAsset(mapPath);
-		currentMap = AssetManagerUtility.getMapAsset(mapPath);
-		renderer.setMap(currentMap);
+		blockingRectangles = extractStaticBlocksFromObjectLayer(currentMap.getLayers().get(Constants.LAYER_NAME_BLOCK));
+		enemySpawnData = initializeEnemySpawnData();
 	}
 
 	public void renderCurrentMap(OrthographicCamera camera) {
@@ -77,7 +80,7 @@ public class MapManager implements Disposable {
 		renderer.dispose();
 	}
 
-	public Set<StaticBlock> getStatickBlocksFromObjectLayer(MapLayer objectLayer) {
+	public Set<StaticBlock> extractStaticBlocksFromObjectLayer(MapLayer objectLayer) {
 		Set<StaticBlock> rectangles = new HashSet<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
@@ -90,7 +93,7 @@ public class MapManager implements Disposable {
 		return rectangles;
 	}
 
-	private Collection<EnemySpawnData> initEnemySpawnData() {
+	private Collection<EnemySpawnData> initializeEnemySpawnData() {
 		MapObjects spawnObjects = currentMap.getLayers().get(Constants.LAYER_NAME_SPAWN).getObjects();
 		MapObjects patrolObjects = currentMap.getLayers().get(Constants.LAYER_NAME_PATROL).getObjects();
 		Map<String, EnemySpawnData> enemyDatas = new HashMap<>(spawnObjects.getCount());
@@ -122,7 +125,9 @@ public class MapManager implements Disposable {
 	}
 
 	private StaticBlock createTypedStaticBlock(RectangleMapObject rectangleObject) {
-		switch (rectangleObject.getName()) {
+		String blockType = rectangleObject.getName();
+
+		switch (blockType) {
 		case Constants.BLOCK_TYPE_TOP:
 			return new StaticBlockTop(rectangleObject.getRectangle());
 		case Constants.BLOCK_TYPE_BOT:
@@ -134,7 +139,7 @@ public class MapManager implements Disposable {
 		case Constants.BLOCK_TYPE_PLATFORM:
 			return new StaticBlockPlatform(rectangleObject.getRectangle());
 		default:
-			Gdx.app.debug(TAG, String.format("error: unknown type of static block: %s", rectangleObject.getName()));
+			Gdx.app.debug(TAG, "Error: unknown type of static block: " + blockType);
 			break;
 		}
 
@@ -144,17 +149,9 @@ public class MapManager implements Disposable {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("currentMapWidth : ");
-		sb.append(currentMapWidth);
-		sb.append("\n");
-		sb.append("currentMapHeight : ");
-		sb.append(currentMapHeight);
-		sb.append("\n");
-		sb.append("mapName : ");
-		sb.append(Constants.DEFAULT_MAP_PATH);
-		sb.append("\n");
-
+		sb.append("currentMapWidth: ").append(currentMapWidth).append("\n");
+		sb.append("currentMapHeight: ").append(currentMapHeight).append("\n");
+		sb.append("mapName: ").append(Constants.DEFAULT_MAP_PATH).append("\n");
 		return sb.toString();
 	}
-
 }

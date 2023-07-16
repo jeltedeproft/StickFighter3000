@@ -1,0 +1,6 @@
+collidable 1 : STATIC_BOT
+collidable 2 : STATIC_BOT
+
+collidable 1 : STATIC_BOT
+collidable 2 : STATIC_BOT
+

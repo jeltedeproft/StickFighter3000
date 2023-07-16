@@ -1,17 +1,15 @@
 package jelte.mygame.graphical.animations;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -85,11 +83,11 @@ public class AnimationTextureManager {
 	}
 
 	public PlayMode getPlayMode(CHARACTER_STATE state) {
-		return characterPlayModes.get(state);
+		return characterPlayModes.getOrDefault(state, PlayMode.NORMAL);
 	}
 
 	public PlayMode getPlayMode(SPELL_STATE state) {
-		return spellPlayModes.get(state);
+		return spellPlayModes.getOrDefault(state, PlayMode.NORMAL);
 	}
 
 	public void cache(String animationName, Animation<NamedSprite> animation) {
@@ -97,20 +95,12 @@ public class AnimationTextureManager {
 	}
 
 	public void update(final float delta) {
-		timers.replaceAll((k, v) -> v = v + delta);
+		timers.replaceAll((k, v) -> v + delta);
 		// clean();//TODO check if this is ok
 	}
 
 	public void clean() {
-		ArrayList<UUID> idsToCleanUp = new ArrayList<>();
-		for (UUID id : timers.keySet()) {
-			if (!usedIds.contains(id)) {
-				idsToCleanUp.add(id);
-			}
-		}
-		for (UUID id : idsToCleanUp) {
-			timers.remove(id);
-		}
+		timers.keySet().removeIf(id -> !usedIds.contains(id));
 		usedIds.clear();
 	}
 
@@ -209,7 +199,7 @@ public class AnimationTextureManager {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (Entry<UUID, String> anim : previous.entrySet()) {
+		for (Map.Entry<UUID, String> anim : previous.entrySet()) {
 			sb.append(anim.getKey());
 			sb.append(" --> ");
 			sb.append(anim.getValue());

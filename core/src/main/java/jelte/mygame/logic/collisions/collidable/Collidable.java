@@ -1,8 +1,8 @@
 package jelte.mygame.logic.collisions.collidable;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Rectangle;
+
+import java.util.UUID;
 
 public interface Collidable {
 

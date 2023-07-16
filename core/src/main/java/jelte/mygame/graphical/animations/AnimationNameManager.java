@@ -1,17 +1,19 @@
 package jelte.mygame.graphical.animations;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import java.util.UUID;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.EnemyFileReader;
@@ -25,12 +27,12 @@ public class AnimationNameManager {
 	private static final String TAG = AnimationNameManager.class.getSimpleName();
 	private final Map<UUID, AnimationName> animationNames;
 	private final Map<String, Map<CHARACTER_STATE, Set<String>>> possibleAnimationsCharacter;
-	private final ConcurrentLinkedQueue<UUID> usedIds;
+	private final Queue<UUID> usedIds;
 
 	public AnimationNameManager() {
 		animationNames = new HashMap<>();
 		possibleAnimationsCharacter = new HashMap<>();
-		usedIds = new ConcurrentLinkedQueue<>();
+		usedIds = new LinkedList<>();
 		initializeAvailableStates();
 	}
 
@@ -62,16 +64,16 @@ public class AnimationNameManager {
 		possibleAnimationsCharacter.put(characterName, availableStates);
 	}
 
-	public boolean animationsExists(String spriteName, CHARACTER_STATE state) {
+	public boolean animationsExist(String spriteName, CHARACTER_STATE state) {
 		return possibleAnimationsCharacter.get(spriteName).containsKey(state);
 	}
 
 	public void update() {
-		// clean();//TODO check if this is ok
+		// clean(); //TODO check if this is ok
 	}
 
-	public void clean() {
-		ArrayList<UUID> idsToCleanUp = new ArrayList<>();
+	private void clean() {
+		List<UUID> idsToCleanUp = new ArrayList<>();
 		for (UUID id : animationNames.keySet()) {
 			if (!usedIds.contains(id)) {
 				idsToCleanUp.add(id);
@@ -84,9 +86,13 @@ public class AnimationNameManager {
 	}
 
 	public String getAnimationName(Character character) {
-		CHARACTER_STATE state = animationsExists(character.getData().getEntitySpriteName(), character.getCurrentCharacterState().getState()) ? character.getCurrentCharacterState().getState() : CHARACTER_STATE.IDLE;
+		CHARACTER_STATE state = animationsExist(character.getData().getEntitySpriteName(), character.getCurrentCharacterState().getState())
+				? character.getCurrentCharacterState().getState()
+				: CHARACTER_STATE.IDLE;
 		CharacterAnimation characterAnimation = (CharacterAnimation) getCharacterAnimation(character, state);
-		String animationIndex = state.equals(characterAnimation.getState()) ? characterAnimation.getAnimationIndex() : getRandomAnimationIndex(character.getData().getEntitySpriteName(), state);
+		String animationIndex = state.equals(characterAnimation.getState())
+				? characterAnimation.getAnimationIndex()
+				: getRandomAnimationIndex(character.getData().getEntitySpriteName(), state);
 		characterAnimation.updateData(character.getData().getEntitySpriteName(), animationIndex, character.getPhysicsComponent().getDirection(), state);
 		return characterAnimation.getFullName();
 	}
@@ -128,5 +134,4 @@ public class AnimationNameManager {
 		}
 		return sb.toString();
 	}
-
 }

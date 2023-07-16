@@ -3,6 +3,9 @@ package jelte.mygame.tests.logic.collisions.spatialMesh;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,9 +17,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-
 import jelte.mygame.logic.collisions.CellPoint;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
@@ -26,8 +26,8 @@ import jelte.mygame.logic.collisions.collidable.StaticBlockPlatform;
 import jelte.mygame.logic.collisions.collidable.StaticBlockRight;
 import jelte.mygame.logic.collisions.collidable.StaticBlockTop;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
-import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.physics.PhysicsComponent;
+import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
@@ -36,8 +36,8 @@ import jelte.mygame.utility.exceptions.OutOfBoundsException;
 
 @RunWith(GdxTestRunner.class)
 public class TestSpatialMesh {
-	private static final int WIDTH = 320;
-	private static final int HEIGHT = 320;
+	private static final int WIDTH = 800;
+	private static final int HEIGHT = 800;
 
 	private SpatialMesh spatialMesh;
 	private PhysicsComponent testPhysicsComponent1;
@@ -716,12 +716,36 @@ public class TestSpatialMesh {
 	}
 
 	@Test
+	public void testGetCollidingCells() {
+		Rectangle rectangle = new Rectangle();
+		rectangle.x = 326.31165f;
+		rectangle.y = 319.88217f;
+		rectangle.width = 0f;
+		rectangle.height = 0f;
+		Set<CellPoint> cells = spatialMesh.getCollidingCells(rectangle);
+		Assert.assertTrue(cells.size() == 1);
+		Assert.assertTrue(cells.contains(new CellPoint(10, 9)));
+	}
+
+	@Test
+	public void testGetCollidingCellsOldrectangle() {
+		Rectangle rectangle = new Rectangle();
+		rectangle.x = 357.15674f;
+		rectangle.y = 315.64005f;
+		rectangle.width = 0f;
+		rectangle.height = 0f;
+		Set<CellPoint> cells = spatialMesh.getCollidingCells(rectangle);
+		Assert.assertTrue(cells.size() == 1);
+		Assert.assertTrue(cells.contains(new CellPoint(11, 9)));
+	}
+
+	@Test
 	public void testGetCellXAt10000ShouldThrowException() throws OutOfBoundsException {
 		try {
 			Assert.assertEquals(0, spatialMesh.getCellX(10000));
 			fail("getCellX should throw an exception for a negative number");
 		} catch (OutOfBoundsException expected) {
-			assertEquals("10000 is bigger than map size 320,0, can't get spatialMeshCell", expected.getMessage());
+			assertEquals("10000 is bigger than map size 800,0, can't get spatialMeshCell", expected.getMessage());
 		}
 	}
 
@@ -731,7 +755,7 @@ public class TestSpatialMesh {
 			Assert.assertEquals(0, spatialMesh.getCellY(10000));
 			fail("getCellY should throw an exception for a negative number");
 		} catch (OutOfBoundsException expected) {
-			assertEquals("10000 is bigger than map size 320,0, can't get spatialMeshCell", expected.getMessage());
+			assertEquals("10000 is bigger than map size 800,0, can't get spatialMeshCell", expected.getMessage());
 		}
 	}
 

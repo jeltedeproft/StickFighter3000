@@ -124,6 +124,8 @@ public class SpatialMesh {
 	private void addNewCollidables(Set<Collidable> collidables) {
 		for (Collidable c : collidables) {
 			if (!collidablesInPlay.contains(c)) {
+				c.getOldRectangle().x = c.getRectangle().x;
+				c.getOldRectangle().y = c.getRectangle().y;// we do this because wen we initially add rectangles to the mesh we the oldrectangle has no function yet and causes bugs
 				addCollidable(c);
 			}
 		}

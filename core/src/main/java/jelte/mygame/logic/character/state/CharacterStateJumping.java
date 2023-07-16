@@ -22,7 +22,7 @@ public class CharacterStateJumping implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.pullUp(Constants.JUMP_SPEED.y);// TODO also adds acceleration now, is it bigger?
+		characterStateManager.forceUp(Constants.JUMP_SPEED.y);// TODO also adds acceleration now, is it bigger?
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 	}
 

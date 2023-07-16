@@ -17,13 +17,14 @@ import java.util.Set;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javafx.util.Pair;
 import jelte.mygame.logic.collisions.CollisionPair;
+import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.UtilityFunctions;
 
 @RunWith(GdxTestRunner.class)
-public class UtilityFunctionsTest {
+public class TestUtilityFunctions {
 
 	@Test
 	public void testWriteAndReadArrayToFile() throws IOException {
@@ -40,17 +41,27 @@ public class UtilityFunctionsTest {
 	public void testWriteAndReadSetsToFile() throws IOException {
 		Set<CollisionPair>[] array = new HashSet[2];
 		array[0] = new HashSet<>();
-		array[0].add(new CollisionPair(1, 2));
-		array[0].add(new CollisionPair(3, 4));
+		Collidable first = new StaticBlockBot(5, 5, 5, 5);
+		Collidable second = new StaticBlockBot(5, 5, 5, 5);
+		array[0].add(new CollisionPair(first, second));
+		array[0].add(new CollisionPair(first, second));
 		array[1] = new HashSet<>();
-		array[1].add(new CollisionPair(5, 6));
-		array[1].add(new CollisionPair(7, 8));
+		array[1].add(new CollisionPair(first, second));
+		array[1].add(new CollisionPair(first, second));
 		String filePath = "test-sets.txt";
 
 		UtilityFunctions.writeSetsToFile(array, filePath);
 
-		Set<CollisionPair>[] readArray = readSetsFromFile(filePath);
-		assertSetsArrayEquals(array, readArray);
+		String[] actualArray = readSetsFromFile(filePath);
+		String[] expectedArray = new String[6];
+		expectedArray[0] = "collidable 1 : STATIC_BOT";
+		expectedArray[1] = "collidable 2 : STATIC_BOT";
+		expectedArray[2] = "";
+		expectedArray[3] = "collidable 1 : STATIC_BOT";
+		expectedArray[4] = "collidable 2 : STATIC_BOT";
+		expectedArray[5] = "";
+
+		assertArrayEquals(expectedArray, actualArray);
 	}
 
 	@Test
@@ -91,20 +102,16 @@ public class UtilityFunctionsTest {
 		}
 	}
 
-	private Set<CollisionPair>[] readSetsFromFile(String filePath) throws IOException {
-		Set<CollisionPair>[] array = new HashSet[2];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = new HashSet<>();
-		}
-
+	private String[] readSetsFromFile(String filePath) throws IOException {
+		String[] array = new String[6];
 		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 			String line;
 			int i = 0;
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split(",");
-				int first = Integer.parseInt(parts[0]);
-				int second = Integer.parseInt(parts[1]);
-				array[i].add(new Pair<Integer, Integer>(first, second));
+				for (String part : parts) {
+					array[i] = part;
+				}
 				i++;
 			}
 		}

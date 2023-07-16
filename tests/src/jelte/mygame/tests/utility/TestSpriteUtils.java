@@ -24,15 +24,13 @@ public class TestSpriteUtils {
 
 		float maxAttackOffset = SpriteUtils.calculateAttackOffsetForAll(animationFrames);
 
-		assertEquals(0, maxAttackOffset, 0.001f);
+		assertEquals(60, maxAttackOffset, 0.001f);
 	}
 
 	@Test
 	public void testCalculateAttackOffset_Left() {
 		TextureRegion animationFrame = createMockTextureRegion(100, 100, 30);
-		boolean isLeft = true;
-
-		float attackOffset = SpriteUtils.calculateAttackOffset(animationFrame, isLeft);
+		float attackOffset = SpriteUtils.calculateLeftAttackOffset(animationFrame);
 
 		assertEquals(70, attackOffset, 0.001f);
 	}
@@ -40,9 +38,7 @@ public class TestSpriteUtils {
 	@Test
 	public void testCalculateAttackOffset_Right() {
 		TextureRegion animationFrame = createMockTextureRegion(100, 100, 70);
-		boolean isLeft = false;
-
-		float attackOffset = SpriteUtils.calculateAttackOffset(animationFrame, isLeft);
+		float attackOffset = SpriteUtils.calculateRightAttackOffset(animationFrame);
 
 		assertEquals(30, attackOffset, 0.001f);
 	}
@@ -54,7 +50,7 @@ public class TestSpriteUtils {
 				if (x == coloredPixelX && y == height / 2) {
 					pixmap.pixels[x][y] = Color.rgba8888(Color.RED); // Set a colored pixel
 				} else {
-					pixmap.pixels[x][y] = Color.rgba8888(Color.WHITE);
+					pixmap.pixels[x][y] = Color.rgba8888(Color.CLEAR);
 				}
 			}
 		}

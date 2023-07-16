@@ -6,6 +6,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.UUID;
 
 import org.junit.Before;
@@ -14,10 +18,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.graphical.animations.AnimationName;
 import jelte.mygame.graphical.animations.AnimationNameManager;
@@ -60,58 +60,58 @@ public class TestAnimationNameManager {
 	}
 
 	@Test
-	public void testAnimationsExists() {
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.APPEARING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.ATTACKING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.PRECAST));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.BLOCKING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.CROUCHED));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.DASHING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.DIE));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.FALLATTACKING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.FALLING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.GRABBING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.HOLDING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.HOLDINGTOSLIDING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.HURT));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.IDLE));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.JUMPING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.JUMPTOFALL));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.LANDING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.ROLLATTACK));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.ROLLING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.RUNNING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.SPRINTING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.WALKING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.WALLSLIDING));
-		assertTrue(animationNameManager.animationsExists("swordmaster", CHARACTER_STATE.WALLSLIDINGSTOP));
-		assertTrue(animationNameManager.animationsExists("archer", CHARACTER_STATE.ATTACKING));
-		assertTrue(animationNameManager.animationsExists("archer", CHARACTER_STATE.DIE));
-		assertTrue(animationNameManager.animationsExists("archer", CHARACTER_STATE.HURT));
-		assertTrue(animationNameManager.animationsExists("archer", CHARACTER_STATE.RUNNING));
-		assertTrue(animationNameManager.animationsExists("archer", CHARACTER_STATE.IDLE));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.ATTACKING));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.CAST));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.DIE));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.HURT));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.IDLE));
-		assertTrue(animationNameManager.animationsExists("orby", CHARACTER_STATE.RUNNING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.CLIMBING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.CROUCHED));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.IDLECROUCH));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.DASHING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.FALLING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.DIE));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.HOLDING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.JUMPING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.LANDING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.RUNNING));
-		assertTrue(animationNameManager.animationsExists("alchemist", CHARACTER_STATE.STOPRUNNING));
-		assertTrue(animationNameManager.animationsExists("shocker", CHARACTER_STATE.ATTACKING));
-		assertTrue(animationNameManager.animationsExists("shocker", CHARACTER_STATE.DIE));
-		assertTrue(animationNameManager.animationsExists("shocker", CHARACTER_STATE.HURT));
-		assertTrue(animationNameManager.animationsExists("shocker", CHARACTER_STATE.IDLE));
-		assertTrue(animationNameManager.animationsExists("shocker", CHARACTER_STATE.RUNNING));
+	public void testanimationsExist() {
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.APPEARING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.ATTACKING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.PRECAST));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.BLOCKING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.CROUCHED));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.DASHING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.DIE));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.FALLATTACKING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.FALLING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.GRABBING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.HOLDING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.HOLDINGTOSLIDING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.HURT));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.IDLE));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.JUMPING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.JUMPTOFALL));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.LANDING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.ROLLATTACK));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.ROLLING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.RUNNING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.SPRINTING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.WALKING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.WALLSLIDING));
+		assertTrue(animationNameManager.animationsExist("swordmaster", CHARACTER_STATE.WALLSLIDINGSTOP));
+		assertTrue(animationNameManager.animationsExist("archer", CHARACTER_STATE.ATTACKING));
+		assertTrue(animationNameManager.animationsExist("archer", CHARACTER_STATE.DIE));
+		assertTrue(animationNameManager.animationsExist("archer", CHARACTER_STATE.HURT));
+		assertTrue(animationNameManager.animationsExist("archer", CHARACTER_STATE.RUNNING));
+		assertTrue(animationNameManager.animationsExist("archer", CHARACTER_STATE.IDLE));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.ATTACKING));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.CAST));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.DIE));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.HURT));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.IDLE));
+		assertTrue(animationNameManager.animationsExist("orby", CHARACTER_STATE.RUNNING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.CLIMBING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.CROUCHED));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.IDLECROUCH));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.DASHING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.FALLING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.DIE));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.HOLDING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.JUMPING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.LANDING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.RUNNING));
+		assertTrue(animationNameManager.animationsExist("alchemist", CHARACTER_STATE.STOPRUNNING));
+		assertTrue(animationNameManager.animationsExist("shocker", CHARACTER_STATE.ATTACKING));
+		assertTrue(animationNameManager.animationsExist("shocker", CHARACTER_STATE.DIE));
+		assertTrue(animationNameManager.animationsExist("shocker", CHARACTER_STATE.HURT));
+		assertTrue(animationNameManager.animationsExist("shocker", CHARACTER_STATE.IDLE));
+		assertTrue(animationNameManager.animationsExist("shocker", CHARACTER_STATE.RUNNING));
 	}
 
 	@Test

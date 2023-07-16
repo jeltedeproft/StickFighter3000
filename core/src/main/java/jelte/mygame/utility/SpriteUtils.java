@@ -1,7 +1,5 @@
 package jelte.mygame.utility;
 
-import java.io.File;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -9,6 +7,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import java.io.File;
 
 public class SpriteUtils {
 	public static float calculateAttackOffsetForAll(TextureRegion[] animationFrames) {
@@ -40,9 +40,36 @@ public class SpriteUtils {
 		return maxAttackOffset;
 	}
 
-	public static float calculateAttackOffset(TextureRegion animationFrame, boolean isLeft) {
-		float endAttackOffset = 0;
+	public static float calculateLeftAttackOffset(TextureRegion animationFrame) {
+		int frameWidth = animationFrame.getRegionWidth();
+		int frameHeight = animationFrame.getRegionHeight();
 
+		Texture texture = animationFrame.getTexture();
+		TextureData textureData = texture.getTextureData();
+		if (!textureData.isPrepared()) {
+			textureData.prepare();
+		}
+		Pixmap pixmap = textureData.consumePixmap();
+
+		float attackOffset = 0; // Initialize with maximum value for left offset
+
+		for (int x = 0; x < frameWidth; x++) {
+			for (int y = 0; y < frameHeight; y++) {
+				Color framePixels = new Color(pixmap.getPixel(x, y));
+
+				if (framePixels.a > 0) {
+					attackOffset = Math.max(attackOffset, x); // Update the maximum for left offset
+					break;
+				}
+			}
+		}
+
+		pixmap.dispose(); // Dispose the pixmap to avoid memory leaks
+
+		return frameWidth - attackOffset;
+	}
+
+	public static float calculateRightAttackOffset(TextureRegion animationFrame) {
 		int frameWidth = animationFrame.getRegionWidth();
 		int frameHeight = animationFrame.getRegionHeight();
 
@@ -60,25 +87,15 @@ public class SpriteUtils {
 				Color framePixels = new Color(pixmap.getPixel(x, y));
 
 				if (framePixels.a > 0) {
-					if (isLeft) {
-						attackOffset = Math.max(attackOffset, x); // Update the maximum for left offset
-						break;
-					}
 					attackOffset = Math.min(attackOffset, x); // Update the minimum for right offset
 					break;
 				}
 			}
 		}
 
-		if (isLeft) {
-			endAttackOffset = attackOffset;
-		} else {
-			endAttackOffset = frameWidth - attackOffset;
-		}
-
 		pixmap.dispose(); // Dispose the pixmap to avoid memory leaks
 
-		return endAttackOffset;
+		return frameWidth - attackOffset;
 	}
 
 	public static TextureRegion convertToTextureRegion(String absolutePath) {

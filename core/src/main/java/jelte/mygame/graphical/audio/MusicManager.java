@@ -1,16 +1,16 @@
 package jelte.mygame.graphical.audio;
 
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import de.pottgames.tuningfork.Audio;
 import de.pottgames.tuningfork.AudioConfig;
@@ -31,56 +31,55 @@ import jelte.mygame.utility.logging.MultiFileLogger;
 
 //TODO add link between entity and sound so that we can update pos sound
 //TODO start using positions and maybe reverb in cave
-//TODO refactor
 public class MusicManager implements Disposable, MusicManagerInterface {
 	private static final String TAG = MusicManager.class.getSimpleName();
 
 	private static MusicManagerInterface instance = null;
-	private static final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
-	private static final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
-	private static final Map<Integer, AudioData> audioDataForIds = new HashMap<>();
-
+	private final Audio audio;
+	private final SoundListener listener;
 	private final HashMap<String, StreamedSoundSource> songs;
 	private final HashMap<String, Array<BufferedSoundSource>> loadedSounds;
-	private final SoundListener listener;
-	private Audio audio;
-	private static final Map<MusicTheme, PlayList> playlistsPerTheme = new EnumMap<>(MusicTheme.class);
+	private final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
+	private final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
+	private final Map<Integer, AudioData> audioDataForIds = new HashMap<>();
+	private final Map<MusicTheme, PlayList> playlistsPerTheme = new EnumMap<>(MusicTheme.class);
 	private ThemePlayListProvider provider;
 	private JukeBox jukeBox;
 
 	private MusicManager() {
 		songs = new HashMap<>();
 		loadedSounds = new HashMap<>();
-
-		initAudio();
-		initJukeBox();
-
-		audio.setDefaultAttenuationMaxDistance(5f);
-		listener = audio.getListener();
+		audio = initAudio();
+		jukeBox = initJukeBox();
 
 		autoloadSounds();
 		autoloadMusic();
 
 		jukeBox.play();
+		listener = audio.getListener();
 	}
 
-	private void initJukeBox() {
+	private JukeBox initJukeBox() {
 		provider = new ThemePlayListProvider();
 		provider.setTheme(MusicTheme.PLAYING.ordinal());// TODO starting theme is main menu?
-		for (Entry<MusicTheme, PlayList> entry : playlistsPerTheme.entrySet()) {
-			entry.getValue().setLooping(true);
-			entry.getValue().setShuffleAfterPlaytrough(true);
-			entry.getValue().shuffle();
-			provider.add(entry.getValue(), entry.getKey().ordinal());
+
+		for (MusicTheme theme : MusicTheme.values()) {
+			PlayList playlist = new PlayList();
+			playlist.setLooping(true);
+			playlist.setShuffleAfterPlaytrough(true);
+			playlist.shuffle();
+			provider.add(playlist, theme.ordinal());
+			playlistsPerTheme.put(theme, playlist);
 		}
-		jukeBox = new JukeBox(provider);
+
+		return new JukeBox(provider);
 	}
 
-	private void initAudio() {
+	private Audio initAudio() {
 		AudioConfig config = new AudioConfig();
 		config.setDistanceAttenuationModel(DistanceAttenuationModel.LINEAR_DISTANCE);
 		config.setLogger((MultiFileLogger) Gdx.app.getApplicationLogger());
-		audio = Audio.init(config);
+		return Audio.init(config);
 	}
 
 	private void autoloadSounds() {
@@ -101,8 +100,8 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 					SongMeta meta = new SongMeta().setTitle(audioEnum.name());
 					SongSettings settings = SongSettings.linear(audioData.getVolume(), Constants.MUSIC_FADE_IN_DURATION, Constants.MUSIC_FADE_OUT_DURATION);
 					Song song = new Song(music, settings, meta);
-					playlistsPerTheme.computeIfAbsent(MusicTheme.values()[audioData.getTheme()], key -> new PlayList());
-					playlistsPerTheme.get(MusicTheme.values()[audioData.getTheme()]).addSong(song);
+					PlayList playlist = playlistsPerTheme.computeIfAbsent(MusicTheme.values()[audioData.getTheme()], key -> new PlayList());
+					playlist.addSong(song);
 				});
 			}
 		}
@@ -132,10 +131,10 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	}
 
 	private void stopAudioIfTimerUp() {
-		for (Entry<AudioEnum, Array<Float>> entry : musicTimers.entrySet()) {
-			for (Float timer : entry.getValue()) {
+		for (AudioEnum event : musicTimers.keySet()) {
+			for (Float timer : musicTimers.get(event)) {
 				if (timer <= 0f) {
-					sendCommand(AudioCommand.SOUND_STOP, entry.getKey());
+					sendCommand(AudioCommand.SOUND_STOP, event);
 				}
 			}
 		}
@@ -230,14 +229,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 			}
 			break;
 		case SOUND_STOP:
-			audioData.getAudioFileName().forEach(name -> {
-				final Array<BufferedSoundSource> sounds = loadedSounds.get(name);
-				if (sounds != null && sounds.size > 0) {
-					sounds.get(0).stop();// TODO removes the first, is this ok? maybe we wanna stop the second
-					sounds.removeIndex(0);
-				}
-			});
-
+			stopAllSounds(audioData.getAudioFileName());
 			break;
 		default:
 			break;
@@ -274,6 +266,16 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		}
 	}
 
+	private void stopAllSounds(List<String> audioFileNames) {
+		audioFileNames.forEach(name -> {
+			final Array<BufferedSoundSource> sounds = loadedSounds.get(name);
+			if (sounds != null && sounds.size > 0) {
+				sounds.get(0).stop();
+				sounds.removeIndex(0);
+			}
+		});
+	}
+
 	private BufferedSoundSource createBufferedSound(String fullFilePath, float volume) {
 		loadedSounds.computeIfAbsent(fullFilePath, s -> new Array<>());
 		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
@@ -293,7 +295,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	}
 
 	private boolean offCooldown(AudioEnum event) {
-		return cooldowns.get(event) == null || cooldowns.get(event) <= 0;
+		return cooldowns.getOrDefault(event, 0f) <= 0;
 	}
 
 	public static MusicManagerInterface getInstance() {
@@ -313,5 +315,4 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		loadedSounds.values().forEach(array -> array.forEach(BufferedSoundSource::free));
 		audio.dispose();
 	}
-
 }

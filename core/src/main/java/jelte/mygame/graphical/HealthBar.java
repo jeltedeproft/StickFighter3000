@@ -34,18 +34,36 @@ public class HealthBar {
 		this.hp = hp;
 	}
 
-	// TODO refactor
 	public void draw(Batch batch) {
 		if (visible) {
-			float width = Constants.MAX_WIDTH_HP_BAR * (hp / maxHp);
-			border.draw(batch, x - (Constants.MAX_WIDTH_HP_BAR / 2 + Constants.BORDER_WIDTH_HP_BAR), y - Constants.BORDER_WIDTH_HP_BAR + Constants.OFFSET_Y_HP_BAR, width + 5, Constants.MAX_HEIGHT_HP_BAR + 5);
-			healthBar.draw(batch, x - Constants.MAX_WIDTH_HP_BAR / 2, y + Constants.OFFSET_Y_HP_BAR, width, Constants.MAX_HEIGHT_HP_BAR);
-			font.draw(batch, Float.toString(hp), x - Constants.MAX_WIDTH_HP_BAR / 4, y + Constants.OFFSET_Y_HP_BAR * 1.3f);
+			float width = calculateHealthBarWidth();
+			drawBorder(batch, width);
+			drawHealthBar(batch, width);
+			drawHealthText(batch);
 		}
+	}
+
+	private float calculateHealthBarWidth() {
+		return Constants.MAX_WIDTH_HP_BAR * (hp / maxHp);
+	}
+
+	private void drawBorder(Batch batch, float width) {
+		border.draw(batch, x - (Constants.MAX_WIDTH_HP_BAR / 2 + Constants.BORDER_WIDTH_HP_BAR),
+				y - Constants.BORDER_WIDTH_HP_BAR + Constants.OFFSET_Y_HP_BAR, width + 5,
+				Constants.MAX_HEIGHT_HP_BAR + 5);
+	}
+
+	private void drawHealthBar(Batch batch, float width) {
+		healthBar.draw(batch, x - Constants.MAX_WIDTH_HP_BAR / 2, y + Constants.OFFSET_Y_HP_BAR, width,
+				Constants.MAX_HEIGHT_HP_BAR);
+	}
+
+	private void drawHealthText(Batch batch) {
+		font.draw(batch, Float.toString(hp), x - Constants.MAX_WIDTH_HP_BAR / 4,
+				y + Constants.OFFSET_Y_HP_BAR * 1.3f);
 	}
 
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
-
 }

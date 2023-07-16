@@ -6,14 +6,6 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import java.util.Collection;
-import java.util.Set;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -21,6 +13,14 @@ import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.Collection;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import jelte.mygame.graphical.MapManager;
 import jelte.mygame.graphical.map.EnemySpawnData;
@@ -56,7 +56,7 @@ public class TestMapManager {
 		// Assuming there are three RectangleMapObjects in the objectLayer
 		assertEquals(3, objectLayer.getObjects().getCount());
 
-		Set<StaticBlock> staticBlocks = mapManager.getStatickBlocksFromObjectLayer(objectLayer);
+		Set<StaticBlock> staticBlocks = mapManager.extractStaticBlocksFromObjectLayer(objectLayer);
 
 		// Assuming that the three RectangleMapObjects have names corresponding to StaticBlock subclasses
 		assertEquals(3, staticBlocks.size());
@@ -112,7 +112,7 @@ public class TestMapManager {
 		TiledMap newMap = AssetManagerUtility.getMapAsset(Constants.DARK1_MAP_PATH);
 
 		// Change the map
-		mapManager.changemap(Constants.DARK1_MAP_PATH);
+		mapManager.changeMap(Constants.DARK1_MAP_PATH);
 
 		// Verify that the map is changed correctly
 		assertSame(newMap, mapManager.getCurrentMap());

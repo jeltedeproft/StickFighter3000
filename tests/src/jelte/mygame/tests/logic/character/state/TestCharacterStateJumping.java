@@ -53,7 +53,7 @@ public class TestCharacterStateJumping {
 	@Test
 	public void testEntry() {
 		characterState.entry();
-		verify(characterStateManager).pullUp(Constants.JUMP_SPEED.y);
+		verify(characterStateManager).forceUp(Constants.JUMP_SPEED.y);
 	}
 
 	@Test
@@ -117,7 +117,7 @@ public class TestCharacterStateJumping {
 		EVENT event = EVENT.JUMP_PRESSED;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).pullUp(Constants.JUMP_SPEED.y);
+		verify(characterStateManager).forceUp(Constants.JUMP_SPEED.y);
 	}
 
 	@Test
