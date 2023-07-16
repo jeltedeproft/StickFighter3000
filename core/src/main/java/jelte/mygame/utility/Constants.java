@@ -40,7 +40,7 @@ public class Constants {
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "map/dark/dark2.tmx";
+	public static final String DEFAULT_MAP_PATH = "map/dark/dark3.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
