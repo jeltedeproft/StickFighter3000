@@ -1,18 +1,19 @@
 package jelte.mygame.logic.ai;
 
+import com.badlogic.gdx.utils.Array;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.logic.ai.strategy.AiStrategy;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
-import jelte.mygame.logic.ai.strategy.BasicAiStrategy;
+import jelte.mygame.logic.ai.strategy.advanced.AdvancedAiStrategy;
+import jelte.mygame.logic.ai.strategy.basic.BasicAiStrategy;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.Collidable;
@@ -25,6 +26,7 @@ public class AiManager {
 
 	public enum AI_STRATEGY {
 		BASIC,
+		ADVANCED,
 		AGGRESIVE,
 		PASSIVE,
 		KEEP_DISTANCE,
@@ -48,6 +50,7 @@ public class AiManager {
 		AI_STRATEGY strategyEnum = AI_STRATEGY.valueOf(strategyName);
 		return switch (strategyEnum) {
 		case BASIC -> new BasicAiStrategy();
+		case ADVANCED -> new AdvancedAiStrategy();
 		default -> new BasicAiStrategy();
 		};
 	}
@@ -60,6 +63,13 @@ public class AiManager {
 			AiStrategy strategy = entry.getValue();
 			AI_STATE oldState = aiCharacter.getState();
 			AI_STATE newState = strategy.getNextState(delta, aiCharacter, player);
+
+			if (!oldState.equals(newState)) {
+				// strategy.exitCurrentState(aiCharacter);
+				// aiCharacter.setState(newState);
+				// strategy.entryCurrentState(aiCharacter);
+			}
+
 			transitionState(aiCharacter, oldState, newState);
 
 			Array<Message> nextCommands = strategy.generateCommands(delta, aiCharacter, player);
@@ -74,8 +84,9 @@ public class AiManager {
 	private void transitionState(AiCharacter aiCharacter, AI_STATE oldState, AI_STATE newState) {
 		if (!oldState.equals(newState)) {
 			transitionEffect(aiCharacter, oldState, newState);
+			aiCharacter.setState(newState);
 		}
-		aiCharacter.setState(newState);
+
 	}
 
 	private void transitionEffect(AiCharacter aiCharacter, AI_STATE oldState, AI_STATE newState) {

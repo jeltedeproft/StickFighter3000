@@ -22,8 +22,8 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.ChaseStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicChaseStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.EnemyFileReader;
@@ -71,7 +71,7 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.CHASE, nextState);
@@ -81,7 +81,7 @@ public class TestChaseStateController {
 	public void testGetNextStateChasingCloseEnoughForAttack() {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(2, 2));
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.ATTACK, nextState);
@@ -92,7 +92,7 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.damage(self.getCurrentHp() - 2);
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.FLEE, nextState);
@@ -103,12 +103,12 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -116,10 +116,10 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -127,12 +127,12 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -140,10 +140,10 @@ public class TestChaseStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		ChaseStateController stateController = new ChaseStateController();
+		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 }

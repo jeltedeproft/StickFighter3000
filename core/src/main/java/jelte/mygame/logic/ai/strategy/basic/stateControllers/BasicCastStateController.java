@@ -1,14 +1,15 @@
-package jelte.mygame.logic.ai.stateControllers;
+package jelte.mygame.logic.ai.strategy.basic.stateControllers;
 
 import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
+import jelte.mygame.logic.ai.strategy.StateControllerInterface;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
-public class CastStateController implements StateControllerInterface {
+public class BasicCastStateController implements StateControllerInterface {
 
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {
@@ -19,7 +20,7 @@ public class CastStateController implements StateControllerInterface {
 	}
 
 	@Override
-	public Array<Message> getNextCommandsFromThisState(float delta, AiCharacter self, PlayerCharacter player) {
+	public Array<Message> getNextCommands(float delta, AiCharacter self, PlayerCharacter player) {
 		return null;
 	}
 

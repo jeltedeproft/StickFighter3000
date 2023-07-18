@@ -1,4 +1,4 @@
-package jelte.mygame.logic.ai.stateControllers;
+package jelte.mygame.logic.ai.strategy;
 
 import com.badlogic.gdx.utils.Array;
 
@@ -11,6 +11,6 @@ public interface StateControllerInterface {
 
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player);
 
-	public Array<Message> getNextCommandsFromThisState(float delta, AiCharacter self, PlayerCharacter player);
+	public Array<Message> getNextCommands(float delta, AiCharacter self, PlayerCharacter player);
 
 }

@@ -20,8 +20,8 @@ import com.badlogic.gdx.utils.Array;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.CastStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicCastStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerCharacter;
@@ -65,7 +65,7 @@ public class TestCastStateController {
 
 	@Test
 	public void testGetNextStateCasting() {
-		CastStateController stateController = new CastStateController();
+		BasicCastStateController stateController = new BasicCastStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.CAST, nextState);
@@ -73,7 +73,7 @@ public class TestCastStateController {
 
 	@Test
 	public void testGetNextStateCastOver() {
-		CastStateController stateController = new CastStateController();
+		BasicCastStateController stateController = new BasicCastStateController();
 
 		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
 
@@ -83,14 +83,14 @@ public class TestCastStateController {
 
 	@Test
 	public void testGetNextCommandsFromThisStateCasting() {
-		CastStateController stateController = new CastStateController();
-		assertNull(stateController.getNextCommandsFromThisState(0f, self, player));
+		BasicCastStateController stateController = new BasicCastStateController();
+		assertNull(stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
 	public void testGetNextCommandsFromThisStateIdle() {
 		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
-		CastStateController stateController = new CastStateController();
-		assertNull(stateController.getNextCommandsFromThisState(0f, self, player));
+		BasicCastStateController stateController = new BasicCastStateController();
+		assertNull(stateController.getNextCommands(0f, self, player));
 	}
 }

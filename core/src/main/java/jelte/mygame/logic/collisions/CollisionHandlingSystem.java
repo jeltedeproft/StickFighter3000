@@ -3,7 +3,6 @@ package jelte.mygame.logic.collisions;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
@@ -72,16 +71,21 @@ public class CollisionHandlingSystem {
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {
-		return Arrays.stream(characters.items)
-				.filter(character -> character.getId().equals(id))
-				.findFirst()
-				.orElse(null);
+		for (Character character : characters) {
+			if (character.getId().equals(id)) {
+				return character;
+			}
+		}
+		return null;
 	}
 
 	private AbstractSpell getSpellById(Array<AbstractSpell> spells, UUID id) {
-		return Arrays.stream(spells.items)
-				.filter(spell -> spell.getId().equals(id))
-				.findFirst()
-				.orElse(null);
+		for (AbstractSpell spell : spells) {
+			if (spell.getId().equals(id)) {
+				return spell;
+			}
+		}
+		return null;
 	}
+
 }

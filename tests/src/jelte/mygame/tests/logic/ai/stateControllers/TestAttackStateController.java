@@ -20,8 +20,8 @@ import com.badlogic.gdx.utils.Array;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.AttackStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicAttackStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerCharacter;
@@ -65,7 +65,7 @@ public class TestAttackStateController {
 
 	@Test
 	public void testGetNextStateAttacking() {
-		AttackStateController stateController = new AttackStateController();
+		BasicAttackStateController stateController = new BasicAttackStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.ATTACK, nextState);
@@ -73,7 +73,7 @@ public class TestAttackStateController {
 
 	@Test
 	public void testGetNextStateAttackOver() {
-		AttackStateController stateController = new AttackStateController();
+		BasicAttackStateController stateController = new BasicAttackStateController();
 
 		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
 
@@ -83,14 +83,14 @@ public class TestAttackStateController {
 
 	@Test
 	public void testGetNextCommandsFromThisStateAttacking() {
-		AttackStateController stateController = new AttackStateController();
-		assertNull(stateController.getNextCommandsFromThisState(0f, self, player));
+		BasicAttackStateController stateController = new BasicAttackStateController();
+		assertNull(stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
 	public void testGetNextCommandsFromThisStateIdle() {
 		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
-		AttackStateController stateController = new AttackStateController();
-		assertNull(stateController.getNextCommandsFromThisState(0f, self, player));
+		BasicAttackStateController stateController = new BasicAttackStateController();
+		assertNull(stateController.getNextCommands(0f, self, player));
 	}
 }

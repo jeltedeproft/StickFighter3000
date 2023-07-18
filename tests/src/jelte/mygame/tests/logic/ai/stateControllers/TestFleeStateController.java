@@ -22,8 +22,8 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.FleeStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicFleeStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.EnemyFileReader;
@@ -71,7 +71,7 @@ public class TestFleeStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.FLEE, nextState);
@@ -79,9 +79,9 @@ public class TestFleeStateController {
 
 	@Test
 	public void testGetNextStateFleeingFarEnoughForStopFleeing() {
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
-		self.getPhysicsComponent().setPosition(new Vector2(FleeStateController.FLEE_SAFETY_DISTANCE + 1, 0));
+		self.getPhysicsComponent().setPosition(new Vector2(BasicFleeStateController.FLEE_SAFETY_DISTANCE + 1, 0));
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.PATROL, nextState);
@@ -92,12 +92,12 @@ public class TestFleeStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -105,10 +105,10 @@ public class TestFleeStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -116,12 +116,12 @@ public class TestFleeStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -129,10 +129,10 @@ public class TestFleeStateController {
 		player.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		FleeStateController stateController = new FleeStateController();
+		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 }

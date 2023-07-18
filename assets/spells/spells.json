@@ -12,7 +12,7 @@
 		"spellSound": "ATTACK",
 		"goesTroughObstacles": false,
 		"affects": ENEMY,
-		"damage": 15,
+		"damage": 1,
 		"range": 5,
 		"areaOfEffectRange": 2,
 		"polygonPoints": "0,0 60,0 60,35 0,35"

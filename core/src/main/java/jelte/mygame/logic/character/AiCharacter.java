@@ -1,9 +1,9 @@
 package jelte.mygame.logic.character;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+
+import java.util.UUID;
 
 import jelte.mygame.graphical.map.PatrolPoint;
 import jelte.mygame.logic.ai.VisionCollidable;

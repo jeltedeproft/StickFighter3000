@@ -22,8 +22,8 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.PatrolStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicPatrolStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.EnemyFileReader;
@@ -69,7 +69,7 @@ public class TestPatrolStateController {
 
 	@Test
 	public void testGetNextStatePatrolling() {
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.PATROL, nextState);
@@ -77,7 +77,7 @@ public class TestPatrolStateController {
 
 	@Test
 	public void testGetNextStatePlayerSeen() {
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		self.getVisionCollidable().setPlayerSeen(true);
 
@@ -90,12 +90,12 @@ public class TestPatrolStateController {
 		self.setActivePatrolPointIndex(0);
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -103,10 +103,10 @@ public class TestPatrolStateController {
 		self.setActivePatrolPointIndex(0);
 		self.getPhysicsComponent().setPosition(new Vector2(50, 50));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -114,12 +114,12 @@ public class TestPatrolStateController {
 		self.setActivePatrolPointIndex(0);
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -127,12 +127,12 @@ public class TestPatrolStateController {
 		self.setActivePatrolPointIndex(1);
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.left);
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		Array<Message> expectedMessages = new Array<>();
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
 		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 
 	@Test
@@ -140,9 +140,9 @@ public class TestPatrolStateController {
 		self.setActivePatrolPointIndex(1);
 		self.getPhysicsComponent().setPosition(new Vector2(0, 0));
 		self.getPhysicsComponent().setDirection(Direction.right);
-		PatrolStateController stateController = new PatrolStateController();
+		BasicPatrolStateController stateController = new BasicPatrolStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommandsFromThisState(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
 	}
 }

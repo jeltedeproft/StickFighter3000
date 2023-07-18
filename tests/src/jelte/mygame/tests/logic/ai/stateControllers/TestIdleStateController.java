@@ -20,8 +20,8 @@ import com.badlogic.gdx.utils.Array;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.ai.stateControllers.IdleStateController;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
+import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicIdleStateController;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerCharacter;
@@ -65,7 +65,7 @@ public class TestIdleStateController {
 
 	@Test
 	public void testGetNextStateIdling() {
-		IdleStateController stateController = new IdleStateController();
+		BasicIdleStateController stateController = new BasicIdleStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.IDLE, nextState);
@@ -73,7 +73,7 @@ public class TestIdleStateController {
 
 	@Test
 	public void testGetNextStatePlayerSeen() {
-		IdleStateController stateController = new IdleStateController();
+		BasicIdleStateController stateController = new BasicIdleStateController();
 
 		self.getVisionCollidable().setPlayerSeen(true);
 
@@ -83,7 +83,7 @@ public class TestIdleStateController {
 
 	@Test
 	public void testGetNextStateTimeOut() {
-		IdleStateController stateController = new IdleStateController();
+		BasicIdleStateController stateController = new BasicIdleStateController();
 
 		AI_STATE nextState = stateController.getNextState(10f, self, player);
 		assertEquals(AI_STATE.PATROL, nextState);
@@ -91,7 +91,7 @@ public class TestIdleStateController {
 
 	@Test
 	public void testGetNextCommandsFromThisStateAttacking() {
-		IdleStateController stateController = new IdleStateController();
-		assertNull(stateController.getNextCommandsFromThisState(0f, self, player));
+		BasicIdleStateController stateController = new BasicIdleStateController();
+		assertNull(stateController.getNextCommands(0f, self, player));
 	}
 }
