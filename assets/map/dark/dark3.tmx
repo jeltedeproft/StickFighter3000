@@ -284,7 +284,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="14" name="patrols" visible="0">
+ <objectgroup id="14" name="patrols">
   <object id="25" name="PATROL" x="571.417" y="420.083">
    <properties>
     <property name="duplicateIndex" value="0"/>
@@ -300,7 +300,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="15" name="spawns" visible="0">
+ <objectgroup id="15" name="spawns">
   <object id="24" name="SPAWN" x="650.205" y="417.455">
    <properties>
     <property name="duplicateIndex" value="0"/>
@@ -308,7 +308,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="16" name="blocks" visible="0">
+ <objectgroup id="16" name="blocks">
   <object id="2" name="TOP" x="0" y="0.375" width="1088.38" height="47.625"/>
   <object id="3" name="LEFT" x="0.5" y="49" width="62.3864" height="431.5"/>
   <object id="4" name="BOT" x="62.9773" y="417" width="434.399" height="62.25"/>
