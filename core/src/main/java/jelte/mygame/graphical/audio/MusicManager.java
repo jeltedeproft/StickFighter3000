@@ -56,6 +56,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		autoloadMusic();
 
 		jukeBox.play();
+		jukeBox.update();
 		listener = audio.getListener();
 	}
 
@@ -114,7 +115,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	@Override
 	public void update(float delta, float cameraX, float cameraY) {
 		jukeBox.update();
-		listener.setPosition(new Vector3(cameraX, cameraY, 0));
+		// listener.setPosition(new Vector3(cameraX, cameraY, 0));
 		decreaseTimers(delta);
 		cooldowns.replaceAll((k, v) -> v = v - delta);
 		stopAudioIfTimerUp();

@@ -1,11 +1,5 @@
 package jelte.mygame.utility;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.MusicLoader;
@@ -33,6 +27,13 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import com.ray3k.stripe.FreeTypeSkinLoader;
 
 import de.pottgames.tuningfork.SoundBuffer;
@@ -118,8 +119,9 @@ public class AssetManagerUtility implements Disposable {
 			for (TextureAtlas.AtlasRegion region : atlas.getRegions()) {
 				spriteNames.add(region.name);
 			}
+		} else {
+			logger.error(TAG, String.format("can't preload spritenames, texture atlas is null: %s", textureAtlasFilenamePath), null);
 		}
-		logger.error(TAG, String.format("can't preload spritenames, texture atlas is null: %s", textureAtlasFilenamePath), null);
 	}
 
 	public static TextureAtlas getTextureAtlas(final String textureAtlasFilenamePath) {

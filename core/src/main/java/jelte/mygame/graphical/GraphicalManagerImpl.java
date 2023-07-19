@@ -5,12 +5,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -60,6 +63,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private PlayerCharacter player;
 	private AiCharacter enemy;
 	private ProgressBar playerHpBar;
+	private ProgressBar playerMpBar;
+	private ProgressBar playerStaminaBar;
 	private Array<AbstractSpell> spellsToRender;
 	private Map<AiCharacter, HealthBar> enemyHealthBars;
 	private ParticleMaker particleMaker;
@@ -80,13 +85,20 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch);
 		animationManager = new AnimationManager();
-		font = new BitmapFont();
-		font.getData().setScale(1.0f);
+//		font = new BitmapFont();
+//		font.getData().setScale(1.0f);
+
+		FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("font/thedark.TTF"));
+		FreeTypeFontParameter fontParameter = new FreeTypeFontParameter();
+		fontParameter.size = 24;
+		font = fontGenerator.generateFont(fontParameter);
+		fontGenerator.dispose();
+
 		spellsToRender = new Array<>();
 		enemyHealthBars = new HashMap<>();
 		specialEffectsManager = new SpecialEffectsManagerImpl();
 		particleMaker = new ParticleMaker();
-		particleMaker.addParticle(ParticleType.DUST, new Vector2(Gdx.graphics.getWidth() / 2.0f, Gdx.graphics.getHeight() / 2.0f));
+		particleMaker.addParticle(ParticleType.DUST, new Vector2(0, 0));
 
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
@@ -117,8 +129,19 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		table.setFillParent(true); // Makes the table fill the entire screen
 		table.setPosition(0, 0);
 
+		Window statsWindow = new Window("Stats", skin);
+		statsWindow.setSize(500, 500);
+
 		playerHpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
-		table.add(playerHpBar).expand().left().top(); // Positions the button in the center of the table
+		playerMpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "mp");// TODO change to MP and stamina here
+		playerStaminaBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "stamina");
+		statsWindow.add(playerHpBar).expand().left().top(); // Positions the button in the center of the table
+		statsWindow.row();
+		statsWindow.add(playerMpBar).expand().left().top(); // Positions the button in the center of the table
+		statsWindow.row();
+		statsWindow.add(playerStaminaBar).expand().left().top(); // Positions the button in the center of the table
+
+		table.add(statsWindow).size(300).expand().left().top();
 
 		uiStage.addActor(table); // Adds the table to the stage
 
@@ -126,7 +149,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	@Override
 	public void update(float delta) {
-		Gdx.gl.glClearColor(.15f, .15f, .15f, 1);
+		// Gdx.gl.glClearColor(.15f, .15f, .15f, 1); gray
+		Gdx.gl.glClearColor(0.043f, 0.043f, 0.043f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		animationManager.update(delta);
 		gameViewport.apply();
@@ -148,8 +172,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderSpells();
 		renderSpecialEffects();
 		particleMaker.drawAllActiveParticles(batch, delta);
-		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2);
-		font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2);
+//		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR);
+//		font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f);
 		batch.end();
 
 		renderUI();
@@ -158,7 +182,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		debugEnemy();
 //		debugStaticObjects();
 // 		debugSpells();
-		debugVisions();
+//		debugVisions();
 
 		// debug info player
 		batch.begin();
@@ -172,16 +196,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 220);
 //		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 0, Gdx.graphics.getHeight() - 250);
 //		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 0, Gdx.graphics.getHeight() - 280);
-		font.draw(batch, String.format("enemy position: %s", enemy.getPhysicsComponent().getPosition()), 0, Gdx.graphics.getHeight() - 10);
-		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 0, Gdx.graphics.getHeight() - 40);
-		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 0, Gdx.graphics.getHeight() - 70);
-		font.draw(batch, String.format("enemy acceleration: %s", enemy.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 100);
-		font.draw(batch, String.format("ai state: %s", enemy.getState()), 0, Gdx.graphics.getHeight() - 130);
-		font.draw(batch, String.format("active patrol point index: %s", enemy.getActivePatrolPointIndex()), 0, Gdx.graphics.getHeight() - 160);
-		font.draw(batch, String.format("player seen: %s", enemy.getVisionCollidable().isPlayerSeen()), 0, Gdx.graphics.getHeight() - 190);
-		font.draw(batch, String.format("character state enemy ai : %s", enemy.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 220);
-		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 0, Gdx.graphics.getHeight() - 250);
-		font.draw(batch, String.format("enemy direction: %s", enemy.getPhysicsComponent().getDirection()), 0, Gdx.graphics.getHeight() - 280);
+//		font.draw(batch, String.format("enemy position: %s", enemy.getPhysicsComponent().getPosition()), 0, Gdx.graphics.getHeight() - 10);
+//		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 0, Gdx.graphics.getHeight() - 40);
+//		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 0, Gdx.graphics.getHeight() - 70);
+//		font.draw(batch, String.format("enemy acceleration: %s", enemy.getPhysicsComponent().getAcceleration()), 0, Gdx.graphics.getHeight() - 100);
+//		font.draw(batch, String.format("ai state: %s", enemy.getState()), 0, Gdx.graphics.getHeight() - 130);
+//		font.draw(batch, String.format("active patrol point index: %s", enemy.getActivePatrolPointIndex()), 0, Gdx.graphics.getHeight() - 160);
+//		font.draw(batch, String.format("player seen: %s", enemy.getVisionCollidable().isPlayerSeen()), 0, Gdx.graphics.getHeight() - 190);
+//		font.draw(batch, String.format("character state enemy ai : %s", enemy.getCurrentCharacterState().getState()), 0, Gdx.graphics.getHeight() - 220);
+//		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 0, Gdx.graphics.getHeight() - 250);
+//		font.draw(batch, String.format("enemy direction: %s", enemy.getPhysicsComponent().getDirection()), 0, Gdx.graphics.getHeight() - 280);
 		batch.end();
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
@@ -236,6 +260,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		case RENDER_PLAYER:
 			player = (PlayerCharacter) message.getValue();
 			playerHpBar.setValue(player.getCurrentHp());
+			playerMpBar.setValue(player.getCurrentHp());// TODO replace with mp and stamina
+			playerStaminaBar.setValue(player.getCurrentHp());
 			break;
 		case RENDER_ENEMY:
 			enemy = (AiCharacter) message.getValue();
