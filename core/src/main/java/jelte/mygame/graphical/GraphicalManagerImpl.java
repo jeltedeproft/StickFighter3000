@@ -85,6 +85,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewport.getCamera());
 		stage = new Stage(gameViewport, batch);
+		hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), Constants.PLAYER_START));
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, mapManager.getEnemySpawnData()));
@@ -109,6 +110,10 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		if (player.getCharacterStateManager().isStateChanged() && animationManager.getSpecialEffect(player) != null) {
 			specialEffectsManager.addSpecialEffect(player, animationManager.getSpecialEffect(player));
+		}
+
+		if (player.getPhysicsComponent().hasMoved()) {
+			// hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()));
 		}
 
 		specialEffectsManager.update(delta, player);// TODO for all characters

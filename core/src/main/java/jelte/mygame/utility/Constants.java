@@ -140,6 +140,8 @@ public class Constants {
 	public static final float STATS_WINDOW_HEIGHT_PERCENT_SCREEN = 0.15f;
 	public static final float STATS_BAR_WIDTH_PERCENT_SCREEN = 0.4f;
 	public static final float STATS_BAR_HEIGHT_PERCENT_SCREEN = 0.03f;
+	public static final Color MINIMAP_DOT_COLOR = Color.RED;
+	public static final float MINIMAP_DOT_SIZE = 50f;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;

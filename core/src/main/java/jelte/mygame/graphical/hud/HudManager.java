@@ -1,16 +1,20 @@
 package jelte.mygame.graphical.hud;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -45,6 +49,8 @@ public class HudManager {
 	private Table topBar = new Table();
 	private Table middleBar = new Table();
 	private Table bottomBar = new Table();
+
+	private Image minimapImage;
 
 	public HudManager(MessageListener messageListener, SpriteBatch batch) {
 		enemyHealthBars = new HashMap<>();
@@ -107,8 +113,15 @@ public class HudManager {
 
 		table.add(statsWindow).width(Gdx.app.getGraphics().getWidth() * Constants.STATS_WINDOW_WIDTH_PERCENT_SCREEN).height(Gdx.app.getGraphics().getHeight() * Constants.STATS_WINDOW_HEIGHT_PERCENT_SCREEN).expand().left().top().padLeft(30).padTop(20);
 
-		uiStage.addActor(table); // Adds the table to the stage
+		minimapImage = new Image();
+		table.add(minimapImage).size(200).expand().right().top().padRight(20);
 
+		uiStage.addActor(table); // Adds the table to the stage
+	}
+
+	public void updateMinimap(Texture minimapTexture) {
+		TextureRegion textureRegion = new TextureRegion(minimapTexture);
+		minimapImage.setDrawable(new TextureRegionDrawable(textureRegion));
 	}
 
 	public void renderUI() {

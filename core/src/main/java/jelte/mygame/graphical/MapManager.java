@@ -1,8 +1,13 @@
 package jelte.mygame.graphical;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
@@ -11,6 +16,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.StringBuilder;
@@ -46,6 +52,8 @@ public class MapManager implements Disposable {
 	private float currentMapHeight;
 	private Set<StaticBlock> blockingRectangles;
 	private Collection<EnemySpawnData> enemySpawnData;
+	private FrameBuffer minimapFrameBuffer;
+	private float minimapZoomLevel;
 
 	public MapManager(SpriteBatch batch) {
 		this(batch, Constants.DEFAULT_MAP_PATH);
@@ -66,6 +74,9 @@ public class MapManager implements Disposable {
 		mapProperties = currentMap.getProperties();
 		currentMapWidth = mapProperties.get("width", Integer.class) * mapProperties.get("tilewidth", Integer.class);
 		currentMapHeight = mapProperties.get("height", Integer.class) * mapProperties.get("tileheight", Integer.class);
+		minimapFrameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) Constants.VISIBLE_WIDTH, (int) Constants.VISIBLE_HEIGHT, false);
+		// minimapZoomLevel = Math.min((int) Constants.VISIBLE_WIDTH / currentMapWidth, (int) Constants.VISIBLE_HEIGHT / currentMapHeight);
+		minimapZoomLevel = 5f;
 		blockingRectangles = extractStaticBlocksFromObjectLayer(currentMap.getLayers().get(Constants.LAYER_NAME_BLOCK));
 		enemySpawnData = initializeEnemySpawnData();
 	}
@@ -144,6 +155,56 @@ public class MapManager implements Disposable {
 		}
 
 		return null;
+	}
+
+	public Texture getMinimaptexture(OrthographicCamera camera, Vector2 playerPosition) {
+		// get old values camera
+		float oldZoom = camera.zoom;
+		Vector3 cameraOldPosition = camera.position;
+
+		minimapFrameBuffer.begin();
+
+		// Clear the screen (optional if you want a transparent background)
+		Gdx.gl.glClearColor(0, 0, 0, 0);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		camera.zoom = minimapZoomLevel;
+		camera.position.set(currentMapWidth * 0.5f, currentMapHeight * 0.5f, 0); // Center the camera on the map;
+		// Adjust the camera's position for the upside-down coordinate system
+		float cameraHeight = camera.viewportHeight * camera.zoom;
+		camera.position.y = currentMapHeight - cameraHeight * 0.5f; // Invert the Y position
+		camera.update();
+
+		// Render the TiledMap
+		renderer.setView(camera); // Set the camera for the current view
+		renderer.render();
+
+		// Draw the dot at the player's position
+		ShapeRenderer shapeRenderer = new ShapeRenderer();
+		shapeRenderer.setProjectionMatrix(camera.combined);
+		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+		shapeRenderer.setColor(Constants.MINIMAP_DOT_COLOR);
+
+		// Assuming you have the player's position as a Vector2
+		shapeRenderer.circle(50, 50, Constants.MINIMAP_DOT_SIZE);
+
+		shapeRenderer.end();
+
+		// Unbind the FrameBuffer
+		minimapFrameBuffer.end();
+
+		Texture minimapTexture = minimapFrameBuffer.getColorBufferTexture();
+		minimapTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+
+		// reset old values camera
+		camera.zoom = oldZoom;
+		camera.position.set(cameraOldPosition.x, cameraOldPosition.y, cameraOldPosition.z); // Center the camera on the map;
+		camera.update();
+
+		// Render the TiledMap
+		renderer.setView(camera); // Set the camera for the current view
+
+		return minimapTexture;
 	}
 
 	@Override
