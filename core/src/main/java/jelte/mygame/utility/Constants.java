@@ -134,6 +134,8 @@ public class Constants {
 	public static final float BORDER_WIDTH_HP_BAR = 1;
 	public static final float OFFSET_Y_HP_BAR = 70;
 	public static final float MAX_HEIGHT_HP_BAR = 4;
+	public static final float STATS_WINDOW_WIDTH_PERCENT_SCREEN = 0.4f;
+	public static final float STATS_WINDOW_HEIGHT_PERCENT_SCREEN = 0.1f;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;

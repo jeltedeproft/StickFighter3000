@@ -10,16 +10,8 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
@@ -30,6 +22,7 @@ import jelte.mygame.graphical.animations.NamedSprite;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.graphical.hud.HudManager;
 import jelte.mygame.graphical.particles.ParticleMaker;
 import jelte.mygame.graphical.particles.ParticleType;
 import jelte.mygame.graphical.specialEffects.SpecialEffect;
@@ -52,29 +45,17 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private MessageListener messageListener;
 	private SpriteBatch batch;
 	private ExtendViewport gameViewport;
-	private ScreenViewport uiViewport;
 	private Stage stage;
-	private Stage uiStage;
-	private Skin skin;
 	private MapManager mapManager;
 	private CameraManager cameraManager;
 	private AnimationManager animationManager;
 	private SpecialEffectsManager specialEffectsManager;
 	private PlayerCharacter player;
 	private AiCharacter enemy;
-	private ProgressBar playerHpBar;
-	private ProgressBar playerMpBar;
-	private ProgressBar playerStaminaBar;
 	private Array<AbstractSpell> spellsToRender;
-	private Map<AiCharacter, HealthBar> enemyHealthBars;
 	private ParticleMaker particleMaker;
-
-	private Table root = new Table();
-	private Table topBar = new Table();
-	private Table middleBar = new Table();
-	private Table bottomBar = new Table();
-
 	private BitmapFont font = new BitmapFont();
+	private HudManager hudManager;
 
 	public GraphicalManagerImpl(MessageListener messageListener) {
 		this.messageListener = messageListener;
@@ -83,6 +64,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 
 		batch = new SpriteBatch();
+		hudManager = new HudManager(messageListener, batch);
 		mapManager = new MapManager(batch);
 		animationManager = new AnimationManager();
 //		font = new BitmapFont();
@@ -95,55 +77,21 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		fontGenerator.dispose();
 
 		spellsToRender = new Array<>();
-		enemyHealthBars = new HashMap<>();
+
 		specialEffectsManager = new SpecialEffectsManagerImpl();
 		particleMaker = new ParticleMaker();
 		particleMaker.addParticle(ParticleType.DUST, new Vector2(0, 0));
 
-		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewport.getCamera());
 		stage = new Stage(gameViewport, batch);
 
-		uiViewport = new ScreenViewport();
-		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
-		uiViewport.getCamera().viewportWidth = uiViewport.getWorldWidth();
-		uiViewport.getCamera().viewportHeight = uiViewport.getWorldHeight();
-		uiViewport.getCamera().update();
-
-		uiStage = new Stage(uiViewport, batch);
-
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, mapManager.getEnemySpawnData()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
-		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
 		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN);
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_AMBIENCE_CAVE);
-
-		createHud();
-	}
-
-	protected void createHud() {
-		Table table = new Table();
-		table.setFillParent(true); // Makes the table fill the entire screen
-		table.setPosition(0, 0);
-
-		Window statsWindow = new Window("Stats", skin);
-		statsWindow.setSize(500, 500);
-
-		playerHpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
-		playerMpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "mp");// TODO change to MP and stamina here
-		playerStaminaBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "stamina");
-		statsWindow.add(playerHpBar).expand().left().top(); // Positions the button in the center of the table
-		statsWindow.row();
-		statsWindow.add(playerMpBar).expand().left().top(); // Positions the button in the center of the table
-		statsWindow.row();
-		statsWindow.add(playerStaminaBar).expand().left().top(); // Positions the button in the center of the table
-
-		table.add(statsWindow).size(300).expand().left().top();
-
-		uiStage.addActor(table); // Adds the table to the stage
 
 	}
 
@@ -176,7 +124,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f);
 		batch.end();
 
-		renderUI();
+		hudManager.renderUI();
 
 //		debugPlayer();
 //		debugEnemy();
@@ -225,9 +173,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
-			enemyHealthBars.putIfAbsent(enemy, new HealthBar(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getData().getMaxHP(), font));
-			enemyHealthBars.get(enemy).update(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getCurrentHp());
-			enemyHealthBars.get(enemy).draw(batch);
+			hudManager.renderhealthBar(enemy, batch, font);
 			NamedSprite sprite = animationManager.getSprite(enemy);
 			enemy.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
@@ -245,12 +191,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	}
 
-	private void renderUI() {
-		uiStage.getViewport().apply();
-		uiStage.act();
-		uiStage.draw();
-	}
-
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
@@ -259,9 +199,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case RENDER_PLAYER:
 			player = (PlayerCharacter) message.getValue();
-			playerHpBar.setValue(player.getCurrentHp());
-			playerMpBar.setValue(player.getCurrentHp());// TODO replace with mp and stamina
-			playerStaminaBar.setValue(player.getCurrentHp());
+			hudManager.updatePlayerStats(player);
 			break;
 		case RENDER_ENEMY:
 			enemy = (AiCharacter) message.getValue();
@@ -285,8 +223,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	@Override
 	public void resize(int width, int height) {
 		gameViewport.update(width, height);
-		uiViewport.update(width, height);
-		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
+		hudManager.resize(width, height);
 	}
 
 	public Vector3 getMousePosition() {
