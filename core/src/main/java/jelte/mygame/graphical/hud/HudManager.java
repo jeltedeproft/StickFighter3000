@@ -121,6 +121,7 @@ public class HudManager {
 
 	public void updateMinimap(Texture minimapTexture) {
 		TextureRegion textureRegion = new TextureRegion(minimapTexture);
+		textureRegion.flip(false, true);
 		minimapImage.setDrawable(new TextureRegionDrawable(textureRegion));
 	}
 

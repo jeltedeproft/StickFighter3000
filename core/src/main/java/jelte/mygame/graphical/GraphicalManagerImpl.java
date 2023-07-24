@@ -113,7 +113,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		}
 
 		if (player.getPhysicsComponent().hasMoved()) {
-			// hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()));
+			hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()));
 		}
 
 		specialEffectsManager.update(delta, player);// TODO for all characters

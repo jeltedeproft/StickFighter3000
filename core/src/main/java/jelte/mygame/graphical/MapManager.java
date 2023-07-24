@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.MapLayer;
@@ -170,9 +171,6 @@ public class MapManager implements Disposable {
 
 		camera.zoom = minimapZoomLevel;
 		camera.position.set(currentMapWidth * 0.5f, currentMapHeight * 0.5f, 0); // Center the camera on the map;
-		// Adjust the camera's position for the upside-down coordinate system
-		float cameraHeight = camera.viewportHeight * camera.zoom;
-		camera.position.y = currentMapHeight - cameraHeight * 0.5f; // Invert the Y position
 		camera.update();
 
 		// Render the TiledMap
@@ -186,25 +184,28 @@ public class MapManager implements Disposable {
 		shapeRenderer.setColor(Constants.MINIMAP_DOT_COLOR);
 
 		// Assuming you have the player's position as a Vector2
-		shapeRenderer.circle(50, 50, Constants.MINIMAP_DOT_SIZE);
+		Vector3 convertedPlayerPosition = camera.project(new Vector3(playerPosition.x, playerPosition.y, 0));
+		shapeRenderer.circle(convertedPlayerPosition.x, convertedPlayerPosition.y, Constants.MINIMAP_DOT_SIZE);
 
 		shapeRenderer.end();
 
 		// Unbind the FrameBuffer
 		minimapFrameBuffer.end();
 
+		// Get the texture from the FrameBuffer
 		Texture minimapTexture = minimapFrameBuffer.getColorBufferTexture();
 		minimapTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
-		// reset old values camera
+		// Create a TextureRegion to flip the texture vertically
+		TextureRegion minimapRegion = new TextureRegion(minimapTexture);
+
+		// Reset old values for the camera
 		camera.zoom = oldZoom;
-		camera.position.set(cameraOldPosition.x, cameraOldPosition.y, cameraOldPosition.z); // Center the camera on the map;
+		camera.position.set(cameraOldPosition.x, cameraOldPosition.y, cameraOldPosition.z);
 		camera.update();
+		renderer.setView(camera);
 
-		// Render the TiledMap
-		renderer.setView(camera); // Set the camera for the current view
-
-		return minimapTexture;
+		return minimapRegion.getTexture();
 	}
 
 	@Override
