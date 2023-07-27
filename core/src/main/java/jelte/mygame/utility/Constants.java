@@ -112,6 +112,8 @@ public class Constants {
 	public static final float MUSIC_FADE_OUT_DURATION = 5f;
 
 	// DIMENSIONS
+	public static final float MINIMAP_WIDTH = 280;
+	public static final float MINIMAP_HEIGHT = 120;
 	public static final float HUD_BARS_WIDTH = 500;
 	public static final float HUD_TOP_BAR_HEIGHT = 100;
 	public static final float HUD_MIDDLE_BAR_HEIGHT = 100;
@@ -141,7 +143,7 @@ public class Constants {
 	public static final float STATS_BAR_WIDTH_PERCENT_SCREEN = 0.4f;
 	public static final float STATS_BAR_HEIGHT_PERCENT_SCREEN = 0.03f;
 	public static final Color MINIMAP_DOT_COLOR = Color.RED;
-	public static final float MINIMAP_DOT_SIZE = 10f;
+	public static final float MINIMAP_DOT_SIZE = 1;
 
 	// COLORS
 	public static final Color COLOR_PLAYER_1 = Color.RED;

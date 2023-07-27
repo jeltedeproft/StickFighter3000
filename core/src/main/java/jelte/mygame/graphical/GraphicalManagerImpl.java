@@ -85,7 +85,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewport.getCamera());
 		stage = new Stage(gameViewport, batch);
-		hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), Constants.PLAYER_START));
+		hudManager.setMinimap(mapManager.createMinimaptexture(cameraManager.getCamera()));
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, mapManager.getEnemySpawnData()));
@@ -106,14 +106,10 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		cameraManager.update(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight(), gameViewport.getWorldWidth(), gameViewport.getWorldHeight());
 
 		batch.setProjectionMatrix(cameraManager.getCamera().combined);
-		mapManager.renderCurrentMap(cameraManager.getCamera());
+		mapManager.renderCurrentMap(cameraManager.getCamera(), player.getPhysicsComponent().getPosition());
 
 		if (player.getCharacterStateManager().isStateChanged() && animationManager.getSpecialEffect(player) != null) {
 			specialEffectsManager.addSpecialEffect(player, animationManager.getSpecialEffect(player));
-		}
-
-		if (player.getPhysicsComponent().hasMoved()) {
-			hudManager.updateMinimap(mapManager.getMinimaptexture(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()));
 		}
 
 		specialEffectsManager.update(delta, player);// TODO for all characters
@@ -130,6 +126,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.end();
 
 		hudManager.renderUI();
+		hudManager.renderMinimapDot(mapManager.getMinimapDotPosition(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()), cameraManager.getCamera());
 
 //		debugPlayer();
 //		debugEnemy();

@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
@@ -75,16 +74,27 @@ public class MapManager implements Disposable {
 		mapProperties = currentMap.getProperties();
 		currentMapWidth = mapProperties.get("width", Integer.class) * mapProperties.get("tilewidth", Integer.class);
 		currentMapHeight = mapProperties.get("height", Integer.class) * mapProperties.get("tileheight", Integer.class);
-		minimapFrameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) Constants.VISIBLE_WIDTH, (int) Constants.VISIBLE_HEIGHT, false);
+		minimapFrameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) Constants.MINIMAP_WIDTH, (int) Constants.MINIMAP_HEIGHT, false);
 		// minimapZoomLevel = Math.min((int) Constants.VISIBLE_WIDTH / currentMapWidth, (int) Constants.VISIBLE_HEIGHT / currentMapHeight);
 		minimapZoomLevel = 5f;
 		blockingRectangles = extractStaticBlocksFromObjectLayer(currentMap.getLayers().get(Constants.LAYER_NAME_BLOCK));
 		enemySpawnData = initializeEnemySpawnData();
 	}
 
-	public void renderCurrentMap(OrthographicCamera camera) {
+	public void renderCurrentMap(OrthographicCamera camera, Vector2 playerPosition) {
 		renderer.setView(camera);// TODO optimize, only if camera changes
 		renderer.render();
+	}
+
+	public Vector2 getMinimapDotPosition(OrthographicCamera camera, Vector2 playerPosition) {
+		float scaleX = Constants.MINIMAP_WIDTH / currentMapWidth;
+		float scaleY = Constants.MINIMAP_HEIGHT / currentMapHeight;
+
+		// Convert the player's position to the minimap's coordinates using the scale factors
+		float dotX = playerPosition.x * scaleX;
+		float dotY = playerPosition.y * scaleY;
+
+		return new Vector2(dotX, dotY);
 	}
 
 	@Override
@@ -158,7 +168,7 @@ public class MapManager implements Disposable {
 		return null;
 	}
 
-	public Texture getMinimaptexture(OrthographicCamera camera, Vector2 playerPosition) {
+	public Texture createMinimaptexture(OrthographicCamera camera) {
 		// get old values camera
 		float oldZoom = camera.zoom;
 		Vector3 cameraOldPosition = camera.position;
@@ -176,18 +186,6 @@ public class MapManager implements Disposable {
 		// Render the TiledMap
 		renderer.setView(camera); // Set the camera for the current view
 		renderer.render();
-
-		// Draw the dot at the player's position
-		ShapeRenderer shapeRenderer = new ShapeRenderer();
-		shapeRenderer.setProjectionMatrix(camera.combined);
-		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-		shapeRenderer.setColor(Constants.MINIMAP_DOT_COLOR);
-
-		// Assuming you have the player's position as a Vector2
-		Vector3 convertedPlayerPosition = camera.project(new Vector3(playerPosition.x, playerPosition.y, 0));
-		shapeRenderer.circle(convertedPlayerPosition.x, convertedPlayerPosition.y, Constants.MINIMAP_DOT_SIZE);
-
-		shapeRenderer.end();
 
 		// Unbind the FrameBuffer
 		minimapFrameBuffer.end();

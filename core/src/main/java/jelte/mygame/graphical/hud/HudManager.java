@@ -1,12 +1,14 @@
 package jelte.mygame.graphical.hud;
 
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -49,6 +51,7 @@ public class HudManager {
 	private Table topBar = new Table();
 	private Table middleBar = new Table();
 	private Table bottomBar = new Table();
+	private Table table = new Table();
 
 	private Image minimapImage;
 
@@ -70,7 +73,6 @@ public class HudManager {
 	}
 
 	private void createHud() {
-		Table table = new Table();
 		table.setFillParent(true); // Makes the table fill the entire screen
 		table.setPosition(0, 0);
 
@@ -98,31 +100,46 @@ public class HudManager {
 		playerStaminaBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "stamina");
 		// statsWindow.add(redCrystal).size(10).expand().left().top().padLeft(20).padTop(10);
 		statsWindow.add(hpicon).size(20).expand().left().top().padLeft(20).padTop(10);
-		statsWindow.add(playerHpBar).width(Gdx.app.getGraphics().getWidth() * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Gdx.app.getGraphics().getHeight() * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
+		statsWindow.add(playerHpBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top().padTop(10); // Positions the button in the center of the table
 		statsWindow.row();
 		// statsWindow.add(blueCrystal).size(10).expand().left().top().padLeft(20);
 		statsWindow.add(mpicon).size(20).expand().left().top().padLeft(20);
-		statsWindow.add(playerMpBar).width(Gdx.app.getGraphics().getWidth() * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Gdx.app.getGraphics().getHeight() * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
+		statsWindow.add(playerMpBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top(); // Positions the button in the center of the table
 		statsWindow.row();
 		// statsWindow.add(greenCrystal).size(10).expand().left().top().padLeft(20);
 		statsWindow.add(staminaIcon).size(20).expand().left().top().padLeft(20);
-		statsWindow.add(playerStaminaBar).width(Gdx.app.getGraphics().getWidth() * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Gdx.app.getGraphics().getHeight() * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
+		statsWindow.add(playerStaminaBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top(); // Positions the button in the center of the table
 
-		table.add(statsWindow).width(Gdx.app.getGraphics().getWidth() * Constants.STATS_WINDOW_WIDTH_PERCENT_SCREEN).height(Gdx.app.getGraphics().getHeight() * Constants.STATS_WINDOW_HEIGHT_PERCENT_SCREEN).expand().left().top().padLeft(30).padTop(20);
+		table.add(statsWindow).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_WINDOW_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_WINDOW_HEIGHT_PERCENT_SCREEN).expand().left().top().padLeft(30).padTop(20);
 
 		minimapImage = new Image();
-		table.add(minimapImage).size(200).expand().right().top().padRight(20);
 
 		uiStage.addActor(table); // Adds the table to the stage
 	}
 
-	public void updateMinimap(Texture minimapTexture) {
+	public void setMinimap(Texture minimapTexture) {
+		minimapImage.setSize(minimapTexture.getWidth(), minimapTexture.getHeight());
 		TextureRegion textureRegion = new TextureRegion(minimapTexture);
 		textureRegion.flip(false, true);
 		minimapImage.setDrawable(new TextureRegionDrawable(textureRegion));
+		table.add(minimapImage).width(minimapTexture.getWidth()).height(minimapTexture.getHeight()).expand().right().top().padRight(20);
+	}
+
+	public void renderMinimapDot(Vector2 minimapDotPosition, OrthographicCamera camera) {
+		Vector2 absolutePosition = new Vector2();
+		minimapImage.localToStageCoordinates(absolutePosition.set(0, 0));
+
+		// Draw the dot at the player's position
+		ShapeRenderer shapeRenderer = new ShapeRenderer();
+		shapeRenderer.setProjectionMatrix(camera.combined);
+		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+		shapeRenderer.setColor(Constants.MINIMAP_DOT_COLOR);
+		// shapeRenderer.circle(absolutePosition.x + minimapDotPosition.x, absolutePosition.y + minimapDotPosition.y, Constants.MINIMAP_DOT_SIZE);
+		shapeRenderer.circle(390, 436, Constants.MINIMAP_DOT_SIZE);// TODO why these numbers?
+		shapeRenderer.end();
 	}
 
 	public void renderUI() {

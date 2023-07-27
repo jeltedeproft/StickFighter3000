@@ -25,8 +25,8 @@ public class Lwjgl3Launcher {
 		configuration.disableAudio(true);// tuningfork requirement
 		configuration.useVsync(true);
 		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate);
-		// configuration.setWindowedMode(3840, 2160);
-		configuration.setWindowedMode(600, 600);
+		configuration.setWindowedMode(3840, 2160);
+		// configuration.setWindowedMode(600, 600);
 		// configuration.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
 		configuration.setWindowIcon("icon/icon128.png", "icon/icon64.png", "icon/icon32.png", "icon/icon16.png");
 		return configuration;
