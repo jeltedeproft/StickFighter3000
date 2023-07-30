@@ -77,6 +77,7 @@ public class HudManager {
 		uiViewport.getCamera().update();
 
 		uiStage = new Stage(uiViewport, batch);
+		uiStage.setDebugAll(true);
 
 		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
@@ -145,7 +146,7 @@ public class HudManager {
 
 		for (int i = 1; i < Constants.MAX_SPELL_SLOTS; i++) {
 			SpellButton button = new SpellButton(skin);
-			bottomMiddleBar.add(button.getStack());
+			bottomMiddleBar.add(button.getStack()).expand().fill().bottom();
 			spellButtons.add(button);
 		}
 

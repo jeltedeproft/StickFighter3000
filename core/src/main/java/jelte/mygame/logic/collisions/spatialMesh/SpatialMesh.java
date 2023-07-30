@@ -77,6 +77,10 @@ public class SpatialMesh {
 		}
 	}
 
+	public void removeStatickCollidable(Collidable collidableToRemove) {
+		removeCollidable(collidableToRemove);
+	}
+
 	private void removeCollidable(Collidable collidable) {
 		collidablesInPlay.remove(collidable);
 		Gdx.app.error(TAG, "removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold rec : " + collidable.getOldRectangle());

@@ -14,6 +14,8 @@ import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -126,10 +128,13 @@ public class MapManager implements Disposable {
 
 	public void removeitem(ItemCollidable item) {
 		MapLayer itemLayer = currentMap.getLayers().get(Constants.LAYER_NAME_ITEMS);
-		MapObject objectToRemove = itemLayer.getObjects().get(item.getItem().name()); // Replace "ObjectName" with the name of your object to remove
+		MapObject objectToRemove = itemLayer.getObjects().get(item.getItem().name());
 		if (objectToRemove instanceof RectangleMapObject) {
 			itemLayer.getObjects().remove(objectToRemove);
 		}
+		TiledMapTileLayer itemVisualLayer = (TiledMapTileLayer) currentMap.getLayers().get(Constants.LAYER_NAME_VISUAL_ITEMS);
+		Cell itemCell = itemVisualLayer.getCell((int) (item.x / mapProperties.get("tilewidth", Integer.class)), (int) (item.y / mapProperties.get("tileheight", Integer.class)));
+		itemCell.setTile(null);
 	}
 
 	private Collection<EnemySpawnData> initializeEnemySpawnData() {

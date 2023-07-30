@@ -59,6 +59,7 @@ public class LogicManagerImpl implements LogicManager {
 		while (iterator.hasNext()) {
 			final ItemCollidable currentitem = (ItemCollidable) iterator.next();
 			if (currentitem.isToBeRemoved()) {
+				collisionDetectionSystem.removeStatickCollidable(currentitem);
 				listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.REMOVE_ITEM, currentitem));
 				iterator.remove();
 				break;

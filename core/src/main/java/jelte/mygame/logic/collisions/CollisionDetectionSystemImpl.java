@@ -1,11 +1,11 @@
 package jelte.mygame.logic.collisions;
 
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
@@ -68,6 +68,11 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 	@Override
 	public void addStatickCollidables(Set<Collidable> blockingObjects) {
 		spatialMesh.addStatickCollidables(blockingObjects);
+	}
+
+	@Override
+	public void removeStatickCollidable(Collidable collidableToRemove) {
+		spatialMesh.removeStatickCollidable(collidableToRemove);
 	}
 
 	@Override

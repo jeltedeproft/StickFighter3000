@@ -16,7 +16,8 @@ public class StaticTopCollisionStrategy implements CollisionStrategy {
 			character.setCollided(true, statick.getType());
 			statick.calculateOverlapPlayer(character.getRectangle());
 			character.move(0, -statick.getOverlapY());
-			character.getVelocity().y = 0;
+			character.getVelocity().y = -1;
+			character.getAcceleration().y = -1;
 		}
 
 		// spell

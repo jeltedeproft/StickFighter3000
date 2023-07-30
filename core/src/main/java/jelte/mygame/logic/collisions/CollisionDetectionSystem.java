@@ -1,8 +1,8 @@
 package jelte.mygame.logic.collisions;
 
-import java.util.Set;
-
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.Set;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
 
@@ -16,6 +16,8 @@ public interface CollisionDetectionSystem {
 	public void reset();
 
 	public void addStatickCollidables(Set<Collidable> blockingObjects);
+
+	public void removeStatickCollidable(Collidable collidableToRemove);
 
 	public Set<Collidable> getCollidables();
 

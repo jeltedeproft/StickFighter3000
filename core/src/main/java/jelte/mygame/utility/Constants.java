@@ -88,6 +88,7 @@ public class Constants {
 	public static final String BLOCK_TYPE_PLATFORM = "PLATFORM";
 	public static final String LAYER_NAME_BLOCK = "blocks";
 	public static final String LAYER_NAME_ITEMS = "items";
+	public static final String LAYER_NAME_VISUAL_ITEMS = "visualItemLayer";
 	public static final String LAYER_NAME_SPAWN = "spawns";
 	public static final String LAYER_NAME_PATROL = "patrols";
 	public static final String PROPERTY_DUPLICATE_INDEX = "duplicateIndex";
