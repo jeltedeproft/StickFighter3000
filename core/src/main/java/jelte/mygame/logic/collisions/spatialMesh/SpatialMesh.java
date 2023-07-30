@@ -43,7 +43,7 @@ public class SpatialMesh {
 		}
 	}
 
-	public void initializeStatickCollidables(Set<Collidable> collidables) {
+	public void addStatickCollidables(Set<Collidable> collidables) {
 		for (Collidable collidable : collidables) {
 			addCollidable(collidable);
 		}

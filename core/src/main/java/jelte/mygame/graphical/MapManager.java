@@ -29,6 +29,7 @@ import java.util.Set;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.graphical.map.PatrolPoint;
+import jelte.mygame.logic.collisions.collidable.ItemCollidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.logic.collisions.collidable.StaticBlockLeft;
@@ -51,6 +52,7 @@ public class MapManager implements Disposable {
 	private float currentMapWidth;
 	private float currentMapHeight;
 	private Set<StaticBlock> blockingRectangles;
+	private Set<ItemCollidable> items;
 	private Collection<EnemySpawnData> enemySpawnData;
 	private FrameBuffer minimapFrameBuffer;
 	private float minimapZoomLevel;
@@ -76,8 +78,9 @@ public class MapManager implements Disposable {
 		currentMapHeight = mapProperties.get("height", Integer.class) * mapProperties.get("tileheight", Integer.class);
 		minimapFrameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) Constants.MINIMAP_WIDTH, (int) Constants.MINIMAP_HEIGHT, false);
 		// minimapZoomLevel = Math.min((int) Constants.VISIBLE_WIDTH / currentMapWidth, (int) Constants.VISIBLE_HEIGHT / currentMapHeight);
-		minimapZoomLevel = 5f;
+		minimapZoomLevel = 3f;
 		blockingRectangles = extractStaticBlocksFromObjectLayer(currentMap.getLayers().get(Constants.LAYER_NAME_BLOCK));
+		items = extractItemsFromMap(currentMap.getLayers().get(Constants.LAYER_NAME_ITEMS));
 		enemySpawnData = initializeEnemySpawnData();
 	}
 
@@ -86,15 +89,8 @@ public class MapManager implements Disposable {
 		renderer.render();
 	}
 
-	public Vector2 getMinimapDotPosition(OrthographicCamera camera, Vector2 playerPosition) {
-		float scaleX = Constants.MINIMAP_WIDTH / currentMapWidth;
-		float scaleY = Constants.MINIMAP_HEIGHT / currentMapHeight;
-
-		// Convert the player's position to the minimap's coordinates using the scale factors
-		float dotX = playerPosition.x * scaleX;
-		float dotY = playerPosition.y * scaleY;
-
-		return new Vector2(dotX, dotY);
+	public Vector2 getRelativePlayerPositionMinimap(Vector2 playerPosition) {
+		return new Vector2(playerPosition.x / currentMapWidth, playerPosition.y / currentMapHeight);
 	}
 
 	@Override
@@ -113,6 +109,27 @@ public class MapManager implements Disposable {
 		}
 
 		return rectangles;
+	}
+
+	public Set<ItemCollidable> extractItemsFromMap(MapLayer objectLayer) {
+		Set<ItemCollidable> collidables = new HashSet<>();
+
+		for (MapObject object : objectLayer.getObjects()) {
+			if (object instanceof RectangleMapObject rectangleObject) {
+				ItemCollidable item = new ItemCollidable(rectangleObject.getName(), rectangleObject.getRectangle());
+				collidables.add(item);
+			}
+		}
+
+		return collidables;
+	}
+
+	public void removeitem(ItemCollidable item) {
+		MapLayer itemLayer = currentMap.getLayers().get(Constants.LAYER_NAME_ITEMS);
+		MapObject objectToRemove = itemLayer.getObjects().get(item.getItem().name()); // Replace "ObjectName" with the name of your object to remove
+		if (objectToRemove instanceof RectangleMapObject) {
+			itemLayer.getObjects().remove(objectToRemove);
+		}
 	}
 
 	private Collection<EnemySpawnData> initializeEnemySpawnData() {

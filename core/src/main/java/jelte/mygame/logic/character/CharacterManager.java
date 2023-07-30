@@ -1,12 +1,12 @@
 package jelte.mygame.logic.character;
 
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.StringBuilder;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;

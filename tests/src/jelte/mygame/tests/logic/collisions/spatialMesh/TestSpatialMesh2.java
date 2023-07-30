@@ -42,7 +42,7 @@ public class TestSpatialMesh2 {
 
 	@Test
 	public void testInitializeStaticCollidables() {
-		spatialMesh.initializeStatickCollidables(collidables);
+		spatialMesh.addStatickCollidables(collidables);
 
 		for (Collidable collidable : collidables) {
 			Set<Collidable> staticCollidables = spatialMesh.getStaticCollidables((int) collidable.getRectangle().x, (int) collidable.getRectangle().y);
@@ -73,7 +73,7 @@ public class TestSpatialMesh2 {
 
 	@Test
 	public void testRemoveAllCollidables() {
-		spatialMesh.initializeStatickCollidables(collidables);
+		spatialMesh.addStatickCollidables(collidables);
 
 		spatialMesh.removeAllCollidables();
 
@@ -89,7 +89,7 @@ public class TestSpatialMesh2 {
 
 	@Test
 	public void testUpdateCollidables() {
-		spatialMesh.initializeStatickCollidables(collidables);
+		spatialMesh.addStatickCollidables(collidables);
 
 		// Update collidables by moving them
 		for (Collidable collidable : collidables) {
@@ -107,7 +107,7 @@ public class TestSpatialMesh2 {
 
 	@Test
 	public void testGetAllPossibleCollisions() {
-		spatialMesh.initializeStatickCollidables(collidables);
+		spatialMesh.addStatickCollidables(collidables);
 
 		Array<CollisionData> collisionDatas = spatialMesh.getAllPossibleCollisions();
 

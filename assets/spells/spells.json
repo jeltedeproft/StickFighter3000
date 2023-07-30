@@ -59,7 +59,7 @@
 		"id": 2,
 		"name": "fireball",
 		"spriteName": "fireball",
-		"iconSpriteName": "fireballIcon",
+		"iconSpriteName": "fireball",
 		"modifiers": ["FIRE"],
 		"coolDown": 10,
 		"type": "PROJECTILE",

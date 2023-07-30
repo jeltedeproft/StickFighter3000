@@ -1,8 +1,8 @@
 package jelte.mygame;
 
-import java.util.Objects;
-
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.Objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -57,7 +57,10 @@ public class Message {
 		OUT_CAST_RANGE,
 		SPAWN_ENEMIES,
 		ATTACKED_PLAYER,
-		EXIT_GAME;
+		EXIT_GAME,
+		ACTIVATE_SPELL,
+		SEND_ITEMS,
+		REMOVE_ITEM;
 	}
 
 	public enum RECIPIENT {
@@ -83,7 +86,7 @@ public class Message {
 		if (this == obj) {
 			return true;
 		}
-		if ((obj == null) || (getClass() != obj.getClass())) {
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
 		Message other = (Message) obj;

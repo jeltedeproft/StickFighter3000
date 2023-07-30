@@ -10,8 +10,10 @@ import java.util.UUID;
 
 import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
+import jelte.mygame.logic.collisions.collidable.ItemCollidable;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
 import jelte.mygame.logic.collisions.strategy.CollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticBotCollisionStrategy;
@@ -45,6 +47,9 @@ public class CollisionHandlingSystem {
 	}
 
 	private void handleCollisionBetweenTypes(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2, Collidable collidable1, Collidable collidable2, Array<Character> allCharacters, Array<AbstractSpell> allSpells) {
+		if (COLLIDABLE_TYPE.isStatic(type1) && COLLIDABLE_TYPE.isStatic(type2)) {
+			return;
+		}
 		if (COLLIDABLE_TYPE.isStatic(type1)) {
 			CollisionStrategy collisionStrategy = collisionStrategies.get(type1);
 			collisionStrategy.resolvePossibleCollision(collidable1, collidable2);
@@ -59,6 +64,10 @@ public class CollisionHandlingSystem {
 		} else if (isVisionAndPlayer(type1, type2)) {
 			VisionCollidable vision = (VisionCollidable) collidable1;
 			vision.playerSeen();
+		} else if (isItemAndPlayer(type1, type2)) {
+			PlayerCharacter character = (PlayerCharacter) getCharacterById(allCharacters, collidable2.getId());
+			ItemCollidable item = (ItemCollidable) collidable1;
+			item.collidedWithPlayer(character);
 		}
 	}
 
@@ -68,6 +77,10 @@ public class CollisionHandlingSystem {
 
 	private boolean isVisionAndPlayer(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
 		return COLLIDABLE_TYPE.isVision(type1) && COLLIDABLE_TYPE.isPlayer(type2);
+	}
+
+	private boolean isItemAndPlayer(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2) {
+		return COLLIDABLE_TYPE.isItem(type1) && COLLIDABLE_TYPE.isPlayer(type2);
 	}
 
 	private Character getCharacterById(Array<Character> characters, UUID id) {

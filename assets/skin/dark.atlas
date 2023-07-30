@@ -6,175 +6,210 @@ filter: Linear, Linear
 repeat: none
 UI - Words1
   rotate: false
-  xy: 1, 298
+  xy: 1, 300
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words10
   rotate: false
-  xy: 354, 421
+  xy: 354, 423
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words11
   rotate: false
-  xy: 1, 193
+  xy: 1, 195
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words12
   rotate: false
-  xy: 96, 228
+  xy: 96, 230
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words13
   rotate: false
-  xy: 259, 351
+  xy: 259, 353
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words14
   rotate: false
-  xy: 354, 386
+  xy: 354, 388
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words15
   rotate: false
-  xy: 1, 158
+  xy: 1, 160
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words2
   rotate: false
-  xy: 259, 456
+  xy: 259, 458
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words3
   rotate: false
-  xy: 1, 263
+  xy: 1, 265
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words4
   rotate: false
-  xy: 96, 298
+  xy: 96, 300
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words5
   rotate: false
-  xy: 259, 421
+  xy: 259, 423
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words6
   rotate: false
-  xy: 354, 456
+  xy: 354, 458
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words7
   rotate: false
-  xy: 1, 228
+  xy: 1, 230
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words8
   rotate: false
-  xy: 96, 263
+  xy: 96, 265
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 UI - Words9
   rotate: false
-  xy: 259, 386
+  xy: 259, 388
   size: 93, 33
   orig: 93, 33
   offset: 0, 0
   index: -1
 Wenrexa Earh magic
   rotate: false
-  xy: 1, 333
+  xy: 1, 335
   size: 256, 156
   orig: 256, 156
   offset: 0, 0
   index: -1
 Wenrexa Shoes
   rotate: false
-  xy: 354, 352
+  xy: 1, 82
   size: 23, 32
   orig: 23, 32
   offset: 0, 0
   index: -1
 border
   rotate: false
-  xy: 449, 481
+  xy: 259, 343
   size: 42, 8
   orig: 42, 8
   offset: 0, 0
   index: -1
+border3
+  rotate: false
+  xy: 449, 447
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+emptyIconWhite
+  rotate: false
+  xy: 165, 204
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+emptyIconWhiteDisabled
+  rotate: false
+  xy: 449, 421
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+emptyIconWhiteHover
+  rotate: false
+  xy: 191, 263
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+emptyicon
+  rotate: false
+  xy: 354, 362
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
 hearth1
   rotate: false
-  xy: 96, 168
+  xy: 96, 170
   size: 67, 58
   orig: 67, 58
   offset: 0, 0
   index: -1
 hpbar
   rotate: false
-  xy: 96, 158
+  xy: 303, 343
   size: 21, 8
   orig: 21, 8
   offset: 0, 0
   index: -1
 hpbarCyan
   rotate: false
-  xy: 259, 341
+  xy: 96, 160
   size: 21, 8
   orig: 21, 8
   offset: 0, 0
   index: -1
 hpbargreen
   rotate: false
-  xy: 165, 218
+  xy: 45, 150
   size: 21, 8
   orig: 21, 8
   offset: 0, 0
   index: -1
 hpbarteal
   rotate: false
-  xy: 191, 277
+  xy: 380, 378
   size: 21, 8
   orig: 21, 8
   offset: 0, 0
   index: -1
 whiteWindow
   rotate: false
-  xy: 191, 287
+  xy: 191, 289
   size: 44, 44
   orig: 44, 44
   offset: 0, 0
   index: -1
 window1
   rotate: false
-  xy: 1, 114
+  xy: 1, 116
   size: 42, 42
   orig: 42, 42
   offset: 0, 0

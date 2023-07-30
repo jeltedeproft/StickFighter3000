@@ -106,7 +106,7 @@ public class CharacterStateManager {
 		BLOCK_PRESSED,
 		BLOCK_UNPRESSED,
 		SPRINT_PRESSED,
-		SPRINT_UNPRESSED;
+		SPRINT_UNPRESSED,
 	}
 
 	public CharacterStateManager(Character character) {

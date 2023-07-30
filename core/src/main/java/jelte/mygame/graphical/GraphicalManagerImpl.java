@@ -30,7 +30,9 @@ import jelte.mygame.graphical.specialEffects.SpecialEffectsManager;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.collisions.collidable.ItemCollidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
+import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
@@ -88,6 +90,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		hudManager.setMinimap(mapManager.createMinimaptexture(cameraManager.getCamera()));
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
+		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_ITEMS, mapManager.getItems()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, mapManager.getEnemySpawnData()));
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, new Vector2(mapManager.getCurrentMapWidth(), mapManager.getCurrentMapHeight())));
 
@@ -126,7 +129,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.end();
 
 		hudManager.renderUI();
-		hudManager.renderMinimapDot(mapManager.getMinimapDotPosition(cameraManager.getCamera(), player.getPhysicsComponent().getPosition()), cameraManager.getCamera());
+		// hudManager.renderMinimapDot(mapManager.getRelativePlayerPositionMinimap(player.getPhysicsComponent().getPosition()));
 
 //		debugPlayer();
 //		debugEnemy();
@@ -211,6 +214,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			break;
 		case UPDATE_CAMERA_POS:
 			cameraManager.updateCameraPos((Vector2) message.getValue());
+			break;
+		case ACTIVATE_SPELL:
+			SpellsEnum spellsEnum = (SpellsEnum) message.getValue();
+			hudManager.activateNextSpell(spellsEnum);
+			break;
+		case REMOVE_ITEM:
+			mapManager.removeitem((ItemCollidable) message.getValue());
 			break;
 		case EXIT_GAME:
 			// dispose();

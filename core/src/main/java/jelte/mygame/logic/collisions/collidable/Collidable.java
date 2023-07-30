@@ -7,7 +7,7 @@ import java.util.UUID;
 public interface Collidable {
 
 	public enum COLLIDABLE_TYPE {
-		STATIC_TOP, STATIC_BOT, STATIC_LEFT, STATIC_RIGHT, STATIC_PLATFORM, PLAYER, ENEMY, SPELL, VISION;
+		STATIC_TOP, STATIC_BOT, STATIC_LEFT, STATIC_RIGHT, STATIC_PLATFORM, PLAYER, ENEMY, SPELL, VISION, ITEM;
 
 		public static boolean isStatic(COLLIDABLE_TYPE type) {
 			return type == STATIC_TOP || type == STATIC_BOT || type == STATIC_LEFT || type == STATIC_RIGHT || type == STATIC_PLATFORM;
@@ -31,6 +31,10 @@ public interface Collidable {
 
 		public static boolean isVision(COLLIDABLE_TYPE type) {
 			return type == VISION;
+		}
+
+		public static boolean isItem(COLLIDABLE_TYPE type) {
+			return type == ITEM;
 		}
 	}
 

@@ -66,8 +66,8 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 	}
 
 	@Override
-	public void initializeStatickCollidables(Set<Collidable> blockingObjects) {
-		spatialMesh.initializeStatickCollidables(blockingObjects);
+	public void addStatickCollidables(Set<Collidable> blockingObjects) {
+		spatialMesh.addStatickCollidables(blockingObjects);
 	}
 
 	@Override

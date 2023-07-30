@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector3;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
 
@@ -22,6 +23,7 @@ import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
 import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.logic.collisions.collidable.ItemCollidable;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.SpellManager;
 import jelte.mygame.logic.spells.modifier.ModifierManager;
@@ -36,6 +38,7 @@ public class LogicManagerImpl implements LogicManager {
 	private SpellManager spellManager;
 	private ModifierManager modifierManager;
 	private Set<Collidable> blockingObjects;
+	private Set<Collidable> items;
 	private Set<Collidable> allCollidables;
 	private Vector2 mousePosition = new Vector2();
 
@@ -52,7 +55,20 @@ public class LogicManagerImpl implements LogicManager {
 
 	@Override
 	public void update(float delta) {
+		final Iterator<Collidable> iterator = items.iterator();
+		while (iterator.hasNext()) {
+			final ItemCollidable currentitem = (ItemCollidable) iterator.next();
+			if (currentitem.isToBeRemoved()) {
+				listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.REMOVE_ITEM, currentitem));
+				iterator.remove();
+				break;
+			}
+		}
 		characterManager.update(delta);
+		if (characterManager.getPlayer().isSpellActivated()) {
+			characterManager.getPlayer().setSpellActivated(false);
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.ACTIVATE_SPELL, characterManager.getPlayer().getUnlockedSpells().get(characterManager.getPlayer().getUnlockedSpells().size - 1)));
+		}
 		aiManager.update(delta, characterManager.getPlayer(), collisionDetectionSystem.getCollidables());
 		spellManager.update(delta, mousePosition, characterManager.getAllCharacters());// TODO this order is important because graphicalImpl sets the dimensions of the sprites needed for adding them to the spatial mesh
 		modifierManager.update(delta, characterManager.getAllCharacters());
@@ -81,13 +97,15 @@ public class LogicManagerImpl implements LogicManager {
 			mousePosition.y = mouseVector.y;
 		}
 		case SEND_BLOCKING_OBJECTS -> blockingObjects = new HashSet<>((Set<StaticBlock>) message.getValue());
+		case SEND_ITEMS -> items = new HashSet<>((Set<ItemCollidable>) message.getValue());
 		case SPAWN_ENEMIES -> {
 			characterManager.spawnEnemies((Collection<EnemySpawnData>) message.getValue());
 			aiManager.addEnemies(characterManager.getEnemies());
 		}
 		case SEND_MAP_DIMENSIONS -> {
 			collisionDetectionSystem.initSpatialMesh((Vector2) message.getValue());
-			collisionDetectionSystem.initializeStatickCollidables(blockingObjects);
+			collisionDetectionSystem.addStatickCollidables(blockingObjects);
+			collisionDetectionSystem.addStatickCollidables(items);
 		}
 		default -> {}
 

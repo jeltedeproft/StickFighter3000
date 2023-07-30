@@ -15,7 +15,7 @@ public interface CollisionDetectionSystem {
 
 	public void reset();
 
-	public void initializeStatickCollidables(Set<Collidable> blockingObjects);
+	public void addStatickCollidables(Set<Collidable> blockingObjects);
 
 	public Set<Collidable> getCollidables();
 

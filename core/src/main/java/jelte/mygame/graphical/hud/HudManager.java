@@ -1,12 +1,10 @@
 package jelte.mygame.graphical.hud;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -16,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -31,6 +29,8 @@ import jelte.mygame.graphical.HealthBar;
 import jelte.mygame.graphical.animations.NamedSprite;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.spells.SpellFileReader;
+import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
@@ -48,21 +48,32 @@ public class HudManager {
 	private Map<AiCharacter, HealthBar> enemyHealthBars;
 
 	private Table root = new Table();
-	private Table topBar = new Table();
-	private Table middleBar = new Table();
-	private Table bottomBar = new Table();
-	private Table table = new Table();
+	private Table topLeftBar = new Table();
+	private Table topMiddleBar = new Table();
+	private Table topRightBar = new Table();
+	private Table middleLeftBar = new Table();
+	private Table middleMiddleBar = new Table();
+	private Table middleRightBar = new Table();
+	private Table bottomLeftBar = new Table();
+	private Table bottomMiddleBar = new Table();
+	private Table bottomRightBar = new Table();
 
 	private Image minimapImage;
+	private Array<SpellButton> spellButtons;
+	private int freeSpellSlot = 0;
+
+	private MessageListener messageListener;
 
 	public HudManager(MessageListener messageListener, SpriteBatch batch) {
+		this.messageListener = messageListener;
 		enemyHealthBars = new HashMap<>();
+		spellButtons = new Array<>();
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
 
 		uiViewport = new ExtendViewport(Constants.VISIBLE_UI_WIDTH, Constants.VISIBLE_UI_HEIGHT);
 		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
-		uiViewport.getCamera().viewportWidth = uiViewport.getWorldWidth();
-		uiViewport.getCamera().viewportHeight = uiViewport.getWorldHeight();
+//		uiViewport.getCamera().viewportWidth = uiViewport.getWorldWidth();
+//		uiViewport.getCamera().viewportHeight = uiViewport.getWorldHeight();
 		uiViewport.getCamera().update();
 
 		uiStage = new Stage(uiViewport, batch);
@@ -73,8 +84,23 @@ public class HudManager {
 	}
 
 	private void createHud() {
-		table.setFillParent(true); // Makes the table fill the entire screen
-		table.setPosition(0, 0);
+		float rectangleWidth = uiViewport.getWorldWidth() / 3;
+		float rectangleHeight = uiViewport.getWorldHeight() / 3;
+
+		root.setFillParent(true); // Makes the table fill the entire screen
+		root.setPosition(0, 0);
+
+		root.add(topLeftBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(topMiddleBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(topRightBar).width(rectangleWidth).height(rectangleHeight);
+		root.row();
+		root.add(middleLeftBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(middleMiddleBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(middleRightBar).width(rectangleWidth).height(rectangleHeight);
+		root.row();
+		root.add(bottomLeftBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(bottomMiddleBar).width(rectangleWidth).height(rectangleHeight);
+		root.add(bottomRightBar).width(rectangleWidth).height(rectangleHeight);
 
 		Window statsWindow = new Window("", skin);
 		statsWindow.getTitleTable().padBottom(20);
@@ -113,32 +139,54 @@ public class HudManager {
 		statsWindow.add(playerStaminaBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top(); // Positions the button in the center of the table
 
-		table.add(statsWindow).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_WINDOW_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_WINDOW_HEIGHT_PERCENT_SCREEN).expand().left().top().padLeft(30).padTop(20);
+		topLeftBar.add(statsWindow).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_WINDOW_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_WINDOW_HEIGHT_PERCENT_SCREEN).expand().left().top().padLeft(30).padTop(20);
 
 		minimapImage = new Image();
 
-		uiStage.addActor(table); // Adds the table to the stage
+		for (int i = 1; i < Constants.MAX_SPELL_SLOTS; i++) {
+			SpellButton button = new SpellButton(skin);
+			bottomMiddleBar.add(button.getStack());
+			spellButtons.add(button);
+		}
+
+		uiStage.addActor(root); // Adds the table to the stage
+	}
+
+	public void activateNextSpell(SpellsEnum spellsEnum) {
+		spellButtons.get(freeSpellSlot).activateSpellSlot(SpellFileReader.getSpellData().get(spellsEnum.ordinal()));
+		freeSpellSlot++;
 	}
 
 	public void setMinimap(Texture minimapTexture) {
-		minimapImage.setSize(minimapTexture.getWidth(), minimapTexture.getHeight());
-		TextureRegion textureRegion = new TextureRegion(minimapTexture);
-		textureRegion.flip(false, true);
-		minimapImage.setDrawable(new TextureRegionDrawable(textureRegion));
-		table.add(minimapImage).width(minimapTexture.getWidth()).height(minimapTexture.getHeight()).expand().right().top().padRight(20);
+//		minimapImage.setSize(minimapTexture.getWidth(), minimapTexture.getHeight());
+//		TextureRegion textureRegion = new TextureRegion(minimapTexture);
+//		textureRegion.flip(false, true);
+//		minimapImage.setDrawable(new TextureRegionDrawable(textureRegion));
+//		minimapImage.getDrawable().setMinWidth(minimapTexture.getWidth());
+//		minimapImage.getDrawable().setMinHeight(minimapTexture.getHeight());
+//		Table subTable = new Table();
+//		subTable.add(minimapImage).width(minimapTexture.getWidth()).height(minimapTexture.getHeight()).expand().right().top().padRight(20);
+//
+//		Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+//		pixmap.setColor(Color.WHITE);
+//		pixmap.fill();
+//		Texture texture = new Texture(pixmap);
+//		pixmap.dispose();
+//		TextureRegionDrawable whitePixelDrawable = new TextureRegionDrawable(texture);
+//		subTable.setBackground(whitePixelDrawable);
+//		topRightBar.add(subTable).width(minimapTexture.getWidth()).height(minimapTexture.getHeight()).expand().right().top().padRight(20);
 	}
 
-	public void renderMinimapDot(Vector2 minimapDotPosition, OrthographicCamera camera) {
-		Vector2 absolutePosition = new Vector2();
-		minimapImage.localToStageCoordinates(absolutePosition.set(0, 0));
+	public void renderMinimapDot(Vector2 relativePlayerPositionMinimap) {
+		Vector2 minimapDotPosition = new Vector2(relativePlayerPositionMinimap.x * minimapImage.getWidth(), relativePlayerPositionMinimap.y * minimapImage.getHeight());
 
 		// Draw the dot at the player's position
 		ShapeRenderer shapeRenderer = new ShapeRenderer();
-		shapeRenderer.setProjectionMatrix(camera.combined);
+		shapeRenderer.setProjectionMatrix(uiViewport.getCamera().combined);
 		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		shapeRenderer.setColor(Constants.MINIMAP_DOT_COLOR);
-		// shapeRenderer.circle(absolutePosition.x + minimapDotPosition.x, absolutePosition.y + minimapDotPosition.y, Constants.MINIMAP_DOT_SIZE);
-		shapeRenderer.circle(390, 436, Constants.MINIMAP_DOT_SIZE);// TODO why these numbers?
+		shapeRenderer.circle(minimapImage.getX() + minimapDotPosition.x, minimapImage.getY() + minimapDotPosition.y, Constants.MINIMAP_DOT_SIZE);
+		// shapeRenderer.circle(390, 436, Constants.MINIMAP_DOT_SIZE);// TODO why these numbers?
 		shapeRenderer.end();
 	}
 
