@@ -15,6 +15,7 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 		if (object2 instanceof CharacterPhysicsComponentImpl character) {
 			statick.calculateOverlapPlayer(character.getRectangle());
 			character.setCollided(true, statick.getType());
+			character.setOnGround(true);
 			character.move(0, statick.getOverlapY());
 			if (character.getVelocity().y < 0) {
 				character.getVelocity().y = 0;

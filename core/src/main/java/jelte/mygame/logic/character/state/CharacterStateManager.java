@@ -373,7 +373,7 @@ public class CharacterStateManager {
 	}
 
 	public void addNextSpell() {
-		if (!character.getSpellsreadyToCast().isEmpty()) {
+		if (!character.getSpellsPreparedToCast().isEmpty()) {
 			character.getSpellsreadyToCast().addLast(character.getSpellsPreparedToCast().removeFirst());
 		}
 	}

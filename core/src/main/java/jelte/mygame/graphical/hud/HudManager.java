@@ -144,7 +144,7 @@ public class HudManager {
 		Table topBar = new Table();
 		Table bottomBar = new Table();
 		for (int i = 1; i < Constants.MAX_SPELL_SLOTS; i++) {
-			SpellButton button = new SpellButton(skin);
+			SpellButton button = new SpellButton(skin, i);
 			bottomBar.add(button.getStack()).align(Align.bottomLeft);
 			spellButtons.add(button);
 		}

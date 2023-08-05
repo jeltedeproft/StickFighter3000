@@ -64,11 +64,11 @@ public class TestSpatialMesh {
 		testPhysicsComponent3 = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testPhysicsComponent4 = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
 		testSpellPhysicsComponent1 = new SpellPhysicsComponent(testPhysicsComponent1.getId(), SpellsEnum.ATTACK, new Vector2(0, 0));
-		testSpellPhysicsComponent1.setDimensions(10, 10);
-		testPhysicsComponent1.setDimensions(10, 10);
-		testPhysicsComponent2.setDimensions(10, 10);
-		testPhysicsComponent3.setDimensions(10, 10);
-		testPhysicsComponent4.setDimensions(10, 10);
+		testSpellPhysicsComponent1.setSize(10, 10);
+		testPhysicsComponent1.setSize(10, 10);
+		testPhysicsComponent2.setSize(10, 10);
+		testPhysicsComponent3.setSize(10, 10);
+		testPhysicsComponent4.setSize(10, 10);
 		testBlockBottom10High = new StaticBlockBot(new Rectangle(0, 0, 320, 10));
 		testBlockLeft10Width = new StaticBlockLeft(new Rectangle(0, 0, 10, 320));
 		testBlockRight10Width = new StaticBlockRight(new Rectangle(310, 0, 10, 320));

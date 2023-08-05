@@ -27,6 +27,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	protected Array<COLLIDABLE_TYPE> collidedWith;
 	protected boolean hasMoved;
 	protected boolean fallTrough;
+	protected boolean onGround;
 	protected float width;
 	protected float height;
 
@@ -178,7 +179,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	}
 
 	@Override
-	public void setDimensions(float width, float height) {
+	public void setSize(float width, float height) {
 		if (this.width != width || this.height != height) {
 			this.width = width;
 			this.height = height;

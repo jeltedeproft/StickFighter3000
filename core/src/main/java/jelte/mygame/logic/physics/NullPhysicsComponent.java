@@ -1,9 +1,9 @@
 package jelte.mygame.logic.physics;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.UUID;
 
 import jelte.mygame.logic.spells.SpellsEnum;
 import lombok.Getter;
@@ -134,7 +134,7 @@ public class NullPhysicsComponent implements PhysicsComponent {
 	}
 
 	@Override
-	public void setDimensions(float width, float height) {
+	public void setSize(float width, float height) {
 		// TODO Auto-generated method stub
 
 	}
@@ -161,6 +161,11 @@ public class NullPhysicsComponent implements PhysicsComponent {
 	public void move(float x, float y) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean isOnGround() {
+		return false;
 	}
 
 }

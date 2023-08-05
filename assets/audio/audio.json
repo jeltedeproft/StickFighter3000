@@ -222,5 +222,13 @@
 		"volume": 0.8f,
 		"duration": 1.0f
 		"theme": 0,
+	},
+	{
+		"id": 28,
+		"name": "fireballItem",
+		"audioFileName": ["audio/fireballItem.wav"],
+		"volume": 0.8f,
+		"duration": 1.0f
+		"theme": 0,
 	}
 ]

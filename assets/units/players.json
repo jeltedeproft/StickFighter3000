@@ -20,7 +20,7 @@
 		"stopRunningFullTime": 0.1f,
 		"dashingFullTime": 0.3f,
 		"defaultCastFullTime": 0.8f,
-		"defaultPreCastFullTime": 0.3f,
+		"defaultPreCastFullTime": 0.1f,
 		"teleportFullTime": 0.4f,
 		"rollAttackFullTime": 0.5f,
 		"rollFullTime": 0.5f,

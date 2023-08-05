@@ -6,32 +6,33 @@ import com.badlogic.gdx.utils.StringBuilder;
 import java.util.Objects;
 import java.util.UUID;
 
+import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.items.ItemEnum;
 import jelte.mygame.logic.spells.SpellsEnum;
 import lombok.Getter;
 
 @Getter
-public class ItemCollidable extends Rectangle implements Collidable {
+public class Item extends Rectangle implements Collidable {
 	private static final long serialVersionUID = 1L;
 	private UUID id;
-	private ItemEnum item;
+	private ItemEnum itemEnum;
 	private boolean toBeRemoved = false;
 
-	public ItemCollidable(String itemName, Rectangle rectangle) {
+	public Item(String itemName, Rectangle rectangle) {
 		super(rectangle);
 		id = UUID.randomUUID();
-		this.item = ItemEnum.valueOf(itemName);
+		this.itemEnum = ItemEnum.valueOf(itemName);
 	}
 
-	public ItemCollidable(int x, int y, int width, int height) {
+	public Item(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		id = UUID.randomUUID();
 	}
 
 	public void collidedWithPlayer(PlayerCharacter player) {
-		switch (item) {
-		case SPELL0:
+		switch (itemEnum) {
+		case FIREBALL_ITEM:
 			toBeRemoved = true;
 			player.unlockSpell(SpellsEnum.FIREBALL);
 			break;
@@ -89,7 +90,7 @@ public class ItemCollidable extends Rectangle implements Collidable {
 		if (!super.equals(obj) || getClass() != obj.getClass()) {
 			return false;
 		}
-		ItemCollidable other = (ItemCollidable) obj;
+		Item other = (Item) obj;
 		return Objects.equals(id, other.id);
 	}
 
@@ -118,6 +119,10 @@ public class ItemCollidable extends Rectangle implements Collidable {
 		sb.append(height);
 		sb.append("\n");
 		return sb.toString();
+	}
+
+	public AudioEnum getAudioEvent() {
+		return AudioEnum.valueOf("SOUND_" + itemEnum.name());
 	}
 
 }

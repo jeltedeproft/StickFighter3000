@@ -1,10 +1,12 @@
 package jelte.mygame.graphical.hud;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -21,6 +23,7 @@ public class SpellButton {
 	private SpellData spellData;
 	private Table hotKeyTable = new Table();
 	private ImageButton spellIconButton;
+	private Label hotKeylabel;
 	private Image spellNumber;
 	private Table spellIconTable = new Table();
 	private TextButton cooldownButton;
@@ -29,7 +32,7 @@ public class SpellButton {
 	private boolean isReady = true;
 	private Skin skin;
 
-	public SpellButton(Skin skin) {
+	public SpellButton(Skin skin, int slot) {
 		this.skin = skin;
 		spellIconButton = new ImageButton(skin, "spellButton");
 		spellIconButton.setVisible(true);
@@ -43,14 +46,21 @@ public class SpellButton {
 		stack = new Stack();
 		stack.add(spellIconTable);
 		stack.add(cooldownTable);
+
+		BitmapFont font = new BitmapFont();
+		Label.LabelStyle labelStyle = new Label.LabelStyle();
+		labelStyle.font = font;
+		hotKeylabel = new Label("A", labelStyle);
+
 		hotKeyTable.setSize(100, 100);
-		spellNumber = new Image(AssetManagerUtility.getSprite("Number0"));
+		spellNumber = new Image(AssetManagerUtility.getSprite("Number" + slot));
 		hotKeyTable.add(spellNumber).size(25).padTop(75);
+		// hotKeyTable.add(hotKeylabel).size(25).padTop(75);
 		stack.add(hotKeyTable);
 	}
 
-	public SpellButton(Skin skin, SpellData data) {
-		this(skin);
+	public SpellButton(Skin skin, SpellData data, int slot) {
+		this(skin, slot);
 		this.spellData = data;
 		initializeImage();
 	}

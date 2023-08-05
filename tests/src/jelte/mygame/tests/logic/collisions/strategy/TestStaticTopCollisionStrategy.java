@@ -36,7 +36,7 @@ public class TestStaticTopCollisionStrategy {
 
 		StaticBlockTop staticCollidable = new StaticBlockTop(x, y, width, height);
 		PlayerPhysicsComponent dynamicCollidable = new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0));
-		dynamicCollidable.setDimensions(10, 10);
+		dynamicCollidable.setSize(10, 10);
 		dynamicCollidable.setVelocity(new Vector2(-50, -50));
 
 		strategy.resolvePossibleCollision(staticCollidable, dynamicCollidable);

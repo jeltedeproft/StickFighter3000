@@ -8,12 +8,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
-import jelte.mygame.logic.collisions.collidable.ItemCollidable;
+import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.spatialMesh.SpatialMesh;
 import jelte.mygame.logic.collisions.strategy.CollisionStrategy;
 import jelte.mygame.logic.collisions.strategy.StaticBotCollisionStrategy;
@@ -37,6 +39,7 @@ public class CollisionHandlingSystem {
 	}
 
 	public void handleCollisions(Set<CollisionPair> pairs, Array<Character> allCharacters, Array<AbstractSpell> allSpells) {
+		removeCollisionEffectsBeforeNewCheck(allCharacters);
 		for (CollisionPair pair : pairs) {
 			Collidable collidable1 = pair.getCollidable1();
 			Collidable collidable2 = pair.getCollidable2();
@@ -44,6 +47,10 @@ public class CollisionHandlingSystem {
 			handleCollisionBetweenTypes(collidable1.getType(), collidable2.getType(), collidable1, collidable2, allCharacters, allSpells);
 			handleCollisionBetweenTypes(collidable2.getType(), collidable1.getType(), collidable2, collidable1, allCharacters, allSpells);
 		}
+	}
+
+	private void removeCollisionEffectsBeforeNewCheck(Array<Character> allCharacters) {
+		allCharacters.forEach(c -> c.getPhysicsComponent().setOnGround(false));
 	}
 
 	private void handleCollisionBetweenTypes(COLLIDABLE_TYPE type1, COLLIDABLE_TYPE type2, Collidable collidable1, Collidable collidable2, Array<Character> allCharacters, Array<AbstractSpell> allSpells) {
@@ -66,7 +73,8 @@ public class CollisionHandlingSystem {
 			vision.playerSeen();
 		} else if (isItemAndPlayer(type1, type2)) {
 			PlayerCharacter character = (PlayerCharacter) getCharacterById(allCharacters, collidable2.getId());
-			ItemCollidable item = (ItemCollidable) collidable1;
+			Item item = (Item) collidable1;
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, item.getAudioEvent());
 			item.collidedWithPlayer(character);
 		}
 	}

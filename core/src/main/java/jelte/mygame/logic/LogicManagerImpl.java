@@ -23,7 +23,7 @@ import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
 import jelte.mygame.logic.collisions.CollisionHandlingSystem;
 import jelte.mygame.logic.collisions.CollisionPair;
 import jelte.mygame.logic.collisions.collidable.Collidable;
-import jelte.mygame.logic.collisions.collidable.ItemCollidable;
+import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.SpellManager;
 import jelte.mygame.logic.spells.modifier.ModifierManager;
@@ -57,7 +57,7 @@ public class LogicManagerImpl implements LogicManager {
 	public void update(float delta) {
 		final Iterator<Collidable> iterator = items.iterator();
 		while (iterator.hasNext()) {
-			final ItemCollidable currentitem = (ItemCollidable) iterator.next();
+			final Item currentitem = (Item) iterator.next();
 			if (currentitem.isToBeRemoved()) {
 				collisionDetectionSystem.removeStatickCollidable(currentitem);
 				listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.REMOVE_ITEM, currentitem));
@@ -98,7 +98,7 @@ public class LogicManagerImpl implements LogicManager {
 			mousePosition.y = mouseVector.y;
 		}
 		case SEND_BLOCKING_OBJECTS -> blockingObjects = new HashSet<>((Set<StaticBlock>) message.getValue());
-		case SEND_ITEMS -> items = new HashSet<>((Set<ItemCollidable>) message.getValue());
+		case SEND_ITEMS -> items = new HashSet<>((Set<Item>) message.getValue());
 		case SPAWN_ENEMIES -> {
 			characterManager.spawnEnemies((Collection<EnemySpawnData>) message.getValue());
 			aiManager.addEnemies(characterManager.getEnemies());

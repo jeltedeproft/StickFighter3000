@@ -40,6 +40,12 @@ public interface Collidable {
 
 	public UUID getId();
 
+	public float getWidth();
+
+	public float getHeight();
+
+	public void setSize(float width, float height);
+
 	public Rectangle getRectangle();
 
 	public Rectangle getOldRectangle();
@@ -51,6 +57,10 @@ public interface Collidable {
 	public boolean isDynamic();
 
 	public boolean goesTroughObjects();
+
+	public void setCollided(boolean b);
+
+	public boolean isCollided();
 
 	public COLLIDABLE_TYPE getType();
 

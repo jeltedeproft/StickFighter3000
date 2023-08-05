@@ -31,7 +31,7 @@ import java.util.Set;
 
 import jelte.mygame.graphical.map.EnemySpawnData;
 import jelte.mygame.graphical.map.PatrolPoint;
-import jelte.mygame.logic.collisions.collidable.ItemCollidable;
+import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.logic.collisions.collidable.StaticBlockLeft;
@@ -54,7 +54,7 @@ public class MapManager implements Disposable {
 	private float currentMapWidth;
 	private float currentMapHeight;
 	private Set<StaticBlock> blockingRectangles;
-	private Set<ItemCollidable> items;
+	private Set<Item> items;
 	private Collection<EnemySpawnData> enemySpawnData;
 	private FrameBuffer minimapFrameBuffer;
 	private float minimapZoomLevel;
@@ -113,12 +113,12 @@ public class MapManager implements Disposable {
 		return rectangles;
 	}
 
-	public Set<ItemCollidable> extractItemsFromMap(MapLayer objectLayer) {
-		Set<ItemCollidable> collidables = new HashSet<>();
+	public Set<Item> extractItemsFromMap(MapLayer objectLayer) {
+		Set<Item> collidables = new HashSet<>();
 
 		for (MapObject object : objectLayer.getObjects()) {
 			if (object instanceof RectangleMapObject rectangleObject) {
-				ItemCollidable item = new ItemCollidable(rectangleObject.getName(), rectangleObject.getRectangle());
+				Item item = new Item(rectangleObject.getName(), rectangleObject.getRectangle());
 				collidables.add(item);
 			}
 		}
@@ -126,9 +126,9 @@ public class MapManager implements Disposable {
 		return collidables;
 	}
 
-	public void removeitem(ItemCollidable item) {
+	public void removeitem(Item item) {
 		MapLayer itemLayer = currentMap.getLayers().get(Constants.LAYER_NAME_ITEMS);
-		MapObject objectToRemove = itemLayer.getObjects().get(item.getItem().name());
+		MapObject objectToRemove = itemLayer.getObjects().get(item.getItemEnum().name());
 		if (objectToRemove instanceof RectangleMapObject) {
 			itemLayer.getObjects().remove(objectToRemove);
 		}

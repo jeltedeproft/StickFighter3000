@@ -47,7 +47,7 @@ public class TestCollisionDetectionSystem {
 
 	private void addPlayer(Vector2 startPos) {
 		characterBody = new PlayerPhysicsComponent(UUID.randomUUID(), startPos);
-		characterBody.setDimensions(10, 10);
+		characterBody.setSize(10, 10);
 		collidables.add(characterBody);
 		collisionSystem.updateSpatialMesh(collidables);
 	}

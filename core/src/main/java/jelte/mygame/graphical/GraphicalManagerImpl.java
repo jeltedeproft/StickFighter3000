@@ -30,7 +30,7 @@ import jelte.mygame.graphical.specialEffects.SpecialEffectsManager;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsManagerImpl;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
-import jelte.mygame.logic.collisions.collidable.ItemCollidable;
+import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
@@ -173,14 +173,14 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private void renderCharacters() {
 		if (player != null) {
 			NamedSprite sprite = animationManager.getSprite(player);
-			player.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
+			player.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
 		if (enemy != null) {
 			hudManager.renderhealthBar(enemy, batch, font);
 			NamedSprite sprite = animationManager.getSprite(enemy);
-			enemy.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
+			enemy.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
@@ -189,7 +189,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private void renderSpells() {
 		for (AbstractSpell spell : spellsToRender) {
 			NamedSprite sprite = animationManager.getSprite(spell);
-			spell.getPhysicsComponent().setDimensions(sprite.getWidth(), sprite.getHeight());
+			spell.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
 			sprite.setPosition(spell.getPhysicsComponent().getRectangle().x, spell.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
@@ -220,7 +220,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			hudManager.activateNextSpell(spellsEnum);
 			break;
 		case REMOVE_ITEM:
-			mapManager.removeitem((ItemCollidable) message.getValue());
+			mapManager.removeitem((Item) message.getValue());
 			break;
 		case EXIT_GAME:
 			// dispose();
