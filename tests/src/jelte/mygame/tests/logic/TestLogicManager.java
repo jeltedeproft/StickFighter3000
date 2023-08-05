@@ -51,7 +51,9 @@ public class TestLogicManager {
 		logicManager.receiveMessage(playerActionMessage);
 
 		// Verify that the message is forwarded to the PlayerCharacter
-		verify(listener).receiveMessage(playerActionMessage);
+		verify(logicManager).receiveMessage(playerActionMessage);
+
+		// TODO mock characterManager and check effects
 	}
 
 	@Test
@@ -70,6 +72,9 @@ public class TestLogicManager {
 	@Test
 	public void testReceiveMessage_SpawnEnemies() {
 		// Test receiveMessage() with a message to spawn enemies
+		EnemySpawnData spawnData = new EnemySpawnData();
+		spawnData.setType("2");
+		spawnData.setSpawnPoint(new Vector2(10, 10));
 		Collection<EnemySpawnData> enemySpawnData = Collections.singletonList(new EnemySpawnData());
 		Message spawnEnemiesMessage = new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, enemySpawnData);
 		logicManager.receiveMessage(spawnEnemiesMessage);
@@ -77,6 +82,7 @@ public class TestLogicManager {
 		// Verify that the enemies are correctly spawned in the CharacterManager
 		// and the AiManager is updated with the new enemies
 		// (You may need to use mock objects for CharacterManager and AiManager to verify these interactions)
+
 	}
 
 	@Test

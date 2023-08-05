@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -77,7 +78,6 @@ public class HudManager {
 		uiViewport.getCamera().update();
 
 		uiStage = new Stage(uiViewport, batch);
-		uiStage.setDebugAll(true);
 
 		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
@@ -125,17 +125,14 @@ public class HudManager {
 		playerHpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
 		playerMpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "mp");// TODO change to MP and stamina here
 		playerStaminaBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "stamina");
-		// statsWindow.add(redCrystal).size(10).expand().left().top().padLeft(20).padTop(10);
 		statsWindow.add(hpicon).size(20).expand().left().top().padLeft(20).padTop(10);
 		statsWindow.add(playerHpBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top().padTop(10); // Positions the button in the center of the table
 		statsWindow.row();
-		// statsWindow.add(blueCrystal).size(10).expand().left().top().padLeft(20);
 		statsWindow.add(mpicon).size(20).expand().left().top().padLeft(20);
 		statsWindow.add(playerMpBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top(); // Positions the button in the center of the table
 		statsWindow.row();
-		// statsWindow.add(greenCrystal).size(10).expand().left().top().padLeft(20);
 		statsWindow.add(staminaIcon).size(20).expand().left().top().padLeft(20);
 		statsWindow.add(playerStaminaBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top(); // Positions the button in the center of the table
@@ -144,11 +141,19 @@ public class HudManager {
 
 		minimapImage = new Image();
 
+		Table topBar = new Table();
+		Table bottomBar = new Table();
 		for (int i = 1; i < Constants.MAX_SPELL_SLOTS; i++) {
 			SpellButton button = new SpellButton(skin);
-			bottomMiddleBar.add(button.getStack()).expand().fill().bottom();
+			bottomBar.add(button.getStack()).align(Align.bottomLeft);
 			spellButtons.add(button);
 		}
+
+		bottomMiddleBar.add(topBar).width(rectangleWidth).height(rectangleHeight / 2);
+		bottomMiddleBar.row();
+		bottomMiddleBar.add(bottomBar).width(rectangleWidth).height(rectangleHeight / 2).align(Align.bottomLeft);
+
+		root.pack();
 
 		uiStage.addActor(root); // Adds the table to the stage
 	}

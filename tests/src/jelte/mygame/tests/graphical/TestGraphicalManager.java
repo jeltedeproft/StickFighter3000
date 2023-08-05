@@ -7,16 +7,16 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.headless.mock.graphics.MockGraphics;
+import com.badlogic.gdx.utils.Array;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.headless.mock.graphics.MockGraphics;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
@@ -92,7 +92,7 @@ public class TestGraphicalManager {
 
 		// Assert the expected behavior or state changes
 		// For example, you can assert that the playerHpBar's value was updated with the correct HP value
-		assertEquals(currentHp, graphicalManager.getPlayerHpBar().getValue(), 0.001f);
+		assertEquals(currentHp, graphicalManager.getHudManager().getPlayerHpBar().getValue(), 0.001f);
 	}
 
 	@Test
@@ -106,7 +106,7 @@ public class TestGraphicalManager {
 
 		// Assert the expected behavior or state changes
 		// For example, you can assert that the enemyHealthBars map contains the enemy as a key
-		assertTrue(graphicalManager.getEnemyHealthBars().containsKey(enemy));
+		assertTrue(graphicalManager.getHudManager().getEnemyHealthBars().containsKey(enemy));
 	}
 
 	@Test

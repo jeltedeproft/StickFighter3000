@@ -49,9 +49,9 @@ public class TestStaticTopCollisionStrategy {
 		assertTrue(dynamicCollidable.getPosition().x == 0);
 		assertTrue(dynamicCollidable.getPosition().y == 0);
 		assertTrue(dynamicCollidable.getVelocity().x == -50);
-		assertTrue(dynamicCollidable.getVelocity().y == 0);
+		assertTrue(dynamicCollidable.getVelocity().y == -1);
 		assertTrue(dynamicCollidable.getAcceleration().x == 0);
-		assertTrue(dynamicCollidable.getAcceleration().y == 0);
+		assertTrue(dynamicCollidable.getAcceleration().y == -1);
 
 	}
 

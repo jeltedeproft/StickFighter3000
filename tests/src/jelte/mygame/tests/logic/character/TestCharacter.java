@@ -22,12 +22,12 @@ import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
-import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.spells.SpellFileReader;
+import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.logging.MultiFileLogger;
@@ -35,7 +35,7 @@ import jelte.mygame.utility.logging.MultiFileLogger;
 @RunWith(GdxTestRunner.class)
 public class TestCharacter {
 
-	private Character character;
+	private PlayerCharacter character;
 	private UUID characterId = UUID.randomUUID();
 
 	@Mock
@@ -114,10 +114,21 @@ public class TestCharacter {
 	}
 
 	@Test
-	public void testReceiveMessage() {
+	public void testReceiveMessageSpellNotUnlocked() {
 		// Test the receiveMessage() method
 		Message message = new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 0);
 		character.receiveMessage(message);
+		// Add assertions as needed
+		assertEquals(0, character.getSpellsPreparedToCast().size);
+	}
+
+	@Test
+	public void testReceiveMessageSpellUnlocked() {
+		// Test the receiveMessage() method
+		Message message = new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 0);
+		character.unlockSpell(SpellsEnum.values()[0]);
+		character.receiveMessage(message);
+
 		// Add assertions as needed
 		assertEquals(1, character.getSpellsPreparedToCast().size);
 		assertEquals(0, character.getSpellsPreparedToCast().get(0).getId());
