@@ -8,13 +8,12 @@ import com.badlogic.gdx.utils.StringBuilder;
 import java.util.Objects;
 import java.util.UUID;
 
-import jelte.mygame.logic.collisions.collidable.Collidable;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidable {
+public abstract class PhysicsComponentImpl implements PhysicsComponent {
 	private static final String TAG = PhysicsComponentImpl.class.getSimpleName();
 	protected UUID ownerReference;
 	protected Rectangle oldRectangle;
@@ -25,8 +24,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 	protected Rectangle rectangle;
 	protected boolean collided;
 	protected Array<COLLIDABLE_TYPE> collidedWith;
-	protected boolean hasMoved;
-	protected boolean fallTrough;
+	protected boolean moved;
 	protected boolean onGround;
 	protected float width;
 	protected float height;
@@ -142,7 +140,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 		sb.append("\n");
 
 		sb.append("hasMoved : ");
-		sb.append(hasMoved);
+		sb.append(moved);
 		sb.append("\n");
 
 		return sb.toString();
@@ -165,7 +163,7 @@ public abstract class PhysicsComponentImpl implements PhysicsComponent, Collidab
 
 	@Override
 	public boolean hasMoved() {
-		return hasMoved;
+		return moved;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package jelte.mygame.logic.collisions.collidable;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 import java.util.UUID;
 
@@ -40,6 +41,10 @@ public interface Collidable {
 
 	public UUID getId();
 
+	public Vector2 getPosition();
+
+	public void setPosition(Vector2 pos);
+
 	public float getWidth();
 
 	public float getHeight();
@@ -55,8 +60,6 @@ public interface Collidable {
 	public boolean isStatic();
 
 	public boolean isDynamic();
-
-	public boolean goesTroughObjects();
 
 	public void setCollided(boolean b);
 

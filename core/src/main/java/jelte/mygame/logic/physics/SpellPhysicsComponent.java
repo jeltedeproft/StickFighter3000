@@ -27,7 +27,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 
 	@Override
 	public void update(float delta) {
-		hasMoved = false;
+		moved = false;
 
 		velocity.add(acceleration);
 
@@ -63,7 +63,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 
 	@Override
 	protected void updatePosition(float newX, float newY) {
-		hasMoved = true;
+		moved = true;
 		oldRectangle.set(rectangle);
 		Gdx.app.error(TAG, "setting position to : (" + newX + "," + newY + ")");
 		position.set(newX, newY);
@@ -80,13 +80,13 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	}
 
 	@Override
-	public boolean goesTroughObjects() {
+	public boolean goesTroughWalls() {
 		return goesTroughObjects;
 	}
 
 	@Override
 	public boolean hasMoved() {
-		return hasMoved;
+		return moved;
 	}
 
 	@Override

@@ -1,9 +1,9 @@
 package jelte.mygame.logic.physics;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.UUID;
 
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.utility.Constants;
@@ -16,6 +16,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 
 	private static final String TAG = PlayerPhysicsComponent.class.getSimpleName();
 	protected Direction direction;
+	protected boolean fallTrough;
 
 	protected CharacterPhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
 		super(playerReference, startPosition);
@@ -25,7 +26,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 
 	@Override
 	public void update(float delta) {
-		hasMoved = false;
+		moved = false;
 
 		velocity.add(acceleration);
 		velocity.add(Constants.GRAVITY);
@@ -62,7 +63,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 
 	@Override
 	protected void updatePosition(float newX, float newY) {
-		hasMoved = true;
+		moved = true;
 		oldRectangle.set(rectangle);
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
@@ -73,7 +74,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 	}
 
 	@Override
-	public boolean goesTroughObjects() {
+	public boolean goesTroughWalls() {
 		return false;
 	}
 

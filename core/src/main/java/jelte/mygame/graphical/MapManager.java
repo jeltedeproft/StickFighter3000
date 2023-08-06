@@ -133,7 +133,7 @@ public class MapManager implements Disposable {
 			itemLayer.getObjects().remove(objectToRemove);
 		}
 		TiledMapTileLayer itemVisualLayer = (TiledMapTileLayer) currentMap.getLayers().get(Constants.LAYER_NAME_VISUAL_ITEMS);
-		Cell itemCell = itemVisualLayer.getCell((int) (item.x / mapProperties.get("tilewidth", Integer.class)), (int) (item.y / mapProperties.get("tileheight", Integer.class)));
+		Cell itemCell = itemVisualLayer.getCell((int) (item.getPosition().x / mapProperties.get("tilewidth", Integer.class)), (int) (item.getPosition().y / mapProperties.get("tileheight", Integer.class)));
 		itemCell.setTile(null);
 	}
 

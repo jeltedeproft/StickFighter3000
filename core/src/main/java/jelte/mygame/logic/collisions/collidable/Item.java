@@ -1,6 +1,7 @@
 package jelte.mygame.logic.collisions.collidable;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import java.util.Objects;
@@ -13,20 +14,24 @@ import jelte.mygame.logic.spells.SpellsEnum;
 import lombok.Getter;
 
 @Getter
-public class Item extends Rectangle implements Collidable {
+public class Item implements Collidable {
 	private static final long serialVersionUID = 1L;
 	private UUID id;
+	private Rectangle rectangle;
 	private ItemEnum itemEnum;
 	private boolean toBeRemoved = false;
+	private boolean collided;
+	private Vector2 position;
 
 	public Item(String itemName, Rectangle rectangle) {
-		super(rectangle);
+		this.rectangle = rectangle;
+		position = rectangle.getPosition(new Vector2(0, 0));
 		id = UUID.randomUUID();
 		this.itemEnum = ItemEnum.valueOf(itemName);
 	}
 
 	public Item(int x, int y, int width, int height) {
-		super(x, y, width, height);
+		rectangle = new Rectangle(x, y, width, height);
 		id = UUID.randomUUID();
 	}
 
@@ -49,12 +54,12 @@ public class Item extends Rectangle implements Collidable {
 
 	@Override
 	public Rectangle getRectangle() {
-		return this;
+		return rectangle;
 	}
 
 	@Override
 	public Rectangle getOldRectangle() {
-		return this;
+		return rectangle;
 	}
 
 	@Override
@@ -69,11 +74,6 @@ public class Item extends Rectangle implements Collidable {
 
 	@Override
 	public boolean isDynamic() {
-		return false;
-	}
-
-	@Override
-	public boolean goesTroughObjects() {
 		return false;
 	}
 
@@ -107,22 +107,58 @@ public class Item extends Rectangle implements Collidable {
 		StringBuilder sb = new StringBuilder();
 		sb.append("pos = ");
 		sb.append("(");
-		sb.append(this.x);
+		sb.append(rectangle.x);
 		sb.append(",");
-		sb.append(this.y);
+		sb.append(rectangle.y);
 		sb.append(")");
 		sb.append("\n");
 		sb.append("width = ");
-		sb.append(width);
+		sb.append(rectangle.width);
 		sb.append("\n");
 		sb.append("height = ");
-		sb.append(height);
+		sb.append(rectangle.height);
 		sb.append("\n");
 		return sb.toString();
 	}
 
 	public AudioEnum getAudioEvent() {
 		return AudioEnum.valueOf("SOUND_" + itemEnum.name());
+	}
+
+	@Override
+	public Vector2 getPosition() {
+		return rectangle.getPosition(position);
+	}
+
+	@Override
+	public void setPosition(Vector2 position) {
+		rectangle.setPosition(position.x, position.y);
+	}
+
+	@Override
+	public void setCollided(boolean b) {
+		collided = b;
+	}
+
+	@Override
+	public boolean isCollided() {
+		return collided;
+	}
+
+	@Override
+	public void setSize(float width, float height) {
+		rectangle.setWidth(width);
+		rectangle.setHeight(height);
+	}
+
+	@Override
+	public float getWidth() {
+		return rectangle.getWidth();
+	}
+
+	@Override
+	public float getHeight() {
+		return rectangle.getHeight();
 	}
 
 }

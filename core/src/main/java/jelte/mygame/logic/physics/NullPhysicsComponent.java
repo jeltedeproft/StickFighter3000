@@ -56,7 +56,7 @@ public class NullPhysicsComponent implements PhysicsComponent {
 	}
 
 	@Override
-	public boolean goesTroughObjects() {
+	public boolean goesTroughWalls() {
 		return goesTroughObjects;
 	}
 
@@ -122,7 +122,7 @@ public class NullPhysicsComponent implements PhysicsComponent {
 	}
 
 	@Override
-	public boolean isHasMoved() {
+	public boolean isMoved() {
 		// TODO Auto-generated method stub
 		return false;
 	}

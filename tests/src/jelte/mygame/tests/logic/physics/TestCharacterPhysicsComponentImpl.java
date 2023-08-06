@@ -77,7 +77,7 @@ public class TestCharacterPhysicsComponentImpl {
 		Vector2 startPosition = new Vector2(0, 0);
 		CharacterPhysicsComponentImpl characterPhysicsComponent = new PlayerPhysicsComponent(playerReference, startPosition);
 
-		assertFalse(characterPhysicsComponent.goesTroughObjects());
+		assertFalse(characterPhysicsComponent.goesTroughWalls());
 	}
 
 	@Test

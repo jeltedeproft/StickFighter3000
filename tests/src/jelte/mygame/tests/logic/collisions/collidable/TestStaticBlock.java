@@ -25,10 +25,10 @@ public class TestStaticBlock {
 
 		StaticBlock staticBlock = new StaticBlockBot(x, y, width, height);
 
-		assertEquals(x, staticBlock.x, 0.001);
-		assertEquals(y, staticBlock.y, 0.001);
-		assertEquals(width, staticBlock.width, 0.001);
-		assertEquals(height, staticBlock.height, 0.001);
+		assertEquals(x, staticBlock.getPosition().x, 0.001);
+		assertEquals(y, staticBlock.getPosition().y, 0.001);
+		assertEquals(width, staticBlock.getWidth(), 0.001);
+		assertEquals(height, staticBlock.getHeight(), 0.001);
 	}
 
 	@Test

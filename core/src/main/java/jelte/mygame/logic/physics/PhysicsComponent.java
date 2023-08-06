@@ -8,11 +8,11 @@ import jelte.mygame.logic.collisions.collidable.Collidable;
 
 public interface PhysicsComponent extends Collidable {
 
+	public UUID getOwnerReference();
+
 	public void update(float delta);
 
-	public Vector2 getPosition();
-
-	public void setPosition(Vector2 pos);
+	public void move(float x, float y);
 
 	public Vector2 getVelocity();
 
@@ -28,10 +28,8 @@ public interface PhysicsComponent extends Collidable {
 
 	public boolean isOnGround();
 
-	public boolean isHasMoved();
+	public boolean isMoved();
 
-	public UUID getOwnerReference();
-
-	public void move(float x, float y);
+	public boolean goesTroughWalls();
 
 }
