@@ -20,6 +20,7 @@ public class Constants {
 	public static final int PLAYER_HEIGHT = 10;
 	public static final float WALK_SPEED = 2.0f;
 	public static final float MOVEMENT_SPEED = 3.0f;
+	public static final float FALL_MOVEMENT_SPEED = 2.0f;
 	public static final float SPRINT_SPEED = 4.0f;
 	public static final float ROLL_SPEED = 270.0f;
 	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
@@ -114,6 +115,7 @@ public class Constants {
 	public static final float DEFAULT_ANIMATION_SPEED = 0.05f;
 	public static final float MUSIC_FADE_IN_DURATION = 3f;
 	public static final float MUSIC_FADE_OUT_DURATION = 5f;
+	public static final float MAX_JUMP_PRESS_TIME = 1f;
 
 	// DIMENSIONS
 	public static final float MINIMAP_WIDTH = 280;

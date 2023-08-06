@@ -15,7 +15,7 @@ public class CharacterStateHolding implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.hangCharacterInTheAirAgainstGravity();
+		characterStateManager.grabLedge();
 
 	}
 

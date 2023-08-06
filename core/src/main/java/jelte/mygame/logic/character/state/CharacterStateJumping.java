@@ -6,7 +6,6 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
@@ -15,6 +14,7 @@ import jelte.mygame.utility.Constants;
 public class CharacterStateJumping implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private CHARACTER_STATE state = CHARACTER_STATE.JUMPING;
+	private boolean jumpUnpressed = false;
 
 	public CharacterStateJumping(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -22,12 +22,16 @@ public class CharacterStateJumping implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.forceUp(Constants.JUMP_SPEED.y);// TODO also adds acceleration now, is it bigger?
+		characterStateManager.startJump();
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 	}
 
 	@Override
 	public void update(float delta) {
+		timeSincePress += delta;
+		if (timeSincePress > Constants.MAX_JUMP_PRESS_TIME) {
+			characterStateManager.jump(Constants.MAX_JUMP_PRESS_TIME);
+		}
 		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
 		if (collidedWithCorner(collidedWith)) {
 			characterStateManager.transition(CHARACTER_STATE.GRABBING);
@@ -49,17 +53,17 @@ public class CharacterStateJumping implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case JUMP_PRESSED:
-			entry();
+		case JUMP_UNPRESSED:
+			jumpUnpressed = true;
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
 			break;
 		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
+			characterStateManager.stopMovingInTheAir();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

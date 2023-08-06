@@ -7,6 +7,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 import jelte.mygame.Message;
+import jelte.mygame.logic.character.movement.MovementManagerImpl;
+import jelte.mygame.logic.character.movement.MovementManagerInterface;
 import jelte.mygame.logic.character.state.CharacterState;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -20,19 +22,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Character {
+public abstract class Character {
 	protected float currentHp;
 	protected CharacterData data;
 	protected UUID id;
 	protected boolean dead;
 	protected CharacterStateManager characterStateManager;
 	protected CharacterPhysicsComponentImpl physicsComponent;
+	protected MovementManagerInterface movementManager;
 	protected Queue<SpellData> spellsPreparedToCast;
 	protected Queue<SpellData> spellsreadyToCast;
 	protected Queue<String> modifiersreadyToApply;
 
-	public Character(UUID id) {
+	protected Character(UUID id) {
 		this.id = id;
+		movementManager = new MovementManagerImpl(this);
 		spellsPreparedToCast = new Queue<>();
 		spellsreadyToCast = new Queue<>();
 		modifiersreadyToApply = new Queue<>();

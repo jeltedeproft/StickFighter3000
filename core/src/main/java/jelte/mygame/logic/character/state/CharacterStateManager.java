@@ -1,6 +1,5 @@
 package jelte.mygame.logic.character.state;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
@@ -8,10 +7,8 @@ import java.util.Stack;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterData;
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.logic.spells.SpellData;
-import jelte.mygame.utility.Constants;
 
 public class CharacterStateManager {
 	private static final String TAG = CharacterStateManager.class.getSimpleName();
@@ -292,76 +289,61 @@ public class CharacterStateManager {
 		}
 	}
 
-	public void moveCharacterX(float distance) {
-		if (character.getPhysicsComponent().getDirection().equals(Direction.right)) {
-			character.getPhysicsComponent().move(distance, 0);
-		} else {
-			character.getPhysicsComponent().move(-distance, 0);
-		}
+	public void startMovingOnTheGround(float speed, boolean right) {
+		character.getMovementManager().startMovingOnTheGround(speed, right);
+
 	}
 
-	public void accelerateCharacterX(Direction direction, float movementSpeed) {
-		character.getPhysicsComponent().setDirection(direction);
-		character.getPhysicsComponent().getAcceleration().x = direction == Direction.left ? -movementSpeed : movementSpeed;
+	public void stopMovingOnTheGround() {
+		character.getMovementManager().stopMovingOnTheGround();
 	}
 
-	public void pullDown(float speed) {
-		character.getPhysicsComponent().getVelocity().y -= speed;
-		character.getPhysicsComponent().getAcceleration().y -= speed;
+	public void startMovingInTheAir(float speed, boolean right) {
+		character.getMovementManager().startMovingInTheAir(speed, right);
+
 	}
 
-	public void speedUpwards(float speed) {
-		character.getPhysicsComponent().getVelocity().y += speed;
-		character.getPhysicsComponent().getAcceleration().y += speed;
+	public void stopMovingInTheAir() {
+		character.getMovementManager().stopMovingInTheAir();
+
 	}
 
-	public void forceUp(float speed) {
-		character.getPhysicsComponent().getVelocity().y += speed;
+	public void startJump() {
+		character.getMovementManager().startJump();
+
 	}
 
-	public void stopCharacter() {
-		character.getPhysicsComponent().getAcceleration().x = 0;
-		character.getPhysicsComponent().setVelocity(new Vector2(0, 0));
+	public void setFallTrough(boolean fallTrough) {
+		character.getMovementManager().setFallTrough(fallTrough);
+
 	}
 
-	public void fallCharacter() {
-		character.getPhysicsComponent().setFallTrough(true);
-		character.getPhysicsComponent().getVelocity().y -= 50;
-	}
-
-	public void unfallCharacter() {
-		character.getPhysicsComponent().setFallTrough(false);
-	}
-
-	public void hangCharacterInTheAirAgainstGravity() {
-		character.getPhysicsComponent().getAcceleration().y = -Constants.GRAVITY.y;
-		character.getPhysicsComponent().getAcceleration().x = 0;
-		character.getPhysicsComponent().getVelocity().y = 0;
-		character.getPhysicsComponent().getVelocity().x = 0;
+	public void grabLedge() {
+		character.getMovementManager().grabLedge();
 	}
 
 	public boolean characterIsFalltrough() {
-		return character.getPhysicsComponent().isFallTrough();
+		return character.getMovementManager().characterIsFalltrough();
 	}
 
 	public boolean characterHaslanded() {
-		return Math.abs(character.getPhysicsComponent().getVelocity().y) == 0;
+		return character.getMovementManager().characterHaslanded();
 	}
 
 	public boolean characterisFalling() {
-		return character.getPhysicsComponent().getVelocity().y <= 0;
+		return character.getMovementManager().characterisFalling();
 	}
 
 	public boolean characterIsAtHighestPoint() {
-		return character.getPhysicsComponent().getVelocity().y < 0.1f;
+		return character.getMovementManager().characterIsAtHighestPoint();
 	}
 
 	public boolean characterisStandingStill() {
-		return character.getPhysicsComponent().getVelocity().epsilonEquals(0, 0);
+		return character.getMovementManager().characterisStandingStill();
 	}
 
 	public boolean characterisRunning() {
-		return Math.abs(character.getPhysicsComponent().getVelocity().x) > 0;
+		return character.getMovementManager().characterisRunning();
 	}
 
 	public Array<COLLIDABLE_TYPE> getCharacterCollisions() {

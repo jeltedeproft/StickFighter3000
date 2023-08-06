@@ -6,7 +6,6 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
@@ -52,13 +51,13 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
 			break;
 		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
+			characterStateManager.stopMovingInTheAir();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
 			break;
 		case TELEPORT_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);

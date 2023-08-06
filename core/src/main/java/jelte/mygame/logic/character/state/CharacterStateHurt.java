@@ -19,7 +19,7 @@ public class CharacterStateHurt implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.hangCharacterInTheAirAgainstGravity();
+		characterStateManager.grabLedge();
 	}
 
 	@Override

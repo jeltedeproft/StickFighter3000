@@ -2,7 +2,6 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -41,15 +40,13 @@ public class CharacterStateIdle implements CharacterState {
 			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
 		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
-			characterStateManager.transition(CHARACTER_STATE.WALKING);
+			characterStateManager.startMovingOnTheGround(Constants.MOVEMENT_SPEED, false);
 			break;
-		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.stopCharacter();
+		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
+			characterStateManager.stopMovingOnTheGround();
 			break;
 		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
-			characterStateManager.transition(CHARACTER_STATE.WALKING);
+			characterStateManager.startMovingOnTheGround(Constants.MOVEMENT_SPEED, true);
 			break;
 		case DOWN_PRESSED:
 			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
