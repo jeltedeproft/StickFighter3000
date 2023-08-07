@@ -32,16 +32,16 @@ public class CharacterStateAttack implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
+			characterStateManager.popState();
 		}
-
 	}
 
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
 			characterStateManager.stopCharacter();

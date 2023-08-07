@@ -12,6 +12,8 @@ public interface MovementManagerInterface {
 
 	public void startJump();
 
+	public void applyJumpForce();
+
 	public void setFallTrough(boolean fallTrough);
 
 	public void grabLedge();

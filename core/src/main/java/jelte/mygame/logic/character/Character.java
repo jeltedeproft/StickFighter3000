@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import jelte.mygame.Message;
+import jelte.mygame.logic.character.input.CharacterInputHandler;
 import jelte.mygame.logic.character.movement.MovementManagerImpl;
 import jelte.mygame.logic.character.movement.MovementManagerInterface;
 import jelte.mygame.logic.character.state.CharacterState;
@@ -30,6 +31,7 @@ public abstract class Character {
 	protected CharacterStateManager characterStateManager;
 	protected CharacterPhysicsComponentImpl physicsComponent;
 	protected MovementManagerInterface movementManager;
+	protected CharacterInputHandler characterInputHandler;
 	protected Queue<SpellData> spellsPreparedToCast;
 	protected Queue<SpellData> spellsreadyToCast;
 	protected Queue<String> modifiersreadyToApply;

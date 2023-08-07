@@ -6,6 +6,8 @@ dependencies {
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
   api "org.projectlombok:lombok:$lombokVersion"
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+  api "com.crashinvaders.basisu:basisu-wrapper:$gdxBasisuVersion"
+  api "com.crashinvaders.basisu:basisu-gdx:$gdxBasisuVersion"
   implementation "com.github.raeleus.TenPatch:tenpatch:5.2.3"
   implementation "com.github.Hangman:TuningFork:$tuningForkVersion"
   implementation "com.github.raeleus.stripe:stripe:$stripeVersion"

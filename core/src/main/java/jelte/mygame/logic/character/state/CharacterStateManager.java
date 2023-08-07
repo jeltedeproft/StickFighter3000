@@ -3,7 +3,8 @@ package jelte.mygame.logic.character.state;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterData;
@@ -12,7 +13,6 @@ import jelte.mygame.logic.spells.SpellData;
 
 public class CharacterStateManager {
 	private static final String TAG = CharacterStateManager.class.getSimpleName();
-	private CharacterState currentCharacterState;
 	private CharacterState characterStateAttack;
 	private CharacterState characterStateDie;
 	private CharacterState characterStateHurt;
@@ -46,8 +46,8 @@ public class CharacterStateManager {
 	private Character character;
 	private boolean stateChanged = false;
 	private boolean stateChangedLastFrame = false;
-	private CHARACTER_STATE previousCharacterState;
-	private Stack<EVENT> pressedKeysBuffer = new Stack<>();
+	private Deque<CharacterState> stateStack = new ArrayDeque<>(3);// TODO is 3 a good size?
+	private Deque<EVENT> pressedKeysBuffer = new ArrayDeque<>();
 
 	public enum CHARACTER_STATE {
 		ATTACKING,
@@ -139,13 +139,15 @@ public class CharacterStateManager {
 		characterStateClimbing = new CharacterStateClimbing(this);
 		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this, data.getHoldToSlideFullTime());
 		characterStateJumpToFall = new CharacterStateJumpToFall(this);
-		currentCharacterState = characterStateAppear;
-		previousCharacterState = CHARACTER_STATE.APPEARING;
+		stateStack.addFirst(characterStateAppear);
 	}
 
 	public void update(float delta) {
-		currentCharacterState.update(delta);
-		updateStateChange();
+		if (!stateStack.isEmpty()) {
+			CharacterState currentState = stateStack.peek();
+			currentState.update(delta);
+			updateStateChange();
+		}
 		character.getPhysicsComponent().getCollidedWith().clear();
 	}
 
@@ -159,114 +161,71 @@ public class CharacterStateManager {
 	}
 
 	public CharacterState getCurrentCharacterState() {
-		return currentCharacterState;
+		return stateStack.getFirst();
 	}
 
-	public void transition(CHARACTER_STATE state) {
+	public void pushState(CHARACTER_STATE state) {
 		stateChanged = true;
-		previousCharacterState = currentCharacterState.getState();
-		currentCharacterState.exit();
-		switch (state) {
-		case APPEARING:
-			currentCharacterState = characterStateAppear;
-			break;
-		case ATTACKING:
-			currentCharacterState = characterStateAttack;
-			break;
-		case DIE:
-			currentCharacterState = characterStateDie;
-			break;
-		case HURT:
-			currentCharacterState = characterStateHurt;
-			break;
-		case IDLE:
-			currentCharacterState = characterStateIdle;
-			break;
-		case JUMPING:
-			currentCharacterState = characterStateJumping;
-			break;
-		case RUNNING:
-			currentCharacterState = characterStateRunning;
-			break;
-		case CROUCHED:
-			currentCharacterState = characterStateCrouched;
-			break;
-		case STOPRUNNING:
-			currentCharacterState = characterStateStopRunning;
-			break;
-		case LANDING:
-			currentCharacterState = characterStateLanding;
-			break;
-		case FALLING:
-			currentCharacterState = characterStateFalling;
-			break;
-		case BLOCKING:
-			currentCharacterState = characterStateBlocking;
-			break;
-		case PRECAST:
-			currentCharacterState = characterStatePreCasting;
-			break;
-		case CAST:
-			currentCharacterState = characterStateCasting;
-			break;
-		case CLIMBING:
-			currentCharacterState = characterStateClimbing;
-			break;
-		case DASHING:
-			currentCharacterState = characterStateDashing;
-			break;
-		case FALLATTACKING:
-			currentCharacterState = characterStateFallAttacking;
-			break;
-		case LANDATTACKING:
-			currentCharacterState = characterStateLandAttacking;
-			break;
-		case GRABBING:
-			currentCharacterState = characterStateGrabbing;
-			break;
-		case HOLDING:
-			currentCharacterState = characterStateHolding;
-			break;
-		case IDLECROUCH:
-			currentCharacterState = characterStateIdleCrouch;
-			break;
-		case ROLLATTACK:
-			currentCharacterState = characterStateRollAttacking;
-			break;
-		case ROLLING:
-			currentCharacterState = characterStateRolling;
-			break;
-		case SPRINTING:
-			currentCharacterState = characterStateSprinting;
-			break;
-		case TELEPORTING:
-			currentCharacterState = characterStateTeleporting;
-			break;
-		case WALKING:
-			currentCharacterState = characterStateWalking;
-			break;
-		case WALLSLIDING:
-			currentCharacterState = characterStateWallSliding;
-			break;
-		case WALLSLIDINGSTOP:
-			currentCharacterState = characterStateWallSlidingStop;
-			break;
-		case HOLDINGTOSLIDING:
-			currentCharacterState = characterStateHoldingToSliding;
-			break;
-		case JUMPTOFALL:
-			currentCharacterState = characterStateJumpToFall;
-			break;
-		default:
-			break;
-
+		if (!stateStack.isEmpty()) {
+			CharacterState currentState = stateStack.peek();
+			currentState.pauze();
 		}
-		currentCharacterState.entry();
+		CharacterState newstate = getStateFromEnum(state);
+		stateStack.addFirst(newstate);
+		newstate.entry();
+	}
+
+	public void popState() {
+		if (!stateStack.isEmpty()) {
+			CharacterState currentState = stateStack.pop();
+			currentState.exit();
+
+			if (!stateStack.isEmpty()) {
+				CharacterState newTopState = stateStack.peek();
+				newTopState.resume();
+			}
+		}
+	}
+
+	private CharacterState getStateFromEnum(CHARACTER_STATE state) {
+		return switch (state) {
+		case APPEARING -> characterStateAppear;
+		case ATTACKING -> characterStateAttack;
+		case DIE -> characterStateDie;
+		case HURT -> characterStateHurt;
+		case IDLE -> characterStateIdle;
+		case JUMPING -> characterStateJumping;
+		case RUNNING -> characterStateRunning;
+		case CROUCHED -> characterStateCrouched;
+		case STOPRUNNING -> characterStateStopRunning;
+		case LANDING -> characterStateLanding;
+		case FALLING -> characterStateFalling;
+		case BLOCKING -> characterStateBlocking;
+		case PRECAST -> characterStatePreCasting;
+		case CAST -> characterStateCasting;
+		case CLIMBING -> characterStateClimbing;
+		case DASHING -> characterStateDashing;
+		case FALLATTACKING -> characterStateFallAttacking;
+		case LANDATTACKING -> characterStateLandAttacking;
+		case GRABBING -> characterStateGrabbing;
+		case HOLDING -> characterStateHolding;
+		case IDLECROUCH -> characterStateIdleCrouch;
+		case ROLLATTACK -> characterStateRollAttacking;
+		case ROLLING -> characterStateRolling;
+		case SPRINTING -> characterStateSprinting;
+		case TELEPORTING -> characterStateTeleporting;
+		case WALKING -> characterStateWalking;
+		case WALLSLIDING -> characterStateWallSliding;
+		case WALLSLIDINGSTOP -> characterStateWallSlidingStop;
+		case HOLDINGTOSLIDING -> characterStateHoldingToSliding;
+		case JUMPTOFALL -> characterStateJumpToFall;
+		default -> throw new IllegalArgumentException("character state is not expected");
+		};
 	}
 
 	public void handleEvent(EVENT event) {
 		updateBuffer(event);
-		currentCharacterState.handleEvent(event);
+		stateStack.getFirst().handleEvent(event);
 	}
 
 	private void updateBuffer(EVENT event) {
@@ -308,9 +267,12 @@ public class CharacterStateManager {
 
 	}
 
+	public void applyJumpForce() {
+		character.getMovementManager().applyJumpForce();
+	}
+
 	public void startJump() {
 		character.getMovementManager().startJump();
-
 	}
 
 	public void setFallTrough(boolean fallTrough) {
@@ -369,16 +331,12 @@ public class CharacterStateManager {
 		return character;
 	}
 
-	public Stack<EVENT> getPressedKeysBuffer() {
+	public Deque<EVENT> getPressedKeysBuffer() {
 		return pressedKeysBuffer;
 	}
 
 	public boolean isStateChanged() {
 		return stateChanged;
-	}
-
-	public CHARACTER_STATE getPreviousCharacterState() {
-		return previousCharacterState;
 	}
 
 	@Override
@@ -387,7 +345,7 @@ public class CharacterStateManager {
 
 		sb.append("currentCharacterState");
 		sb.append(" --> ");
-		sb.append(currentCharacterState);
+		sb.append(stateStack.getFirst());
 
 		return sb.toString();
 	}

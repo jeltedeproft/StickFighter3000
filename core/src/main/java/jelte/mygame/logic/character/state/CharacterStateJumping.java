@@ -14,7 +14,7 @@ import jelte.mygame.utility.Constants;
 public class CharacterStateJumping implements CharacterState {
 	private CharacterStateManager characterStateManager;
 	private CHARACTER_STATE state = CHARACTER_STATE.JUMPING;
-	private boolean jumpUnpressed = false;
+	private boolean jumpPressed = false;
 
 	public CharacterStateJumping(CharacterStateManager characterStateManager) {
 		this.characterStateManager = characterStateManager;
@@ -22,15 +22,15 @@ public class CharacterStateJumping implements CharacterState {
 
 	@Override
 	public void entry() {
+		jumpPressed = true;
 		characterStateManager.startJump();
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
 	}
 
 	@Override
 	public void update(float delta) {
-		timeSincePress += delta;
-		if (timeSincePress > Constants.MAX_JUMP_PRESS_TIME) {
-			characterStateManager.jump(Constants.MAX_JUMP_PRESS_TIME);
+		if (jumpPressed) {
+			characterStateManager.applyJumpForce();
 		}
 		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
 		if (collidedWithCorner(collidedWith)) {
@@ -54,7 +54,7 @@ public class CharacterStateJumping implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case JUMP_UNPRESSED:
-			jumpUnpressed = true;
+			jumpPressed = false;
 			break;
 		case LEFT_PRESSED:
 			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);

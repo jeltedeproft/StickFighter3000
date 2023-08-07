@@ -1,9 +1,13 @@
 package jelte.mygame.logic.character.movement;
 
+import com.badlogic.gdx.utils.TimeUtils;
+
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.utility.Constants;
 
 public class MovementManagerImpl implements MovementManagerInterface {
-	Character character;
+	private Character character;
+	private Long jumpStartTime;
 
 	public MovementManagerImpl(Character character) {
 		this.character = character;
@@ -18,13 +22,23 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	@Override
 	public void stopMovingOnTheGround(boolean right) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
-	public void jump(float durationPressed) {
-		// TODO Auto-generated method stub
+	public void startJump() {
+		jumpStartTime = TimeUtils.nanoTime(); // Record the start time in nanoseconds
+		character.getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
+	}
 
+	@Override
+	public void applyJumpForce() {
+		float jumpDuration = (TimeUtils.nanoTime() - jumpStartTime) / 1000000000f; // Convert nanoseconds to seconds
+
+		character.getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
+
+		if (jumpDuration < Constants.MAX_JUMP_DURATION && character.getPhysicsComponent().getVelocity().y > 0) {
+			character.getPhysicsComponent().getVelocity().y = Math.min(character.getPhysicsComponent().getVelocity().y, Constants.MAX_JUMP_SPEED.y);
+		}
 	}
 
 	@Override
