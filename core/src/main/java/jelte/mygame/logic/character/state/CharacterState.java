@@ -1,5 +1,6 @@
 package jelte.mygame.logic.character.state;
 
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -13,6 +14,8 @@ public interface CharacterState {
 	public void resume();
 
 	public void handleEvent(EVENT event);
+
+	public void handleInput(InputBox inputBox);
 
 	public void exit();
 

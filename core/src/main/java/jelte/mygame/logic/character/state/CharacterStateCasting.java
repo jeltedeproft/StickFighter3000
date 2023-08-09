@@ -31,7 +31,7 @@ public class CharacterStateCasting implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
+			characterStateManager.popState();
 		}
 	}
 

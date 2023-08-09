@@ -5,6 +5,8 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -23,7 +25,6 @@ public class CharacterStateBlocking implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
-		characterStateManager.stopCharacter();
 	}
 
 	@Override
@@ -31,30 +32,42 @@ public class CharacterStateBlocking implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
+			characterStateManager.popState();
 		}
 	}
 
 	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case ATTACK:
+			if (inputBox.isPressed(BUTTONS.ATTACK)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
+			}
 			break;
-		case TELEPORT_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
+		case DASH:
+			if (inputBox.isPressed(BUTTONS.DASH)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.DASHING);
+			}
 			break;
-		case DASH_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.DASHING);
+		case ROLL:
+			if (inputBox.isPressed(BUTTONS.ROLL)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.ROLLING);
+			}
 			break;
-		case ROLL_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ROLLING);
+		case SPELL0:
+			if (inputBox.isPressed(BUTTONS.SPELL0)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.PRECAST);
+			}
 			break;
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
-			break;
-		case CAST_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.PRECAST);
+		case TELEPORT:
+			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
+			}
 			break;
 		default:
 			break;
@@ -83,6 +96,24 @@ public class CharacterStateBlocking implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

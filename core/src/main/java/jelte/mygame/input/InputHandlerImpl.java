@@ -19,17 +19,28 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 	private MessageListener listener;
 	private final IntSet downKeys = new IntSet(Constants.MAX_DOWNKEYS);
 	private InputMultiplexer inputMultiplexer;
+	private InputBox inputBox;
+
+	public enum BUTTONS {
+		LEFT,
+		RIGHT,
+		UP,
+		DOWN,
+		ATTACK,
+		SPRINT,
+		BLOCK,
+		DASH,
+		ROLL,
+		TELEPORT,
+		SPELL0;
+	}
 
 	public InputHandlerImpl(MessageListener listener) {
 		this.listener = listener;
+		inputBox = new InputBox();
 		inputMultiplexer = new InputMultiplexer();
 		inputMultiplexer.addProcessor(this);
 		Gdx.input.setInputProcessor(inputMultiplexer);
-	}
-
-	@Override
-	public void update(float delta) {
-
 	}
 
 	@Override
@@ -60,89 +71,40 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if (keycode == KeyBindings.getBinding(Constants.EXIT)) {
-			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.EXIT_GAME));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.RIGHT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.UP)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.UP_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.ATTACK)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ATTACK_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_SPRINT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_BLOCK)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_DASH)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DASH_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_ROLL)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ROLL_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_TELEPORT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.TELEPORT_PRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_SPELL0)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 2));// TODO configure thi snumber somehow
-		}
+		inputBox.updateButtonPressed(keycode, true);
+		listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
 		return true;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.RIGHT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.DOWN)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_SPRINT)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_BLOCK)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_UNPRESSED));
-		}
-		if (keycode == KeyBindings.getBinding(Constants.KEY_SPELL0)) {
-			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_RELEASED, 1));// TODO configure thi snumber somehow
-		}
+		inputBox.updateButtonPressed(keycode, false);
+		listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
 		return true;
 	}
 
 	@Override
+	public void update(float delta) {
+
+	}
+
+	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -154,7 +116,6 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 

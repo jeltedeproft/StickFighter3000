@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -30,7 +31,8 @@ public class CharacterStatePreCasting implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.CAST);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.CAST);
 		}
 	}
 
@@ -38,11 +40,9 @@ public class CharacterStatePreCasting implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.clearSpells();
-			characterStateManager.transition(CHARACTER_STATE.HURT);
-			break;
-		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.stopCharacter();
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		default:
 			break;
@@ -71,6 +71,24 @@ public class CharacterStatePreCasting implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

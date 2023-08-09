@@ -2,6 +2,8 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.input.InputBox;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -29,26 +31,9 @@ public class CharacterStateRollAttacking implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			if (characterStateManager.characterisRunning()) {
-				characterStateManager.transition(CHARACTER_STATE.RUNNING);
-			} else {
-				characterStateManager.transition(CHARACTER_STATE.IDLE);
-			}
-
+			characterStateManager.popState();
 		}
-		characterStateManager.moveCharacterX(Constants.ROLL_SPEED * delta);
-	}
-
-	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
-			break;
-		default:
-			break;
-
-		}
+		characterStateManager.startMovingOnTheGround(Constants.ROLL_SPEED, characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right);
 	}
 
 	@Override
@@ -72,6 +57,30 @@ public class CharacterStateRollAttacking implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

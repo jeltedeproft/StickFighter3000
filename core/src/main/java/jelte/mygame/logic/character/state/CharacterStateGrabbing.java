@@ -2,7 +2,8 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.Direction;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -17,7 +18,7 @@ public class CharacterStateGrabbing implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.hangCharacterInTheAirAgainstGravity();
+		characterStateManager.grabLedge();
 	}
 
 	@Override
@@ -29,31 +30,55 @@ public class CharacterStateGrabbing implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
-			break;
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
-			break;
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
-			break;
-		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
-			characterStateManager.transition(CHARACTER_STATE.RUNNING);
-			break;
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
-			characterStateManager.transition(CHARACTER_STATE.RUNNING);
-			break;
-		case DOWN_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		case NO_COLLISION:
-			characterStateManager.transition(CHARACTER_STATE.FALLING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			break;
+		default:
+			break;
+
+		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case DOWN:
+			if (inputBox.isPressed(BUTTONS.DOWN)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			}
+			break;
+		case LEFT:
+			if (inputBox.isPressed(BUTTONS.LEFT)) {
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			}
+			break;
+		case RIGHT:
+			if (inputBox.isPressed(BUTTONS.RIGHT)) {
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			}
+			break;
+		case TELEPORT:
+			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
+			}
+			break;
+		case UP:
+			if (inputBox.isPressed(BUTTONS.UP)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.JUMPING);
+			}
 			break;
 		default:
 			break;
@@ -80,6 +105,18 @@ public class CharacterStateGrabbing implements CharacterState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -37,19 +37,6 @@ public class SpellStateLoop implements SpellState {
 	}
 
 	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case CAST_PRESSED:
-			break;
-		case CAST_RELEASED:
-			break;
-		default:
-			break;
-
-		}
-	}
-
-	@Override
 	public void exit() {
 		timer = duration;
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, audioEnum);
@@ -71,6 +58,12 @@ public class SpellStateLoop implements SpellState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

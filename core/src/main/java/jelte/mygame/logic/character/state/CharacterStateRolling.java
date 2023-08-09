@@ -5,6 +5,9 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -31,24 +34,28 @@ public class CharacterStateRolling implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			if (characterStateManager.characterisRunning()) {
-				characterStateManager.transition(CHARACTER_STATE.RUNNING);
-			} else {
-				characterStateManager.transition(CHARACTER_STATE.IDLE);
-			}
-
+			characterStateManager.popState();
 		}
-		characterStateManager.moveCharacterX(Constants.ROLL_SPEED * delta);
+		characterStateManager.startMovingOnTheGround(Constants.ROLL_SPEED, characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right);
 	}
 
 	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case ATTACK:
+			if (inputBox.isPressed(BUTTONS.ATTACK)) {
+				characterStateManager.pushState(CHARACTER_STATE.ROLLATTACK);
+			}
 			break;
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ROLLATTACK);
+		case LEFT:
+			if (!inputBox.isPressed(BUTTONS.LEFT)) {
+				characterStateManager.stopMovingOnTheGround();
+			}
+			break;
+		case RIGHT:
+			if (!inputBox.isPressed(BUTTONS.RIGHT)) {
+				characterStateManager.stopMovingOnTheGround();
+			}
 			break;
 		default:
 			break;
@@ -78,6 +85,24 @@ public class CharacterStateRolling implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -1,7 +1,11 @@
-package jelte.mygame.logic.character.state;import com.badlogic.gdx.utils.StringBuilder;
+package jelte.mygame.logic.character.state;
 
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import com.badlogic.gdx.utils.StringBuilder;
+
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
 public class CharacterStateHoldingToSliding implements CharacterState {
 	private CharacterStateManager characterStateManager;
@@ -26,7 +30,8 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.WALLSLIDING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.WALLSLIDING);
 		}
 	}
 
@@ -34,13 +39,23 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
+		default:
 			break;
-		case DOWN_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.WALLSLIDING);
+		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case UP:
+			if (inputBox.isPressed(BUTTONS.UP)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.JUMPING);
+			}
 			break;
 		default:
 			break;
@@ -69,6 +84,18 @@ public class CharacterStateHoldingToSliding implements CharacterState {
 		sb.append("seconds");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

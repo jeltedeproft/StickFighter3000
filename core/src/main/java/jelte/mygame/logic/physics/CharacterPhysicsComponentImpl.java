@@ -17,6 +17,8 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 	private static final String TAG = PlayerPhysicsComponent.class.getSimpleName();
 	protected Direction direction;
 	protected boolean fallTrough;
+	protected boolean stopping;
+	protected boolean starting;
 
 	protected CharacterPhysicsComponentImpl(UUID playerReference, Vector2 startPosition) {
 		super(playerReference, startPosition);
@@ -33,6 +35,22 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 
 		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
+		}
+
+		if (starting) {
+			velocity.x += Constants.STARTUP_SPEED;
+			if (Math.abs(velocity.x) > Constants.VELOCITY_STARTUP_TRESHOLD) {
+				starting = false;
+			}
+		}
+
+		if (stopping) {
+			acceleration.x = 0;
+			velocity.x *= Constants.FRICTION;
+			if (Math.abs(velocity.x) < Constants.VELOCITY_MIN_TRESHOLD) {
+				velocity.x = 0;
+				stopping = false;
+			}
 		}
 
 		newPosition.x = position.x + velocity.x * delta;

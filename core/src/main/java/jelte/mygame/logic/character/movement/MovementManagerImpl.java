@@ -15,13 +15,24 @@ public class MovementManagerImpl implements MovementManagerInterface {
 
 	@Override
 	public void startMovingOnTheGround(float speed, boolean right) {
-		// TODO Auto-generated method stub
-
+		character.getPhysicsComponent().setVelocityX(right ? speed : -speed);
+		character.getPhysicsComponent().setStarting(true);
 	}
 
 	@Override
-	public void stopMovingOnTheGround(boolean right) {
-		// TODO Auto-generated method stub
+	public void stopMovingOnTheGround() {
+		character.getPhysicsComponent().setStopping(true);
+	}
+
+	@Override
+	public void startMovingInTheAir(float speed, boolean right) {
+		character.getPhysicsComponent().setVelocityX(right ? speed : -speed);
+		character.getPhysicsComponent().setStarting(true);
+	}
+
+	@Override
+	public void stopMovingInTheAir() {
+		character.getPhysicsComponent().setStopping(true);
 	}
 
 	@Override
@@ -43,14 +54,12 @@ public class MovementManagerImpl implements MovementManagerInterface {
 
 	@Override
 	public void setFallTrough(boolean fallTrough) {
-		// TODO Auto-generated method stub
-
+		character.getPhysicsComponent().setFallTrough(fallTrough);
 	}
 
 	@Override
 	public void grabLedge() {
-		// TODO Auto-generated method stub
-
+		character.getPhysicsComponent().getVelocity().y = -Constants.GRAVITY.y;
 	}
 
 	@Override

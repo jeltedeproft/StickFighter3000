@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Array;
 import java.util.UUID;
 
 import jelte.mygame.graphical.map.PatrolPoint;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.ai.VisionCollidable;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager;
@@ -22,11 +23,13 @@ public class AiCharacter extends Character {
 	private int activePatrolPointIndex = 0;
 	private AI_STATE state = AI_STATE.PATROL;
 	private VisionCollidable visionCollidable;
+	private InputBox inputBox;
 
 	public AiCharacter(EnemyData data, UUID id, Vector2 spawnPoint, Array<PatrolPoint> patrolPoints) {
 		super(id);
 		this.data = data;
 		this.patrolPoints = patrolPoints;
+		inputBox = new InputBox();
 		characterStateManager = new CharacterStateManager(this);
 		currentHp = data.getMaxHP();
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.CharacterData;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
@@ -46,8 +47,7 @@ public class CharacterStateManager {
 	private Character character;
 	private boolean stateChanged = false;
 	private boolean stateChangedLastFrame = false;
-	private Deque<CharacterState> stateStack = new ArrayDeque<>(3);// TODO is 3 a good size?
-	private Deque<EVENT> pressedKeysBuffer = new ArrayDeque<>();
+	private Deque<CharacterState> stateStack = new ArrayDeque<>(6);// TODO is 3 a good size?
 
 	public enum CHARACTER_STATE {
 		ATTACKING,
@@ -84,26 +84,8 @@ public class CharacterStateManager {
 
 	public enum EVENT {
 		DAMAGE_TAKEN,
-		JUMP_PRESSED,
-		ATTACK_PRESSED,
-		CAST_PRESSED,
-		CAST_RELEASED,
 		DIED,
-		DOWN_PRESSED,
-		DOWN_UNPRESSED,
-		LEFT_PRESSED,
-		LEFT_UNPRESSED,
-		RIGHT_PRESSED,
-		RIGHT_UNPRESSED,
-		JUMP_UNPRESSED,
 		NO_COLLISION,
-		DASH_PRESSED,
-		ROLL_PRESSED,
-		TELEPORT_PRESSED,
-		BLOCK_PRESSED,
-		BLOCK_UNPRESSED,
-		SPRINT_PRESSED,
-		SPRINT_UNPRESSED,
 	}
 
 	public CharacterStateManager(Character character) {
@@ -223,29 +205,12 @@ public class CharacterStateManager {
 		};
 	}
 
-	public void handleEvent(EVENT event) {
-		updateBuffer(event);
-		stateStack.getFirst().handleEvent(event);
+	public void handleInput(InputBox inputBox) {
+		stateStack.getFirst().handleInput(inputBox);
 	}
 
-	private void updateBuffer(EVENT event) {
-		switch (event) {
-		case SPRINT_PRESSED, DOWN_PRESSED, LEFT_PRESSED, RIGHT_PRESSED:
-			pressedKeysBuffer.add(event);
-			break;
-		case DOWN_UNPRESSED:
-			pressedKeysBuffer.remove(EVENT.DOWN_PRESSED);
-			break;
-		case LEFT_UNPRESSED:
-			pressedKeysBuffer.remove(EVENT.LEFT_PRESSED);
-			break;
-		case RIGHT_UNPRESSED:
-			pressedKeysBuffer.remove(EVENT.RIGHT_PRESSED);
-			break;
-		default:
-			break;
-
-		}
+	public void handleEvent(EVENT event) {
+		stateStack.getFirst().handleEvent(event);
 	}
 
 	public void startMovingOnTheGround(float speed, boolean right) {
@@ -329,10 +294,6 @@ public class CharacterStateManager {
 
 	public Character getCharacter() {
 		return character;
-	}
-
-	public Deque<EVENT> getPressedKeysBuffer() {
-		return pressedKeysBuffer;
 	}
 
 	public boolean isStateChanged() {

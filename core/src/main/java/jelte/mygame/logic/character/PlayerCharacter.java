@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Array;
 import java.util.UUID;
 
 import jelte.mygame.Message;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
@@ -42,16 +43,16 @@ public class PlayerCharacter extends Character {
 
 	@Override
 	public void receiveMessage(Message message) {
-		switch (message.getAction()) {
-		case CAST_PRESSED:
-			SpellData data = SpellFileReader.getSpellData().get((int) message.getValue());
+		InputBox inputBox = (InputBox) message.getValue();
+		switch (inputBox.getLastUsedButton()) {
+		case SPELL0:
+			SpellData data = SpellFileReader.getSpellData().get(0);
 			if (isSpellUnlocked(data)) {
 				super.receiveMessage(message);
 			}
 			break;
 		default:
 			super.receiveMessage(message);
-
 		}
 	}
 

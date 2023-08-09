@@ -91,7 +91,7 @@ public class LogicManagerImpl implements LogicManager {
 	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
-		case DOWN_PRESSED, DOWN_UNPRESSED, LEFT_PRESSED, LEFT_UNPRESSED, RIGHT_PRESSED, RIGHT_UNPRESSED, UP_PRESSED, ATTACK_PRESSED, DASH_PRESSED, ROLL_PRESSED, TELEPORT_PRESSED, SPRINT_PRESSED, SPRINT_UNPRESSED, BLOCK_PRESSED, BLOCK_UNPRESSED, CAST_PRESSED -> characterManager.getPlayer().receiveMessage(message);
+		case SEND_BUTTONS_MAP -> characterManager.getPlayer().receiveMessage(message);
 		case SEND_MOUSE_COORDINATES -> {
 			Vector3 mouseVector = (Vector3) message.getValue();
 			mousePosition.x = mouseVector.x;

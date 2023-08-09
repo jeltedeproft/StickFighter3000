@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.SpellFileReader;
@@ -41,15 +42,31 @@ public class CharacterStateAttack implements CharacterState {
 		switch (event) {
 		case DAMAGE_TAKEN:
 			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 			characterStateManager.pushState(CHARACTER_STATE.HURT);
-			break;
-		case RIGHT_UNPRESSED, LEFT_UNPRESSED:
-			characterStateManager.stopCharacter();
 			break;
 		default:
 			break;
 
 		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

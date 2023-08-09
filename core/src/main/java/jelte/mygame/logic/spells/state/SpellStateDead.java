@@ -24,19 +24,6 @@ public class SpellStateDead implements SpellState {
 	}
 
 	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case CAST_PRESSED:
-			break;
-		case CAST_RELEASED:
-			break;
-		default:
-			break;
-
-		}
-	}
-
-	@Override
 	public void exit() {
 
 	}
@@ -54,6 +41,12 @@ public class SpellStateDead implements SpellState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

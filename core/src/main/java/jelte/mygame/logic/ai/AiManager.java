@@ -10,6 +10,7 @@ import java.util.Set;
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.ai.strategy.AiStrategy;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.ai.strategy.advanced.AdvancedAiStrategy;
@@ -91,10 +92,14 @@ public class AiManager {
 
 	private void transitionEffect(AiCharacter aiCharacter, AI_STATE oldState, AI_STATE newState) {
 		if (newState == AI_STATE.ATTACK) {
-			aiCharacter.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.ATTACK_PRESSED));
+			aiCharacter.getInputBox().updateButtonPressed(BUTTONS.ATTACK, true);
+			aiCharacter.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, aiCharacter.getInputBox()));
+			aiCharacter.getInputBox().updateButtonPressed(BUTTONS.ATTACK, false);
 		}
 		if (newState == AI_STATE.CAST) {
-			aiCharacter.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 2));// TODO configure this number somehow
+			aiCharacter.getInputBox().updateButtonPressed(BUTTONS.SPELL0, true);// TODO configure which spell somehow
+			aiCharacter.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, aiCharacter.getInputBox()));
+			aiCharacter.getInputBox().updateButtonPressed(BUTTONS.SPELL0, false);
 		}
 	}
 
