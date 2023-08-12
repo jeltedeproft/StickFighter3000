@@ -71,8 +71,12 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		inputBox.updateButtonPressed(keycode, true);
-		listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
+		if (keycode == KeyBindings.getBinding(Constants.EXIT)) {
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.EXIT_GAME));
+		} else {
+			inputBox.updateButtonPressed(keycode, true);
+			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
+		}
 		return true;
 	}
 
