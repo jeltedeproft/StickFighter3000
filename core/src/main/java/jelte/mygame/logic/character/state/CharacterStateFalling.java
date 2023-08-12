@@ -6,6 +6,8 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
@@ -28,11 +30,14 @@ public class CharacterStateFalling implements CharacterState {
 	public void update(float delta) {
 		Array<COLLIDABLE_TYPE> collidedWith = characterStateManager.getCharacterCollisions();
 		if (collidedWithCorner(collidedWith)) {
-			characterStateManager.transition(CHARACTER_STATE.GRABBING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.GRABBING);
 		} else if (collidedWithWall(collidedWith)) {
-			characterStateManager.transition(CHARACTER_STATE.HOLDING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.HOLDING);
 		} else if (characterStateManager.characterHaslanded() && collidedWith.contains(COLLIDABLE_TYPE.STATIC_BOT, false) || collidedWith.contains(COLLIDABLE_TYPE.STATIC_PLATFORM, false) && !characterStateManager.characterIsFalltrough()) {
-			characterStateManager.transition(CHARACTER_STATE.LANDING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.LANDING);
 		}
 	}
 
@@ -47,33 +52,56 @@ public class CharacterStateFalling implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
+		case DAMAGE_TAKEN:
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
-		case LEFT_PRESSED:
-			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
+		default:
 			break;
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopMovingInTheAir();
+		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case ATTACK:
+			if (inputBox.isPressed(BUTTONS.ATTACK)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.FALLATTACKING);
+			}
 			break;
-		case RIGHT_PRESSED:
-			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+		case BLOCK:
+			if (inputBox.isPressed(BUTTONS.BLOCK)) {
+				characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
+			}
 			break;
-		case TELEPORT_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
+		case DASH:
+			if (inputBox.isPressed(BUTTONS.DASH)) {
+				characterStateManager.pushState(CHARACTER_STATE.DASHING);
+			}
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);// TODO make a negative number out of this in stead of adding a boolean
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}
 			break;
-		case CAST_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.PRECAST);
+		case RIGHT:
+			if (inputBox.isPressed(BUTTONS.RIGHT)) {
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+			} else {
+				characterStateManager.stopMovingInTheAir();
+			}
 			break;
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.FALLATTACKING);
+		case SPELL0:
+			if (inputBox.isPressed(BUTTONS.SPELL0)) {
+				characterStateManager.pushState(CHARACTER_STATE.PRECAST);
+			}
+			break;
+		case TELEPORT:
+			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
+				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
+			}
 			break;
 		default:
 			break;
@@ -93,11 +121,18 @@ public class CharacterStateFalling implements CharacterState {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-
 		sb.append("in");
 		sb.append(state.name());
-
 		return sb.toString();
 	}
 
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+	}
 }

@@ -1,11 +1,14 @@
 package jelte.mygame.logic.character.movement;
 
+import com.badlogic.gdx.utils.TimeUtils;
+
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.utility.Constants;
 
 public class MovementManagerImpl implements MovementManagerInterface {
 	Character character;
+	private Long jumpStartTime;
 
 	public MovementManagerImpl(Character character) {
 		this.character = character;
@@ -72,14 +75,12 @@ public class MovementManagerImpl implements MovementManagerInterface {
 
 	@Override
 	public void setFallTrough(boolean fallTrough) {
-		// TODO Auto-generated method stub
-
+		character.getPhysicsComponent().setFallTrough(fallTrough);
 	}
 
 	@Override
 	public void grabLedge() {
-		// TODO Auto-generated method stub
-
+		character.getPhysicsComponent().getVelocity().y = -Constants.GRAVITY.y;
 	}
 
 	@Override

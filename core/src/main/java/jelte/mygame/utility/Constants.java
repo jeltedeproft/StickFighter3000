@@ -12,6 +12,10 @@ public class Constants {
 
 	// PHYSICS
 	public static final float MAX_SPEED = 1000;
+	public static final float FRICTION = 0.9f;
+	public static final float VELOCITY_MIN_TRESHOLD = 0.01f;
+	public static final float VELOCITY_STARTUP_TRESHOLD = 2f;
+	public static final float STARTUP_SPEED = 0.01f;
 	public static final Vector2 GRAVITY = new Vector2(0, -10);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
 	public static final float CLIMB_SPEED = 1.0f;
