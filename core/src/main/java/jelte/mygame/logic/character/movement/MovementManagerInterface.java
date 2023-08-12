@@ -10,9 +10,15 @@ public interface MovementManagerInterface {
 
 	public void stopMovingInTheAir();
 
+	public void climb(float climbSpeed);
+
 	public void startJump();
 
 	public void applyJumpForce();
+
+	public void applyHorizontalForce(float distance);
+
+	public void pullDown(float speed);
 
 	public void setFallTrough(boolean fallTrough);
 

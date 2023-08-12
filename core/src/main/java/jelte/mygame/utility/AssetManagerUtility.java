@@ -34,7 +34,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.crashinvaders.basisu.gdx.BasisuTextureLoader;
 import com.ray3k.stripe.FreeTypeSkinLoader;
 
 import de.pottgames.tuningfork.SoundBuffer;
@@ -57,6 +56,7 @@ public class AssetManagerUtility implements Disposable {
 	private static SoundLoader soundLoader = new SoundLoader(filePathResolver);
 	private static MusicLoader musicLoader = new MusicLoader(filePathResolver);
 	private static TextureAtlasLoader textureAtlasLoader = new TextureAtlasLoader(filePathResolver);
+	private static BasisUniversalTextureAtlasLoader basisUniversalTextureAtlasLoader = new BasisUniversalTextureAtlasLoader(filePathResolver);
 	private static SoundBufferLoader soundBufferLoader = new SoundBufferLoader(new InternalFileHandleResolver());
 	private static Set<String> spriteNames = new HashSet<>();;
 
@@ -294,7 +294,9 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(filePathResolver));
 		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(filePathResolver));
 		assetManager.setLoader(TiledMap.class, tmxMapLoader);
+		assetManager.setLoader(TextureAtlas.class, ".basis", basisUniversalTextureAtlasLoader);
 		assetManager.setLoader(Texture.class, ".basis", new BasisuTextureLoader(assetManager.getFileHandleResolver()));
+		assetManager.setLoader(Texture.class, textureLoader);
 		assetManager.setLoader(ParticleEffect.class, particleEffectLoader);
 		assetManager.setLoader(Sound.class, soundLoader);
 		assetManager.setLoader(Music.class, musicLoader);

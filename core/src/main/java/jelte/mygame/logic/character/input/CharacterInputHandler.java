@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CharacterInputHandler {
-	private InputBox inputBox;
+	private InputBox inputBox = new InputBox();;
 
 	public BUTTONS getLastPressedButton() {
 		return inputBox.getLastUsedButton();

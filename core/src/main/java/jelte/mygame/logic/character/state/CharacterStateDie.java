@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -19,7 +20,7 @@ public class CharacterStateDie implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH);
-		characterStateManager.stopCharacter();// TODO used to also set acceleration y to 0, now not anymore? readd?
+		characterStateManager.stopMovingOnTheGround();
 	}
 
 	@Override
@@ -52,5 +53,23 @@ public class CharacterStateDie implements CharacterState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 }

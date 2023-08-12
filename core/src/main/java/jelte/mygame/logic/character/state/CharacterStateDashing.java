@@ -5,6 +5,9 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -29,28 +32,22 @@ public class CharacterStateDashing implements CharacterState {
 	@Override
 	public void update(float delta) {
 		timer -= delta;
-		characterStateManager.moveCharacterX(Constants.DASH_DISTANCE * delta);
+		boolean isRight = characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right;
+		characterStateManager.startMovingOnTheGround((isRight ? Constants.DASH_DISTANCE : -Constants.DASH_DISTANCE) * delta, false);
 		if (timer <= 0) {
-			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
-		}
-	}
-
-	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		default:
-			break;
-
+			exit();
 		}
 	}
 
 	@Override
 	public void exit() {
 		timer = duration;
+		InputBox inputBox = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox();
+		if (inputBox.isPressed(BUTTONS.RIGHT) || inputBox.isPressed(BUTTONS.LEFT)) {
+			characterStateManager.pushState(CHARACTER_STATE.WALKING);
+		} else {
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+		}
 	}
 
 	@Override
@@ -69,6 +66,30 @@ public class CharacterStateDashing implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

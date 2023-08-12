@@ -14,6 +14,7 @@ public class InputBox {
 	}
 
 	public void updateButtonPressed(BUTTONS button, boolean isPressed) {
+		lastUsedButton = button;
 		buttonPressed[button.ordinal()] = isPressed;
 	}
 

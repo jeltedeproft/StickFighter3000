@@ -2,8 +2,6 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.input.InputBox;
-import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -18,15 +16,8 @@ public class CharacterStateIdle implements CharacterState {
 
 	@Override
 	public void entry() {
-		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
-		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
-		if (leftPressed && !rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
-			characterStateManager.pushState(CHARACTER_STATE.WALKING);
-		}
-		if (!leftPressed && rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
-			characterStateManager.pushState(CHARACTER_STATE.WALKING);
+		for (EVENT event : characterStateManager.getPressedKeysBuffer()) {
+			handleEvent(event);
 		}
 	}
 
@@ -39,16 +30,17 @@ public class CharacterStateIdle implements CharacterState {
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
+		case ATTACK_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
+			break;
 		case DAMAGE_TAKEN:
-			characterStateManager.popState();
-			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
-		case NO_COLLISION:
-			characterStateManager.popState();
-			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+		case JUMP_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.JUMPING);
 			break;
-		default:
+		case LEFT_PRESSED:
+			characterStateManager.startMovingOnTheGround(Constants.MOVEMENT_SPEED, false);
 			break;
 
 		}
@@ -59,59 +51,33 @@ public class CharacterStateIdle implements CharacterState {
 		switch (inputBox.getLastUsedButton()) {
 		case ATTACK:
 			if (inputBox.isPressed(BUTTONS.ATTACK)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
 			}
 			break;
 		case BLOCK:
 			if (inputBox.isPressed(BUTTONS.BLOCK)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
 			}
 			break;
-		case DASH:
-			if (inputBox.isPressed(BUTTONS.DASH)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.DASHING);
-			}
+		case DOWN_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
 			break;
-		case DOWN:
-			if (inputBox.isPressed(BUTTONS.DOWN)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.CROUCHED);
-			}
+		case NO_COLLISION:
+			characterStateManager.transition(CHARACTER_STATE.FALLING);
 			break;
-		case LEFT:
-			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.WALKING);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
-			}
+		case TELEPORT_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
 			break;
-		case RIGHT:
-			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.WALKING);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
-			}
+		case DASH_PRESSED:
+			characterStateManager.transition(CHARACTER_STATE.DASHING);
 			break;
 		case ROLL:
 			if (inputBox.isPressed(BUTTONS.ROLL)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.ROLLING);
 			}
 			break;
 		case SPELL0:
 			if (inputBox.isPressed(BUTTONS.SPELL0)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.PRECAST);
 			}
 			break;
@@ -123,8 +89,6 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 		case TELEPORT:
 			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
 			}
 			break;
@@ -138,6 +102,7 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 
 		}
+	}
 
 	@Override
 	public void exit() {
@@ -158,6 +123,18 @@ public class CharacterStateIdle implements CharacterState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

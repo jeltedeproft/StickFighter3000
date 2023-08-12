@@ -2,7 +2,8 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.logic.character.Direction;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -29,36 +30,55 @@ public class CharacterStateWallSlidingStop implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.HOLDING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.HOLDING);
 		}
 	}
 
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
-			break;
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
-			break;
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
-			break;
-		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
-			break;
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
-			break;
-		case DOWN_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		case NO_COLLISION:
-			characterStateManager.transition(CHARACTER_STATE.FALLING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			break;
+		default:
+			break;
+
+		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case DOWN:
+			if (!inputBox.isPressed(BUTTONS.DOWN)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.HOLDING);
+			}
+			break;
+		case LEFT:
+			if (inputBox.isPressed(BUTTONS.LEFT)) {
+				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, false);
+			} else {
+				characterStateManager.stopMovingInTheAir();
+			}
+			break;
+		case RIGHT:
+			if (inputBox.isPressed(BUTTONS.RIGHT)) {
+				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, true);
+			} else {
+				characterStateManager.stopMovingInTheAir();
+			}
+			break;
+		case UP:
+			if (inputBox.isPressed(BUTTONS.UP)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.HOLDING);
+			}
 			break;
 		default:
 			break;
@@ -87,6 +107,18 @@ public class CharacterStateWallSlidingStop implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

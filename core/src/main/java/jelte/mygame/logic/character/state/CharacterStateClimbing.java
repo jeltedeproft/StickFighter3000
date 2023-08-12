@@ -5,7 +5,8 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.logic.character.Direction;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -25,36 +26,49 @@ public class CharacterStateClimbing implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
-
+		InputBox inputBox = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox();
+		if (inputBox.isPressed(BUTTONS.UP)) {
+			characterStateManager.climb(Constants.CLIMB_SPEED);
+		}
+		if (inputBox.isPressed(BUTTONS.DOWN)) {
+			characterStateManager.climb(-Constants.CLIMB_SPEED);
+		}
 	}
 
 	@Override
 	public void handleEvent(EVENT event) {
 		switch (event) {
-		case ATTACK_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.ATTACKING);
-			break;
 		case DAMAGE_TAKEN:
-			characterStateManager.transition(CHARACTER_STATE.HURT);
-			break;
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
-			break;
-		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
-			break;
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
-			break;
-		case DOWN_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.CROUCHED);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		case NO_COLLISION:
-			characterStateManager.transition(CHARACTER_STATE.FALLING);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.FALLING);
+			break;
+		default:
+			break;
+
+		}
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		switch (inputBox.getLastUsedButton()) {
+		case LEFT:
+			if (inputBox.isPressed(BUTTONS.LEFT)) {
+				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, false);
+			} else {
+				characterStateManager.stopMovingInTheAir();
+			}
+			break;
+		case RIGHT:
+			if (inputBox.isPressed(BUTTONS.RIGHT)) {
+				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, true);
+			} else {
+				characterStateManager.stopMovingInTheAir();
+			}
 			break;
 		default:
 			break;
@@ -81,6 +95,18 @@ public class CharacterStateClimbing implements CharacterState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

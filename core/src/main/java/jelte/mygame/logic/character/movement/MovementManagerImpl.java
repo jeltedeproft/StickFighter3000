@@ -1,13 +1,11 @@
 package jelte.mygame.logic.character.movement;
 
-import com.badlogic.gdx.utils.TimeUtils;
-
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.utility.Constants;
 
 public class MovementManagerImpl implements MovementManagerInterface {
-	private Character character;
-	private Long jumpStartTime;
+	Character character;
 
 	public MovementManagerImpl(Character character) {
 		this.character = character;
@@ -36,6 +34,11 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	}
 
 	@Override
+	public void climb(float climbSpeed) {
+		character.getPhysicsComponent().setVelocityY(climbSpeed);
+	}
+
+	@Override
 	public void startJump() {
 		jumpStartTime = TimeUtils.nanoTime(); // Record the start time in nanoseconds
 		character.getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
@@ -53,13 +56,30 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	}
 
 	@Override
+	public void applyHorizontalForce(float distance) {
+		if (character.getPhysicsComponent().getDirection().equals(Direction.right)) {
+			character.getPhysicsComponent().move(distance, 0);
+		} else {
+			character.getPhysicsComponent().move(-distance, 0);
+		}
+	}
+
+	@Override
+	public void pullDown(float speed) {
+		character.getPhysicsComponent().getVelocity().y -= speed;
+		character.getPhysicsComponent().getAcceleration().y -= speed;
+	}
+
+	@Override
 	public void setFallTrough(boolean fallTrough) {
-		character.getPhysicsComponent().setFallTrough(fallTrough);
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void grabLedge() {
-		character.getPhysicsComponent().getVelocity().y = -Constants.GRAVITY.y;
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

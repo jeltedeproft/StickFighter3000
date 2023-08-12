@@ -2,6 +2,7 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
@@ -27,7 +28,8 @@ public class CharacterStateHurt implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		}
 
 	}
@@ -39,7 +41,8 @@ public class CharacterStateHurt implements CharacterState {
 			timer = duration;
 			break;
 		case DIED:
-			characterStateManager.transition(CHARACTER_STATE.DIE);
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.DIE);
 			break;
 		default:
 			break;
@@ -68,6 +71,24 @@ public class CharacterStateHurt implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

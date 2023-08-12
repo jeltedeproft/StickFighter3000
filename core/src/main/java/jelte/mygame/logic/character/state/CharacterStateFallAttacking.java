@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
-import jelte.mygame.logic.character.Direction;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.SpellFileReader;
@@ -29,36 +29,8 @@ public class CharacterStateFallAttacking implements CharacterState {
 	@Override
 	public void update(float delta) {
 		if (characterStateManager.characterHaslanded()) {
-			characterStateManager.transition(CHARACTER_STATE.LANDATTACKING);
-		}
-	}
-
-	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case JUMP_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.JUMPING);
-			break;
-		case LEFT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
-			break;
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		case RIGHT_PRESSED:
-			characterStateManager.accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
-			break;
-		case TELEPORT_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.TELEPORTING);
-			break;
-		case DASH_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.DASHING);
-			break;
-		case CAST_PRESSED:
-			characterStateManager.transition(CHARACTER_STATE.PRECAST);
-			break;
-		default:
-			break;
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.LANDATTACKING);
 		}
 	}
 
@@ -81,6 +53,30 @@ public class CharacterStateFallAttacking implements CharacterState {
 		sb.append(state.name());
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

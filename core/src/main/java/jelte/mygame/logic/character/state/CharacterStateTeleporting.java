@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
+import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -24,7 +25,8 @@ public class CharacterStateTeleporting implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
-		characterStateManager.moveCharacterX(Constants.TELEPORT_DISTANCE);
+		characterStateManager.applyHorizontalForce(Constants.TELEPORT_DISTANCE);
+
 	}
 
 	@Override
@@ -32,19 +34,8 @@ public class CharacterStateTeleporting implements CharacterState {
 		timer -= delta;
 		if (timer <= 0) {
 			timer = duration;
-			characterStateManager.transition(CHARACTER_STATE.IDLE);
-		}
-	}
-
-	@Override
-	public void handleEvent(EVENT event) {
-		switch (event) {
-		case LEFT_UNPRESSED, RIGHT_UNPRESSED:
-			characterStateManager.stopCharacter();
-			break;
-		default:
-			break;
-
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		}
 	}
 
@@ -69,6 +60,30 @@ public class CharacterStateTeleporting implements CharacterState {
 		sb.append(" more seconds ");
 
 		return sb.toString();
+	}
+
+	@Override
+	public void pauze() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handleInput(InputBox inputBox) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
