@@ -212,8 +212,8 @@ public class CharacterStateManager {
 		stateStack.getFirst().handleEvent(event);
 	}
 
-	public void startMovingOnTheGround(float speed, boolean right) {
-		character.getMovementManager().startMovingOnTheGround(speed, right);
+	public void startMovingOnTheGround(float speed) {
+		character.getMovementManager().startMovingOnTheGround(speed);
 	}
 
 	public void stopMovingOnTheGround() {

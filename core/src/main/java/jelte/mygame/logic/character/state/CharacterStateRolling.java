@@ -36,7 +36,7 @@ public class CharacterStateRolling implements CharacterState {
 			timer = duration;
 			characterStateManager.popState();
 		}
-		characterStateManager.startMovingOnTheGround(Constants.ROLL_SPEED, characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right);
+		characterStateManager.startMovingOnTheGround(characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right ? Constants.ROLL_SPEED : -Constants.ROLL_SPEED);
 	}
 
 	@Override

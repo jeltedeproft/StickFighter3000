@@ -12,10 +12,10 @@ public class Constants {
 
 	// PHYSICS
 	public static final float MAX_SPEED = 1000;
-	public static final float FRICTION = 0.9f;
-	public static final float VELOCITY_MIN_TRESHOLD = 0.01f;
+	public static final float FRICTION = 0.6f;
+	public static final float VELOCITY_MIN_TRESHOLD = 0.1f;
 	public static final float VELOCITY_STARTUP_TRESHOLD = 2f;
-	public static final float STARTUP_SPEED = 0.01f;
+	public static final float STARTUP_SPEED = 0.1f;
 	public static final Vector2 GRAVITY = new Vector2(0, -10);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
 	public static final float CLIMB_SPEED = 1.0f;
@@ -25,11 +25,11 @@ public class Constants {
 	public static final Vector2 ENEMY_START = new Vector2(500, 300);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
-	public static final float WALK_SPEED = 2.0f;
-	public static final float RUN_SPEED = 3.0f;
-	public static final float MOVEMENT_SPEED = 3.0f;
-	public static final float FALL_MOVEMENT_SPEED = 2.0f;
-	public static final float SPRINT_SPEED = 4.0f;
+	public static final float WALK_SPEED = 200.0f;
+	public static final float RUN_SPEED = 300.0f;
+	public static final float MOVEMENT_SPEED = 300.0f;
+	public static final float FALL_MOVEMENT_SPEED = 200.0f;
+	public static final float SPRINT_SPEED = 400.0f;
 	public static final float ROLL_SPEED = 270.0f;
 	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
 	public static final float DASH_DISTANCE = 300f;

@@ -38,7 +38,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 		}
 
 		if (starting) {
-			velocity.x += Constants.STARTUP_SPEED;
+			velocity.x += direction == Direction.right ? Constants.STARTUP_SPEED : -Constants.STARTUP_SPEED;
 			if (Math.abs(velocity.x) > Constants.VELOCITY_STARTUP_TRESHOLD) {
 				starting = false;
 			}
@@ -87,7 +87,7 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 		rectangle.setPosition(newX, newY);
 
 		if (direction == Direction.left) {
-			rectangle.x -= rectangle.width;
+			// rectangle.x -= rectangle.width;
 		}
 	}
 

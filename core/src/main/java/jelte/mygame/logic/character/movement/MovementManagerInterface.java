@@ -2,7 +2,7 @@ package jelte.mygame.logic.character.movement;
 
 public interface MovementManagerInterface {
 
-	public void startMovingOnTheGround(float speed, boolean right);
+	public void startMovingOnTheGround(float speed);
 
 	public void stopMovingOnTheGround();
 

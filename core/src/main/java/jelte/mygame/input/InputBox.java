@@ -1,5 +1,7 @@
 package jelte.mygame.input;
 
+import com.badlogic.gdx.utils.StringBuilder;
+
 import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
@@ -71,6 +73,22 @@ public class InputBox {
 			return BUTTONS.SPELL0.ordinal();
 		}
 		return -1;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("pressed buttons : ");
+
+		for (BUTTONS button : BUTTONS.values()) {
+			if (buttonPressed[button.ordinal()]) {
+				sb.append(button.name());
+				sb.append(" , ");
+			}
+		}
+
+		return sb.toString();
 	}
 
 }

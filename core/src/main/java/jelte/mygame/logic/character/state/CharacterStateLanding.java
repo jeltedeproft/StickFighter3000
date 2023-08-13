@@ -84,7 +84,7 @@ public class CharacterStateLanding implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
+				characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.WALKING);
 			} else {
@@ -93,7 +93,7 @@ public class CharacterStateLanding implements CharacterState {
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
+				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.WALKING);
 			} else {

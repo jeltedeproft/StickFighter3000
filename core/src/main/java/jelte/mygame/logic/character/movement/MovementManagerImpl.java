@@ -15,8 +15,9 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	}
 
 	@Override
-	public void startMovingOnTheGround(float speed, boolean right) {
-		character.getPhysicsComponent().setVelocityX(right ? speed : -speed);
+	public void startMovingOnTheGround(float speed) {
+		character.getPhysicsComponent().setVelocityX(speed);
+		character.getPhysicsComponent().setDirection(speed > 0 ? Direction.right : Direction.left);
 		character.getPhysicsComponent().setStarting(true);
 	}
 

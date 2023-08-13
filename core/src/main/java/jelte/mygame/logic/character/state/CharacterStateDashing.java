@@ -33,7 +33,7 @@ public class CharacterStateDashing implements CharacterState {
 	public void update(float delta) {
 		timer -= delta;
 		boolean isRight = characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right;
-		characterStateManager.startMovingOnTheGround((isRight ? Constants.DASH_DISTANCE : -Constants.DASH_DISTANCE) * delta, false);
+		characterStateManager.startMovingOnTheGround((isRight ? Constants.DASH_DISTANCE : -Constants.DASH_DISTANCE) * delta);
 		if (timer <= 0) {
 			exit();
 		}

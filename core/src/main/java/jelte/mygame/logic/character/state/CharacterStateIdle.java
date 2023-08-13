@@ -21,11 +21,11 @@ public class CharacterStateIdle implements CharacterState {
 		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
 		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
 		if (leftPressed && !rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
+			characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		}
 		if (!leftPressed && rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
+			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		}
 	}
@@ -83,7 +83,7 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
+				characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.WALKING);
 			} else {
@@ -92,7 +92,7 @@ public class CharacterStateIdle implements CharacterState {
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
+				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.WALKING);
 			} else {

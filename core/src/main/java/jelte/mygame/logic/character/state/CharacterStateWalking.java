@@ -26,7 +26,10 @@ public class CharacterStateWalking implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-
+		if (characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0) {
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+		}
 	}
 
 	@Override
@@ -70,14 +73,14 @@ public class CharacterStateWalking implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, false);
+				characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
 			} else {
 				characterStateManager.stopMovingOnTheGround();
 			}
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED, true);
+				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
 			} else {
 				characterStateManager.stopMovingOnTheGround();
 			}
