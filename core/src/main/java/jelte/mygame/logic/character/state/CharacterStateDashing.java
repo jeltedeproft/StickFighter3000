@@ -44,8 +44,10 @@ public class CharacterStateDashing implements CharacterState {
 		timer = duration;
 		InputBox inputBox = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox();
 		if (inputBox.isPressed(BUTTONS.RIGHT) || inputBox.isPressed(BUTTONS.LEFT)) {
+			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		} else {
+			characterStateManager.stopMovingOnTheGround();
 			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		}
 	}

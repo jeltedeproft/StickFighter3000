@@ -32,7 +32,7 @@ public class Constants {
 	public static final float SPRINT_SPEED = 400.0f;
 	public static final float ROLL_SPEED = 270.0f;
 	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
-	public static final float DASH_DISTANCE = 300f;
+	public static final float DASH_DISTANCE = 30000f;
 	public static final float TELEPORT_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;

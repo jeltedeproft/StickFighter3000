@@ -46,7 +46,7 @@ public class PlayerCharacter extends Character {
 		InputBox inputBox = (InputBox) message.getValue();
 		switch (inputBox.getLastUsedButton()) {
 		case SPELL0:
-			SpellData data = SpellFileReader.getSpellData().get(0);
+			SpellData data = SpellFileReader.getSpellData().get(2);// TODO change to spell2
 			if (isSpellUnlocked(data)) {
 				super.receiveMessage(message);
 			}

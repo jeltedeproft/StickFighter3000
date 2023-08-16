@@ -87,7 +87,7 @@ public abstract class Character {
 	public void receiveMessage(Message message) {
 		InputBox inputBox = (InputBox) message.getValue();
 		if (inputBox.getLastUsedButton() == BUTTONS.SPELL0) {
-			spellsPreparedToCast.addLast(SpellFileReader.getSpellData().get(0));
+			spellsPreparedToCast.addLast(SpellFileReader.getSpellData().get(2));// TODO change to spell2
 		}
 		characterInputHandler.setInputBox(inputBox);
 		characterStateManager.handleInput(inputBox);
