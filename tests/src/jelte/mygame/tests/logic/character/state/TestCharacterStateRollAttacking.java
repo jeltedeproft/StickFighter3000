@@ -68,7 +68,7 @@ public class TestCharacterStateRollAttacking {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.RUNNING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.RUNNING);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class TestCharacterStateRollAttacking {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class TestCharacterStateRollAttacking {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HURT);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test

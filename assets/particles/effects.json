@@ -1,0 +1,182 @@
+[
+	{
+		"id": 0,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-ATTACKING1-right-effect"
+	},
+		{
+		"id": 1,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-ATTACKING1-left-effect"
+	},
+		{
+		"id": 2,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING2",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-ATTACKING2-right-effect"
+	},
+		{
+		"id": 3,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING2",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-ATTACKING2-left-effect"
+	},
+		{
+		"id": 4,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING3",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-ATTACKING3-right-effect"
+	},
+		{
+		"id": 5,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING3",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-ATTACKING3-left-effect"
+	},
+		{
+		"id": 6,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING4",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-ATTACKING4-right-effect"
+	},
+		{
+		"id": 7,
+		"characterName": "swordmaster",
+		"actionName": "ATTACKING4",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-ATTACKING4-left-effect"
+	},
+	{
+		"id": 8,
+		"characterName": "swordmaster",
+		"actionName": "DASHING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-DASHING1-right-effect"
+	},
+		{
+		"id": 9,
+		"characterName": "swordmaster",
+		"actionName": "DASHING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-DASHING1-left-effect"
+	},
+		{
+		"id": 10,
+		"characterName": "swordmaster",
+		"actionName": "FALLATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "bot",
+		"spriteName": "swordmaster-FALLATTACKING1-right-effect"
+	},
+		{
+		"id": 11,
+		"characterName": "swordmaster",
+		"actionName": "FALLATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "bot",
+		"spriteName": "swordmaster-FALLATTACKING1-left-effect"
+	},
+			{
+		"id": 12,
+		"characterName": "swordmaster",
+		"actionName": "JUMPING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "bot",
+		"spriteName": "swordmaster-JUMPING1-right-effect"
+	},
+		{
+		"id": 13,
+		"characterName": "swordmaster",
+		"actionName": "JUMPING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "bot",
+		"spriteName": "swordmaster-JUMPING1-left-effect"
+	},
+	{
+		"id": 14,
+		"characterName": "swordmaster",
+		"actionName": "ROLLATTACK1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-ROLLATTACK1-right-effect"
+	},
+		{
+		"id": 15,
+		"characterName": "swordmaster",
+		"actionName": "ROLLATTACK1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-ROLLATTACK1-left-effect"
+	},
+		{
+		"id": 16,
+		"characterName": "swordmaster",
+		"actionName": "TELEPORTING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "swordmaster-TELEPORTING1-right-effect"
+	},
+		{
+		"id": 17,
+		"characterName": "swordmaster",
+		"actionName": "TELEPORTING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "swordmaster-TELEPORTING1-left-effect"
+	}
+]

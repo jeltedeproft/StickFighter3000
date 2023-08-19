@@ -39,6 +39,15 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.LANDING);
 		}
+
+		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
+		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
+		if (leftPressed && !rightPressed) {
+			characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
+		}
+		if (!leftPressed && rightPressed) {
+			characterStateManager.startMovingOnTheGround(Constants.FALL_MOVEMENT_SPEED);
+		}
 	}
 
 	private boolean collidedWithWall(Array<COLLIDABLE_TYPE> collidedWith) {
@@ -62,49 +71,51 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void handleInput(InputBox inputBox) {
-		switch (inputBox.getLastUsedButton()) {
-		case ATTACK:
-			if (inputBox.isPressed(BUTTONS.ATTACK)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.FALLATTACKING);
+		if (inputBox.getLastUsedButton() != null) {
+			switch (inputBox.getLastUsedButton()) {
+			case ATTACK:
+				if (inputBox.isPressed(BUTTONS.ATTACK)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.FALLATTACKING);
+				}
+				break;
+			case BLOCK:
+				if (inputBox.isPressed(BUTTONS.BLOCK)) {
+					characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
+				}
+				break;
+			case DASH:
+				if (inputBox.isPressed(BUTTONS.DASH)) {
+					characterStateManager.pushState(CHARACTER_STATE.DASHING);
+				}
+				break;
+			case LEFT:
+				if (inputBox.isPressed(BUTTONS.LEFT)) {
+					characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
+				} else {
+					characterStateManager.stopMovingInTheAir();
+				}
+				break;
+			case RIGHT:
+				if (inputBox.isPressed(BUTTONS.RIGHT)) {
+					characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
+				} else {
+					characterStateManager.stopMovingInTheAir();
+				}
+				break;
+			case SPELL0:
+				if (inputBox.isPressed(BUTTONS.SPELL0)) {
+					characterStateManager.pushState(CHARACTER_STATE.PRECAST);
+				}
+				break;
+			case TELEPORT:
+				if (inputBox.isPressed(BUTTONS.TELEPORT)) {
+					characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
+				}
+				break;
+			default:
+				break;
 			}
-			break;
-		case BLOCK:
-			if (inputBox.isPressed(BUTTONS.BLOCK)) {
-				characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
-			}
-			break;
-		case DASH:
-			if (inputBox.isPressed(BUTTONS.DASH)) {
-				characterStateManager.pushState(CHARACTER_STATE.DASHING);
-			}
-			break;
-		case LEFT:
-			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
-			} else {
-				characterStateManager.stopMovingInTheAir();
-			}
-			break;
-		case RIGHT:
-			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
-			} else {
-				characterStateManager.stopMovingInTheAir();
-			}
-			break;
-		case SPELL0:
-			if (inputBox.isPressed(BUTTONS.SPELL0)) {
-				characterStateManager.pushState(CHARACTER_STATE.PRECAST);
-			}
-			break;
-		case TELEPORT:
-			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
-				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
-			}
-			break;
-		default:
-			break;
 		}
 	}
 
@@ -128,11 +139,11 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void pauze() {
-		// TODO Auto-generated method stub
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_FALL);
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_FALL);
 	}
 }

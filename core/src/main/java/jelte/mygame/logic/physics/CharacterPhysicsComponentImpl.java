@@ -38,10 +38,10 @@ public abstract class CharacterPhysicsComponentImpl extends PhysicsComponentImpl
 		}
 
 		if (starting) {
-			velocity.x += direction == Direction.right ? Constants.STARTUP_SPEED : -Constants.STARTUP_SPEED;
 			if (Math.abs(velocity.x) > Constants.VELOCITY_STARTUP_TRESHOLD) {
 				starting = false;
 			}
+			velocity.x = direction == Direction.right ? Constants.STARTUP_SPEED : -Constants.STARTUP_SPEED;
 		}
 
 		if (stopping) {

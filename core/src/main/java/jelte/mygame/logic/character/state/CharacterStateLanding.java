@@ -54,87 +54,89 @@ public class CharacterStateLanding implements CharacterState {
 
 	@Override
 	public void handleInput(InputBox inputBox) {
-		switch (inputBox.getLastUsedButton()) {
-		case ATTACK:
-			if (inputBox.isPressed(BUTTONS.ATTACK)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
-				characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
-			}
-			break;
-		case BLOCK:
-			if (inputBox.isPressed(BUTTONS.BLOCK)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
-				characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
-			}
-			break;
-		case DASH:
-			if (inputBox.isPressed(BUTTONS.DASH)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
-				characterStateManager.pushState(CHARACTER_STATE.DASHING);
-			}
-			break;
-		case DOWN:
-			if (inputBox.isPressed(BUTTONS.DOWN)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.CROUCHED);
-			}
-			break;
-		case LEFT:
-			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.WALKING);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
-			}
-			break;
-		case RIGHT:
-			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.WALKING);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
-			}
-			break;
-		case ROLL:
-			if (inputBox.isPressed(BUTTONS.ROLL)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.ROLLING);
-			}
-			break;
-		case SPELL0:
-			if (inputBox.isPressed(BUTTONS.SPELL0)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
-				characterStateManager.pushState(CHARACTER_STATE.PRECAST);
-			}
-			break;
-		case SPRINT:
-			if (inputBox.isPressed(BUTTONS.SPRINT)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.SPRINTING);
-			}
-			break;
-		case TELEPORT:
-			if (inputBox.isPressed(BUTTONS.TELEPORT)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.IDLE);
-				characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
-			}
-			break;
-		case UP:
-			if (inputBox.isPressed(BUTTONS.UP)) {
-				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.JUMPING);
-			}
-			break;
-		default:
-			break;
+		if (inputBox.getLastUsedButton() != null) {
+			switch (inputBox.getLastUsedButton()) {
+			case ATTACK:
+				if (inputBox.isPressed(BUTTONS.ATTACK)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.IDLE);
+					characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
+				}
+				break;
+			case BLOCK:
+				if (inputBox.isPressed(BUTTONS.BLOCK)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.IDLE);
+					characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
+				}
+				break;
+			case DASH:
+				if (inputBox.isPressed(BUTTONS.DASH)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.IDLE);
+					characterStateManager.pushState(CHARACTER_STATE.DASHING);
+				}
+				break;
+			case DOWN:
+				if (inputBox.isPressed(BUTTONS.DOWN)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.CROUCHED);
+				}
+				break;
+			case LEFT:
+				if (inputBox.isPressed(BUTTONS.LEFT)) {
+					characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.WALKING);
+				} else {
+					characterStateManager.stopMovingOnTheGround();
+				}
+				break;
+			case RIGHT:
+				if (inputBox.isPressed(BUTTONS.RIGHT)) {
+					characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.WALKING);
+				} else {
+					characterStateManager.stopMovingOnTheGround();
+				}
+				break;
+			case ROLL:
+				if (inputBox.isPressed(BUTTONS.ROLL)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.ROLLING);
+				}
+				break;
+			case SPELL0:
+				if (inputBox.isPressed(BUTTONS.SPELL0)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.IDLE);
+					characterStateManager.pushState(CHARACTER_STATE.PRECAST);
+				}
+				break;
+			case SPRINT:
+				if (inputBox.isPressed(BUTTONS.SPRINT)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.SPRINTING);
+				}
+				break;
+			case TELEPORT:
+				if (inputBox.isPressed(BUTTONS.TELEPORT)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.IDLE);
+					characterStateManager.pushState(CHARACTER_STATE.TELEPORTING);
+				}
+				break;
+			case UP:
+				if (inputBox.isPressed(BUTTONS.UP)) {
+					characterStateManager.popState();
+					characterStateManager.pushState(CHARACTER_STATE.JUMPING);
+				}
+				break;
+			default:
+				break;
 
+			}
 		}
 	}
 

@@ -1,7 +1,5 @@
 package jelte.mygame.logic.ai.strategy;
 
-import com.badlogic.gdx.utils.Array;
-
 import jelte.mygame.Message;
 import jelte.mygame.logic.ai.movement.AiMovement;
 import jelte.mygame.logic.character.AiCharacter;
@@ -26,15 +24,15 @@ public abstract class AbstractAiStrategy implements AiStrategy {
 	}
 
 	@Override
-	public Array<Message> generateCommands(float delta, AiCharacter self, PlayerCharacter player) {
+	public Message generateCommand(float delta, AiCharacter self, PlayerCharacter player) {
 		return switch (self.getState()) {
-		case ATTACK -> attackStateController.getNextCommands(delta, self, player);
-		case CAST -> castStateController.getNextCommands(delta, self, player);
-		case CHASE -> chaseStateController.getNextCommands(delta, self, player);
-		case FLEE -> fleeStateController.getNextCommands(delta, self, player);
-		case IDLE -> idleStateController.getNextCommands(delta, self, player);
-		case PATROL -> patrolStateController.getNextCommands(delta, self, player);
-		default -> idleStateController.getNextCommands(delta, self, player);
+		case ATTACK -> attackStateController.getNextCommand(delta, self, player);
+		case CAST -> castStateController.getNextCommand(delta, self, player);
+		case CHASE -> chaseStateController.getNextCommand(delta, self, player);
+		case FLEE -> fleeStateController.getNextCommand(delta, self, player);
+		case IDLE -> idleStateController.getNextCommand(delta, self, player);
+		case PATROL -> patrolStateController.getNextCommand(delta, self, player);
+		default -> idleStateController.getNextCommand(delta, self, player);
 		};
 	}
 

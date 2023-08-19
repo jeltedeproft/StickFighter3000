@@ -3,15 +3,15 @@ package jelte.mygame.tests.logic.character.state;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
@@ -46,7 +46,7 @@ public class TestCharacterStateDie {
 	@Test
 	public void testEntry() {
 		characterState.entry();
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 }

@@ -61,14 +61,14 @@ public class CharacterStateHolding implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
+				characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.FALLING);
 			}
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
 				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.FALLING);
 			}

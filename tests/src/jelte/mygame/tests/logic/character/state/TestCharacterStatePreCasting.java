@@ -63,7 +63,7 @@ public class TestCharacterStatePreCasting {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.CAST);
+		verify(characterStateManager).pushState(CHARACTER_STATE.CAST);
 	}
 
 	@Test
@@ -72,23 +72,9 @@ public class TestCharacterStatePreCasting {
 		characterState.handleEvent(event);
 
 		verify(characterStateManager).clearSpells();
-		verify(characterStateManager).transition(CHARACTER_STATE.HURT);
-	}
-
-	@Test
-	public void testHandleEventLeftUnPressed() {
-		EVENT event = EVENT.LEFT_UNPRESSED;
-		characterState.handleEvent(event);
-
-		verify(characterStateManager).stopCharacter();
-	}
-
-	@Test
-	public void testHandleEventRightUnPressed() {
-		EVENT event = EVENT.RIGHT_UNPRESSED;
-		characterState.handleEvent(event);
-
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).popState();
+		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test

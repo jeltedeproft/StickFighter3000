@@ -15,6 +15,8 @@ import org.mockito.MockitoAnnotations;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateHoldingToSliding;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -58,7 +60,7 @@ public class TestCharacterStateHoldingToSliding {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.WALLSLIDING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.WALLSLIDING);
 	}
 
 	@Test
@@ -66,23 +68,25 @@ public class TestCharacterStateHoldingToSliding {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HURT);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test
 	public void testHandleEventJumpPressed() {
-		EVENT event = EVENT.JUMP_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.UP, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.JUMPING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.JUMPING);
 	}
 
 	@Test
 	public void testHandleEventDownPressed() {
-		EVENT event = EVENT.DOWN_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.WALLSLIDING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.WALLSLIDING);
 	}
 
 	@Test

@@ -27,6 +27,10 @@ public class InputBox {
 		}
 	}
 
+	public boolean noMovementKeyPressed() {
+		return !isPressed(BUTTONS.UP) && !isPressed(BUTTONS.DOWN) && !isPressed(BUTTONS.LEFT) && !isPressed(BUTTONS.RIGHT);
+	}
+
 	private int getButtonIndexForKeycode(int keycode) {
 		if (keycode == KeyBindings.getBinding(Constants.LEFT)) {
 			lastUsedButton = BUTTONS.LEFT;

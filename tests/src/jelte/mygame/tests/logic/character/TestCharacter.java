@@ -22,6 +22,8 @@ import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.character.state.CharacterStateManager;
@@ -116,7 +118,9 @@ public class TestCharacter {
 	@Test
 	public void testReceiveMessageSpellNotUnlocked() {
 		// Test the receiveMessage() method
-		Message message = new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 0);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.SPELL0, true);
+		Message message = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox);
 		character.receiveMessage(message);
 		// Add assertions as needed
 		assertEquals(0, character.getSpellsPreparedToCast().size);
@@ -125,13 +129,15 @@ public class TestCharacter {
 	@Test
 	public void testReceiveMessageSpellUnlocked() {
 		// Test the receiveMessage() method
-		Message message = new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 0);
-		character.unlockSpell(SpellsEnum.values()[0]);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.SPELL0, true);
+		Message message = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox);
+		character.unlockSpell(SpellsEnum.values()[2]);
 		character.receiveMessage(message);
 
 		// Add assertions as needed
 		assertEquals(1, character.getSpellsPreparedToCast().size);
-		assertEquals(0, character.getSpellsPreparedToCast().get(0).getId());
+		assertEquals(2, character.getSpellsPreparedToCast().get(0).getId());
 	}
 
 }

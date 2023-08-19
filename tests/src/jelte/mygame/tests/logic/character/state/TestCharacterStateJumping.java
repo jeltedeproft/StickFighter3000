@@ -17,11 +17,11 @@ import org.mockito.MockitoAnnotations;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
-import jelte.mygame.logic.character.Direction;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateJumping;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
@@ -53,7 +53,7 @@ public class TestCharacterStateJumping {
 	@Test
 	public void testEntry() {
 		characterState.entry();
-		verify(characterStateManager).forceUp(Constants.JUMP_SPEED.y);
+		verify(characterStateManager).applyJumpForce();
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class TestCharacterStateJumping {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.GRABBING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.GRABBING);
 	}
 
 	@Test
@@ -80,7 +80,7 @@ public class TestCharacterStateJumping {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HOLDING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HOLDING);
 	}
 
 	@Test
@@ -90,7 +90,7 @@ public class TestCharacterStateJumping {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HOLDING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HOLDING);
 	}
 
 	@Test
@@ -101,79 +101,90 @@ public class TestCharacterStateJumping {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.JUMPTOFALL);
+		verify(characterStateManager).pushState(CHARACTER_STATE.JUMPTOFALL);
 	}
 
 	@Test
 	public void testHandleEventAttackPressed() {
-		EVENT event = EVENT.ATTACK_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.ATTACKING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.ATTACKING);
 	}
 
 	@Test
 	public void testHandleEventJumpPressed() {
-		EVENT event = EVENT.JUMP_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.UP, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).forceUp(Constants.JUMP_SPEED.y);
+		verify(characterStateManager).applyJumpForce();
 	}
 
 	@Test
 	public void testHandleEventTeleportPressed() {
-		EVENT event = EVENT.TELEPORT_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.TELEPORT, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.TELEPORTING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.TELEPORTING);
 	}
 
 	@Test
 	public void testHandleEventDashPressed() {
-		EVENT event = EVENT.DASH_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.DASH, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.DASHING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.DASHING);
 	}
 
 	@Test
 	public void testHandleEventCastPressed() {
-		EVENT event = EVENT.CAST_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.SPELL0, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.PRECAST);
+		verify(characterStateManager).pushState(CHARACTER_STATE.PRECAST);
 	}
 
 	@Test
-	public void testHandleEventLeftPressed() {
-		EVENT event = EVENT.LEFT_PRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputLeftPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).accelerateCharacterX(Direction.left, Constants.MOVEMENT_SPEED);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
+		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
 	@Test
-	public void testHandleEventRightPressed() {
-		EVENT event = EVENT.RIGHT_PRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputRightPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).accelerateCharacterX(Direction.right, Constants.MOVEMENT_SPEED);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
+		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
 	@Test
-	public void testHandleEventLeftUnPressed() {
-		EVENT event = EVENT.LEFT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputLeftUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test
-	public void testHandleEventRightUnPressed() {
-		EVENT event = EVENT.RIGHT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputRightUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test

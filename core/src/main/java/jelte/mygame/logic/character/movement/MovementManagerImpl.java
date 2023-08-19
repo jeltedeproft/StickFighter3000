@@ -7,6 +7,7 @@ import jelte.mygame.logic.character.Direction;
 import jelte.mygame.utility.Constants;
 
 public class MovementManagerImpl implements MovementManagerInterface {
+	private static final String TAG = MovementManagerImpl.class.getSimpleName();
 	Character character;
 	private Long jumpStartTime;
 
@@ -22,14 +23,20 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	}
 
 	@Override
+	public void continueMovingOnTheGround(float speed) {
+		character.getPhysicsComponent().setVelocityX(speed);
+		character.getPhysicsComponent().setDirection(speed > 0 ? Direction.right : Direction.left);
+	}
+
+	@Override
 	public void stopMovingOnTheGround() {
 		character.getPhysicsComponent().setStopping(true);
 	}
 
 	@Override
-	public void startMovingInTheAir(float speed, boolean right) {
-		character.getPhysicsComponent().setVelocityX(right ? speed : -speed);
-		character.getPhysicsComponent().setStarting(true);
+	public void startMovingInTheAir(float speed) {
+		character.getPhysicsComponent().setVelocityX(speed);
+		character.getPhysicsComponent().setDirection(speed > 0 ? Direction.right : Direction.left);
 	}
 
 	@Override
@@ -52,20 +59,15 @@ public class MovementManagerImpl implements MovementManagerInterface {
 	public void applyJumpForce() {
 		float jumpDuration = (TimeUtils.nanoTime() - jumpStartTime) / 1000000000f; // Convert nanoseconds to seconds
 
-		character.getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
-
 		if (jumpDuration < Constants.MAX_JUMP_DURATION && character.getPhysicsComponent().getVelocity().y > 0) {
+			character.getPhysicsComponent().getVelocity().y = Constants.JUMP_SPEED.y;
 			character.getPhysicsComponent().getVelocity().y = Math.min(character.getPhysicsComponent().getVelocity().y, Constants.MAX_JUMP_SPEED.y);
 		}
 	}
 
 	@Override
 	public void applyHorizontalForce(float distance) {
-		if (character.getPhysicsComponent().getDirection().equals(Direction.right)) {
-			character.getPhysicsComponent().move(distance, 0);
-		} else {
-			character.getPhysicsComponent().move(-distance, 0);
-		}
+		character.getPhysicsComponent().move(distance, 0);
 	}
 
 	@Override

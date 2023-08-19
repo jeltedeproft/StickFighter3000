@@ -2,7 +2,6 @@ package jelte.mygame.logic.ai.strategy.advanced.stateControllers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
@@ -25,7 +24,7 @@ public class AdvancedFleeStateController implements StateControllerInterface {
 	}
 
 	@Override
-	public Array<Message> getNextCommands(float delta, AiCharacter self, PlayerCharacter player) {
+	public Message getNextCommand(float delta, AiCharacter self, PlayerCharacter player) {
 		return AiUtility.generateMoveInputAwayFromGoal(self, new Vector2(player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y));
 	}
 

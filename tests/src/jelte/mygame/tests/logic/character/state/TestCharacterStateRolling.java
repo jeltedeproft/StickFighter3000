@@ -16,9 +16,10 @@ import org.mockito.MockitoAnnotations;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateRolling;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.logging.MultiFileLogger;
@@ -68,7 +69,7 @@ public class TestCharacterStateRolling {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.RUNNING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.RUNNING);
 	}
 
 	@Test
@@ -78,31 +79,34 @@ public class TestCharacterStateRolling {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
 	}
 
 	@Test
 	public void testHandleEventAttackPressed() {
-		EVENT event = EVENT.ATTACK_PRESSED;
-		characterState.handleEvent(event);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.ROLLATTACK);
+		verify(characterStateManager).pushState(CHARACTER_STATE.ROLLATTACK);
 	}
 
 	@Test
-	public void testHandleEventLeftUnPressed() {
-		EVENT event = EVENT.LEFT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputLeftUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test
-	public void testHandleEventRightUnPressed() {
-		EVENT event = EVENT.RIGHT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputRightUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test

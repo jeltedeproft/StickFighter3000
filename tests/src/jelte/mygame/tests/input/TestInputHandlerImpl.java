@@ -1,19 +1,23 @@
 package jelte.mygame.tests.input;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import com.badlogic.gdx.Input;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
-import com.badlogic.gdx.Input;
-
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.input.InputHandlerImpl;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.input.KeyBindings;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
@@ -40,22 +44,23 @@ public class TestInputHandlerImpl {
 		int spell0Key = KeyBindings.getBinding(Constants.KEY_SPELL0);
 
 		inputHandler.keyDown(leftKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.LEFT));
 
 		inputHandler.keyDown(rightKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.RIGHT));
 
 		inputHandler.keyDown(downKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_PRESSED));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.DOWN));
 
 		inputHandler.keyDown(sprintKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_PRESSED));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.SPRINT));
 
 		inputHandler.keyDown(blockKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_PRESSED));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.BLOCK));
 
 		inputHandler.keyDown(spell0Key);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_PRESSED, 2));
+		assertTrue(inputHandler.getInputBox().isPressed(BUTTONS.SPELL0));
+		verify(mockListener, times(6)).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP));
 	}
 
 	@Test
@@ -68,22 +73,23 @@ public class TestInputHandlerImpl {
 		int spell0Key = KeyBindings.getBinding(Constants.KEY_SPELL0);
 
 		inputHandler.keyUp(leftKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.LEFT));
 
 		inputHandler.keyUp(rightKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.RIGHT));
 
 		inputHandler.keyUp(downKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.DOWN_UNPRESSED));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.DOWN));
 
 		inputHandler.keyUp(sprintKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SPRINT_UNPRESSED));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.SPRINT));
 
 		inputHandler.keyUp(blockKey);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.BLOCK_UNPRESSED));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.BLOCK));
 
 		inputHandler.keyUp(spell0Key);
-		verify(mockListener).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.CAST_RELEASED, 1));
+		assertFalse(inputHandler.getInputBox().isPressed(BUTTONS.SPELL0));
+		verify(mockListener, times(6)).receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, 2));// TODO remove this number, we have a button for every spell
 	}
 
 	@Test

@@ -1,10 +1,12 @@
 package jelte.mygame.graphical.animations;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.spells.spells.AbstractSpell;
+import jelte.mygame.utility.Constants;
 
 public class AnimationManager {
 	private static final String TAG = AnimationManager.class.getSimpleName();
@@ -33,7 +35,7 @@ public class AnimationManager {
 		sb.append("-effect");
 		String animationName = sb.toString();
 		if (animationTextureManager.exists(animationName)) {
-			return animationTextureManager.getAnimationNoCache(animationName, character);
+			return animationTextureManager.getEffectAnimation(animationName, Constants.DEFAULT_ANIMATION_SPEED, PlayMode.NORMAL);
 		}
 		return null;
 	}

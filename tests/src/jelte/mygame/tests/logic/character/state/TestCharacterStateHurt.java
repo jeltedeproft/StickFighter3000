@@ -47,18 +47,12 @@ public class TestCharacterStateHurt {
 	}
 
 	@Test
-	public void testEntry() {
-		characterState.entry();
-		verify(characterStateManager).hangCharacterInTheAirAgainstGravity();
-	}
-
-	@Test
 	public void testUpdate() {
 		float delta = 500f;
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
 	}
 
 	@Test
@@ -72,7 +66,7 @@ public class TestCharacterStateHurt {
 		EVENT event = EVENT.DIED;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.DIE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.DIE);
 	}
 
 	@Test

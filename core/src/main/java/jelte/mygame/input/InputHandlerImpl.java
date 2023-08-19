@@ -87,6 +87,10 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		return true;
 	}
 
+	public InputBox getInputBox() {
+		return inputBox;
+	}
+
 	@Override
 	public void update(float delta) {
 

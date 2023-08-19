@@ -63,14 +63,14 @@ public class CharacterStateWallSliding implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, false);
+				characterStateManager.startMovingInTheAir(-Constants.WALK_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED, true);
+				characterStateManager.startMovingInTheAir(Constants.WALK_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}

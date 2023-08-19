@@ -40,6 +40,7 @@ public class CharacterStatePreCasting implements CharacterState {
 	public void handleEvent(EVENT event) {
 		switch (event) {
 		case DAMAGE_TAKEN:
+			characterStateManager.clearSpells();
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 			characterStateManager.pushState(CHARACTER_STATE.HURT);

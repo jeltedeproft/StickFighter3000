@@ -108,8 +108,8 @@ public class AnimationTextureManager {
 		return AssetManagerUtility.animationExists(animationName);
 	}
 
-	public Animation<NamedSprite> getAnimationNoCache(String animationName, Character character) {
-		Animation<NamedSprite> animation = AssetManagerUtility.getAnimation(animationName, getFrameDuration(character), getPlayMode(character.getCurrentCharacterState().getState()));// TODO get state from name here because state of character might be different
+	public Animation<NamedSprite> getEffectAnimation(String animationName, float frameDuration, PlayMode playMode) {
+		Animation<NamedSprite> animation = AssetManagerUtility.getAnimation(animationName, frameDuration, playMode);// TODO get state from name here because state of character might be different
 		if (animation == null) {
 			return null;
 		}

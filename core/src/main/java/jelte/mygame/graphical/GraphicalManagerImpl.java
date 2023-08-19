@@ -3,6 +3,7 @@ package jelte.mygame.graphical;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -111,8 +112,11 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		batch.setProjectionMatrix(cameraManager.getCamera().combined);
 		mapManager.renderCurrentMap(cameraManager.getCamera(), player.getPhysicsComponent().getPosition());
 
-		if (player.getCharacterStateManager().isStateChanged() && animationManager.getSpecialEffect(player) != null) {
-			specialEffectsManager.addSpecialEffect(player, animationManager.getSpecialEffect(player));
+		if (player.getCharacterStateManager().isStateChanged()) {
+			Animation<NamedSprite> specialEffect = animationManager.getSpecialEffect(player);
+			if (specialEffect != null) {
+				specialEffectsManager.addSpecialEffect(player, specialEffect);
+			}
 		}
 
 		specialEffectsManager.update(delta, player);// TODO for all characters
@@ -125,7 +129,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderSpecialEffects();
 		particleMaker.drawAllActiveParticles(batch, delta);
 		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR);
-		font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f);
+		// font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y +
+		// Constants.OFFSET_Y_HP_BAR * 2f);
 		batch.end();
 
 		hudManager.renderUI();
@@ -144,7 +149,6 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, String.format("player direction: %s", player.getPhysicsComponent().getDirection()), 40, 380);
 		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 40, 360);
 		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 40, 340);
-		Gdx.app.debug(TAG, "player velocity: " + player.getPhysicsComponent().getVelocity());
 		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 40, 320);
 		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 40, 300);
 		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 40, 280);

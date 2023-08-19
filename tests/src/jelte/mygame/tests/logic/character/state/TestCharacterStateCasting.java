@@ -63,7 +63,7 @@ public class TestCharacterStateCasting {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).popState();
 	}
 
 	@Test
@@ -71,23 +71,7 @@ public class TestCharacterStateCasting {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HURT);
-	}
-
-	@Test
-	public void testHandleEventLeftUnPressed() {
-		EVENT event = EVENT.LEFT_UNPRESSED;
-		characterState.handleEvent(event);
-
-		verify(characterStateManager).stopCharacter();
-	}
-
-	@Test
-	public void testHandleEventRightUnPressed() {
-		EVENT event = EVENT.RIGHT_UNPRESSED;
-		characterState.handleEvent(event);
-
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test

@@ -1,7 +1,6 @@
 package jelte.mygame.logic.ai.strategy.advanced.stateControllers;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.Message;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
@@ -31,7 +30,7 @@ public class AdvancedIdleStateController implements StateControllerInterface {
 	}
 
 	@Override
-	public Array<Message> getNextCommands(float delta, AiCharacter self, PlayerCharacter player) {
+	public Message getNextCommand(float delta, AiCharacter self, PlayerCharacter player) {
 		return null;
 	}
 

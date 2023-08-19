@@ -3,6 +3,11 @@ package jelte.mygame.tests.logic.ai.stateControllers;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+
 import java.util.UUID;
 
 import org.junit.Before;
@@ -11,11 +16,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
@@ -60,7 +60,7 @@ public class TestAttackStateController {
 		patrolPoints.add(new PatrolPoint(new Vector2(0, 0), "0"));
 		player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
 		self = new AiCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID(), new Vector2(0, 0), patrolPoints);
-		self.getCharacterStateManager().transition(CHARACTER_STATE.ATTACKING);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.ATTACKING);
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class TestAttackStateController {
 	public void testGetNextStateAttackOver() {
 		BasicAttackStateController stateController = new BasicAttackStateController();
 
-		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.IDLE);
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.CHASE, nextState);
@@ -84,13 +84,13 @@ public class TestAttackStateController {
 	@Test
 	public void testGetNextCommandsFromThisStateAttacking() {
 		BasicAttackStateController stateController = new BasicAttackStateController();
-		assertNull(stateController.getNextCommands(0f, self, player));
+		assertNull(stateController.getNextCommand(0f, self, player));
 	}
 
 	@Test
 	public void testGetNextCommandsFromThisStateIdle() {
-		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.IDLE);
 		BasicAttackStateController stateController = new BasicAttackStateController();
-		assertNull(stateController.getNextCommands(0f, self, player));
+		assertNull(stateController.getNextCommand(0f, self, player));
 	}
 }

@@ -216,12 +216,16 @@ public class CharacterStateManager {
 		character.getMovementManager().startMovingOnTheGround(speed);
 	}
 
+	public void continueMovingOnTheGround(float speed) {
+		character.getMovementManager().continueMovingOnTheGround(speed);
+	}
+
 	public void stopMovingOnTheGround() {
 		character.getMovementManager().stopMovingOnTheGround();
 	}
 
-	public void startMovingInTheAir(float speed, boolean right) {
-		character.getMovementManager().startMovingInTheAir(speed, right);
+	public void startMovingInTheAir(float speed) {
+		character.getMovementManager().startMovingInTheAir(speed);
 	}
 
 	public void stopMovingInTheAir() {

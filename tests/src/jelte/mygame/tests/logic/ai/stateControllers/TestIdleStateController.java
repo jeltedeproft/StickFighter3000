@@ -60,7 +60,7 @@ public class TestIdleStateController {
 		patrolPoints.add(new PatrolPoint(new Vector2(0, 0), "0"));
 		player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
 		self = new AiCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID(), new Vector2(0, 0), patrolPoints);
-		self.getCharacterStateManager().transition(CHARACTER_STATE.ATTACKING);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.ATTACKING);
 	}
 
 	@Test
@@ -92,6 +92,6 @@ public class TestIdleStateController {
 	@Test
 	public void testGetNextCommandsFromThisStateAttacking() {
 		BasicIdleStateController stateController = new BasicIdleStateController();
-		assertNull(stateController.getNextCommands(0f, self, player));
+		assertNull(stateController.getNextCommand(0f, self, player));
 	}
 }

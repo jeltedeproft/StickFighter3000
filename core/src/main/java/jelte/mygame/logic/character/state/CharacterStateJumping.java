@@ -45,6 +45,15 @@ public class CharacterStateJumping implements CharacterState {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.JUMPTOFALL);
 		}
+
+		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
+		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
+		if (leftPressed && !rightPressed) {
+			characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
+		}
+		if (!leftPressed && rightPressed) {
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
+		}
 	}
 
 	private boolean collidedWithWall(Array<COLLIDABLE_TYPE> collidedWith) {
@@ -90,14 +99,14 @@ public class CharacterStateJumping implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
+				characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}

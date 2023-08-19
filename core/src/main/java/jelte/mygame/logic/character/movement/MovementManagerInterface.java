@@ -4,9 +4,11 @@ public interface MovementManagerInterface {
 
 	public void startMovingOnTheGround(float speed);
 
+	public void continueMovingOnTheGround(float speed);
+
 	public void stopMovingOnTheGround();
 
-	public void startMovingInTheAir(float speed, boolean right);
+	public void startMovingInTheAir(float speed);
 
 	public void stopMovingInTheAir();
 

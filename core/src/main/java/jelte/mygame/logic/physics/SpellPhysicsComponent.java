@@ -1,6 +1,5 @@
 package jelte.mygame.logic.physics;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -65,7 +64,6 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	protected void updatePosition(float newX, float newY) {
 		moved = true;
 		oldRectangle.set(rectangle);
-		Gdx.app.error(TAG, "setting position to : (" + newX + "," + newY + ")");
 		position.set(newX, newY);
 		rectangle.setPosition(newX, newY);
 

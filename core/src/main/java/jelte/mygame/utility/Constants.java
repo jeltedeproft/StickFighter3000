@@ -12,9 +12,9 @@ public class Constants {
 
 	// PHYSICS
 	public static final float MAX_SPEED = 1000;
-	public static final float FRICTION = 0.6f;
+	public static final float FRICTION = 0.7f;
 	public static final float VELOCITY_MIN_TRESHOLD = 0.1f;
-	public static final float VELOCITY_STARTUP_TRESHOLD = 2f;
+	public static final float VELOCITY_STARTUP_TRESHOLD = 100f;
 	public static final float STARTUP_SPEED = 0.1f;
 	public static final Vector2 GRAVITY = new Vector2(0, -10);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
@@ -32,7 +32,7 @@ public class Constants {
 	public static final float SPRINT_SPEED = 400.0f;
 	public static final float ROLL_SPEED = 270.0f;
 	public static final float FALL_ATTACK_SPEED_BOOST = 50.0f;
-	public static final float DASH_DISTANCE = 30000f;
+	public static final float DASH_DISTANCE = 600;
 	public static final float TELEPORT_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
@@ -51,7 +51,7 @@ public class Constants {
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "map/dark/dark3.tmx";
+	public static final String DEFAULT_MAP_PATH = "tests/testMap/testPlatform.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
@@ -59,6 +59,7 @@ public class Constants {
 	public static final String SPELL_STATS_FILE_LOCATION = "spells/spells.json";
 	public static final String AUDIO_FILE_LOCATION = "audio/audio.json";
 	public static final String MODIFIER_STATS_FILE_LOCATION = "spells/modifiers.json";
+	public static final String SPECIAL_EFFECTS_STATS_FILE_LOCATION = "particles/effects.json";
 
 	// TEST
 	public static final Vector2 PLAYER_TEST_START = new Vector2(20, 20);

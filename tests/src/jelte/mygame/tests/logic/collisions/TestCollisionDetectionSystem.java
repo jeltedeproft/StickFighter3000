@@ -265,7 +265,7 @@ public class TestCollisionDetectionSystem {
 	@Test
 	public void mainBodyAccelerateRightIntoWallRealisticTimestep() {
 		addPlayer(new Vector2(25, 10));
-		characterBody.setAcceleration(new Vector2(Constants.MOVEMENT_SPEED, 0));
+		characterBody.setAcceleration(new Vector2(Constants.WALK_SPEED, 0));
 		collidables.add(new StaticBlockRight(50, 0, 10, 100));
 		collisionSystem.updateSpatialMesh(collidables);
 		Array<Set<CollisionPair>> positions = new Array<>();

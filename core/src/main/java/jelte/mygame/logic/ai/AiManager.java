@@ -73,11 +73,9 @@ public class AiManager {
 
 			transitionState(aiCharacter, oldState, newState);
 
-			Array<Message> nextCommands = strategy.generateCommands(delta, aiCharacter, player);
-			if (nextCommands != null) {
-				for (Message message : nextCommands) {
-					aiCharacter.receiveMessage(message);
-				}
+			Message nextCommand = strategy.generateCommand(delta, aiCharacter, player);
+			if (nextCommand != null) {
+				aiCharacter.receiveMessage(nextCommand);
 			}
 		}
 	}

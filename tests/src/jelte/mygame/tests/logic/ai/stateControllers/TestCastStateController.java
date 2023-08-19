@@ -60,7 +60,7 @@ public class TestCastStateController {
 		patrolPoints.add(new PatrolPoint(new Vector2(0, 0), "0"));
 		player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
 		self = new AiCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID(), new Vector2(0, 0), patrolPoints);
-		self.getCharacterStateManager().transition(CHARACTER_STATE.CAST);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.CAST);
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class TestCastStateController {
 	public void testGetNextStateCastOver() {
 		BasicCastStateController stateController = new BasicCastStateController();
 
-		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.IDLE);
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
 		assertEquals(AI_STATE.CHASE, nextState);
@@ -84,13 +84,13 @@ public class TestCastStateController {
 	@Test
 	public void testGetNextCommandsFromThisStateCasting() {
 		BasicCastStateController stateController = new BasicCastStateController();
-		assertNull(stateController.getNextCommands(0f, self, player));
+		assertNull(stateController.getNextCommand(0f, self, player));
 	}
 
 	@Test
 	public void testGetNextCommandsFromThisStateIdle() {
-		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.IDLE);
 		BasicCastStateController stateController = new BasicCastStateController();
-		assertNull(stateController.getNextCommands(0f, self, player));
+		assertNull(stateController.getNextCommand(0f, self, player));
 	}
 }

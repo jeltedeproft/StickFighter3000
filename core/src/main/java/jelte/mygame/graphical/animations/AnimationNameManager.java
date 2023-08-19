@@ -1,6 +1,5 @@
 package jelte.mygame.graphical.animations;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
@@ -58,7 +57,6 @@ public class AnimationNameManager {
 				final CHARACTER_STATE state = CHARACTER_STATE.valueOf(statePart);
 				availableStates.computeIfAbsent(state, key -> new HashSet<>());
 				availableStates.get(state).add(indexPart);
-				Gdx.app.error(TAG, characterName + " : " + state + " , " + indexPart, null);
 			}
 		}
 		possibleAnimationsCharacter.put(characterName, availableStates);

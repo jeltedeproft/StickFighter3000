@@ -6,6 +6,7 @@ import jelte.mygame.graphical.audio.AudioCommand;
 import jelte.mygame.graphical.audio.AudioEnum;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.input.InputBox;
+import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.utility.Constants;
@@ -25,7 +26,8 @@ public class CharacterStateTeleporting implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
-		characterStateManager.applyHorizontalForce(Constants.TELEPORT_DISTANCE);
+		boolean isRight = characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right;
+		characterStateManager.applyHorizontalForce(isRight ? Constants.TELEPORT_DISTANCE : -Constants.TELEPORT_DISTANCE);
 
 	}
 

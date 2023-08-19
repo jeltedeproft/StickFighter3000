@@ -33,7 +33,7 @@ public class CharacterStateDashing implements CharacterState {
 	public void update(float delta) {
 		timer -= delta;
 		boolean isRight = characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right;
-		characterStateManager.startMovingOnTheGround((isRight ? Constants.DASH_DISTANCE : -Constants.DASH_DISTANCE) * delta);
+		characterStateManager.applyHorizontalForce((isRight ? Constants.DASH_DISTANCE : -Constants.DASH_DISTANCE) * delta);
 		if (timer <= 0) {
 			exit();
 		}
@@ -43,8 +43,11 @@ public class CharacterStateDashing implements CharacterState {
 	public void exit() {
 		timer = duration;
 		InputBox inputBox = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox();
-		if (inputBox.isPressed(BUTTONS.RIGHT) || inputBox.isPressed(BUTTONS.LEFT)) {
+		if (inputBox.isPressed(BUTTONS.RIGHT)) {
 			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
+			characterStateManager.pushState(CHARACTER_STATE.WALKING);
+		} else if (inputBox.isPressed(BUTTONS.LEFT)) {
+			characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		} else {
 			characterStateManager.stopMovingOnTheGround();

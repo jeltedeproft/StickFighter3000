@@ -235,7 +235,7 @@ public class AssetManagerUtility implements Disposable {
 		}
 
 		if (cachedAnimation.size == 0) {
-			logger.error(TAG, String.format("can't get animation, no region found in atlas: %s", Constants.SPRITES_ATLAS_PATH), null);
+			logger.error(TAG, String.format("can't get animation, no region found in atlas: %s for %s", Constants.SPRITES_ATLAS_PATH, animationName), null);
 			return null;
 		}
 

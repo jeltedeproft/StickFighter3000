@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import jelte.mygame.graphical.GraphicalManager;
 import jelte.mygame.graphical.GraphicalManagerImpl;
 import jelte.mygame.graphical.audio.AudioFileReader;
+import jelte.mygame.graphical.specialEffects.SpecialEffectsFileReader;
 import jelte.mygame.input.InputHandler;
 import jelte.mygame.input.InputHandlerImpl;
 import jelte.mygame.logic.LogicManager;
@@ -34,6 +35,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		AudioFileReader.loadAudioInMemory(Constants.AUDIO_FILE_LOCATION);
 		SpellFileReader.loadSpellsInMemory(Constants.SPELL_STATS_FILE_LOCATION);
 		ModifierFileReader.loadModifiersInMemory(Constants.MODIFIER_STATS_FILE_LOCATION);
+		SpecialEffectsFileReader.loadSpecialEffectsInMemory(Constants.SPECIAL_EFFECTS_STATS_FILE_LOCATION);
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
 		graphicalManager = new GraphicalManagerImpl(this);

@@ -5,6 +5,11 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,11 +19,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
@@ -90,7 +90,7 @@ public class TestAiManager {
 		aiManager.update(0.5f, player, collidables);
 
 		verify(strategy).getNextState(0.5f, aiCharacter1, player);
-		verify(strategy).generateCommands(0.5f, aiCharacter1, player);
+		verify(strategy).generateCommand(0.5f, aiCharacter1, player);
 	}
 
 	// Add more test cases for other methods as needed

@@ -22,13 +22,42 @@ public class CharacterStateWalking implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
+		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
+		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
+		boolean upPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.UP);
+		boolean downPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.DOWN);
+		if (upPressed) {
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.JUMPING);
+		}
+		if (leftPressed && !rightPressed) {
+			characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
+		}
+		if (!leftPressed && rightPressed) {
+			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
+		}
+		if (downPressed) {
+			characterStateManager.popState();
+			characterStateManager.pushState(CHARACTER_STATE.CROUCHED);
+		}
 	}
 
 	@Override
 	public void update(float delta) {
-		if (characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0) {
+		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
+		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
+		if (characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == 0 && characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().noMovementKeyPressed()) {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+		}
+		if (leftPressed && !rightPressed) {
+			characterStateManager.continueMovingOnTheGround(-Constants.WALK_SPEED);
+		}
+		if (!leftPressed && rightPressed) {
+			characterStateManager.continueMovingOnTheGround(Constants.WALK_SPEED);
+		}
+		if (characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().noMovementKeyPressed()) {
+			characterStateManager.stopMovingOnTheGround();
 		}
 	}
 
@@ -53,6 +82,8 @@ public class CharacterStateWalking implements CharacterState {
 		switch (inputBox.getLastUsedButton()) {
 		case ATTACK:
 			if (inputBox.isPressed(BUTTONS.ATTACK)) {
+				characterStateManager.popState();
+				characterStateManager.pushState(CHARACTER_STATE.IDLE);
 				characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
 			}
 			break;
@@ -69,20 +100,6 @@ public class CharacterStateWalking implements CharacterState {
 		case DOWN:
 			if (inputBox.isPressed(BUTTONS.DOWN)) {
 				characterStateManager.pushState(CHARACTER_STATE.CROUCHED);
-			}
-			break;
-		case LEFT:
-			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
-			}
-			break;
-		case RIGHT:
-			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
-			} else {
-				characterStateManager.stopMovingOnTheGround();
 			}
 			break;
 		case ROLL:

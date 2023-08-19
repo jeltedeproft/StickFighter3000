@@ -22,6 +22,8 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.character.EnemyFileReader;
@@ -72,11 +74,14 @@ public class TestAiUtility {
 		aiCharacter1.getPhysicsComponent().setPosition(aiPosition);
 		aiCharacter1.getPhysicsComponent().setDirection(currentDirection);
 
-		Array<Message> input = AiUtility.generateMoveInputToGoal(aiCharacter1, goal);
+		Message message = AiUtility.generateMoveInputToGoal(aiCharacter1, goal);
+		InputBox inputBox = (InputBox) message.getValue();
 
-		assertEquals(2, input.size);
-		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED), input.get(0));
-		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED), input.get(1));
+		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP), message);
+		assertEquals(true, inputBox.isPressed(BUTTONS.RIGHT));
+		assertEquals(false, inputBox.isPressed(BUTTONS.LEFT));
+		assertEquals(BUTTONS.RIGHT, inputBox.getLastUsedButton());
+
 	}
 
 	@Test
@@ -88,10 +93,12 @@ public class TestAiUtility {
 		aiCharacter1.getPhysicsComponent().setPosition(aiPosition);
 		aiCharacter1.getPhysicsComponent().setDirection(currentDirection);
 
-		Array<Message> input = AiUtility.generateMoveInputAwayFromGoal(aiCharacter1, goal);
+		Message message = AiUtility.generateMoveInputAwayFromGoal(aiCharacter1, goal);
+		InputBox inputBox = (InputBox) message.getValue();
 
-		assertEquals(2, input.size);
-		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED), input.get(0));
-		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED), input.get(1));
+		assertEquals(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP), message);
+		assertEquals(true, inputBox.isPressed(BUTTONS.RIGHT));
+		assertEquals(false, inputBox.isPressed(BUTTONS.LEFT));
+		assertEquals(BUTTONS.RIGHT, inputBox.getLastUsedButton());
 	}
 }

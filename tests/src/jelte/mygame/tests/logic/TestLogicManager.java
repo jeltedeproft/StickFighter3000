@@ -47,7 +47,7 @@ public class TestLogicManager {
 	@Test
 	public void testReceiveMessage_PlayerAction() {
 		// Test receiveMessage() with a player action message
-		Message playerActionMessage = new Message(RECIPIENT.LOGIC, ACTION.UP_PRESSED);
+		Message playerActionMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
 		logicManager.receiveMessage(playerActionMessage);
 
 		// Verify that the message is forwarded to the PlayerCharacter

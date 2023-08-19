@@ -1,6 +1,13 @@
 package jelte.mygame.tests.logic.ai.stateControllers;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 import java.util.UUID;
 
@@ -11,17 +18,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
-
 import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.graphical.map.PatrolPoint;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.ai.strategy.basic.stateControllers.BasicChaseStateController;
 import jelte.mygame.logic.character.AiCharacter;
@@ -63,7 +67,7 @@ public class TestChaseStateController {
 		patrolPoints.add(new PatrolPoint(new Vector2(0, 0), "0"));
 		player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
 		self = new AiCharacter(EnemyFileReader.getUnitData().get(0), UUID.randomUUID(), new Vector2(0, 0), patrolPoints);
-		self.getCharacterStateManager().transition(CHARACTER_STATE.IDLE);
+		self.getCharacterStateManager().pushState(CHARACTER_STATE.IDLE);
 	}
 
 	@Test
@@ -105,10 +109,13 @@ public class TestChaseStateController {
 		self.getPhysicsComponent().setDirection(Direction.right);
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_UNPRESSED));
-		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+
+		InputBox inputBox = (InputBox) expectedMessage.getValue();
+		assertTrue(inputBox.isPressed(BUTTONS.LEFT));
+		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
+
 	}
 
 	@Test
@@ -119,7 +126,7 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
 	}
 
 	@Test
@@ -129,10 +136,12 @@ public class TestChaseStateController {
 		self.getPhysicsComponent().setDirection(Direction.left);
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.LEFT_UNPRESSED));
-		expectedMessages.add(new Message(RECIPIENT.LOGIC, ACTION.RIGHT_PRESSED));
-		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+
+		InputBox inputBox = (InputBox) expectedMessage.getValue();
+		assertTrue(inputBox.isPressed(BUTTONS.RIGHT));
+		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
 	}
 
 	@Test
@@ -143,7 +152,7 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommands(0f, self, player));
+		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
 	}
 
 }

@@ -1,6 +1,5 @@
 package jelte.mygame.logic.collisions.spatialMesh;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -83,14 +82,12 @@ public class SpatialMesh {
 
 	private void removeCollidable(Collidable collidable) {
 		collidablesInPlay.remove(collidable);
-		Gdx.app.error(TAG, "removing collidable :" + collidable + "\nrectangle : " + collidable.getRectangle() + "\nold rec : " + collidable.getOldRectangle());
 		Set<CellPoint> collidedPoints = getCollidingCells(collidable.getRectangle());
 		removeCollidableFrom(collidable, collidedPoints);
 	}
 
 	private void removeCollidableFrom(Collidable collidable, Set<CellPoint> collidedPoints) {
 		for (CellPoint point : collidedPoints) {
-			Gdx.app.error(TAG, "[" + collidable.getType() + "] removing collidable : " + collidable.getId() + "from : " + point);
 			spatialMesh[point.x][point.y].removeCollidable(collidable);
 			if (spatialMesh[point.x][point.y].getDynamicCollidables().size() == 0) {
 				cellsWithDynamicCollidables.remove(new CellPoint(point.x, point.y));
@@ -136,11 +133,9 @@ public class SpatialMesh {
 	}
 
 	private void addCollidable(Collidable collidable) {
-		Gdx.app.error(TAG, "adding collidable :" + collidable + " with rectangle : " + collidable.getRectangle() + " and old rec : " + collidable.getOldRectangle());
 		Rectangle rect = collidable.getRectangle();
 		Set<CellPoint> collidedPoints = getCollidingCells(rect);
 		for (CellPoint point : collidedPoints) {
-			Gdx.app.error(TAG, "[" + collidable.getType() + "] adding collidable : " + collidable.getId() + " from : " + point);
 			spatialMesh[point.x][point.y].addCollidable(collidable);
 			if (collidable.isDynamic()) {
 				collidablesInPlay.add(collidable);
@@ -156,7 +151,6 @@ public class SpatialMesh {
 		// new cells
 		Set<CellPoint> newCollidedPoints = getCollidingCells(collidable.getRectangle());
 		if (!oldCollidedPoints.equals(newCollidedPoints)) {
-			Gdx.app.error(TAG, "collidable moved : " + collidable);
 			removeCollidableFrom(collidable, oldCollidedPoints);
 			addCollidable(collidable);
 		}
@@ -164,7 +158,6 @@ public class SpatialMesh {
 
 	public Array<CollisionData> getAllPossibleCollisions() {
 		Array<CollisionData> collisionDatas = new Array<>();
-		Gdx.app.error(TAG, "cells with dynamic : " + cellsWithDynamicCollidables);
 
 		for (CellPoint point : cellsWithDynamicCollidables) {
 			Set<Collidable> dynamicCollidables = spatialMesh[point.x][point.y].getDynamicCollidables();

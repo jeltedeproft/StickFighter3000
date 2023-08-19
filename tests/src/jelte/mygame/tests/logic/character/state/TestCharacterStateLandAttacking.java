@@ -3,6 +3,9 @@ package jelte.mygame.tests.logic.character.state;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,11 +13,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateLandAttacking;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -58,7 +60,7 @@ public class TestCharacterStateLandAttacking {
 
 		characterState.update(delta);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.IDLE);
+		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
 	}
 
 	@Test
@@ -66,23 +68,25 @@ public class TestCharacterStateLandAttacking {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
 
-		verify(characterStateManager).transition(CHARACTER_STATE.HURT);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test
-	public void testHandleEventLeftUnPressed() {
-		EVENT event = EVENT.LEFT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputLeftUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test
-	public void testHandleEventRightUnPressed() {
-		EVENT event = EVENT.RIGHT_UNPRESSED;
-		characterState.handleEvent(event);
+	public void testHandleInputRightUnPressed() {
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
+		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopCharacter();
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test

@@ -20,7 +20,7 @@ public class CharacterStateHurt implements CharacterState {
 
 	@Override
 	public void entry() {
-		characterStateManager.grabLedge();
+
 	}
 
 	@Override

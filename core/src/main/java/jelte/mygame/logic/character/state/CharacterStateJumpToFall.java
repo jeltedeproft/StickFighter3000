@@ -66,14 +66,14 @@ public class CharacterStateJumpToFall implements CharacterState {
 			break;
 		case LEFT:
 			if (inputBox.isPressed(BUTTONS.LEFT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, false);
+				characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}
 			break;
 		case RIGHT:
 			if (inputBox.isPressed(BUTTONS.RIGHT)) {
-				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED, true);
+				characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
 			} else {
 				characterStateManager.stopMovingInTheAir();
 			}

@@ -123,7 +123,7 @@ public class TestAnimationNameManager {
 	@Test
 	public void testGetAnimationNameCharacterAttack() {
 		PlayerCharacter player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
-		player.getCharacterStateManager().transition(CHARACTER_STATE.ATTACKING);
+		player.getCharacterStateManager().pushState(CHARACTER_STATE.ATTACKING);
 		assertThat(animationNameManager.getAnimationName(player), anyOf(is("swordmaster-ATTACKING1-right"), is("swordmaster-ATTACKING2-right"), is("swordmaster-ATTACKING3-right"), is("swordmaster-ATTACKING4-right")));
 	}
 
