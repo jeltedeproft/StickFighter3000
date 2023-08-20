@@ -24,7 +24,7 @@ public class CharacterStateHolding implements CharacterState {
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
+		characterStateManager.grabLedge();
 	}
 
 	@Override

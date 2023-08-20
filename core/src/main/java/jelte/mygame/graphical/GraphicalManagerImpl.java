@@ -156,6 +156,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 40, 240);
 		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 40, 220);
 		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 40, 200);
+		font.draw(batch, String.format("STATE STACK: %s", player.getCharacterStateManager().seeStateStack()), 40, 180);
 //		font.draw(batch, String.format("enemy position: %s", enemy.getPhysicsComponent().getPosition()), 40, 180);
 //		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 40, 160);
 //		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 40, 140);

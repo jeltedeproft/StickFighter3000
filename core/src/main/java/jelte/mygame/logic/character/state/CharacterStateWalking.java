@@ -125,6 +125,7 @@ public class CharacterStateWalking implements CharacterState {
 			break;
 		case UP:
 			if (inputBox.isPressed(BUTTONS.UP)) {
+				characterStateManager.popState();
 				characterStateManager.pushState(CHARACTER_STATE.JUMPING);
 			}
 			break;

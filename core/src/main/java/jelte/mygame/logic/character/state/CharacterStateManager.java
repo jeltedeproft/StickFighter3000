@@ -1,5 +1,6 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.StringBuilder;
 
@@ -125,6 +126,7 @@ public class CharacterStateManager {
 	}
 
 	public void update(float delta) {
+		Gdx.app.error(TAG, "current stack = " + seeStateStack());
 		if (!stateStack.isEmpty()) {
 			CharacterState currentState = stateStack.peek();
 			currentState.update(delta);
@@ -296,6 +298,14 @@ public class CharacterStateManager {
 		if (!character.getSpellsPreparedToCast().isEmpty()) {
 			character.getSpellsreadyToCast().addLast(character.getSpellsPreparedToCast().removeFirst());
 		}
+	}
+
+	public Array<String> seeStateStack() {
+		Array<String> stacks = new Array<>();
+		for (CharacterState state : stateStack) {
+			stacks.add(state.getState().name());
+		}
+		return stacks;
 	}
 
 	public void clearSpells() {

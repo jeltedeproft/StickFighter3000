@@ -46,7 +46,7 @@ public class CharacterStateFalling implements CharacterState {
 			characterStateManager.startMovingInTheAir(-Constants.FALL_MOVEMENT_SPEED);
 		}
 		if (!leftPressed && rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.FALL_MOVEMENT_SPEED);
+			characterStateManager.startMovingInTheAir(Constants.FALL_MOVEMENT_SPEED);
 		}
 	}
 

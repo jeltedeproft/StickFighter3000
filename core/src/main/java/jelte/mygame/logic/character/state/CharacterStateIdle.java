@@ -23,16 +23,19 @@ public class CharacterStateIdle implements CharacterState {
 		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
 		boolean upPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.UP);
 		boolean downPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.DOWN);
+		boolean sprintPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.SPRINT);
 		if (upPressed) {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.JUMPING);
 		}
-		if (leftPressed && !rightPressed) {
-			characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
+		if (leftPressed && !rightPressed) {// TODO add logic here for psrint pressed to sprint state
+			characterStateManager.startMovingOnTheGround(sprintPressed ? -Constants.SPRINT_SPEED : -Constants.WALK_SPEED);
+			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		}
 		if (!leftPressed && rightPressed) {
-			characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
+			characterStateManager.startMovingOnTheGround(sprintPressed ? Constants.SPRINT_SPEED : Constants.WALK_SPEED);
+			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);
 		}
 		if (downPressed) {
@@ -95,18 +98,32 @@ public class CharacterStateIdle implements CharacterState {
 				break;
 			case LEFT:
 				if (inputBox.isPressed(BUTTONS.LEFT)) {
-					characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
-					characterStateManager.popState();
-					characterStateManager.pushState(CHARACTER_STATE.WALKING);
+					boolean sprintPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.SPRINT);
+					if (sprintPressed) {
+						characterStateManager.startMovingOnTheGround(-Constants.SPRINT_SPEED);
+						characterStateManager.popState();
+						characterStateManager.pushState(CHARACTER_STATE.SPRINTING);
+					} else {
+						characterStateManager.startMovingOnTheGround(-Constants.WALK_SPEED);
+						characterStateManager.popState();
+						characterStateManager.pushState(CHARACTER_STATE.WALKING);
+					}
 				} else {
 					characterStateManager.stopMovingOnTheGround();
 				}
 				break;
 			case RIGHT:
 				if (inputBox.isPressed(BUTTONS.RIGHT)) {
-					characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
-					characterStateManager.popState();
-					characterStateManager.pushState(CHARACTER_STATE.WALKING);
+					boolean sprintPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.SPRINT);
+					if (sprintPressed) {
+						characterStateManager.startMovingOnTheGround(Constants.SPRINT_SPEED);
+						characterStateManager.popState();
+						characterStateManager.pushState(CHARACTER_STATE.SPRINTING);
+					} else {
+						characterStateManager.startMovingOnTheGround(Constants.WALK_SPEED);
+						characterStateManager.popState();
+						characterStateManager.pushState(CHARACTER_STATE.WALKING);
+					}
 				} else {
 					characterStateManager.stopMovingOnTheGround();
 				}

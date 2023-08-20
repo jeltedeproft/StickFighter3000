@@ -55,7 +55,6 @@ public class CharacterStateAppear implements CharacterState {
 		switch (event) {
 		case DAMAGE_TAKEN:
 			characterStateManager.popState();
-			characterStateManager.pushState(CHARACTER_STATE.IDLE);
 			characterStateManager.pushState(CHARACTER_STATE.HURT);
 			break;
 		case NO_COLLISION:
