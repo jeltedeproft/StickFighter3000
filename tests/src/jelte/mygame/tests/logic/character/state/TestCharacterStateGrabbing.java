@@ -61,15 +61,6 @@ public class TestCharacterStateGrabbing {
 	}
 
 	@Test
-	public void testHandleEventAttackPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.ATTACKING);
-	}
-
-	@Test
 	public void testHandleEventDamageTaken() {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
@@ -100,7 +91,8 @@ public class TestCharacterStateGrabbing {
 		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).pushState(CHARACTER_STATE.CROUCHED);
+		verify(characterStateManager).popState();
+		verify(characterStateManager).pushState(CHARACTER_STATE.FALLING);
 	}
 
 	@Test
@@ -109,8 +101,9 @@ public class TestCharacterStateGrabbing {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
+		verify(characterStateManager).popState();
+		verify(characterStateManager).pushState(CHARACTER_STATE.FALLING);
 	}
 
 	@Test
@@ -119,26 +112,9 @@ public class TestCharacterStateGrabbing {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
-	}
-
-	@Test
-	public void testHandleInputLeftUnPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).stopMovingOnTheGround();
-	}
-
-	@Test
-	public void testHandleInputRightUnPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).stopMovingOnTheGround();
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
+		verify(characterStateManager).popState();
+		verify(characterStateManager).pushState(CHARACTER_STATE.FALLING);
 	}
 
 	@Test

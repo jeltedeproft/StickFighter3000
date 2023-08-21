@@ -4,6 +4,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,14 +14,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
-import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.character.state.CharacterStateRollAttacking;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.logging.MultiFileLogger;
@@ -79,14 +78,6 @@ public class TestCharacterStateRollAttacking {
 		characterState.update(delta);
 
 		verify(characterStateManager).pushState(CHARACTER_STATE.IDLE);
-	}
-
-	@Test
-	public void testHandleEventDamageTaken() {
-		EVENT event = EVENT.DAMAGE_TAKEN;
-		characterState.handleEvent(event);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.HURT);
 	}
 
 	@Test

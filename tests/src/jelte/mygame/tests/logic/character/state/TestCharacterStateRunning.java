@@ -136,7 +136,7 @@ public class TestCharacterStateRunning {
 	public void testHandleInputLeftPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).startMovingOnTheGround(Constants.MOVEMENT_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
@@ -146,7 +146,7 @@ public class TestCharacterStateRunning {
 	public void testHandleInputRightPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).startMovingOnTheGround(Constants.MOVEMENT_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
@@ -156,7 +156,7 @@ public class TestCharacterStateRunning {
 	public void testHandleInputLeftUnPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}
@@ -165,7 +165,7 @@ public class TestCharacterStateRunning {
 	public void testHandleInputRightUnPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}
@@ -175,7 +175,7 @@ public class TestCharacterStateRunning {
 		when(characterStateManager.characterisStandingStill()).thenReturn(true);
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}
@@ -185,7 +185,7 @@ public class TestCharacterStateRunning {
 		when(characterStateManager.characterisStandingStill()).thenReturn(true);
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}

@@ -22,6 +22,7 @@ import jelte.mygame.logic.character.state.CharacterStateBlocking;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
+import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.logging.MultiFileLogger;
 
 @RunWith(GdxTestRunner.class)
@@ -99,7 +100,7 @@ public class TestCharacterStateBlocking {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager, never());
+		verify(characterStateManager, never()).startMovingOnTheGround(Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -108,7 +109,7 @@ public class TestCharacterStateBlocking {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager, never());
+		verify(characterStateManager, never()).startMovingOnTheGround(Constants.WALK_SPEED);
 	}
 
 	@Test

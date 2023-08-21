@@ -1,7 +1,6 @@
 package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -20,6 +19,8 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.input.InputBox;
 import jelte.mygame.input.InputHandlerImpl.BUTTONS;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.input.CharacterInputHandler;
 import jelte.mygame.logic.character.state.CharacterStateFalling;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -49,6 +50,10 @@ public class TestCharacterStateFalling {
 		MusicManager.setInstance(mockMusicManager);
 		characterStateManager = mock(CharacterStateManager.class);
 		characterState = new CharacterStateFalling(characterStateManager);
+		Character character = mock(Character.class);
+		when(character.getName()).thenReturn("test");
+		when(character.getCharacterInputHandler()).thenReturn(new CharacterInputHandler());
+		when(characterStateManager.getCharacter()).thenReturn(character);
 	}
 
 	@Test
@@ -125,15 +130,6 @@ public class TestCharacterStateFalling {
 	}
 
 	@Test
-	public void testHandleEventJumpPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.UP, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
 	public void testHandleEventTeleportPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.TELEPORT, true);
@@ -166,8 +162,7 @@ public class TestCharacterStateFalling {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -177,7 +172,6 @@ public class TestCharacterStateFalling {
 		characterState.handleInput(inputBox);
 
 		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
 	@Test

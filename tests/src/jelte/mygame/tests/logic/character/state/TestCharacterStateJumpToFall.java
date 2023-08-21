@@ -1,7 +1,6 @@
 package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -74,15 +73,6 @@ public class TestCharacterStateJumpToFall {
 	}
 
 	@Test
-	public void testHandleEventJumpPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.UP, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
 	public void testHandleEventCastPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.SPELL0, true);
@@ -97,7 +87,7 @@ public class TestCharacterStateJumpToFall {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test

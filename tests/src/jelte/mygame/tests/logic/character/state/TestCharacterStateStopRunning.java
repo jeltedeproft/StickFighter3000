@@ -105,7 +105,8 @@ public class TestCharacterStateStopRunning {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
+		verify(characterStateManager).startMovingOnTheGround(-Constants.WALK_SPEED);
+		verify(characterStateManager).popState();
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 

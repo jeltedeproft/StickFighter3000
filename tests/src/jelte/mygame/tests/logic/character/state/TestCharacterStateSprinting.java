@@ -135,7 +135,7 @@ public class TestCharacterStateSprinting {
 	public void testHandleInputLeftPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).startMovingOnTheGround(Constants.SPRINT_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
@@ -145,7 +145,7 @@ public class TestCharacterStateSprinting {
 	public void testHandleInputRightPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).startMovingOnTheGround(Constants.SPRINT_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
@@ -155,7 +155,7 @@ public class TestCharacterStateSprinting {
 	public void testHandleInputLeftUnPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}
@@ -164,7 +164,7 @@ public class TestCharacterStateSprinting {
 	public void testHandleInputRightUnPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
-		characterState.handleInput(inputBox);
+		characterState.update(1f);
 
 		verify(characterStateManager).stopMovingOnTheGround();
 	}

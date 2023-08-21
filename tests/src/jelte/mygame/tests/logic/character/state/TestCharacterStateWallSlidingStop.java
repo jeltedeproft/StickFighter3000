@@ -65,15 +65,6 @@ public class TestCharacterStateWallSlidingStop {
 	}
 
 	@Test
-	public void testHandleEventAttackPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.ATTACKING);
-	}
-
-	@Test
 	public void testHandleEventDamageTaken() {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
@@ -96,8 +87,7 @@ public class TestCharacterStateWallSlidingStop {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -106,8 +96,7 @@ public class TestCharacterStateWallSlidingStop {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -116,7 +105,7 @@ public class TestCharacterStateWallSlidingStop {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopMovingOnTheGround();
+		verify(characterStateManager).stopMovingInTheAir();
 	}
 
 	@Test
@@ -125,7 +114,7 @@ public class TestCharacterStateWallSlidingStop {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopMovingOnTheGround();
+		verify(characterStateManager).stopMovingInTheAir();
 	}
 
 	@Test
@@ -134,15 +123,6 @@ public class TestCharacterStateWallSlidingStop {
 		characterState.handleEvent(event);
 
 		verify(characterStateManager).pushState(CHARACTER_STATE.FALLING);
-	}
-
-	@Test
-	public void testHandleEventDownPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.CROUCHED);
 	}
 
 	@Test

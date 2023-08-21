@@ -61,7 +61,7 @@ public class TestCharacterStateClimbing {
 		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager, never());
+		verify(characterStateManager, never()).startMovingOnTheGround(Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class TestCharacterStateClimbing {
 		inputBox.updateButtonPressed(BUTTONS.UP, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager, never());
+		verify(characterStateManager, never()).startJump();
 	}
 
 	@Test
@@ -95,8 +95,7 @@ public class TestCharacterStateClimbing {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -105,8 +104,7 @@ public class TestCharacterStateClimbing {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
 	}
 
 	@Test

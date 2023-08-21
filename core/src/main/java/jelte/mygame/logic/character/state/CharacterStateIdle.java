@@ -28,7 +28,7 @@ public class CharacterStateIdle implements CharacterState {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.JUMPING);
 		}
-		if (leftPressed && !rightPressed) {// TODO add logic here for psrint pressed to sprint state
+		if (leftPressed && !rightPressed) {// TODO add logic here for sprint pressed to sprint state
 			characterStateManager.startMovingOnTheGround(sprintPressed ? -Constants.SPRINT_SPEED : -Constants.WALK_SPEED);
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.WALKING);

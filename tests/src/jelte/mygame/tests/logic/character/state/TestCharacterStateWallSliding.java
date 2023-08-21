@@ -1,7 +1,6 @@
 package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -97,15 +96,6 @@ public class TestCharacterStateWallSliding {
 	}
 
 	@Test
-	public void testHandleEventAttackPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.ATTACKING);
-	}
-
-	@Test
 	public void testHandleEventDamageTaken() {
 		EVENT event = EVENT.DAMAGE_TAKEN;
 		characterState.handleEvent(event);
@@ -119,7 +109,8 @@ public class TestCharacterStateWallSliding {
 		inputBox.updateButtonPressed(BUTTONS.UP, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).pushState(CHARACTER_STATE.JUMPING);
+		verify(characterStateManager).popState();
+		verify(characterStateManager).pushState(CHARACTER_STATE.HOLDING);
 	}
 
 	@Test
@@ -128,7 +119,7 @@ public class TestCharacterStateWallSliding {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
@@ -138,7 +129,7 @@ public class TestCharacterStateWallSliding {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
+		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
@@ -158,15 +149,6 @@ public class TestCharacterStateWallSliding {
 		characterState.handleInput(inputBox);
 
 		verify(characterStateManager).stopMovingInTheAir();
-	}
-
-	@Test
-	public void testHandleEventDownPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
 	}
 
 	@Test

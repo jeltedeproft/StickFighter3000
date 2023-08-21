@@ -82,7 +82,7 @@ public class TestCharacterStateHolding {
 		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALLSLIDING);
+		verify(characterStateManager).pushState(CHARACTER_STATE.HOLDINGTOSLIDING);
 	}
 
 	@Test

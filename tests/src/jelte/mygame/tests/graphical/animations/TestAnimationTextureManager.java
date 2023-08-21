@@ -2,6 +2,12 @@ package jelte.mygame.tests.graphical.animations;
 
 import static org.junit.Assert.assertEquals;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.UUID;
 
 import org.junit.Before;
@@ -10,12 +16,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
-import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.graphical.animations.AnimationTextureManager;
 import jelte.mygame.graphical.animations.NamedSprite;
@@ -58,10 +58,9 @@ public class TestAnimationTextureManager {
 
 	@Test
 	public void testGetAnimationNoCache() {
-		PlayerCharacter player = new PlayerCharacter(PlayerFileReader.getUnitData().get(0), UUID.randomUUID());
-		Animation<NamedSprite> animation = animationTextureManager.getAnimationNoCache("swordmaster-APPEARING1-right", player);
-		assertEquals(1.8f, animation.getAnimationDuration(), 0.01f);
-		assertEquals(0.3f, animation.getFrameDuration(), 0.01f);
+		Animation<NamedSprite> animation = animationTextureManager.getEffectAnimation("swordmaster-APPEARING1-right", 1.0f, PlayMode.NORMAL);
+		assertEquals(6.0f, animation.getAnimationDuration(), 0.01f);
+		assertEquals(1.0f, animation.getFrameDuration(), 0.01f);
 		assertEquals(PlayMode.NORMAL, animation.getPlayMode());
 		assertEquals("swordmaster-APPEARING1-right", animation.getKeyFrame(0).getName());
 	}

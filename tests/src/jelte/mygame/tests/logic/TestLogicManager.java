@@ -21,7 +21,10 @@ import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.graphical.map.EnemySpawnData;
+import jelte.mygame.input.InputBox;
+import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.LogicManagerImpl;
+import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 
@@ -47,11 +50,13 @@ public class TestLogicManager {
 	@Test
 	public void testReceiveMessage_PlayerAction() {
 		// Test receiveMessage() with a player action message
-		Message playerActionMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		InputBox inputBox = new InputBox();
+		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
+		Message playerActionMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox);
 		logicManager.receiveMessage(playerActionMessage);
 
 		// Verify that the message is forwarded to the PlayerCharacter
-		verify(logicManager).receiveMessage(playerActionMessage);
+		verify(listener).receiveMessage(playerActionMessage);
 
 		// TODO mock characterManager and check effects
 	}
@@ -75,7 +80,7 @@ public class TestLogicManager {
 		EnemySpawnData spawnData = new EnemySpawnData();
 		spawnData.setType("2");
 		spawnData.setSpawnPoint(new Vector2(10, 10));
-		Collection<EnemySpawnData> enemySpawnData = Collections.singletonList(new EnemySpawnData());
+		Collection<EnemySpawnData> enemySpawnData = Collections.singletonList(spawnData);
 		Message spawnEnemiesMessage = new Message(RECIPIENT.LOGIC, ACTION.SPAWN_ENEMIES, enemySpawnData);
 		logicManager.receiveMessage(spawnEnemiesMessage);
 
@@ -92,7 +97,12 @@ public class TestLogicManager {
 		float mapHeight = 600f;
 		Vector2 mapDimensions = new Vector2(mapWidth, mapHeight);
 		Set<StaticBlock> blockingObjects = new HashSet<>();
+		Set<Item> items = new HashSet<>();
+		Message blockingObjectsMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, blockingObjects);
+		Message itemsMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_ITEMS, items);
 		Message mapDimensionsMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_MAP_DIMENSIONS, mapDimensions);
+		logicManager.receiveMessage(blockingObjectsMessage);
+		logicManager.receiveMessage(itemsMessage);
 		logicManager.receiveMessage(mapDimensionsMessage);
 
 		// Verify that the CollisionDetectionSystem is initialized with the map dimensions

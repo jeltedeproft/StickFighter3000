@@ -70,6 +70,7 @@ public class TestCharacterStateAppear {
 		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
 		characterState.handleInput(inputBox);
 
+		verify(characterStateManager).popState();
 		verify(characterStateManager).pushState(CHARACTER_STATE.ATTACKING);
 	}
 

@@ -77,7 +77,7 @@ public class CharacterStateWallSlidingStop implements CharacterState {
 		case UP:
 			if (inputBox.isPressed(BUTTONS.UP)) {
 				characterStateManager.popState();
-				characterStateManager.pushState(CHARACTER_STATE.HOLDING);
+				characterStateManager.pushState(CHARACTER_STATE.JUMPING);
 			}
 			break;
 		default:

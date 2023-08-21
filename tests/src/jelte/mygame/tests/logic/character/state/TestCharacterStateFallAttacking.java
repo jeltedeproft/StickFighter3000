@@ -1,7 +1,6 @@
 package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -17,8 +16,6 @@ import org.mockito.MockitoAnnotations;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
-import jelte.mygame.input.InputBox;
-import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.character.state.CharacterStateFallAttacking;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -74,78 +71,6 @@ public class TestCharacterStateFallAttacking {
 		characterState.update(delta);
 
 		verify(characterStateManager).pushState(CHARACTER_STATE.LANDATTACKING);
-	}
-
-	@Test
-	public void testHandleEventJumpPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.UP, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleEventTeleportPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.TELEPORT, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleEventDashPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.DASH, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleEventCastPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.SPELL0, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleInputLeftPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleInputRightPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleInputLeftUnPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
-	}
-
-	@Test
-	public void testHandleInputRightUnPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager, never());
 	}
 
 	@Test
