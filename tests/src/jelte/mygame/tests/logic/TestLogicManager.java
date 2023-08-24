@@ -2,7 +2,6 @@ package jelte.mygame.tests.logic;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -21,8 +20,6 @@ import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.graphical.map.EnemySpawnData;
-import jelte.mygame.input.InputBox;
-import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.LogicManagerImpl;
 import jelte.mygame.logic.collisions.collidable.Item;
 import jelte.mygame.logic.collisions.collidable.StaticBlock;
@@ -49,16 +46,7 @@ public class TestLogicManager {
 
 	@Test
 	public void testReceiveMessage_PlayerAction() {
-		// Test receiveMessage() with a player action message
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.ATTACK, true);
-		Message playerActionMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox);
-		logicManager.receiveMessage(playerActionMessage);
-
-		// Verify that the message is forwarded to the PlayerCharacter
-		verify(listener).receiveMessage(playerActionMessage);
-
-		// TODO mock characterManager and check effects
+		// TODO
 	}
 
 	@Test

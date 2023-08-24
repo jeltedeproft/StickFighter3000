@@ -119,8 +119,7 @@ public class TestCharacterStateWallSliding {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -130,7 +129,6 @@ public class TestCharacterStateWallSliding {
 		characterState.handleInput(inputBox);
 
 		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
 	@Test

@@ -66,6 +66,7 @@ public class Constants {
 	public static final String PLAYER_STATS_TEST_FILE_LOCATION = "units/players.json";
 	public static final String ENEMY_STATS_TEST_FILE_LOCATION = "units/enemies.json";
 	public static final String SPELL_STATS_TEST_FILE_LOCATION = "spells/spells.json";
+	public static final String SPECIAL_EFFECTS_STATS_TEST_FILE_LOCATION = "particles/effects.json";
 	public static final String MAP_TEST_FILE_LOCATION = "tests/testMap/testMap.tmx";
 	public static final String TEST_FILE_CEILING_EXPECTED = "tests/TestCollisionSystem/expected/ceiling.txt";
 	public static final String TEST_FILE_CEILING_ACTUAL = "tests/TestCollisionSystem/actual/ceiling.txt";

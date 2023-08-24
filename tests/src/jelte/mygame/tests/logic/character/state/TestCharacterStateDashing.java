@@ -68,7 +68,7 @@ public class TestCharacterStateDashing {
 		float delta = 1f;
 
 		characterState.update(delta);
-		verify(characterStateManager).startMovingOnTheGround(Constants.DASH_DISTANCE);
+		verify(characterStateManager).applyHorizontalForce(Constants.DASH_DISTANCE);
 	}
 
 	@Test

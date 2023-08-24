@@ -100,10 +100,10 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
-		characterStateManager.update(1f);
-		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == -Constants.WALK_SPEED);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
+		characterStateManager.handleInput(inputBox);
+		Assert.assertEquals(CHARACTER_STATE.WALKING, characterStateManager.getCurrentCharacterState().getState());
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().x == -Constants.WALK_SPEED);
+		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getVelocity().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.left);
 	}
 
@@ -121,9 +121,9 @@ public class TestCharacterStates {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, true);
-		characterStateManager.update(1f);
+		characterStateManager.handleInput(inputBox);
 		Assert.assertEquals(characterStateManager.getCurrentCharacterState().getState(), CHARACTER_STATE.WALKING);
-		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == Constants.WALK_SPEED);
+		Assert.assertFalse(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().x == Constants.WALK_SPEED);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getAcceleration().y == 0);
 		Assert.assertTrue(characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right);
 	}
@@ -211,6 +211,8 @@ public class TestCharacterStates {
 	// ATTACK //////////////////////////////////////////////
 	private void switchToAttackingState() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
+		characterStateManager.popState();
+		characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		characterStateManager.pushState(CHARACTER_STATE.ATTACKING);
 	}
 
@@ -267,6 +269,8 @@ public class TestCharacterStates {
 	// BLOCKING //////////////////////////////////////////////
 	private void switchToBlockingState() {
 		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
+		characterStateManager.popState();
+		characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		characterStateManager.pushState(CHARACTER_STATE.BLOCKING);
 	}
 

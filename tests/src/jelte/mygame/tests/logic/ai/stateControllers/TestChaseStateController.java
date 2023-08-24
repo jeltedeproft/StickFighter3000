@@ -110,9 +110,10 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
-		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
 
-		InputBox inputBox = (InputBox) expectedMessage.getValue();
+		InputBox inputBox = (InputBox) actualMessage.getValue();
 		assertTrue(inputBox.isPressed(BUTTONS.LEFT));
 		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
 
@@ -125,8 +126,13 @@ public class TestChaseStateController {
 		self.getPhysicsComponent().setDirection(Direction.left);
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
+
+		InputBox inputBox = (InputBox) actualMessage.getValue();
+		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
+		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
 	}
 
 	@Test
@@ -137,11 +143,12 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
-		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
 
-		InputBox inputBox = (InputBox) expectedMessage.getValue();
-		assertTrue(inputBox.isPressed(BUTTONS.RIGHT));
+		InputBox inputBox = (InputBox) actualMessage.getValue();
 		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
+		assertTrue(inputBox.isPressed(BUTTONS.RIGHT));
 	}
 
 	@Test
@@ -151,8 +158,13 @@ public class TestChaseStateController {
 		self.getPhysicsComponent().setDirection(Direction.right);
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
+
+		InputBox inputBox = (InputBox) actualMessage.getValue();
+		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
+		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
 	}
 
 }

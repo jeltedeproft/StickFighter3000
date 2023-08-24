@@ -2,6 +2,7 @@ package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
@@ -17,6 +18,8 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.input.InputBox;
 import jelte.mygame.input.InputHandlerImpl.BUTTONS;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.input.CharacterInputHandler;
 import jelte.mygame.logic.character.state.CharacterStateIdle;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -46,12 +49,16 @@ public class TestCharacterStateIdle {
 		MusicManager.setInstance(mockMusicManager);
 		characterStateManager = mock(CharacterStateManager.class);
 		characterState = new CharacterStateIdle(characterStateManager);
+		Character character = mock(Character.class);
+		when(character.getName()).thenReturn("test");
+		when(character.getCharacterInputHandler()).thenReturn(new CharacterInputHandler());
+		when(characterStateManager.getCharacter()).thenReturn(character);
 	}
 
 	@Test
 	public void testEntry() {
 		characterState.entry();
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).stopMovingOnTheGround();
 	}
 
 	@Test
@@ -138,7 +145,8 @@ public class TestCharacterStateIdle {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingOnTheGround(Constants.WALK_SPEED);
+		verify(characterStateManager).startMovingOnTheGround(-Constants.WALK_SPEED);
+		verify(characterStateManager).popState();
 		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 

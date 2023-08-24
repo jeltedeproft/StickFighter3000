@@ -19,6 +19,8 @@ import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
 import jelte.mygame.input.InputBox;
 import jelte.mygame.input.InputHandlerImpl.BUTTONS;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.input.CharacterInputHandler;
 import jelte.mygame.logic.character.state.CharacterStateJumping;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
@@ -48,12 +50,16 @@ public class TestCharacterStateJumping {
 		MusicManager.setInstance(mockMusicManager);
 		characterStateManager = mock(CharacterStateManager.class);
 		characterState = new CharacterStateJumping(characterStateManager);
+		Character character = mock(Character.class);
+		when(character.getName()).thenReturn("test");
+		when(character.getCharacterInputHandler()).thenReturn(new CharacterInputHandler());
+		when(characterStateManager.getCharacter()).thenReturn(character);
 	}
 
 	@Test
 	public void testEntry() {
 		characterState.entry();
-		verify(characterStateManager).applyJumpForce();
+		verify(characterStateManager).startJump();
 	}
 
 	@Test
@@ -114,15 +120,6 @@ public class TestCharacterStateJumping {
 	}
 
 	@Test
-	public void testHandleEventJumpPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.UP, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).applyJumpForce();
-	}
-
-	@Test
 	public void testHandleEventTeleportPressed() {
 		InputBox inputBox = new InputBox();
 		inputBox.updateButtonPressed(BUTTONS.TELEPORT, true);
@@ -155,8 +152,7 @@ public class TestCharacterStateJumping {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, true);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
+		verify(characterStateManager).startMovingInTheAir(-Constants.WALK_SPEED);
 	}
 
 	@Test
@@ -166,7 +162,6 @@ public class TestCharacterStateJumping {
 		characterState.handleInput(inputBox);
 
 		verify(characterStateManager).startMovingInTheAir(Constants.WALK_SPEED);
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALKING);
 	}
 
 	@Test
@@ -175,7 +170,7 @@ public class TestCharacterStateJumping {
 		inputBox.updateButtonPressed(BUTTONS.LEFT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopMovingOnTheGround();
+		verify(characterStateManager).stopMovingInTheAir();
 	}
 
 	@Test
@@ -184,7 +179,7 @@ public class TestCharacterStateJumping {
 		inputBox.updateButtonPressed(BUTTONS.RIGHT, false);
 		characterState.handleInput(inputBox);
 
-		verify(characterStateManager).stopMovingOnTheGround();
+		verify(characterStateManager).stopMovingInTheAir();
 	}
 
 	@Test

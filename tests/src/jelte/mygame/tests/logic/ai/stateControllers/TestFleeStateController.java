@@ -99,11 +99,12 @@ public class TestFleeStateController {
 		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
-		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
 
-		InputBox inputBox = (InputBox) expectedMessage.getValue();
-		assertTrue(inputBox.isPressed(BUTTONS.LEFT));
-		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
+		InputBox inputBox = (InputBox) actualMessage.getValue();
+		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
+		assertTrue(inputBox.isPressed(BUTTONS.RIGHT));
 	}
 
 	@Test
@@ -113,8 +114,8 @@ public class TestFleeStateController {
 		self.getPhysicsComponent().setDirection(Direction.right);
 		BasicFleeStateController stateController = new BasicFleeStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
 	}
 
 	@Test
@@ -125,11 +126,12 @@ public class TestFleeStateController {
 		BasicFleeStateController stateController = new BasicFleeStateController();
 
 		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
-		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
+		Message actualMessage = stateController.getNextCommand(0f, self, player);
+		assertEquals(expectedMessage, actualMessage);
 
-		InputBox inputBox = (InputBox) expectedMessage.getValue();
-		assertTrue(inputBox.isPressed(BUTTONS.RIGHT));
-		assertFalse(inputBox.isPressed(BUTTONS.LEFT));
+		InputBox inputBox = (InputBox) actualMessage.getValue();
+		assertFalse(inputBox.isPressed(BUTTONS.RIGHT));
+		assertTrue(inputBox.isPressed(BUTTONS.LEFT));
 	}
 
 	@Test
@@ -139,8 +141,8 @@ public class TestFleeStateController {
 		self.getPhysicsComponent().setDirection(Direction.left);
 		BasicFleeStateController stateController = new BasicFleeStateController();
 
-		Array<Message> expectedMessages = new Array<>();
-		assertEquals(expectedMessages, stateController.getNextCommand(0f, self, player));
+		Message expectedMessage = new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP);
+		assertEquals(expectedMessage, stateController.getNextCommand(0f, self, player));
 	}
 
 }

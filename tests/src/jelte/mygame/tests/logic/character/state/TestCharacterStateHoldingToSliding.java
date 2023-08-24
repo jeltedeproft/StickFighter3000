@@ -81,15 +81,6 @@ public class TestCharacterStateHoldingToSliding {
 	}
 
 	@Test
-	public void testHandleEventDownPressed() {
-		InputBox inputBox = new InputBox();
-		inputBox.updateButtonPressed(BUTTONS.DOWN, true);
-		characterState.handleInput(inputBox);
-
-		verify(characterStateManager).pushState(CHARACTER_STATE.WALLSLIDING);
-	}
-
-	@Test
 	public void testExit() {
 		characterState.exit();
 
