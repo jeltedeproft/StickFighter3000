@@ -29,7 +29,10 @@ public enum AudioEnum {
 	SOUND_AMBIENCE_CAVE,
 	SOUND_CHASE_STATE_ALCHEMIST,
 	SOUND_ATTACK_STATE_ALCHEMIST,
-	SOUND_FIREBALL_ITEM;
+	SOUND_FIREBALL_ITEM,
+	SOUND_BOW_LOOP,
+	SOUND_BOW_END,
+	SOUND_BOW_WINDUP;
 
 	private static final AudioEnum[] copyOfValues = AudioEnum.values();
 

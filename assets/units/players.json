@@ -3,6 +3,7 @@
 		"id": 0,
 		"name": "swordmaster",
 		"entitySpriteName": "swordmaster",
+		"melee": true,
 		"maxHP": 100.0f,
 		"attackCooldown": 3.0f,
 		"jumpFrameDuration":0.05f,

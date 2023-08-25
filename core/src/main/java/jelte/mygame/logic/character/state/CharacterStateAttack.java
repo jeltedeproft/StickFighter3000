@@ -25,7 +25,12 @@ public class CharacterStateAttack implements CharacterState {
 	@Override
 	public void entry() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
-		characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
+		if (characterStateManager.getCharacter().getData().isMelee()) {
+			characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
+		} else {
+			characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(3));// ;TODO make bounding box size of spell same as chosen attack animation
+		}
+
 	}
 
 	@Override

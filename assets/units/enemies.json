@@ -4,7 +4,7 @@
 		"name": "archer",
 		"spells": [],
 		"entitySpriteName": "archer",
-		"aiStrategyName": "BASIC",
+		"aiStrategyName": "ARCHER",
 		"melee": false,
 		"maxHP": 100.0f,
 		"movementSpeed": 5.0f,

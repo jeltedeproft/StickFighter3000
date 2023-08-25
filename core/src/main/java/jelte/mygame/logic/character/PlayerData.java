@@ -14,6 +14,7 @@ public class PlayerData implements CharacterData {
 	private int id;
 	private String name;
 	private String entitySpriteName;
+	private boolean melee;
 	private float maxHP;
 	private float attackCooldown;
 	private float jumpFrameDuration;

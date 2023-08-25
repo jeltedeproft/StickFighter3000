@@ -21,7 +21,7 @@ public class AiCharacter extends Character {
 	private static final String TAG = AiCharacter.class.getSimpleName();
 	private Array<PatrolPoint> patrolPoints;
 	private int activePatrolPointIndex = 0;
-	private AI_STATE state = AI_STATE.PATROL;
+	private AI_STATE state = AI_STATE.IDLE;
 	private VisionCollidable visionCollidable;
 	private InputBox inputBox;
 

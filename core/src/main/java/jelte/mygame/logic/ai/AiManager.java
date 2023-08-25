@@ -14,6 +14,7 @@ import jelte.mygame.input.InputHandlerImpl.BUTTONS;
 import jelte.mygame.logic.ai.strategy.AiStrategy;
 import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.ai.strategy.advanced.AdvancedAiStrategy;
+import jelte.mygame.logic.ai.strategy.archer.ArcherAiStrategy;
 import jelte.mygame.logic.ai.strategy.basic.BasicAiStrategy;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
@@ -30,6 +31,7 @@ public class AiManager {
 		ADVANCED,
 		AGGRESIVE,
 		PASSIVE,
+		ARCHER,
 		KEEP_DISTANCE,
 		PEACEFULL;
 	}
@@ -52,6 +54,7 @@ public class AiManager {
 		return switch (strategyEnum) {
 		case BASIC -> new BasicAiStrategy();
 		case ADVANCED -> new AdvancedAiStrategy();
+		case ARCHER -> new ArcherAiStrategy();
 		default -> new BasicAiStrategy();
 		};
 	}

@@ -14,10 +14,12 @@ public class ProjectileSpell extends AbstractSpell {
 		Vector2 casterPosition = caster.getPhysicsComponent().getPosition().cpy();
 		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
 		Vector2 velocity = direction.scl(spellData.getSpeed());
+		velocity.add(spellData.getVelocityX(), spellData.getVelocityY());
 
 		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition);
 		newPhysicsComponent.setDirection(direction);
 		newPhysicsComponent.setVelocity(velocity);
+		newPhysicsComponent.setAcceleration(new Vector2(spellData.getAccelerationX(), spellData.getAccelerationY()));
 		physicsComponent = newPhysicsComponent;
 	}
 

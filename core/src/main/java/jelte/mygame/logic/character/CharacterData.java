@@ -8,6 +8,8 @@ public interface CharacterData {
 
 	String getName();
 
+	boolean isMelee();
+
 	float getAttackFullTime();
 
 	float getAttackCooldown();

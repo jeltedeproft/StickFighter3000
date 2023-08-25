@@ -9,7 +9,8 @@ import java.util.Random;
 public enum SpellsEnum {
 	ATTACK("attack"), // 0
 	FALLATTACK("fallattack"), // 1
-	FIREBALL("fireball"); // 2
+	FIREBALL("fireball"), // 2
+	RANGED_ATTACK("rangedAttack"); // 3
 
 	private static final List<SpellsEnum> TYPES = Collections.unmodifiableList(Arrays.asList(SpellsEnum.values()));
 	private static final int SIZE = TYPES.size();

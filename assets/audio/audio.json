@@ -231,4 +231,28 @@
 		"duration": 1.0f
 		"theme": 0,
 	}
+	{
+		"id": 29,
+		"name": "bowLoop",
+		"audioFileName": ["audio/bowLoop.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
+	{
+		"id": 30,
+		"name": "bowEnd",
+		"audioFileName": ["audio/bowEnd.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
+	{
+		"id": 31,
+		"name": "bowWindup",
+		"audioFileName": ["audio/bowWindup.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
 ]

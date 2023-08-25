@@ -19,7 +19,11 @@ public class SpellData {
 	private boolean goesTroughObstacles;
 	private String affects;
 	private float damage;
-	private int speed;
+	private float speed;
+	private float velocityX;
+	private float velocityY;
+	private float accelerationX;
+	private float accelerationY;
 	private String spellSound;
 	private float duration;
 	private int range;
