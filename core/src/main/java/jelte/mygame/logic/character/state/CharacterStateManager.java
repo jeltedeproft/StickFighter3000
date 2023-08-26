@@ -87,6 +87,7 @@ public class CharacterStateManager {
 		DAMAGE_TAKEN,
 		DIED,
 		NO_COLLISION,
+		TARGET_HIT
 	}
 
 	public CharacterStateManager(Character character) {
@@ -123,6 +124,7 @@ public class CharacterStateManager {
 		characterStateHoldingToSliding = new CharacterStateHoldingToSliding(this, data.getHoldToSlideFullTime());
 		characterStateJumpToFall = new CharacterStateJumpToFall(this);
 		stateStack.addFirst(characterStateAppear);
+		characterStateAppear.entry();
 	}
 
 	public void update(float delta) {

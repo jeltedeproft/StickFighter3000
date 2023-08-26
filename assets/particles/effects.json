@@ -169,7 +169,7 @@
 		"alignment": "right",
 		"spriteName": "swordmaster-TELEPORTING1-right-effect"
 	},
-		{
+	{
 		"id": 17,
 		"characterName": "swordmaster",
 		"actionName": "TELEPORTING1",
@@ -178,5 +178,45 @@
 		"direction": "left",
 		"alignment": "left",
 		"spriteName": "swordmaster-TELEPORTING1-left-effect"
+	},
+	{
+		"id": 18,
+		"characterName": "archer",
+		"actionName": "ATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "archer-ATTACKING1-left-effect"
+	},
+	{
+		"id": 19,
+		"characterName": "archer",
+		"actionName": "ATTACKING1",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "archer-ATTACKING1-right-effect"
+	},
+		{
+		"id": 20,
+		"characterName": "archer",
+		"actionName": "ATTACKING2",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "left",
+		"alignment": "left",
+		"spriteName": "archer-ATTACKING2-left-effect"
+	},
+	{
+		"id": 21,
+		"characterName": "archer",
+		"actionName": "ATTACKING2",
+		"frameDuration": 0.1f,
+		"playMode": "NORMAL",
+		"direction": "right",
+		"alignment": "right",
+		"spriteName": "archer-ATTACKING2-right-effect"
 	}
 ]

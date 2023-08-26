@@ -18,9 +18,10 @@ public class ArcherAttackStateController implements StateControllerInterface {
 		timeSinceLastAttack += delta;
 		if (self.getCurrentCharacterState().getState() != CHARACTER_STATE.ATTACKING && timeSinceLastAttack > self.getData().getAttackCooldown()) {
 			timeSinceLastAttack = 0;
-			Gdx.app.log(TAG, "switching from attack to chase");
+			Gdx.app.log(TAG, "switching from " + self.getCurrentCharacterState().getState() + " to " + AI_STATE.IDLE);
 			return AI_STATE.IDLE;
 		}
+		Gdx.app.log(TAG, "stay in attack state");
 		return AI_STATE.ATTACK;
 	}
 

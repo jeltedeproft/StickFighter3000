@@ -181,6 +181,7 @@ public class AnimationTextureManager {
 		case RUNNING -> character.getData().getRunningFrameDuration();
 		case WALKING -> character.getData().getRunningFrameDuration();
 		case SPRINTING -> character.getData().getRunningFrameDuration();
+		case FALLING -> character.getData().getFallingFrameDuration();
 		case FALLATTACKING -> character.getData().getFallAttackingFrameDuration();
 		default -> Constants.DEFAULT_ANIMATION_SPEED;
 		};

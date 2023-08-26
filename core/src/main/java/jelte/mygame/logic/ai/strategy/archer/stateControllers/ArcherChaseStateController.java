@@ -23,6 +23,7 @@ public class ArcherChaseStateController implements StateControllerInterface {
 			Gdx.app.log(TAG, "switching from chase to flee");
 			return AI_STATE.FLEE;
 		}
+		Gdx.app.log(TAG, "stay in chase state");
 		return AI_STATE.CHASE;
 	}
 

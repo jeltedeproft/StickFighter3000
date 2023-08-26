@@ -20,6 +20,7 @@ public class ArcherFleeStateController implements StateControllerInterface {
 			Gdx.app.log(TAG, "switching from flee to patrol");
 			return AI_STATE.PATROL;
 		}
+		Gdx.app.log(TAG, "stay in flee state");
 		return AI_STATE.FLEE;
 	}
 

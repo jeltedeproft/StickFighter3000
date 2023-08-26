@@ -119,6 +119,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			}
 		}
 
+		if (enemy.getCharacterStateManager().isStateChanged()) {
+			Animation<NamedSprite> specialEffect = animationManager.getSpecialEffect(enemy);
+			if (specialEffect != null) {
+				specialEffectsManager.addSpecialEffect(enemy, specialEffect);
+			}
+		}
+
 		specialEffectsManager.update(delta, player);// TODO for all characters
 
 		MusicManager.getInstance().update(delta, cameraManager.getCamera().position.x, cameraManager.getCamera().position.y);
@@ -161,7 +168,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 40, 160);
 //		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 40, 140);
 //		font.draw(batch, String.format("enemy acceleration: %s", enemy.getPhysicsComponent().getAcceleration()), 40, 120);
-//		font.draw(batch, String.format("ai state: %s", enemy.getState()), 40, 100);
+		font.draw(batch, String.format("ai state: %s", enemy.getState()), 40, 160);
 //		font.draw(batch, String.format("active patrol point index: %s", enemy.getActivePatrolPointIndex()), 40, 80);
 //		font.draw(batch, String.format("player seen: %s", enemy.getVisionCollidable().isPlayerSeen()), 40, 60);
 //		font.draw(batch, String.format("character state enemy ai : %s", enemy.getCurrentCharacterState().getState()), 40, 40);

@@ -29,6 +29,7 @@ public class SpellStateManager {
 		spellStateEnd = new SpellStateEnd(this, data.getEndFullTime());
 		spellStateDead = new SpellStateDead(this);
 		currentSpellState = spellStateWindup;
+		currentSpellState.entry();
 	}
 
 	public void update(float delta) {

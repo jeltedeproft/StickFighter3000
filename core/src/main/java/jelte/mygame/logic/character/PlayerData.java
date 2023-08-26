@@ -38,6 +38,7 @@ public class PlayerData implements CharacterData {
 	private float wallSlidingStopFullTime;
 	private float holdToSlideFullTime;
 	private float fallAttackingFrameDuration;
+	private float fallingFrameDuration;
 	private float landAttackingFullTime;
 	private float blockingFullTime;
 

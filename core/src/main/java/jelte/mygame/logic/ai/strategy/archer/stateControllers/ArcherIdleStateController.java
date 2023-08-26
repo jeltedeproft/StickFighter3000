@@ -18,9 +18,10 @@ public class ArcherIdleStateController implements StateControllerInterface {
 		timer += delta;
 		if (self.getVisionCollidable().isPlayerSeen()) {
 			timer = 0f;
-			Gdx.app.log(TAG, "switching from idle to chase");
+			Gdx.app.log(TAG, "switching from idle to attack");
 			return AI_STATE.ATTACK;
 		}
+		Gdx.app.log(TAG, "stay in idle state");
 		return AI_STATE.IDLE;
 	}
 

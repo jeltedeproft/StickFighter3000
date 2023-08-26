@@ -3,6 +3,7 @@ package jelte.mygame.logic.spells.spells;
 import com.badlogic.gdx.math.Vector2;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
@@ -25,6 +26,7 @@ public class ProjectileSpell extends AbstractSpell {
 
 	@Override
 	public void applyCollisionEffect(Character character) {
+		spellStateManager.getCurrentSpellState().handleEvent(EVENT.TARGET_HIT);
 		if (character.getId() != casterId) {
 			character.damage(data.getDamage());
 		}

@@ -43,7 +43,7 @@
 		"id": 5,
 		"name": "appear",
 		"audioFileName": ["audio/appear1.wav"],
-		"volume": 1.0f,
+		"volume": 0.5f,
 		"duration": 1.0f,
 		"theme": 0,
 	},
@@ -179,7 +179,7 @@
 		"id": 22,
 		"name": "fallstrike",
 		"audioFileName": ["audio/fallstrike.wav"],
-		"volume": 0.8f,
+		"volume": 0.6f,
 		"duration": 1.0f
 		"theme": 0,
 	},

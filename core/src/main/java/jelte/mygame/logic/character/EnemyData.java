@@ -1,8 +1,8 @@
 package jelte.mygame.logic.character;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.utils.StringBuilder;
+
+import java.util.ArrayList;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,6 +49,7 @@ public class EnemyData implements CharacterData {
 	private float wallSlidingStopFullTime;
 	private float holdToSlideFullTime;
 	private float fallAttackingFrameDuration;
+	private float fallingFrameDuration;
 	private float landAttackingFullTime;
 	private float blockingFullTime;
 

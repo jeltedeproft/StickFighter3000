@@ -22,6 +22,7 @@ public class ArcherPatrolStateController implements StateControllerInterface {
 			timeSinceLastPatrol = 0;
 			return AI_STATE.CHASE;
 		}
+		Gdx.app.log(TAG, "stay in patrol state");
 		return AI_STATE.PATROL;
 	}
 
@@ -32,5 +33,4 @@ public class ArcherPatrolStateController implements StateControllerInterface {
 		}
 		return AiUtility.generateMoveInputToGoal(self, self.getPatrolPoints().get(self.getActivePatrolPointIndex()).getPosition());
 	}
-
 }

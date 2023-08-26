@@ -19,12 +19,14 @@ public class SpellStateLoop implements SpellState {
 		this.spellStateManager = spellStateManager;
 		timer = duration;
 		this.duration = duration;
-		audioEnum = AudioEnum.forName(String.format("SOUND_%s_%s", spellStateManager.getSpell().getName(), state));
+		audioEnum = AudioEnum.forName(String.format("SOUND_%s_%s", spellStateManager.getSpell().getName().toUpperCase(), state));
 	}
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum);
+		if (audioEnum != null) {
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, audioEnum);
+		}
 	}
 
 	@Override
@@ -62,7 +64,20 @@ public class SpellStateLoop implements SpellState {
 
 	@Override
 	public void handleEvent(EVENT event) {
-		// TODO Auto-generated method stub
+		switch (event) {
+		case DAMAGE_TAKEN:
+			break;
+		case DIED:
+			break;
+		case NO_COLLISION:
+			break;
+		case TARGET_HIT:
+			spellStateManager.transition(SPELL_STATE.END);
+			break;
+		default:
+			break;
+
+		}
 
 	}
 

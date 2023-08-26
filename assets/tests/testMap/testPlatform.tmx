@@ -67,7 +67,7 @@
   <object id="45" name="RIGHT" x="766" y="144" width="35" height="513.5"/>
  </objectgroup>
  <objectgroup id="9" name="spawns">
-  <object id="49" name="SPAWN" x="111.273" y="485.455">
+  <object id="49" name="SPAWN" x="95.6366" y="485.5">
    <properties>
     <property name="duplicateIndex" value="0"/>
     <property name="entityTypeIndex" value="0"/>
@@ -82,7 +82,7 @@
     <property name="pathIndex" value="0"/>
    </properties>
   </object>
-  <object id="47" name="PATROL" x="229.636" y="485.091">
+  <object id="47" name="PATROL" x="190.136" y="486.591">
    <properties>
     <property name="duplicateIndex" value="0"/>
     <property name="entityTypeIndex" value="0"/>

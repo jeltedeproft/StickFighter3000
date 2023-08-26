@@ -19,13 +19,15 @@ public class SpellStateEnd implements SpellState {
 		this.spellStateManager = spellStateManager;
 		timer = duration;
 		this.duration = duration;
-		audioEnum = AudioEnum.forName(String.format("SOUND_%s_%s", spellStateManager.getSpell().getName(), state));
+		audioEnum = AudioEnum.forName(String.format("SOUND_%s_%s", spellStateManager.getSpell().getName().toUpperCase(), state));
 
 	}
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum);
+		if (audioEnum != null) {
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum);
+		}
 	}
 
 	@Override
@@ -40,7 +42,6 @@ public class SpellStateEnd implements SpellState {
 	@Override
 	public void exit() {
 		timer = duration;
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, audioEnum);
 	}
 
 	@Override

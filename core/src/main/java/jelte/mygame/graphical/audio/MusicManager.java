@@ -109,6 +109,9 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	}
 
 	private AudioData getAudioData(AudioEnum event) {
+		if (event == null) {
+			int j = 5;
+		}
 		return audioDataForIds.computeIfAbsent(event.ordinal(), k -> AudioFileReader.getAudioData().get(k));
 	}
 

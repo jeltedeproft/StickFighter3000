@@ -2,9 +2,6 @@ package jelte.mygame.logic.character.state;
 
 import com.badlogic.gdx.utils.StringBuilder;
 
-import jelte.mygame.graphical.audio.AudioCommand;
-import jelte.mygame.graphical.audio.AudioEnum;
-import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.input.InputBox;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
@@ -24,7 +21,6 @@ public class CharacterStateAttack implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
 		if (characterStateManager.getCharacter().getData().isMelee()) {
 			characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(0));// ;TODO make bounding box size of spell same as chosen attack animation
 		} else {

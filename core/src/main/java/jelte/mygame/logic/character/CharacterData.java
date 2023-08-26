@@ -58,4 +58,6 @@ public interface CharacterData {
 
 	float getFallAttackingFrameDuration();
 
+	float getFallingFrameDuration();
+
 }
