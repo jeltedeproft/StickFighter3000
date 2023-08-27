@@ -28,8 +28,8 @@
 		"endFullTime": 0.2f,
 		"endFrameDuration": 0.2f,
 		"animationSpeed": 0.1f,
-		"initialWidth": 32,
-		"initialHeight": 32
+		"initialWidth": 88,
+		"initialHeight": 6
 	},
 	{
 		"id": 1,

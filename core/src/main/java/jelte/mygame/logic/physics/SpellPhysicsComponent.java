@@ -110,7 +110,10 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 	@Override
 	protected void onDimensionsUpdated() {
 		if (direction.x < 0) {
-			rectangle.x -= rectangle.width;
+			rectangle.x -= rectangle.width / 2;
+			rectangle.x -= Constants.PLAYER_WIDTH;
+		} else {
+			rectangle.x += Constants.PLAYER_WIDTH;
 		}
 	}
 

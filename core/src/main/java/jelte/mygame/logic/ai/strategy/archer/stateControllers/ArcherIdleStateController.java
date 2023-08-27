@@ -7,6 +7,7 @@ import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.ai.strategy.StateControllerInterface;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
+import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 
 public class ArcherIdleStateController implements StateControllerInterface {
 	private static final String TAG = ArcherIdleStateController.class.getSimpleName();
@@ -16,7 +17,7 @@ public class ArcherIdleStateController implements StateControllerInterface {
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {
 		timer += delta;
-		if (self.getVisionCollidable().isPlayerSeen()) {
+		if (timer >= maxIdleTime && self.getVisionCollidable().isPlayerSeen() && self.getCharacterStateManager().getCurrentCharacterState().getState() != CHARACTER_STATE.FALLING) {
 			timer = 0f;
 			Gdx.app.log(TAG, "switching from idle to attack");
 			return AI_STATE.ATTACK;

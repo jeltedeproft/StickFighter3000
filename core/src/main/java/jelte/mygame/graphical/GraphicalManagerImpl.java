@@ -136,17 +136,16 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderSpecialEffects();
 		particleMaker.drawAllActiveParticles(batch, delta);
 		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR);
-		// font.draw(batch, enemy.getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y +
-		// Constants.OFFSET_Y_HP_BAR * 2f);
+		font.draw(batch, enemy.getCharacterStateManager().getCurrentCharacterState().getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f);
 		batch.end();
 
 		hudManager.renderUI();
 		// hudManager.renderMinimapDot(mapManager.getRelativePlayerPositionMinimap(player.getPhysicsComponent().getPosition()));
 
-//		debugPlayer();
-//		debugEnemy();
+		debugPlayer();
+		debugEnemy();
 //		debugStaticObjects();
-//		debugSpells();
+		debugSpells();
 //		debugVisions();
 
 		// debug info player
