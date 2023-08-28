@@ -25,7 +25,7 @@ public class CharacterStateLanding implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_LANDING);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_LANDING, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

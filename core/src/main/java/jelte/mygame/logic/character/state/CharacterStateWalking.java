@@ -21,7 +21,7 @@ public class CharacterStateWalking implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK, characterStateManager.getCharacter().getPhysicsComponent());
 		boolean rightPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.RIGHT);
 		boolean leftPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.LEFT);
 		boolean upPressed = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox().isPressed(BUTTONS.UP);
@@ -145,7 +145,7 @@ public class CharacterStateWalking implements CharacterState {
 	public void resume() {
 		InputBox inputBox = characterStateManager.getCharacter().getCharacterInputHandler().getInputBox();
 		if (inputBox.isPressed(BUTTONS.RIGHT) || inputBox.isPressed(BUTTONS.LEFT)) {
-			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK);
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_WALK, characterStateManager.getCharacter().getPhysicsComponent());
 		} else {
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.IDLE);

@@ -21,7 +21,7 @@ public class CharacterStateClimbing implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_CLIMB);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_CLIMB, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

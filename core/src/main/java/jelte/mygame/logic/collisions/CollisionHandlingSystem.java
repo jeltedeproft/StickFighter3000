@@ -74,7 +74,7 @@ public class CollisionHandlingSystem {
 		} else if (isItemAndPlayer(type1, type2)) {
 			PlayerCharacter character = (PlayerCharacter) getCharacterById(allCharacters, collidable2.getId());
 			Item item = (Item) collidable1;
-			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, item.getAudioEvent());
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, item.getAudioEvent(), item);
 			item.collidedWithPlayer(character);
 		}
 	}

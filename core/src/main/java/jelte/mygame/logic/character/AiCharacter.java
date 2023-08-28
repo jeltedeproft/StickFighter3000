@@ -30,11 +30,12 @@ public class AiCharacter extends Character {
 		this.data = data;
 		this.patrolPoints = patrolPoints;
 		inputBox = new InputBox();
-		characterStateManager = new CharacterStateManager(this);
 		currentHp = data.getMaxHP();
 
 		physicsComponent = new EnemyPhysicsComponent(id, Constants.PLAYER_START.cpy(), data.getVisionShapeWidth(), data.getVisionShapeHeight());
 		physicsComponent.setPosition(spawnPoint);
+
+		characterStateManager = new CharacterStateManager(this);
 
 		this.visionCollidable = new VisionCollidable(this);
 	}

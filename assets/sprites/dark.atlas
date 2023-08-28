@@ -1,5 +1,5 @@
 
-dark.png
+dark.basis
 size: 2048, 2048
 format: RGBA8888
 filter: Nearest, Nearest
@@ -1844,14 +1844,7 @@ archer-ATTACKING2-left-effect
   size: 139, 21
   orig: 139, 21
   offset: 0, 0
-  index: 3
-archer-ATTACKING2-left-effect
-  rotate: false
-  xy: 652, 2025
-  size: 139, 21
-  orig: 139, 21
-  offset: 0, 0
-  index: 8
+  index: 4
 archer-ATTACKING2-left-effect
   rotate: false
   xy: 652, 2025
@@ -1865,14 +1858,21 @@ archer-ATTACKING2-left-effect
   size: 139, 21
   orig: 139, 21
   offset: 0, 0
-  index: 5
+  index: 11
 archer-ATTACKING2-left-effect
   rotate: false
   xy: 652, 2025
   size: 139, 21
   orig: 139, 21
   offset: 0, 0
-  index: 4
+  index: 8
+archer-ATTACKING2-left-effect
+  rotate: false
+  xy: 652, 2025
+  size: 139, 21
+  orig: 139, 21
+  offset: 0, 0
+  index: 9
 archer-ATTACKING2-left-effect
   rotate: false
   xy: 652, 2025
@@ -1886,7 +1886,14 @@ archer-ATTACKING2-left-effect
   size: 139, 21
   orig: 139, 21
   offset: 0, 0
-  index: 9
+  index: 5
+archer-ATTACKING2-left-effect
+  rotate: false
+  xy: 652, 2025
+  size: 139, 21
+  orig: 139, 21
+  offset: 0, 0
+  index: 3
 archer-ATTACKING2-left-effect
   rotate: false
   xy: 652, 2025
@@ -1901,13 +1908,6 @@ archer-ATTACKING2-left-effect
   orig: 139, 21
   offset: 0, 0
   index: 7
-archer-ATTACKING2-left-effect
-  rotate: false
-  xy: 652, 2025
-  size: 139, 21
-  orig: 139, 21
-  offset: 0, 0
-  index: 11
 archer-ATTACKING2-left-effect
   rotate: false
   xy: 652, 2002
@@ -2047,6 +2047,13 @@ archer-ATTACKING2-right
   size: 46, 23
   orig: 46, 23
   offset: 0, 0
+  index: 11
+archer-ATTACKING2-right
+  rotate: false
+  xy: 433, 1711
+  size: 46, 23
+  orig: 46, 23
+  offset: 0, 0
   index: 9
 archer-ATTACKING2-right
   rotate: false
@@ -2055,13 +2062,6 @@ archer-ATTACKING2-right
   orig: 46, 23
   offset: 0, 0
   index: 8
-archer-ATTACKING2-right
-  rotate: false
-  xy: 433, 1711
-  size: 46, 23
-  orig: 46, 23
-  offset: 0, 0
-  index: 11
 archer-ATTACKING2-right
   rotate: false
   xy: 481, 1708
@@ -2222,35 +2222,7 @@ archer-ATTACKING2-right-effect
   size: 138, 18
   orig: 138, 18
   offset: 0, 0
-  index: 6
-archer-ATTACKING2-right-effect
-  rotate: false
-  xy: 1639, 2005
-  size: 138, 18
-  orig: 138, 18
-  offset: 0, 0
   index: 8
-archer-ATTACKING2-right-effect
-  rotate: false
-  xy: 1639, 2005
-  size: 138, 18
-  orig: 138, 18
-  offset: 0, 0
-  index: 10
-archer-ATTACKING2-right-effect
-  rotate: false
-  xy: 1639, 2005
-  size: 138, 18
-  orig: 138, 18
-  offset: 0, 0
-  index: 4
-archer-ATTACKING2-right-effect
-  rotate: false
-  xy: 1639, 2005
-  size: 138, 18
-  orig: 138, 18
-  offset: 0, 0
-  index: 5
 archer-ATTACKING2-right-effect
   rotate: false
   xy: 1639, 2005
@@ -2271,7 +2243,7 @@ archer-ATTACKING2-right-effect
   size: 138, 18
   orig: 138, 18
   offset: 0, 0
-  index: 7
+  index: 11
 archer-ATTACKING2-right-effect
   rotate: false
   xy: 1639, 2005
@@ -2285,7 +2257,35 @@ archer-ATTACKING2-right-effect
   size: 138, 18
   orig: 138, 18
   offset: 0, 0
-  index: 11
+  index: 6
+archer-ATTACKING2-right-effect
+  rotate: false
+  xy: 1639, 2005
+  size: 138, 18
+  orig: 138, 18
+  offset: 0, 0
+  index: 4
+archer-ATTACKING2-right-effect
+  rotate: false
+  xy: 1639, 2005
+  size: 138, 18
+  orig: 138, 18
+  offset: 0, 0
+  index: 7
+archer-ATTACKING2-right-effect
+  rotate: false
+  xy: 1639, 2005
+  size: 138, 18
+  orig: 138, 18
+  offset: 0, 0
+  index: 5
+archer-ATTACKING2-right-effect
+  rotate: false
+  xy: 1639, 2005
+  size: 138, 18
+  orig: 138, 18
+  offset: 0, 0
+  index: 10
 archer-ATTACKING2-right-effect
   rotate: false
   xy: 1780, 2028
@@ -4623,20 +4623,6 @@ shocker-IDLE1-left
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
-  index: 3
-shocker-IDLE1-left
-  rotate: false
-  xy: 175, 1419
-  size: 37, 42
-  orig: 37, 42
-  offset: 0, 0
-  index: 24
-shocker-IDLE1-left
-  rotate: false
-  xy: 175, 1419
-  size: 37, 42
-  orig: 37, 42
-  offset: 0, 0
   index: 15
 shocker-IDLE1-left
   rotate: false
@@ -4644,7 +4630,21 @@ shocker-IDLE1-left
   size: 37, 42
   orig: 37, 42
   offset: 0, 0
+  index: 3
+shocker-IDLE1-left
+  rotate: false
+  xy: 175, 1419
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
   index: 1
+shocker-IDLE1-left
+  rotate: false
+  xy: 175, 1419
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: 24
 shocker-IDLE1-left
   rotate: false
   xy: 181, 1375
@@ -5463,14 +5463,14 @@ swordmaster-ATTACKING2-right-effect
   size: 76, 19
   orig: 76, 19
   offset: 0, 0
-  index: 1
+  index: 5
 swordmaster-ATTACKING2-right-effect
   rotate: false
   xy: 503, 1887
   size: 76, 19
   orig: 76, 19
   offset: 0, 0
-  index: 5
+  index: 1
 swordmaster-ATTACKING2-right-effect
   rotate: false
   xy: 500, 1846
@@ -6198,20 +6198,6 @@ swordmaster-FALLATTACKING1-lef-effect
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
-  index: 8
-swordmaster-FALLATTACKING1-lef-effect
-  rotate: false
-  xy: 1599, 1953
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 9
-swordmaster-FALLATTACKING1-lef-effect
-  rotate: false
-  xy: 1599, 1953
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
   index: 7
 swordmaster-FALLATTACKING1-lef-effect
   rotate: false
@@ -6219,35 +6205,21 @@ swordmaster-FALLATTACKING1-lef-effect
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
+  index: 8
+swordmaster-FALLATTACKING1-lef-effect
+  rotate: false
+  xy: 1599, 1953
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
   index: 6
-swordmaster-FALLATTACKING1-right-effect
+swordmaster-FALLATTACKING1-lef-effect
   rotate: false
   xy: 1599, 1953
   size: 31, 27
   orig: 31, 27
   offset: 0, 0
   index: 9
-swordmaster-FALLATTACKING1-right-effect
-  rotate: false
-  xy: 1599, 1953
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 8
-swordmaster-FALLATTACKING1-right-effect
-  rotate: false
-  xy: 1599, 1953
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 7
-swordmaster-FALLATTACKING1-right-effect
-  rotate: false
-  xy: 1599, 1953
-  size: 31, 27
-  orig: 31, 27
-  offset: 0, 0
-  index: 6
 swordmaster-FALLATTACKING1-right-effect
   rotate: false
   xy: 1599, 1953
@@ -6255,6 +6227,34 @@ swordmaster-FALLATTACKING1-right-effect
   orig: 31, 27
   offset: 0, 0
   index: 3
+swordmaster-FALLATTACKING1-right-effect
+  rotate: false
+  xy: 1599, 1953
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 8
+swordmaster-FALLATTACKING1-right-effect
+  rotate: false
+  xy: 1599, 1953
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 6
+swordmaster-FALLATTACKING1-right-effect
+  rotate: false
+  xy: 1599, 1953
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 7
+swordmaster-FALLATTACKING1-right-effect
+  rotate: false
+  xy: 1599, 1953
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: 9
 swordmaster-FALLATTACKING1-lef-effect
   rotate: false
   xy: 1638, 1855
@@ -7311,14 +7311,14 @@ swordmaster-ROLLATTACK1-left-effect
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 4
+  index: 3
 swordmaster-ROLLATTACK1-left-effect
   rotate: false
   xy: 2, 695
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 1
+  index: 4
 swordmaster-ROLLATTACK1-left-effect
   rotate: false
   xy: 2, 695
@@ -7332,7 +7332,7 @@ swordmaster-ROLLATTACK1-left-effect
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 3
+  index: 1
 swordmaster-ROLLATTACK1-left-effect
   rotate: false
   xy: 2, 695
@@ -7353,14 +7353,14 @@ swordmaster-ROLLATTACK1-right-effect
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 1
+  index: 3
 swordmaster-ROLLATTACK1-right-effect
   rotate: false
   xy: 2, 695
   size: 80, 29
   orig: 80, 29
   offset: 0, 0
-  index: 3
+  index: 1
 swordmaster-ROLLATTACK1-right-effect
   rotate: false
   xy: 2, 695

@@ -8,15 +8,18 @@ import com.badlogic.gdx.utils.Disposable;
 
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Predicate;
 
 import de.pottgames.tuningfork.Audio;
 import de.pottgames.tuningfork.AudioConfig;
 import de.pottgames.tuningfork.BufferedSoundSource;
 import de.pottgames.tuningfork.DistanceAttenuationModel;
+import de.pottgames.tuningfork.Reverb;
 import de.pottgames.tuningfork.SoundBuffer;
+import de.pottgames.tuningfork.SoundEffect;
 import de.pottgames.tuningfork.SoundListener;
 import de.pottgames.tuningfork.StreamedSoundSource;
 import de.pottgames.tuningfork.jukebox.JukeBox;
@@ -25,31 +28,31 @@ import de.pottgames.tuningfork.jukebox.playlist.ThemePlayListProvider;
 import de.pottgames.tuningfork.jukebox.song.Song;
 import de.pottgames.tuningfork.jukebox.song.SongMeta;
 import de.pottgames.tuningfork.jukebox.song.SongSettings;
+import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import jelte.mygame.utility.logging.MultiFileLogger;
 
-//TODO add link between entity and sound so that we can update pos sound
-//TODO start using positions and maybe reverb in cave
 public class MusicManager implements Disposable, MusicManagerInterface {
 	private static final String TAG = MusicManager.class.getSimpleName();
-
 	private static MusicManagerInterface instance = null;
-	private final Audio audio;
-	private final SoundListener listener;
-	private final HashMap<String, StreamedSoundSource> songs;
-	private final HashMap<String, Array<BufferedSoundSource>> loadedSounds;
-	private final Map<AudioEnum, Array<Float>> musicTimers = new EnumMap<>(AudioEnum.class);
-	private final Map<AudioEnum, Float> cooldowns = new EnumMap<>(AudioEnum.class);
+
 	private final Map<Integer, AudioData> audioDataForIds = new HashMap<>();
 	private final Map<MusicTheme, PlayList> playlistsPerTheme = new EnumMap<>(MusicTheme.class);
+	private final HashMap<String, StreamedSoundSource> songs = new HashMap<>();
+	private final HashMap<String, Array<BufferedSoundSource>> loadedSounds = new HashMap<>();
+	private final HashMap<Collidable, Array<BufferedSoundSource>> collidablesWithTheirSound = new HashMap<>();
+
+	private final Audio audio;
+	private final SoundListener listener;
+	private final SoundEffect reverb;
 	private ThemePlayListProvider provider;
 	private JukeBox jukeBox;
 
 	private MusicManager() {
-		songs = new HashMap<>();
-		loadedSounds = new HashMap<>();
 		audio = initAudio();
+		listener = audio.getListener();
+		reverb = initReverb();
 		jukeBox = initJukeBox();
 
 		autoloadSounds();
@@ -57,23 +60,26 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 		jukeBox.play();
 		jukeBox.update();
-		listener = audio.getListener();
 	}
 
 	private JukeBox initJukeBox() {
 		provider = new ThemePlayListProvider();
-		provider.setTheme(MusicTheme.PLAYING.ordinal());// TODO starting theme is main menu?
+		provider.setTheme(MusicTheme.PLAYING.ordinal());
 
 		for (MusicTheme theme : MusicTheme.values()) {
 			PlayList playlist = new PlayList();
-			playlist.setLooping(true);
-			playlist.setShuffleAfterPlaytrough(true);
-			playlist.shuffle();
-			provider.add(playlist, theme.ordinal());
+			initPlaylist(playlist, theme);
 			playlistsPerTheme.put(theme, playlist);
+			provider.add(playlist, theme.ordinal());
 		}
 
 		return new JukeBox(provider);
+	}
+
+	private void initPlaylist(PlayList playlist, MusicTheme theme) {
+		playlist.setLooping(true);
+		playlist.setShuffleAfterPlaytrough(true);
+		playlist.shuffle();
 	}
 
 	private Audio initAudio() {
@@ -83,108 +89,72 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		return Audio.init(config);
 	}
 
+	private SoundEffect initReverb() {
+		Reverb reverbData = new Reverb();
+		reverbData.gain = 0.7f;
+		return new SoundEffect(reverbData);
+	}
+
 	private void autoloadSounds() {
-		for (AudioEnum audioEnum : AudioEnum.values()) {
-			if (audioEnum.name().startsWith("SOUND_")) {
-				final AudioData audioData = getAudioData(audioEnum);
-				audioData.getAudioFileName().forEach(AssetManagerUtility::loadSoundBufferAsset);
-			}
-		}
+		loadAudioData(AudioEnum::isSound, this::loadSoundBufferAsset);
+	}
+
+	private void loadSoundBufferAsset(String fullFilePath, AudioData audioData) {
+		AssetManagerUtility.loadSoundBufferAsset(fullFilePath);
 	}
 
 	private void autoloadMusic() {
+		loadAudioData(AudioEnum::isPlaylist, this::loadPlaylistSong);
+	}
+
+	private void loadPlaylistSong(String fullFilePath, AudioData audioData) {
+		StreamedSoundSource music = new StreamedSoundSource(Gdx.files.internal(fullFilePath));
+		SongMeta meta = new SongMeta().setTitle(audioData.getName());
+		SongSettings settings = SongSettings.linear(audioData.getVolume(), Constants.MUSIC_FADE_IN_DURATION, Constants.MUSIC_FADE_OUT_DURATION);
+		Song song = new Song(music, settings, meta);
+		PlayList playlist = playlistsPerTheme.computeIfAbsent(MusicTheme.values()[audioData.getTheme()], key -> new PlayList());
+		playlist.addSong(song);
+	}
+
+	private void loadAudioData(Predicate<AudioEnum> filter, BiConsumer<String, AudioData> loader) {
 		for (AudioEnum audioEnum : AudioEnum.values()) {
-			if (audioEnum.name().startsWith("PLAYLIST_")) {
-				final AudioData audioData = getAudioData(audioEnum);
-				audioData.getAudioFileName().forEach(fullFilePath -> {
-					StreamedSoundSource music = new StreamedSoundSource(Gdx.files.internal(fullFilePath));
-					SongMeta meta = new SongMeta().setTitle(audioEnum.name());
-					SongSettings settings = SongSettings.linear(audioData.getVolume(), Constants.MUSIC_FADE_IN_DURATION, Constants.MUSIC_FADE_OUT_DURATION);
-					Song song = new Song(music, settings, meta);
-					PlayList playlist = playlistsPerTheme.computeIfAbsent(MusicTheme.values()[audioData.getTheme()], key -> new PlayList());
-					playlist.addSong(song);
-				});
+			if (filter.test(audioEnum)) {
+				AudioData audioData = getAudioData(audioEnum);
+				audioData.getAudioFileName().forEach(fullFilePath -> loader.accept(fullFilePath, audioData));
 			}
 		}
 	}
 
 	private AudioData getAudioData(AudioEnum event) {
-		if (event == null) {
-			int j = 5;
-		}
-		return audioDataForIds.computeIfAbsent(event.ordinal(), k -> AudioFileReader.getAudioData().get(k));
+		return audioDataForIds.computeIfAbsent(event.ordinal(), this::getAudioDataFromReader);
+	}
+
+	private AudioData getAudioDataFromReader(int ordinal) {
+		return AudioFileReader.getAudioData().get(ordinal);
 	}
 
 	@Override
 	public void update(float delta, float cameraX, float cameraY) {
+		updateJukeBox();
+		listener.setPosition(cameraX, cameraY, 0);
+	}
+
+	private void updateJukeBox() {
 		jukeBox.update();
-		// listener.setPosition(new Vector3(cameraX, cameraY, 0));
-		decreaseTimers(delta);
-		cooldowns.replaceAll((k, v) -> v = v - delta);
-		stopAudioIfTimerUp();
-		cleanup();
-	}
-
-	private void decreaseTimers(float delta) {
-		for (Array<Float> timers : musicTimers.values()) {
-			for (int i = 0; i < timers.size; i++) {
-				Float original = timers.get(i);
-				timers.set(i, original - delta);
-			}
-		}
-	}
-
-	private void stopAudioIfTimerUp() {
-		for (AudioEnum event : musicTimers.keySet()) {
-			for (Float timer : musicTimers.get(event)) {
-				if (timer <= 0f) {
-					sendCommand(AudioCommand.SOUND_STOP, event);
-				}
-			}
-		}
-	}
-
-	private void cleanup() {
-		for (Array<Float> timers : musicTimers.values()) {
-			final Iterator<Float> iterator = timers.iterator();
-			while (iterator.hasNext()) {
-				final Float currentTimer = iterator.next();
-				if (currentTimer <= 0f) {
-					iterator.remove();
-					break;
-				}
-			}
-		}
 	}
 
 	@Override
-	public void sendCommand(AudioCommand command, AudioEnum event, Vector2 pos) {
+	public void sendCommand(AudioCommand command, AudioEnum event, Collidable collidable) {
 		final AudioData audioData = getAudioData(event);
 		final float volume = audioData.getVolume();
 
 		switch (command) {
 		case SOUND_PLAY_LOOP:
-			playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
-			break;
-		case SOUND_PLAY_LOOP_UNIQUE:
-			final Array<BufferedSoundSource> uniqueSounds = loadedSounds.get(audioData.getRandomAudioFileName());
-			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
-				playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
-			}
-			break;
-		case SOUND_PLAY_LOOP_FOR:
-			musicTimers.computeIfAbsent(event, s -> new Array<>());
-			musicTimers.get(event).add(audioData.getDuration());
-			playLoopedSound(audioData.getRandomAudioFileName(), volume, pos);
+			collidablesWithTheirSound.putIfAbsent(collidable, new Array<>());
+			collidablesWithTheirSound.get(collidable).add(playLoopedSound(audioData.getRandomAudioFileName(), volume, collidable.getPosition()));
 			break;
 		case SOUND_PLAY_ONCE:
-			playAndForget(audioData.getRandomAudioFileName(), volume, pos);
-			break;
-		case SOUND_PLAY_ONCE_WITH_COOLDOWN:
-			if (offCooldown(event)) {
-				playAndForget(audioData.getRandomAudioFileName(), volume, pos);
-				setCooldown(event, audioData.getCooldown());
-			}
+			playAndForget(audioData.getRandomAudioFileName(), volume, collidable.getPosition());
 			break;
 		default:
 			break;
@@ -194,8 +164,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	@Override
 	public void sendCommand(AudioCommand command, AudioEnum event) {
 		final AudioData audioData = getAudioData(event);
-		final float volume = audioData.getVolume();
-
 		switch (command) {
 		case MUSIC_CHANGE_THEME:
 			provider.setTheme(audioData.getTheme());
@@ -209,29 +177,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		case MUSIC_STOP:
 			jukeBox.stop();
 			break;
-		case SOUND_PLAY_LOOP:
-			playLoopedSound(audioData.getRandomAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_LOOP_UNIQUE:
-			final Array<BufferedSoundSource> uniqueSounds = loadedSounds.get(audioData.getRandomAudioFileName());
-			if (uniqueSounds == null || uniqueSounds.isEmpty()) {
-				playLoopedSound(audioData.getRandomAudioFileName(), volume);
-			}
-			break;
-		case SOUND_PLAY_LOOP_FOR:
-			musicTimers.computeIfAbsent(event, s -> new Array<>());
-			musicTimers.get(event).add(audioData.getDuration());
-			playLoopedSound(audioData.getRandomAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_ONCE:
-			playAndForget(audioData.getRandomAudioFileName(), volume);
-			break;
-		case SOUND_PLAY_ONCE_WITH_COOLDOWN:
-			if (offCooldown(event)) {
-				playAndForget(audioData.getRandomAudioFileName(), volume);
-				setCooldown(event, audioData.getCooldown());
-			}
-			break;
 		case SOUND_STOP:
 			stopAllSounds(audioData.getAudioFileName());
 			break;
@@ -240,27 +185,13 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		}
 	}
 
-	private void playLoopedSound(String fullFilePath, float volume) {
+	private BufferedSoundSource playLoopedSound(String fullFilePath, float volume, Vector2 pos) {
 		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
 		if (sound != null) {
-			sound.play();
-		}
-	}
-
-	private void playLoopedSound(String fullFilePath, float volume, Vector2 pos) {
-		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
-		if (sound != null) {
-			sound.setDirection(new Vector3(1, 1, 0));
 			sound.setPosition(pos.x, pos.y, 0);
 			sound.play();
 		}
-	}
-
-	private void playAndForget(String fullFilePath, float volume) {
-		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
-			SoundBuffer soundBuffer = AssetManagerUtility.getSoundBufferAsset(fullFilePath);
-			soundBuffer.play(volume);
-		}
+		return sound;
 	}
 
 	private void playAndForget(String fullFilePath, float volume, Vector2 pos) {
@@ -292,14 +223,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		}
 		Gdx.app.error(TAG, "Sound not loaded", null);
 		return null;
-	}
-
-	private void setCooldown(AudioEnum event, float cooldown) {
-		cooldowns.put(event, cooldown);
-	}
-
-	private boolean offCooldown(AudioEnum event) {
-		return cooldowns.getOrDefault(event, 0f) <= 0;
 	}
 
 	public static MusicManagerInterface getInstance() {

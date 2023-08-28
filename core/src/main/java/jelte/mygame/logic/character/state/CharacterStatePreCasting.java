@@ -23,7 +23,7 @@ public class CharacterStatePreCasting implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_PRECAST_%s", characterStateManager.getCharacter().getName().toUpperCase())));
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.forName(String.format("SOUND_PRECAST_%s", characterStateManager.getCharacter().getName().toUpperCase())), characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

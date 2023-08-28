@@ -295,15 +295,14 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(filePathResolver));
 		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(filePathResolver));
 		assetManager.setLoader(TiledMap.class, tmxMapLoader);
-		assetManager.setLoader(TextureAtlas.class, ".basis", basisUniversalTextureAtlasLoader);
-		assetManager.setLoader(Texture.class, ".basis", new BasisuTextureLoader(assetManager.getFileHandleResolver()));
 		assetManager.setLoader(Texture.class, textureLoader);
+		assetManager.setLoader(Texture.class, ".basis", new BasisuTextureLoader(assetManager.getFileHandleResolver()));
+		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
+		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
 		assetManager.setLoader(ParticleEffect.class, particleEffectLoader);
 		assetManager.setLoader(Sound.class, soundLoader);
 		assetManager.setLoader(Music.class, musicLoader);
-		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
 		assetManager.setLoader(SoundBuffer.class, soundBufferLoader);
-		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
 		loadersSet = true;
 	}
 

@@ -26,7 +26,7 @@ public class CharacterStateDashing implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DASH, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

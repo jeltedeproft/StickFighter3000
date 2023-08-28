@@ -23,7 +23,7 @@ public class CharacterStateLandAttacking implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

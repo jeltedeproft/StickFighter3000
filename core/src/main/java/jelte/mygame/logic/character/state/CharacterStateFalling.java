@@ -23,7 +23,7 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_FALL);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_FALL, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override
@@ -144,6 +144,6 @@ public class CharacterStateFalling implements CharacterState {
 
 	@Override
 	public void resume() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_FALL);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_FALL, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 }

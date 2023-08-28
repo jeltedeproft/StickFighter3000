@@ -25,7 +25,7 @@ public class SpellStateLoop implements SpellState {
 	@Override
 	public void entry() {
 		if (audioEnum != null) {
-			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, audioEnum);
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, audioEnum, spellStateManager.getSpell().getPhysicsComponent());
 		}
 	}
 

@@ -19,7 +19,7 @@ public class CharacterStateDie implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_DEATH, characterStateManager.getCharacter().getPhysicsComponent());
 		characterStateManager.stopMovingOnTheGround();
 	}
 

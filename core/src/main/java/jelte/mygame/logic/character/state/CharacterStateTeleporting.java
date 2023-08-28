@@ -25,7 +25,7 @@ public class CharacterStateTeleporting implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_TELEPORT, characterStateManager.getCharacter().getPhysicsComponent());
 		boolean isRight = characterStateManager.getCharacter().getPhysicsComponent().getDirection() == Direction.right;
 		characterStateManager.applyHorizontalForce(isRight ? Constants.TELEPORT_DISTANCE : -Constants.TELEPORT_DISTANCE);
 

@@ -23,7 +23,7 @@ public class CharacterStateWallSliding implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SLIDE);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SLIDE, characterStateManager.getCharacter().getPhysicsComponent());
 		characterStateManager.pullDown(10);// TODO change in speed here, used to be 5 velocity and 10 acceleration
 	}
 

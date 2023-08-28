@@ -10,7 +10,7 @@
 	{
 		"id": 1,
 		"name": "walk",
-		"audioFileName": ["audio/walk_cave.ogg","audio/walk_2.wav","audio/walk_3.wav","audio/walk_4.wav"],
+		"audioFileName": ["audio/walk_cave.wav","audio/walk_2.wav","audio/walk_3.wav","audio/walk_4.wav"],
 		"volume": 1.0f,
 		"duration": 0.2f,
 		"theme": 0,

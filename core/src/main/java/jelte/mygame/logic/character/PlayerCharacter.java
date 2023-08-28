@@ -21,10 +21,10 @@ public class PlayerCharacter extends Character {
 		super(id);
 		unlockedSpells = new Array<>();
 		this.data = data;
-		characterStateManager = new CharacterStateManager(this);
 		currentHp = data.getMaxHP();
 		physicsComponent = new PlayerPhysicsComponent(id, Constants.PLAYER_START.cpy());
 		physicsComponent.setPosition(Constants.PLAYER_START.cpy());
+		characterStateManager = new CharacterStateManager(this);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class CharacterStateBlocking implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_SHIELD, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

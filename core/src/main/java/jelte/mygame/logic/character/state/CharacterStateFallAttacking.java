@@ -21,7 +21,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_FALLSTRIKE);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_FALLSTRIKE, characterStateManager.getCharacter().getPhysicsComponent());
 		characterStateManager.pullDown(Constants.FALL_ATTACK_SPEED_BOOST);
 		characterStateManager.makeSpellReady(SpellFileReader.getSpellData().get(1));
 	}
@@ -37,7 +37,7 @@ public class CharacterStateFallAttacking implements CharacterState {
 	@Override
 	public void exit() {
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_STOP, AudioEnum.SOUND_FALLSTRIKE);
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_BOOM);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_BOOM, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

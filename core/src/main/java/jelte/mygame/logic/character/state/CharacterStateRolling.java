@@ -26,7 +26,7 @@ public class CharacterStateRolling implements CharacterState {
 
 	@Override
 	public void entry() {
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_ROLL);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_ROLL, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

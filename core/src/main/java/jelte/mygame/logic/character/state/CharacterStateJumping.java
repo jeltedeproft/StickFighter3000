@@ -26,7 +26,7 @@ public class CharacterStateJumping implements CharacterState {
 	public void entry() {
 		jumpPressed = true;
 		characterStateManager.startJump();
-		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP);
+		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_JUMP, characterStateManager.getCharacter().getPhysicsComponent());
 	}
 
 	@Override

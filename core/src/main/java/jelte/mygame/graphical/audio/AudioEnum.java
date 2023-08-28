@@ -45,4 +45,12 @@ public enum AudioEnum {
 		return null;
 	}
 
+	public static boolean isSound(AudioEnum audioEnum) {
+		return audioEnum.name().startsWith("SOUND_");
+	}
+
+	public static boolean isPlaylist(AudioEnum audioEnum) {
+		return audioEnum.name().startsWith("PLAYLIST_");
+	}
+
 }

@@ -26,7 +26,7 @@ public class SpellStateEnd implements SpellState {
 	@Override
 	public void entry() {
 		if (audioEnum != null) {
-			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum);
+			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum, spellStateManager.getSpell().getPhysicsComponent());
 		}
 	}
 
