@@ -2,12 +2,7 @@ package jelte.mygame.utility;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.MusicLoader;
-import com.badlogic.gdx.assets.loaders.ParticleEffectLoader;
 import com.badlogic.gdx.assets.loaders.ParticleEffectLoader.ParticleEffectParameter;
-import com.badlogic.gdx.assets.loaders.SoundLoader;
-import com.badlogic.gdx.assets.loaders.TextureAtlasLoader;
-import com.badlogic.gdx.assets.loaders.TextureLoader;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -52,12 +47,6 @@ public class AssetManagerUtility implements Disposable {
 	private static InternalFileHandleResolver filePathResolver = new InternalFileHandleResolver();
 
 	private static TmxMapLoader tmxMapLoader = new TmxMapLoader(filePathResolver);
-	private static TextureLoader textureLoader = new TextureLoader(filePathResolver);
-	private static ParticleEffectLoader particleEffectLoader = new ParticleEffectLoader(filePathResolver);
-	private static SoundLoader soundLoader = new SoundLoader(filePathResolver);
-	private static MusicLoader musicLoader = new MusicLoader(filePathResolver);
-	private static TextureAtlasLoader textureAtlasLoader = new TextureAtlasLoader(filePathResolver);
-	private static BasisUniversalTextureAtlasLoader basisUniversalTextureAtlasLoader = new BasisUniversalTextureAtlasLoader(filePathResolver);
 	private static SoundBufferLoader soundBufferLoader = new SoundBufferLoader(new InternalFileHandleResolver());
 	private static Set<String> spriteNames = new HashSet<>();;
 
@@ -295,13 +284,8 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(filePathResolver));
 		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(filePathResolver));
 		assetManager.setLoader(TiledMap.class, tmxMapLoader);
-		assetManager.setLoader(Texture.class, textureLoader);
-		assetManager.setLoader(Texture.class, ".basis", new BasisuTextureLoader(assetManager.getFileHandleResolver()));
-		assetManager.setLoader(TextureAtlas.class, textureAtlasLoader);
+		assetManager.setLoader(Texture.class, new BasisuTextureLoader(assetManager.getFileHandleResolver()));
 		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
-		assetManager.setLoader(ParticleEffect.class, particleEffectLoader);
-		assetManager.setLoader(Sound.class, soundLoader);
-		assetManager.setLoader(Music.class, musicLoader);
 		assetManager.setLoader(SoundBuffer.class, soundBufferLoader);
 		loadersSet = true;
 	}
