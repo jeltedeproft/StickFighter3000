@@ -32,7 +32,7 @@ public abstract class AbstractSpell implements Spell {
 		id = UUID.randomUUID();
 		casterId = caster.getId();
 		data = spellData;
-		spellStateManager = new SpellStateManager(this);
+
 	}
 
 	@Override
@@ -41,6 +41,7 @@ public abstract class AbstractSpell implements Spell {
 		if (timeAlive > data.getDuration()) {
 			complete = true;
 		}
+		spellStateManager.update(delta);
 		updateSpell(delta, caster, mousePosition);
 	}
 

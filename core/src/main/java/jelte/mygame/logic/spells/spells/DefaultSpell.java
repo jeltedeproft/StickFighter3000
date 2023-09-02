@@ -6,6 +6,7 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
+import jelte.mygame.logic.spells.state.SpellStateManager;
 
 public class DefaultSpell extends AbstractSpell {
 
@@ -19,6 +20,7 @@ public class DefaultSpell extends AbstractSpell {
 		newPhysicsComponent.setDirection(direction);
 		newPhysicsComponent.setVelocity(velocity);
 		physicsComponent = newPhysicsComponent;
+		spellStateManager = new SpellStateManager(this);
 	}
 
 	@Override

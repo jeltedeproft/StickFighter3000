@@ -49,7 +49,7 @@
 	},
 	{
 		"id": 6,
-		"name": "attack",
+		"name": "attackWindup",
 		"audioFileName": ["audio/attack1.wav"],
 		"volume": 1.0f,
 		"duration": 1.0f,
@@ -57,6 +57,22 @@
 	},
 	{
 		"id": 7,
+		"name": "attackLoop",
+		"audioFileName": ["audio/attackLoop.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
+	{
+		"id": 8,
+		"name": "attackEnd",
+		"audioFileName": ["audio/attackEnd.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
+	{
+		"id": 9,
 		"name": "shield",
 		"audioFileName": ["audio/shield1.wav"],
 		"volume": 1.0f,
@@ -64,7 +80,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 8,
+		"id": 10,
 		"name": "climb",
 		"audioFileName": ["audio/climb1.wav"],
 		"volume": 1.0f,
@@ -72,7 +88,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 9,
+		"id": 11,
 		"name": "dash",
 		"audioFileName": ["audio/dash1.wav"],
 		"volume": 1.0f,
@@ -80,7 +96,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 10,
+		"id": 12,
 		"name": "death",
 		"audioFileName": ["audio/death1.mp3"],
 		"volume": 1.0f,
@@ -88,7 +104,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 11,
+		"id": 13,
 		"name": "grab",
 		"audioFileName": ["audio/grab1.wav"],
 		"volume": 1.0f,
@@ -96,7 +112,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 12,
+		"id": 14,
 		"name": "hurt",
 		"audioFileName": ["audio/hurt1.wav","audio/hurt2.wav"],
 		"volume": 1.0f,
@@ -104,7 +120,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 13,
+		"id": 15,
 		"name": "roll",
 		"audioFileName": ["audio/roll1.wav"],
 		"volume": 1.0f,
@@ -112,7 +128,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 14,
+		"id": 16,
 		"name": "sprinting",
 		"audioFileName": ["audio/sprinting1.wav"],
 		"volume": 1.0f,
@@ -120,7 +136,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 15,
+		"id": 17,
 		"name": "teleport",
 		"audioFileName": ["audio/teleport1.wav"],
 		"volume": 1.0f,
@@ -128,7 +144,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 16,
+		"id": 18,
 		"name": "slide",
 		"audioFileName": ["audio/slide1.wav"],
 		"volume": 1.0f,
@@ -136,7 +152,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 17,
+		"id": 19,
 		"name": "fireball",
 		"audioFileName": ["audio/fireball1.wav"],
 		"volume": 1.0f,
@@ -144,7 +160,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 18,
+		"id": 20,
 		"name": "fireEnd",
 		"audioFileName": ["audio/fireEnd.wav"],
 		"volume": 1.0f,
@@ -152,7 +168,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 19,
+		"id": 21,
 		"name": "fireWindup",
 		"audioFileName": ["audio/fireWindup.wav"],
 		"volume": 1.0f,
@@ -160,7 +176,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 20,
+		"id": 22,
 		"name": "boom",
 		"audioFileName": ["audio/boom.wav"],
 		"volume": 1.0f,
@@ -168,7 +184,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 21,
+		"id": 23,
 		"name": "flyby",
 		"audioFileName": ["audio/flyby.wav"],
 		"volume": 1.0f,
@@ -176,7 +192,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 22,
+		"id": 24,
 		"name": "fallstrike",
 		"audioFileName": ["audio/fallstrike.wav"],
 		"volume": 0.6f,
@@ -184,7 +200,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 23,
+		"id": 25,
 		"name": "preCastSwordmaster",
 		"audioFileName": ["audio/preCastSwordmaster1.wav","audio/preCastSwordmaster2.wav","audio/preCastSwordmaster3.wav","audio/preCastSwordmaster4.wav","audio/preCastSwordmaster5.wav","audio/preCastSwordmaster6.wav"],
 		"volume": 0.8f,
@@ -192,7 +208,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 24,
+		"id": 26,
 		"name": "castSwordmaster",
 		"audioFileName": ["audio/castSwordmaster1.wav","audio/castSwordmaster2.wav","audio/castSwordmaster3.wav"],
 		"volume": 0.8f,
@@ -200,7 +216,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 25,
+		"id": 27,
 		"name": "ambienceCave",
 		"audioFileName": ["audio/ambienceCave.wav"],
 		"volume": 0.8f,
@@ -208,7 +224,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 26,
+		"id": 28,
 		"name": "alchemistChase",
 		"audioFileName": ["audio/alchemistChase.wav"],
 		"volume": 0.8f,
@@ -216,7 +232,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 27,
+		"id": 29,
 		"name": "alchemistAttack",
 		"audioFileName": ["audio/alchemistAttack.wav"],
 		"volume": 0.8f,
@@ -224,7 +240,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 28,
+		"id": 30,
 		"name": "fireballItem",
 		"audioFileName": ["audio/fireballItem.wav"],
 		"volume": 0.8f,
@@ -232,7 +248,7 @@
 		"theme": 0,
 	}
 	{
-		"id": 29,
+		"id": 31,
 		"name": "bowLoop",
 		"audioFileName": ["audio/bowLoop.wav"],
 		"volume": 1.0f,
@@ -240,7 +256,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 30,
+		"id": 32,
 		"name": "bowEnd",
 		"audioFileName": ["audio/bowEnd.wav"],
 		"volume": 1.0f,
@@ -248,7 +264,7 @@
 		"theme": 0,
 	},
 	{
-		"id": 31,
+		"id": 33,
 		"name": "bowWindup",
 		"audioFileName": ["audio/bowWindup.wav"],
 		"volume": 1.0f,

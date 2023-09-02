@@ -2,7 +2,6 @@ package jelte.mygame.tests.logic.spells.factories;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -83,13 +82,14 @@ public class TestDefaultSpellFactory {
 	@Test
 	public void testCreateSpellWithDefault() {
 		SpellData spellData = mock(SpellData.class);
+		when(spellData.getName()).thenReturn("attack");
 
 		DefaultSpellFactory spellFactory = new DefaultSpellFactory();
 		AbstractSpell spell = spellFactory.createSpell(spellData, caster, null, mousePosition);
 
 		assertNotNull(spell);
 		assertEquals(spell.getCasterId(), characterId);
-		assertNull(spell.getName());
+		assertEquals("attack", spell.getName());
 		assertNotNull(spell.getSpellStateManager());
 	}
 }

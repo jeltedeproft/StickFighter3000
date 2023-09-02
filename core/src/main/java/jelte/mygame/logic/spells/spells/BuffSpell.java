@@ -6,6 +6,7 @@ import jelte.mygame.logic.character.Character;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
+import jelte.mygame.logic.spells.state.SpellStateManager;
 
 public class BuffSpell extends AbstractSpell {
 	private Character target;
@@ -22,6 +23,7 @@ public class BuffSpell extends AbstractSpell {
 		for (String modifierName : spellData.getModifiers()) {
 			target.getModifiersreadyToApply().addLast(modifierName);
 		}
+		spellStateManager = new SpellStateManager(this);
 	}
 
 	@Override

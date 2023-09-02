@@ -7,6 +7,7 @@ import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
+import jelte.mygame.logic.spells.state.SpellStateManager;
 
 public class ProjectileSpell extends AbstractSpell {
 
@@ -22,6 +23,7 @@ public class ProjectileSpell extends AbstractSpell {
 		newPhysicsComponent.setVelocity(velocity);
 		newPhysicsComponent.setAcceleration(new Vector2(spellData.getAccelerationX(), spellData.getAccelerationY()));
 		physicsComponent = newPhysicsComponent;
+		spellStateManager = new SpellStateManager(this);
 	}
 
 	@Override

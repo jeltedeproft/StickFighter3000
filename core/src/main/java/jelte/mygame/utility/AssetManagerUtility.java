@@ -29,7 +29,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.crashinvaders.basisu.gdx.BasisuTextureLoader;
 import com.ray3k.stripe.FreeTypeSkinLoader;
 
 import de.pottgames.tuningfork.SoundBuffer;
@@ -284,7 +283,7 @@ public class AssetManagerUtility implements Disposable {
 		assetManager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(filePathResolver));
 		assetManager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(filePathResolver));
 		assetManager.setLoader(TiledMap.class, tmxMapLoader);
-		assetManager.setLoader(Texture.class, new BasisuTextureLoader(assetManager.getFileHandleResolver()));
+		assetManager.setLoader(Texture.class, ".basis", new CustomBasisTextureLoader(assetManager.getFileHandleResolver()));
 		assetManager.setLoader(Skin.class, new FreeTypeSkinLoader(assetManager.getFileHandleResolver()));
 		assetManager.setLoader(SoundBuffer.class, soundBufferLoader);
 		loadersSet = true;

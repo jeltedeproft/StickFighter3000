@@ -41,7 +41,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	private final Map<MusicTheme, PlayList> playlistsPerTheme = new EnumMap<>(MusicTheme.class);
 	private final HashMap<String, StreamedSoundSource> songs = new HashMap<>();
 	private final HashMap<String, Array<BufferedSoundSource>> loadedSounds = new HashMap<>();
-	private final HashMap<Collidable, Array<BufferedSoundSource>> collidablesWithTheirSound = new HashMap<>();
+	private final HashMap<Collidable, HashMap<String, Array<BufferedSoundSource>>> collidablesWithTheirSound = new HashMap<>();
 
 	private final Audio audio;
 	private final SoundListener listener;
@@ -68,7 +68,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 		for (MusicTheme theme : MusicTheme.values()) {
 			PlayList playlist = new PlayList();
-			initPlaylist(playlist, theme);
+			initPlaylist(playlist);
 			playlistsPerTheme.put(theme, playlist);
 			provider.add(playlist, theme.ordinal());
 		}
@@ -76,7 +76,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		return new JukeBox(provider);
 	}
 
-	private void initPlaylist(PlayList playlist, MusicTheme theme) {
+	private void initPlaylist(PlayList playlist) {
 		playlist.setLooping(true);
 		playlist.setShuffleAfterPlaytrough(true);
 		playlist.shuffle();
@@ -109,6 +109,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	private void loadPlaylistSong(String fullFilePath, AudioData audioData) {
 		StreamedSoundSource music = new StreamedSoundSource(Gdx.files.internal(fullFilePath));
+		music.setRelative(true);
 		SongMeta meta = new SongMeta().setTitle(audioData.getName());
 		SongSettings settings = SongSettings.linear(audioData.getVolume(), Constants.MUSIC_FADE_IN_DURATION, Constants.MUSIC_FADE_OUT_DURATION);
 		Song song = new Song(music, settings, meta);
@@ -135,12 +136,8 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	@Override
 	public void update(float delta, float cameraX, float cameraY) {
-		updateJukeBox();
-		listener.setPosition(cameraX, cameraY, 0);
-	}
-
-	private void updateJukeBox() {
 		jukeBox.update();
+		listener.setPosition(cameraX, cameraY, 0);
 	}
 
 	@Override
@@ -150,11 +147,16 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 		switch (command) {
 		case SOUND_PLAY_LOOP:
-			collidablesWithTheirSound.putIfAbsent(collidable, new Array<>());
-			collidablesWithTheirSound.get(collidable).add(playLoopedSound(audioData.getRandomAudioFileName(), volume, collidable.getPosition()));
+			collidablesWithTheirSound.putIfAbsent(collidable, new HashMap<>());
+			collidablesWithTheirSound.get(collidable).putIfAbsent(audioData.getName(), new Array<>());
+			collidablesWithTheirSound.get(collidable).get(audioData.getName()).add(playLoopedSound(audioData.getRandomAudioFileName(), volume, collidable.getPosition()));
 			break;
 		case SOUND_PLAY_ONCE:
 			playAndForget(audioData.getRandomAudioFileName(), volume, collidable.getPosition());
+			break;
+		case SOUND_STOP:
+			Array<BufferedSoundSource> sounds = collidablesWithTheirSound.get(collidable).get(audioData.getName());
+			sounds.forEach(BufferedSoundSource::stop);
 			break;
 		default:
 			break;
@@ -164,7 +166,14 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	@Override
 	public void sendCommand(AudioCommand command, AudioEnum event) {
 		final AudioData audioData = getAudioData(event);
+		final float volume = audioData.getVolume();
 		switch (command) {
+		case SOUND_PLAY_LOOP:
+			playLoopedSound(audioData.getRandomAudioFileName(), volume, null);
+			break;
+		case SOUND_PLAY_ONCE:
+			playAndForget(audioData.getRandomAudioFileName(), volume, null);
+			break;
 		case MUSIC_CHANGE_THEME:
 			provider.setTheme(audioData.getTheme());
 			break;
@@ -188,7 +197,9 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	private BufferedSoundSource playLoopedSound(String fullFilePath, float volume, Vector2 pos) {
 		BufferedSoundSource sound = createBufferedSound(fullFilePath, volume);
 		if (sound != null) {
-			sound.setPosition(pos.x, pos.y, 0);
+			if (pos != null) {
+				sound.setPosition(pos.x, pos.y, 0);
+			}
 			sound.play();
 		}
 		return sound;
@@ -197,7 +208,11 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	private void playAndForget(String fullFilePath, float volume, Vector2 pos) {
 		if (AssetManagerUtility.isAssetLoaded(fullFilePath)) {
 			SoundBuffer soundBuffer = AssetManagerUtility.getSoundBufferAsset(fullFilePath);
-			soundBuffer.play3D(volume, new Vector3(pos.x, pos.y, 0));
+			if (pos != null) {
+				soundBuffer.play3D(volume, new Vector3(pos.x, pos.y, 0));
+			} else {
+				soundBuffer.play(volume);
+			}
 		}
 	}
 

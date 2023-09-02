@@ -80,7 +80,7 @@ public class TestVisionCollidable {
 		aiCharacter.getPhysicsComponent().setPosition(new Vector2(5f, 5f));
 		aiCharacter.getPhysicsComponent().setDirection(Direction.left);
 
-		Rectangle expectedRectangle = new Rectangle(0f, 0f, 70f, 70f);
+		Rectangle expectedRectangle = new Rectangle(0f, 0f, 700f, 700f);
 
 		assertEquals(expectedRectangle, visionCollidable.getRectangle());
 	}

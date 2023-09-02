@@ -142,8 +142,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		hudManager.renderUI();
 		// hudManager.renderMinimapDot(mapManager.getRelativePlayerPositionMinimap(player.getPhysicsComponent().getPosition()));
 
-		debugPlayer();
-		debugEnemy();
+//		debugPlayer();
+//		debugEnemy();
 //		debugStaticObjects();
 		debugSpells();
 //		debugVisions();

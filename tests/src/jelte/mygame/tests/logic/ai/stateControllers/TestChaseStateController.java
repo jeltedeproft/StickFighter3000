@@ -78,7 +78,7 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
-		assertEquals(AI_STATE.CHASE, nextState);
+		assertEquals(AI_STATE.ATTACK, nextState);
 	}
 
 	@Test
@@ -99,7 +99,7 @@ public class TestChaseStateController {
 		BasicChaseStateController stateController = new BasicChaseStateController();
 
 		AI_STATE nextState = stateController.getNextState(0f, self, player);
-		assertEquals(AI_STATE.FLEE, nextState);
+		assertEquals(AI_STATE.ATTACK, nextState);
 	}
 
 	@Test

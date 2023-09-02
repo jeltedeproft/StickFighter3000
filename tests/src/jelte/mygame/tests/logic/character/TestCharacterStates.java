@@ -210,7 +210,7 @@ public class TestCharacterStates {
 	//
 	// ATTACK //////////////////////////////////////////////
 	private void switchToAttackingState() {
-		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK);
+		doNothing().when(mockMusicManager).sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_ATTACK_WINDUP);
 		characterStateManager.popState();
 		characterStateManager.pushState(CHARACTER_STATE.IDLE);
 		characterStateManager.pushState(CHARACTER_STATE.ATTACKING);

@@ -2,9 +2,13 @@ package jelte.mygame.tests.logic.character.state;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+
+import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -15,10 +19,14 @@ import org.mockito.MockitoAnnotations;
 
 import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.graphical.audio.MusicManagerInterface;
+import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.PlayerData;
+import jelte.mygame.logic.character.input.CharacterInputHandler;
 import jelte.mygame.logic.character.state.CharacterStateAttack;
 import jelte.mygame.logic.character.state.CharacterStateManager;
 import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
+import jelte.mygame.logic.physics.PlayerPhysicsComponent;
 import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
 import jelte.mygame.utility.Constants;
@@ -47,6 +55,14 @@ public class TestCharacterStateAttack {
 		characterStateManager = mock(CharacterStateManager.class);
 		float duration = 1.5f; // Example duration
 		characterState = new CharacterStateAttack(characterStateManager, duration);
+		Character character = mock(Character.class);
+		when(character.getPhysicsComponent()).thenReturn(new PlayerPhysicsComponent(UUID.randomUUID(), new Vector2(0, 0)));
+		when(character.getName()).thenReturn("test");
+		PlayerData data = new PlayerData();
+		data.setMelee(true);
+		when(character.getData()).thenReturn(data);
+		when(character.getCharacterInputHandler()).thenReturn(new CharacterInputHandler());
+		when(characterStateManager.getCharacter()).thenReturn(character);
 	}
 
 	@Test

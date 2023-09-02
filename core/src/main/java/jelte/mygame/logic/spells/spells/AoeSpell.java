@@ -7,6 +7,7 @@ import jelte.mygame.logic.character.Direction;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
 import jelte.mygame.logic.spells.SpellsEnum;
+import jelte.mygame.logic.spells.state.SpellStateManager;
 
 public class AoeSpell extends AbstractSpell {
 	private Vector2 direction;
@@ -21,6 +22,7 @@ public class AoeSpell extends AbstractSpell {
 		direction = caster.getPhysicsComponent().getDirection().equals(Direction.left) ? new Vector2(-1, 0) : new Vector2(1, 0);
 		newPhysicsComponent.setDirection(direction);
 		physicsComponent = newPhysicsComponent;
+		spellStateManager = new SpellStateManager(this);
 	}
 
 	@Override

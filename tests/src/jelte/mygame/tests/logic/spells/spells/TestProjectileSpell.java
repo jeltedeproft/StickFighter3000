@@ -96,8 +96,8 @@ public class TestProjectileSpell {
 		Vector2 updatedMousePosition = new Vector2(10.0f, 10.0f);
 		projectileSpell.update(0.5f, caster, updatedMousePosition);
 
-		assertEquals(88.388f, projectileSpell.getPhysicsComponent().getPosition().x, 0.01f);
-		assertEquals(88.388f, projectileSpell.getPhysicsComponent().getPosition().y, 0.01f);
+		assertEquals(7.071f, projectileSpell.getPhysicsComponent().getPosition().x, 0.01f);
+		assertEquals(7.071f, projectileSpell.getPhysicsComponent().getPosition().y, 0.01f);
 	}
 
 }

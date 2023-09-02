@@ -46,7 +46,7 @@ public class Constants {
 	public static final int SPATIAL_MESH_CELL_SIZE = 32;
 
 	// PATHS
-	public static final String SPRITES_ATLAS_PATH = "sprites/dark.basis";
+	public static final String SPRITES_ATLAS_PATH = "sprites/dark.atlas";
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";

@@ -5,6 +5,10 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.badlogic.gdx.ApplicationLogger;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector3;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -12,10 +16,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector3;
 
 import de.pottgames.tuningfork.Audio;
 import de.pottgames.tuningfork.SoundBuffer;
@@ -99,44 +99,6 @@ public class TestMusicManager {
 		musicManager.update(delta, cameraX, cameraY);
 
 		verify(mockedListener).setPosition(new Vector3(cameraX, cameraY, 0));
-	}
-
-	@Test
-	public void testSendCommandSoundPlayOnceWithCooldown() {
-		float cooldown = 2f;
-
-		// Start playing the sound
-		musicManager.sendCommand(AudioCommand.SOUND_PLAY_ONCE_WITH_COOLDOWN, AudioEnum.SOUND_ATTACK);
-		// Assert that the sound is played
-
-		// Try playing the sound again within the cooldown period
-		musicManager.sendCommand(AudioCommand.SOUND_PLAY_ONCE_WITH_COOLDOWN, AudioEnum.SOUND_ATTACK);
-		// Assert that the sound is not played
-
-		// Wait for the cooldown period to pass
-		Gdx.graphics.getDeltaTime(); // Simulate some time passing
-		Gdx.graphics.getDeltaTime(); // Simulate some time passing
-
-		// Try playing the sound again after the cooldown period
-		musicManager.sendCommand(AudioCommand.SOUND_PLAY_ONCE_WITH_COOLDOWN, AudioEnum.SOUND_ATTACK);
-		// Assert that the sound is played again
-	}
-
-	@Test
-	public void testSendCommandSoundPlayLoopFor() {
-		float duration = 3f;
-
-		// Start playing the looped sound for the specified duration
-		musicManager.sendCommand(AudioCommand.SOUND_PLAY_LOOP_FOR, AudioEnum.SOUND_ATTACK);
-		// Assert that the sound is played
-
-		// Wait for the duration to pass
-		Gdx.graphics.getDeltaTime(); // Simulate some time passing
-		Gdx.graphics.getDeltaTime(); // Simulate some time passing
-		Gdx.graphics.getDeltaTime(); // Simulate some time passing
-
-		// Assert that the sound is stopped after the duration
-		// Add assertions to check if the sound is stopped
 	}
 
 }

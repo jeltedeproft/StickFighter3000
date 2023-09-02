@@ -1,5 +1,6 @@
 package jelte.mygame.logic.spells.state;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
@@ -9,6 +10,7 @@ import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 
 public class SpellStateWindup implements SpellState {
+	private static final String TAG = SpellStateWindup.class.getSimpleName();
 	private SpellStateManager spellStateManager;
 	private float timer = 0f;
 	private SPELL_STATE state = SPELL_STATE.WINDUP;
@@ -34,6 +36,7 @@ public class SpellStateWindup implements SpellState {
 	@Override
 	public void update(float delta) {
 		timer -= delta;
+		Gdx.app.debug(TAG, "timer = " + timer, null);
 		if (timer <= 0) {
 			timer = duration;
 			spellStateManager.transition(SPELL_STATE.LOOP);
