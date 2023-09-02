@@ -29,6 +29,7 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 		moved = false;
 
 		velocity.add(acceleration);
+		velocity.add(Constants.GRAVITY);
 
 		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);

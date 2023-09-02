@@ -21,7 +21,7 @@ public class Constants {
 	public static final float CLIMB_SPEED = 1.0f;
 	public static final Vector2 MAX_JUMP_SPEED = new Vector2(0, 600);
 	public static final float MAX_JUMP_DURATION = 0.5f; // Maximum jump duration in seconds
-	public static final Vector2 PLAYER_START = new Vector2(200, 300);
+	public static final Vector2 PLAYER_START = new Vector2(600, 300);
 	public static final Vector2 ENEMY_START = new Vector2(500, 300);
 	public static final int PLAYER_WIDTH = 10;
 	public static final int PLAYER_HEIGHT = 10;
@@ -51,7 +51,7 @@ public class Constants {
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "tests/testMap/testPlatform.tmx";
+	public static final String DEFAULT_MAP_PATH = "tests/testMap/testArcher.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";

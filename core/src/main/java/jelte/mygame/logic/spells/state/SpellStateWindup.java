@@ -1,6 +1,5 @@
 package jelte.mygame.logic.spells.state;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.graphical.audio.AudioCommand;
@@ -36,7 +35,6 @@ public class SpellStateWindup implements SpellState {
 	@Override
 	public void update(float delta) {
 		timer -= delta;
-		Gdx.app.debug(TAG, "timer = " + timer, null);
 		if (timer <= 0) {
 			timer = duration;
 			spellStateManager.transition(SPELL_STATE.LOOP);

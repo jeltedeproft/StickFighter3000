@@ -2,7 +2,7 @@
 	{
 		"id": 0,
 		"name": "mainPlayList",
-		"audioFileName": ["audio/main1.wav","audio/main2.wav","audio/main3.wav","audio/main4.wav","audio/main5.wav","audio/main6.wav","audio/main7.wav","audio/main8.wav"],
+		"audioFileName": ["audio/main1.wav","audio/main2.wav","audio/main3.wav","audio/main4.wav","audio/main5.wav","audio/main6.wav","audio/main7.wav","audio/main8.wav","audio/main9.wav","audio/main10.wav","audio/main11.wav","audio/main12.wav","audio/main13.wav"],
 		"volume": 0.5f,
 		"duration": 1.0f,
 		"theme": 0,

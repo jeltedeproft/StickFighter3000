@@ -1,6 +1,7 @@
 package jelte.mygame.logic.collisions.strategy;
 
 import jelte.mygame.logic.collisions.collidable.Collidable;
+import jelte.mygame.logic.collisions.collidable.Collidable.COLLIDABLE_TYPE;
 import jelte.mygame.logic.collisions.collidable.StaticBlockBot;
 import jelte.mygame.logic.physics.CharacterPhysicsComponentImpl;
 import jelte.mygame.logic.physics.SpellPhysicsComponent;
@@ -27,7 +28,9 @@ public class StaticBotCollisionStrategy implements CollisionStrategy {
 
 		// spell
 		if (object2 instanceof SpellPhysicsComponent spell) {
-
+			if (!spell.goesTroughWalls()) {
+				spell.setCollided(true, COLLIDABLE_TYPE.STATIC_BOT);
+			}
 		}
 	}
 }

@@ -39,7 +39,7 @@ public class SpellManager {
 			final Iterator<AbstractSpell> iterator = entry.getValue().iterator();
 			while (iterator.hasNext()) {
 				final Spell spell = iterator.next();
-				if (spell.isComplete()) {
+				if (spell.isComplete() || spell.getPhysicsComponent().isCollided()) {
 					bodies.remove(spell.getPhysicsComponent());
 					iterator.remove();
 				}

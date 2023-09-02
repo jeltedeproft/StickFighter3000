@@ -54,7 +54,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 	private AnimationManager animationManager;
 	private SpecialEffectsManager specialEffectsManager;
 	private PlayerCharacter player;
-	private AiCharacter enemy;
+	private Array<AiCharacter> enemies;
 	private Array<AbstractSpell> spellsToRender;
 	private ParticleMaker particleMaker;
 	private BitmapFont font = new BitmapFont();
@@ -118,13 +118,14 @@ public class GraphicalManagerImpl implements GraphicalManager {
 				specialEffectsManager.addSpecialEffect(player, specialEffect);
 			}
 		}
-
-		if (enemy.getCharacterStateManager().isStateChanged()) {
-			Animation<NamedSprite> specialEffect = animationManager.getSpecialEffect(enemy);
-			if (specialEffect != null) {
-				specialEffectsManager.addSpecialEffect(enemy, specialEffect);
+		enemies.forEach(enemy -> {
+			if (enemy.getCharacterStateManager().isStateChanged()) {
+				Animation<NamedSprite> specialEffect = animationManager.getSpecialEffect(enemy);
+				if (specialEffect != null) {
+					specialEffectsManager.addSpecialEffect(enemy, specialEffect);
+				}
 			}
-		}
+		});
 
 		specialEffectsManager.update(delta, player);// TODO for all characters
 
@@ -136,7 +137,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderSpecialEffects();
 		particleMaker.drawAllActiveParticles(batch, delta);
 		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR);
-		font.draw(batch, enemy.getCharacterStateManager().getCurrentCharacterState().getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f);
+		enemies.forEach(enemy -> font.draw(batch, enemy.getCharacterStateManager().getCurrentCharacterState().getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f));
 		batch.end();
 
 		hudManager.renderUI();
@@ -145,12 +146,12 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		debugPlayer();
 //		debugEnemy();
 //		debugStaticObjects();
-		debugSpells();
+//		debugSpells();
 //		debugVisions();
 
 		// debug info player
 		batch.begin();
-		font.draw(batch, String.format("player inpuy: %s", player.getCharacterInputHandler().getInputBox()), 40, 420);
+		font.draw(batch, String.format("player input: %s", player.getCharacterInputHandler().getInputBox()), 40, 420);
 		font.draw(batch, String.format("player position: %s", player.getPhysicsComponent().getPosition()), 40, 400);
 		font.draw(batch, String.format("player direction: %s", player.getPhysicsComponent().getDirection()), 40, 380);
 		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 40, 360);
@@ -167,7 +168,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 //		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 40, 160);
 //		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 40, 140);
 //		font.draw(batch, String.format("enemy acceleration: %s", enemy.getPhysicsComponent().getAcceleration()), 40, 120);
-		font.draw(batch, String.format("ai state: %s", enemy.getState()), 40, 160);
+//		font.draw(batch, String.format("ai state: %s", enemy.getState()), 40, 160);
 //		font.draw(batch, String.format("active patrol point index: %s", enemy.getActivePatrolPointIndex()), 40, 80);
 //		font.draw(batch, String.format("player seen: %s", enemy.getVisionCollidable().isPlayerSeen()), 40, 60);
 //		font.draw(batch, String.format("character state enemy ai : %s", enemy.getCurrentCharacterState().getState()), 40, 40);
@@ -191,13 +192,15 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			sprite.setPosition(player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y);
 			sprite.draw(batch);
 		}
-		if (enemy != null) {
-			hudManager.renderhealthBar(enemy, batch, font);
-			NamedSprite sprite = animationManager.getSprite(enemy);
-			enemy.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
-			sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
-			sprite.draw(batch);
-		}
+		enemies.forEach(enemy -> {
+			if (enemy != null) {
+				hudManager.renderhealthBar(enemy, batch, font);
+				NamedSprite sprite = animationManager.getSprite(enemy);
+				enemy.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
+				sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
+				sprite.draw(batch);
+			}
+		});
 	}
 
 	private void renderSpells() {
@@ -221,7 +224,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 			hudManager.updatePlayerStats(player);
 			break;
 		case RENDER_ENEMY:
-			enemy = (AiCharacter) message.getValue();
+			enemies = (Array<AiCharacter>) message.getValue();
 			break;
 		case RENDER_SPELLS:
 			spellsToRender = (Array<AbstractSpell>) message.getValue();
@@ -272,13 +275,13 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 	private void debugEnemy() {
 		batch.begin();
-		GraphicalUtility.drawDebugRectangle(enemy.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined);
+		enemies.forEach(enemy -> GraphicalUtility.drawDebugRectangle(enemy.getPhysicsComponent().getRectangle(), 3, Color.RED, gameViewport.getCamera().combined));
 		batch.end();
 	}
 
 	private void debugVisions() {
 		batch.begin();
-		GraphicalUtility.drawDebugRectangle(enemy.getVisionCollidable().getRectangle(), 3, Color.PINK, gameViewport.getCamera().combined);
+		enemies.forEach(enemy -> GraphicalUtility.drawDebugRectangle(enemy.getVisionCollidable().getRectangle(), 3, Color.PINK, gameViewport.getCamera().combined));
 		batch.end();
 	}
 
