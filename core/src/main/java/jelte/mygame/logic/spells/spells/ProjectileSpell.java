@@ -57,13 +57,13 @@ public class ProjectileSpell extends AbstractSpell {
 			return Vector2.Zero; // Handle the case where target and start positions are at the same level
 		}
 
-		float time = (float) Math.sqrt(2 * displacement.y / -Constants.GRAVITY.y);
+		float time = (float) Math.sqrt(2 * Math.abs(displacement.y / -Constants.GRAVITY.y));
 		return displacement.cpy().scl(1f / time);
 	}
 
 	private Vector2 calculateAcceleration(Vector2 startPosition, Vector2 endPosition) {
 		Vector2 displacement = endPosition.cpy().sub(startPosition);
-		float time = (float) Math.sqrt(2 * displacement.y / -Constants.GRAVITY.y);
+		float time = (float) Math.sqrt(2 * Math.abs(displacement.y / -Constants.GRAVITY.y));
 		return displacement.cpy().scl(2f / (time * time));
 	}
 

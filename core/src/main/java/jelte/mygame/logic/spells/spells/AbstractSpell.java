@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.physics.NullPhysicsComponent;
 import jelte.mygame.logic.physics.PhysicsComponent;
 import jelte.mygame.logic.spells.SpellData;
@@ -68,6 +69,11 @@ public abstract class AbstractSpell implements Spell {
 	@Override
 	public String getName() {
 		return data.getName();
+	}
+
+	@Override
+	public void handleEvent(EVENT event) {
+		spellStateManager.handleEvent(event);
 	}
 
 	@Override

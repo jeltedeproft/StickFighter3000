@@ -41,7 +41,7 @@ keepInputFileExtensions=false
 -PROJ-
 
 version=4.11.0
-fileTypeType=basis
-fileTypeData={uastc:false,compressionLevel:1,qualityLevel:128}
+fileTypeType=png
+fileTypeData={encoding:RGBA8888}
 previewBackgroundColor=ffffffff
 projectSettings={inputFiles:{}}

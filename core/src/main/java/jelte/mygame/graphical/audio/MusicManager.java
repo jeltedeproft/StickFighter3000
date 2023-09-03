@@ -51,6 +51,9 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	private MusicManager() {
 		audio = initAudio();
+		audio.setDefaultAttenuationMinDistance(1f);
+		audio.setDefaultAttenuationMaxDistance(100f);
+		audio.setDefaultAttenuationFactor(0.3f);
 		listener = audio.getListener();
 		reverb = initReverb();
 		jukeBox = initJukeBox();
@@ -58,8 +61,23 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		autoloadSounds();
 		autoloadMusic();
 
+		playlistsPerTheme.values().forEach(PlayList::shuffle);
+
 		jukeBox.play();
 		jukeBox.update();
+	}
+
+	private Audio initAudio() {
+		AudioConfig config = new AudioConfig();
+		config.setDistanceAttenuationModel(DistanceAttenuationModel.LINEAR_DISTANCE);
+		config.setLogger((MultiFileLogger) Gdx.app.getApplicationLogger());
+		return Audio.init(config);
+	}
+
+	private SoundEffect initReverb() {
+		Reverb reverbData = new Reverb();
+		reverbData.gain = 0.7f;
+		return new SoundEffect(reverbData);
 	}
 
 	private JukeBox initJukeBox() {
@@ -82,17 +100,13 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		playlist.shuffle();
 	}
 
-	private Audio initAudio() {
-		AudioConfig config = new AudioConfig();
-		config.setDistanceAttenuationModel(DistanceAttenuationModel.LINEAR_DISTANCE);
-		config.setLogger((MultiFileLogger) Gdx.app.getApplicationLogger());
-		return Audio.init(config);
-	}
-
-	private SoundEffect initReverb() {
-		Reverb reverbData = new Reverb();
-		reverbData.gain = 0.7f;
-		return new SoundEffect(reverbData);
+	private void loadAudioData(Predicate<AudioEnum> filter, BiConsumer<String, AudioData> loader) {
+		for (AudioEnum audioEnum : AudioEnum.values()) {
+			if (filter.test(audioEnum)) {
+				AudioData audioData = getAudioData(audioEnum);
+				audioData.getAudioFileName().forEach(fullFilePath -> loader.accept(fullFilePath, audioData));
+			}
+		}
 	}
 
 	private void autoloadSounds() {
@@ -117,15 +131,6 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 		playlist.addSong(song);
 	}
 
-	private void loadAudioData(Predicate<AudioEnum> filter, BiConsumer<String, AudioData> loader) {
-		for (AudioEnum audioEnum : AudioEnum.values()) {
-			if (filter.test(audioEnum)) {
-				AudioData audioData = getAudioData(audioEnum);
-				audioData.getAudioFileName().forEach(fullFilePath -> loader.accept(fullFilePath, audioData));
-			}
-		}
-	}
-
 	private AudioData getAudioData(AudioEnum event) {
 		return audioDataForIds.computeIfAbsent(event.ordinal(), this::getAudioDataFromReader);
 	}
@@ -135,9 +140,9 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 	}
 
 	@Override
-	public void update(float delta, float cameraX, float cameraY) {
+	public void update(float delta, float playerX, float playerY) {
 		jukeBox.update();
-		listener.setPosition(cameraX, cameraY, 0);
+		listener.setPosition(playerX, playerY, 0);
 	}
 
 	@Override

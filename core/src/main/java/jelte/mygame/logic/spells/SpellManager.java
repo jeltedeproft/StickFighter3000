@@ -12,6 +12,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import jelte.mygame.logic.character.Character;
+import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.collisions.collidable.Collidable;
 import jelte.mygame.logic.spells.factories.SpellFactory;
 import jelte.mygame.logic.spells.factories.SpellFactoryRegistry;
@@ -39,9 +40,12 @@ public class SpellManager {
 			final Iterator<AbstractSpell> iterator = entry.getValue().iterator();
 			while (iterator.hasNext()) {
 				final Spell spell = iterator.next();
-				if (spell.isComplete() || spell.getPhysicsComponent().isCollided()) {
+				if (spell.isComplete()) {
 					bodies.remove(spell.getPhysicsComponent());
 					iterator.remove();
+				}
+				if (spell.getPhysicsComponent().isCollided()) {
+					spell.handleEvent(EVENT.TARGET_HIT);
 				}
 			}
 		}

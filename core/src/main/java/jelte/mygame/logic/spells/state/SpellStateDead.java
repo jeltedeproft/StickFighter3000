@@ -15,7 +15,7 @@ public class SpellStateDead implements SpellState {
 
 	@Override
 	public void entry() {
-
+		spellStateManager.getSpell().setComplete(true);
 	}
 
 	@Override

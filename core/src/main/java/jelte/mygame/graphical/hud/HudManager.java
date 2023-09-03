@@ -210,8 +210,8 @@ public class HudManager {
 
 	public void updatePlayerStats(PlayerCharacter player) {
 		playerHpBar.setValue(player.getCurrentHp());
-		playerMpBar.setValue(player.getCurrentHp());// TODO replace with mp and stamina
-		playerStaminaBar.setValue(player.getCurrentHp());
+		// playerMpBar.setValue(player.getCurrentHp());// TODO replace with mp and stamina
+		// playerStaminaBar.setValue(player.getCurrentHp());
 	}
 
 	public void resize(int width, int height) {

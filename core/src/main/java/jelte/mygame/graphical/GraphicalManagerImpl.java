@@ -129,7 +129,7 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		specialEffectsManager.update(delta, player);// TODO for all characters
 
-		MusicManager.getInstance().update(delta, cameraManager.getCamera().position.x, cameraManager.getCamera().position.y);
+		MusicManager.getInstance().update(delta, player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
 
 		batch.begin();
 		renderCharacters();

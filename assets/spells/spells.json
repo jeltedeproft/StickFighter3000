@@ -117,12 +117,12 @@
 		"areaOfEffectRange": 2,
 		"polygonPoints": "0,0 19,0 19,12 0,12"
 		"infoText": "arrow!.",
-		"windupFullTime": 0.3f,
-		"windupFrameDuration": 0.1f,
+		"windupFullTime": 0.7f,
+		"windupFrameDuration": 0.7f,
 		"loopFullTime": 4f,
 		"loopFrameDuration": 0.2f,
-		"endFullTime": 0.2f,
-		"endFrameDuration": 0.2f,
+		"endFullTime": 0.7f,
+		"endFrameDuration": 0.7f,
 		"animationSpeed": 0.1f,
 		"initialWidth": 19,
 		"initialHeight": 12
