@@ -18,8 +18,8 @@ public class ProjectileSpell extends AbstractSpell {
 		super(spellData, caster);
 		Vector2 casterPosition = caster.getPhysicsComponent().getPosition().cpy();
 		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
-		Vector2 velocity = calculateInitialVelocity(casterPosition, mousePosition);
-		Vector2 acceleration = calculateAcceleration(casterPosition, mousePosition);
+		Vector2 velocity = calculateInitialVelocity(casterPosition, mousePosition, spellData.getDuration());
+		Vector2 acceleration = calculateAcceleration(casterPosition, mousePosition, spellData.getDuration());
 
 		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition);
 		newPhysicsComponent.setDirection(direction);
@@ -50,21 +50,24 @@ public class ProjectileSpell extends AbstractSpell {
 		Gdx.app.error(TAG, "arrow acceleration = " + physicsComponent.getAcceleration());
 	}
 
-	private Vector2 calculateInitialVelocity(Vector2 startPosition, Vector2 endPosition) {
-		Vector2 displacement = endPosition.cpy().sub(startPosition);
+	private Vector2 calculateInitialVelocity(Vector2 startPosition, Vector2 endPosition, float time) {
+		float xDistance = endPosition.x - startPosition.x;
+		float yDistance = endPosition.y - startPosition.y;
 
-		if (displacement.y == 0) {
-			return Vector2.Zero; // Handle the case where target and start positions are at the same level
-		}
+		float initialVelocityX = xDistance / time;
+		float initialVelocityY = yDistance / time;
 
-		float time = (float) Math.sqrt(2 * Math.abs(displacement.y / -Constants.GRAVITY.y));
-		return displacement.cpy().scl(1f / time);
+		return new Vector2(initialVelocityX, initialVelocityY);
 	}
 
-	private Vector2 calculateAcceleration(Vector2 startPosition, Vector2 endPosition) {
-		Vector2 displacement = endPosition.cpy().sub(startPosition);
-		float time = (float) Math.sqrt(2 * Math.abs(displacement.y / -Constants.GRAVITY.y));
-		return displacement.cpy().scl(2f / (time * time));
+	private Vector2 calculateAcceleration(Vector2 startPosition, Vector2 endPosition, float time) {
+		float xDistance = endPosition.x - startPosition.x;
+		float yDistance = endPosition.y - startPosition.y;
+
+		float accelerationX = 2 * xDistance / (time * time);
+		float accelerationY = 2 * yDistance / (time * time) - Constants.GRAVITY.y;
+
+		return new Vector2(accelerationX, accelerationY);
 	}
 
 }
