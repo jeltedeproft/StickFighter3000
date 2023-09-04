@@ -52,6 +52,9 @@ public class SpellStateManager {
 		case WINDUP:
 			currentSpellState = spellStateWindup;
 			break;
+		case DEAD:
+			currentSpellState = spellStateDead;
+			break;
 		default:
 			break;
 

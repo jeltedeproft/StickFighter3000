@@ -36,6 +36,7 @@ public class Constants {
 	public static final float TELEPORT_DISTANCE = 150f;
 	public static final float MOVEMENT_SPEED_CROUCHED = 1.0f;
 	public static final float CAMERA_MOVE_SPEED = 5;
+	public static final float DEGREES_45_IN_RADIANS = 0.785398f;
 
 	public static final int MAX_SPELL_SLOTS = 8;
 
@@ -152,7 +153,7 @@ public class Constants {
 	public static final String HEALTHBAR_BORDER_SPRITE_NAME = "graypixel";
 	public static final float MAX_WIDTH_HP_BAR = 100;
 	public static final float BORDER_WIDTH_HP_BAR = 1;
-	public static final float OFFSET_Y_HP_BAR = 70;
+	public static final float OFFSET_Y_HP_BAR = 40;
 	public static final float MAX_HEIGHT_HP_BAR = 4;
 	public static final float STATS_WINDOW_WIDTH_PERCENT_SCREEN = 0.5f;
 	public static final float STATS_WINDOW_HEIGHT_PERCENT_SCREEN = 0.15f;

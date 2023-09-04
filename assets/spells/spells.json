@@ -103,7 +103,7 @@
 		"modifiers": [],
 		"coolDown": 3,
 		"type": "PROJECTILE",
-		"duration": 8f,
+		"duration": 5f,
 		"speed": 100,
 		"velocityX": 100,
 		"velocityY": 300,

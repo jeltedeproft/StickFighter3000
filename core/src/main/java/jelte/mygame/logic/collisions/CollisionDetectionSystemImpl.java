@@ -1,6 +1,5 @@
 package jelte.mygame.logic.collisions;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
@@ -52,10 +51,6 @@ public class CollisionDetectionSystemImpl implements CollisionDetectionSystem {
 		if (!checkedPairs.contains(pair)) {
 			checkedPairs.add(pair);
 			if (object1.getRectangle().overlaps(object2.getRectangle())) {
-				if (object1.getType().toString().equals("SPELL") || object2.getType().toString().equals("SPELL")) {
-					int j = 5;
-				}
-				Gdx.app.error(TAG, "collision between : " + object1.getType().toString() + " and " + object2.getType().toString());
 				collidedPairs.add(pair);
 			}
 		}

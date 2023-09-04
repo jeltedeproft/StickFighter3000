@@ -18,14 +18,18 @@ public class ProjectileSpell extends AbstractSpell {
 		super(spellData, caster);
 		Vector2 casterPosition = caster.getPhysicsComponent().getPosition().cpy();
 		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
-		Vector2 velocity = calculateInitialVelocity(casterPosition, mousePosition, spellData.getDuration());
-		Vector2 acceleration = calculateAcceleration(casterPosition, mousePosition, spellData.getDuration());
+		Vector2 velocity = new Vector2();
+//		if (!solveBallisticArc2D(casterPosition, spellData.getSpeed(), mousePosition, 50f, velocity, -Constants.GRAVITY.y)) {
+//			velocity = calculateInitialVelocity(casterPosition, mousePosition);
+//		}
+
+		Vector2 acceleration = new Vector2();
+		calculateProjectile(casterPosition, mousePosition, -Constants.GRAVITY.y, 0f, velocity, acceleration);
 
 		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition);
 		newPhysicsComponent.setDirection(direction);
 		newPhysicsComponent.setVelocity(velocity);
 		newPhysicsComponent.setAcceleration(acceleration);
-		Gdx.app.error(TAG, "arrow direction = " + direction);
 		Gdx.app.error(TAG, "arrow position = " + casterPosition);
 		Gdx.app.error(TAG, "arrow velocity = " + velocity);
 		Gdx.app.error(TAG, "arrow acceleration = " + acceleration);
@@ -50,24 +54,69 @@ public class ProjectileSpell extends AbstractSpell {
 		Gdx.app.error(TAG, "arrow acceleration = " + physicsComponent.getAcceleration());
 	}
 
-	private Vector2 calculateInitialVelocity(Vector2 startPosition, Vector2 endPosition, float time) {
-		float xDistance = endPosition.x - startPosition.x;
-		float yDistance = endPosition.y - startPosition.y;
+	public Vector2 calculateInitialVelocity(Vector2 startPosition, Vector2 endPosition) {
+		float horizontalDistance = endPosition.x - startPosition.x;
+		float verticalDistance = endPosition.y - startPosition.y;
+		float timeOfFlight = 2 * verticalDistance / Constants.GRAVITY.y;
 
-		float initialVelocityX = xDistance / time;
-		float initialVelocityY = yDistance / time;
+		float initialVelocityX = horizontalDistance / timeOfFlight;
+		float initialVelocityY = (verticalDistance + 0.5f * Constants.GRAVITY.y * timeOfFlight * timeOfFlight) / timeOfFlight;
 
 		return new Vector2(initialVelocityX, initialVelocityY);
 	}
 
-	private Vector2 calculateAcceleration(Vector2 startPosition, Vector2 endPosition, float time) {
-		float xDistance = endPosition.x - startPosition.x;
-		float yDistance = endPosition.y - startPosition.y;
+	public static boolean solveBallisticArc2D(Vector2 projPos, float lateralSpeed, Vector2 targetPos, float maxHeight, Vector2 fireVelocity, float gravity) {
+		// Handling these cases is up to your project's coding standards
+		assert !projPos.equals(targetPos) && lateralSpeed > 0 && maxHeight > projPos.y : "solveBallisticArc2D called with invalid data";
 
-		float accelerationX = 2 * xDistance / (time * time);
-		float accelerationY = 2 * yDistance / (time * time) - Constants.GRAVITY.y;
+		Vector2 diff = targetPos.sub(projPos);
+		float lateralDist = diff.x;
 
-		return new Vector2(accelerationX, accelerationY);
+		if (lateralDist == 0) {
+			return false;
+		}
+
+		float time = lateralDist / lateralSpeed;
+
+		fireVelocity.set(lateralSpeed, 0f); // 2D velocity only along the X-axis
+
+		// System of equations for 2D. Hit maxHeight at t=.5*time. Hit target at t=time.
+		// Simplified equations compared to the 3D version.
+		float a = projPos.y; // initial
+		float b = maxHeight; // peak
+		float c = targetPos.y; // final
+
+		gravity = -4 * (a - 2 * b + c) / (time * time);
+		fireVelocity.y = -(3 * a - 4 * b + c) / time;
+
+		return true;
+	}
+
+	public static void calculateProjectile(Vector2 startPos, Vector2 landingPos, float gravity, float timeStep, Vector2 initialVelocity, Vector2 initialAcceleration) {
+		float displacementX = landingPos.x - startPos.x;
+		float displacementY = landingPos.y - startPos.y;
+
+		// Calculate the time of flight using quadratic formula
+		float a = 0.5f * gravity;
+		float b = -initialVelocity.y;
+		float c = -displacementY;
+
+		float discriminant = b * b - 4 * a * c;
+
+		if (discriminant < 0) {
+			Gdx.app.error(TAG, "no valid solution for ballistic trajectory");
+			return;
+		}
+
+		float timeOfFlight = (-b + (float) Math.sqrt(discriminant)) / (2 * a);
+
+		float velocityX = displacementX / timeOfFlight;
+		float velocityY = displacementY / timeOfFlight;
+		float accelerationX = 2 * (displacementX - initialVelocity.x * timeOfFlight) / (timeOfFlight * timeOfFlight);
+		float accelerationY = gravity;
+
+		initialVelocity.set(velocityX, velocityY);
+		initialAcceleration.set(accelerationX, accelerationY);
 	}
 
 }

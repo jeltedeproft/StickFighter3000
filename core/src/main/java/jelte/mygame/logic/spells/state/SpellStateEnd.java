@@ -1,5 +1,6 @@
 package jelte.mygame.logic.spells.state;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.StringBuilder;
 
@@ -10,6 +11,7 @@ import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 import jelte.mygame.logic.spells.state.SpellStateManager.SPELL_STATE;
 
 public class SpellStateEnd implements SpellState {
+	private static final String TAG = SpellStateEnd.class.getSimpleName();
 	private SpellStateManager spellStateManager;
 	private float timer = 0f;
 	private SPELL_STATE state = SPELL_STATE.END;
@@ -27,8 +29,9 @@ public class SpellStateEnd implements SpellState {
 	@Override
 	public void entry() {
 		spellStateManager.getSpell().getPhysicsComponent().setVelocity(new Vector2(0, 0));
-		spellStateManager.getSpell().getPhysicsComponent().setAcceleration(new Vector2(0, 0));
+		spellStateManager.getSpell().getPhysicsComponent().setAcceleration(new Vector2(0, 10));
 		if (audioEnum != null) {
+			Gdx.app.error(TAG, "playing sound", null);
 			MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, audioEnum, spellStateManager.getSpell().getPhysicsComponent());
 		}
 	}
