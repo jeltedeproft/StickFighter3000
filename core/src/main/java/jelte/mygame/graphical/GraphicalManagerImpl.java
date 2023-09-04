@@ -136,8 +136,8 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		renderSpells();
 		renderSpecialEffects();
 		particleMaker.drawAllActiveParticles(batch, delta);
-		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR);
-		enemies.forEach(enemy -> font.draw(batch, enemy.getCharacterStateManager().getCurrentCharacterState().getState().toString(), enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f));
+		font.draw(batch, player.getCharacterStateManager().getCurrentCharacterState().getState().toString(), player.getPhysicsComponent().getRectangle().x - player.getPhysicsComponent().getRectangle().getWidth() / 2, player.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR + 10);
+		enemies.forEach(enemy -> font.draw(batch, enemy.getCharacterStateManager().getCurrentCharacterState().getState().toString(), enemy.getPhysicsComponent().getRectangle().x - enemy.getPhysicsComponent().getRectangle().getWidth() / 2, enemy.getPhysicsComponent().getRectangle().y + Constants.OFFSET_Y_HP_BAR * 2f));
 		batch.end();
 
 		hudManager.renderUI();
@@ -151,19 +151,19 @@ public class GraphicalManagerImpl implements GraphicalManager {
 
 		// debug info player
 		batch.begin();
-		font.draw(batch, String.format("player input: %s", player.getCharacterInputHandler().getInputBox()), 40, 420);
-		font.draw(batch, String.format("player position: %s", player.getPhysicsComponent().getPosition()), 40, 400);
-		font.draw(batch, String.format("player direction: %s", player.getPhysicsComponent().getDirection()), 40, 380);
-		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 40, 360);
-		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 40, 340);
-		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 40, 320);
-		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 40, 300);
-		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 40, 280);
-		font.draw(batch, String.format("state: %s", player.getCurrentCharacterState().getState()), 40, 260);
-		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 40, 240);
-		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 40, 220);
-		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 40, 200);
-		font.draw(batch, String.format("STATE STACK: %s", player.getCharacterStateManager().seeStateStack()), 40, 180);
+//		font.draw(batch, String.format("player input: %s", player.getCharacterInputHandler().getInputBox()), 40, 420);
+//		font.draw(batch, String.format("player position: %s", player.getPhysicsComponent().getPosition()), 40, 400);
+//		font.draw(batch, String.format("player direction: %s", player.getPhysicsComponent().getDirection()), 40, 380);
+//		font.draw(batch, String.format("player rectangle: %s", player.getPhysicsComponent().getRectangle()), 40, 360);
+//		font.draw(batch, String.format("player velocity: %s", player.getPhysicsComponent().getVelocity()), 40, 340);
+//		font.draw(batch, String.format("player acceleration: %s", player.getPhysicsComponent().getAcceleration()), 40, 320);
+//		font.draw(batch, String.format("collided: %s", player.getPhysicsComponent().isCollided()), 40, 300);
+//		font.draw(batch, String.format("falltrough: %s", player.getPhysicsComponent().isFallTrough()), 40, 280);
+//		font.draw(batch, String.format("state: %s", player.getCurrentCharacterState().getState()), 40, 260);
+//		font.draw(batch, String.format("dimensions: %.4f,%.4f", player.getPhysicsComponent().getWidth(), player.getPhysicsComponent().getHeight()), 40, 240);
+//		font.draw(batch, String.format("animation Name: %s,%.4f", animationManager.getSprite(player).getName(), player.getPhysicsComponent().getHeight()), 40, 220);
+//		font.draw(batch, String.format("FPS: %s", Gdx.graphics.getFramesPerSecond()), 40, 200);
+//		font.draw(batch, String.format("STATE STACK: %s", player.getCharacterStateManager().seeStateStack()), 40, 180);
 //		font.draw(batch, String.format("enemy position: %s", enemy.getPhysicsComponent().getPosition()), 40, 180);
 //		font.draw(batch, String.format("enemy rectangle: %s", enemy.getPhysicsComponent().getRectangle()), 40, 160);
 //		font.draw(batch, String.format("enemy velocity: %s", enemy.getPhysicsComponent().getVelocity()), 40, 140);
@@ -194,11 +194,11 @@ public class GraphicalManagerImpl implements GraphicalManager {
 		}
 		enemies.forEach(enemy -> {
 			if (enemy != null) {
-				hudManager.renderhealthBar(enemy, batch, font);
 				NamedSprite sprite = animationManager.getSprite(enemy);
 				enemy.getPhysicsComponent().setSize(sprite.getWidth(), sprite.getHeight());
 				sprite.setPosition(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y);
 				sprite.draw(batch);
+				hudManager.renderhealthBar(enemy, batch, font);
 			}
 		});
 	}

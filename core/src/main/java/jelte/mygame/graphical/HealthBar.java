@@ -39,7 +39,7 @@ public class HealthBar {
 			float width = calculateHealthBarWidth();
 			drawBorder(batch, width);
 			drawHealthBar(batch, width);
-			drawHealthText(batch);
+			// drawHealthText(batch);
 		}
 	}
 

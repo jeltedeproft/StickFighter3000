@@ -124,7 +124,9 @@ public class HudManager {
 
 		playerHpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "hp");
 		playerMpBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "mp");// TODO change to MP and stamina here
+		playerMpBar.setValue(playerMpBar.getMaxValue());
 		playerStaminaBar = new ProgressBar(0, Constants.PLAYER_MAX_HP, 1, false, skin, "stamina");
+		playerStaminaBar.setValue(playerStaminaBar.getMaxValue());
 		statsWindow.add(hpicon).size(20).expand().left().top().padLeft(20).padTop(10);
 		statsWindow.add(playerHpBar).width(Constants.VISIBLE_UI_WIDTH * Constants.STATS_BAR_WIDTH_PERCENT_SCREEN).height(Constants.VISIBLE_UI_HEIGHT * Constants.STATS_BAR_HEIGHT_PERCENT_SCREEN)
 				.expand().left().top().padTop(10); // Positions the button in the center of the table
@@ -204,7 +206,7 @@ public class HudManager {
 
 	public void renderhealthBar(AiCharacter enemy, SpriteBatch batch, BitmapFont font) {
 		enemyHealthBars.putIfAbsent(enemy, new HealthBar(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getData().getMaxHP(), font));
-		enemyHealthBars.get(enemy).update(enemy.getPhysicsComponent().getRectangle().x, enemy.getPhysicsComponent().getRectangle().y, enemy.getCurrentHp());
+		enemyHealthBars.get(enemy).update(enemy.getPhysicsComponent().getRectangle().x + enemy.getPhysicsComponent().getRectangle().width / 2, enemy.getPhysicsComponent().getRectangle().y, enemy.getCurrentHp());
 		enemyHealthBars.get(enemy).draw(batch);
 	}
 
