@@ -16,25 +16,32 @@ public class ProjectileSpell extends AbstractSpell {
 
 	public ProjectileSpell(SpellData spellData, Character caster, Vector2 mousePosition) {
 		super(spellData, caster);
+		double speed = spellData.getSpeed();
 		Vector2 casterPosition = caster.getPhysicsComponent().getPosition().cpy();
+		double xDifference = mousePosition.x - casterPosition.x;
+		double yDifference = mousePosition.y - casterPosition.y;
 		Vector2 direction = mousePosition.cpy().sub(casterPosition).nor();
-		Vector2 velocity = new Vector2();
-//		if (!solveBallisticArc2D(casterPosition, spellData.getSpeed(), mousePosition, 50f, velocity, -Constants.GRAVITY.y)) {
-//			velocity = calculateInitialVelocity(casterPosition, mousePosition);
-//		}
-
-		Vector2 acceleration = new Vector2();
-		calculateProjectile(casterPosition, mousePosition, -Constants.GRAVITY.y, 0f, velocity, acceleration);
+		Vector2[] velocities = calculateLaunchVectors(speed, -Constants.GRAVITY.y, xDifference, yDifference);
+		Vector2 velocity = velocities[1];
+		Gdx.app.error(TAG, "calculated arrow velocity = " + velocity);
+		Gdx.app.error(TAG, "calculated arrow velocity alternative = " + velocities[0]);
+		if (Float.isNaN(velocity.x) || Float.isNaN(velocity.y)) {
+			Gdx.app.error(TAG, "calculating straight path");
+			velocity = calculateStraightPath(casterPosition, mousePosition, speed);
+			Gdx.app.error(TAG, "straight veloocty = " + velocity);
+		}
 
 		SpellPhysicsComponent newPhysicsComponent = new SpellPhysicsComponent(id, SpellsEnum.values()[data.getId()], casterPosition);
 		newPhysicsComponent.setDirection(direction);
 		newPhysicsComponent.setVelocity(velocity);
-		newPhysicsComponent.setAcceleration(acceleration);
-		Gdx.app.error(TAG, "arrow position = " + casterPosition);
-		Gdx.app.error(TAG, "arrow velocity = " + velocity);
-		Gdx.app.error(TAG, "arrow acceleration = " + acceleration);
 		physicsComponent = newPhysicsComponent;
 		spellStateManager = new SpellStateManager(this);
+	}
+
+	private Vector2 calculateStraightPath(Vector2 casterPosition, Vector2 mousePosition, double speed) {
+		float deltaX = mousePosition.x - casterPosition.x;
+		float deltaY = mousePosition.y - casterPosition.y;
+		return new Vector2(deltaX, deltaY).nor().scl((float) speed);
 	}
 
 	@Override
@@ -49,74 +56,45 @@ public class ProjectileSpell extends AbstractSpell {
 	@Override
 	protected void updateSpell(float delta, Character caster, Vector2 endPosition) {
 		physicsComponent.update(delta);
-		Gdx.app.error(TAG, "arrow position = " + physicsComponent.getPosition());
-		Gdx.app.error(TAG, "arrow velocity = " + physicsComponent.getVelocity());
-		Gdx.app.error(TAG, "arrow acceleration = " + physicsComponent.getAcceleration());
 	}
 
-	public Vector2 calculateInitialVelocity(Vector2 startPosition, Vector2 endPosition) {
-		float horizontalDistance = endPosition.x - startPosition.x;
-		float verticalDistance = endPosition.y - startPosition.y;
-		float timeOfFlight = 2 * verticalDistance / Constants.GRAVITY.y;
+	public Vector2[] calculateLaunchVectors(double v, double g, double x, double y) {
+		double[] launchAngles = calculateLaunchAngles(v, g, x, y);
+		Vector2[] launchVectors = new Vector2[2];
 
-		float initialVelocityX = horizontalDistance / timeOfFlight;
-		float initialVelocityY = (verticalDistance + 0.5f * Constants.GRAVITY.y * timeOfFlight * timeOfFlight) / timeOfFlight;
+		for (int i = 0; i < 2; i++) {
+			double angle = launchAngles[i];
+			double velocityX = v * Math.cos(angle);
+			double velocityY = v * Math.sin(angle);
 
-		return new Vector2(initialVelocityX, initialVelocityY);
-	}
-
-	public static boolean solveBallisticArc2D(Vector2 projPos, float lateralSpeed, Vector2 targetPos, float maxHeight, Vector2 fireVelocity, float gravity) {
-		// Handling these cases is up to your project's coding standards
-		assert !projPos.equals(targetPos) && lateralSpeed > 0 && maxHeight > projPos.y : "solveBallisticArc2D called with invalid data";
-
-		Vector2 diff = targetPos.sub(projPos);
-		float lateralDist = diff.x;
-
-		if (lateralDist == 0) {
-			return false;
+			launchVectors[i] = new Vector2((float) velocityX, (float) velocityY);
 		}
 
-		float time = lateralDist / lateralSpeed;
-
-		fireVelocity.set(lateralSpeed, 0f); // 2D velocity only along the X-axis
-
-		// System of equations for 2D. Hit maxHeight at t=.5*time. Hit target at t=time.
-		// Simplified equations compared to the 3D version.
-		float a = projPos.y; // initial
-		float b = maxHeight; // peak
-		float c = targetPos.y; // final
-
-		gravity = -4 * (a - 2 * b + c) / (time * time);
-		fireVelocity.y = -(3 * a - 4 * b + c) / time;
-
-		return true;
+		return launchVectors;
 	}
 
-	public static void calculateProjectile(Vector2 startPos, Vector2 landingPos, float gravity, float timeStep, Vector2 initialVelocity, Vector2 initialAcceleration) {
-		float displacementX = landingPos.x - startPos.x;
-		float displacementY = landingPos.y - startPos.y;
+	public double[] calculateLaunchAngles(double v, double g, double x, double y) {
+		// Calculate the discriminant
+		double discriminant = v * v * v * v - g * (g * x * x + 2 * y * v * v);
 
-		// Calculate the time of flight using quadratic formula
-		float a = 0.5f * gravity;
-		float b = -initialVelocity.y;
-		float c = -displacementY;
+		// Initialize an array to store the launch angles
+		double[] angles = new double[2];
 
-		float discriminant = b * b - 4 * a * c;
+		if (discriminant >= 0) {
+			// Calculate the two possible launch angles
+			double angle1 = Math.atan((v * v + Math.sqrt(discriminant)) / (g * x));
+			double angle2 = Math.atan((v * v - Math.sqrt(discriminant)) / (g * x));
 
-		if (discriminant < 0) {
-			Gdx.app.error(TAG, "no valid solution for ballistic trajectory");
-			return;
+			// Store the angles in the array
+			angles[0] = angle1;
+			angles[1] = angle2;
+		} else {
+			// No real solutions, set angles to NaN
+			angles[0] = Double.NaN;
+			angles[1] = Double.NaN;
 		}
 
-		float timeOfFlight = (-b + (float) Math.sqrt(discriminant)) / (2 * a);
-
-		float velocityX = displacementX / timeOfFlight;
-		float velocityY = displacementY / timeOfFlight;
-		float accelerationX = 2 * (displacementX - initialVelocity.x * timeOfFlight) / (timeOfFlight * timeOfFlight);
-		float accelerationY = gravity;
-
-		initialVelocity.set(velocityX, velocityY);
-		initialAcceleration.set(accelerationX, accelerationY);
+		return angles;
 	}
 
 }

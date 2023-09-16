@@ -11,6 +11,8 @@ dependencies {
         
         implementation group: "junit", name: "junit", version: "4.13.2"
         implementation group: "org.mockito", name: "mockito-core", version: "5.4.0"
+        implementation "org.apache.poi:poi:5.2.3"
+        implementation "org.apache.poi:poi-ooxml:5.1.0"
         testImplementation "com.crashinvaders.basisu:basisu-wrapper:$gdxBasisuVersion:natives-desktop"
         testImplementation group: "junit", name: "junit", version: "4.13.2"
         testImplementation group: "org.mockito", name: "mockito-core", version: "5.4.0"

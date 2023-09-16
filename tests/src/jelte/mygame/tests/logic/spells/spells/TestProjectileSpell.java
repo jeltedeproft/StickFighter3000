@@ -43,7 +43,7 @@ public class TestProjectileSpell {
 	private MusicManagerInterface mockMusicManager;
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() {
 		PlayerFileReader.loadUnitStatsInMemory(Constants.PLAYER_STATS_TEST_FILE_LOCATION);
 		SpellFileReader.loadSpellsInMemory(Constants.SPELL_STATS_TEST_FILE_LOCATION);
 		ApplicationLogger logger = new MultiFileLogger();

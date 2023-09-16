@@ -31,7 +31,7 @@ public class TestCharacterPhysicsComponentImpl {
 		assertEquals(0f, characterPhysicsComponent.getAcceleration().x, 0.001f);
 		assertEquals(0f, characterPhysicsComponent.getAcceleration().y, 0.001f);
 		assertEquals(0f, characterPhysicsComponent.getVelocity().x, 0.001f);
-		assertEquals(-10f, characterPhysicsComponent.getVelocity().y, 0.001f);
+		assertEquals(-9.81f, characterPhysicsComponent.getVelocity().y, 0.001f);
 		assertEquals(new Vector2(0f, 9f), characterPhysicsComponent.getNewPosition());
 		assertEquals(new Vector2(0f, 9f), characterPhysicsComponent.getPosition());
 		assertTrue(characterPhysicsComponent.hasMoved());

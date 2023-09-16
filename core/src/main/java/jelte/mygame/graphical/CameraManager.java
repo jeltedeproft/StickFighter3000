@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 public class CameraManager {
 	private OrthographicCamera camera;
 	private Vector2 cameraPosition;
+	private Vector2 targetCameraPosition;
 
 	public CameraManager(Camera camera) {
 		this.camera = (OrthographicCamera) camera;
@@ -16,9 +17,10 @@ public class CameraManager {
 		this.camera.update();
 	}
 
+	// TODO smooth camera move not working yet
 	public void update(float mapWidth, float mapHeight, float viewportWidth, float viewportHeight) {
-		camera.position.x = MathUtils.clamp(cameraPosition.x, viewportWidth / 2, mapWidth - viewportWidth / 2);
-		camera.position.y = MathUtils.clamp(cameraPosition.y, viewportHeight / 2, mapHeight - viewportHeight / 2);
+		camera.position.x = MathUtils.clamp(0.9f * cameraPosition.x + 0.1f * targetCameraPosition.x, viewportWidth / 2, mapWidth - viewportWidth / 2);
+		camera.position.y = MathUtils.clamp(0.9f * cameraPosition.y + 0.1f * targetCameraPosition.x, viewportHeight / 2, mapHeight - viewportHeight / 2);
 		camera.update();
 	}
 
@@ -37,7 +39,7 @@ public class CameraManager {
 	}
 
 	public void updateCameraPos(Vector2 value) {
-		cameraPosition = value;
+		targetCameraPosition = value;
 	}
 
 	public Vector2 getCameraPosition() {

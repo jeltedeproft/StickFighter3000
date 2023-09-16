@@ -1,0 +1,257 @@
+
+map.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Ancient Rock Animations 36x51
+  rotate: false
+  xy: 416, 155
+  size: 504, 153
+  orig: 504, 153
+  offset: 0, 0
+  index: -1
+Blood Temple Tileset
+  rotate: false
+  xy: 1760, 612
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blood Tree 1 Sprite Sheet 112x128
+  rotate: false
+  xy: 16, 1516
+  size: 1792, 512
+  orig: 1792, 512
+  offset: 0, 0
+  index: -1
+Bubble Maker Orb thing (8x20)
+  rotate: false
+  xy: 2000, 1668
+  size: 8, 360
+  orig: 8, 360
+  offset: 0, 0
+  index: -1
+DARK Edition Tileset No background
+  rotate: false
+  xy: 1760, 336
+  size: 224, 256
+  orig: 224, 256
+  offset: 0, 0
+  index: -1
+DARK Edition Tileset with background
+  rotate: false
+  xy: 1808, 888
+  size: 224, 256
+  orig: 224, 256
+  offset: 0, 0
+  index: -1
+Distant Lightning (32x32)
+  rotate: false
+  xy: 1904, 1452
+  size: 32, 576
+  orig: 32, 576
+  offset: 0, 0
+  index: -1
+Large Lightning (64x48)
+  rotate: false
+  xy: 1824, 1164
+  size: 64, 864
+  orig: 64, 864
+  offset: 0, 0
+  index: -1
+Small Lightning (32x32)
+  rotate: false
+  xy: 1952, 1452
+  size: 32, 576
+  orig: 32, 576
+  offset: 0, 0
+  index: -1
+Tileset
+  rotate: false
+  xy: 1047, 40
+  size: 288, 336
+  orig: 288, 336
+  offset: 0, 0
+  index: -1
+Tileset Add on1
+  rotate: false
+  xy: 1360, 552
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: -1
+Tileset Add on
+  rotate: false
+  xy: 1360, 552
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: -1
+Tileset Add on3
+  rotate: false
+  xy: 1360, 148
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: -1
+Torch 16x16
+  rotate: false
+  xy: 1904, 1336
+  size: 16, 96
+  orig: 16, 96
+  offset: 0, 0
+  index: -1
+Tree Tileset1
+  rotate: false
+  xy: 912, 956
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset2
+  rotate: false
+  xy: 16, 396
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset3
+  rotate: false
+  xy: 1360, 956
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset4
+  rotate: false
+  xy: 464, 396
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset5
+  rotate: false
+  xy: 16, 956
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset6
+  rotate: false
+  xy: 912, 396
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+Tree Tileset7
+  rotate: false
+  xy: 464, 956
+  size: 432, 540
+  orig: 432, 540
+  offset: 0, 0
+  index: -1
+camp sprite sheet
+  rotate: false
+  xy: 1760, 124
+  size: 256, 192
+  orig: 256, 192
+  offset: 0, 0
+  index: -1
+door open 41x48
+  rotate: false
+  xy: 416, 328
+  size: 615, 48
+  orig: 615, 48
+  offset: 0, 0
+  index: -1
+down 16x19
+  rotate: false
+  xy: 936, 289
+  size: 64, 19
+  orig: 64, 19
+  offset: 0, 0
+  index: -1
+flower glow 16x16
+  rotate: false
+  xy: 16, 20
+  size: 160, 16
+  orig: 160, 16
+  offset: 0, 0
+  index: -1
+idle 16x19
+  rotate: false
+  xy: 1351, 48
+  size: 64, 19
+  orig: 64, 19
+  offset: 0, 0
+  index: -1
+idle 28x41
+  rotate: false
+  xy: 416, 94
+  size: 252, 41
+  orig: 252, 41
+  offset: 0, 0
+  index: -1
+spritesheet
+  rotate: false
+  xy: 16, 56
+  size: 384, 320
+  orig: 384, 320
+  offset: 0, 0
+  index: -1
+start up16x19
+  rotate: false
+  xy: 684, 116
+  size: 112, 19
+  orig: 112, 19
+  offset: 0, 0
+  index: -1
+warp 28x41
+  rotate: false
+  xy: 1351, 87
+  size: 252, 41
+  orig: 252, 41
+  offset: 0, 0
+  index: -1
+
+map2.png
+size: 2048, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Bonus Tileset
+  rotate: false
+  xy: 752, 196
+  size: 320, 208
+  orig: 320, 208
+  offset: 0, 0
+  index: -1
+City Tileset
+  rotate: false
+  xy: 416, 84
+  size: 320, 320
+  orig: 320, 320
+  offset: 0, 0
+  index: -1
+Smoke Animations 12x38
+  rotate: false
+  xy: 1344, 252
+  size: 192, 152
+  orig: 192, 152
+  offset: 0, 0
+  index: -1
+Tileset Add on2
+  rotate: false
+  xy: 16, 20
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: -1
+victorian tileset
+  rotate: false
+  xy: 1088, 212
+  size: 240, 192
+  orig: 240, 192
+  offset: 0, 0
+  index: -1

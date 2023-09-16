@@ -63,8 +63,8 @@
   <object id="41" name="BOT" x="560" y="512.25" width="175.75" height="7.875"/>
   <object id="42" name="TOP" x="560.125" y="550.5" width="175.625" height="9.5"/>
   <object id="43" name="RIGHT" x="718.75" y="520.75" width="17.125" height="28.625"/>
-  <object id="44" name="LEFT" x="-45" y="140.5" width="52.75" height="517.5"/>
-  <object id="45" name="RIGHT" x="793" y="144" width="41" height="513.5"/>
+  <object id="44" name="LEFT" x="-51" y="141.5" width="52.75" height="517.5"/>
+  <object id="45" name="RIGHT" x="799" y="143" width="41" height="513.5"/>
  </objectgroup>
  <objectgroup id="9" name="spawns">
   <object id="49" name="SPAWN" x="373.046" y="501.118">

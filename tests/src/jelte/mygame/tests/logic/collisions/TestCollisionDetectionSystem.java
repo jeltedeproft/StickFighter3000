@@ -1,5 +1,8 @@
 package jelte.mygame.tests.logic.collisions;
 
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,9 +15,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 
 import jelte.mygame.logic.collisions.CollisionDetectionSystemImpl;
 import jelte.mygame.logic.collisions.CollisionPair;
@@ -398,6 +398,7 @@ public class TestCollisionDetectionSystem {
 		collisionSystem.updateSpatialMesh(collidables);
 		collidedPairs = collisionSystem.getCollidingpairs();
 		expectedcollidedPairs = new HashSet<>();
+		expectedcollidedPairs.add(new CollisionPair(blockTop, characterBody));
 		Assert.assertEquals(expectedcollidedPairs, collidedPairs);
 	}
 

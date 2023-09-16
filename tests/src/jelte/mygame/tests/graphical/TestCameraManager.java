@@ -2,13 +2,13 @@ package jelte.mygame.tests.graphical;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import jelte.mygame.graphical.CameraManager;
 import jelte.mygame.tests.testUtil.GdxTestRunner;
@@ -40,7 +40,7 @@ public class TestCameraManager {
 		assertEquals(expectedCameraX, camera.position.x, 0.001f);
 		assertEquals(expectedCameraY, camera.position.y, 0.001f);
 		assertEquals(0f, camera.position.z, 0.001f);
-		assertEquals(1.5f, camera.zoom, 0.001f);
+		assertEquals(3.5f, camera.zoom, 0.001f);
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class TestCameraManager {
 		assertEquals(initialCameraX + moveX, camera.position.x, 0.001f);
 		assertEquals(initialCameraY + moveY, camera.position.y, 0.001f);
 		assertEquals(0f, camera.position.z, 0.001f);
-		assertEquals(1.5f, camera.zoom, 0.001f);// camera starts by adding 0.5 zoom in constructor
+		assertEquals(3.5f, camera.zoom, 0.001f);// camera starts by adding 0.5 zoom in constructor
 	}
 
 	@Test

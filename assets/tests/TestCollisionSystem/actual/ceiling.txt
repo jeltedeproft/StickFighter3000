@@ -64,6 +64,3 @@ collidable 2 : PLAYER
 collidable 1 : STATIC_TOP
 collidable 2 : PLAYER
 
-collidable 1 : STATIC_TOP
-collidable 2 : PLAYER
-

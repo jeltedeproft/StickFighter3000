@@ -16,7 +16,7 @@ public class Constants {
 	public static final float VELOCITY_MIN_TRESHOLD = 0.1f;
 	public static final float VELOCITY_STARTUP_TRESHOLD = 100f;
 	public static final float STARTUP_SPEED = 0.1f;
-	public static final Vector2 GRAVITY = new Vector2(0, -10);
+	public static final Vector2 GRAVITY = new Vector2(0, -9.81f);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
 	public static final float CLIMB_SPEED = 1.0f;
 	public static final Vector2 MAX_JUMP_SPEED = new Vector2(0, 600);
@@ -52,7 +52,7 @@ public class Constants {
 	public static final String SKIN_TEXTURE_ATLAS_PATH = "skin/dark.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "tests/testMap/testArcher.tmx";
+	public static final String DEFAULT_MAP_PATH = "map/dark/beautifull.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String IMAGE_FILES_PATH = "sprites/characters/swordmaster/";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
@@ -77,6 +77,11 @@ public class Constants {
 	public static final String TEST_FILE_ACCELERATION_ACTUAL = "tests/TestCollisionSystem/actual/accelerations.txt";
 	public static final String TEST_FILE_STUCK_IN_WALL_EXPECTED = "tests/TestCollisionSystem/expected/stuckInWall.txt";
 	public static final String TEST_FILE_STUCK_IN_WALL_ACTUAL = "tests/TestCollisionSystem/actual/stuckInWall.txt";
+
+	public static final String TEST_FILE_PROJECTILE_INPUT = "tests/testProjectiles/input.txt";
+	public static final String TEST_FILE_PROJECTILE_EXPECTED = "tests/testProjectiles/expected.txt";
+	public static final String TEST_FILE_PROJECTILE_ACTUAL = "tests/testProjectiles/actual.txt";
+	public static final String TEST_FILE_PROJECTILE_INPUT_EXCEL = "tests/testProjectiles/testProjectiles.xlsx";
 
 	// NAMES
 	public static final String PLAYER_SPRITE_NAME = "archer";

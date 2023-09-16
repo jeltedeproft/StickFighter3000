@@ -835,9 +835,6 @@ collidable 2 : PLAYER
 collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
-collidable 1 : STATIC_RIGHT
-collidable 2 : PLAYER
-
 collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
@@ -2113,19 +2110,13 @@ collidable 2 : PLAYER
 collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
-collidable 1 : STATIC_RIGHT
-collidable 2 : PLAYER
-
 collidable 1 : STATIC_BOT
-collidable 2 : PLAYER
-
-collidable 1 : STATIC_RIGHT
 collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
-collidable 1 : STATIC_RIGHT
+collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
 collidable 1 : STATIC_BOT
@@ -4718,8 +4709,5 @@ collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 
 collidable 1 : STATIC_RIGHT
-collidable 2 : PLAYER
-
-collidable 1 : STATIC_BOT
 collidable 2 : PLAYER
 

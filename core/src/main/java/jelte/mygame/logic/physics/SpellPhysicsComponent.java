@@ -1,6 +1,5 @@
 package jelte.mygame.logic.physics;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -35,8 +34,6 @@ public class SpellPhysicsComponent extends PhysicsComponentImpl {
 		if (velocity.len2() > Constants.MAX_SPEED * Constants.MAX_SPEED) {
 			velocity.setLength(Constants.MAX_SPEED);
 		}
-
-		Gdx.app.error(TAG, "velocity spell = " + velocity);
 
 		newPosition.x = position.x + velocity.x * delta;
 		newPosition.y = position.y + velocity.y * delta;
