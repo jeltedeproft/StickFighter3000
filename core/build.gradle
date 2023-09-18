@@ -8,6 +8,7 @@ dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.crashinvaders.basisu:basisu-wrapper:$gdxBasisuVersion"
   api "com.crashinvaders.basisu:basisu-gdx:$gdxBasisuVersion"
+  implementation "com.badlogicgames.gdx-video:gdx-video:$gdxVideoVersion"
   implementation "com.github.raeleus.TenPatch:tenpatch:5.2.3"
   implementation "com.github.Hangman:TuningFork:$tuningForkVersion"
   implementation "com.github.raeleus.stripe:stripe:$stripeVersion"

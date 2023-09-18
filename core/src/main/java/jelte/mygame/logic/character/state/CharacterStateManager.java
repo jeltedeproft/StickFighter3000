@@ -69,6 +69,7 @@ public class CharacterStateManager {
 		IDLECROUCH,
 		HOLDING,
 		BLOCKING,
+		BLOCKBREAK,
 		TELEPORTING,
 		GRABBING,
 		ROLLATTACK,

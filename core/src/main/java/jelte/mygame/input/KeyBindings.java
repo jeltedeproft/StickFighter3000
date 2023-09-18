@@ -1,9 +1,5 @@
 package jelte.mygame.input;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
@@ -11,11 +7,15 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.ObjectIntMap;
 import com.badlogic.gdx.utils.StringBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import jelte.mygame.utility.Constants;
 
 public class KeyBindings {
-	public static final Map<String, Integer> keyBindings = new HashMap<>();
-	public static final Preferences bindingsPreferences = Gdx.app.getPreferences(Constants.PREFERENCES_KEYBINDINGS);
+	private static final Map<String, Integer> keyBindings = new HashMap<>();
+	private static final Preferences bindingsPreferences = Gdx.app.getPreferences(Constants.PREFERENCES_KEYBINDINGS);
 
 	/**
 	 * Load the bindings in on creation

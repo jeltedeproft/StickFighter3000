@@ -30,11 +30,6 @@ public class Item implements Collidable {
 		this.itemEnum = ItemEnum.valueOf(itemName);
 	}
 
-	public Item(int x, int y, int width, int height) {
-		rectangle = new Rectangle(x, y, width, height);
-		id = UUID.randomUUID();
-	}
-
 	public void collidedWithPlayer(PlayerCharacter player) {
 		switch (itemEnum) {
 		case FIREBALL_ITEM:

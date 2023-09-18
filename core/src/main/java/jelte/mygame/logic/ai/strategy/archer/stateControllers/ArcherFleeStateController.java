@@ -12,7 +12,7 @@ import jelte.mygame.utility.AiUtility;
 
 public class ArcherFleeStateController implements StateControllerInterface {
 	private static final String TAG = ArcherFleeStateController.class.getSimpleName();
-	public static final float FLEE_SAFETY_DISTANCE = 200f;
+	private static final float FLEE_SAFETY_DISTANCE = 200f;
 
 	@Override
 	public AI_STATE getNextState(float delta, AiCharacter self, PlayerCharacter player) {

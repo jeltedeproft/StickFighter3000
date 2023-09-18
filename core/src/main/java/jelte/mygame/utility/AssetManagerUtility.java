@@ -42,7 +42,7 @@ public class AssetManagerUtility implements Disposable {
 
 	private static boolean loadersSet = false;
 
-	public static final AssetManager assetManager = new AssetManager();
+	private static final AssetManager assetManager = new AssetManager();
 	private static InternalFileHandleResolver filePathResolver = new InternalFileHandleResolver();
 
 	private static TmxMapLoader tmxMapLoader = new TmxMapLoader(filePathResolver);

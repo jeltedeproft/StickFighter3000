@@ -28,7 +28,7 @@
 		"rollFullTime": 0.5f,
 		"wallSlidingStopFullTime": 1f,
 		"holdToSlideFullTime": 1f,
-		"landAttackingFullTime": 0.3f,
+		"landAttackingFullTime": 0.7f,
 		"blockingFullTime": 0.3f,
 	}
 ]

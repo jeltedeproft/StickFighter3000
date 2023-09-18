@@ -16,6 +16,7 @@ import jelte.mygame.logic.ai.strategy.AiStrategy.AI_STATE;
 import jelte.mygame.logic.ai.strategy.advanced.AdvancedAiStrategy;
 import jelte.mygame.logic.ai.strategy.archer.ArcherAiStrategy;
 import jelte.mygame.logic.ai.strategy.basic.BasicAiStrategy;
+import jelte.mygame.logic.ai.strategy.dummy.DummyAiStrategy;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.collisions.collidable.Collidable;
@@ -28,6 +29,7 @@ public class AiManager {
 
 	public enum AI_STRATEGY {
 		BASIC,
+		DUMMY,
 		ADVANCED,
 		AGGRESIVE,
 		PASSIVE,
@@ -55,6 +57,7 @@ public class AiManager {
 		case BASIC -> new BasicAiStrategy();
 		case ADVANCED -> new AdvancedAiStrategy();
 		case ARCHER -> new ArcherAiStrategy();
+		case DUMMY -> new DummyAiStrategy();
 		default -> new BasicAiStrategy();
 		};
 	}

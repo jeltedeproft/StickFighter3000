@@ -73,8 +73,6 @@ public class HudManager {
 
 		uiViewport = new ExtendViewport(Constants.VISIBLE_UI_WIDTH, Constants.VISIBLE_UI_HEIGHT);
 		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
-//		uiViewport.getCamera().viewportWidth = uiViewport.getWorldWidth();
-//		uiViewport.getCamera().viewportHeight = uiViewport.getWorldHeight();
 		uiViewport.getCamera().update();
 
 		uiStage = new Stage(uiViewport, batch);
@@ -147,13 +145,14 @@ public class HudManager {
 		Table bottomBar = new Table();
 		for (int i = 1; i < Constants.MAX_SPELL_SLOTS; i++) {
 			SpellButton button = new SpellButton(skin, i);
-			bottomBar.add(button.getStack()).align(Align.bottomLeft);
+			bottomBar.add(button.getStack()).expand().align(Align.left).left().padLeft(5).size(80);
+			bottomBar.row();
 			spellButtons.add(button);
 		}
 
-		bottomMiddleBar.add(topBar).width(rectangleWidth).height(rectangleHeight / 2);
-		bottomMiddleBar.row();
-		bottomMiddleBar.add(bottomBar).width(rectangleWidth).height(rectangleHeight / 2).align(Align.bottomLeft);
+//		bottomMiddleBar.add(topBar).width(rectangleWidth).height(rectangleHeight / 2);
+//		bottomMiddleBar.row();
+		middleLeftBar.add(bottomBar).width(rectangleWidth).height(rectangleHeight / 2).align(Align.bottomLeft).padTop(100);
 
 		root.pack();
 
