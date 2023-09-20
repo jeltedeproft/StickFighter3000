@@ -271,4 +271,12 @@
 		"duration": 1.0f,
 		"theme": 0,
 	},
+	{
+		"id": 34,
+		"name": "mainMenu",
+		"audioFileName": ["audio/mainmenu.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 2,
+	},
 ]

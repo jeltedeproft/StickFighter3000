@@ -86,7 +86,7 @@ public class MapManager implements Disposable {
 		enemySpawnData = initializeEnemySpawnData();
 	}
 
-	public void renderCurrentMap(OrthographicCamera camera, Vector2 playerPosition) {
+	public void renderCurrentMap(OrthographicCamera camera) {
 		renderer.setView(camera);// TODO optimize, only if camera changes
 		renderer.render();
 	}
@@ -103,10 +103,12 @@ public class MapManager implements Disposable {
 	public Set<StaticBlock> extractStaticBlocksFromObjectLayer(MapLayer objectLayer) {
 		Set<StaticBlock> rectangles = new HashSet<>();
 
-		for (MapObject object : objectLayer.getObjects()) {
-			if (object instanceof RectangleMapObject rectangleObject) {
-				StaticBlock rectangle = createTypedStaticBlock(rectangleObject);
-				rectangles.add(rectangle);
+		if (objectLayer != null) {
+			for (MapObject object : objectLayer.getObjects()) {
+				if (object instanceof RectangleMapObject rectangleObject) {
+					StaticBlock rectangle = createTypedStaticBlock(rectangleObject);
+					rectangles.add(rectangle);
+				}
 			}
 		}
 
@@ -116,10 +118,12 @@ public class MapManager implements Disposable {
 	public Set<Item> extractItemsFromMap(MapLayer objectLayer) {
 		Set<Item> collidables = new HashSet<>();
 
-		for (MapObject object : objectLayer.getObjects()) {
-			if (object instanceof RectangleMapObject rectangleObject) {
-				Item item = new Item(rectangleObject.getName(), rectangleObject.getRectangle());
-				collidables.add(item);
+		if (objectLayer != null) {
+			for (MapObject object : objectLayer.getObjects()) {
+				if (object instanceof RectangleMapObject rectangleObject) {
+					Item item = new Item(rectangleObject.getName(), rectangleObject.getRectangle());
+					collidables.add(item);
+				}
 			}
 		}
 
@@ -138,34 +142,41 @@ public class MapManager implements Disposable {
 	}
 
 	private Collection<EnemySpawnData> initializeEnemySpawnData() {
-		MapObjects spawnObjects = currentMap.getLayers().get(Constants.LAYER_NAME_SPAWN).getObjects();
-		MapObjects patrolObjects = currentMap.getLayers().get(Constants.LAYER_NAME_PATROL).getObjects();
-		Map<String, EnemySpawnData> enemyDatas = new HashMap<>(spawnObjects.getCount());
+		MapLayer spawnLayer = currentMap.getLayers().get(Constants.LAYER_NAME_SPAWN);
+		MapLayer patrolLayer = currentMap.getLayers().get(Constants.LAYER_NAME_PATROL);
 
-		for (MapObject spawnObject : spawnObjects) {
-			if (spawnObject instanceof RectangleMapObject rectangleObject) {
-				String index = (String) spawnObject.getProperties().get(Constants.PROPERTY_DUPLICATE_INDEX);
-				String type = (String) spawnObject.getProperties().get(Constants.PROPERTY_ENTITY_TYPE_INDEX);
-				EnemySpawnData data = new EnemySpawnData();
-				data.setSpawnPoint(new Vector2(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y));
-				data.setType(type);
-				data.setPatrolPoints(new Array<>());
-				enemyDatas.put(type + index, data);
+		if (spawnLayer != null) {
+			MapObjects spawnObjects = spawnLayer.getObjects();
+			Map<String, EnemySpawnData> enemyDatas = new HashMap<>(spawnObjects.getCount());
+			for (MapObject spawnObject : spawnObjects) {
+				if (spawnObject instanceof RectangleMapObject rectangleObject) {
+					String index = (String) spawnObject.getProperties().get(Constants.PROPERTY_DUPLICATE_INDEX);
+					String type = (String) spawnObject.getProperties().get(Constants.PROPERTY_ENTITY_TYPE_INDEX);
+					EnemySpawnData data = new EnemySpawnData();
+					data.setSpawnPoint(new Vector2(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y));
+					data.setType(type);
+					data.setPatrolPoints(new Array<>());
+					enemyDatas.put(type + index, data);
+				}
 			}
-		}
 
-		for (MapObject patrolObject : patrolObjects) {
-			if (patrolObject instanceof RectangleMapObject rectangleObject) {
-				String index = (String) patrolObject.getProperties().get(Constants.PROPERTY_DUPLICATE_INDEX);
-				String type = (String) patrolObject.getProperties().get(Constants.PROPERTY_ENTITY_TYPE_INDEX);
-				String pathIndex = (String) patrolObject.getProperties().get(Constants.PROPERTY_PATH_INDEX);
-				EnemySpawnData data = enemyDatas.get(type + index);
-				data.getPatrolPoints().add(new PatrolPoint(new Vector2(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y), pathIndex));
-				enemyDatas.put(type + index, data);
+			if (patrolLayer != null) {
+				MapObjects patrolObjects = patrolLayer.getObjects();
+				for (MapObject patrolObject : patrolObjects) {
+					if (patrolObject instanceof RectangleMapObject rectangleObject) {
+						String index = (String) patrolObject.getProperties().get(Constants.PROPERTY_DUPLICATE_INDEX);
+						String type = (String) patrolObject.getProperties().get(Constants.PROPERTY_ENTITY_TYPE_INDEX);
+						String pathIndex = (String) patrolObject.getProperties().get(Constants.PROPERTY_PATH_INDEX);
+						EnemySpawnData data = enemyDatas.get(type + index);
+						data.getPatrolPoints().add(new PatrolPoint(new Vector2(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y), pathIndex));
+						enemyDatas.put(type + index, data);
+					}
+				}
 			}
-		}
 
-		return enemyDatas.values();
+			return enemyDatas.values();
+		}
+		return new HashSet<>();
 	}
 
 	private StaticBlock createTypedStaticBlock(RectangleMapObject rectangleObject) {

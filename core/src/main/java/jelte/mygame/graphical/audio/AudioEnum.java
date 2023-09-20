@@ -34,7 +34,8 @@ public enum AudioEnum {
 	SOUND_FIREBALL_ITEM,
 	SOUND_RANGEDATTACK_LOOP,
 	SOUND_RANGEDATTACK_END,
-	SOUND_RANGEDATTACK_WINDUP;
+	SOUND_RANGEDATTACK_WINDUP,
+	PLAYLIST_MAIN_MENU;
 
 	private static final AudioEnum[] copyOfValues = AudioEnum.values();
 

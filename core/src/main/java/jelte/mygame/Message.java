@@ -44,7 +44,8 @@ public class Message {
 		ACTIVATE_SPELL,
 		SEND_ITEMS,
 		REMOVE_ITEM,
-		SEND_BUTTONS_MAP;
+		SEND_BUTTONS_MAP,
+		SWITCH_SCREEN;
 	}
 
 	public enum RECIPIENT {

@@ -46,6 +46,7 @@ public class Constants {
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
 	public static final String DEFAULT_MAP_PATH = "map/dark/bigone.tmx";
+	public static final String MAIN_MENU_MAP_PATH = "map/dark/mainMenu.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";
 	public static final String ENEMY_STATS_FILE_LOCATION = "units/enemies.json";
@@ -111,6 +112,10 @@ public class Constants {
 	public static final float MINIMAP_HEIGHT = 120;
 	public static final float VISIBLE_WIDTH = 200;
 	public static final float VISIBLE_HEIGHT = 200;
+	public static final float MAIN_MENU_VISIBLE_WIDTH = 800;
+	public static final float MAIN_MENU_VISIBLE_HEIGHT = 400;
+	public static final float MAIN_MENU_VISIBLE_UI_WIDTH = 1000;
+	public static final float MAIN_MENU_VISIBLE_UI_HEIGHT = 1000;
 	public static final float VISIBLE_UI_WIDTH = 800;
 	public static final float VISIBLE_UI_HEIGHT = 800;
 

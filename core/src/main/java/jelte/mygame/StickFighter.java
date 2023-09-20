@@ -5,8 +5,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
 
-import jelte.mygame.graphical.GraphicalManager;
-import jelte.mygame.graphical.GraphicalManagerImpl;
+import jelte.mygame.graphical.GraphicalManagerDispatcher;
 import jelte.mygame.graphical.audio.AudioFileReader;
 import jelte.mygame.graphical.specialEffects.SpecialEffectsFileReader;
 import jelte.mygame.input.InputHandler;
@@ -23,7 +22,7 @@ import jelte.mygame.utility.logging.MultiFileLogger;
 public class StickFighter implements ApplicationListener, MessageListener {
 	private InputHandler inputHandler;
 	private LogicManager logicManager;
-	private GraphicalManager graphicalManager;
+	private GraphicalManagerDispatcher graphicalDispatcher;
 
 	@Override
 	public void create() {
@@ -38,7 +37,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		SpecialEffectsFileReader.loadSpecialEffectsInMemory(Constants.SPECIAL_EFFECTS_STATS_FILE_LOCATION);
 		inputHandler = new InputHandlerImpl(this);
 		logicManager = new LogicManagerImpl(this);
-		graphicalManager = new GraphicalManagerImpl(this);
+		graphicalDispatcher = new GraphicalManagerDispatcher(this);
 	}
 
 	@Override
@@ -46,12 +45,12 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		float delta = Gdx.graphics.getDeltaTime();
 		inputHandler.update(delta);
 		logicManager.update(delta);
-		graphicalManager.update(delta);
+		graphicalDispatcher.update(delta);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		graphicalManager.resize(width, height);
+		graphicalDispatcher.resize(width, height);
 	}
 
 	@Override
@@ -66,7 +65,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 
 	@Override
 	public void dispose() {
-		graphicalManager.dispose();
+		graphicalDispatcher.dispose();
 		logicManager.dispose();
 		inputHandler.dispose();
 	}
@@ -78,7 +77,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 			logicManager.receiveMessage(message);
 			break;
 		case GRAPHIC:
-			graphicalManager.receiveMessage(message);
+			graphicalDispatcher.receiveMessage(message);
 			break;
 		case INPUT:
 			inputHandler.receiveMessage(message);

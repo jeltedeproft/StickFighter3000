@@ -82,7 +82,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 
 	private JukeBox initJukeBox() {
 		provider = new ThemePlayListProvider();
-		provider.setTheme(MusicTheme.PLAYING.ordinal());
+		provider.setTheme(MusicTheme.MAIN_MENU.ordinal());
 
 		for (MusicTheme theme : MusicTheme.values()) {
 			PlayList playlist = new PlayList();
@@ -183,6 +183,7 @@ public class MusicManager implements Disposable, MusicManagerInterface {
 			provider.setTheme(audioData.getTheme());
 			break;
 		case MUSIC_PLAY:
+			provider.setTheme(audioData.getTheme());
 			jukeBox.play();
 			break;
 		case MUSIC_PAUSE:
