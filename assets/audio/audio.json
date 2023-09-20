@@ -274,7 +274,7 @@
 	{
 		"id": 34,
 		"name": "mainMenu",
-		"audioFileName": ["audio/mainmenu.wav"],
+		"audioFileName": ["audio/mainmenu.wav","audio/mainmenu2.wav"],
 		"volume": 1.0f,
 		"duration": 1.0f,
 		"theme": 2,
