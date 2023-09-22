@@ -11,7 +11,7 @@ import jelte.mygame.graphical.specialEffects.SpecialEffectsFileReader;
 import jelte.mygame.input.InputHandler;
 import jelte.mygame.input.InputHandlerImpl;
 import jelte.mygame.logic.LogicManager;
-import jelte.mygame.logic.LogicManagerImpl;
+import jelte.mygame.logic.BattleLogicManagerImpl;
 import jelte.mygame.logic.character.EnemyFileReader;
 import jelte.mygame.logic.character.PlayerFileReader;
 import jelte.mygame.logic.spells.SpellFileReader;
@@ -36,7 +36,7 @@ public class StickFighter implements ApplicationListener, MessageListener {
 		ModifierFileReader.loadModifiersInMemory(Constants.MODIFIER_STATS_FILE_LOCATION);
 		SpecialEffectsFileReader.loadSpecialEffectsInMemory(Constants.SPECIAL_EFFECTS_STATS_FILE_LOCATION);
 		inputHandler = new InputHandlerImpl(this);
-		logicManager = new LogicManagerImpl(this);
+		logicManager = new BattleLogicManagerImpl(this);
 		graphicalDispatcher = new GraphicalManagerDispatcher(this);
 	}
 

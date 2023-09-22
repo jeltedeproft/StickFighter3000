@@ -43,7 +43,7 @@ public class MainMenuGraphicalManager implements GraphicalManager {
 
 		batch = new SpriteBatch();
 		mapManager = new MapManager(batch, Constants.MAIN_MENU_MAP_PATH);
-		mainMenuHudManager = new MainMenuHudManager(messageListener, batch, font);
+		mainMenuHudManager = new MainMenuHudManager(messageListener, batch);
 
 		gameViewport = new FitViewport(Constants.MAIN_MENU_VISIBLE_WIDTH, Constants.MAIN_MENU_VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewport.getCamera());
@@ -87,6 +87,9 @@ public class MainMenuGraphicalManager implements GraphicalManager {
 		switch (message.getAction()) {
 		case CAMERA_ZOOM:
 			cameraManager.zoomCamera((float) message.getValue());
+			break;
+		case SEND_BUTTONS_MAP:
+			// TODO???
 			break;
 		case EXIT_GAME:
 			Gdx.app.exit();

@@ -279,4 +279,20 @@
 		"duration": 1.0f,
 		"theme": 2,
 	},
+	{
+		"id": 35,
+		"name": "hover",
+		"audioFileName": ["audio/hover.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
+	{
+		"id": 36,
+		"name": "click",
+		"audioFileName": ["audio/click.wav"],
+		"volume": 1.0f,
+		"duration": 1.0f,
+		"theme": 0,
+	},
 ]

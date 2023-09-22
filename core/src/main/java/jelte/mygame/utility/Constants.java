@@ -28,7 +28,7 @@ public class Constants {
 
 	public static final Vector2 GRAVITY = new Vector2(0, -9.81f);
 	public static final Vector2 JUMP_SPEED = new Vector2(0, 300);
-	public static final Vector2 PLAYER_START = new Vector2(300, 300);
+	public static final Vector2 PLAYER_START = new Vector2(10, 10);
 	public static final Vector2 MAX_JUMP_SPEED = new Vector2(0, 600);
 
 	// SPELLS
@@ -45,7 +45,7 @@ public class Constants {
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "map/dark/bigone.tmx";
+	public static final String DEFAULT_MAP_PATH = "map/dark/level1.tmx";
 	public static final String MAIN_MENU_MAP_PATH = "map/dark/mainMenu.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";

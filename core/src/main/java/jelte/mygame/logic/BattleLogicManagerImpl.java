@@ -28,8 +28,8 @@ import jelte.mygame.logic.collisions.collidable.StaticBlock;
 import jelte.mygame.logic.spells.SpellManager;
 import jelte.mygame.logic.spells.modifier.ModifierManager;
 
-public class LogicManagerImpl implements LogicManager {
-	private static final String TAG = LogicManagerImpl.class.getSimpleName();
+public class BattleLogicManagerImpl implements LogicManager {
+	private static final String TAG = BattleLogicManagerImpl.class.getSimpleName();
 	private MessageListener listener;
 	private CollisionDetectionSystem collisionDetectionSystem;
 	private CollisionHandlingSystem collisionhandlingSystem;
@@ -42,7 +42,7 @@ public class LogicManagerImpl implements LogicManager {
 	private Set<Collidable> allCollidables;
 	private Vector2 mousePosition = new Vector2();
 
-	public LogicManagerImpl(MessageListener listener) {
+	public BattleLogicManagerImpl(MessageListener listener) {
 		this.listener = listener;
 		allCollidables = new HashSet<>();
 		collisionDetectionSystem = new CollisionDetectionSystemImpl();

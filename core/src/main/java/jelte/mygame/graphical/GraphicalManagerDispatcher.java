@@ -3,7 +3,7 @@ package jelte.mygame.graphical;
 import jelte.mygame.Message;
 import jelte.mygame.MessageListener;
 
-public class GraphicalManagerDispatcher {
+public class GraphicalManagerDispatcher implements GraphicalManager {
 	private MessageListener messageListener;
 	private GraphicalManager activeGraphicalManager;
 	private GraphicalManager mainMenuGraphicalManager;
@@ -22,6 +22,7 @@ public class GraphicalManagerDispatcher {
 	}
 
 	public void switchScreen(SCREENS screen) {
+		activeGraphicalManager.dispose();
 		switch (screen) {
 		case BATTLE:
 			activeGraphicalManager = battleGraphicalManagerImpl;
@@ -35,18 +36,22 @@ public class GraphicalManagerDispatcher {
 		}
 	}
 
+	@Override
 	public void update(float delta) {
 		activeGraphicalManager.update(delta);
 	}
 
+	@Override
 	public void resize(int width, int height) {
 		activeGraphicalManager.resize(width, height);
 	}
 
+	@Override
 	public void dispose() {
 		activeGraphicalManager.dispose();
 	}
 
+	@Override
 	public void receiveMessage(Message message) {
 		switch (message.getAction()) {
 		case SWITCH_SCREEN:

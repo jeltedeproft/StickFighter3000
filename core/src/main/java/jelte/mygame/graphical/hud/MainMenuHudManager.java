@@ -3,11 +3,17 @@ package jelte.mygame.graphical.hud;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Null;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -15,6 +21,10 @@ import jelte.mygame.Message;
 import jelte.mygame.Message.ACTION;
 import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
+import jelte.mygame.graphical.GraphicalManagerDispatcher.SCREENS;
+import jelte.mygame.graphical.audio.AudioCommand;
+import jelte.mygame.graphical.audio.AudioEnum;
+import jelte.mygame.graphical.audio.MusicManager;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
 import lombok.Getter;
@@ -45,10 +55,15 @@ public class MainMenuHudManager {
 
 	private MessageListener messageListener;
 
-	public MainMenuHudManager(MessageListener messageListener, SpriteBatch batch, BitmapFont font) {
+	public MainMenuHudManager(MessageListener messageListener, SpriteBatch batch) {
 		this.messageListener = messageListener;
 		skin = AssetManagerUtility.getSkin(Constants.SKIN_FILE_PATH);
-		this.font = font;
+
+		FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("font/thedark.TTF"));
+		FreeTypeFontParameter fontParameter = new FreeTypeFontParameter();
+		fontParameter.size = 48;
+		font = fontGenerator.generateFont(fontParameter);
+		fontGenerator.dispose();
 
 		uiViewport = new ScreenViewport();
 		uiViewport.getCamera().position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
@@ -88,9 +103,25 @@ public class MainMenuHudManager {
 
 		newGameButton = new ImageButton(skin, "newgame");
 		resumeButton = new ImageButton(skin, "continue");
-		bottomMiddleBar.add(newGameButton);
+		newGameButton.getImage().scaleBy(2f);
+		newGameButton.addListener(new InputListener() {
+			@Override
+			public boolean touchDown(final InputEvent event, final float x, final float y, final int pointer, final int button) {
+				MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_CLICK);
+				messageListener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.SWITCH_SCREEN, SCREENS.BATTLE));
+				return true;
+			}
+
+			@Override
+			public void enter(InputEvent event, float x, float y, int pointer, @Null Actor fromActor) {
+				MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_ONCE, AudioEnum.SOUND_HOVER);
+			}
+		});
+
+		resumeButton.getImage().scaleBy(2f);
+		bottomMiddleBar.add(newGameButton).padBottom(70f).padRight(100f).width(100);
 		bottomMiddleBar.row();
-		bottomMiddleBar.add(resumeButton);
+		bottomMiddleBar.add(resumeButton).padTop(20f).padRight(100f).width(100);
 
 		root.pack();
 

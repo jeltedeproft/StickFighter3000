@@ -76,15 +76,16 @@ public class InputHandlerImpl implements InputHandler, InputProcessor {
 		} else {
 			inputBox.updateButtonPressed(keycode, true);
 			listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
+			listener.receiveMessage(new Message(RECIPIENT.GRAPHIC, ACTION.SEND_BUTTONS_MAP, inputBox));
 		}
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
 		inputBox.updateButtonPressed(keycode, false);
 		listener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BUTTONS_MAP, inputBox));
-		return true;
+		return false;
 	}
 
 	public InputBox getInputBox() {
