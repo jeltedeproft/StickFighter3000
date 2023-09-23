@@ -45,7 +45,7 @@ public class Constants {
 	public static final String SPRITES_BACKGROUND_ATLAS_PATH = "sprites/backgroundSprites.atlas";
 	public static final String SKIN_FILE_PATH = "skin/dark.json";
 	public static final String INTRO_VIDEO_PATH = "video/main3.ogg";
-	public static final String DEFAULT_MAP_PATH = "map/dark/level1.tmx";
+	public static final String DEFAULT_MAP_PATH = "map/dark/level1 - Copy.tmx";
 	public static final String MAIN_MENU_MAP_PATH = "map/dark/mainMenu.tmx";
 	public static final String DARK1_MAP_PATH = "map/dark/dark.tmx";
 	public static final String PLAYER_STATS_FILE_LOCATION = "units/players.json";

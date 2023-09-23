@@ -28,13 +28,13 @@ premultiplyAlpha=false
 grid=false
 square=true
 bleed=true
-limitMemory=true
+limitMemory=false
 useIndexes=true
 prettyPrint=false
 legacyOutput=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:characters/archer,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/orby,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/alchemist,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/shocker,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/swordmaster,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:spells,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:modifiers,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:effects,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:ui,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:particles,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/ball,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
+inputFiles=[{path:characters/archer,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/orby,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/alchemist,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/shocker,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/swordmaster,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:spells,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:modifiers,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:effects,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:ui,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:particles,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/ball,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/dummy,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
 keepInputFileExtensions=false
 
 
