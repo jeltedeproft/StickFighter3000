@@ -1,5 +1,6 @@
 package jelte.mygame.logic.character.state;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.StringBuilder;
 
 import jelte.mygame.input.InputBox;
@@ -7,6 +8,7 @@ import jelte.mygame.logic.character.state.CharacterStateManager.CHARACTER_STATE;
 import jelte.mygame.logic.character.state.CharacterStateManager.EVENT;
 
 public class CharacterStateHurt implements CharacterState {
+	private static final String TAG = CharacterStateHurt.class.getSimpleName();
 	private CharacterStateManager characterStateManager;
 	private float duration;
 	private float timer = 0f;
@@ -25,11 +27,14 @@ public class CharacterStateHurt implements CharacterState {
 
 	@Override
 	public void update(float delta) {
+		Gdx.app.error(TAG, "delta = " + delta, null);
 		timer -= delta;
+		Gdx.app.error(TAG, "timer = " + timer, null);
 		if (timer <= 0) {
 			timer = duration;
 			characterStateManager.popState();
 			characterStateManager.pushState(CHARACTER_STATE.IDLE);
+			Gdx.app.error(TAG, "changing to idle = ", null);
 		}
 
 	}

@@ -1,13 +1,17 @@
 package jelte.mygame.graphical.hud;
 
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
@@ -16,6 +20,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.Task;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -28,12 +34,16 @@ import jelte.mygame.Message.RECIPIENT;
 import jelte.mygame.MessageListener;
 import jelte.mygame.graphical.HealthBar;
 import jelte.mygame.graphical.animations.NamedSprite;
+import jelte.mygame.input.KeyBindings;
 import jelte.mygame.logic.character.AiCharacter;
 import jelte.mygame.logic.character.PlayerCharacter;
 import jelte.mygame.logic.spells.SpellFileReader;
 import jelte.mygame.logic.spells.SpellsEnum;
 import jelte.mygame.utility.AssetManagerUtility;
 import jelte.mygame.utility.Constants;
+import jelte.mygame.utility.parallax.ParallaxBackground;
+import jelte.mygame.utility.parallax.ParallaxUtils.WH;
+import jelte.mygame.utility.parallax.TextureRegionParallaxLayer;
 import lombok.Getter;
 
 @Getter
@@ -47,6 +57,8 @@ public class HudManager {
 	private ProgressBar playerMpBar;
 	private ProgressBar playerStaminaBar;
 	private Map<AiCharacter, HealthBar> enemyHealthBars;
+	private Dialog startDialog;
+	private Dialog secondDialog;
 
 	private Table root = new Table();
 	private Table topLeftBar = new Table();
@@ -64,6 +76,9 @@ public class HudManager {
 	private int freeSpellSlot = 0;
 
 	private MessageListener messageListener;
+	private SpriteBatch batch;
+
+	private ParallaxBackground parallaxBackground;
 
 	public HudManager(MessageListener messageListener, SpriteBatch batch) {
 		this.messageListener = messageListener;
@@ -75,11 +90,13 @@ public class HudManager {
 		uiViewport.getCamera().position.set(uiViewport.getWorldWidth() / 2, uiViewport.getWorldHeight() / 2, 0);
 		uiViewport.getCamera().update();
 
-		uiStage = new Stage(uiViewport, batch);
+		this.batch = new SpriteBatch();
+		uiStage = new Stage(uiViewport, this.batch);
 
 		messageListener.receiveMessage(new Message(RECIPIENT.INPUT, ACTION.SEND_STAGE, uiStage));
 
 		createHud();
+		createBackground();
 	}
 
 	private void createHud() {
@@ -150,6 +167,33 @@ public class HudManager {
 			spellButtons.add(button);
 		}
 
+		startDialog = new Dialog("", skin) {
+			@Override
+			protected void result(Object object) {
+				Timer.schedule(new Task() {
+					@Override
+					public void run() {
+						secondDialog.show(uiStage);
+					}
+				}, 1);
+			};
+		};
+		startDialog.key(KeyBindings.MyKeys.ENTER, null);
+		startDialog.text(" You find yourself in a dungeon.\n Strangely, there seem to be trees underground here ");
+		secondDialog = new Dialog("", skin) {
+			@Override
+			protected void result(Object object) {
+				Timer.schedule(new Task() {
+					@Override
+					public void run() {
+						secondDialog.hide();
+					}
+				}, 1);
+			};
+		};
+		secondDialog.text(" try moving with the arrow keys ");
+		secondDialog.key(KeyBindings.MyKeys.ENTER, null);
+
 //		bottomMiddleBar.add(topBar).width(rectangleWidth).height(rectangleHeight / 2);
 //		bottomMiddleBar.row();
 		middleLeftBar.add(bottomBar).width(rectangleWidth).height(rectangleHeight / 2).align(Align.bottomLeft).padTop(100);
@@ -159,9 +203,42 @@ public class HudManager {
 		uiStage.addActor(root); // Adds the table to the stage
 	}
 
+	private void createBackground() {
+		final TextureAtlas atlas = AssetManagerUtility.getTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
+
+		final TextureRegion layer0 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "0");
+		final TextureRegionParallaxLayer layer0Layer = new TextureRegionParallaxLayer(layer0, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_0, WH.HEIGHT);
+
+		final TextureRegion layer1 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "1");
+		final TextureRegionParallaxLayer layer1Layer = new TextureRegionParallaxLayer(layer1, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_1, WH.HEIGHT);
+
+		final TextureRegion layer2 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "2");
+		final TextureRegionParallaxLayer layer2Layer = new TextureRegionParallaxLayer(layer2, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_2, WH.HEIGHT);
+
+		final TextureRegion layer3 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "3");
+		final TextureRegionParallaxLayer layer3Layer = new TextureRegionParallaxLayer(layer3, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_3, WH.HEIGHT);
+
+		final TextureRegion layer4 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "4");
+		final TextureRegionParallaxLayer layer4Layer = new TextureRegionParallaxLayer(layer4, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_4, WH.HEIGHT);
+
+		final TextureRegion layer5 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "5");
+		final TextureRegionParallaxLayer layer5Layer = new TextureRegionParallaxLayer(layer5, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_5, WH.HEIGHT);
+
+		final TextureRegion layer6 = atlas.findRegion(Constants.PARALLAX_BG_NAME + "6");
+		final TextureRegionParallaxLayer layer6Layer = new TextureRegionParallaxLayer(layer6, 800, Constants.PARALLAX_SCROLL_RATIO_LAYER_6, WH.HEIGHT);
+
+		parallaxBackground = new ParallaxBackground();
+		parallaxBackground.addLayers(layer0Layer, layer1Layer, layer2Layer, layer3Layer, layer4Layer, layer5Layer, layer6Layer);
+	}
+
 	public void activateNextSpell(SpellsEnum spellsEnum) {
 		spellButtons.get(freeSpellSlot).activateSpellSlot(SpellFileReader.getSpellData().get(spellsEnum.ordinal()));
 		freeSpellSlot++;
+	}
+
+	public void showDialog() {
+		startDialog.show(uiStage);
+		middleMiddleBar.add(startDialog);
 	}
 
 	public void setMinimap(Texture minimapTexture) {
@@ -201,6 +278,10 @@ public class HudManager {
 		uiViewport.apply();
 		uiStage.act();
 		uiStage.draw();
+	}
+
+	public void renderBackground(SpriteBatch batch, OrthographicCamera cam) {
+		parallaxBackground.draw(cam, batch);
 	}
 
 	public void renderhealthBar(AiCharacter enemy, SpriteBatch batch, BitmapFont font) {

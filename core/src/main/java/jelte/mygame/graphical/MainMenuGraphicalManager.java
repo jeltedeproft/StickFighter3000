@@ -33,6 +33,7 @@ public class MainMenuGraphicalManager implements GraphicalManager {
 		this.messageListener = messageListener;
 
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
+		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 
 		FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("font/thedark.TTF"));
@@ -90,11 +91,24 @@ public class MainMenuGraphicalManager implements GraphicalManager {
 			break;
 		case SEND_BUTTONS_MAP:
 			// TODO???
+			int j = 5;
 			break;
 		case EXIT_GAME:
 			Gdx.app.exit();
 			break;
 		}
+	}
+
+	@Override
+	public void startUp() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -1,0 +1,61 @@
+
+backgroundSprites.png
+size: 4096, 4096
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+layer0
+  rotate: false
+  xy: 1920, 1680
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+layer1
+  rotate: false
+  xy: 0, 1680
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+layer3
+  rotate: false
+  xy: 0, 600
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+layer4
+  rotate: false
+  xy: 0, 2760
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+layer5
+  rotate: false
+  xy: 1920, 600
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+layer6
+  rotate: false
+  xy: 1920, 2760
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+
+backgroundSprites2.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+layer2
+  rotate: false
+  xy: 0, 840
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1

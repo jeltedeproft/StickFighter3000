@@ -6,7 +6,6 @@ import com.badlogic.gdx.ApplicationLogger;
 import de.pottgames.tuningfork.logger.TuningForkLogger;
 
 public class MultiFileLogger implements ApplicationLogger, TuningForkLogger {
-
 	ApplicationLogger aiLogger;
 	ApplicationLogger physicsLogger;
 	ApplicationLogger guiLogger;

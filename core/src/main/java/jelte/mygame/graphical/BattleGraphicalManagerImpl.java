@@ -64,6 +64,7 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 		this.messageListener = messageListener;
 
 		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_ATLAS_PATH);
+		AssetManagerUtility.loadTextureAtlas(Constants.SPRITES_BACKGROUND_ATLAS_PATH);
 		AssetManagerUtility.loadSkin(Constants.SKIN_FILE_PATH);
 
 		batch = new SpriteBatch();
@@ -87,8 +88,9 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 
 		gameViewport = new ExtendViewport(Constants.VISIBLE_WIDTH, Constants.VISIBLE_HEIGHT);
 		cameraManager = new CameraManager(gameViewport.getCamera());
-		cameraManager.zoomCamera(3.5f);
+		cameraManager.zoomCamera(1.5f);
 		stage = new Stage(gameViewport, batch);
+		stage.setDebugAll(true);
 		hudManager.setMinimap(mapManager.createMinimaptexture(cameraManager.getCamera()));
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
@@ -98,6 +100,17 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 
 		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN);
 		MusicManager.getInstance().sendCommand(AudioCommand.SOUND_PLAY_LOOP, AudioEnum.SOUND_AMBIENCE_CAVE);
+
+	}
+
+	@Override
+	public void startUp() {
+		hudManager.showDialog();
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
 
 	}
 
@@ -133,6 +146,7 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 		MusicManager.getInstance().update(delta, player.getPhysicsComponent().getPosition().x, player.getPhysicsComponent().getPosition().y);
 
 		batch.begin();
+		renderBackground();
 		renderCharacters();
 		renderSpells();
 		renderSpecialEffects();
@@ -178,6 +192,10 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 		batch.end();
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_MOUSE_COORDINATES, getMousePosition()));
+	}
+
+	private void renderBackground() {
+		hudManager.renderBackground(batch, cameraManager.getCamera());
 	}
 
 	private void renderSpecialEffects() {

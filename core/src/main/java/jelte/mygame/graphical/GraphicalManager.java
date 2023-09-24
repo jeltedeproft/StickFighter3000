@@ -7,8 +7,11 @@ public interface GraphicalManager {
 
 	public void resize(int width, int height);
 
+	public void startUp();
+
+	public void hide();
+
 	public void dispose();
 
 	void receiveMessage(Message message);
-
 }

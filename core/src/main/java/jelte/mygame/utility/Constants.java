@@ -70,6 +70,16 @@ public class Constants {
 	public static final String TEST_FILE_STUCK_IN_WALL_EXPECTED = "tests/TestCollisionSystem/expected/stuckInWall.txt";
 	public static final String TEST_FILE_STUCK_IN_WALL_ACTUAL = "tests/TestCollisionSystem/actual/stuckInWall.txt";
 
+	// PARALLAX
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_0 = new Vector2(.2f, .2f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_1 = new Vector2(.3f, .3f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_2 = new Vector2(.4f, .4f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_3 = new Vector2(.5f, .5f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_4 = new Vector2(.6f, .6f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_5 = new Vector2(.7f, .7f);
+	public static final Vector2 PARALLAX_SCROLL_RATIO_LAYER_6 = new Vector2(.8f, .8f);
+	public static final String PARALLAX_BG_NAME = "layer";
+
 	// NAMES
 	public static final String PREFERENCES_KEYBINDINGS = "darkKeyBindings";
 

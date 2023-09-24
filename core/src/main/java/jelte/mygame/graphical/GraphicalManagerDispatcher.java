@@ -22,7 +22,7 @@ public class GraphicalManagerDispatcher implements GraphicalManager {
 	}
 
 	public void switchScreen(SCREENS screen) {
-		activeGraphicalManager.dispose();
+		activeGraphicalManager.hide();
 		switch (screen) {
 		case BATTLE:
 			activeGraphicalManager = battleGraphicalManagerImpl;
@@ -34,6 +34,7 @@ public class GraphicalManagerDispatcher implements GraphicalManager {
 			break;
 
 		}
+		activeGraphicalManager.startUp();
 	}
 
 	@Override
@@ -48,7 +49,8 @@ public class GraphicalManagerDispatcher implements GraphicalManager {
 
 	@Override
 	public void dispose() {
-		activeGraphicalManager.dispose();
+		battleGraphicalManagerImpl.dispose();
+		mainMenuGraphicalManager.dispose();
 	}
 
 	@Override
@@ -62,6 +64,17 @@ public class GraphicalManagerDispatcher implements GraphicalManager {
 			break;
 
 		}
+	}
+
+	@Override
+	public void startUp() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
