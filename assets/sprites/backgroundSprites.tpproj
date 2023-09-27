@@ -1,22 +1,22 @@
 name=dark
-filename=
+filename=backgroundSprites.atlas
 output=.
 
 alias=true
 alphaThreshold=0
 debug=false
 duplicatePadding=false
-edgePadding=true
+edgePadding=false
 fast=false
 filterMag=Nearest
 filterMin=Nearest
 ignoreBlankImages=true
-maxHeight=2048
+maxHeight=4096
 maxWidth=4096
 minHeight=16
 minWidth=16
-paddingX=2
-paddingY=2
+paddingX=0
+paddingY=0
 pot=true
 mof=true
 rotation=false
@@ -34,7 +34,7 @@ prettyPrint=false
 legacyOutput=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:characters/archer,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/orby,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/alchemist,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/shocker,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/swordmaster,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:spells,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:modifiers,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:effects,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:ui,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:particles,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/ball,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false},{path:characters/dummy,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
+inputFiles=[{path:background,type:Input,dirFilePrefix:null,recursive:false,flattenPaths:false}]
 keepInputFileExtensions=false
 
 
