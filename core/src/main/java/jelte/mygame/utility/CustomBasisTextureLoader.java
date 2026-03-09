@@ -9,9 +9,11 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 
+import com.crashinvaders.basisu.gdx.BasisuData;
 import com.crashinvaders.basisu.gdx.BasisuGdxUtils;
 import com.crashinvaders.basisu.gdx.BasisuTextureData;
 import com.crashinvaders.basisu.gdx.BasisuTextureFormatSelector;
+import com.crashinvaders.basisu.gdx.Ktx2Data;
 import com.crashinvaders.basisu.wrapper.BasisuTranscoderTextureFormat;
 
 public class CustomBasisTextureLoader extends AsynchronousAssetLoader<Texture, TextureLoader.TextureParameter> {
@@ -73,8 +75,23 @@ public class CustomBasisTextureLoader extends AsynchronousAssetLoader<Texture, T
 		 * Shortcut method to lock the transcoder to the specific texture format. Use it carefully as there's no single texture format to be supported by all
 		 * the platforms (that's kinda the whole purpose of Basis Universal dynamic format selector...)
 		 */
-		public void setTextureFormat(BasisuTranscoderTextureFormat format) {
-			this.formatSelector = (data, fileInfo, imageInfo) -> format;
+		public void setTextureFormat(final BasisuTranscoderTextureFormat formatToUse) {
+			this.formatSelector = new BasisuTextureFormatSelector() {
+				@Override
+				public BasisuTranscoderTextureFormat resolveTextureFormat(BasisuData data, int imageIndex) {
+					// Your lambda had (data, fileInfo, imageInfo) but this method only provides
+					// BasisuData and imageIndex. You need to decide how to use them,
+					// or if you even need them if you're always returning a fixed format.
+					// If you always want to return the 'formatToUse' passed to setTextureFormat:
+					return formatToUse;
+				}
+
+				@Override
+				public BasisuTranscoderTextureFormat resolveTextureFormat(Ktx2Data data) {
+					// Similarly, decide how to handle Ktx2Data, or just return the fixed format.
+					return formatToUse;
+				}
+			};
 		}
 	}
 }

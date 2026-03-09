@@ -51,7 +51,6 @@ public class MainMenuGraphicalManager implements GraphicalManager {
 		cameraManager.getCamera().position.set(mapManager.getCurrentMapWidth() * 0.5f, mapManager.getCurrentMapHeight() * 0.5f, 0);
 		cameraManager.getCamera().update();
 		stage = new Stage(gameViewport, batch);
-		stage.setDebugAll(true);
 
 		MusicManager.getInstance().sendCommand(AudioCommand.MUSIC_PLAY, AudioEnum.PLAYLIST_MAIN_MENU);
 	}

@@ -90,7 +90,6 @@ public class BattleGraphicalManagerImpl implements GraphicalManager {
 		cameraManager = new CameraManager(gameViewport.getCamera());
 		cameraManager.zoomCamera(1.5f);
 		stage = new Stage(gameViewport, batch);
-		stage.setDebugAll(true);
 		hudManager.setMinimap(mapManager.createMinimaptexture(cameraManager.getCamera()));
 
 		messageListener.receiveMessage(new Message(RECIPIENT.LOGIC, ACTION.SEND_BLOCKING_OBJECTS, mapManager.getBlockingRectangles()));
